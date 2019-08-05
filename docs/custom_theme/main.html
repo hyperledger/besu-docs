@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/pantheon_custom.css' | url }}">
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom_theme.css' | url }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script
       src="https://code.jquery.com/jquery-1.12.4.min.js"
       integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
       crossorigin="anonymous"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <script src="{{ 'assets/javascripts/pantheon_custom.js' | url }}"></script>
+  <script src="{{ 'assets/javascripts/custom_theme.js' | url }}"></script>
   {% if config.extra.google.site_verification %}
     <!-- Google site verification for search console -->
     <meta name="google-site-verification" content="{{config.extra.google.site_verification}}" />
@@ -33,4 +33,46 @@
   {# hero is not used, so use it for warning banner #}
   <script>const latestWarningTrigger = "{{config.extra.latest_version_warning.url_contains}}";</script>
   <div class="latest-warning">{{config.extra.latest_version_warning.text}}</div>
+{% endblock %}
+
+<!-- Content -->
+{% block content %}
+
+  <!-- Edit button, if URL was defined -->
+  <!--The button has to point to the doc site and as it's not designed to have doc outside of code
+  repos we have to replace the mkdocs generated link based on the code repos with the doc repos-->
+  {% if page.edit_url %}
+  <a href="{{ page.edit_url | replace(config.repo_url, config.extra.doc_site_edit_url) }}"
+     title="{{ lang.t('edit.link.title') }}"
+     class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
+  {% endif %}
+
+  <!--
+    Hack: check whether the content contains a h1 headline. If it
+    doesn't, the page title (or respectively site name) is used
+    as the main headline.
+  -->
+  {% if not "\x3ch1" in page.content %}
+    <h1>{{ page.title | default(config.site_name, true)}}</h1>
+  {% endif %}
+
+  <!-- Content -->
+  {{ page.content }}
+
+  <!-- Source files -->
+  {% block source %}
+    {% if page and page.meta and page.meta.source %}
+      <h2 id="__source">{{ lang.t("meta.source") }}</h2>
+      {% set repo = config.repo_url %}
+      {% if repo | last == "/" %}
+        {% set repo = repo[:-1] %}
+      {% endif %}
+      {% set path = page.meta.path | default([""]) %}
+      {% set file = page.meta.source %}
+        <a href="{{ [repo, path, file] | join('/') }}"
+           title="{{ file }}" class="md-source-file">
+          {{ file }}
+        </a>
+    {% endif %}
+  {% endblock %}
 {% endblock %}

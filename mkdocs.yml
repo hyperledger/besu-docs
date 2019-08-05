@@ -19,6 +19,7 @@ copyright: Pantheon and its documentation are licensed under Apache 2.0 license 
 
 #extra project info and template customisation
 extra:
+  doc_site_edit_url: https://github.com/PegaSysEng/doc.pantheon/
   versions:
     pantheon_stable: &pantheon_stable_version 1.2.0
     quickstart: *pantheon_stable_version
@@ -185,3 +186,8 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata
+    - exclude:
+        glob:
+          - development/*
+          - community/*
+          - global/*

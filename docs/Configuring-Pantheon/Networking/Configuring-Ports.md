@@ -26,7 +26,7 @@ The default is `30303`.
 
 ## JSON-RPC API 
 
-To enable access to the [JSON-RPC API](../../Pantheon-API/Pantheon-API.md), open the HTTP JSON-RPC and WebSockets JSON-RPC ports to the intended users 
+To enable access to the [JSON-RPC API](../../Pantheon-API/Using-JSON-RPC-API.md), open the HTTP JSON-RPC and WebSockets JSON-RPC ports to the intended users 
 of the JSON-RPC API on TCP. 
 
 The [`--rpc-http-port`](../../Reference/Pantheon-CLI-Syntax.md#rpc-http-port) and [`--rpc-ws-port`](../../Reference/Pantheon-CLI-Syntax.md#rpc-ws-port) 

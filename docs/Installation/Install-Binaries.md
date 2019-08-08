@@ -42,7 +42,7 @@ pantheon --help
 
 ### Install from Packaged Binaries
 
-Download the Pantheon [packaged binaries](https://bintray.com/consensys/pegasys-repo/pantheon/_latestVersion#files).
+Download the Pantheon [packaged binaries](https://pegasys.tech/solutions/).
 
 Unpack the downloaded files and change into the `pantheon-<release>` directory.
 

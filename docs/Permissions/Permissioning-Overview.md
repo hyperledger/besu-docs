@@ -56,3 +56,7 @@ Onchain permissioning requires co-ordination to update rules. The network may no
 
 When onchain permissioning is updated, the update is applied across the network and new blocks abide by the updated rules. 
 For example, blocked accounts can no longer add transactions to the chain.
+
+The diagram illustrates when local and onchain permissioning rules are applied. 
+
+![Permissioning Flow](../../images/PermissioningFlow.png) 

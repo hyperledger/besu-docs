@@ -28,7 +28,7 @@ The credentials file is a `toml` file defining user details and the JSON-RPC met
 Each user requiring JSON-RPC access is listed with: 
 
 * Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in `[Users.<username>]` with the username being defined. 
-* Hash of the user password. Use the [`password hash`](../Reference/Pantheon-CLI-Syntax.md#password) subcommand to generate the hash. 
+* Hash of the user password. Use the [`password hash`](../Reference/Pantheon-CLI-Subcommands.md#password) subcommand to generate the hash. 
 * JSON-RPC permissions. 
 
 !!! example "password hash Subcommand"

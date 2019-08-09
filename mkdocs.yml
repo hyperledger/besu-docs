@@ -150,8 +150,8 @@ nav:
         - Troubleshooting: Troubleshooting/Troubleshooting.md
     - Reference:
         - Pantheon Command Line: 
-          - Command Line Options: Reference/Pantheon-CLI-Syntax.md
-          - Command Line Subcommands: Reference/Pantheon-CLI-Subcommands.md
+          - Options: Reference/Pantheon-CLI-Syntax.md
+          - Subcommands: Reference/Pantheon-CLI-Subcommands.md
         - Pantheon API Methods: Reference/Pantheon-API-Methods.md
         - Pantheon API Objects: Reference/Pantheon-API-Objects.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md

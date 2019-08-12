@@ -149,6 +149,7 @@ For the RPC URL, this tutorial uses the placeholder `<http-rpc-endpoint>`. When 
 replace this placeholder with the JSON-RPC HTTP service endpoint provided when you list the endpoints. (For example,
 `http://localhost:32770/jsonrpc`.) The dynamic docker port mapping changes each time you run the network.
 
+{!global/Postman.md!}
 
 ### Requesting the Node Version
 

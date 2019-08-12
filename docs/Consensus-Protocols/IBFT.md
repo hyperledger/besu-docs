@@ -61,7 +61,7 @@ To start a node on an IBFT 2.0 private network, use the [`--genesis-file`](../Re
 ### Extra Data 
 
 The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization scheme 
-used in Ethereum. Use the Pantheon subcommand [`rlp encode`](../Reference/Pantheon-CLI-Syntax.md#rlp) 
+used in Ethereum. Use the Pantheon subcommand [`rlp encode`](../Reference/Pantheon-CLI-Subcommands.md#rlp) 
 to generate the `extraData` RLP string to include in the genesis file. 
 
 !!! example                                        

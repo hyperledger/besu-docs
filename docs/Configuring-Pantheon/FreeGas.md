@@ -48,7 +48,7 @@ Set the contract size limit to the maximum supported size (in bytes) in the `con
 
 ### 3. Start Pantheon with Minimum Gas Price of 0 
 
-When starting validators (mining nodes in a PoW network), set the [minimum gas price](../Reference/Pantheon-CLI-Syntax.md#min-gas-price) to 0: 
+When starting nodes, set the [minimum gas price](../Reference/Pantheon-CLI-Syntax.md#min-gas-price) to 0: 
 
 ```bash tab="Command Line"
 --min-gas-price=0

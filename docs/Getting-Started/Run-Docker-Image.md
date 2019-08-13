@@ -45,7 +45,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
 ```
 
 !!!example
-    To enable RPC calls to http://127.0.0.1:8545 and P2P discovery on http://127.0.0.1:13001:
+    To enable JSON-RPC HTTP calls to `127.0.0.1:8545` and P2P discovery on `127.0.0.1:13001`:
     ```bash
     docker run -p 8545:8545 -p 13001:30303 pegasyseng/pantheon:latest --rpc-http-enabled
     ```

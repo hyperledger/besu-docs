@@ -17,7 +17,7 @@ Pantheon uses Log4J2 for logging. There are two methods to configure logging beh
 
 Use the [`--logging`](../Reference/Pantheon-CLI-Syntax.md#logging) command line option to specify 
 the logging verbosity. The [`--logging`](../Reference/Pantheon-CLI-Syntax.md#logging) option changes
-the volume of events displayed in the log. 
+the volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
 !!! tip 
     Use the [`admin_changeLogLevel`](../Reference/Pantheon-API-Methods.md#admin_changeloglevel) API method

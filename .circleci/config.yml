@@ -1,0 +1,84 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "docs/requirements.txt" }}
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r docs/requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: deps-{{ checksum "docs/requirements.txt" }}
+      - run:
+          name: Run MkDocs
+          command: |
+            . venv/bin/activate
+            mkdocs build -s
+      - persist_to_workspace:
+          root: /home/circleci/project
+          paths: site
+      - store_artifacts:
+          path: ./site
+          destination: site
+
+  vale:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Run Vale
+          command: |
+            docker run --rm -v $PWD:/doc jdkato/vale --config /doc/.vale.ini --glob='*.{md}' --no-exit . > vale.out
+      - store_artifacts:
+          path: ./vale.out
+          destination: vale.out
+
+  linkchecker:
+    machine: true
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /home/circleci/project
+      - run:
+          name: Run LinkChecker
+          command: |
+            docker run --rm -u $(id -u):$(id -g) -v $PWD:/doc linkchecker/linkchecker /doc/site/ --ignore-url='custom_theme' --ignore-url='404.html' --check-extern --no-status > linkchecker.out
+      - store_artifacts:
+          path: ./linkchecker.out
+          destination: linkchecker.out
+
+  markdownlint:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          # Ignored result for now until we fix all MD syntax and decide what rules we keep or not
+          # just remove the [| echo "Ignored result"] part that always return 0 and the custom shell
+          # to make it count.
+          name: Run Markdownlint
+          shell: /bin/bash
+          command: |
+            docker run --rm -v $PWD:/doc -w /doc pipelinecomponents/markdownlint mdl --style all . > markdownlint.out | echo "Ignored result"
+      - store_artifacts:
+          path: ./markdownlint.out
+          destination: markdownlint.out
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build
+      - vale
+      - markdownlint
+      - linkchecker:
+          requires:
+            - build

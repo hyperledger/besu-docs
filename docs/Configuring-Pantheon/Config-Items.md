@@ -52,6 +52,9 @@ In private networks, the milestone block defines the protocol version for the ne
       },
     }
     ```
+    
+    !!! tip 
+        When you specify EIPs, you can specify only the latest one because the EIPs that precede it are implied.  
 
 ## Fixed Difficulty 
 

@@ -84,7 +84,11 @@ Transactions are validated against the accounts whitelist at the following point
 1. Added to a block by a mining node 
 
 Once added to a block, the transactions are not validated against the whitelist when received by another node. That is, a node 
-can synchronise and add blocks containing transactions from accounts that are not on the accounts whitelist of that node.      
+can synchronise and add blocks containing transactions from accounts that are not on the accounts whitelist of that node.   
+
+The diagram illustrates when local and onchain permissioning rules are applied. 
+
+![Permissioning Flow](../images/PermissioningFlow.png)   
     
 !!! example "Example Different Account Whitelists"
     Node 1 Whitelist = [Account A, Account B]

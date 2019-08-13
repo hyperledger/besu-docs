@@ -6,12 +6,7 @@ description: How to access the Pantheon API using JSON-RPC
 To enable JSON-RPC over HTTP or WebSockets, use the [`--rpc-http-enabled`](../Reference/Pantheon-CLI-Syntax.md#rpc-http-enabled) 
 and [`--rpc-ws-enabled`](../Reference/Pantheon-CLI-Syntax.md#rpc-ws-enabled) options.
 
-## Postman
-
-Use the button to import our collection of examples to [Postman](https://www.getpostman.com/). 
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c765d7d22b055c42a510)
-
+{!global/Postman.md!}
 
 ## Geth Console 
 

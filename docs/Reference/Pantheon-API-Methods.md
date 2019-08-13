@@ -9,6 +9,8 @@ description: Pantheon JSON-RPC API methods reference
     If using the [--rpc-http-host](../Reference/Pantheon-CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](../Reference/Pantheon-CLI-Syntax.md#rpc-http-port)
     options, update the endpoint.  
 
+{!global/Postman.md!}
+
 ## Admin Methods
 
 !!! note

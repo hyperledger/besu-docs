@@ -132,7 +132,10 @@ The JSON-RPC methods to add or remove validators are:
 * [ibft_proposeValidatorVote](../Reference/Pantheon-API-Methods.md#ibft_proposeValidatorVote)
 * [ibft_discardValidatorVote](../Reference/Pantheon-API-Methods.md#ibft_discardValidatorVote)
 
+Use [ibft_getSignerMetrics](../Reference/Pantheon-API-Methods.md#ibft_getsignermetrics) to view signer metrics for a specified block range.
+
 To propose adding a validator, call `ibft_proposeValidatorVote` specifying the address of the node to be added and `true`.
+
 !!! example "JSON-RPC ibft_proposeValidatorVote Request Example"
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>

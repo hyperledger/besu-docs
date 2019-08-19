@@ -21,7 +21,7 @@ If nodes are not communicating, ensure the [required ports are open](https://doc
 
 If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
 
-Check the [enode URLs](../Configuring-Pantheon/Node-Keys.md#enode-url) specified for [bootnodes](../Configuring-Pantheon/Networking#bootnodes)
+Check the [enode URLs](../Configuring-Pantheon/Node-Keys.md#enode-url) specified for [bootnodes](../Configuring-Pantheon/Networking/Bootnodes.md)
 or [static nodes](../Configuring-Pantheon/Networking/Managing-Peers.md#static-nodes) match the enode URLs 
 displayed when the remote nodes are started.
 

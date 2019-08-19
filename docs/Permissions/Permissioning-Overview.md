@@ -59,4 +59,4 @@ For example, blocked accounts can no longer add transactions to the chain.
 
 The diagram illustrates when local and onchain permissioning rules are applied. 
 
-![Permissioning Flow](../../images/PermissioningFlow.png) 
+![Permissioning Flow](../images/PermissioningFlow.png) 

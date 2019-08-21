@@ -3575,9 +3575,11 @@ parameter to the latest block.
 
 ## Permissioning Methods
 
-!!! note
+The permissioning API methods are used for [local](../Permissions/Local-Permissioning.md) permissioning only.
+
+!!! important
     The `PERM` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](Pantheon-CLI-Syntax.md#rpc-http-api) 
-    or [`--rpc-ws-api`](Pantheon-CLI-Syntax.md#rpc-ws-api) options to enable the `PERM` API methods.
+    or [`--rpc-ws-api`](Pantheon-CLI-Syntax.md#rpc-ws-api) CLI options to enable the `PERM` API methods.
 
 ### perm_addAccountsToWhitelist
 

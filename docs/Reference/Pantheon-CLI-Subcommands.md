@@ -17,7 +17,23 @@ pantheon blocks import --from=<block-file>
 pantheon blocks import --from=/home/me/me_project/mainnet.blocks
 ```
 
-Imports blocks from the specified file into the blockchain database
+Imports blocks from the specified file into the blockchain database.
+
+### export
+
+```bash tab="Syntax"
+pantheon blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
+```
+
+```bash tab="Example"
+pantheon --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+```
+
+Exports a block, or list of blocks from storage to a file in RLP format. 
+
+If `--start-block` is omitted, then the start block will default to 0 (beginning of the chain), and if `--end-block` is omitted, the end block will default to the end of the chain.
+
+If you are not running the command against the default network (Mainnet), then specify the `--network` or `--genesis-file` parameter.
 
 ## public-key
 

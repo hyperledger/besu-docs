@@ -155,6 +155,8 @@ nav:
         - Pantheon API Methods: Reference/Pantheon-API-Methods.md
         - Pantheon API Objects: Reference/Pantheon-API-Objects.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
+    - Security Disclosure:
+        - Security Disclosure Policy: Security/Responsible-Disclosure.md
     - Resources:
         - Blog Posts and Webinars: Resources/Resources.md
 

@@ -34,14 +34,14 @@ Returned by [eth_getBlockByHash](Pantheon-API-Methods.md#eth_getblockbyhash) and
 
 ## Filter Options Object
 
-Parameter for [eth_newFilter](Pantheon-API-Methods.md#eth_newfilter) and [eth_getLogs](Pantheon-API-Methods.md#eth_getlogs). Used to [filter logs](../Using-Pantheon/Accessing-Logs-Using-JSON-RPC.md). 
+Parameter for [eth_newFilter](Pantheon-API-Methods.md#eth_newfilter) and [eth_getLogs](Pantheon-API-Methods.md#eth_getlogs). Used to [filter logs](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md). 
 
 | Key           | Type                              | Required/Optional | Value                                                                                                                                       |
 |---------------|:---------------------------------:|:-----------------:|---------------------------------------------------------------------------------------------------------------------------------------------|
-| **fromBlock** | Quantity &#124; Tag               | Optional          | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../Pantheon-API/Using-JSON-RPC-API.md#block-parameter). Default is `latest`. |
-| **toBlock**   | Quantity &#124; Tag               | Optional          | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../Pantheon-API/Using-JSON-RPC-API.md#block-parameter). Default is `latest`. |
-| **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Using-Pantheon/Events-and-Logs.md) originate.                                                                           |
-| **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Using-Pantheon/Events-and-Logs.md#topic-filters).                             |
+| **fromBlock** | Quantity &#124; Tag               | Optional          | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#block-parameter). Default is `latest`. |
+| **toBlock**   | Quantity &#124; Tag               | Optional          | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#block-parameter). Default is `latest`. |
+| **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Concepts/Events-and-Logs.md) originate.                                                                           |
+| **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Concepts/Events-and-Logs.md#topic-filters).                             |
 
 [eth_getLogs](Pantheon-API-Methods.md#eth_getlogs) has an additional key. 
 
@@ -63,7 +63,7 @@ Returned by [eth_getFilterChanges](Pantheon-API-Methods.md#eth_getfilterchanges)
 | **blockNumber**      | Quantity                          | Number of block in which log included. `null` when log is pending.                                                                                                                                                  |
 | **address**          | Data, 20&nbsp;bytes               | Address from which log originated.                                                                                                                                                                                  |
 | **data**             | Data                              | Non-indexed arguments of log.                                                                                                                                                                                       |
-| **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Using-Pantheon/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Using-Pantheon/Events-and-Logs.md#event-parameters).  |
+| **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Concepts/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Concepts/Events-and-Logs.md#event-parameters).  |
 
 ## Private Transaction Object
 
@@ -84,7 +84,7 @@ Returned by [priv_getPrivateTransaction](Pantheon-API-Methods.md#priv_getprivate
 | **s**                | Data, 32&nbsp;bytes               | ECDSA signature s                                                               |
 | **privateFrom**      | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of sender                                                      |
 | **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys of recipients                                                 |
-| **restriction**      | String                            | Must be [`restricted`](../Privacy/Explanation/Privacy-Overview.md#private-transaction-attributes) 
+| **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Privacy-Overview.md#private-transaction-attributes) 
  
 ## Range Object
 
@@ -136,7 +136,7 @@ Returned by [eth_getTransactionByHash](Pantheon-API-Methods.md#eth_gettransactio
 | **gas**              | Quantity            | Gas provided by the sender.                                                            |
 | **gasPrice**         | Quantity            | Gas price provided by the sender in Wei.                                               |
 | **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                               |
-| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Privacy/Explanation/Privacy-Overview.md) it is a pointer to the transaction location in [Orion](https://docs.orion.pegasys.tech/en/stable/).                                                       |
+| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md) it is a pointer to the transaction location in [Orion](https://docs.orion.pegasys.tech/en/stable/).                                                       |
 | **nonce**            | Quantity            | Number of transactions made by the sender before this one.                             |
 | **to**               | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                    |
 | **transactionIndex** | Quantity, Integer   | Index position of transaction in the block. `null` when transaction is pending.        |

@@ -1,0 +1,19 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^http(s)?://localhost"
+        },
+        {
+            "pattern": "^http(s)?://127.0.0.1"
+        },
+        {
+            "pattern": "^http(s)?://github.com/PegaSysEng/pantheon/community"
+        },
+        {
+            "pattern": "^http(s)?://ropsten.etherscan.io/txs\\?block="
+        },
+        {
+            "pattern": "^http(s)?://ropsten.etherscan.io/tx/0x"
+        }
+    ]
+}

@@ -1,13 +1,15 @@
 ---
 version: 2.1
 executors:
-  doc_executor:
+  python_executor:
     docker:
       - image: circleci/python:3.7.4
-
+  node_executor:
+    docker:
+      - image: circleci/node:12.9.0-stretch
 jobs:
   build:
-    executor: doc_executor
+    executor: python_executor
     steps:
       - checkout
       - restore_cache:
@@ -28,15 +30,9 @@ jobs:
           command: |
             . venv/bin/activate
             mkdocs build -s
-      - persist_to_workspace:
-          root: /home/circleci/project
-          paths: site
-      - store_artifacts:
-          path: ./site
-          destination: site
 
   vale:
-    executor: doc_executor
+    executor: python_executor
     steps:
       - checkout
       - setup_remote_docker
@@ -53,26 +49,36 @@ jobs:
           destination: vale.out
 
   linkchecker:
-    executor: doc_executor
+    executor: node_executor
     steps:
       - checkout
-      - setup_remote_docker
-      - attach_workspace:
-          at: /home/circleci/project
       - run:
-          name: Run LinkChecker
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "package.json" }}
+      - run:
+          # copy files into this volume
+          name: Install dependencies
           command: |
-            # create a dummy container which will hold a volume with data
-            docker create -v /doc --name docVol alpine:3.4 /bin/true
-            # copy files into this volume
-            docker cp ./ docVol:/doc
-            docker run --rm -u $(id -u):$(id -g) --volumes-from docVol linkchecker/linkchecker /doc/site/ --ignore-url='custom_theme' --ignore-url='404.html' --ignore-url='http://localhost' --ignore-url='https://localhost' --check-extern --no-status > linkchecker.out
+            npm install
+      - run:
+          # copy files into this volume
+          name: Run markdown link checker
+          command: |
+            find . -name \*.md ! -path "./node_modules/*" -exec ./node_modules/markdown-link-check/markdown-link-check -q -c link_check_conf.json {} \; > linkchecker.out 2>&1
+            ! grep "ERROR:" ./linkchecker.out
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: deps-{{ checksum "package.json" }}
       - store_artifacts:
           path: ./linkchecker.out
           destination: linkchecker.out
 
   markdownlint:
-    executor: doc_executor
+    executor: python_executor
     steps:
       - checkout
       - setup_remote_docker
@@ -95,6 +101,4 @@ workflows:
       - build
       - vale
       - markdownlint
-      - linkchecker:
-          requires:
-            - build
+      - linkchecker

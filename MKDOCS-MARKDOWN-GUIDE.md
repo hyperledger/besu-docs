@@ -4,7 +4,7 @@ Pantheon documentation is written using [Markdown](https://daringfireball.net/pr
 
 However, we use two flavors of this syntax:
 
-- One for pages inside the [/docs](/docs) directory that will be rendered by [MkDocs] as described below
+- One for pages inside the [/docs] directory that will be rendered by [MkDocs] as described below
 in the [Installed Markdown Extensions](#installed-markdown-extensions) section.
 - Another using the [Github syntax](https://guides.github.com/features/mastering-markdown/) 
 for pages outside of this documentation directory. These are mainly files to support our [open source 
@@ -13,11 +13,11 @@ community](https://github.com/PegaSysEng/pantheon/community).
 ## MkDocs Documentation Website
 
 The [Pantheon documentation website](https://docs.pantheon.pegasys.tech/) is maintained by PegaSys from 
-the content of the [/docs](/docs) directory.
+the content of the [/docs] directory.
 
 ### /docs Directory
 
-The [/docs](/docs) directory in the Pantheon documentation repository contains all the documentation that 
+The [/docs] directory in the Pantheon documentation repository contains all the documentation that 
 is generated into a static HTML website using [MkDocs] and the [Mkdocs Material] theme and hosted by [readthedocs.org].
 
 The documentation is automatically updated using [WebHooks](https://docs.readthedocs.io/en/stable/webhooks.html)
@@ -35,7 +35,7 @@ If any issues occur, contact the maintainers of the [Pantheon documentation proj
 
 Our [MkDocs] setup uses a [Mkdocs Material] theme to render the html pages. It also comes with a number of useful extensions.
 
-[MkDocs] in configured in the [mdkocs.yml](/mkdocs.yml) file.
+[MkDocs] in configured in the [mdkocs.yml](./mkdocs.yml) file.
 
 This file configures:
 
@@ -110,7 +110,7 @@ You can quickly achieve this by using a tool like http://markdowntable.com/
 ## Installed Markdown Extensions
 
 >**Important** 
-> Extensions are only available for the docs under [/docs](/docs) directory.
+> Extensions are only available for the docs under [/docs] directory.
 
 As markdown can be a bit limited when it comes to some specific rendering of code, TOCs, and other documentation 
 elements, we configured some extensions for these items.
@@ -136,7 +136,7 @@ If you have content to be repeated on multiple pages, you can create it in a com
 it in all required pages.
 
 Example: 
-To include the content of the "test_accounts.md" page in the "/docs/global" directory in another page, use:
+To include the content of the "test_accounts.md" page in the "[/docs/global](./docs/global)" directory in another page, use:
 ```markdown
 {!global/test_accounts.md!}
 ```
@@ -417,6 +417,7 @@ Pygment is the implementation for this extension, refer to Pygment website for a
 
 
 
+[/docs]: ./docs
 [MkDocs]: https://www.mkdocs.org/
 [readthedocs.org]: https://readthedocs.org/
 [Mkdocs Material]: https://squidfunk.github.io/mkdocs-material/

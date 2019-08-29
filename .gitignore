@@ -2,3 +2,4 @@
 site/
 env/
 *.out
+node_modules/

@@ -1,0 +1,25 @@
+{
+  "name": "doc.pantheon",
+  "version": "1.0.0",
+  "description": "Pantheon doc site",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PegaSysEng/doc.pantheon.git"
+  },
+  "author": "Consensys/Pegasys",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PegaSysEng/doc.pantheon/issues"
+  },
+  "homepage": "https://github.com/PegaSysEng/doc.pantheon#readme",
+  "dependencies": {
+    "markdown-link-check": "3.7.3"
+  }
+}

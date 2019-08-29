@@ -22,5 +22,5 @@ If a PR has gone 2 work days without an approver emerging, please ask on [Panthe
 This Document was adapted by the following:
 - Kubernetes collab.md, available at [kub collab]  
 
-[kub collab]: https://raw.githubusercontent.com/kubernetes/community/master/contributors/devel/collab.md
+[kub collab]: https://raw.githubusercontent.com/kubernetes/community/master/contributors/guide/collab.md
 [Pantheon Gitter]: https://gitter.im/PegaSysEng/pantheon

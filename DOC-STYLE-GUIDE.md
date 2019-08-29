@@ -42,7 +42,7 @@ This doesn't mean explaining all Ethereum concepts in our documentation. Explain
 and when an understanding of complex Ethereum concepts is required refer users to relevant resources.
 
 For example, to explain how the EVM works, link to ethdocs.org documentation such as 
-http://ethdocs.org/en/latest/introduction/what-is-ethereum.html#ethereum-virtual-machine
+https://github.com/ethereum/wiki/wiki/Ethereum-Virtual-Machine-(EVM)-Awesome-List
 
 Simple explanations must still be technically correct.
 

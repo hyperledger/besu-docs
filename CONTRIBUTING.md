@@ -217,6 +217,6 @@ in this guide.
 [private@pegasys.tech]: mailto:private@pegasys.tech
 [Gitter]: https://gitter.im/PegaSysEng/pantheon
 [Pantheon documentation]: https://docs.pantheon.pegasys.tech/
-[CLA.md]: /CLA.md
-[Code Reviews]: /docs/community/code-reviews.md
+[CLA.md]: ./CLA.md
+[Code Reviews]: ./docs/community/code-reviews.md
 [MkDocs]: https://www.mkdocs.org/

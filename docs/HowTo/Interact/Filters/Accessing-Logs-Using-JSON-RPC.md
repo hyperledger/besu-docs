@@ -1,6 +1,8 @@
 # Accessing Logs Using Pantheon API
 
-Access logs using Pantheon API methods:
+Subscribe to events, such as logs, using either [RPC Pub/Sub over WebSockets](../Pantheon-APIs/RPC-PubSub.md) or filters over HTTP.  
+ 
+Access logs by using the following Pantheon API methods:
  
 * [`eth_getFilterChanges`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterchanges)
 * [`eth_getFilterLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterlogs)

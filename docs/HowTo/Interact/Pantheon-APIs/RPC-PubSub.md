@@ -3,10 +3,11 @@ description: Using RPC Pub/Sub with WebSockets
 
 # RPC Pub/Sub over WebSockets
 
-## Introduction 
+## Introduction
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, a Dapp can 
-subscribe to logs to be notified when a specific event has occurred.
+Subscribe to events by using either RPC Pub/Sub over WebSockets or [filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
+
+Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, a Dapp can subscribe to logs to be notified when a specific event has occurred.
 
 Methods specific to RPC Pub/Sub are: 
 

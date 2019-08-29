@@ -801,7 +801,7 @@ None
 
 ### eth_blockNumber
 
-Returns the index of the current block the client is processing.
+Returns the index corresponding to the block number of the current chain head.
 
 **Parameters**
 
@@ -809,7 +809,7 @@ None
 
 **Returns**
 
-`result` : *QUANTITY* - Hexadecimal integer representing the 0-based index of the block that the client is currently processing.
+`result` : *QUANTITY* - Hexadecimal integer representing the index corresponding to the block number of the current chain head.
 
 
 !!! example
@@ -1369,7 +1369,7 @@ Returns the number of uncles in a block matching the specified block number.
 
 **Parameters**
 
-`QUANTITY|TAG` - Integer representing either the 0-based index of the block within the blockchain, or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing either the index of the block within the blockchain, or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#block-parameter).
 
 **Returns**
 

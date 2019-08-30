@@ -10,7 +10,9 @@ description: Pantheon IBFT 2.0 Proof-of-Authority (PoA) consensus protocol imple
 Pantheon implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. IBFT 2.0 can be used for private networks. 
 
 In IBFT 2.0 networks, transactions and blocks are validated by approved accounts, known as validators. 
-Validators take turns to create the next block. Existing validators propose and vote to add or remove validators. 
+Validators take turns to create the next block, and a super-majority (greater than 66%) of validators must sign the block before it can be inserted into the chain.
+
+Existing validators propose and vote to [add or remove validators](#adding-and-removing-validators). A majority vote (greater than 50%) is required to add or remove a validator. 
 
 ## Minimum Number of Validators 
 
@@ -132,9 +134,14 @@ The JSON-RPC methods to add or remove validators are:
 * [ibft_proposeValidatorVote](../../../Reference/Pantheon-API-Methods.md#ibft_proposeValidatorVote)
 * [ibft_discardValidatorVote](../../../Reference/Pantheon-API-Methods.md#ibft_discardValidatorVote)
 
-Use [ibft_getSignerMetrics](../../../Reference/Pantheon-API-Methods.md#ibft_getsignermetrics) to view signer metrics for a specified block range.
+!!! important
+    A majority of existing validators must agree to add or remove a validator. That is, `ibft_proposeValidatorVote` must be executed on the majority (greater than 50%) of validators to take effect. For example, if you have 4 validators, the vote must be made on 3 validators.
 
-To propose adding a validator, call `ibft_proposeValidatorVote` specifying the address of the node to be added and `true`.
+Use [ibft_getSignerMetrics](../../../Reference/Pantheon-API-Methods.md#ibft_getsignermetrics) to view validator metrics for a specified block range.
+    
+### Adding a Validator
+
+To propose adding a validator, call `ibft_proposeValidatorVote` specifying the address of the proposed validator and `true`. The call must be executed on the majority of the validators.
 
 !!! example "JSON-RPC ibft_proposeValidatorVote Request Example"
     ```bash
@@ -159,8 +166,9 @@ To discard your proposal after confirming the validator was added, call `ibft_di
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
     ```
+### Removing a Validator
 
-The process for removing a validator is the same as adding a validator except you specify `false` as the second parameter of `ibft_proposeValidatorVote`. 
+The process for removing a validator is the same as adding a validator except you specify `false` as the second parameter of `ibft_proposeValidatorVote`.
 
 ### Epoch Transition
 

@@ -59,16 +59,13 @@ jobs:
           keys:
             - deps-{{ checksum "package.json" }}
       - run:
-          # copy files into this volume
           name: Install dependencies
           command: |
             npm install
       - run:
-          # copy files into this volume
           name: Run markdown link checker
           command: |
-            find . -name \*.md ! -path "./node_modules/*" -exec ./node_modules/markdown-link-check/markdown-link-check -q -c link_check_conf.json {} \; > linkchecker.out 2>&1
-            ! grep "ERROR:" ./linkchecker.out
+            npm run test:links
       - save_cache:
           paths:
             - ./node_modules

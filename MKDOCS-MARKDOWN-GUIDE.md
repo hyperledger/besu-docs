@@ -8,7 +8,7 @@ However, we use two flavors of this syntax:
 in the [Installed Markdown Extensions](#installed-markdown-extensions) section.
 - Another using the [Github syntax](https://guides.github.com/features/mastering-markdown/) 
 for pages outside of this documentation directory. These are mainly files to support our [open source 
-community](https://github.com/PegaSysEng/pantheon/community).
+community](https://github.com/PegaSysEng/doc.pantheon/community).
 
 ## MkDocs Documentation Website
 

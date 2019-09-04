@@ -904,6 +904,76 @@ Returns the account balance of the specified address.
     }    
     ```
     
+### eth_getProof
+
+Returns the account and storage values of the specified account, including the merkle proof.
+
+The API allows IoT devices or mobile apps which are unable to run light clients to verify responses from untrusted sources, by using a trusted block hash. 
+
+**Parameters**
+
+`DATA` - 20-byte address of the account or contract.
+
+`ARRAY` - Array of 32-byte storage keys to generate proofs for.
+
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#block-parameter).
+
+**Returns**
+
+`result`: *Object* - Account details:
+
+* `balance`:`Quantity` - Account balance
+* `codeHash`:`Data, 32-byte` - Hash of the account code
+* `nonce`:`Quantity` - Number of transactions sent from the account
+* `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`
+* `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`
+* `storageProof`:`Array`- Storage entries. Each entry is an object that displays: 
+     * `key`:`Quantity` - Storage key
+     * `value`:`Quantity` - Storage value
+     * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`
+
+!!! example
+    ```bash tab="curl HTTP" 
+    curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭{"jsonrpc":"2.0","method": "eth_getProof","params": [
+    "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
+    ```
+         
+    ```bash tab="wscat WS"
+    {"jsonrpc":"2.0","method": "eth_getProof","params": [
+    "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}
+    ```
+         
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "accountProof": [
+          "0xf90211a0...608d898380",
+          "0xf90211a0...ec33f19580",
+          "0xf901d1a0...9e55584480",
+          "0xf8718080...18e5777142"
+        ],
+        "address": "0x0a8156e7ee392d885d10eaa86afd0e323afdcd95",
+        "balance": "0x0",
+        "codeHash": "0x2b6975dcaf69f9bb9a3b30bb6a37b305ce440250bf0dd2f23338cb18e5777142",
+        "nonce": "0x5f",
+        "storageHash": "0x917688de43091589aa58c1dfd315105bc9de4478b9ba7471616a4d8a43d46203",
+        "storageProof": [
+          {
+            "key": "0x0000000000000000000000000000000000000000000000000000000000000347",
+            "value": "0x0",
+            "proof": [
+              "0xf90211a0...5176779280",
+              "0xf901f1a0...c208d86580",
+              "0xf8d180a0...1ce6808080"
+            ]
+          }
+        ]
+      }
+    }
+    ```
+
 ### eth_getStorageAt
 
 Returns the value of a storage position at a specified address.

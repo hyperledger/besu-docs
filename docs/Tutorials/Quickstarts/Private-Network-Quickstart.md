@@ -337,7 +337,6 @@ code with placeholders to change as directed below:
 ```javascript
 const PrivateKeyProvider = require("truffle-hdwallet-provider");
 const privateKey = "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63";
-const privateKeyProvider = new PrivateKeyProvider(privateKey, "<YOUR HTTP RPC NODE ENDPOINT>");
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -349,7 +348,7 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     quickstartWallet: {
-      provider: privateKeyProvider,
+      provider: () => new PrivateKeyProvider(privateKey, "<YOUR HTTP RPC NODE ENDPOINT>"),
       network_id: "*"
     },
   }

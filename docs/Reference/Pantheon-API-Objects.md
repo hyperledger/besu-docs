@@ -92,7 +92,7 @@ Returned by [debug_storageRangeAt](Pantheon-API-Methods.md#debug_storagerangeat)
 
 | Key             | Type    | Value                                                             |
 |-----------------|:-------:|-------------------------------------------------------------------|
-| **storage**     | Object  | Key hash and value. Preimage key is always null         |
+| **storage**     | Object  | Key hash and value. Preimage key is null if it falls outside the cache         |
 | **nextKey**      | Hash | Hash of next key if further storage in range. Otherwise, not included                   |
 
 

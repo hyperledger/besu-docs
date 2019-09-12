@@ -131,6 +131,9 @@ Orion node public key (created in [3. Generate Orion Keys](#3-generate-orion-key
 JSON-RPC APIs to enable privacy JSON-RPC API methods.  
 * [`--min-gas-price`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#min-gas-price) set to 0 for a [free gas network](../../HowTo/Configure-Pantheon/FreeGas.md).
 
+!!! note
+    Use the [`--privacy-marker-transaction-signing-key-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#privacy-marker-transaction-signing-key-file) command line option to sign [Privacy Marker Transactions](../../Concepts/Privacy/Private-Transaction-Processing.md) using a supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
+    
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
 

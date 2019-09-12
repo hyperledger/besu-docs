@@ -3,12 +3,12 @@ description: Privacy
 
 # Privacy
 
-Privacy in Pantheon refers to the ability to keep transactions private between the involved parties. 
-Other parties cannot access the transaction content, sending party, or list of participating parties. 
+Privacy in Pantheon refers to the ability to keep transactions private between the involved participants. 
+Other participants cannot access the transaction content or list of participants.
 
 !!! important
     For production systems requiring private transactions, we recommend using a network 
-    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md). 
+    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md). All private transaction participants must be online for a private transaction to be successfully distributed. If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
 
 ## Private Transaction Manager
 

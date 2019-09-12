@@ -100,6 +100,7 @@ nav:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
           - Use Pantheon-extended Privacy: HowTo/Use-Privacy/Pantheon-Privacy.md
           - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
+          - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
         - Deploy for Production:
           - Use Ansible to Deploy Pantheon: HowTo/Deploy/Ansible.md

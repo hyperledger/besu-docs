@@ -974,6 +974,26 @@ privacy-enabled=false
 Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
 The default is false.  
 
+### privacy-marker-transaction-signing-key-file
+
+```bash tab="Syntax"
+--privacy-marker-transaction-signing-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy-marker-transaction-signing-key-file=/home/me/me_node/myPrivateKey
+```
+
+```bash tab="Environment Variable"
+PANTHEON_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
+```
+
+```bash tab="Configuration File"
+privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
+```
+
+`<FILE>` is the name of the private key file used to [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If this option isn't specified, each transaction is signed with a different randomly generated key.
+
 ### privacy-precompiled-address
 
 ```bash tab="Syntax"

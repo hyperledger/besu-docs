@@ -103,12 +103,17 @@ nav:
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
         - Deploy for Production:
+          - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Pantheon: HowTo/Deploy/Ansible.md
           - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
+          - Configure High Availability of APIs: HowTo/Deploy/High-Availability.md
+          - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
+          - Configure Validators: HowTo/Deploy/Validators.md
+          - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
           - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
           - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
-          - Configure High Availability of APIs: HowTo/Deploy/High-Availability.md
-          - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
+        - Backup and Restore: HowTo/Backup/Pantheon-Backup.md
+        - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
         - Develop Dapps on Pantheon:
           - Use Truffle with Pantheon: HowTo/Develop-Dapps/Truffle.md
         - Troubleshoot:

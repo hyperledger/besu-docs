@@ -10,6 +10,9 @@ are ready to receive requests.
 
 ![Load Balancer](../../images/LoadBalancer.png)
 
+!!! important 
+    We do not recommend putting [bootnodes](Bootnodes.md) behind a load balancer. 
+
 ## Determining When a Node is Ready 
 
 Use the [readiness endpoint](../Interact/Pantheon-APIs/Using-JSON-RPC-API.md#readiness-and-liveness-endpoints) 

@@ -3,12 +3,7 @@ description: Frequently asked questions FAQ and answers for troubleshooting Pant
 
 # Monitoring Pantheon
 
-## Monitor Node Performance and Connectivity Using the JSON-RPC API
-
-You can monitor node performance using the [`debug_metrics`](../../Reference/Pantheon-API-Methods.md#debug_metrics)
-JSON-RPC API method.
-
-## Monitor Node Performance Using Prometheus
+## Monitor Node Using Prometheus
 
 Use the [`--metrics-enabled` option](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-enabled) to enable the [Prometheus](https://prometheus.io/) monitoring and 
 alerting service to access Pantheon metrics. You can also visualize the collected data using [Grafana](https://grafana.com/).
@@ -18,14 +13,19 @@ To specify the host and port on which Prometheus accesses Pantheon, use the [`--
 [`--metrics-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-port) options. 
 The default host and port are 127.0.0.1 and 9545.
 
-You can install other Prometheus components such as the Alert Manager. Additional configuration
- is not required for these components because Prometheus handles and analyzes data directly from the feed.
-
 To use Prometheus with Pantheon, install the [prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
 
  ```
  brew install prometheus
 ```
+
+!!! tip 
+    You can also install:
+    
+    * Exporters and send system metrics to Prometheus to monitor non-Pantheon specific items such as disk usage and CPU usage.  
+    * Other Prometheus components such as the Alert Manager. Additional configuration is not required for these
+    components because Prometheus handles and analyzes data directly from the feed.
+
 
 ###  Setting up and Running Prometheus with Pantheon
 
@@ -69,6 +69,9 @@ block of the `prometheus.yml` file:
     Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph. 
     For example: `{pantheon_blockchain_height{instance="localhost:9545",job="prometheus"}`
 
+!!! tip 
+    Use a log ingestion tool such as Logstash to parse the logs and alert you to configured anomalies. 
+
 ### Running Prometheus with Pantheon in Push Mode 
 
 The [`--metrics-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-enabled) option enables Prometheus polling 
@@ -110,3 +113,8 @@ To configure Prometheus and run with Pantheon pushing to a push gateway:
     ```
 
 1. View the Prometheus graphical interface as described in [Setting up and Running Prometheus with Pantheon](#setting-up-and-running-prometheus-with-pantheon).
+
+## Monitor Node Performance and Connectivity Using the JSON-RPC API
+
+You can monitor node performance using the [`debug_metrics`](../../Reference/Pantheon-API-Methods.md#debug_metrics)
+JSON-RPC API method.

@@ -1,37 +1,37 @@
-description: Pantheon command line interface reference
+description: Hyperledger Besu command line interface reference
 <!--- END of page meta data -->
 
-# Pantheon Command Line
+# Hyperledger Besu Command Line
 
-This reference describes the syntax of the Pantheon Command Line Interface (CLI) options and subcommands.
+This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) options and subcommands.
 
 ## Specifying Options
 
-Pantheon options can be specified: 
+Besu options can be specified: 
 
 * On the command line 
-* As an [environment variable](#pantheon-environment-variables) 
-* In a [configuration file](../../HowTo/Configure-Pantheon/Using-Configuration-File.md).
+* As an [environment variable](#besu-environment-variables) 
+* In a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 
 If an option is specified in multiple places, the order of priority is command line, environment variable, 
 configuration file. 
 
-### Pantheon Environment Variables
+### Besu Environment Variables
 
 For each command line option, the equivalent environment variable is: 
 
 * Upper-case
 * `-` is replaced by `_` 
-* Has a `PANTHEON_` prefix
+* Has a `BESU_` prefix
 
-For example, set `--miner-coinbase` using the `PANTHEON_MINER_COINBASE` environment variable. 
+For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable. 
 
 ## Options
 
-To start a Pantheon node run:
+To start a Besu node run:
 
 ```bash
-pantheon [OPTIONS] [COMMAND]
+besu [OPTIONS] [COMMAND]
 ```
 ### banned-node-ids
 
@@ -44,7 +44,7 @@ pantheon [OPTIONS] [COMMAND]
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
+BESU_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
 ```
 
 ```bash tab="Configuration File"
@@ -68,7 +68,7 @@ List of node IDs with which this node will not peer. The node ID is the public k
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
+BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
 ```
 
 ```bash tab="Example Configuration File"
@@ -90,7 +90,7 @@ an empty list of bootnodes is defined by default unless you define custom bootno
 !!! note
     Specifying that a node is a [bootnode](../../HowTo/Find-and-Connect/Bootnodes.md#bootnodes) 
     must be done on the command line using [`--bootnodes`](#bootnodes) option without value,
-    not in a [configuration file](../../HowTo/Configure-Pantheon/Using-Configuration-File.md).  
+    not in a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).  
 
 ### config-file
 
@@ -103,10 +103,10 @@ an empty list of bootnodes is defined by default unless you define custom bootno
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_CONFIG_FILE=/home/me/me_node/config.toml
+BESU_CONFIG_FILE=/home/me/me_node/config.toml
 ```
 
-The path to the [TOML configuration file](../../HowTo/Configure-Pantheon/Using-Configuration-File.md).
+The path to the [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 The default is `none`.
         
 ### data-path
@@ -120,15 +120,15 @@ The default is `none`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_DATA_PATH=/home/me/me_node
+BESU_DATA_PATH=/home/me/me_node
 ```
 
 ```bash tab="Configuration File"
 data-path="/home/me/me_node"
 ```
 
-The path to the Pantheon data directory. The default is the directory in which Pantheon is installed
-or `/opt/pantheon/database` if using the [Pantheon Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+The path to the Besu data directory. The default is the directory in which Besu is installed
+or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### discovery-enabled
 
@@ -137,7 +137,7 @@ or `/opt/pantheon/database` if using the [Pantheon Docker image](../../HowTo/Get
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_DISCOVERY_ENABLED=false
+BESU_DISCOVERY_ENABLED=false
 ```
 
 ```bash tab="Example Configuration File"
@@ -164,7 +164,7 @@ Genesis file is used to create a custom network.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_GENESIS_FILE=/home/me/me_node/customGenesisFile.json
+BESU_GENESIS_FILE=/home/me/me_node/customGenesisFile.json
 ```
 
 ```bash tab="Configuration File"
@@ -187,7 +187,7 @@ The path to the genesis file.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_GRAPHQL_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+BESU_GRAPHQL_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
 ```
 
 ```bash tab="Configuration File"
@@ -203,7 +203,7 @@ Comma separated origin domain URLs for CORS validation. The default is none.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_GRAPHQL_HTTP_ENABLED=true
+BESU_GRAPHQL_HTTP_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -226,7 +226,7 @@ The default is `false`.
 
 ```bash tab="Environment Variable"
 # to listen on all interfaces
-PANTHEON_GRAPHQL_HTTP_HOST=0.0.0.0
+BESU_GRAPHQL_HTTP_HOST=0.0.0.0
 ```
 
 ```bash tab="Configuration File"
@@ -251,7 +251,7 @@ To allow remote connections, set to `0.0.0.0`
 
 ```bash tab="Environment Variable"
 # to listen on port 6175
-PANTHEON_GRAPHQL_HTTP_PORT=6175
+BESU_GRAPHQL_HTTP_PORT=6175
 ```
 
 ```bash tab="Configuration File"
@@ -272,14 +272,14 @@ The default is 8547. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_HOST_WHITELIST=medomain.com,meotherdomain.com
+BESU_HOST_WHITELIST=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Configuration File"
 host-whitelist=["medomain.com", "meotherdomain.com"]
 ```
 
-Comma-separated list of hostnames to allow [access to the JSON-RPC API](../../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md#host-whitelist). 
+Comma-separated list of hostnames to allow [access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-whitelist). 
 By default, access from `localhost` and `127.0.0.1` is accepted. 
 
 !!!tip
@@ -296,7 +296,7 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_MAX_PEERS=42
+BESU_MAX_PEERS=42
 ```
 
 ```bash tab="Configuration File"
@@ -317,7 +317,7 @@ The default is 25.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
+BESU_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
 ```
 
 ```bash tab="Configuration File"
@@ -334,7 +334,7 @@ Comma separated list of categories for which to track metrics. The default is al
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_ENABLED=true
+BESU_METRICS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -358,14 +358,14 @@ push gateway support can be enabled but not both at once.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_HOST=127.0.0.1
+BESU_METRICS_HOST=127.0.0.1
 ```
 
 ```bash tab="Configuration File"
 metrics-host="127.0.0.1"
 ```
 
-Specifies the host on which [Prometheus](https://prometheus.io/) accesses [Pantheon metrics](../../HowTo/Deploy/Monitoring-Performance.md#monitor-node-performance-using-prometheus). 
+Specifies the host on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../HowTo/Deploy/Monitoring-Performance.md#monitor-node-performance-using-prometheus). 
 The metrics server respects the [`--host-whitelist` option](#host-whitelist).
 
 The default is `127.0.0.1`. 
@@ -381,14 +381,14 @@ The default is `127.0.0.1`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PORT=6174
+BESU_METRICS_PORT=6174
 ```
 
 ```bash tab="Configuration File"
 metrics-port="6174"
 ```
 
-Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Pantheon metrics](../../HowTo/Deploy/Monitoring-Performance.md#monitor-node-performance-using-prometheus).
+Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../HowTo/Deploy/Monitoring-Performance.md#monitor-node-performance-using-prometheus).
 The default is `9545`. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### metrics-push-enabled 
@@ -402,14 +402,14 @@ The default is `9545`. Ports must be [exposed appropriately](../../HowTo/Find-an
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PUSH_ENABLED=true
+BESU_METRICS_PUSH_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
 metrics-push-enabled="true"
 ```
 
-Set to `true` to start the [push gateway integration](../../HowTo/Deploy/Monitoring-Performance.md#running-prometheus-with-pantheon-in-push-mode).
+Set to `true` to start the [push gateway integration](../../HowTo/Deploy/Monitoring-Performance.md#running-prometheus-with-besu-in-push-mode).
 
 `--metrics-push-enabled` cannot be specified with `--metrics-enabled`. That is, either Prometheus polling or Prometheus 
 push gateway support can be enabled but not both at once.
@@ -425,7 +425,7 @@ push gateway support can be enabled but not both at once.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PUSH_HOST=127.0.0.1
+BESU_METRICS_PUSH_HOST=127.0.0.1
 ```
 
 ```bash tab="Configuration File"
@@ -438,7 +438,7 @@ The metrics server respects the [`--host-whitelist` option](#host-whitelist).
 
 !!! note
     When pushing metrics, ensure `--metrics-push-host` is set to the machine on which the push gateway is. 
-    Generally, this will be a different machine to the machine on which Pantheon is running.  
+    Generally, this will be a different machine to the machine on which Besu is running.  
 
 ### metrics-push-interval
 
@@ -451,7 +451,7 @@ The metrics server respects the [`--host-whitelist` option](#host-whitelist).
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PUSH_INTERVAL=30
+BESU_METRICS_PUSH_INTERVAL=30
 ```
 
 ```bash tab="Configuration File"
@@ -471,7 +471,7 @@ Interval in seconds to push metrics when in `push` mode. The default is 15.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PUSH_PORT=6174
+BESU_METRICS_PUSH_PORT=6174
 ```
 
 ```bash tab="Configuration File"
@@ -492,14 +492,14 @@ The default is `9001`. Ports must be [exposed appropriately](../../HowTo/Find-an
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_METRICS_PROMETHEUS_JOB="my-custom-job"
+BESU_METRICS_PROMETHEUS_JOB="my-custom-job"
 ```
 
 ```bash tab="Configuration File"
 metrics-prometheus-job="my-custom-job"
 ```
 
-Job name when in `push` mode. The default is `pantheon-client`. 
+Job name when in `push` mode. The default is `besu-client`. 
 
 ### miner-coinbase
 
@@ -512,7 +512,7 @@ Job name when in `push` mode. The default is `pantheon-client`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
 ```
 
 ```bash tab="Configuration File"
@@ -521,10 +521,10 @@ PANTHEON_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
 
 Account to which mining rewards are paid.
 You must specify a valid coinbase when you enable mining using the [`--miner-enabled`](#miner-enabled) 
-option or the [`miner_start`](../Pantheon-API-Methods.md#miner_start) JSON RPC-API method.
+option or the [`miner_start`](../API-Methods.md#miner_start) JSON RPC-API method.
 
 !!!note
-    This option is ignored in networks using [Clique](../../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md) and [IBFT 2.0](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md) consensus protocols. 
+    This option is ignored in networks using [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) and [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus protocols. 
 
 ### miner-enabled
 
@@ -533,7 +533,7 @@ option or the [`miner_start`](../Pantheon-API-Methods.md#miner_start) JSON RPC-A
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_MINER_ENABLED=true
+BESU_MINER_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -554,7 +554,7 @@ Default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_MINER_EXTRA_DATA=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
+BESU_MINER_EXTRA_DATA=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
 ```
 
 ```bash tab="Configuration File"
@@ -575,7 +575,7 @@ The default is 0x.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_MIN_GAS_PRICE=1337
+BESU_MIN_GAS_PRICE=1337
 ```
 
 ```bash tab="Configuration File"
@@ -613,7 +613,7 @@ Options are `upnp` and `none`. The default is `none` (that is, NAT functionality
 ```
 
 ```bash tab="Command Line"
-PANTHEON_NETWORK=rinkeby
+BESU_NETWORK=rinkeby
 ```
 
 ```bash tab="Configuration File"
@@ -657,7 +657,7 @@ Possible values are :
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_NETWORK_ID=8675309
+BESU_NETWORK_ID=8675309
 ```
 
 ```bash tab="Configuration File"
@@ -680,7 +680,7 @@ The default value is the network chain ID defined in the genesis file.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_NODE_PRIVATE_KEY_FILE=/home/me/me_node/myPrivateKey
+BESU_NODE_PRIVATE_KEY_FILE=/home/me/me_node/myPrivateKey
 ```
 
 ```bash tab="Configuration File"
@@ -706,7 +706,7 @@ otherwise, the existing key file specifies the node private key.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_P2P_ENABLED=false
+BESU_P2P_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
@@ -729,7 +729,7 @@ The default is true.
 
 ```bash tab="Environment Variable"
 # to listen on all interfaces
-PANTHEON_P2P_HOST=0.0.0.0
+BESU_P2P_HOST=0.0.0.0
 ```
 
 ```bash tab="Configuration File"
@@ -752,7 +752,7 @@ The default is 127.0.0.1.
 
 ```bash tab="Environment Variable"
 # to listen on port 1789
-PANTHEON_P2P_PORT=1789
+BESU_P2P_PORT=1789
 ```
 
 ```bash tab="Configuration File"
@@ -794,7 +794,7 @@ The default is `NONE`, which disables NAT functionality.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
+BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -814,7 +814,7 @@ Set to enable file-based account level permissions. Default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_ACCOUNTS_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
+BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
 ```
 
 ```bash tab="Configuration File"
@@ -839,7 +839,7 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_ACCOUNTS_CONTRACT_ADDRESS=xyz
+BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ADDRESS=xyz
 ```
 
 ```bash tab="Configuration File"
@@ -859,7 +859,7 @@ Specifies the contract address for [onchain account permissioning](../../Concept
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_ACCOUNTS_CONTRACT_ENABLED=true
+BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -879,7 +879,7 @@ Enables contract-based [onchain account permissioning](../../Concepts/Permission
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
+BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -899,7 +899,7 @@ Set to enable file-based node level permissions. Default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_NODES_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
+BESU_PERMISSIONS_NODES_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
 ```
 
 ```bash tab="Configuration File"
@@ -924,7 +924,7 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_NODES_CONTRACT_ADDRESS=xyz
+BESU_PERMISSIONS_NODES_CONTRACT_ADDRESS=xyz
 ```
 
 ```bash tab="Configuration File"
@@ -944,7 +944,7 @@ Specifies the contract address for [onchain node permissioning](../../Concepts/P
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PERMISSIONS_NODES_CONTRACT_ENABLED=true
+BESU_PERMISSIONS_NODES_CONTRACT_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -964,7 +964,7 @@ Enables contract-based [onchain node permissioning](../../Concepts/Permissioning
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PRIVACY_ENABLED=false
+BESU_PRIVACY_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
@@ -1014,14 +1014,14 @@ The default is 126.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
+BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
 ```
 
 ```bash tab="Configuration File"
 privacy-public-key-file="Orion/nodeKey.pub"
 ```
 
-Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#pantheon-and-orion-keys).     
+Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).     
 
 ### privacy-url
 
@@ -1034,7 +1034,7 @@ Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overvi
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_PRIVACY_URL=http://127.0.0.1:8888
+BESU_PRIVACY_URL=http://127.0.0.1:8888
 ```
 
 ```bash tab="Configuration File"
@@ -1079,7 +1079,7 @@ receipt. Default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
+BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
@@ -1107,7 +1107,7 @@ Specify to limit the percentage of remote P2P connections initiated by peers. De
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
+BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
 ```
 
 ```bash tab="Configuration File"
@@ -1128,7 +1128,7 @@ Default is 60.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_API=ETH,NET,WEB3
+BESU_RPC_HTTP_API=ETH,NET,WEB3
 ```
 
 ```bash tab="Configuration File"
@@ -1155,14 +1155,14 @@ The default is: `ETH`, `NET`, `WEB3`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
+BESU_RPC_HTTP_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
 ```
 
 ```bash tab="Configuration File"
 rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
-[Credentials file](../../HowTo/Interact/Pantheon-APIs/Authentication.md#credentials-file) for JSON-RPC API [authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md). 
+[Credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md). 
 
 ### rpc-http-authentication-enabled
 
@@ -1175,14 +1175,14 @@ rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_AUTHENTICATION_ENABLED=true
+BESU_RPC_HTTP_AUTHENTICATION_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
 rpc-http-authentication-enabled=true
 ```
 
-Set to `true` to require [authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md) for the HTTP JSON-RPC service.  
+Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC service.  
 
 ### rpc-http-cors-origins
 
@@ -1197,7 +1197,7 @@ Set to `true` to require [authentication](../../HowTo/Interact/Pantheon-APIs/Aut
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+BESU_RPC_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
 ```
 
 ```bash tab="Configuration File"
@@ -1205,7 +1205,7 @@ rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
 ```
 
 ```bash tab="Remix Example"
-# The following allows Remix to interact with your Pantheon node.
+# The following allows Remix to interact with your Besu node.
 
 --rpc-http-cors-origins="http://remix.ethereum.org"
 ```
@@ -1214,15 +1214,15 @@ Specifies domain URLs for CORS validation.
 Domain URLs must be enclosed in double quotes and comma-separated.
 
 Listed domains can access the node using JSON-RPC.
-If your client interacts with Pantheon using a browser app (such as Remix or a block explorer), 
+If your client interacts with Besu using a browser app (such as Remix or a block explorer), 
 you must whitelist the client domains. 
 
 The default value is `"none"`.
-If you don't whitelist any domains, browser apps cannot interact with your Pantheon node.
+If you don't whitelist any domains, browser apps cannot interact with your Besu node.
 
 !!!note
-    To run a local Pantheon node as a backend for MetaMask and use MetaMask anywhere, set `--rpc-http-cors-origins` to `"all"` or `"*"`. 
-    To allow a specific domain to use MetaMask with the Pantheon node, set `--rpc-http-cors-origins` to the client domain. 
+    To run a local Besu node as a backend for MetaMask and use MetaMask anywhere, set `--rpc-http-cors-origins` to `"all"` or `"*"`. 
+    To allow a specific domain to use MetaMask with the Besu node, set `--rpc-http-cors-origins` to the client domain. 
         
 !!!tip
     For development purposes, you can use `"all"` or `"*"` to accept requests from any domain, 
@@ -1235,7 +1235,7 @@ If you don't whitelist any domains, browser apps cannot interact with your Panth
 ```
 
 ```bash tab="Environement Variable"
-PANTHEON_RPC_HTTP_ENABLED=true
+BESU_RPC_HTTP_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -1257,7 +1257,7 @@ The default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_HOST=0.0.0.0
+BESU_RPC_HTTP_HOST=0.0.0.0
 ```
 
 ```bash tab="Configuration File"
@@ -1285,7 +1285,7 @@ To allow remote connections, set to `0.0.0.0`
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_HTTP_PORT=3435
+BESU_RPC_HTTP_PORT=3435
 ```
 
 ```bash tab="Configuration File"
@@ -1306,7 +1306,7 @@ The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_API=ETH,NET,WEB3
+BESU_RPC_WS_API=ETH,NET,WEB3
 ```
 
 ```bash tab="Configuration File"
@@ -1333,14 +1333,14 @@ The default is: `ETH`, `NET`, `WEB3`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
+BESU_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
 ```
 
 ```bash tab="Configuration File"
 rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
-[Credentials file](../../HowTo/Interact/Pantheon-APIs/Authentication.md#credentials-file) for JSON-RPC API [authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md).
+[Credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ### rpc-ws-authentication-enabled
 
@@ -1353,17 +1353,17 @@ rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_AUTHENTICATION_ENABLED=true
+BESU_RPC_WS_AUTHENTICATION_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
 rpc-ws-authentication-enabled=true
 ```
 
-Set to `true` to require [authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md) for the WebSockets JSON-RPC service.
+Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authentication.md) for the WebSockets JSON-RPC service.
 
 !!! note 
-    `wscat` does not support headers. [Authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md) requires an authentication token to be passed in the 
+    `wscat` does not support headers. [Authentication](../../HowTo/Interact/APIs/Authentication.md) requires an authentication token to be passed in the 
     request header. To use authentication with WebSockets, an app that supports headers is required. 
 
 ### rpc-ws-enabled
@@ -1373,7 +1373,7 @@ Set to `true` to require [authentication](../../HowTo/Interact/Pantheon-APIs/Aut
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_ENABLED=true
+BESU_RPC_WS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -1395,7 +1395,7 @@ The default is `false`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_HOST=0.0.0.0
+BESU_RPC_WS_HOST=0.0.0.0
 ```
 
 ```bash tab="Configuration File"
@@ -1419,7 +1419,7 @@ To allow remote connections, set to `0.0.0.0`
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_RPC_WS_PORT=6174
+BESU_RPC_WS_PORT=6174
 ```
 
 ```bash tab="Configuration File"
@@ -1440,7 +1440,7 @@ The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_TX_POOL_MAX_SIZE=2000
+BESU_TX_POOL_MAX_SIZE=2000
 ```
 
 ```bash tab="Configuration File"
@@ -1460,7 +1460,7 @@ Maximum number of transactions kept in the transaction pool. Default is 4096.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_TX_POOL_RETENTION_HOURS=5
+BESU_TX_POOL_RETENTION_HOURS=5
 ```
 
 ```bash tab="Configuration File"
@@ -1488,7 +1488,7 @@ Show the help message and exit.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_LOGGING=DEBUG
+BESU_LOGGING=DEBUG
 ```
 ```bash tab="Example Configration File"
 logging="DEBUG"
@@ -1519,7 +1519,7 @@ Print version information and exit.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_SYNC_MODE=FAST
+BESU_SYNC_MODE=FAST
 ```
 
 ```bash tab="Configuration File"
@@ -1539,7 +1539,7 @@ Specifies the synchronization mode. Default is `FULL`.
 ```
 
 ```bash tab="Environment Variable"
-PANTHEON_FAST_SYNC_MIN_PEERS=2
+BESU_FAST_SYNC_MIN_PEERS=2
 ```
 
 ```bash tab="Example Configuration File"

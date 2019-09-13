@@ -1,9 +1,10 @@
-description: Pantheon private network with privacy enabled quickstart tutorial
+description: Hyperledger Besu private network with privacy enabled quickstart tutorial
 <!--- END of page meta data -->
 
 # Private Network with Privacy Enabled Quickstart Tutorial
 
-The Private Network with Privacy Enabled Quickstart runs a private network of Pantheon and Orion nodes managed by Docker Compose.
+The Private Network with Privacy Enabled Quickstart runs a private network of Hyperledger Besu and
+Orion nodes managed by Docker Compose.
 It is an expanded version of the [Private Network Quickstart](Private-Network-Quickstart.md). 
 
 You can use the [Block Explorer](Private-Network-Quickstart.md#block-explorer), 
@@ -34,16 +35,16 @@ To run this tutorial, you must have the following installed:
 
 - [Curl command line](https://curl.haxx.se/download.html) 
 
-## Clone Pantheon Quickstart Source Code
+## Clone Besu Quickstart Source Code
 
-Clone the repository from the `pantheon-quickstart` repository where `<version>` is replaced with the latest version (`{{ versions.quickstart }}`). 
+Clone the repository from the `besu-quickstart` repository where `<version>` is replaced with the latest version (`{{ versions.quickstart }}`). 
 
 ```bash tab="Command"
-git clone --branch <version> https://github.com/PegaSysEng/pantheon-quickstart.git
+git clone --branch <version> https://github.com/PegaSysEng/besu-quickstart.git
 ```
 
 ```bash tab="Example"
-git clone --branch {{ versions.quickstart }} https://github.com/PegaSysEng/pantheon-quickstart.git
+git clone --branch {{ versions.quickstart }} https://github.com/PegaSysEng/besu-quickstart.git
 ```
 
 ## Clone EEAJS Libraries 
@@ -62,7 +63,7 @@ npm install
 
 ## Start the Private Network with Privacy Enabled 
 
-In the `pantheon-quickstart/privacy` directory, start the network: 
+In the `besu-quickstart/privacy` directory, start the network: 
 
 ```bash
 ./run.sh
@@ -74,16 +75,16 @@ The network details are displayed.
 ```bash
        Name                      Command               State                              Ports                           
 --------------------------------------------------------------------------------------------------------------------------
-privacy_bootnode_1    /opt/pantheon/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
+privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:32771->80/tcp                                      
-privacy_minernode_1   /opt/pantheon/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
-privacy_node1_1       /opt/pantheon/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
-privacy_node2_1       /opt/pantheon/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
-privacy_node3_1       /opt/pantheon/node_start.s ...   Up      30303/tcp, 0.0.0.0:20004->8545/tcp, 0.0.0.0:20005->8546/tcp
+privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
+privacy_node1_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
+privacy_node2_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
+privacy_node3_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20004->8545/tcp, 0.0.0.0:20005->8546/tcp
 privacy_orion1_1      /orion/bin/orion data/data ...   Up                                                                 
 privacy_orion2_1      /orion/bin/orion data/data ...   Up                                                                 
 privacy_orion3_1      /orion/bin/orion data/data ...   Up                                                                 
-privacy_rpcnode_1     /opt/pantheon/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
+privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 ****************************************************************
 JSON-RPC HTTP service endpoint      : http://localhost:32771/jsonrpc   *
 JSON-RPC WebSocket service endpoint : ws://localhost:32771/jsonws   *
@@ -130,7 +131,7 @@ Waiting for transaction to be mined ...
 Get Value: 0x000000000000000000000000000000000000000000000000000000000000002a
 ```
 
-Call [`eth_getTransactionReceipt`](../../Reference/Pantheon-API-Methods.md#eth_gettransactionreceipt) where:
+Call [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt) where:
  
 * `<TransactionHash>` is the transaction hash displayed in the Event Emitter logs. 
 * `<JSON-RPC Endpoint>` is the JSON-RPC HTTP service endpoint displayed when starting the network. 

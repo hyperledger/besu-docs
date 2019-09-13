@@ -17,8 +17,8 @@ To use the examples provided in EEA JS library with [your privacy network](Confi
 
 1. In the `example` directory, update the `keys.js` file to include:
     * Orion node public keys 
-    * Pantheon node RPC URLs 
-    * Pantheon node private keys 
+    * Hyperledger Besu node RPC URLs 
+    * Hyperledger Besu node private keys 
 
 1. If the `chainID` specified in the genesis file for your network is not `2018`, update `deployContract.js`, 
 `storeValueFromNode1.js`, and `storeValueFromNode2.js` to specify your chain ID instead of `2018`. 

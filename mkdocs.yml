@@ -10,39 +10,41 @@
 # specific language governing permissions and limitations under the License.
 
 # Project information
-site_name: Pantheon
-site_url: https://docs.pantheon.pegasys.tech/
-site_description: Pantheon Java Ethereum client documentation.
-site_author: Pantheon community
-copyright: Pantheon and its documentation are licensed under Apache 2.0 license /
-  This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://pegasys.tech/">PegaSys</a>.
+site_name: Hyperledger Besu
+site_url: https://besu.hyperledger.org/
+site_description: Hyperledger Besu Java Ethereum client documentation.
+site_author: Hyperledger Besu community
+copyright: Hyperledger Besu and its documentation are licensed under Apache 2.0 license /
+  This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://pegasys.tech/">Hyperledger Besu community</a>.
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/PegaSysEng/doc.pantheon/
+  doc_site_edit_url: https://github.com/hyperledger/besu-docs/
   versions:
-    pantheon_stable: &pantheon_stable_version 1.2.0
-    quickstart: *pantheon_stable_version
+    stable: &stable_version 1.3.0
+    quickstart: *stable_version
   latest_version_warning:
     url_contains: /latest/
-    text: 'You are reading Pantheon development version documentation and
+    text: 'You are reading Hyperledger Besu development version documentation and
     some displayed features may not be available in the stable release.
     You can switch to stable version using the version box at screen bottom.'
   support:
-    gitter: https://gitter.im/PegaSysEng/pantheon
-    email: support@pegasys.tech
-    pegasys_website: https://pegasys.tech/
+    chat: https://chat.hyperledger.org/channel/besu
+    email: besu@lists.hyperledger.org
+    website: https://www.hyperledger.org/projects/besu
     issues: https://pegasys1.atlassian.net/secure/Dashboard.jspa?selectPageId=10000
   google:
-    site_verification: 'za1cLzyS6LXDGO-pMzvfQdYTZ0Zc67uZtY0asA4YXZ0'
-    tag_manager: 'GTM-5B7N84J'
+    site_verification: 'TODO'
+    tag_manager: 'TODO'
   search:
     language: 'en'
     tokenizer: '[\s]+'
+  logo_regular: logo.svg
+  logo_reversed: &logo_reversed logo-reversed.svg
 
 # Repository
-repo_name: PegaSysEng/pantheon
-repo_url: https://github.com/PegaSysEng/pantheon/
+repo_name: hyperledger/besu
+repo_url: https://github.com/hyperledger/besu/
 
 theme:
     name: material
@@ -51,34 +53,33 @@ theme:
         primary: blue-grey
         accent: teal
     favicon: favicon.ico
-    logo:
-      icon: account_balance
+    logo: *logo_reversed
 nav:
     - How To:
-        - Get Started with Pantheon:
+        - Get Started with Besu:
             - System Requirements: HowTo/Get-Started/System-Requirements.md
             - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from Source: HowTo/Get-Started/Build-From-Source.md
-            - Start Pantheon: HowTo/Get-Started/Starting-Pantheon.md
-            - Run Pantheon from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
+            - Start Besu: HowTo/Get-Started/Starting-node.md
+            - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
             - Migrate from pre v1.2 Docker Image: HowTo/Get-Started/Migration-Docker.md
-        - Configure Pantheon:
+        - Configure Besu:
           - Consensus Protocols:
-            - Clique: HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md
-            - IBFT 2.0: HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md
-            - Quorum IBFT 1.0 Network: HowTo/Configure-Pantheon/Consensus-Protocols/QuorumIBFT.md
-          - Specify Options in a Configuration File: HowTo/Configure-Pantheon/Using-Configuration-File.md
-          - Configure a Free Gas Network: HowTo/Configure-Pantheon/FreeGas.md
-          - Predeploy a Contract in the Genesis File: HowTo/Configure-Pantheon/Contracts-in-Genesis.md
-          - Configure Mining: HowTo/Configure-Pantheon/Mining.md
-          - Pass JVM Options: HowTo/Configure-Pantheon/Passing-JVM-Options.md
+            - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
+            - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
+            - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
+          - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
+          - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
+          - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
+          - Configure Mining: HowTo/Configure/Mining.md
+          - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
         - Interact with Node:
-            - Pantheon APIs:
-              - Access Pantheon APIs: HowTo/Interact/Pantheon-APIs/Pantheon-API.md
-              - Use JSON-RPC API over HTTP or WebSockets: HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md
-              - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/Pantheon-APIs/RPC-PubSub.md
-              - Use GraphQL over HTTP: HowTo/Interact/Pantheon-APIs/GraphQL.md
-              - Authenticate JSON-RPC Requests: HowTo/Interact/Pantheon-APIs/Authentication.md
+            - Besu APIs:
+              - Access Besu APIs: HowTo/Interact/APIs/API.md
+              - Use JSON-RPC API over HTTP or WebSockets: HowTo/Interact/APIs/Using-JSON-RPC-API.md
+              - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/APIs/RPC-PubSub.md
+              - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
+              - Authenticate JSON-RPC Requests: HowTo/Interact/APIs/Authentication.md
             - Client Libraries:
               - Use the web3.js-eea Client Library: HowTo/Interact/Client-Libraries/eeajs.md
             - Filters:
@@ -98,13 +99,13 @@ nav:
           - Update Onchain Permissioning Whitelists: HowTo/Limit-Access/Updating-Whitelists.md
         - Use Privacy Features:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
-          - Use Pantheon-extended Privacy: HowTo/Use-Privacy/Pantheon-Privacy.md
+          - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md
           - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
-          - Use Ansible to Deploy Pantheon: HowTo/Deploy/Ansible.md
+          - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
           - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
           - Configure High Availability of APIs: HowTo/Deploy/High-Availability.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
@@ -112,10 +113,10 @@ nav:
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
           - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
           - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
-        - Backup and Restore: HowTo/Backup/Pantheon-Backup.md
+        - Backup and Restore: HowTo/Backup/Backup.md
         - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
-        - Develop Dapps on Pantheon:
-          - Use Truffle with Pantheon: HowTo/Develop-Dapps/Truffle.md
+        - Develop Dapps on Besu:
+          - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
         - Troubleshoot:
           - Configure Logging: HowTo/Troubleshoot/Logging.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
@@ -155,11 +156,11 @@ nav:
         - Node Keys: Concepts/Node-Keys.md
         - Alethio: Concepts/AlethioOverview.md
     - Reference:
-        - Pantheon Command Line:
-          - Options: Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md
-          - Subcommands: Reference/Pantheon-CLI/Pantheon-CLI-Subcommands.md
-        - Pantheon API Methods: Reference/Pantheon-API-Methods.md
-        - Pantheon API Objects: Reference/Pantheon-API-Objects.md
+        - Besu Command Line:
+          - Options: Reference/CLI/CLI-Syntax.md
+          - Subcommands: Reference/CLI/CLI-Subcommands.md
+        - Besu API Methods: Reference/API-Methods.md
+        - Besu API Objects: Reference/API-Objects.md
         - Configuration Items in Genesis File: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md

@@ -21,7 +21,7 @@ In a free gas network, transactions still use gas but the gas price is 0 meaning
 
 Transaction cost = gas used * 0 (gas price)    
 
-## Configuring Pantheon for Free Gas 
+## Configuring Hyperledger Besu for Free Gas 
 
 When gas is free, limiting block and contract sizes is less important. In free gas networks, we increase the 
 block size limit and set the contract size limit to the maximum value.   
@@ -46,9 +46,9 @@ Set the contract size limit to the maximum supported size (in bytes) in the `con
 "contractSizeLimit": 2147483647
 ```
 
-### 3. Start Pantheon with Minimum Gas Price of 0 
+### 3. Start Besu with Minimum Gas Price of 0 
 
-When starting nodes, set the [minimum gas price](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#min-gas-price) to 0: 
+When starting nodes, set the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price) to 0: 
 
 ```bash tab="Command Line"
 --min-gas-price=0
@@ -62,11 +62,11 @@ min-gas-price=0
 
 If using Truffle to develop on your free gas network, you also need to configure Truffle for free gas.
 
-Similar to setting block and contract size limits to their maximum values for Pantheon, we set the 
+Similar to setting block and contract size limits to their maximum values for Besu, we set the 
 gas limit for transactions in Truffle to the maximum possible. 
 
 !!! important
-    Pantheon does not implement private key management. To use Pantheon with Truffle, you must configure 
+    Besu does not implement private key management. To use Besu with Truffle, you must configure 
     a [Truffle wallet](../Develop-Dapps/Truffle.md).
 
 

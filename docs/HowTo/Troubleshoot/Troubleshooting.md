@@ -1,23 +1,23 @@
-description: Frequently asked questions FAQ and answers for troubleshooting Pantheon
+description: Frequently asked questions FAQ and answers for troubleshooting Hyperledger Besu
 <!--- END of page meta data -->
 
 # Troubleshooting
 
-If Pantheon is not working as expected, here are some things to check or try. 
+If Hyperledger Besu is not working as expected, here are some things to check or try. 
 
 ## Supplied Genesis Block Does Not Match Stored Chain Data 
 
 If you get a `Supplied genesis block does not match stored chain data` error, use the genesis file which matches the genesis block 
-of the data directory or use the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option to specify a different data directory. 
+of the data directory or use the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option to specify a different data directory. 
 
 ## Host Not Authorized 
 
-If you are receiving a `Host not authorized` error when attempting to access the JSON-RPC API, ensure [`--host-whitelist`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#host-whitelist)
+If you are receiving a `Host not authorized` error when attempting to access the JSON-RPC API, ensure [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist)
 includes the host from which you are sending the RPC or `*`. 
 
 ## Peers Fail to Connect
 
-If nodes are not communicating, ensure the [required ports are open](https://docs.pantheon.pegasys.tech/en/stable/Configuring-Pantheon/Networking/Configuring-Ports/). 
+If nodes are not communicating, ensure the [required ports are open](../../HowTo/Find-and-Connect/Configuring-Ports.md). 
 
 If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
 
@@ -41,20 +41,20 @@ On non-mining nodes, log messages indicate blocks are being imported.
 2019-05-08 20:28:31.031+10:00 | EthScheduler-Workers-0 | INFO  | BlockPropagationManager | Imported #662 / 0 tx / 0 om / 0 (0.0%) gas / (0x0ead4e20123d3f1433d8dec894fcce386da4049819b24b309963ce7a8a0fcf03) in 0.000s.
 ``` 
 
-Use the [`eth_blockNumber`](../../Reference/Pantheon-API-Methods.md#eth_blocknumber) JSON-RPC API method to confirm the 
+Use the [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) JSON-RPC API method to confirm the 
 block number is increasing. 
 
-If blocks are not being created in [Clique](../Configure-Pantheon/Consensus-Protocols/Clique.md#extra-data) or [IBFT 2.0](../Configure-Pantheon/Consensus-Protocols/IBFT.md#extra-data) networks, 
+If blocks are not being created in [Clique](../Configure/Consensus-Protocols/Clique.md#extra-data) or [IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#extra-data) networks, 
 ensure the validator addresses in the genesis file match running nodes. 
  
 ## Transactions Not Being Mined 
 
 If a transaction is added to the [transaction pool](../../Concepts/Transactions/Transaction-Pool.md) 
-and the transaction hash returned but the transaction is never being mined, check the [`--min-gas-price`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#min-gas-price)
+and the transaction hash returned but the transaction is never being mined, check the [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price)
 option on mining nodes. If the `gasPrice` on a [transaction](../Send-Transactions/Transactions.md) 
 is lower than the `min-gas-price` for the mining node, the transaction will never be mined. 
 
-In [free gas networks](../Configure-Pantheon/FreeGas.md), [`--min-gas-price`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#min-gas-price) must be set to 0. 
+In [free gas networks](../Configure/FreeGas.md), [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) must be set to 0. 
 
 ## Genesis Milestone 
 
@@ -63,11 +63,11 @@ specific errors. Ensure a sufficient milestone is included in the genesis file (
 
 ## Illegal Reflective Access Error on Startup
 
-When using Java 9 or later, the following error message may be displayed on startup and does not affect the operation of Pantheon: 
+When using Java 9 or later, the following error message may be displayed on startup and does not affect the operation of Besu: 
 
 ```
 WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/Users/madelinemurray/pantheon/build/distributions/pantheon-1.1.2-SNAPSHOT/lib/bcprov-jdk15on-1.61.jar) to constructor sun.security.provider.Sun()
+WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/Users/madelinemurray/besu/build/distributions/besu-1.1.2-SNAPSHOT/lib/bcprov-jdk15on-1.61.jar) to constructor sun.security.provider.Sun()
 WARNING: Please consider reporting this to the maintainers of org.bouncycastle.jcajce.provider.drbg.DRBG
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
@@ -76,16 +76,16 @@ WARNING: All illegal access operations will be denied in a future release
 To stop the message being displayed, add the following to the environment: 
 
 ```bash tab="Linux / Mac OS"
-export PANTHEON_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
+export BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
 ```
     
 ```bash tab="Windows"
-set PANTHEON_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
+set BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
 ```
 
 ## Command Line Options
 
-Characters such as smart quotes and long (em) hyphens won't work in Pantheon command line options. Ensure quotes have
+Characters such as smart quotes and long (em) hyphens won't work in Besu command line options. Ensure quotes have
 not been automatically converted to smart quotes or double hyphens combined into em hyphens.
 
 ## New Line Characters at the End of Files
@@ -95,4 +95,4 @@ be displayed in all editors.
 
 ## Logging 
 
-Restart Pantheon with the command line option [`--logging=TRACE`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#logging) and look at the log files. 
+Restart Besu with the command line option [`--logging=TRACE`](../../Reference/CLI/CLI-Syntax.md#logging) and look at the log files. 

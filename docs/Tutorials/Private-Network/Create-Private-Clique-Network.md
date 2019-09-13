@@ -1,7 +1,10 @@
+description: Hyperledger Besu private network using Clique (Proof of Authority) Consensus Protocol tutorial 
+<!--- END of page meta data -->
+
 # Creating a Private Network using Clique (Proof of Authority) Consensus Protocol
 
 A private network provides a configurable network for testing. This private network uses the [Clique (Proof of Authority)
-consensus protocol](../../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md). 
+consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md). 
 
 !!!important
     An Ethereum private network created as described here is isolated but not protected or secure. 
@@ -9,7 +12,7 @@ consensus protocol](../../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md
 
 ## Prerequisites 
 
-[Pantheon](../../HowTo/Get-Started/Install-Binaries.md) 
+[Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md) 
 
 [Curl (or similar web service client)](https://curl.haxx.se/download.html) 
 
@@ -38,21 +41,21 @@ Clique-Network/
 In Clique networks, the address of at least one initial signer must be included in the genesis file. 
 For this Clique network, we will use Node-1 as the initial signer. This requires obtaining the address for Node-1. 
 
-To obtain the address for Node-1, in the `Node-1` directory, use the [`public-key export-address`](../../Reference/Pantheon-CLI/Pantheon-CLI-Subcommands.md#export-address)
+To obtain the address for Node-1, in the `Node-1` directory, use the [`public-key export-address`](../../Reference/CLI/CLI-Subcommands.md#export-address)
 subcommand to write the node address to the specified file (`node1Address` in this example)
 
 ```bash tab="MacOS"
-pantheon --data-path=data public-key export-address --to=data/node1Address
+besu --data-path=data public-key export-address --to=data/node1Address
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data public-key export-address --to=data\node1Address
+besu --data-path=data public-key export-address --to=data\node1Address
 ```
 
 ### 3. Create Genesis File 
 
 The genesis file defines the genesis block of the blockchain (that is, the start of the blockchain).
-The [Clique genesis file](../../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md#genesis-file) includes the address of Node-1 as the initial signer in the `extraData` field.    
+The [Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes the address of Node-1 as the initial signer in the `extraData` field.    
 
 All nodes in a network must use the same genesis file. 
 
@@ -121,20 +124,20 @@ In `extraData`, replace `<Node 1 Address>` with the [address for Node-1](#2-get-
 Start Node-1:
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"      
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"      
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"    
 ```
 
 The command line specifies: 
 
-* No arguments for the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option because this is your bootnode
-* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-enabled) option
-* ETH,NET, and CLIQUE APIs are enabled using the [`--rpc-http-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) option
-* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#host-whitelist) option
-* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-cors-origins) option 
+* No arguments for the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option because this is your bootnode
+* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+* ETH,NET, and CLIQUE APIs are enabled using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
+* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option 
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
@@ -146,19 +149,19 @@ Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
  
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
 ```
 
 The command line specifies: 
 
-* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
-* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port) option.
-* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option.
-* Data directory for Node-2 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
+* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* Data directory for Node-2 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
 
@@ -167,24 +170,24 @@ The command line specifies:
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
 ```
 
 The command line specifies: 
 
- * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port) option.
- * Data directory for Node-3 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
+ * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+ * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+ * Data directory for Node-3 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
  * Bootnode as for [Node-2](#6-start-node-2).
  * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
 
 ### 7. Confirm Private Network is Working 
 
-Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/Pantheon-API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
+Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
@@ -203,7 +206,7 @@ The result confirms Node-1 has two peers (Node-2 and Node-3):
 
 Look at the logs displayed to confirm Node-1 is producing blocks and Node-2 and Node-3 are importing blocks. 
 
-Use the [Clique API to add](../../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md#adding-and-removing-signers) Node-2 or Node-3 as a signer. 
+Use the [Clique API to add](../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers) Node-2 or Node-3 as a signer. 
 
 !!! note
     To add Node-2 or Node-3 as a signer you need the [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer. 
@@ -211,7 +214,7 @@ Use the [Clique API to add](../../HowTo/Configure-Pantheon/Consensus-Protocols/C
 Import accounts to MetaMask and send transactions as described in the [Private Network Quickstart Tutorial](../Quickstarts/Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
 
 !!! info 
-    Pantheon does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
 ## Stop Nodes
 

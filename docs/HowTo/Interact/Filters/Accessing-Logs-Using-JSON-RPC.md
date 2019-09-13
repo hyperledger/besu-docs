@@ -1,22 +1,24 @@
-# Accessing Logs Using Pantheon API
+description: Accessing Logs Using Hyperledger Besu API
+<!--- END of page meta data -->
+# Accessing Logs Using Hyperledger Besu API
 
-Subscribe to events, such as logs, using either [RPC Pub/Sub over WebSockets](../Pantheon-APIs/RPC-PubSub.md) or filters over HTTP.  
+Subscribe to events, such as logs, using either [RPC Pub/Sub over WebSockets](../APIs/RPC-PubSub.md) or filters over HTTP.  
  
-Access logs by using the following Pantheon API methods:
+Access logs by using the following Hyperledger Besu API methods:
  
-* [`eth_getFilterChanges`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterchanges)
-* [`eth_getFilterLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterlogs)
-* [`eth_getLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getlogs)
+* [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges)
+* [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)
+* [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs)
 
-Use [`eth_newFilter`](../../../Reference/Pantheon-API-Methods.md#eth_newfilter) to create the filter before
-using [`eth_getFilterChanges`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterchanges) and [`eth_getFilterLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterlogs)). 
+Use [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) to create the filter before
+using [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) and [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)). 
 
 !!! note
     The following examples are created using the sample contract included in [Events and Logs](../../../Concepts/Events-and-Logs.md). 
 
 ## Creating a Filter
 
-Create a filter using [`eth_newFilter`](../../../Reference/Pantheon-API-Methods.md#eth_newfilter). 
+Create a filter using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter). 
 
 !!! example
     
@@ -42,17 +44,17 @@ Create a filter using [`eth_newFilter`](../../../Reference/Pantheon-API-Methods.
     }
     ```
         
-[`eth_newFilter`](../../../Reference/Pantheon-API-Methods.md#eth_newfilter) returns a filter ID hash (for example, `0x1ddf0c00989044e9b41cc0ae40272df3`). 
+[`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) returns a filter ID hash (for example, `0x1ddf0c00989044e9b41cc0ae40272df3`). 
 
 ### Polling Filter for Changes
 
-To poll the filter for changes that have occurred since the last poll, use [`eth_getFilterChanges`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterchanges)
-with the filter ID hash returned by [`eth_newFilter`](../../../Reference/Pantheon-API-Methods.md#eth_newfilter). 
+To poll the filter for changes that have occurred since the last poll, use [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges)
+with the filter ID hash returned by [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter). 
 
 !!! example 
     
     If the contract had been executed twice since the last poll, with `valueIndexed` set to 1 and 5, 
-    [`eth_getFilterChanges`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterchanges) returns
+    [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) returns
     only the log where the [topic](../../../Concepts/Events-and-Logs.md#event-parameters) for `valueIndexed` is 5: 
     
     ```json
@@ -80,7 +82,7 @@ with the filter ID hash returned by [`eth_newFilter`](../../../Reference/Pantheo
 
 ### Getting All Logs for a Filter
 
-To get all logs for a filter, use [`eth_getFilterLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterlogs). 
+To get all logs for a filter, use [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs). 
 
 !!! example
     
@@ -126,16 +128,16 @@ To get all logs for a filter, use [`eth_getFilterLogs`](../../../Reference/Panth
     
 !!! tip 
     You can use [`eth_getLogs`](#getting-logs-using-a-filter-options-object) with a filter options object 
-    to get all logs matching the filter options instead of using [`eth_newFilter`](../../../Reference/Pantheon-API-Methods.md#eth_newfilter)
-    followed by [`eth_getFilterLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getfilterlogs). 
+    to get all logs matching the filter options instead of using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter)
+    followed by [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs). 
     
 ## Uninstalling a Filter
 
-When you are finished using a filter, use [`eth_uninstallFilter`](../../../Reference/Pantheon-API-Methods.md#eth_uninstallfilter) to remove the filter.     
+When you are finished using a filter, use [`eth_uninstallFilter`](../../../Reference/API-Methods.md#eth_uninstallfilter) to remove the filter.     
     
 ## Getting Logs Using a Filter Options Object 
 
-To get all logs for a filter options object, use [`eth_getLogs`](../../../Reference/Pantheon-API-Methods.md#eth_getlogs).   
+To get all logs for a filter options object, use [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).   
 
 !!! example 
 

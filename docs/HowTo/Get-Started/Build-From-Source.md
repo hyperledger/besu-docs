@@ -1,4 +1,4 @@
-description: Building Pantheon from source code
+description: Building Hyperledger Besu from source code
 <!--- END of page meta data -->
 
 # Build from Source
@@ -8,7 +8,7 @@ description: Building Pantheon from source code
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 !!!important
-    Pantheon requires Java 11+ to compile; earlier versions are not supported.
+    Hyperledger Besu requires Java 11+ to compile; earlier versions are not supported.
 
 * [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 
@@ -24,19 +24,19 @@ description: Building Pantheon from source code
 
 ## Installation on Linux / Unix / Mac OS X
 
-###Clone the Pantheon Repository
+###Clone the Besu Repository
 
-Clone the **PegaSysEng/pantheon** repo to your home directory (`/home/<user>`):
+Clone the **Hyperledger/besu** repo to your home directory (`/home/<user>`):
 
 ```bash
-git clone --recursive https://github.com/PegaSysEng/pantheon.git
+git clone --recursive https://github.com/hyperledger/besu.git
 ```
 
-### Build Pantheon
+### Build Besu
 
-After cloning, go to the `pantheon` directory.
+After cloning, go to the `besu` directory.
 
-Build Pantheon with the Gradle wrapper `gradlew`, omitting tests as follows:
+Build Besu with the Gradle wrapper `gradlew`, omitting tests as follows:
 
 ```bash
 ./gradlew build -x test
@@ -49,13 +49,13 @@ cd build/distributions/
 
 Expand the distribution archive: 
 ```bash
-tar -xzf pantheon-<version>.tar.gz
+tar -xzf besu-<version>.tar.gz
 ```
 
-Move to the expanded folder and display the Pantheon help to confirm installation. 
+Move to the expanded folder and display the Besu help to confirm installation. 
 ````bash
-cd pantheon-<version>/
-bin/pantheon --help
+cd besu-<version>/
+bin/besu --help
 ````
 
 !!! note "Linux Open File Limit"
@@ -63,33 +63,33 @@ bin/pantheon --help
     maximum number of open files allowed using `ulimit`. If the open files limit is not high enough,
     a `Too many open files` RocksDB exception occurs. 
 
-Continue with [Starting Pantheon](Starting-Pantheon.md).
+Continue with [Starting Besu](Starting-node.md).
 
 
 ## Installation on Windows
 
 !!!note
-    Pantheon is currently supported only on 64-bit versions of Windows, and requires a 64-bit version
+    Besu is currently supported only on 64-bit versions of Windows, and requires a 64-bit version
     of JDK/JRE. We recommend that you also remove any 32-bit JDK/JRE installations.
 
-### Install Pantheon
+### Install Besu
 
-In Git bash, go to your working directory for repositories. Clone the `PegaSysEng/pantheon` repo 
+In Git bash, go to your working directory for repositories. Clone the `Hyperledger/besu` repo 
 into this directory:
 
 ```bat
-git clone --recursive https://github.com/PegaSysEng/pantheon
+git clone --recursive https://github.com/hyperledger/besu
 ```
 
-### Build Pantheon
+### Build Besu
 
-Go to the `pantheon` directory:
+Go to the `besu` directory:
 
 ```bat
-cd pantheon
+cd besu
 ```
 
-Open a Windows command prompt. Build Pantheon with the Gradle wrapper `gradlew`, omitting tests as 
+Open a Windows command prompt. Build Besu with the Gradle wrapper `gradlew`, omitting tests as 
 follows:
 
 ```bat
@@ -108,21 +108,21 @@ cd build\distributions
 
 Expand the distribution archive: 
 ```bat
-tar -xzf pantheon-<version>.tar.gz
+tar -xzf besu-<version>.tar.gz
 ```
 
-Move to the expanded folder and display the Pantheon help to confirm installation. 
+Move to the expanded folder and display the Besu help to confirm installation. 
 ```bat
-cd pantheon-<version>
-bin\pantheon --help
+cd besu-<version>
+bin\besu --help
 ```
 
-Continue with [Starting Pantheon](Starting-Pantheon.md).
+Continue with [Starting Besu](Starting-node.md).
 
 
 ## Installation on VM
 
-You can run Pantheon on a virtual machine (VM) on a cloud service such as AWS or Azure, or locally
+You can run Besu on a virtual machine (VM) on a cloud service such as AWS or Azure, or locally
 using a VM manager such as [VirtualBox](https://www.virtualbox.org/).
 
 If you set up your own VM locally using a VM manager such as [VirtualBox](https://www.virtualbox.org/),

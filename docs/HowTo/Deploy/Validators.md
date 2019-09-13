@@ -28,7 +28,7 @@ Where:
 
 ## Adding and Removing Validators
 
-Validators are [voted in or out of the validator pool](../Configure-Pantheon/Consensus-Protocols/IBFT.md#adding-and-removing-validators). 
+Validators are [voted in or out of the validator pool](../Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators). 
 
 ## Validators as Bootnodes 
 

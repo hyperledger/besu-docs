@@ -1,4 +1,4 @@
-description: Pantheon IBFT 2.0 Proof-of-Authority (PoA) consensus protocol implementation
+description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protocol implementation
 <!--- END of page meta data -->
 
 *[Vanity]: Validators can include anything they like as vanity data. 
@@ -7,7 +7,7 @@ description: Pantheon IBFT 2.0 Proof-of-Authority (PoA) consensus protocol imple
 
 # IBFT 2.0
 
-Pantheon implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. IBFT 2.0 can be used for private networks. 
+Besu implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. IBFT 2.0 can be used for private networks. 
 
 In IBFT 2.0 networks, transactions and blocks are validated by approved accounts, known as validators. 
 Validators take turns to create the next block, and a super-majority (greater than 66%) of validators must sign the block before it can be inserted into the chain.
@@ -58,17 +58,17 @@ Properties that have specific values in IBFT 2.0 genesis files are:
 * `difficulty` - `0x1`
 * `mixHash` - `0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365` for Istanbul block identification.
 
-To start a node on an IBFT 2.0 private network, use the [`--genesis-file`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
+To start a node on an IBFT 2.0 private network, use the [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
 
 ### Extra Data 
 
 The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization scheme 
-used in Ethereum. Use the Pantheon subcommand [`rlp encode`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Subcommands.md#rlp) 
+used in Ethereum. Use the Besu subcommand [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) 
 to generate the `extraData` RLP string to include in the genesis file. 
 
 !!! example                                        
     ```bash
-    pantheon rlp encode --from=toEncode.json
+    besu rlp encode --from=toEncode.json
     ```    
 
 Where the `toEncode.json` file contains a list of the initial validators in ascending order. 
@@ -122,22 +122,22 @@ Optional configuration options that can be specified in the genesis file are:
 ## Adding and Removing Validators
 
 To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface 
-using [`--rpc-http-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
-[`--rpc-ws-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-enabled). 
+using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
+[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled). 
 
-The IBFT API methods are not enabled by default. To enable, specify the [`--rpc-http-api`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
+The IBFT API methods are not enabled by default. To enable, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
+or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
 
 The JSON-RPC methods to add or remove validators are:
 
-* [ibft_getPendingVotes](../../../Reference/Pantheon-API-Methods.md#ibft_getPendingVotes)
-* [ibft_proposeValidatorVote](../../../Reference/Pantheon-API-Methods.md#ibft_proposeValidatorVote)
-* [ibft_discardValidatorVote](../../../Reference/Pantheon-API-Methods.md#ibft_discardValidatorVote)
+* [ibft_getPendingVotes](../../../Reference/API-Methods.md#ibft_getPendingVotes)
+* [ibft_proposeValidatorVote](../../../Reference/API-Methods.md#ibft_proposeValidatorVote)
+* [ibft_discardValidatorVote](../../../Reference/API-Methods.md#ibft_discardValidatorVote)
 
 !!! important
     A majority of existing validators must agree to add or remove a validator. That is, `ibft_proposeValidatorVote` must be executed on the majority (greater than 50%) of validators to take effect. For example, if you have 4 validators, the vote must be made on 3 validators.
 
-Use [ibft_getSignerMetrics](../../../Reference/Pantheon-API-Methods.md#ibft_getsignermetrics) to view validator metrics for a specified block range.
+Use [ibft_getSignerMetrics](../../../Reference/API-Methods.md#ibft_getsignermetrics) to view validator metrics for a specified block range.
     
 ### Adding a Validator
 

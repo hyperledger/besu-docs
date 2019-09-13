@@ -3,21 +3,21 @@ description: Privacy
 
 # Privacy
 
-Privacy in Pantheon refers to the ability to keep transactions private between the involved participants. 
+Privacy in Besu refers to the ability to keep transactions private between the involved participants. 
 Other participants cannot access the transaction content or list of participants.
 
 !!! important
     For production systems requiring private transactions, we recommend using a network 
-    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md). All private transaction participants must be online for a private transaction to be successfully distributed. If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
+    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure-Besu/Consensus-Protocols/IBFT.md). All private transaction participants must be online for a private transaction to be successfully distributed. If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
 
 ## Private Transaction Manager
 
-Pantheon uses a Private Transaction Manager to implement privacy. For example, [Orion](http://docs.orion.pegasys.tech).  
-Each Pantheon node that sends or receives private transactions requires an associated Orion node. 
+Besu uses a Private Transaction Manager to implement privacy. For example, [Orion](http://docs.orion.pegasys.tech).  
+Each Besu node that sends or receives private transactions requires an associated Orion node. 
 
 ![Orion Nodes](../../images/OrionNodes.png)
 
-Private transactions are passed from the Pantheon node to the associated Orion node. The Orion node
+Private transactions are passed from the Besu node to the associated Orion node. The Orion node
 encrypts and directly distributes (that is, point to point) the private transaction to Orion nodes 
 participating in the transaction. 
 
@@ -41,16 +41,16 @@ Private transactions have additional attributes to public Ethereum transactions:
     in the network but is readable only by nodes participating in the transaction.   
 
     !!! important 
-        Pantheon implements `restricted` private transactions only.
+        Besu implements `restricted` private transactions only.
 
-## Pantheon and Orion Keys
+## Besu and Orion Keys
 
-Pantheon and Orion nodes both have public/private key pairs identifying them. The private transaction 
-submitted from the Pantheon node to the Orion node is signed with the Pantheon node private key. The 
+Besu and Orion nodes both have public/private key pairs identifying them. The private transaction 
+submitted from the Besu node to the Orion node is signed with the Besu node private key. The 
 `privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for 
-[`eea_sendRawTransaction`](../../Reference/Pantheon-API-Methods.md#eea_sendrawtransaction) are the public keys
+[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) are the public keys
 of the Orion nodes sending and receiving the transaction.  
 
 !!! important 
-    The mapping of Pantheon node addresses to Orion node public keys is off-chain.  That is, the 
+    The mapping of Besu node addresses to Orion node public keys is off-chain.  That is, the 
     sender of a private transaction must know the Orion node public key of the recipient.  

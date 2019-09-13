@@ -34,7 +34,7 @@ The [Permissioning Management Dapp](../../Tutorials/Permissioning/Getting-Starte
 and maintain the whitelists. 
 
 !!! tip 
-    Before v1.2, we provided a [management interface using Truffle](https://docs.pantheon.pegasys.tech/en/1.1.4/Permissions/Onchain-Permissioning/).
+    Before v1.2, we provided a management interface using Truffle.
     The management interface using Truffle is deprecated and we recommend using the Dapp for an improved user experience. 
 
 ### Whitelists 

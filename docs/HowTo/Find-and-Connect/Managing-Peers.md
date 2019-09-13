@@ -1,19 +1,19 @@
-description: Managing Pantheon peers 
+description: Managing Hyperledger Besu peers 
 <!--- END of page meta data -->
 
 # Managing Peers 
  
 ## Limiting Peers
 
-Limiting peers reduces the bandwidth used by Pantheon. It also reduces the CPU time and disk access 
+Limiting peers reduces the bandwidth used by Hyperledger Besu. It also reduces the CPU time and disk access 
 used to manage and respond to peers.  
  
-Use the [`--max-peers`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#max-peers) command line option to reduce 
+Use the [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers) command line option to reduce 
 the maximum number of peers. The default is 25.
 
 ## No Discovery
 
-The [`--discovery-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#discovery-enabled) command line option 
+The [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) command line option 
 can be used to disable P2P peer discovery.
 Set this option to `false` if you are running a test node or a network with [static nodes](#static-nodes).
 
@@ -29,10 +29,10 @@ To configure a network of static nodes:
 
 1. Save the `static-nodes.json` file in the data directory of each node. 
 
-1. Start Pantheon with discovery disabled using [`--discovery-enabled=false`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#discovery-enabled).   
+1. Start Besu with discovery disabled using [`--discovery-enabled=false`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled).   
 
-To modify the static peers at run time, use the [`admin_addPeer`](../../Reference/Pantheon-API-Methods.md#admin_addpeer) 
-and [`admin_removePeer`](../../Reference/Pantheon-API-Methods.md#admin_removepeer) JSON-RPC API methods. 
+To modify the static peers at run time, use the [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer) 
+and [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) JSON-RPC API methods. 
 
 !!! note
     Runtime modifications of static nodes are not persisted between runs. The `static-nodes.json` file
@@ -42,13 +42,13 @@ and [`admin_removePeer`](../../Reference/Pantheon-API-Methods.md#admin_removepee
     use [Permissioning](../../Concepts/Permissioning/Permissioning-Overview.md). 
     
 !!! caution 
-    If the added peer does not appear in the peer list (returned by [`admin_peers`](../../Reference/Pantheon-API-Methods.md#admin_peers)),
+    If the added peer does not appear in the peer list (returned by [`admin_peers`](../../Reference/API-Methods.md#admin_peers)),
     check the supplied [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, the node is listening for 
     TCP connections on the endpoint, and has not reached the [maximum number of peers](#limiting-peers).
     
 ### static-nodes.json File
 
-The `static-nodes.json` file must be located in the data directory (specified by [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path))
+The `static-nodes.json` file must be located in the data directory (specified by [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path))
 and contain a JSON array of [enode URLs](../../Concepts/Node-Keys.md#enode-url).
 
 !!! example 
@@ -66,16 +66,16 @@ and contain a JSON array of [enode URLs](../../Concepts/Node-Keys.md#enode-url).
 
 JSON-RPC API methods to monitor peer connections include: 
 
-* [`net_peerCount`](../../Reference/Pantheon-API-Methods.md#net_peercount)
-* [`admin_peers`](../../Reference/Pantheon-API-Methods.md#admin_peers)
-* [`debug_metrics`](../../Reference/Pantheon-API-Methods.md#debug_metrics)
+* [`net_peerCount`](../../Reference/API-Methods.md#net_peercount)
+* [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
+* [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics)
 
 ## Node Connections
 
 The default logging configuration does not list node connection and disconnection messages.  
 
 To enable listing of node connection and disconnection messages, specify the 
-[`--logging`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#logging) command line option `--logging=DEBUG`.
+[`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option `--logging=DEBUG`.
 For more verbosity, specify `--logging=TRACE`.  
 
 The console logs connection and disconnection events when the log level is `DEBUG` or higher.  
@@ -86,6 +86,6 @@ If `Successfully accepted connection from ...` is displayed, connections are get
 
 ## Limiting Remote Connections 
 
-In private networks with a level of trust between peers, enabling the [remote connection limits](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#remote-connections-limit-enabled)
+In private networks with a level of trust between peers, enabling the [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
 is unnecessary and disabling may increase the speed at which nodes can join the network.
 

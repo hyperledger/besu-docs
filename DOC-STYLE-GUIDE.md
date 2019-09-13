@@ -1,28 +1,28 @@
-# Pantheon Documentation Style Guide
+# Besu Documentation Style Guide
 
 ## Purpose of this Document
 
-This document contains guidelines to ensure the Pantheon documentation is consistent and well organised.
+This document contains guidelines to ensure the Besu documentation is consistent and well organised.
 
-This is a living document and will evolve to better suit Pantheon users and contributors needs.
+This is a living document and will evolve to better suit Besu users and contributors needs.
 
-> **Note:** Although not everything in this style guide is currently followed in the Pantheon 
+> **Note:** Although not everything in this style guide is currently followed in the Besu 
 documentation, these guidelines are intended to be applied when writing new content and revising 
 existing content.
 
 **The primary audience for this document is:**
 
-*   Members of the Pantheon team
-*   Developers and technical writers contributing to the Pantheon documentation
+*   Members of the Besu team
+*   Developers and technical writers contributing to the Besu documentation
 
 ## Mission Statement
 
-The Pantheon documentation contributes to a consistent and easy to understand experience for end users.
+The Besu documentation contributes to a consistent and easy to understand experience for end users.
 We're focused on creating a great experience for both new and expert users of Ethereum clients.
 
 ## General Guidelines
 
-The guiding principles for the Pantheon documentation are: 
+The guiding principles for the Besu documentation are: 
 1. Be consistent
 1. Keep it simple but technically correct
 1. Be proactive and suggest good practices
@@ -30,15 +30,15 @@ The guiding principles for the Pantheon documentation are:
 
 ### 1. Be Consistent
 
-Consistency is important to help our end users build a mental model of how Pantheon works.
+Consistency is important to help our end users build a mental model of how Besu works.
 By being consistent with our word choices, visual formatting, and style of communication it helps 
-users know what to expect when they refer to or search Pantheon documentation.  
+users know what to expect when they refer to or search Besu documentation.  
 
 ### 2. Keep It Simple But Technically Correct
 
 Avoid technical jargon and always assume our end users may not be Ethereum experts.
 
-This doesn't mean explaining all Ethereum concepts in our documentation. Explain Pantheon functionality  
+This doesn't mean explaining all Ethereum concepts in our documentation. Explain Besu functionality  
 and when an understanding of complex Ethereum concepts is required refer users to relevant resources.
 
 For example, to explain how the EVM works, link to ethdocs.org documentation such as 
@@ -60,7 +60,7 @@ For example, instruct users to secure private keys and protect RPC endpoints a p
 ### 4. Be Informative But Concise 
 
 We seek a balance between providing enough relevant information to help our users develop a solid 
-mental model of how Pantheon works without forcing them to read too much text or redundant detail.
+mental model of how Besu works without forcing them to read too much text or redundant detail.
 
 To provide additional detail, use sub-sections.
 
@@ -85,7 +85,7 @@ Use common contractions, such as it’s and you’re, to create a friendly, info
 
 ### Recommend
 It's acceptable to use "we recommend" to introduce a product recommendation.
-Don't use "PegaSys recommends" or "it is recommended."
+Don't use "Hyperledger recommends" or "it is recommended."
 
 Example: Instead of _This is not recommended for production code_ use _We don't recommend this for production code_.
 
@@ -101,7 +101,7 @@ Note: This is a case where we are not following the Microsoft Writing Style Guid
 We have two distinct audiences to consider when developing content:
 
 - New to Ethereum and Ethereum clients
-- Experienced with Ethereum clients other than Pantheon.
+- Experienced with Ethereum clients other than Besu.
 
 ### Avoid Abbreviations
 

@@ -13,13 +13,13 @@ The Options parameter has the following properties:
 * `privateKey`: Ethereum private key with which to sign the transaction
 * `privateFrom` : Orion public key of the sender
 * [`privateFor` : Orion public keys of recipients or `privacyGroupId`: Privacy group to receive the transaction](../Concepts/Privacy/Privacy-Groups.md)  
-* `nonce` : Optional. If not provided, calculated using [`eea_getTransctionCount`](../Reference/Pantheon-API-Methods.md).
+* `nonce` : Optional. If not provided, calculated using [`eea_getTransctionCount`](API-Methods.md).
 * `to` : Optional. Contract address to send the transaction to. Do not specify for contract deployment transactions
 * `data` : Transaction data
 
 ## createPrivacyGroup
 
-Creates privacy group for Pantheon privacy. 
+Creates privacy group for Hyperledger Besu privacy. 
 
 **Parameters**
 
@@ -156,7 +156,7 @@ Returns the number of transactions sent from the specified address for the priva
     ```bash
     return web3.eea
        .getTransactionCount({
-       privateKey: pantheon.node1.privateKey,
+       privateKey: besu.node1.privateKey,
        privateFrom: orion.node1.publicKey,
        privateFor: [orion.node2.publicKey],
     })
@@ -164,7 +164,7 @@ Returns the number of transactions sent from the specified address for the priva
         
 ## getTransactionReceipt 
 
-Gets the private transaction receipt using [`eea_getTransactionReceipt`](../Reference/Pantheon-API-Methods.md#eea_gettransactionreceipt).
+Gets the private transaction receipt using [`eea_getTransactionReceipt`](API-Methods.md#eea_gettransactionreceipt).
 
 **Parameters**
 
@@ -187,9 +187,9 @@ Private transaction receipt
     
 ## sendRawTransaction 
 
-Signs and sends a RLP-encoded private transaction to Pantheon using [`eea_sendRawTransaction`](Pantheon-API-Methods.md#eea_sendrawtransaction). 
+Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTransaction`](API-Methods.md#eea_sendrawtransaction). 
 
-`sendRawTransaction` supports [EEA-compliant privacy](../HowTo/Use-Privacy/EEA-Compliant.md) using `privateFor`, or [Pantheon-extended privacy](../HowTo/Use-Privacy/Pantheon-Privacy.md) using `privacyGroupId`. 
+`sendRawTransaction` supports [EEA-compliant privacy](../HowTo/Use-Privacy/EEA-Compliant.md) using `privateFor`, or [Besu-extended privacy](../HowTo/Use-Privacy/Privacy.md) using `privacyGroupId`. 
 
 **Parameters**
 
@@ -199,14 +199,14 @@ Signs and sends a RLP-encoded private transaction to Pantheon using [`eea_sendRa
 
 `string` : Transaction hash of the [`privacy marker transaction`](../Concepts/Privacy/Private-Transaction-Processing.md)   
         
-!!! example "Pantheon-extended Privacy"
+!!! example "Besu-extended Privacy"
     ```bash tab="Contract Deployment with privacyGroupId"
     const createPrivateEmitterContract = privacyGroupId => {
       const contractOptions = {
         data: `0x${binary}`,
         privateFrom: orion.node1.publicKey,
         privacyGroupId,
-        privateKey: pantheon.node1.privateKey
+        privateKey: besu.node1.privateKey
       };
       return web3.eea.sendRawTransaction(contractOptions);
     };
@@ -230,7 +230,7 @@ Signs and sends a RLP-encoded private transaction to Pantheon using [`eea_sendRa
          data: `0x${binary}`,
          privateFrom: orion.node1.publicKey,
          privateFor: [orion.node2.publicKey],
-         privateKey: pantheon.node1.privateKey
+         privateKey: besu.node1.privateKey
       };
       return web3.eea.sendRawTransaction(contractOptions);
     };
@@ -242,7 +242,7 @@ Signs and sends a RLP-encoded private transaction to Pantheon using [`eea_sendRa
       data: functionAbi.signature + functionArgs,
       privateFrom: orion.node1.publicKey,
       privateFor: [orion.node2.publicKey],
-      privateKey: pantheon.node1.privateKey
+      privateKey: besu.node1.privateKey
     };
     return web3.eea.sendRawTransaction(functionCall);
     ```

@@ -1,4 +1,4 @@
-description: Upgrade Pantheon     
+description: Upgrade Besu     
 <!--- END of page meta data -->
 
 # Upgrading your Network 
@@ -10,16 +10,16 @@ We recommend:
 
 ## Ansible 
 
-The [Pantheon Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon) can be used directly
+The [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon) can be used directly
 or customised to suit your needs. Upgrade by running the play. The play: 
 
-Upgrade the Pantheon version on nodes by running the play with the new version. For details, see the [Readme on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon). 
+Upgrade the Besu version on nodes by running the play with the new version. For details, see the [Readme on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon). 
 The play: 
 
-1. Stops Pantheon.
+1. Stops Besu.
 1. Downloads the updated version.
 1. Applies any new configuration.
-1. Starts Pantheon.
+1. Starts Besu.
 
 ## Finding Peers on Restarting 
 

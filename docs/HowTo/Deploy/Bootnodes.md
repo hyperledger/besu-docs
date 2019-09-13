@@ -33,8 +33,8 @@ To allow for failure, specify all bootnodes on the command line (even to the boo
 ## Adding and Removing Bootnodes 
 
 Adding new bootnodes is a similar process to creating bootnodes. Once the bootnodes have been created and added to the network,
-update the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) command line option for each node to include the new bootnodes. 
+update the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) command line option for each node to include the new bootnodes. 
 
-When bootnodes are added, running nodes don’t need to be restarted. Updating the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes)
+When bootnodes are added, running nodes don’t need to be restarted. Updating the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes)
 option means the next time they are restarted (for example, when [upgrading](../Upgrade/Upgrade-Network.md)), 
 the node connects to the new bootnodes.  

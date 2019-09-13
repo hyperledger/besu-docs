@@ -1,11 +1,11 @@
-description: Pantheon log level setting and log formatting
-path: blob/master/pantheon/src/main/resources/
+description: Hyperledger Besu log level setting and log formatting
+path: blob/master/besu/src/main/resources/
 source: log4j2.xml
 <!--- END of page meta data -->
 
 # Logging
 
-Pantheon uses Log4J2 for logging. There are two methods to configure logging behavior:
+Hyperledger Besu uses Log4J2 for logging. There are two methods to configure logging behavior:
 
 * Basic - changes the log level. 
 * Advanced - configures the output and format of the logs. 
@@ -15,19 +15,19 @@ Pantheon uses Log4J2 for logging. There are two methods to configure logging beh
 
 ## Basic Log Level Setting
 
-Use the [`--logging`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#logging) command line option to specify 
-the logging verbosity. The [`--logging`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#logging) option changes
+Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify 
+the logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes
 the volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
 !!! tip 
-    Use the [`admin_changeLogLevel`](../../Reference/Pantheon-API-Methods.md#admin_changeloglevel) API method
-    to change the log level while Pantheon is running. 
+    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method
+    to change the log level while Besu is running. 
 
 ## Advanced Custom Logging
 
 You can provide your own logging configuration using the standard Log4J2 configuration mechanisms.
 For example, the following Log4J2 configuration is the same as the 
-[default configuration](https://github.com/PegaSysEng/pantheon/blob/master/pantheon/src/main/resources/log4j2.xml) 
+[default configuration](https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml) 
 except logging of stack traces for exceptions is excluded.
 
 ```xml tab="debug.xml"
@@ -57,11 +57,11 @@ If you have more specific requirements, you can create your own
 [log4j2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 For Bash-based executions, you can set the variable for only the scope of the program execution by 
-setting it before starting Pantheon.  
+setting it before starting Besu.  
 
 !!!example
-    To set the debug logging and start Pantheon connected to the Rinkeby testnet:
+    To set the debug logging and start Besu connected to the Rinkeby testnet:
 
     ```bash
-    LOG4J_CONFIGURATION_FILE=./debug.xml pantheon --network=rinkeby
+    LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=rinkeby
     ```

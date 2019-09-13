@@ -1,4 +1,4 @@
-description: Local Permissioning 
+description: Hyperledger Besu Local Permissioning 
 <!--- END of page meta data -->
 
 # Local Permissioning 
@@ -14,20 +14,20 @@ When node whitelisting is enabled, communication is restricted to only nodes in 
     `nodes-whitelist=["enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.168.0.9:4567","enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.169.0.9:4568"]`
 
 Node whitelisting is at the node level. That is, each node in the network has a [permissions configuration file](#permissions-configuration-file)
-file in the [data directory](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) for the node.  
+file in the [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.  
 
 To update the nodes whitelist when the node is running, use the JSON-RPC API methods:
  
-* [perm_addNodesToWhitelist](../../Reference/Pantheon-API-Methods.md#perm_addnodestowhitelist)
-* [perm_removeNodesFromWhitelist](../../Reference/Pantheon-API-Methods.md#perm_removenodesfromwhitelist)
+* [perm_addNodesToWhitelist](../../Reference/API-Methods.md#perm_addnodestowhitelist)
+* [perm_removeNodesFromWhitelist](../../Reference/API-Methods.md#perm_removenodesfromwhitelist)
 
 Alternatively, update the [`permissions_config.toml`](#permissions-configuration-file) file directly and use the 
-[`perm_reloadPermissionsFromFile`](../../Reference/Pantheon-API-Methods.md#perm_reloadpermissionsfromfile) method 
+[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile) method 
 to update the whitelists. 
 
 Updates to the permissions configuration file persist across node restarts. 
 
-To view the nodes whitelist, use the [perm_getNodesWhitelist](../../Reference/Pantheon-API-Methods.md#perm_getnodeswhitelist) method. 
+To view the nodes whitelist, use the [perm_getNodesWhitelist](../../Reference/API-Methods.md#perm_getnodeswhitelist) method. 
 
 !!! note
     Each node has a [permissions configuration file](#permissions-configuration-file) which means nodes can have different nodes whitelists. 
@@ -47,10 +47,10 @@ To view the nodes whitelist, use the [perm_getNodesWhitelist](../../Reference/Pa
 
 ### Bootnodes
 
-The bootnodes must be included in the nodes whitelist or Pantheon does not start when node permissions are enabled. 
+The bootnodes must be included in the nodes whitelist or Hyperledger Besu does not start when node permissions are enabled. 
 
 !!! example 
-    If you start Pantheon with specified bootnodes and have node permissioning enabled:
+    If you start Besu with specified bootnodes and have node permissioning enabled:
     
      ```bash
      --bootnodes="enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304","enode://7b61d5ee4b44335873e6912cb5dd3e3877c860ba21417c9b9ef1f7e500a82213737d4b269046d0669fb2299a234ca03443f25fe5f706b693b3669e5c92478ade@127.0.0.1:30305" 
@@ -60,11 +60,11 @@ The bootnodes must be included in the nodes whitelist or Pantheon does not start
 
 ### Enabling Node Whitelisting     
 
-To enable node whitelisting, specify the [`--permissions-nodes-config-file-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-nodes-config-file-enabled) option 
-when starting Pantheon. 
+To enable node whitelisting, specify the [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled) option 
+when starting Besu. 
 
-The `PERM` API methods are not enabled by default. Use the [`--rpc-http-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-api) options to enable the `PERM` API methods.
+The `PERM` API methods are not enabled by default. Use the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
+or [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PERM` API methods.
 
 ## Account Whitelisting 
 
@@ -75,11 +75,11 @@ A node with account permissioning accepts transactions only from accounts in the
     `accounts-whitelist=["0x0000000000000000000000000000000000000009"]`
     
 Account whitelisting is at the node level. That is, each node in the network has a [permisssions configuration file](#permissions-configuration-file)
-in the [data directory](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) for the node.    
+in the [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.    
     
 Transactions are validated against the accounts whitelist at the following points: 
 
-1. Submitted by JSON-RPC API method [`eth_sendRawTransaction`](../../Reference/Pantheon-API-Methods.md#eth_sendrawtransaction) 
+1. Submitted by JSON-RPC API method [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) 
 1. Received via propagation from another node 
 1. Added to a block by a mining node 
 
@@ -111,42 +111,42 @@ The diagram illustrates when local and onchain permissioning rules are applied.
 
 To update the accounts whitelist when the node is running, use the JSON-RPC API methods: 
 
-* [`perm_addAccountsToWhitelist`](../../Reference/Pantheon-API-Methods.md#perm_addaccountstowhitelist)
-* [`perm_removeAccountsFromWhitelist`](../../Reference/Pantheon-API-Methods.md#perm_removeaccountsfromwhitelist)
+* [`perm_addAccountsToWhitelist`](../../Reference/API-Methods.md#perm_addaccountstowhitelist)
+* [`perm_removeAccountsFromWhitelist`](../../Reference/API-Methods.md#perm_removeaccountsfromwhitelist)
 
 Alternatively, update the [`permissions_config.toml`](#permissions-configuration-file) file directly and use the 
-[`perm_reloadPermissionsFromFile`](../../Reference/Pantheon-API-Methods.md#perm_reloadpermissionsfromfile) method 
+[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile) method 
 to update the whitelists.
 
 Updates to the permissions configuration file persist across node restarts.
 
-To view the accounts whitelist, use the [`perm_getAccountsWhitelist`](../../Reference/Pantheon-API-Methods.md#perm_getaccountswhitelist) method.
+To view the accounts whitelist, use the [`perm_getAccountsWhitelist`](../../Reference/API-Methods.md#perm_getaccountswhitelist) method.
 
 ### Enabling Account Whitelisting 
 
-To enable account whitelisting, specify the [`--permissions-accounts-config-file-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-accounts-enabled) option 
-when starting Pantheon. 
+To enable account whitelisting, specify the [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-enabled) option 
+when starting Besu. 
 
-The `PERM` API methods are not enabled by default. Use the [`--rpc-http-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-api) options to enable the `PERM` API methods.
+The `PERM` API methods are not enabled by default. Use the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
+or [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PERM` API methods.
 
 ## Permissions Configuration File 
 
-The permissions configuration file contains the nodes and accounts whitelists. If the [`--permissions-accounts-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-accounts-config-file)
-and [`permissions-nodes-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-nodes-config-file) 
+The permissions configuration file contains the nodes and accounts whitelists. If the [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
+and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file) 
 options are not specified, the permissions configuration file must be called `permissions_config.toml` and
-must be in the [data directory](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) for the node.
+must be in the [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
 The accounts and nodes whitelists can be specified in the same file or in separate files for accounts and nodes. 
 
-Use the [`--permissions-accounts-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-accounts-config-file) 
-and [`permissions-nodes-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-nodes-config-file) 
+Use the [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file) 
+and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file) 
 options to specify a permissions configuration file (or separate files for accounts and nodes) in any location.
  
 !!!note
-    The [`--permissions-accounts-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-accounts-config-file) 
-    and [`permissions-nodes-config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#permissions-nodes-config-file) 
-    options are not used when running Pantheon from the [Docker image](../Get-Started/Run-Docker-Image.md). 
+    The [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file) 
+    and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file) 
+    options are not used when running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md). 
     Use a bind mount to [specify a permissions configuration file with Docker](../Get-Started/Run-Docker-Image.md#permissions-configuration-file).
 
 !!! example "Example Permissions Configuration File"  

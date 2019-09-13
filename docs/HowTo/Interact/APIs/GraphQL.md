@@ -1,4 +1,4 @@
-description: How to access the Pantheon API using GraphQL
+description: How to access the Hyperledger Besu API using GraphQL
 <!--- END of page meta data -->
 
 # GraphQL over HTTP
@@ -6,19 +6,19 @@ description: How to access the Pantheon API using GraphQL
 GraphQL can reduce the overhead needed for common queries. For example, instead of querying each receipt in a
 block, GraphQL can obtain the same result with a single query for the entire block. 
 
-The GraphQL implementation for Ethereum is described in the [schema](https://github.com/PegaSysEng/pantheon/blob/master/ethereum/graphql/src/main/resources/schema.graphqls). 
-The GraphQL service is enabled using the [command line options](Pantheon-API.md#enabling-api-access).
+The GraphQL implementation for Ethereum is described in the [schema](https://github.com/hyperledger/besu/blob/master/ethereum/graphql/src/main/resources/schema.graphqls). 
+The GraphQL service is enabled using the [command line options](API.md#enabling-api-access).
 
 !!! note
     GraphQL is not supported over WebSockets. 
 
 ## GraphQL Requests with Curl 
 
-[Pantheon JSON-RPC API methods](../../../Reference/Pantheon-API-Methods.md) with an equivalent [GraphQL](GraphQL.md) 
+[Hyperledger Besu JSON-RPC API methods](../../../Reference/API-Methods.md) with an equivalent [GraphQL](GraphQL.md) 
 query include a GraphQL request and result in the method example. 
 
 !!! example
-    The following [`syncing`](../../../Reference/Pantheon-API-Methods.md#eth_syncing) request returns data about the synchronization status.
+    The following [`syncing`](../../../Reference/API-Methods.md#eth_syncing) request returns data about the synchronization status.
     ```bash
     curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
     ```
@@ -26,7 +26,7 @@ query include a GraphQL request and result in the method example.
 ## GraphQL Requests with GraphiQL App
 
 The third-party tool [GraphiQL](https://github.com/skevy/graphiql-app) provides a tabbed interface for editing and testing GraphQL 
-queries and mutations. GraphiQL also provides access the Pantheon GraphQL schema from within the app. 
+queries and mutations. GraphiQL also provides access the Besu GraphQL schema from within the app. 
 
 ![GraphiQL](../../../images/GraphiQL.png) 
 
@@ -35,7 +35,7 @@ queries and mutations. GraphiQL also provides access the Pantheon GraphQL schema
 The Pending query is supported for `transactionCount` and `transactions`. 
 
 !!! important 
-    Pantheon doesn't execute pending transactions so result from `account`, `call`, and `estimateGas` for Pending
+    Besu doesn't execute pending transactions so result from `account`, `call`, and `estimateGas` for Pending
     do not reflect pending transactions. 
 
 !!! example

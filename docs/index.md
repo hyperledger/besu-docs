@@ -1,24 +1,24 @@
-title: Pantheon Enterprise Ethereum Client
-description: Pantheon is an open-source Enterprise Ethereum client developed under the Apache 2.0 license and written in Java. It runs on the Ethereum public network, private networks, and test networks.
+title: Hyperledger Besu Enterprise Ethereum Client
+description: Besu is an open-source Enterprise Ethereum client developed under the Apache 2.0 license and written in Java. It runs on the Ethereum public network, private networks, and test networks.
 <!--- END of page meta data -->
 
-# Pantheon Enterprise Ethereum Client
+# Besu Enterprise Ethereum Client
 
-## What is Pantheon?
+## What is Hyperledger Besu?
 
-Pantheon is an open-source Ethereum client developed under the Apache 2.0 license and written in Java. 
+Hyperledger Besu is an open-source Ethereum client developed under the Apache 2.0 license and written in Java. 
 It runs on the Ethereum public network, private networks, and test networks such as Rinkeby, Ropsten,
-and Görli. Pantheon implements Proof of Work (Ethash) and Proof of Authority (IBFT 2.0 and Clique) consensus
+and Görli. Besu implements Proof of Work (Ethash) and Proof of Authority (IBFT 2.0 and Clique) consensus
 mechanisms. 
 
-You can use Pantheon to develop enterprise applications requiring secure, high-performance transaction 
+You can use Besu to develop enterprise applications requiring secure, high-performance transaction 
 processing in a private network. 
 
-Pantheon supports enterprise features including privacy and permissioning. 
+Besu supports enterprise features including privacy and permissioning. 
 
-## What can you do with Pantheon?
+## What can you do with Besu?
 
-Pantheon includes a [command line interface](Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md) and [JSON-RPC API](HowTo/Interact/Pantheon-APIs/Pantheon-API.md)
+Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and [JSON-RPC API](HowTo/Interact/APIs/API.md)
 for running, maintaining, debugging, and monitoring nodes in an Ethereum network. You can use the API via RPC
 over HTTP or via WebSockets, and Pub/Sub is supported. The API supports typical Ethereum functionalities such as:
 
@@ -26,10 +26,10 @@ over HTTP or via WebSockets, and Pub/Sub is supported. The API supports typical 
 * Smart contract development
 * Decentralized application (Dapp) development
 
-## What does Pantheon support?
+## What does Besu support?
 
-The Pantheon client supports common smart contract and Dapp development, deployment, and operational use cases, using tools such as [Truffle](http://truffleframework.com/), [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports common JSON-RPC API methods such as eth, net, web3, debug, and miner.
+The Besu client supports common smart contract and Dapp development, deployment, and operational use cases, using tools such as [Truffle](http://truffleframework.com/), [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports common JSON-RPC API methods such as eth, net, web3, debug, and miner.
 
-Pantheon doesn't support [key management](HowTo/Send-Transactions/Account-Management.md) inside the client. You can use 
-[EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Pantheon to provide access to your key store
+Besu doesn't support [key management](HowTo/Send-Transactions/Account-Management.md) inside the client. You can use 
+[EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu to provide access to your key store
 and sign transactions.  

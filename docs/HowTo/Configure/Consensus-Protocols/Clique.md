@@ -1,4 +1,4 @@
-description: Pantheon Clique Proof-of-Authority (PoA) consensus protocol implementation
+description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
 path: blob/master/config/src/main/resources/
 source: rinkeby.json
 <!--- END of page meta data -->
@@ -7,7 +7,7 @@ source: rinkeby.json
 
 # Clique
 
-Pantheon implements the Clique Proof-of-Authority (PoA) consensus protocol. Clique is used by the
+Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. Clique is used by the
 Rinkeby testnet and can be used for private networks. 
 
 In Clique networks, transactions and blocks are validated by approved accounts, known as signers.
@@ -15,9 +15,9 @@ Signers take turns to create the next block. Existing signers propose and vote t
 
 ## Genesis File
 
-To use Clique in a private network, Pantheon requires a Clique genesis file. When connecting to Rinkeby,
-Pantheon uses the [`rinkeby.json`](https://github.com/PegaSysEng/pantheon/blob/master/config/src/main/resources/rinkeby.json) 
-genesis file in the `/pantheon/config/src/main/resources` directory.
+To use Clique in a private network, Besu requires a Clique genesis file. When connecting to Rinkeby,
+Besu uses the [`rinkeby.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/rinkeby.json) 
+genesis file in the `/besu/config/src/main/resources` directory.
 
 A PoA genesis file defines properties specific to Clique:
 
@@ -74,29 +74,29 @@ initial signer must be specified.
 
 ## Connecting to Clique Network 
 
-To connect to the Rinkeby testnet, start Pantheon with the [`--network=rinkeby`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#network)
+To connect to the Rinkeby testnet, start Besu with the [`--network=rinkeby`](../../../Reference/CLI/CLI-Syntax.md#network)
 command line option. To start a node on a Clique private network, use the 
-[`--genesis-file`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
+[`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
 
 ## Adding and Removing Signers
 
 To propose adding or removing signers using the JSON-RPC methods, enable the HTTP interface 
-using [`--rpc-http-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
-[`--rpc-ws-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-enabled). 
+using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
+[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled). 
 
-The Clique API methods are not enabled by default. To enable, specify the [`--rpc-http-api`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
+The Clique API methods are not enabled by default. To enable, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
+or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
 
 The JSON-RPC methods to add or remove signers are:
 
-* [clique_propose](../../../Reference/Pantheon-API-Methods.md#clique_propose)
-* [clique_getSigners](../../../Reference/Pantheon-API-Methods.md#clique_getsigners)
-* [clique_discard](../../../Reference/Pantheon-API-Methods.md#clique_discard)
+* [clique_propose](../../../Reference/API-Methods.md#clique_propose)
+* [clique_getSigners](../../../Reference/API-Methods.md#clique_getsigners)
+* [clique_discard](../../../Reference/API-Methods.md#clique_discard)
 
 !!! important
     A majority of existing signers must agree to add or remove a signer. That is, `clique_propose` must be executed on the majority (greater than 50%) of signers to take effect. For example, if you have 4 signers, the vote must be made on 3 signers.
 
-Use [clique_getSignerMetrics](../../../Reference/Pantheon-API-Methods.md#clique_getsignermetrics) to view signer metrics for a specified block range.
+Use [clique_getSignerMetrics](../../../Reference/API-Methods.md#clique_getsignermetrics) to view signer metrics for a specified block range.
 
 ### Adding a Signer
 

@@ -1,6 +1,6 @@
 # MkDocs And Markdown Guide
 
-Pantheon documentation is written using [Markdown](https://daringfireball.net/projects/markdown/) syntax.
+Hyperledger Besu documentation is written using [Markdown](https://daringfireball.net/projects/markdown/) syntax.
 
 However, we use two flavors of this syntax:
 
@@ -8,26 +8,26 @@ However, we use two flavors of this syntax:
 in the [Installed Markdown Extensions](#installed-markdown-extensions) section.
 - Another using the [Github syntax](https://guides.github.com/features/mastering-markdown/) 
 for pages outside of this documentation directory. These are mainly files to support our [open source 
-community](https://github.com/PegaSysEng/doc.pantheon/community).
+community](https://github.com/hyperledger/besu-docs/community).
 
 ## MkDocs Documentation Website
 
-The [Pantheon documentation website](https://docs.pantheon.pegasys.tech/) is maintained by PegaSys from 
-the content of the [/docs] directory.
+The [Hyperledger Besu documentation website](https://besu.hyperledger.org/) is built from the content of the
+[/docs] directory.
 
 ### /docs Directory
 
-The [/docs] directory in the Pantheon documentation repository contains all the documentation that 
+The [/docs] directory in the Hyperledger Besu documentation repository contains all the documentation that 
 is generated into a static HTML website using [MkDocs] and the [Mkdocs Material] theme and hosted by [readthedocs.org].
 
 The documentation is automatically updated using [WebHooks](https://docs.readthedocs.io/en/stable/webhooks.html)
 linking GitHub to the [readthedocs.org] site when you merge a pull-request in the master branch of 
-Pantheon documentation.
+Hyperledger Besu documentation.
 
 The system also detects tags in the Github repository and takes care of making the latest stable release
 and previous versions available.
 
-If any issues occur, contact the maintainers of the [Pantheon documentation project](https://readthedocs.org/projects/pantheon/).
+If any issues occur, contact the maintainers of the [Hyperledger Besu documentation project](https://readthedocs.org/projects/hyperledger-besu/).
 
 ### MkDocs Configuration
 
@@ -54,7 +54,7 @@ We recommended previewing your work locally before pushing your changes within a
 As the final documentation is build with [MkDocs], you have to build your docs locally with this tool 
 to ensure the Markdown is correctly understood and displayed.
 
-To preview Pantheon documentation locally: 
+To preview Hyperledger Besu documentation locally: 
 
 - [Install Python 3](https://www.python.org/downloads/)
 - Have PIP3 installed alongside Python 3.
@@ -93,7 +93,7 @@ and ended by a specific comment.
     Ex:
     ```markdown
     title: Installation overview
-    description: Overview and requirements to install Pantheon
+    description: Overview and requirements to install Hyperledger Besu
     <!--- END of page meta data -->
     ``` 
 - [As for other code](https://google.github.io/styleguide/javaguide.html#s4.4-column-limit),
@@ -101,7 +101,7 @@ each line of Markdown code must be limited to 100 columns long to be readable on
 Lines have to be wrapped without cutting the line in the middle of a word. A line break displays as a space.
 - No HTML markup can be used inside a Markdown document.
 We provide [a lot of extensions](#installed-markdown-extensions) that are able to do the same thing 
-without HTML. If you think one is missing, just discuss it with the team on [Gitter] and we'll decide together 
+without HTML. If you think one is missing, just discuss it with the team on [Besu chat] and we'll decide together 
 if it's worth adding an extension.
 - Only one first level title can be present on a page.
 - Format tables so they are also readable in the source code.
@@ -159,7 +159,7 @@ Example:
 ````markdown
 !!! note
     This is a multi line note
-    in the Pantheon documentation. 
+    in the Hyperledger Besu documentation. 
 ```` 
 
 The 4 spaces indentation is required for the content to be part of the admonition.
@@ -333,7 +333,7 @@ enables displaying a list as a checklist.
 
 For writing code examples inside the documentation, refer to the developer style guides:
 
-- Java : refer to Pantheon [coding convention](https://github.com/PegaSysEng/Pantheon/blob/master/CODING-CONVENTIONS.md).
+- Java : refer to Hyperledger Besu [coding convention](https://github.com/hyperledger/besus/blob/master/CODING-CONVENTIONS.md).
 - JSON : use https://jsonformatter.curiousconcept.com/ to format your JSON code.
 - TOML : we follow version 0.5.0 language definition.
 - JavaScript : see [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html).
@@ -365,15 +365,15 @@ For example, to group the usage syntax and a usage example in the same block wit
 
 ````markdown
 ```bash tab="Syntax"
-$ pantheon rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+$ besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
 ```
 
 ```bash tab="File Example"
-$ pantheon rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
+$ besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
 ```
 
 ```bash tab="Standard Input/Output Example"
-$ cat extra_data.json | pantheon rlp encode > rlp.txt
+$ cat extra_data.json | besu rlp encode > rlp.txt
 ```
 
 #### Line Numbers On Long Code Samples
@@ -421,5 +421,5 @@ Pygment is the implementation for this extension, refer to Pygment website for a
 [MkDocs]: https://www.mkdocs.org/
 [readthedocs.org]: https://readthedocs.org/
 [Mkdocs Material]: https://squidfunk.github.io/mkdocs-material/
-[Gitter]: https://gitter.im/PegaSysEng/pantheon
+[Besu chat]: https://chat.hyperledger.org/channel/besu
 [SuperFences]: https://squidfunk.github.io/mkdocs-material/extensions/pymdown/#superfences

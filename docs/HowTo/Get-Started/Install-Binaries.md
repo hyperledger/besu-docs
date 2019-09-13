@@ -1,4 +1,4 @@
-description: Install Pantheon from binary distribution
+description: Install Hyperledger Besu from binary distribution
 <!--- END of page meta data -->
 
 # Install Binary Distribution
@@ -11,18 +11,18 @@ description: Install Pantheon from binary distribution
 * Java JDK
 
 !!!attention
-    Pantheon requires Java 11+ to compile; earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+    Hyperledger Besu requires Java 11+ to compile; earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 ### Install Using Homebrew
 
 ```bash
-brew tap pegasyseng/pantheon
-brew install pantheon
+brew tap hyperledger/besu
+brew install besu
 ```
-Display Pantheon command line help to confirm installation:
+Display Besu command line help to confirm installation:
 
 ```bash
-pantheon --help
+besu --help
 ```
 
 ## Linux / Unix / Windows
@@ -32,8 +32,8 @@ pantheon --help
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 !!!attention
-    Pantheon requires Java 11+ to compile; earlier versions are not supported.
-    Pantheon is currently supported only on 64-bit versions of Windows, and requires a 64-bit version of JDK/JRE.
+    Besu requires Java 11+ to compile; earlier versions are not supported.
+    Besu is currently supported only on 64-bit versions of Windows, and requires a 64-bit version of JDK/JRE.
     We recommend that you also remove any 32-bit JDK/JRE installations.
 
 !!! note "Linux Open File Limit"
@@ -42,16 +42,16 @@ pantheon --help
 
 ### Install from Packaged Binaries
 
-Download the Pantheon [packaged binaries](https://pegasys.tech/solutions/).
+Download the Besu [packaged binaries](https://pegasys.tech/solutions/).
 
-Unpack the downloaded files and change into the `pantheon-<release>` directory.
+Unpack the downloaded files and change into the `besu-<release>` directory.
 
-Display Pantheon command line help to confirm installation:
+Display Besu command line help to confirm installation:
 
 ```bash tab="Linux/macOS"
-bin/pantheon --help
+bin/besu --help
 ```
 
 ```bat tab="Windows"
-bin\pantheon --help
+bin\besu --help
 ```

@@ -1,7 +1,7 @@
 {
-  "name": "doc.pantheon",
+  "name": "hyperledger-besu",
   "version": "1.0.0",
-  "description": "Pantheon doc site",
+  "description": "Hyperledger Besu doc site",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PegaSysEng/doc.pantheon.git"
+    "url": "git+https://github.com/hyperledger/besu-docs.git"
   },
-  "author": "Consensys/Pegasys",
+  "author": "Hyperledger Besu community",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/PegaSysEng/doc.pantheon/issues"
+    "url": "https://github.com/hyperledger/besu-docs/issues"
   },
-  "homepage": "https://github.com/PegaSysEng/doc.pantheon#readme",
+  "homepage": "https://github.com/hyperledger/besu-docs#readme",
   "dependencies": {
     "markdown-link-check": "3.7.3"
   }

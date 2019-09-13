@@ -1,4 +1,4 @@
-description: Backing up and restoring Pantheon   
+description: Backing up and restoring Besu   
 <!--- END of page meta data -->
 
 # Backups 
@@ -13,8 +13,8 @@ stored under source control.
 
 ## Data Backups
 
-We recommend mounting a separate volume to store data. Use the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) 
-command line option to pass the path to Pantheon. 
+We recommend mounting a separate volume to store data. Use the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) 
+command line option to pass the path to Besu. 
 
 Having some data reduces the time to synchronise a new node. Periodic backups can be performed of 
 the data directory and the data sent to your preferred backup mechanism. For example, cron job and 

@@ -6,16 +6,16 @@ description: Privacy
 A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Each private transaction is 
 stored in Orion with the privacy group ID.
 
-The Pantheon nodes maintain the public world state for the blockchain and a private state for each privacy group. 
+The Besu nodes maintain the public world state for the blockchain and a private state for each privacy group. 
 The private states contain data that is not shared in the globally replicated world state. Private transactions read 
 and write to the private world state for the privacy group, and read from the public world state.
 
 ## Privacy Types 
 
-Pantheon implements two types of privacy: 
+Besu implements two types of privacy: 
 
 * EEA-compliant privacy - private transactions include `privateFor` as the recipient.
-* Pantheon-extended privacy - private transactions include `privacyGroupId` as the recipient.
+* Besu-extended privacy - private transactions include `privacyGroupId` as the recipient.
 
 Both privacy types create privacy groups and store private transactions with their privacy group in Orion. 
 
@@ -23,7 +23,7 @@ Both privacy types create privacy groups and store private transactions with the
 
 !!! note
     The Orion nodes are not shown above for clarity only.  To send private transactions, 
-    each Pantheon node must have an associated Orion node. 
+    each Besu node must have an associated Orion node. 
 
 ### EEA-compliant Privacy 
 
@@ -50,15 +50,15 @@ privacy group ID by Orion.
     between two of the three parties.
 
 
-### Pantheon-extended Privacy 
+### Besu-extended Privacy 
  
-In our extended privacy implementation, a privacy group is created using [`priv_createPrivacyGroup`](../../Reference/Pantheon-API-Methods.md#priv_createprivacygroup)
+In our extended privacy implementation, a privacy group is created using [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)
 and private transactions sent to the privacy group ID. 
 
 !!! example 
     Using the same privacy groups as above. 
 
-    Using Pantheon-extended privacy, to send private transactions between A, B, and C, A creates a privacy 
+    Using Besu-extended privacy, to send private transactions between A, B, and C, A creates a privacy 
     group consisting of A, B, and C. The privacy group ID is specified when sending private transactions and 
     A, B, and C are recipients of all private transactions sent to the privacy group. 
 

@@ -1,4 +1,4 @@
-description: Configuring Privacy
+description: Configuring Hyperledger Besu privacy
 <!--- END of page meta data -->
 
 # Configuring a Network for Private Transactions 
@@ -8,7 +8,7 @@ description: Configuring Privacy
 * [Orion](https://docs.orion.pegasys.tech/en/latest/Installation/Overview/)
 
 Configuring a network that supports private transactions requires starting an Orion node for each
-Pantheon node. Pantheon command line options associate the Pantheon node with the Orion node. 
+Hyperledger Besu node. Besu command line options associate the Besu node with the Orion node. 
 
 This tutorial assumes you have completed setting up an IBFT 2.0 network to the point where you have 
 [created the genesis file](../Private-Network/Create-IBFT-Network.md#5-create-genesis-file). If not, complete
@@ -17,7 +17,7 @@ steps 1 to 5 of the [Create an IBFT 2.0](../Private-Network/Create-IBFT-Network.
 !!! important 
     To support privacy, ensure your genesis file includes at least the `constantinopleFixBlock` milestone.
 
-In this tutorial we start Orion nodes for the three Pantheon nodes and configure each Pantheon node to be associated 
+In this tutorial we start Orion nodes for the three Besu nodes and configure each Besu node to be associated 
 with an Orion node. 
 
 ## 1. Create Orion Directories
@@ -109,66 +109,66 @@ In each `Orion` directory, start Orion specifying the [configuration file](#3-cr
 orion orion.conf
 ``` 
 
-## 6. Start Pantheon Node-1
+## 6. Start Besu Node-1
 
-In the `Node-1` directory, start Pantheon Node-1:
+In the `Node-1` directory, start Besu Node-1:
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0  
+besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0  
 ```
 
 The command line specifies privacy options: 
 
-* [`--privacy-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#privacy-enabled) enables privacy
-* [`--privacy-url`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#privacy-url) specifies the Orion node URL (`clienturl` in `orion.conf`)
-* [`--privacy-public-key-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#privacy-public-key-file) specifies the file containing
+* [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy
+* [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Orion node URL (`clienturl` in `orion.conf`)
+* [`--privacy-public-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-public-key-file) specifies the file containing
 Orion node public key (created in [3. Generate Orion Keys](#3-generate-orion-keys))
-* [`--rpc-http-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) includes `EEA` and `PRIV` in the list of 
+* [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) includes `EEA` and `PRIV` in the list of 
 JSON-RPC APIs to enable privacy JSON-RPC API methods.  
-* [`--min-gas-price`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#min-gas-price) set to 0 for a [free gas network](../../HowTo/Configure-Pantheon/FreeGas.md).
+* [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) set to 0 for a [free gas network](../../HowTo/Configure/FreeGas.md).
 
 !!! note
-    Use the [`--privacy-marker-transaction-signing-key-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#privacy-marker-transaction-signing-key-file) command line option to sign [Privacy Marker Transactions](../../Concepts/Privacy/Private-Transaction-Processing.md) using a supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
+    Use the [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file) command line option to sign [Privacy Marker Transactions](../../Concepts/Privacy/Private-Transaction-Processing.md) using a supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
     
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
 
-### 7. Start Pantheon Node-2 
+### 7. Start Besu Node-2 
 
-In the `Node-2` directory, start Pantheon Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
+In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
  
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0   
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0   
 ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.  The 
-[`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option specifies the enode URL for Node-1.
+[`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for Node-1.
 
 !!!note
-    When running Pantheon from the [Docker image](../../HowTo/Get-Started/Run-Docker-Image.md), [expose ports](../../HowTo/Get-Started/Run-Docker-Image.md#exposing-ports).
+    When running Besu from the [Docker image](../../HowTo/Get-Started/Run-Docker-Image.md), [expose ports](../../HowTo/Get-Started/Run-Docker-Image.md#exposing-ports).
 
-### 8. Start Pantheon Node-3
+### 8. Start Besu Node-3
 
-In the `Node-3` directory and start Pantheon Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
+In the `Node-3` directory and start Besu Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0   
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0  
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0  
 ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.  The 
-[`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option specifies the enode URL for Node-1.
+[`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for Node-1.
 

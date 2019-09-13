@@ -1,4 +1,4 @@
-description: Pantheon command line interface subcommands
+description: Hyperledger Besu command line interface subcommands
 <!--- END of page meta data -->
 
 # Subcommands
@@ -10,11 +10,11 @@ Provides blocks related actions.
 ### import
 
 ```bash tab="Syntax"
-pantheon blocks import --from=<block-file>
+besu blocks import --from=<block-file>
 ```
 
 ```bash tab="Example"
-pantheon blocks import --from=/home/me/me_project/mainnet.blocks
+besu blocks import --from=/home/me/me_project/mainnet.blocks
 ```
 
 Imports blocks from the specified file into the blockchain database.
@@ -22,11 +22,11 @@ Imports blocks from the specified file into the blockchain database.
 ### export
 
 ```bash tab="Syntax"
-pantheon blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
+besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
 ```
 
 ```bash tab="Example"
-pantheon --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
 ```
 
 Exports a block, or list of blocks from storage to a file in RLP format. 
@@ -42,15 +42,15 @@ This command provides node public key related actions.
 ### export
 
 ```bash tab="Syntax"
-pantheon public-key export [--to=<key-file>]
+besu public-key export [--to=<key-file>]
 ```
 
 ```bash tab="Example (to standard output)"
-pantheon --data-path=<node data path> public-key export
+besu --data-path=<node data path> public-key export
 ```
 
 ```bash tab="Example (to file)"
-pantheon --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
+besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
 ```
 
 Outputs the node public key to standard output or writes it to the specified file if 
@@ -59,15 +59,15 @@ Outputs the node public key to standard output or writes it to the specified fil
 ### export-address
 
 ```bash tab="Syntax"
-pantheon public-key export-address [--to=<address-file>]
+besu public-key export-address [--to=<address-file>]
 ```
 
 ```bash tab="Example (to standard output)"
-pantheon --data-path=<node data path> public-key export-address
+besu --data-path=<node data path> public-key export-address
 ```
 
 ```bash tab="Example (to file)"
-pantheon --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
+besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
 ```
 
 Outputs the node public key address to standard output or writes it to the specified file if  
@@ -79,15 +79,15 @@ Provides password related actions.
 
 ### hash
 
-This command generates the hash of a given password. Include the hash in the [credentials file](../../HowTo/Interact/Pantheon-APIs/Authentication.md#credentials-file)
- for JSON-RPC API [authentication](../../HowTo/Interact/Pantheon-APIs/Authentication.md). 
+This command generates the hash of a given password. Include the hash in the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
+ for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md). 
 
 ```bash tab="Syntax"
-pantheon password hash --password=<my-password>
+besu password hash --password=<my-password>
 ```
 
 ```bash tab="Example"
-pantheon password hash --password=myPassword123
+besu password hash --password=myPassword123
 ```
 
 ## operator
@@ -99,15 +99,15 @@ Provides operator actions.
 This command generates [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md). 
 
 ```bash tab="Syntax"
-pantheon operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
+besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
 ```
 
 ```bash tab="Example"
-pantheon operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
+besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
 ```
 
 The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining 
-the [IBFT 2.0 genesis file](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md#genesis-file) except for the `extraData` string. The 
+the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for the `extraData` string. The 
 second is the `blockchain` property defining the number of key pairs to generate.  
 
 ## rlp
@@ -119,19 +119,19 @@ Provides RLP related actions.
 This command encodes a typed JSON value from a file or from the standard input into an RLP hexadecimal string.
 
 ```bash tab="Syntax"
-pantheon rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
 ```
 
 ```bash tab="File Example"
-pantheon rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
+besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
 ```
 
 ```bash tab="Standart Input/Output Example"
-cat extra_data.json | pantheon rlp encode > rlp.txt
+cat extra_data.json | besu rlp encode > rlp.txt
 ```
 
 The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding.
-This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md#genesis-file).
+This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
 
 ???+ summary "IBFT 2.0 Extra Data"
     To generate the RLP encoded `extraData` string, specify a JSON input that is array of validator addresses 
@@ -144,7 +144,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure-Panth
         ```json
         {
           "$schema": "http://json-schema.org/draft-07/schema#",
-          "$id": "http://tech.pegasys.pantheon/cli_rlp_ibft_extra_data.json",
+          "$id": "http://org.hyperledger.besu/cli_rlp_ibft_extra_data.json",
           "type": "array",
           "definitions": {},
           "title": "IBFT extra data",

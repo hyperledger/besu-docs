@@ -1,4 +1,4 @@
-description: Using RPC Pub/Sub with WebSockets
+description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
 <!--- END of page meta data -->
 
 # RPC Pub/Sub over WebSockets
@@ -7,7 +7,8 @@ description: Using RPC Pub/Sub with WebSockets
 
 Subscribe to events by using either RPC Pub/Sub over WebSockets or [filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, a Dapp can subscribe to logs to be notified when a specific event has occurred.
+Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example,
+a Dapp can subscribe to logs to be notified when a specific event has occurred.
 
 Methods specific to RPC Pub/Sub are: 
 
@@ -15,8 +16,8 @@ Methods specific to RPC Pub/Sub are:
 * `eth_unsubscribe` - cancel a subscription.
 
 !!!important
-    Unlike other [Pantheon API methods](../../../Reference/Pantheon-API-Methods.md), 
-    the RPC Pub/Sub methods cannot be called over HTTP. Use the [`--rpc-ws-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-enabled) option to enable
+    Unlike other [Hyperledger Besu API methods](../../../Reference/API-Methods.md), 
+    the RPC Pub/Sub methods cannot be called over HTTP. Use the [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option to enable
     the WebSockets JSON-RPC service. 
     
 ### Using RPC Pub/Sub
@@ -71,8 +72,8 @@ Use the `newHeads` parameter with `eth_subscribe` to be notified each time a blo
 If a chain reorganization occurs, the subscription publishes notifications for blocks in the new chain. 
 This means the subscription can publish notifications for multiple blocks at the same height on the blockchain.
 
-The new headers notification returns [block objects](../../../Reference/Pantheon-API-Objects.md#block-object). The 
-second parameter is optional.  If specified, whole [transaction objects](../../../Reference/Pantheon-API-Objects.md#transaction-object) 
+The new headers notification returns [block objects](../../../Reference/API-Objects.md#block-object). The 
+second parameter is optional.  If specified, whole [transaction objects](../../../Reference/API-Objects.md#transaction-object) 
 are included in the notifications. Otherwise, the transaction hashes are included. 
 
 !!!example
@@ -162,10 +163,10 @@ Logs subscriptions have an filter object parameter with the following fields:
   - `topics` - (optional) Returns only logs that match the [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
 
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old chain 
-with the `removed` property in the [log object](../../../Reference/Pantheon-API-Objects.md#log-object) set to `true`. 
+with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object) set to `true`. 
 This means the subscription can publish notifications for multiple logs for the same transaction.
 
-The logs subscription returns [log objects](../../../Reference/Pantheon-API-Objects.md#log-object). 
+The logs subscription returns [log objects](../../../Reference/API-Objects.md#log-object). 
 
 !!!example
     To subscribe to all logs notifications:

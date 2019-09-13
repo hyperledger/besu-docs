@@ -3,7 +3,7 @@ description: Pre-deploying contracts in genesis file
 
 # Predeploying Contracts in the Genesis File 
 
-To predeploy contracts when starting Pantheon, specify contract code in the genesis file. 
+To predeploy contracts when starting Besu, specify contract code in the genesis file. 
 
 !!! example "Contract Code in Genesis File"
     ```json

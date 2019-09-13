@@ -1,3 +1,6 @@
+description: Hyperledger Besu private network using Ethash (Proof of Work) Consensus Protocol tutorial 
+<!--- END of page meta data -->
+
 # Creating a Private Network using Ethash (Proof of Work) Consensus Protocol
 
 A private network provides a configurable network for testing. By configuring a low difficulty and enabling 
@@ -11,7 +14,7 @@ You can test multi-block and multi-user scenarios on a private network before mo
 
 ## Prerequisites 
 
-[Pantheon](../../HowTo/Get-Started/Install-Binaries.md) 
+[Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md) 
 
 [Curl (or similar web service client)](https://curl.haxx.se/download.html) 
 
@@ -82,21 +85,21 @@ Copy the following genesis definition to a file called `privateNetworkGenesis.js
 Start Node-1:
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"     
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"     
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"    
 ```
 
 The command line specifies: 
 
-* No arguments for the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option because this is your bootnode.
-* Mining is enabled and the account to which mining rewards are paid using the [`--miner-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#miner-enabled) 
-and [`--miner-coinbase`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#miner-coinbase) options.
-* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-enabled) option.
-* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#host-whitelist) option.
-* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-cors-origins) option.  
+* No arguments for the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option because this is your bootnode.
+* Mining is enabled and the account to which mining rewards are paid using the [`--miner-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-enabled) 
+and [`--miner-coinbase`](../../Reference/CLI/CLI-Syntax.md#miner-coinbase) options.
+* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
+* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option.
+* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.  
 
 !!! info
     The miner coinbase account is one of the accounts defined in the genesis file. 
@@ -111,18 +114,18 @@ Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304      
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304      
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304      
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304      
 ```
 
 The command line specifies: 
 
-* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
-* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option.
-* Data directory for Node-2 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
+* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* Data directory for Node-2 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * Genesis file as for Node-1.  
 
 ### 5. Start Node-3
@@ -130,22 +133,22 @@ The command line specifies:
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305      
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305      
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305      
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305      
 ```
 
 The command line specifies: 
 
  * Different port to Node-1 and Node-2 for P2P peer discovery.
- * Data directory for Node-3 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
+ * Data directory for Node-3 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
  * Bootnode and genesis file as for Node-2. 
 
 ### 6. Confirm Private Network is Working 
 
-Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/Pantheon-API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
+Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
@@ -165,13 +168,13 @@ The result confirms Node-1 (the node running the JSON-RPC service) has two peers
 Import accounts to MetaMask and send transactions as described in the [Private Network Quickstart Tutorial](../Quickstarts/Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
 
 !!! info 
-    Pantheon does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
     
 Send transactions using `eth_sendRawTransaction` to [send ether or, deploy or invoke contracts](../../HowTo/Send-Transactions/Transactions.md).
 
-Use the [JSON-RPC API](../../HowTo/Interact/Pantheon-APIs/Using-JSON-RPC-API.md). 
+Use the [JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md). 
 
-Start a node with the [`--rpc-ws-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-enabled) option and use the [RPC Pub/Sub API](../../HowTo/Interact/Pantheon-APIs/RPC-PubSub.md).       
+Start a node with the [`--rpc-ws-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option and use the [RPC Pub/Sub API](../../HowTo/Interact/APIs/RPC-PubSub.md).       
 
 ## Stop Nodes
 

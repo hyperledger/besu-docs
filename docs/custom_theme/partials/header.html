@@ -49,17 +49,8 @@
       <!-- Header title -->
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title"
-            data-md-component="title">
-          {% if config.site_name == page.title %}
-            {{ config.site_name }}
-          {% else %}
-            <span class="md-header-nav__topic">
-              {{ config.site_name }}
-            </span>
-            <span class="md-header-nav__topic">
-              {{ page.title }}
-            </span>
-          {% endif %}
+             data-md-component="title">
+          {{ page.title }}
         </div>
       </div>
 

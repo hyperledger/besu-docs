@@ -1,14 +1,18 @@
+description: Hyperledger Besu authentication and Authorization for JSON-RPC
+<!--- END of page meta data -->
+
 # Authentication and Authorization for JSON-RPC
 
 Authentication identifies a user based on a username and password. Authorization verifies whether the user has
 access to the JSON-RPC method they are requesting.  
 
-Pantheon uses the username and password to authenticate users and [JWT tokens](https://jwt.io/introduction/) to authorize JSON-RPC requests. 
+Hyperledger Besu uses the username and password to authenticate users and 
+[JWT tokens](https://jwt.io/introduction/) to authorize JSON-RPC requests. 
 
 !!! important 
     To prevent interception of authentication credentials and authenticated tokens, make authenticated requests over HTTPS. 
     We recommended production deployments are run behind a network layer that provides SSL termination. 
-    Pantheon does not provide a HTTPS connection natively.
+    Besu does not provide a HTTPS connection natively.
 
 ## Credentials File 
 
@@ -28,12 +32,12 @@ The credentials file is a `toml` file defining user details and the JSON-RPC met
 Each user requiring JSON-RPC access is listed with: 
 
 * Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in `[Users.<username>]` with the username being defined. 
-* Hash of the user password. Use the [`password hash`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Subcommands.md#password) subcommand to generate the hash. 
+* Hash of the user password. Use the [`password hash`](../../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the hash. 
 * JSON-RPC permissions. 
 
 !!! example "password hash Subcommand"
     ```bash
-    pantheon password hash --password=pegasys
+    besu password hash --password=pegasys
     ```
     
 ## JSON-RPC Permissions 
@@ -50,12 +54,12 @@ methods.
     
 ## Enabling Authentication 
  
-Use the [` --rpc-http-authentication-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-authentication-enabled) or 
- [`--rpc-ws-authentication-enabled`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-authentication-enabled)
+Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) or 
+ [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
  options to require authentication for the JSON-RPC API.
   
-Use the [`--rpc-http-authentication-credentials-file`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-authentication-credentials-file)
-and [`--rpc-ws-authentication-credentials-file`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-ws-authentication-credentials-file) 
+Use the [`--rpc-http-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
+and [`--rpc-ws-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file) 
 options to specify the [credentials file](#credentials-file).  
 
 ## Obtaining an Authentication Token 

@@ -1,12 +1,13 @@
-description: Pantheon IBFT 2.0 Proof-of-Authority (PoA) private network tutorial 
+description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) private network tutorial 
 <!--- END of page meta data -->
 
-*[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.
+*[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing
+or propagating incorrect information to peers.
 
 # Creating a Private Network using IBFT 2.0 (Proof of Authority) Consensus Protocol
 
 A private network provides a configurable network for testing. This private network uses the [IBFT 2.0 (Proof of Authority)
-consensus protocol](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md). 
+consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md). 
 
 !!!important
     An Ethereum private network created as described here is isolated but not protected or secure. 
@@ -17,7 +18,7 @@ consensus protocol](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md).
 
 ## Prerequisites 
 
-[Pantheon](../../HowTo/Get-Started/Install-Binaries.md) 
+[Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md) 
 
 [Curl (or similar web service client)](https://curl.haxx.se/download.html) 
 
@@ -46,7 +47,7 @@ IBFT-Network/
 
 ### 2. Create Configuration File 
 
-The configuration file defines the [IBFT 2.0 genesis file](../../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md#genesis-file) 
+The configuration file defines the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) 
 and the number of node key pairs to generate.    
 
 The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining 
@@ -110,7 +111,7 @@ Copy the following configuration file definition to a file called `ibftConfigFil
 In the `IBFT-Network` directory, generate the node key and genesis file: 
 
 ```bash tab="MacOS"
-pantheon operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
+besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
 ```
 
 In the `networkFiles` directory, the following are created: 
@@ -171,20 +172,20 @@ IBFT-Network/
 In the `Node-1` directory, start Node-1:
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"      
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"      
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"    
 ```
 
 The command line specifies: 
 
-* Data directory for Node-1 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
-* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-enabled) option
-* ETH,NET, and IBFT APIs are enabled using the [`--rpc-http-api`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-api) option
-* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#host-whitelist) option
-* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-cors-origins) option 
+* Data directory for Node-1 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+* ETH,NET, and IBFT APIs are enabled using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
+* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option 
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
@@ -196,19 +197,19 @@ Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
  
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
 ```
 
 The command line specifies: 
 
-* Data directory for Node-2 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
-* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
-* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port) option.
-* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#bootnodes) option.
+* Data directory for Node-2 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
 
@@ -217,18 +218,18 @@ The command line specifies:
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
 ```
 
 The command line specifies: 
 
- * Data directory for Node-3 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
- * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port) option.
+ * Data directory for Node-3 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+ * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+ * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
  * Bootnode as for [Node-2](#6-start-node-2).
  * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
  
@@ -237,24 +238,24 @@ The command line specifies:
 Start another terminal, change to the `Node-4` directory and start Node-4 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 
 ```bash tab="MacOS"
-pantheon --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
 ```
 
 ```bash tab="Windows"
-pantheon --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
 ```
 
 The command line specifies: 
 
- * Data directory for Node-4 using the [`--data-path`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#data-path) option.
- * Different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the [`--p2p-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port) option.
+ * Data directory for Node-4 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+ * Different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+ * Different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
  * Bootnode as for [Node-2](#6-start-node-2).
  * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
 
 ### 10. Confirm Private Network is Working 
 
-Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/Pantheon-API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
+Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
@@ -273,7 +274,7 @@ The result confirms Node-1 has three peers (Node-2, Node-3, and Node-4):
 
 Look at the logs displayed to confirm blocks are being produced. 
 
-Use the [IBFT API](../../Reference/Pantheon-API-Methods.md#ibft-20-methods) to remove or add validators.
+Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or add validators.
 
 !!! note
     To add or remove nodes as validators you need the node address. The directory [created for each node](#3-generate-node-keys-and-genesis-file) 
@@ -284,7 +285,7 @@ Use the [IBFT API](../../Reference/Pantheon-API-Methods.md#ibft-20-methods) to r
 Import accounts to MetaMask and send transactions as described in the [Private Network Quickstart Tutorial](../Quickstarts/Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
 
 !!! info 
-    Pantheon does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
 ## Stop Nodes
 

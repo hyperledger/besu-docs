@@ -24,8 +24,8 @@ npm install web3-eea
 
 Initilize your EEA client where:
 
-* `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Pantheon node. Specified by the
-[`--rpc-http-host`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#rpc-http-port)
+* `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified by the
+[`--rpc-http-host`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
 command line options.
 * `<chain_id>` is the [chain ID](../../../Concepts/NetworkID-And-ChainID.md) of your network.
 
@@ -51,7 +51,7 @@ to get the contract binary.
       data: `0x123`, // contract binary
       privateFrom: "orionNode1PublicKey",
       privateFor: ["orionNode3PublicKey"],
-      privateKey: "pantheonNode1PrivateKey"
+      privateKey: "besuNode1PrivateKey"
     };
     return web3.eea.sendRawTransaction(contractOptions);
     ```

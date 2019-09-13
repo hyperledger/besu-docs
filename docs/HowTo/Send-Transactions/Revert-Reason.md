@@ -1,4 +1,4 @@
-description: Including revert reason in transactions 
+description: Including revert reason in transactions with Hyperledger Besu
 <!--- END of page meta data -->
 
 # Revert Reason 
@@ -27,8 +27,8 @@ information about the error is passed back to the client from the EVM.
 
 ## Enabling Revert Reason 
 
-Use the [`--revert-reason-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#revert-reason-enabled) command line option
-to include the revert reason in the transaction receipt in Pantheon. 
+Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled) command line option
+to include the revert reason in the transaction receipt in Hyperledger Besu. 
 
 !!! caution 
     Enabling revert reason may use a significant amount of memory. We do not recommend enabling revert
@@ -37,7 +37,7 @@ to include the revert reason in the transaction receipt in Pantheon.
 ## Where is the Revert Reason Included 
 
 When revert reason is enabled, the revert reason is included as an ABI-encoded string in the transaction receipt returned by 
-[`eth_getTransactionReceipt`](../../Reference/Pantheon-API-Methods.md#eth_gettransactionreceipt). 
+[`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt). 
 
 !!! important 
     The revert reason is not included in the transactions receipts root hash. Not being included in the 
@@ -87,6 +87,6 @@ the revert reason is included as an ABI-encoded string consisting of:
 ## Dapp Support 
 
 Client libraries (eg, web3j) do not support extracting the revert reason from the transaction receipt. 
-To extract the revert reason your Dapp must interact directly with Pantheon using a custom JSON -> Object 
+To extract the revert reason your Dapp must interact directly with Besu using a custom JSON -> Object 
 converter. 
 

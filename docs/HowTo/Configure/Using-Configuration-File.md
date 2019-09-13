@@ -1,12 +1,15 @@
-# Using a Configuration File
+description: Using Hyperledger Besu Configuration File
+<!--- END of page meta data -->
+
+# Using Hyperledger Besu Configuration File
 
 To specify command line options in a file, use a TOML configuration file. 
 
 The configuration file can be saved and reused across node startups. To specify the configuration file,
-use the [`--config-file`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#config-file) option. 
+use the [`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option. 
 
 To override an option specified in the configuration file, specify the same option on the command line or as 
-an [environment variable](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#pantheon-environment-variables). If an option is specified in multiple places, 
+an [environment variable](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables). If an option is specified in multiple places, 
 the order of priority is command line, environment variable, configuration file. 
 
 ## TOML Specification
@@ -21,12 +24,12 @@ Specific differences between the command line and the TOML file format are:
 * File paths, hexadecimal numbers, URLs, and &lt;host:port> values must be enclosed in quotes. 
 
 !!!tip
-    The [command line reference](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md) includes configuration file examples for each option.  
+    The [command line reference](../../Reference/CLI/CLI-Syntax.md) includes configuration file examples for each option.  
 
 !!!example "Example TOML configuration file"
     ```toml
     # Valid TOML config file
-    data-path="~/pantheondata" # Path
+    data-path="~/besudata" # Path
     
     # Network
     bootnodes=["enode://001@123:4567", "enode://002@123:4567", "enode://003@123:4567"]
@@ -49,7 +52,7 @@ Specific differences between the command line and the TOML file format are:
     miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
     
-!!!example "Starting Pantheon with a Configuration File"
+!!!example "Starting Besu with a Configuration File"
     ```bash
-    pantheon --config-file=/home/me/me_node/config.toml
+    besu --config-file=/home/me/me_node/config.toml
     ```

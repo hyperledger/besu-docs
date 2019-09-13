@@ -1,18 +1,18 @@
-description: Configuration items specified in the genesis file 
+description: Configuration items specified in the Hyperledger Besu genesis file 
 <!--- END of page meta data -->
 
 # Configuration Items
 
-Network configuration items are specified in the genesis file.  
+Network configuration items are specified in the Hyperledger Besu genesis file.  
  
 | Item                | Description                                                                                                                              |
 |---------------------|-:----------------------------------------------------------------------------------------------------------------------------------------|
 | Chain ID            | [Chain ID for the network](../Concepts/NetworkID-And-ChainID.md)                                                                                      |
 | Milestone blocks    | [Milestone blocks for the network](#milestone-blocks)                                                                                    |
 | `ethash`            | Specifies network uses [Ethash](../Concepts/Consensus-Protocols/Overview-Consensus.md) and contains [`fixeddifficulty`](#Fixed Difficulty)         |
-| `clique`            | Specifies network uses [Clique](../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../HowTo/Configure-Pantheon/Consensus-Protocols/Clique.md#genesis-file)                              |
-| `ibft2`             | Specifies network uses [IBFT 2.0](../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../HowTo/Configure-Pantheon/Consensus-Protocols/IBFT.md#genesis-file)                            |
-| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure-Pantheon/FreeGas.md). Default is `24576` and the maximum size is `2147483647`.     |
+| `clique`            | Specifies network uses [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file)                              |
+| `ibft2`             | Specifies network uses [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file)                            |
+| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). Default is `24576` and the maximum size is `2147483647`.     |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with very complex smart contracts. Default is `1024`. |
 
 

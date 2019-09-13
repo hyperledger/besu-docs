@@ -1,7 +1,7 @@
-description: Deploying Permissioning Management Dapp for production 
+description: Deploying Hyperledger Besu Permissioning Management Dapp for production 
 <!--- END of page meta data -->
 
-# Deploying Permissioning Management Dapp for Production 
+# Deploying Hyperledger Besu Permissioning Management Dapp for Production 
 
 To deploy the Permissioning Management dapp for production: 
 

@@ -17,7 +17,7 @@ You can also use a full online version of EthStats for the [Ethereum MainNet](ht
 
 !!! tip
     Static local ports 80 and 3000 are used in the example [running EthStats Lite 
-    for a Pantheon Node](#running-ethstats-lite-for-a-pantheon-node).  
+    for a Hyperledger Besu Node](#running-ethstats-lite-for-a-besu-node).  
 
 ## Statistics
 
@@ -52,17 +52,17 @@ The client extracts data from the node and sends it to the server
 
 !!! tip
     EthStats Lite has a number of dependencies. Using Docker is the easiest way to
-    use EthStats Lite with Pantheon.
+    use EthStats Lite with Besu.
     
     The [EthStats CLI](https://github.com/Alethio/ethstats-cli),
     [EthStats Network Server](https://github.com/Alethio/ethstats-network-server), and [EthStats Network
     Dashboard](https://github.com/Alethio/ethstats-network-dashboard) documentation describes how to 
     install EthStats Lite tools. 
 
-## Running EthStats Lite for a Pantheon Node
+## Running EthStats Lite for a Besu Node
 
 !!! important
-    This example describes how to run EthStats Lite for a single Pantheon node.
+    This example describes how to run EthStats Lite for a single Besu node.
     To run EthStats Lite for a network of nodes, a [client](#3-client) must be started for each node. 
 
 ### 1. Server
@@ -81,14 +81,14 @@ Start the EthStats Lite server using in-memory persistence:
     cd ethstats-network-server/docker/lite-mode/memory-persistence
     ```
 
-1. Update the `docker-compose.yml` file to your Pantheon [network ID](../../Concepts/NetworkID-And-ChainID.md):
+1. Update the `docker-compose.yml` file to your Besu [network ID](../../Concepts/NetworkID-And-ChainID.md):
     
     ```yaml
      - NETWORK_ID=2018
      - NETWORK_NAME=mynetwork
     ```
     
-    In this example we are using the `dev` Pantheon network with a network ID of `2018`.
+    In this example we are using the `dev` Besu network with a network ID of `2018`.
     
 1. Start the server using Docker compose: 
 
@@ -100,19 +100,19 @@ Start the EthStats Lite server using in-memory persistence:
     A `docker-compose` file is provided in the `ethstats-network-server/docker/lite-mode/redis-persistence`
     directory to run the server using Redis to persist a fixed number of blocks (default is 3000).
 
-### 2. Pantheon 
+### 2. Besu 
 
-Start Pantheon in development mode with WebSockets enabled:
+Start Besu in development mode with WebSockets enabled:
 
 ```bash
-docker run --rm -p 8546:8546 pegasyseng/pantheon:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-ws-enabled --network=dev
+docker run --rm -p 8546:8546 hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-ws-enabled --network=dev
 ```
 
-Where `<pantheondata-path>` is the volume to which the node data is saved. 
+Where `<besudata-path>` is the volume to which the node data is saved. 
 
 ### 3. Client 
 
-Start the client for the Pantheon node:  
+Start the client for the Besu node:  
 
 ```bash
 docker run -d --rm --name ethstats-client --net host alethio/ethstats-cli --register --account-email <email> --node-name <node_name> --server-url http://localhost:3000 --client-url ws://127.0.0.1:8546
@@ -121,9 +121,9 @@ docker run -d --rm --name ethstats-client --net host alethio/ethstats-cli --regi
 Where: 
 
 * `--server-url` specifies [your server](#1-server). The default is the server that consumes data for the Ethereum MainNet.
-* `--register` specifies the registration of the Pantheon node is done automatically with the specified `<email>` and `<node_name>`. 
+* `--register` specifies the registration of the Besu node is done automatically with the specified `<email>` and `<node_name>`. 
 Registering the node is only required the first time the client is started for the node.
-* `--client-url` specifies the WebSockets URL for the Pantheon node.    
+* `--client-url` specifies the WebSockets URL for the Besu node.    
 
 ### 4. Dashboard 
 
@@ -151,7 +151,7 @@ To display EthStats Lite dashboard, open [http://localhost](http://localhost) in
 
 When you've finished running EthStats Lite:
 
-1. Stop Pantheon using ++ctrl+c++.  
+1. Stop Besu using ++ctrl+c++.  
 
 1. Stop EthStats Lite server and remove containers and volumes: 
 

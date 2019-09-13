@@ -1,9 +1,9 @@
-description: Updating onchain whitelists
+description: Updating Hyperledger Besu onchain whitelists
 <!--- END of page meta data -->
 
 ## Update Nodes Whitelist  
 
-To add a node to the nodes whitelist: 
+To add a node to the Hyperledger Besu nodes whitelist: 
 
 1. In the _Whitelisted Nodes_ tab of the Permissioning Management Dapp, click the _Add Whitelisted Nodes_
    button. The add node window is displayed.
@@ -20,7 +20,7 @@ A trash can is displayed.
 
 !!! tip
     If you add a running node, the node does not attempt to reconnect to the bootnode and synchronize until 
-    peer discovery restarts.  To add a whitelisted node as a peer without waiting for peer discovery to restart, use [`admin_addPeer`](../../Reference/Pantheon-API-Methods.md#admin_addpeer). 
+    peer discovery restarts.  To add a whitelisted node as a peer without waiting for peer discovery to restart, use [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer). 
 
     If the node is added to the whitelist before starting the node, using `admin_addPeer` is not required because
     peer discovery is run on node startup. 

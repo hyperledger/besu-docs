@@ -1,4 +1,4 @@
-description: Configuring UPnP with Pantheon
+description: Configuring UPnP with Hyperledger Besu
 <!--- END of page meta data -->
 
 # UPnP
@@ -14,7 +14,7 @@ UPnP automatically detects that a node is running in a UPnP environment and prov
     
 ## Enabling UPnP 
 
-Use the [`--nat-method`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#nat-method) command line option to enable UPnP.
+Use the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) command line option to enable UPnP.
 
 !!! note
     Enabling UPnP may slow down node startup, especially on networks without a UPnP gateway device.
@@ -22,11 +22,11 @@ Use the [`--nat-method`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#nat
 When UPnP is enabled: 
 
 * [Enode](../../Concepts/Node-Keys.md#enode-url) advertised to other nodes during discovery is the external IP address and port. 
-* External address and port are returned by the [`admin_NodeInfo`](../../Reference/Pantheon-API-Methods.md#admin_nodeinfo)
+* External address and port are returned by the [`admin_NodeInfo`](../../Reference/API-Methods.md#admin_nodeinfo)
   JSON-RPC API method for the `enode` and `listenAddr` properties. 
   
-While Pantheon is running, UPnP does not support: 
+While Hyperledger Besu is running, UPnP does not support: 
 
 * IP address changes
-* Disabling UPnP. To disable UPnP, restart the node without the [`--nat-method`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#nat-method)
+* Disabling UPnP. To disable UPnP, restart the node without the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method)
 option or set to `NONE`. 

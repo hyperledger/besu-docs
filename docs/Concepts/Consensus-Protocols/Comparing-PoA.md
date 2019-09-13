@@ -2,7 +2,7 @@
 
 # Comparing Proof of Authority Consensus Protocols  
 
-Pantheon implements the Clique and IBFT 2.0 Proof of Authority consensus protocols. Proof of Authority 
+Besu implements the Clique and IBFT 2.0 Proof of Authority consensus protocols. Proof of Authority 
 consensus protocols are used when participants are known to each other and there is a level of trust between them. 
 For example, in a permissioned consortium network. 
 

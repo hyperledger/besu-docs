@@ -1,10 +1,10 @@
-description: Pantheon private network quickstart on Azure tutorial
+description: Hyperledger Besu private network quickstart on Azure tutorial
 <!--- END of page meta data -->
 
 # Azure Private Network Quickstart Tutorial
 
-This tutorial describes how to use the [Pantheon quickstart](https://github.com/PegaSysEng/pantheon-quickstart) 
-to run a private network of Pantheon nodes in a Docker container in a Linux Virtual 
+This tutorial describes how to use the [Hyperledger Besu quickstart](https://github.com/PegaSysEng/besu-quickstart) 
+to run a private network of Besu nodes in a Docker container in a Linux Virtual 
 machine hosted on Microsoft Azure.
 
 ## Duration
@@ -40,15 +40,15 @@ This tutorial contains some optional steps that will increase the duration.
 
 ### One Click Deploy
 
-Deploy the Pantheon Quickstart on [Microsoft Azure](https://azure.microsoft.com) by clicking the button below.
+Deploy the Besu Quickstart on [Microsoft Azure](https://azure.microsoft.com) by clicking the button below.
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FPegaSysEng%2Fpantheon-quickstart%2Fmaster%2Fazure%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FPegaSysEng%2Fbesu-quickstart%2Fmaster%2Fazure%2Fazuredeploy.json)
 
 If prompted to log in to the Azure Portal, log in before being redirected to the deployment form.  
 
 ???info "Filling in the Azure Deployment Form"
     * **Subscription** : Default
-    * **Resource group** : Click **Create new** and enter `pantheon-quickstart`
+    * **Resource group** : Click **Create new** and enter `besu-quickstart`
     * **Vm Name** : Default
     * **Admin Username** : Default
     * **Admin Password** : Create a password between 12 and 72 characters with numbers, lower and upper-case
@@ -76,7 +76,7 @@ instructions.
     ##### Basics Step
     
       * Subscription --> Free trial
-      * Resource group --> Create a group and name it. For example, pantheon-quickstart
+      * Resource group --> Create a group and name it. For example, besu-quickstart
       * Virtual machine name --> quickstart
       * Region --> Default
       * Availability options --> No infrastructure redundancy required
@@ -104,7 +104,7 @@ instructions.
     
     1. Click the blue **Create** button. A form with two fields is displayed. 
     
-    1. In another browser tab or window, open [https://raw.githubusercontent.com/PegaSysEng/pantheon-quickstart/master/azure/install_and_run.sh](https://raw.githubusercontent.com/PegaSysEng/pantheon-quickstart/master/azure/install_and_run.sh)
+    1. In another browser tab or window, open [https://raw.githubusercontent.com/Hyperledger/besu-quickstart/master/azure/install_and_run.sh](https://raw.githubusercontent.com/Hyperledger/besu-quickstart/master/azure/install_and_run.sh)
     
     1. Save (++ctrl+s++) this script to your computer, in any location, called `install_and_run.sh`. 
     
@@ -173,15 +173,15 @@ Options for shutting down are:
 
 This is the easiest way to ensure your Azure resources won't consume any credits.
 
-In the Azure portal, navigate to your resource group (for example, **pantheon-quickstart**) and 
+In the Azure portal, navigate to your resource group (for example, **besu-quickstart**) and 
 click the **Delete resource group** button.
 
 ### I Want to Remove the Virtual Machine Only
 
-In the Azure portal, navigate to your resource group (for example, **pantheon-quickstart**) and
+In the Azure portal, navigate to your resource group (for example, **besu-quickstart**) and
 click the virtual machine resource and click the **Delete** button.
 
-### I Want to Keep the Virtual Machine but Remove the Pantheon Network
+### I Want to Keep the Virtual Machine but Remove the Besu Network
 
 1. In the Azure portal, navigate to the VM:
      1. Click **All services** in the left pane
@@ -190,9 +190,9 @@ click the virtual machine resource and click the **Delete** button.
      
 1. Click the **connect** button to obtain the information to connect with SSH (see [Requirements](#requirements)).
 
-1. Once connected to the machine, go to the `pantheon-quickstart` directory:
+1. Once connected to the machine, go to the `besu-quickstart` directory:
     ```bash
-    cd pantheon-quickstart
+    cd besu-quickstart
     ``` 
 
 1. Run the remove script:
@@ -208,7 +208,7 @@ click the virtual machine resource and click the **Delete** button.
 
     Where 80 is the port number for the Block Explorer and RPC connections.
  
-### I Want to Stop the Pantheon Network and Be Able to Resume It
+### I Want to Stop the Besu Network and Be Able to Resume It
 
 Connect to the VM using SSH as for [I want to keep the VM but remove the nodes network](#i-want-to-keep-the-vm-but-remove-the-nodes-network)
 but instead of running the remove script, run the stop script:

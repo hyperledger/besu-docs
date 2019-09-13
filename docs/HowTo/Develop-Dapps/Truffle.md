@@ -1,11 +1,12 @@
-description: Using Pantheon with Truffle
+description: Using Hyperledger Besu with Truffle
 <!--- END of page meta data -->
 
-# Using Pantheon with Truffle 
+# Using Hyperledger Besu with Truffle 
 
-Developing for Pantheon using Truffle is the same as using Truffle to develop for the public Ethereum networks. 
-Truffle supports Pantheon with the only difference being Pantheon does not implement private key management. 
-To use Pantheon with Truffle, you must configure a Truffle wallet.
+Developing for Hyperledger Besu using Truffle is the same as using Truffle to develop for the public
+Ethereum networks. 
+Truffle supports Besu with the only difference being Besu does not implement private key management. 
+To use Besu with Truffle, you must configure a Truffle wallet.
 
 ## Install Truffle Wallet 
 
@@ -22,7 +23,7 @@ npm install --save truffle-hdwallet-provider@web3-one
 
 Modify the `truffle-config.js` file in the project directory to add the wallet provider. Replace: 
 
-* `<JSON-RPC-http-endpoint>` with the JSON-RPC endpoint (IP address and port) of a Pantheon node
+* `<JSON-RPC-http-endpoint>` with the JSON-RPC endpoint (IP address and port) of a Besu node
 *  `<account-private-key>` with the private key of an Ethereum account containing Ether 
 
 ```javascript
@@ -34,7 +35,7 @@ module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // for more about customizing your Truffle configuration!
   networks: {
-    pantheonWallet: {
+    besuWallet: {
       provider: privateKeyProvider,
       network_id: "*"
     },
@@ -42,16 +43,16 @@ module.exports = {
 };
 ```
 
-### Start Pantheon Node 
+### Start Besu Node 
 
-Start a Pantheon node with JSON-RPC enabled on the endpoint specified in the Truffle configuration 
+Start a Besu node with JSON-RPC enabled on the endpoint specified in the Truffle configuration 
 file.  
 
 ### Deploy Contract 
 
-To deploy a contract onto the Pantheon network: 
+To deploy a contract onto the Besu network: 
 
 ```bash
-truffle migrate --network pantheonWallet
+truffle migrate --network besuWallet
 ```
 

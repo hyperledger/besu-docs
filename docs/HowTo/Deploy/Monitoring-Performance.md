@@ -1,19 +1,24 @@
-description: Frequently asked questions FAQ and answers for troubleshooting Pantheon use
+description: Frequently asked questions FAQ and answers for troubleshooting Hyperledger Besu use
 <!--- END of page meta data -->
 
-# Monitoring Pantheon
+# Monitoring Hyperledger Besu
 
-## Monitor Node Using Prometheus
+## Monitor Node Performance and Connectivity Using the JSON-RPC API
 
-Use the [`--metrics-enabled` option](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-enabled) to enable the [Prometheus](https://prometheus.io/) monitoring and 
-alerting service to access Pantheon metrics. You can also visualize the collected data using [Grafana](https://grafana.com/).
-A sample [Pantheon Grafana dashboard](https://grafana.com/dashboards/10273) is provided. 
+You can monitor node performance using the [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics)
+JSON-RPC API method.
 
-To specify the host and port on which Prometheus accesses Pantheon, use the [`--metrics-host`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-host) and 
-[`--metrics-port`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-port) options. 
+## Monitor Node Performance Using Prometheus
+
+Use the [`--metrics-enabled` option](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) to enable the [Prometheus](https://prometheus.io/) monitoring and 
+alerting service to access Besu metrics. You can also visualize the collected data using [Grafana](https://grafana.com/).
+A sample [Besu Grafana dashboard](https://grafana.com/dashboards/10273) is provided. 
+
+To specify the host and port on which Prometheus accesses Besu, use the [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host) and 
+[`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. 
 The default host and port are 127.0.0.1 and 9545.
 
-To use Prometheus with Pantheon, install the [prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
+To use Prometheus with Besu, install the [prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
 
  ```
  brew install prometheus
@@ -27,15 +32,15 @@ To use Prometheus with Pantheon, install the [prometheus main component](https:/
     components because Prometheus handles and analyzes data directly from the feed.
 
 
-###  Setting up and Running Prometheus with Pantheon
+###  Setting up and Running Prometheus with Besu
 
-To configure Prometheus and run with Pantheon: 
+To configure Prometheus and run with Besu: 
 
-1. Configure Prometheus to poll Pantheon. For example, add the following yaml fragment to the `scrape_configs`
+1. Configure Prometheus to poll Besu. For example, add the following yaml fragment to the `scrape_configs`
 block of the `prometheus.yml` file:
  
     ```yml tab="Example"
-      job_name: pantheon-dev
+      job_name: besu-dev
       scrape_interval: 15s
       scrape_timeout: 10s
       metrics_path: /metrics
@@ -45,11 +50,11 @@ block of the `prometheus.yml` file:
         - localhost:9545
     ```
 
-1. Start Pantheon with the [`--metrics-enabled` option](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-enabled). To start
+1. Start Besu with the [`--metrics-enabled` option](../../Reference/CLI/CLI-Syntax.md#metrics-enabled). To start
  a single node for testing with metrics enabled:
 
     ```bash tab="Example"
-    pantheon --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73
+    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73
     --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
 
@@ -63,23 +68,23 @@ block of the `prometheus.yml` file:
 
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 
-1. From the **Insert metric at cursor** drop-down, select a metric such as `pantheon_blockchain_difficulty_total` or
-`pantheon_blockchain_height` and click **Execute**. The values are displayed below.
+1. From the **Insert metric at cursor** drop-down, select a metric such as `besu_blockchain_difficulty_total` or
+`besu_blockchain_height` and click **Execute**. The values are displayed below.
 
     Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph. 
-    For example: `{pantheon_blockchain_height{instance="localhost:9545",job="prometheus"}`
+    For example: `{besu_blockchain_height{instance="localhost:9545",job="prometheus"}`
 
 !!! tip 
     Use a log ingestion tool such as Logstash to parse the logs and alert you to configured anomalies. 
 
-### Running Prometheus with Pantheon in Push Mode 
+### Running Prometheus with Besu in Push Mode 
 
-The [`--metrics-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-enabled) option enables Prometheus polling 
-Pantheon but sometimes metrics are hard to poll (for example, when running inside Docker containers with varying IP addresses). 
-The [`--metrics-push-enabled`](../../Reference/Pantheon-CLI/Pantheon-CLI-Syntax.md#metrics-push-enabled) option enables Pantheon 
+The [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option enables Prometheus polling 
+Besu but sometimes metrics are hard to poll (for example, when running inside Docker containers with varying IP addresses). 
+The [`--metrics-push-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-push-enabled) option enables Besu 
 to push metrics to a [Prometheus Pushgateway](https://github.com/prometheus/pushgateway).   
 
-To configure Prometheus and run with Pantheon pushing to a push gateway: 
+To configure Prometheus and run with Besu pushing to a push gateway: 
 
 1. Configure Prometheus to read from a push gateway. For example, add the following yaml fragment to the `scrape_configs`
    block of the `prometheus.yml` file:
@@ -100,10 +105,10 @@ To configure Prometheus and run with Pantheon pushing to a push gateway:
     docker run -d -p 9091:9091 prom/pushgateway
     ```
 
-1. Start Pantheon specifying the `--metrics-push-enabled` option and port of the push gateway: 
+1. Start Besu specifying the `--metrics-push-enabled` option and port of the push gateway: 
 
     ```bash tab="Example"
-    pantheon --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
     ```
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file: 
@@ -112,9 +117,9 @@ To configure Prometheus and run with Pantheon pushing to a push gateway:
     prometheus --config.file=config.yml 
     ```
 
-1. View the Prometheus graphical interface as described in [Setting up and Running Prometheus with Pantheon](#setting-up-and-running-prometheus-with-pantheon).
+1. View the Prometheus graphical interface as described in [Setting up and Running Prometheus with Besu](#setting-up-and-running-prometheus-with-besu).
 
 ## Monitor Node Performance and Connectivity Using the JSON-RPC API
 
-You can monitor node performance using the [`debug_metrics`](../../Reference/Pantheon-API-Methods.md#debug_metrics)
+You can monitor node performance using the [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics)
 JSON-RPC API method.

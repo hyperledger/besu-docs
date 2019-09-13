@@ -1,8 +1,9 @@
-# Contributing to Pantheon
+# Contributing to Hyperledger Besu
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
-Welcome to the Pantheon repository!  The following is a set of guidelines for contributing to this 
-repo and its packages. These are mostly guidelines, not rules. Use your best judgment, 
+Welcome to the [Hyperledger Besu documentation] repository!  The following is a set of guidelines for
+contributing to this repo.
+These are mostly guidelines, not rules. Use your best judgment, 
 and feel free to propose changes to this document in a pull request.
 
 ## Table Of Contents
@@ -23,15 +24,17 @@ and feel free to propose changes to this document in a pull request.
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Pantheon Code of Conduct](CODE-OF-CONDUCT.md).
-By participating, you are expected to uphold this code. Please report unacceptable behavior to [private@pegasys.tech].
+This project and everyone participating in it is governed by the 
+[Hyperledger code of conduct](https://wiki.hyperledger.org/display/HYP/Hyperledger+Code+of+Conduct).
+By participating, you are expected to uphold this code.
+Please report unacceptable behavior according to [Incident Procedure](https://wiki.hyperledger.org/display/HYP/Hyperledger+Code+of+Conduct#HyperledgerCodeofConduct-IncidentProcedure).
 
 ## I just have a quick question
 
 > **Note:** Please don't file an issue to ask a question.  You'll get faster results by using the resources below.
 
-* [Pantheon documentation]
-* [Gitter]
+* [Hyperledger Besu documentation]
+* [Hyperledger Besu chat]
 
 ## How To Contribute
 ### Reporting Bugs in the Doc
@@ -129,7 +132,7 @@ Start by looking through the 'good first issue' and 'help wanted' labeled issues
 and a test or two.
 * [Help wanted issues][search-label-help-wanted] - issues which are a bit more involved than `good first issue` issues.
 
-When you've indentified an issue you'd like to work on, ping us on [Gitter] and we'll assign it to you. 
+When you've identified an issue you'd like to work on, ping us on [Hyperledger Besu chat] and we'll assign it to you. 
 
 ### Contribution Workflow
 The documentation is maintained using a "*contributor workflow*" where everyone without exception
@@ -139,7 +142,7 @@ This facilitates social contribution, easy testing, and peer review.
 
 To contribute changes, use the following workflow:
 
-1. [**Fork the repository**](https://github.com/PegaSysEng/doc.pantheon/fork).
+1. [**Fork the repository**](https://github.com/hyperledger/besu-docs/fork).
 1. **Clone your fork** to your computer.
 1. **Create a topic branch** and name it appropriately.
 Starting the branch name with the issue number is a good practice and a reminder to fix only one issue in a 
@@ -153,18 +156,18 @@ another part of the doc.
     * displaying the doc with [MkDocs] in a preview mode enables you to check the rendering as 
     explained in the [MkDocs And Markdown Guide](MKDOCS-MARKDOWN-GUIDE.md#preview-the-documentation). 
 1. **Push your changes** to your remote fork (usually labeled as `origin`).
-1. **Create a pull-request** (PR) on the Pantheon doc repository. If the PR addresses an existing Jira issue, 
+1. **Create a pull-request** (PR) on the Besu doc repository. If the PR addresses an existing Jira issue, 
 include the issue number in the PR title in square brackets (for example, `[PAN-1234]`). 
 1. **Add labels** to identify the type of your PR. _For example, if your PR fixes a bug, add the "bug" label._
 1. If the PR address an existing Jira issue, comment in the Jira issue with the PR number. 
 1. **Ensure your changes are reviewed**.
 _Select the reviewers you would like to review your PR.
 If you don't know who to choose, simply select the reviewers proposed by GitHub or leave blank and
-let us know on [Gitter]._
+let us know on [Hyperledger Besu chat]._
 1. **Make any required changes** on your contribution from the reviewers feedback.
 _Make the changes, commit to your branch, and push to your remote fork._
 1. **When your PR is validated**, all tests passed and your branch has no conflicts with the target branch,
-you can **"squash and merge"** your PR and you're done. You contributed to Pantheon documentation! Thanks !
+you can **"squash and merge"** your PR and you're done. You contributed to [Hyperledger Besu documentation]! Thanks !
 
 ### Pull Requests
 
@@ -214,9 +217,8 @@ in this guide.
 | [`requires-changes`][search-label-requires-changes]                     | Pull requests which need to be updated based on review comments and then reviewed again.   |
 | [`needs engineering approval`][search-label-needs-engineering-approval] | Pull requests which need to be approved from a technical person, mainly documentation PRs. |
 
-[private@pegasys.tech]: mailto:private@pegasys.tech
-[Gitter]: https://gitter.im/PegaSysEng/pantheon
-[Pantheon documentation]: https://docs.pantheon.pegasys.tech/
+[Hyperledger Besu chat]: https://chat.hyperledger.org/channel/besu
+[Hyperledger Besu documentation]: https://besu.hyperledger.org/
 [CLA.md]: ./CLA.md
 [Code Reviews]: ./docs/community/code-reviews.md
 [MkDocs]: https://www.mkdocs.org/

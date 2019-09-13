@@ -1,10 +1,10 @@
-description: Pantheon high availability 
+description: Hyperledger Besu high availability 
 <!--- END of page meta data -->
 
 # High Availability of JSON-RPC and RPC Rub/Sub APIs
 
-To enable high availability to the [RPC Pub/Sub API over WebSockets](../Interact/Pantheon-APIs/RPC-PubSub.md) 
-or the [JSON-RPC API](../Interact/Pantheon-APIs/Using-JSON-RPC-API.md) run and synchronize multiple Pantheon 
+To enable high availability to the [RPC Pub/Sub API over WebSockets](../Interact/APIs/RPC-PubSub.md) 
+or the [JSON-RPC API](../Interact/APIs/Using-JSON-RPC-API.md) run and synchronize multiple Hyperledger Besu 
 nodes to the network. Use a load balancer to distribute requests across nodes in the cluster that 
 are ready to receive requests. 
 
@@ -15,7 +15,7 @@ are ready to receive requests.
 
 ## Determining When a Node is Ready 
 
-Use the [readiness endpoint](../Interact/Pantheon-APIs/Using-JSON-RPC-API.md#readiness-and-liveness-endpoints) 
+Use the [readiness endpoint](../Interact/APIs/Using-JSON-RPC-API.md#readiness-and-liveness-endpoints) 
 to determine when a node is ready. 
 
 !!! note
@@ -24,21 +24,21 @@ to determine when a node is ready.
 
 ## Transaction Nonces 
 
-The account nonce for the next transaction is obtained using [`eth_getTransactionCount`](../../Reference/Pantheon-API-Methods.md#eth_gettransactioncount). 
+The account nonce for the next transaction is obtained using [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount). 
 The account nonce depends on the transactions in the [transaction pool](../../Concepts/Transactions/Transaction-Pool.md).
-If [`eth_getTransactionCount`](../../Reference/Pantheon-API-Methods.md#eth_gettransactioncount) and 
-[`eth_sendRawTransaction`](../../Reference/Pantheon-API-Methods.md#eth_sendrawtransaction) requests for a specific account 
-are sent to multiple nodes, the [`eth_getTransactionCount`](../../Reference/Pantheon-API-Methods.md#eth_gettransactioncount)
+If [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount) and 
+[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a specific account 
+are sent to multiple nodes, the [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount)
 results can be incorrect. 
 
 !!! note
     If using [private transactions](../../Concepts/Privacy/Privacy-Overview.md), `priv_getTransactionCount` is used to obtain 
-    the account nonce and [`eea_sendRawTransaction`](../../Reference/Pantheon-API-Methods.md#eea_sendrawtransaction)
+    the account nonce and [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
     to send private transactions. 
 
 To get correct account nonces when distributing requests across a cluster, do one of:  
 
-* Track the next nonce outside of the Pantheon node (as MetaMask does)
+* Track the next nonce outside of the Besu node (as MetaMask does)
 * Configure the load balancer in sticky mode so requests from a specific account are sent to a single 
 node unless that node is unavailable. 
 
@@ -46,10 +46,10 @@ node unless that node is unavailable.
 
 You can subscribe to events using:  
 
-* [RPC Pub/Sub over WebSockets](../Interact/Pantheon-APIs/RPC-PubSub.md) 
+* [RPC Pub/Sub over WebSockets](../Interact/APIs/RPC-PubSub.md) 
 * [Filters over HTTP](../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md) 
 
-We recommend using [RPC Pub/Sub over WebSockets](../Interact/Pantheon-APIs/RPC-PubSub.md) because WebSockets 
+We recommend using [RPC Pub/Sub over WebSockets](../Interact/APIs/RPC-PubSub.md) because WebSockets 
 connections are associated a specific node and do not require using the load balancer in sticky mode. 
 
 If using [filters over HTTP](../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md), configure the load balancer 
@@ -63,7 +63,7 @@ Subscriptions can be dropped if:
 * Node serving the subscription is removed from the ready pool 
 
 If a subscription is dropped, events can be missed while reconnecting to a different node. 
-To recover dropped messages, create another subscription and follow the process for that [subscription type](../Interact/Pantheon-APIs/RPC-PubSub.md#subscribing):  
+To recover dropped messages, create another subscription and follow the process for that [subscription type](../Interact/APIs/RPC-PubSub.md#subscribing):  
 
 * [`newHeads`](#new-headers)
 * [`logs`](#logs)
@@ -74,17 +74,17 @@ To recover dropped messages, create another subscription and follow the process 
 
 ### New Headers
 
-Use [`eth_getBlockByNumber`](../../Reference/Pantheon-API-Methods.md#eth_getblockbynumber) to request information on 
+Use [`eth_getBlockByNumber`](../../Reference/API-Methods.md#eth_getblockbynumber) to request information on 
 blocks from the last block before the subscription dropped to the first block received from the new subscription.
 
 ### Logs 
 
-Use [`eth_getLogs`](../../Reference/Pantheon-API-Methods.md#eth_getlogs) to request logs from the block number 
+Use [`eth_getLogs`](../../Reference/API-Methods.md#eth_getlogs) to request logs from the block number 
 of the last log received before the subscription dropped to the current chain head.
 
 ### New Pending Transactions
 
-Use [`txpool_pantheonTransactions`](../../Reference/Pantheon-API-Methods.md#txpool_pantheontransactions) to 
+Use [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions) to 
 request all pending transactions for the new node.
 
 !!! note
@@ -92,7 +92,7 @@ request all pending transactions for the new node.
 
 ### Dropped Pending Transactions
 
-Use [`txpool_pantheonTransactions`](../../Reference/Pantheon-API-Methods.md#txpool_pantheontransactions) to 
+Use [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions) to 
 request all pending transactions for the new node.
 
 !!! note
@@ -100,5 +100,5 @@ request all pending transactions for the new node.
 
 ### Syncing
 
-The syncing state of each node is specific to that node. Use [`eth_syncing`](../../Reference/Pantheon-API-Methods.md#eth_syncing)
+The syncing state of each node is specific to that node. Use [`eth_syncing`](../../Reference/API-Methods.md#eth_syncing)
 to retrieve the syncing state of the new node.

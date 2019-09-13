@@ -3,11 +3,11 @@
 <!-- Content block -->
 {% block content %}
 
-<p style="text-align: center;font-size: 3em">
+<p style="text-align: center;">
   {% if config.theme.logo.icon %}
-    <i class="md-icon">{{ config.theme.logo.icon }}</i>
+    <i class="md-icon" style="font-size: 3em;">{{ config.theme.logo.icon }}</i>
   {% else %}
-    <img src="{{ config.theme.logo | url }}" height="3em" />
+    <img src="{{ config.extra.logo_regular | url }}" width="300em"/>
   {% endif %}
 </p>
 
@@ -18,7 +18,7 @@
 </p>
 <p style="text-align: center">
   If you think we made a mistake and deleted a page that should be here, then please tell us on
-  <a href="{{config.extra.support.gitter}}">{{config.site_name}} Gitter channel</a> or create an issue in
+  <a href="{{config.extra.support.gitter}}">{{config.site_name}} chat channel</a> or create an issue in
   <a href="{{config.extra.support.issues}}">{{config.site_name}} Jira</a>.
 </p>
 

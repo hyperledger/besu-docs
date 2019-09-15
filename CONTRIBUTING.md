@@ -182,7 +182,7 @@ The process described here has several goals:
 
 Please follow these steps to have your contribution considered by the approvers:
 
-1. Complete the CLA, as described in [CLA.md].
+1. Ensure all commits have a Sign-off for DCO, as described in [DCO.md].
 2. Follow all instructions in [PULL-REQUEST-TEMPLATE.md](.github/pull_request_template.md).
 4. Follow the [Style Guides](#documentation-style-guide).
 5. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) 
@@ -219,6 +219,6 @@ in this guide.
 
 [Hyperledger Besu chat]: https://chat.hyperledger.org/channel/besu
 [Hyperledger Besu documentation]: https://besu.hyperledger.org/
-[CLA.md]: ./CLA.md
+[DCO.md]: ./DCO.md
 [Code Reviews]: ./docs/community/code-reviews.md
 [MkDocs]: https://www.mkdocs.org/

@@ -2970,6 +2970,53 @@ If the boolean value is `true`, the proposal is to add a signer. If `false`, the
     The `DEBUG` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) 
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `DEBUG` API methods.
 
+### debug_accountRange
+
+Returns the accounts for a specified block.
+
+**Parameters**
+
+`blockHashOrNumber` : `data` - Block hash or number
+
+`txIndex` : `integer` - Transaction index from which to start
+
+`address` : `data` - Address hash from which to start
+
+`limit` : `integer` - Maximum number of account entries to return 
+
+**Returns**
+
+`result`:`object` - Account details:
+
+* `addressMap`:`object` - List of address hashes and values
+* `nextKey`:`data` - Hash of the next address if any addresses are left in the state, otherwise zero
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
+    ```
+    
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}
+    ```
+    
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "addressMap": {
+          "0x005e5...86960": "0x0000000000000000000000000000000000000000",
+          "0x021fe...6ffe3": "0x0000000000000000000000000000000000000000",
+          "0x028e6...ab776": "0x0000000000000000000000000000000000000000",
+          "0x02cb5...bc4d8": "0x0000000000000000000000000000000000000000",
+          "0x03089...23fd5": "0x0000000000000000000000000000000000000000"
+        },
+        "nextKey": "0x04242954a5cb9748d3f66bcd4583fd3830287aa585bebd9dd06fa6625976be49"
+      }
+    }
+    ```
+
 ### debug_storageRangeAt
 
 [Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the _Debugger_ tab in Remix rather than calling `debug_storageRangeAt` directly.  

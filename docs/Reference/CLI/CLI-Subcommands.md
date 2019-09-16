@@ -191,9 +191,9 @@ This command runs Besu in a mode that is compatible with Retesteth, and accepts 
 
 
 ```bash tab="Syntax"
-pantheon retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]
+besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]
 ```
 
 ```bash tab="Example"
-pantheon retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-whitelist=*
+besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-whitelist=*
 ```

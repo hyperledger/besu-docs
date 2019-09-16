@@ -175,3 +175,25 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
         ``` tab="RLP Output"
         0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
         ```
+
+## retesteth
+
+This command runs Besu in a mode that is compatible with Retesteth, and accepts the following command line options:
+
+* [\--data-path](../CLI-Syntax#data-path)
+* [\--host-whitelist](../CLI-Syntax#host-whitelist)
+* [\--rpc-http-host](../CLI-Syntax#rpc-http-host)
+* [\--rpc-http-port](../CLI-Syntax#rpc-http-port)
+* [\--logging](../CLI-Syntax#logging)
+
+!!! note
+    [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that runs Ethereum consensus tests on a client. 
+
+
+```bash tab="Syntax"
+pantheon retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]
+```
+
+```bash tab="Example"
+pantheon retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-whitelist=*
+```

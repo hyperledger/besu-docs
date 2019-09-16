@@ -178,7 +178,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
 
 ## retesteth
 
-This command runs Besu in a mode that is compatible with Retesteth, and accepts the following command line options:
+This command enables Retesteth-compatibilty, and accepts the following command line options:
 
 * [\--data-path](../CLI-Syntax#data-path)
 * [\--host-whitelist](../CLI-Syntax#host-whitelist)

@@ -2972,6 +2972,8 @@ If the boolean value is `true`, the proposal is to add a signer. If `false`, the
 
 ### debug_accountRange
 
+[Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses `debug_accountRange` to implement debugging.
+
 Returns the accounts for a specified block.
 
 **Parameters**
@@ -2988,7 +2990,7 @@ Returns the accounts for a specified block.
 
 `result`:`object` - Account details:
 
-* `addressMap`:`object` - List of address hashes and values
+* `addressMap`:`object` - List of address hashes and account addresses.
 * `nextKey`:`data` - Hash of the next address if any addresses are left in the state, otherwise zero
 
 !!! example

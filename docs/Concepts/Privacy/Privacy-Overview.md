@@ -8,7 +8,10 @@ Other participants cannot access the transaction content or list of participants
 
 !!! important
     For production systems requiring private transactions, we recommend using a network 
-    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure-Besu/Consensus-Protocols/IBFT.md). All private transaction participants must be online for a private transaction to be successfully distributed. If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
+    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    All private transaction participants must be online for a private transaction to be successfully distributed.
+    If any participants are offline when the private transaction is submitted, the transaction is
+    not attempted and must be resubmitted.
 
 ## Private Transaction Manager
 

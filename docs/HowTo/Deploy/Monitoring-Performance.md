@@ -18,7 +18,7 @@ To specify the host and port on which Prometheus accesses Besu, use the [`--metr
 [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. 
 The default host and port are 127.0.0.1 and 9545.
 
-Prometheus requires 3M of space per node per hour for metrics, with a `scrape_interval` of 15s.
+Prometheus requires 3MB of space per node per hour for metrics, with a `scrape_interval` of 15s.
 
 To use Prometheus with Besu, install the [prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
 

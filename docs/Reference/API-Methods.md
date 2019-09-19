@@ -3994,7 +3994,7 @@ data using `eea_sendRawTransaction`.
 `result` : `data` - 32-byte transaction hash
 
 !!! tip
-    If creating a contract, use [eea_getTransactionReceipt](#eea_gettransactionreceipt) to retrieve the contract 
+    If creating a contract, use [priv_getTransactionReceipt](#priv_getTransactionReceipt) to retrieve the contract 
     address after the transaction is finalized.
 
 !!! example 
@@ -4014,7 +4014,7 @@ data using `eea_sendRawTransaction`.
     }
     ```
 
-### eea_getTransactionReceipt
+### priv_getTransactionReceipt
 
 Returns information about the private transaction after the transaction was mined. Receipts for pending transactions 
 are not available.
@@ -4029,11 +4029,11 @@ are not available.
 
 !!! example 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eea_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
     ```
             
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"eea_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
+    {"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
     ```
             
     ```json tab="JSON result"

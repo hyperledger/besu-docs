@@ -5,7 +5,7 @@ description: Methods for accessing and managing private transactions and privacy
 
 An Hyperledger Besu private transaction creates a [Privacy Marker Transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) in addition to the private transaction itself. 
 Use [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt) to 
-get the transaction receipt for the Privacy Maker Transaction and [`eea_getTransactionReceipt`](../../Reference/API-Methods.md#eea_gettransactionreceipt) 
+get the transaction receipt for the Privacy Maker Transaction and [`priv_getTransactionReceipt`](../../Reference/API-Methods.md#priv_gettransactionreceipt) 
 to get the transaction receipt for the private transaction. 
 
 With the transaction hash returned when submitting the private transaction, use: 

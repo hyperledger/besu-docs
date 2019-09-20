@@ -32,11 +32,14 @@ the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
 ## Clone Besu Quickstart Source Code
 
-Clone the repository from the `besu-quickstart` with the version matching Besu version, currently `{{ versions.quickstart }}`:
+Clone the repository from the `besu-quickstart` repository:
 
 ```bash tab="Linux/MacOS"
-git clone --branch {{ versions.quickstart }} https://github.com/PegaSysEng/besu-quickstart.git
+git clone https://github.com/PegaSysEng/besu-quickstart.git
 ```
+
+!!!note
+    You can download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases
 
 ## Build Docker Images and Start Services and Network
  
@@ -55,7 +58,7 @@ When the process ends, it lists the running services:
 !!! example "Docker-compose services list example"
     ```log
     *************************************
-    Besu Quickstart {{ versions.quickstart }}
+    Besu Quickstart <version>
     *************************************
     List endpoints and services
     ----------------------------------
@@ -166,7 +169,7 @@ The result specifies the client version:
 {
    "jsonrpc" : "2.0",
    "id" : 1,
-   "result" : "besu/{{ versions.stable }}"
+   "result" : "besu/<version number>"
 }
 ```
 Here we simply query the version of the Besu node, which confirms the node is running.

@@ -178,7 +178,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
 
 ## retesteth
 
-Runs a Retesteth compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that runs Ethereum consensus tests on an Ethereum client.
+Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that can generate and run consensus tests against any Ethereum client running such a server.
 
 This command accepts the following command line options:
 

@@ -180,7 +180,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
 
 Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that can generate and run consensus tests against any Ethereum client running such a server.
 
-This command accepts the following command line options:
+The command accepts the following command line options:
 
 * [\--data-path](../CLI-Syntax#data-path)
 * [\--host-whitelist](../CLI-Syntax#host-whitelist)

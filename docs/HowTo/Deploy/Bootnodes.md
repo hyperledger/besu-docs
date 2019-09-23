@@ -4,9 +4,9 @@ description: Configuring bootnodes in production networks
 # Configuring Bootnodes in a Production Network 
 
 A network must have at least one operating bootnode. To allow for continuity in the event of failure, 
-configure more than one bootnode. 
+configure two or more bootnodes. 
 
-We do not recommend putting bootnodes behind a load balancer. We recommend putting more bootnodes on the network itself. 
+We do not recommend putting bootnodes behind a load balancer. Put more bootnodes on the network itself. 
 
 The [enode](../../Concepts/Node-Keys.md#enode-url) of a bootnode is tied to the node public key and IP address. 
 To simplify recovering from complete bootnode failure: 
@@ -25,7 +25,7 @@ We recommend bootnode configuration is stored under source control.
 To allow for failure, specify all bootnodes on the command line (even to the bootnodes themselves). 
 
 !!! example 
-    If your network has 2 bootnodes, pass the following parameter to all nodes including the bootnodes. 
+    If your network has two bootnodes, pass the following parameter to all nodes, including the bootnodes. 
    
     `--bootnodes=enode://<publicKeyBootnode1>@10.0.0.100:30303, <publicKeyBootnode2>@10.0.1.101:30303`
     

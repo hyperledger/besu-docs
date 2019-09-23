@@ -16,16 +16,17 @@ the maximum number of peers. The default is 25.
 The [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) command line option 
 can be used to disable P2P peer discovery.
 
-Set this option to `false` if you are running a test node or a network with [static nodes](#static-nodes).
+With discovery disabled, connections may be initiated by peers that have already been discovered or are otherwise 
+configured to connect to the local node (for example, using [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)).
+Connections can also be initiated by configuring [static nodes](#static-nodes).  
 
 ## Static Nodes
 
-If you do not want to enable P2P peer discovery for your network, use static nodes. When discovery is disabled, 
-static nodes are used instead of [bootnodes](Bootnodes.md) for the nodes in the network to connect. 
-
-Static nodes are configured nodes that remain connected rather than nodes connected through P2P discovery. 
-Static nodes attempt to maintain connectivity. If a connection goes down to a static node, 
-the node attempts to reconnect every 60 seconds.
+Static nodes are a configured set of trusted nodes.  Static nodes are exempt from [maximum peer](#limiting-peers) 
+and [remote connection](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled) limits.
+  
+Besu attempts to maintain connections with static nodes by periodically initiating a connection to any static 
+node that is not connected.
 
 To configure a network of static nodes: 
 
@@ -45,10 +46,10 @@ and [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) JSON-R
     Nodes outside of the static nodes are not prevented from connecting.  To prevent nodes from connecting,
     use [Permissioning](../../Concepts/Permissioning/Permissioning-Overview.md). 
     
-!!! caution 
+!!! tip 
     If the added peer does not appear in the peer list (returned by [`admin_peers`](../../Reference/API-Methods.md#admin_peers)),
-    check the supplied [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, the node is listening for 
-    TCP connections on the endpoint, and has not reached the [maximum number of peers](#limiting-peers).
+    check the supplied [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, and the node is listening for 
+    TCP connections on the endpoint.
     
 ### static-nodes.json File
 

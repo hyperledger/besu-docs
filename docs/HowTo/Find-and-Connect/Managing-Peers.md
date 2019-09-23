@@ -15,9 +15,13 @@ the maximum number of peers. The default is 25.
 
 The [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) command line option 
 can be used to disable P2P peer discovery.
+
 Set this option to `false` if you are running a test node or a network with [static nodes](#static-nodes).
 
 ## Static Nodes
+
+If you do not want to enable P2P peer discovery for your network, use static nodes. When discovery is disabled, 
+static nodes are used instead of [bootnodes](Bootnodes.md) for the nodes in the network to connect. 
 
 Static nodes are configured nodes that remain connected rather than nodes connected through P2P discovery. 
 Static nodes attempt to maintain connectivity. If a connection goes down to a static node, 

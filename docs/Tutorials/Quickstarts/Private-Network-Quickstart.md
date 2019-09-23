@@ -39,7 +39,7 @@ git clone https://github.com/PegaSysEng/besu-quickstart.git
 ```
 
 !!!note
-    You can download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases
+    Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases.
 
 ## Build Docker Images and Start Services and Network
  

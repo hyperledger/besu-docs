@@ -16,7 +16,7 @@ the maximum number of peers. The default is 25.
 The [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) command line option 
 can be used to disable P2P peer discovery.
 
-With discovery disabled, connections may be initiated by peers that have already been discovered or are otherwise 
+With discovery disabled, connections may be initiated by peers that have already discovered or are otherwise 
 configured to connect to the local node (for example, using [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)).
 Connections can also be initiated by configuring [static nodes](#static-nodes).  
 

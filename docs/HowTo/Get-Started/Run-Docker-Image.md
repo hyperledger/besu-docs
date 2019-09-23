@@ -27,7 +27,7 @@ docker run hyperledger/besu:latest
 !!! note
     Available tags for the image are listed at https://hub.docker.com/r/hyperledger/besu/tags. 
 
-    Docker runs the cached version if you already pulled `latest`.
+   If you previously pulled `latest`, Docker runs the cached version.
 
     Pull the `latest` version again using `docker pull hyperledger/besu:latest` to make sure your image is up to date. 
  

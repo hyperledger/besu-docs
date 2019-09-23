@@ -25,7 +25,7 @@ docker run hyperledger/besu:latest
 ```
 
 !!! note
-    Other tags are available for the image, see https://hub.docker.com/r/hyperledger/besu/tags
+    Available tags for the image are listed at https://hub.docker.com/r/hyperledger/besu/tags. 
 
     Docker runs the cached version if you already pulled `latest`.
 

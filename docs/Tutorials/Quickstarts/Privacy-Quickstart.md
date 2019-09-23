@@ -37,15 +37,14 @@ To run this tutorial, you must have the following installed:
 
 ## Clone Besu Quickstart Source Code
 
-Clone the repository from the `besu-quickstart` repository where `<version>` is replaced with the latest version (`{{ versions.quickstart }}`). 
+Clone the repository from the `besu-quickstart` repository. 
 
-```bash tab="Command"
-git clone --branch <version> https://github.com/PegaSysEng/besu-quickstart.git
+```bash tab="Linux/MacOS"
+git clone https://github.com/PegaSysEng/besu-quickstart.git
 ```
 
-```bash tab="Example"
-git clone --branch {{ versions.quickstart }} https://github.com/PegaSysEng/besu-quickstart.git
-```
+!!!note
+    Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases. 
 
 ## Clone EEAJS Libraries 
 

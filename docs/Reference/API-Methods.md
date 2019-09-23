@@ -268,7 +268,7 @@ None
     {
       "jsonrpc" : "2.0",
       "id" : 53,
-      "result" : "besu/{{ versions.stable }}"
+      "result" : "besu/<version>"
     }
     ```
 

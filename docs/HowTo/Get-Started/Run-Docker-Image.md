@@ -24,12 +24,12 @@ To run a Besu node in a container connected to the Ethereum mainnet:
 docker run hyperledger/besu:latest
 ```
 
-```bash tab="{{ versions.stable }}"
-docker run hyperledger/besu:{{ versions.stable }}
-```
-
 !!! note
-    `latest` runs the latest cached version. To pull the latest version, use `docker pull hyperledger/besu:latest`. 
+    Available tags for the image are listed at https://hub.docker.com/r/hyperledger/besu/tags. 
+
+   If you previously pulled `latest`, Docker runs the cached version.
+
+    To ensure your image is up to date, pull the `latest` version again using `docker pull hyperledger/besu:latest`. 
  
 ## Exposing Ports
 

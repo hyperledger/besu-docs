@@ -333,7 +333,7 @@ enables displaying a list as a checklist.
 
 For writing code examples inside the documentation, refer to the developer style guides:
 
-- Java : refer to Hyperledger Besu [coding convention](https://github.com/hyperledger/besus/blob/master/CODING-CONVENTIONS.md).
+- Java : refer to Hyperledger Besu [coding convention](https://github.com/hyperledger/besu/blob/master/CODING-CONVENTIONS.md).
 - JSON : use https://jsonformatter.curiousconcept.com/ to format your JSON code.
 - TOML : we follow version 0.5.0 language definition.
 - JavaScript : see [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html).

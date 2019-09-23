@@ -29,7 +29,7 @@ docker run hyperledger/besu:latest
 
    If you previously pulled `latest`, Docker runs the cached version.
 
-    Pull the `latest` version again using `docker pull hyperledger/besu:latest` to make sure your image is up to date. 
+    To ensure your image is up to date, pull the `latest` version again using `docker pull hyperledger/besu:latest`. 
  
 ## Exposing Ports
 

@@ -29,6 +29,10 @@ To allow for failure, specify all bootnodes on the command line (even to the boo
    
     `--bootnodes=enode://<publicKeyBootnode1>@10.0.0.100:30303, <publicKeyBootnode2>@10.0.1.101:30303`
     
+!!! tip 
+    Having each bootnode list the other bootnodes increases the speed of discovery. Nodes ignore their own 
+    enode in the bootnodes list so it's not required to specify different bootnode lists to the bootnodes 
+    themselves.  
 
 ## Adding and Removing Bootnodes 
 

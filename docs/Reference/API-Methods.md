@@ -3972,6 +3972,8 @@ and submits it to the transaction pool, and returns the transaction hash of the 
 
 The signed transaction passed as an input parameter includes the `privateFrom`, `privateFor`, and `restriction` fields.
 
+
+
 To avoid exposing your private key, create signed transactions offline and send the signed transaction 
 data using `eea_sendRawTransaction`.
 

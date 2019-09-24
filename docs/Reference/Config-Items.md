@@ -16,6 +16,14 @@ Network configuration items are specified in the Hyperledger Besu genesis file.
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with very complex smart contracts. Default is `1024`. |
 
 
+What are the non-config items called? 
+
+| Item                | Description                                                                                                                              |
+|---------------------|-:----------------------------------------------------------------------------------------------------------------------------------------|
+| `gasLimit`          | Block gas limit                                                                                      |
+
+
+
 ## Milestone Blocks 
 
 In public networks, the milestone blocks specify the blocks at which the network changed protocol. 

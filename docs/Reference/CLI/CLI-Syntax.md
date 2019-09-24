@@ -612,7 +612,7 @@ Options are `upnp` and `none`. The default is `none` (that is, NAT functionality
 --network=rinkeby
 ```
 
-```bash tab="Command Line"
+```bash tab="Environment Variable"
 BESU_NETWORK=rinkeby
 ```
 

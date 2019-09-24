@@ -182,11 +182,11 @@ Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/rete
 
 The command accepts the following command line options:
 
-* [\--data-path](../CLI-Syntax#data-path)
-* [\--host-whitelist](../CLI-Syntax#host-whitelist)
-* [\--rpc-http-host](../CLI-Syntax#rpc-http-host)
-* [\--rpc-http-port](../CLI-Syntax#rpc-http-port)
-* [\--logging](../CLI-Syntax#logging)
+* [\--data-path](./CLI-Syntax.md#data-path)
+* [\--host-whitelist](./CLI-Syntax.md#host-whitelist)
+* [\--rpc-http-host](./CLI-Syntax.md#rpc-http-host)
+* [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
+* [\--logging](./CLI-Syntax.md#logging)
 
 
 ```bash tab="Syntax"

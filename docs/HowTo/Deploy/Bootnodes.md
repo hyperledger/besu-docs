@@ -27,7 +27,7 @@ To allow for failure, specify all bootnodes on the command line (even to the boo
 !!! example 
     If your network has two bootnodes, pass the following parameter to all nodes, including the bootnodes. 
    
-    `--bootnodes=enode://<publicKeyBootnode1>@10.0.0.100:30303, <publicKeyBootnode2>@10.0.1.101:30303`
+    `--bootnodes=enode://<publicKeyBootnode1>@<ipBootnode1>:30303,<publicKeyBootnode2>@<ipBootnode2>:30303`
     
 !!! tip 
     Having each bootnode list the other bootnodes increases the speed of discovery. Nodes ignore their own 

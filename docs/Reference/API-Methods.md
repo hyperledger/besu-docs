@@ -1673,7 +1673,7 @@ The `eth_estimateGas` call does not send a transaction. You must make a subseque
 **Parameters**
 
 The transaction call object parameters are the same as those for [eth_call](#eth_call), except that in `eth_estimateGas`,
-all fields are optional. Setting a gas limit is irrelevant to the estimation process (unlike transactions, in which gas
+all fields are optional. Setting a transaction gas limit is irrelevant to the estimation process (unlike transactions, in which gas
 limits apply).
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).

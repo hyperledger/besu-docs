@@ -1,9 +1,13 @@
 description: Configuration items specified in the Hyperledger Besu genesis file 
 <!--- END of page meta data -->
 
-# Configuration Items
+# Genesis File 
 
-Network configuration items are specified in the Hyperledger Besu genesis file.  
+The genesis file contains [network configuration items](#configuration-items) and [genesis block parameters](#genesis-block-parameters). 
+
+## Configuration Items
+
+Network configuration items are specified in the genesis file in the `config` object.  
  
 | Item                | Description                                                                                                                              |
 |---------------------|-:----------------------------------------------------------------------------------------------------------------------------------------|
@@ -16,13 +20,25 @@ Network configuration items are specified in the Hyperledger Besu genesis file.
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with very complex smart contracts. Default is `1024`. |
 
 
-What are the non-config items called? 
+## Genesis Block Parameters  
+ 
+The purpose of some genesis block parameters parameters varies depending on the consensus protocol 
+(Ethash, [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md), or [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)). 
+These parameters include: 
+
+* `difficulty`
+* `extraData`
+* `mixHash`
+ 
+Genesis block parameters with the same purpose across all consensus protocols are described below. 
 
 | Item                | Description                                                                                                                              |
 |---------------------|-:----------------------------------------------------------------------------------------------------------------------------------------|
-| `gasLimit`          | Block gas limit                                                                                      |
-
-
+| `coinbase`          | Address to which mining rewards are paid. Can be any value in the genesis block . 
+| `gasLimit`          | Block gas limit. Total gas limit for all transactions in a block.                                                                                       |
+| `nonce`             | Used in block computation. Can be any value in the genesis block. 
+| `timestamp`         | Creation date and time of the block.  Must be before the next block so we recommend specifying `0x0` in the genesis file. 
+| `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../HowTo/Configure/Contracts-in-Genesis.md). 
 
 ## Milestone Blocks 
 
@@ -61,8 +77,9 @@ In private networks, the milestone block defines the protocol version for the ne
     }
     ```
     
-    !!! tip 
-        When you specify EIPs, you can specify only the latest one because the EIPs that precede it are implied.  
+!!! tip 
+    When specifying the milestone block for private networks, you only need to specify the latest milestone
+    because the milestones that precede it are implied.  
 
 ## Fixed Difficulty 
 

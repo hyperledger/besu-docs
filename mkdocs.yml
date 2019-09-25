@@ -159,7 +159,7 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API Methods: Reference/API-Methods.md
         - Besu API Objects: Reference/API-Objects.md
-        - Configuration Items in Genesis File: Reference/Config-Items.md
+        - Genesis File Items: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md

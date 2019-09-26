@@ -189,7 +189,7 @@ Returned by [eth_getTransactionReceipt](API-Methods.md#eth_gettransactionreceipt
 
 ## Private Transaction Receipt Object 
 
-Returned by [eea_getTransactionReceipt](API-Methods.md#eea_gettransactionreceipt).
+Returned by [priv_getTransactionReceipt](API-Methods.md#priv_getTransactionReceipt).
 
 | Key                   | Type                 | Value                                                                                |
 |-----------------------|:--------------------:|--------------------------------------------------------------------------------------|

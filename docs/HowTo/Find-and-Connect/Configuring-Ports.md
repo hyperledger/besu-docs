@@ -16,14 +16,16 @@ When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md), [
 
 ## P2P Networking 
 
-To enable peer discovery, the P2P UDP port must be open for inbound connections.
+To enable peer discovery, the P2P UDP port must be open for inbound connections. The P2P port
+is specified by the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is `30303`. 
 
 We also recommended opening the P2P TCP port for inbound connections. This is not strictly required because 
 Besu attempts to initiate outbound TCP connections. However, if no nodes on the network are accepting inbound TCP 
 connections, nodes cannot communicate.
 
-The P2P port is specified by the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. 
-The default is `30303`. 
+The P2P port is used by [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) when specifying the P2P host and internal P2P network interface. For example `127.0.0.1:30303` and `0.0.0.0:30303`.
+ 
+
 
 ## JSON-RPC API 
 

@@ -739,6 +739,29 @@ p2p-host="0.0.0.0"
 Specifies the host on which P2P listens.
 The default is 127.0.0.1.
 
+### p2p-interface
+
+```bash tab="Syntax"
+--p2p-interface=<HOST>
+```
+
+```bash tab="Command Line"
+# to listen on all interfaces
+--p2p-interface=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+# to listen on all interfaces
+BESU_P2P_INTERFACE=192.168.1.132
+```
+
+```bash tab="Configuration File"
+p2p-interface="192.168.1.132"
+```
+
+Specifies the network interface on which the node listens for P2P communication.
+Used to set up internal listeners for network traffic. The default is 0.0.0.0.
+
 ### p2p-port
 
 ```bash tab="Syntax"

@@ -44,7 +44,9 @@ option.
 !!! info
     The default host and port for P2P peer discovery is `127.0.0.1:30303`.
     Use the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
-    [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option to specify a host and port. 
+    [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option to specify a host and port.
+    
+    The default network interface address for P2P discovery is `0.0.0.0:30303`. If the device that Besu is running on has multiple network interfaces, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use. 
 
 ### Start Node Specifying the Bootnode
 

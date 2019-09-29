@@ -746,12 +746,10 @@ The default is 127.0.0.1.
 ```
 
 ```bash tab="Command Line"
-# to listen on all interfaces
 --p2p-interface=192.168.1.132
 ```
 
 ```bash tab="Environment Variable"
-# to listen on all interfaces
 BESU_P2P_INTERFACE=192.168.1.132
 ```
 

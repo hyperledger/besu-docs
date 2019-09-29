@@ -1,11 +1,10 @@
-description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
-path: blob/master/ethereum/core/src/main/resources/
-source: rinkeby.json
+description: Configuring bootnodoes
 <!--- END of page meta data -->
 
 # Bootnodes
 
-Bootnodes are used to initially discover peers. 
+Bootnodes are used to initially discover peers. A bootnode is a regular node to which nodes connect
+on startup. 
 
 ## Mainnet and Public Testnets
 
@@ -13,31 +12,32 @@ For mainnet, Rinkeby, Ropsten, and Görli, Hyperledger Besu predefines a list of
 
 ## Private Networks
 
-### Start Bootnode
+In private networks for development or testing purposes, specify one bootnode as described below.
+ 
+In production networks, [configure two or more nodes as bootnodes](../Deploy/Bootnodes.md). 
 
-To start a bootnode for a private network, complete the following steps:
+### Start node to be specified as bootnode 
+
+To start a node to be specified as a bootnode:
 
 1.  Export the public key to a file:
 
     !!! example
         ```bash
-        besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath public-key export --to=bootnode
+        besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath public-key export --to=bootnodePubKey
         ```
         Where `privateNetworkGenesis.json` and `nodeDataPath` are changed to the relevant values for 
         your private network. 
         
-        The node public key is exported to the `bootnode` file.
+        The node public key is exported to the `bootnodePubKey` file.
     
-2. Start the bootnode, specifying:
-
-    * Genesis file and data directory, as in the previous step. 
-    * No arguments for the [`--bootnodes` option](../../Reference/CLI/CLI-Syntax.md#bootnodes) because this is your bootnode.
+2. Start the node specifying the genesis file and data directory. 
     
     !!! example
         ```
-        besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --bootnodes
-         ```
-     
+        besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath
+        ```
+
 To specify this bootnode for another node, specify the [enode URL](../../Concepts/Node-Keys.md#enode-url) using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) 
 option.
 
@@ -46,11 +46,11 @@ option.
     Use the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
     [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option to specify a host and port. 
 
-### Start Node Specifying the Bootnode
+### Start subsequent nodes pointing to the bootnode 
 
 To start a node specifying the bootnode for P2P discovery:
 
 !!! example
     ```bash
-    besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --p2p-host=127.0.0.1 --p2p-port=30301 --network-id=123 --bootnodes=enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb99bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303
+    besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --bootnodes=enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb99bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303
     ``` 

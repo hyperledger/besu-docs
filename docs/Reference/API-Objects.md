@@ -83,8 +83,8 @@ Returned by [priv_getPrivateTransaction](API-Methods.md#priv_getprivatetransacti
 | **r**                | Data, 32&nbsp;bytes               | ECDSA signature r                                                               |
 | **s**                | Data, 32&nbsp;bytes               | ECDSA signature s                                                               |
 | **privateFrom**      | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of sender                                                      |
-| **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys of recipients. Not returned if `privacyGroupId` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#Privacy-Types).      |
-| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) privacy group ID of recipients. Not returned if `privateFor` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#Privacy-Types).      |
+| **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys of recipients. Not returned if `privacyGroupId` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).      |
+| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) privacy group ID of recipients. Not returned if `privateFor` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).      |
 | **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Privacy-Overview.md#private-transaction-attributes) 
  
 ## Range Object

@@ -1490,6 +1490,7 @@ Show the help message and exit.
 ```bash tab="Environment Variable"
 BESU_LOGGING=DEBUG
 ```
+
 ```bash tab="Example Configration File"
 logging="DEBUG"
 ```

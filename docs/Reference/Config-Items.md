@@ -22,7 +22,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 
 ## Genesis Block Parameters  
  
-The purpose of some genesis block parameters parameters varies depending on the consensus protocol 
+The purpose of some genesis block parameters varies depending on the consensus protocol 
 (Ethash, [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md), or [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)). 
 These parameters include: 
 
@@ -34,9 +34,9 @@ Genesis block parameters with the same purpose across all consensus protocols ar
 
 | Item                | Description                                                                                                                              |
 |---------------------|-:----------------------------------------------------------------------------------------------------------------------------------------|
-| `coinbase`          | Address to which mining rewards are paid. Can be any value in the genesis block . 
+| `coinbase`          | Address to which mining rewards are paid. Can be any value in the genesis block (commonly set to `0x0000000000000000000000000000000000000000`). 
 | `gasLimit`          | Block gas limit. Total gas limit for all transactions in a block.                                                                                       |
-| `nonce`             | Used in block computation. Can be any value in the genesis block. 
+| `nonce`             | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`). 
 | `timestamp`         | Creation date and time of the block.  Must be before the next block so we recommend specifying `0x0` in the genesis file. 
 | `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../HowTo/Configure/Contracts-in-Genesis.md). 
 

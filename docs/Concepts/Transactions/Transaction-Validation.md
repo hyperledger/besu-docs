@@ -16,7 +16,7 @@ is less than the remaining block gas limit. After creating a block, the node imp
 the transaction pool validations are repeated. 
 
 !!! important 
-    The transaction is only added if the entire transaction gas limit is less than the remaining block gas 
+    The transaction is only added if the entire transaction gas limit is less than the remaining gas 
     for the block. The total gas used by the transaction is not relevant to this validation. That is, if the total gas used
     by the transaction is less than the remaining block gas but the transaction gas limit is more than the remaining black 
     gas, the transaction is not added. 

@@ -139,6 +139,7 @@ nav:
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
+          - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
         - Permissioning:

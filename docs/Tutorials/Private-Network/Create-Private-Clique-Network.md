@@ -124,16 +124,15 @@ In `extraData`, replace `<Node 1 Address>` with the [address for Node-1](#2-get-
 Start Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"      
+besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"      
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"    
 ```
 
 The command line specifies: 
 
-* No arguments for the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option because this is your bootnode
 * JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
 * ETH,NET, and CLIQUE APIs are enabled using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
 * All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option

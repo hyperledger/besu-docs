@@ -15,7 +15,7 @@ This tutorial assumes you have completed setting up an IBFT 2.0 network to the p
 steps 1 to 5 of the [Create an IBFT 2.0](../Private-Network/Create-IBFT-Network.md) tutorial before continuing. 
 
 !!! important 
-    To support privacy, ensure your genesis file includes at least the `constantinopleFixBlock` milestone.
+    To support privacy, ensure your genesis file includes at least the `byzantium` milestone.
 
 In this tutorial we start Orion nodes for the three Besu nodes and configure each Besu node to be associated 
 with an Orion node. 

@@ -24,10 +24,6 @@ Node Rules and Account Rules contracts. The Ingress contracts are deployed to st
 * Admin - stores the list of admin accounts and admin list operations (for example, add and remove). There is 
 one list of admin accounts for node and accounts.
 
-!!! note
-    The permissioning smart contracts are currently in the process of going through a third party audit. 
-    Please [contact us](https://pegasys.tech/contact/) before using in a production environment.
-
 ## Permissioning Management Dapp
 
 The [Permissioning Management Dapp](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md) is provided to view 
@@ -46,6 +42,13 @@ Permissioning implements three whitelists:
 * Nodes can participate in the network 
 
 * Admins are accounts that can update the accounts and nodes whitelists 
+
+!!! caution "Using account permissioning and privacy"
+    Account permissioning cannot be used with [random key signing](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md)
+    for [privacy marker transactions](../Privacy/Private-Transaction-Processing.md).
+    
+    If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    command line option and the signing key included in the accounts whitelist.  
 
 ## Bootnodes
 

@@ -7,8 +7,7 @@ A privacy group is a group of nodes identified by a unique privacy group ID by O
 stored in Orion with the privacy group ID.
 
 The Besu nodes maintain the public world state for the blockchain and a private state for each privacy group. 
-The private states contain data that is not shared in the globally replicated world state. Private transactions read 
-and write to the private world state for the privacy group, and read from the public world state.
+The private states contain data that is not shared in the globally replicated world state. 
 
 ## Privacy Types 
 
@@ -24,6 +23,16 @@ Both privacy types create privacy groups and store private transactions with the
 !!! note
     The Orion nodes are not shown above for clarity only.  To send private transactions, 
     each Besu node must have an associated Orion node. 
+
+### Access between States 
+
+A contract from a privacy group:
+
+* Can read or write to a contract in the same privacy group.
+* Can read from the public state including public contracts. 
+* Cannot access contracts from a different privacy group. 
+
+A public contract cannot access a private contract.
 
 ### EEA-compliant Privacy 
 

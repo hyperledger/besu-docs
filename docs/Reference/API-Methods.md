@@ -4069,6 +4069,41 @@ data using `eea_sendRawTransaction`.
     The `PRIV` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) 
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PRIV` API methods.
 
+### priv_distributeRawTransaction
+
+Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md). 
+
+!!! tip 
+    If you want to sign the Privacy Marker Transaction outside of Besu, use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+    instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
+
+**Parameters**
+
+`data` -  Signed RLP-encoded private transaction. For example:
+
+`params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
+
+**Returns**
+
+`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in [Orion](https://docs.orion.pegasys.tech/). 
+
+!!! example 
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
+    ```
+        
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
+    ```
+        
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "0xfd0d90ab824574abc19c0776ca0210e764561d0ef6d621f2bbbea316eccfe56b"
+    } 
+    ```
+
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). 

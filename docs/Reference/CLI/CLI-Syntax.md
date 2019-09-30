@@ -747,8 +747,9 @@ BESU_P2P_INTERFACE=192.168.1.132
 p2p-interface="192.168.1.132"
 ```
 
-Specifies the network interface on which the node listens for P2P communication.
-Used to set up internal listeners for network traffic. The default is 0.0.0.0.
+Specifies the network interface on which the node listens for [P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
+Use the option to specify the required network interface when the device that Besu is running on 
+has multiple network interfaces. The default is 0.0.0.0.
 
 ### p2p-port
 

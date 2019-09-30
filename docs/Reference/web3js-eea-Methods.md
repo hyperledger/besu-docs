@@ -164,7 +164,7 @@ Returns the number of transactions sent from the specified address for the priva
         
 ## getTransactionReceipt 
 
-Gets the private transaction receipt using [`eea_getTransactionReceipt`](API-Methods.md#eea_gettransactionreceipt).
+Gets the private transaction receipt using [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
 
 **Parameters**
 

@@ -85,16 +85,15 @@ Copy the following genesis definition to a file called `privateNetworkGenesis.js
 Start Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"     
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"     
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"    
 ```
 
 The command line specifies: 
 
-* No arguments for the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option because this is your bootnode.
 * Mining is enabled and the account to which mining rewards are paid using the [`--miner-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-enabled) 
 and [`--miner-coinbase`](../../Reference/CLI/CLI-Syntax.md#miner-coinbase) options.
 * JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.

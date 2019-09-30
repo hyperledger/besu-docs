@@ -67,6 +67,9 @@ nav:
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
+          - High Availability:
+            - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
+            - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
           - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
           - Configure Mining: HowTo/Configure/Mining.md
           - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
@@ -104,7 +107,6 @@ nav:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
           - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
-          - Configure High Availability of APIs: HowTo/Deploy/High-Availability.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md

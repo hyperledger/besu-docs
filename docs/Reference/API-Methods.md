@@ -4017,7 +4017,8 @@ None
 ### eea_sendRawTransaction
 
 Distributes the [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md), 
-generates the transaction hash and submits it to the transaction pool, and returns the transaction hash of the Privacy Marker Transaction.
+generates the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md) and submits it to the transaction pool, 
+and returns the transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 The signed transaction passed as an input parameter includes the `privateFrom`, [`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
@@ -4041,7 +4042,7 @@ data using `eea_sendRawTransaction`.
 
 **Returns**
 
-`result` : `data` - 32-byte transaction hash
+`result` : `data` - 32-byte transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md) 
 
 !!! tip
     If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to retrieve the contract 

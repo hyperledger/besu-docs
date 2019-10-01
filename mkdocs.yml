@@ -65,6 +65,7 @@ nav:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
+          - Create Besu Gensis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
           - High Availability:
@@ -161,7 +162,7 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API Methods: Reference/API-Methods.md
         - Besu API Objects: Reference/API-Objects.md
-        - Configuration Items in Genesis File: Reference/Config-Items.md
+        - Genesis File Items: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md

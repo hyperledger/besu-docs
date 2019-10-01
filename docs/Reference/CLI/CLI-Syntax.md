@@ -1419,6 +1419,27 @@ rpc-ws-port="6174"
 Specifies Websockets JSON-RPC listening port (TCP).
 The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### target-gas-limit
+
+```bash tab="Syntax"
+--target-gas-limit=<INTEGER>
+```
+
+```bash tab="Command Line"
+--target-gas-limit=nnn
+```
+
+```bash tab="Environment Variable"
+BESU_TARGET_GAS_LIMIT=nnn
+```
+
+```bash tab="Configuration File"
+target-gas-limit="nnn"
+```
+
+Specifies the gas limit toward which Besu will gradually move on an existing network. Use `target-gas-limit` to change the block gas limit without creating a new network. 
+The default is nnn. 
+
 ### tx-pool-max-size
 
 ```bash tab="Syntax"

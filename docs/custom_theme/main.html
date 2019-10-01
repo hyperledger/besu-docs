@@ -41,7 +41,7 @@
   <!-- Edit button, if URL was defined -->
   <!--The button has to point to the doc site and as it's not designed to have doc outside of code
   repos we have to replace the mkdocs generated link based on the code repos with the doc repos-->
-  {% if page.edit_url %}
+  {% if page.edit_url and config.extra.doc_site_edit_url %}
   <a href="{{ page.edit_url | replace(config.repo_url, config.extra.doc_site_edit_url) }}"
      title="{{ lang.t('edit.link.title') }}"
      class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>

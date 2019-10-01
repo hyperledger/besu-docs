@@ -19,7 +19,7 @@ copyright: Hyperledger Besu and its documentation are licensed under Apache 2.0 
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/hyperledger/besu-docs/
+#  doc_site_edit_url: https://github.com/hyperledger/besu-docs/
   latest_version_warning:
     url_contains: /latest/
     text: 'You are reading Hyperledger Besu development version documentation and

@@ -203,3 +203,4 @@ plugins:
           - development/*
           - community/*
           - global/*
+    - git-revision-date

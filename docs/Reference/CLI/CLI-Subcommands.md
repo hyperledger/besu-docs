@@ -31,9 +31,9 @@ besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 -
 
 Exports a block, or list of blocks from storage to a file in RLP format. 
 
-If `--start-block` is omitted, then the start block will default to 0 (beginning of the chain), and if `--end-block` is omitted, the end block will default to the end of the chain.
+If `--start-block` is omitted, the start block defaults to 0 (beginning of the chain), and if `--end-block` is omitted, the end block defaults to the end of the chain.
 
-If you are not running the command against the default network (Mainnet), then specify the `--network` or `--genesis-file` parameter.
+If you are not running the command against the default network (MainNet), specify the `--network` or `--genesis-file` parameter.
 
 ## public-key
 

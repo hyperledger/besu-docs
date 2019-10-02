@@ -85,7 +85,7 @@ Returned by [priv_getPrivateTransaction](API-Methods.md#priv_getprivatetransacti
 | **privateFrom**      | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of sender                                                      |
 | **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys of recipients. Not returned if `privacyGroupId` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).      |
 | **privacyGroupId**   | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) privacy group ID of recipients. Not returned if `privateFor` is used to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).      |
-| **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Privacy-Overview.md#private-transaction-attributes) 
+| **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Private-Transactions.md) 
  
 ## Range Object
 
@@ -180,6 +180,7 @@ Returned by [eth_getTransactionReceipt](API-Methods.md#eth_gettransactionreceipt
 | **to**                | Data, 20&nbsp;bytes  | Address of the receiver, if sending ether; otherwise, null.                          |
 | **transactionHash**   | Data, 32&nbsp;bytes  | Hash of the transaction.                                                             |
 | **transactionIndex**  | Quantity, Integer    | Index position of transaction in the block.                                          |
+| **revertReason**      | String               | ABI-encoded string that displays the [reason for reverting the transaction](../HowTo/Send-Transactions/Revert-Reason.md). Only available if revert reason is [enabled](../Reference/CLI/CLI-Syntax.md#revert-reason-enabled).                 |  
 
 !!!note
     For pre-Byzantium transactions, the transaction receipt object includes the following instead of `status`:

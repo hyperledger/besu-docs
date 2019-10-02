@@ -9,9 +9,6 @@ Other participants cannot access the transaction content or list of participants
 !!! important
     For production systems requiring private transactions, we recommend using a network 
     with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
-    All private transaction participants must be online for a private transaction to be successfully distributed.
-    If any participants are offline when the private transaction is submitted, the transaction is
-    not attempted and must be resubmitted.
 
 ## Private Transaction Manager
 
@@ -27,33 +24,15 @@ participating in the transaction.
 !!! tip
     Private Transaction Managers are also known as Enclaves.  
 
-## Private Transaction Attributes
+## Availability 
 
-Private transactions have additional attributes to public Ethereum transactions: 
+Privacy requires the enclave to be highly available. 
 
-* `privateFrom` - Orion public key of transaction sender
+All private transaction participants must be online for a private transaction to be successfully distributed.
+If any participants are offline when the private transaction is submitted, the transaction is not attempted 
+and must be resubmitted.
 
-* `privateFor` - Orion public keys of transaction recipients or `privacyGroupId` - [Privacy group to receive transaction](Privacy-Groups.md) 
-
-* `restriction` - Private transactions are `restricted` or `unrestricted`:  
-  
-    - In `restricted` private transactions the payload of the private transaction is received and stored only by 
-    the nodes participating in the transaction. 
-
-    - In `unrestricted` private transactions the payload of the private transaction is transmitted to all nodes
-    in the network but is readable only by nodes participating in the transaction.   
-
-    !!! important 
-        Besu implements `restricted` private transactions only.
-
-## Besu and Orion Keys
-
-Besu and Orion nodes both have public/private key pairs identifying them. The private transaction 
-submitted from the Besu node to the Orion node is signed with the Besu node private key. The 
-`privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for 
-[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) are the public keys
-of the Orion nodes sending and receiving the transaction.  
-
-!!! important 
-    The mapping of Besu node addresses to Orion node public keys is off-chain.  That is, the 
-    sender of a private transaction must know the Orion node public key of the recipient.  
+!!! caution
+    If a receiving Orion is available when the private transaction is distributed but is unavailable 
+    when the privacy marker transaction is processed, the private transaction is not executed by
+    the receiving Besu node. The private states in the Besu nodes are then inconsistent. 

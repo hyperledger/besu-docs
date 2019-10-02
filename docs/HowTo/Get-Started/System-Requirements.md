@@ -8,7 +8,7 @@ The system requirements for Hyperledger Besu depend on a number of factors:
 
 * Size of the world state for the network
 * Number of transactions submitted to network 
-* Block gas limit 
+* [Block gas limit](../../Reference/Config-Items.md#genesis-block-parameters)
 * Number and complexity of [JSON-RPC](../Interact/APIs/Using-JSON-RPC-API.md), [PubSub](../Interact/APIs/RPC-PubSub.md), 
 or [GraphQL](../Interact/APIs/GraphQL.md) queries being handled by the node 
 

@@ -26,10 +26,9 @@ connections, nodes cannot communicate.
 The P2P port is combined with [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) when specifying the [P2P host](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [P2P network interface](../../Reference/CLI/CLI-Syntax.md#p2p-interface).
 
 !!! info
-    If the device that Besu is running on has multiple network interfaces, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use. The default network interface address for P2P discovery is `0.0.0.0:30303` 
+    By default, peer discovery will listen on `0.0.0.0:30303` (all interfaces). If the device that Besu runs on should bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.
  
-
-
+ 
 ## JSON-RPC API 
 
 To enable access to the [JSON-RPC API](../Interact/APIs/Using-JSON-RPC-API.md), open the HTTP JSON-RPC and WebSockets JSON-RPC ports to the intended users 

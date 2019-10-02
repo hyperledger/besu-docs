@@ -1429,19 +1429,20 @@ The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ```
 
 ```bash tab="Command Line"
---target-gas-limit=nnn
+--target-gas-limit=8000000
 ```
 
 ```bash tab="Environment Variable"
-BESU_TARGET_GAS_LIMIT=nnn
+BESU_TARGET_GAS_LIMIT=8000000
 ```
 
 ```bash tab="Configuration File"
-target-gas-limit="nnn"
+target-gas-limit="8000000"
 ```
 
-Specifies the gas limit toward which Besu will gradually move on an existing network. Use `target-gas-limit` to change the block gas limit without creating a new network. 
-The default is nnn. 
+Specifies the gas limit toward which Besu will gradually move on an existing network, if enough miners are in agreement. Use `target-gas-limit` to change the block gas limit set in the genesis file without creating a new network. The gas limit between blocks can change only 1/1024th, so the target tells the block creator how to set the gas limit in its block. If the values are the same or within 1/1024th, the limit is set to the specified value. Otherwise, the limit moves as far as it can within that constraint.
+    
+If a value for `target-gas-limit` is not specified, the block gas limit remains at the value specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
 ### tx-pool-max-size
 

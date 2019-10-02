@@ -77,7 +77,7 @@ To use the examples provided in EEA JS library with [your privacy network](Confi
     node storeValueFromNode2.js
     ```
       
-    The value of 42 (2a in hex) is stored by Node 1 and is visible to Node 1 and Node 2. 
+    The value of 42 (2a in hex) is stored by Node 2 and is visible to Node 1 and Node 2. 
       
     ```bash
     Transaction Hash: 0xa025433aec47a71b0230f12f43708812fd38ff7b7c1dc89a715f71dcbd5fbdbf

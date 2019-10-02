@@ -8,4 +8,4 @@ Use the [reference implementations](https://github.com/PegaSysEng/besu-kubernete
 * [Helmfile](https://github.com/PegaSysEng/besu-kubernetes/tree/master/helmfile/private-network-ibft-automated)
 * [kubectl](https://github.com/PegaSysEng/besu-kubernetes/tree/master/kubectl)
 
-Familiarise yourself with the reference implementations and customize them for your requirements.
+Familiarize yourself with the reference implementations and customize them for your requirements.

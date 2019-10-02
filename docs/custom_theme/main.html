@@ -4,8 +4,8 @@
   <link rel="stylesheet" href="{{ 'assets/stylesheets/custom_theme.css' | url }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script
-      src="https://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <script src="{{ 'assets/javascripts/custom_theme.js' | url }}"></script>
@@ -23,6 +23,9 @@
     })(window,document,'script','dataLayer','{{config.extra.google.tag_manager}}');</script>
     <!-- End Google Tag Manager -->
   {% endif %}
+
+  <script src="{{ 'assets/javascripts/zoomify.min.js' | url }}"></script>
+  <link href="{{ 'assets/stylesheets/zoomify.min.css' | url }}" rel="stylesheet">
 {% endblock %}
 
 {% block analytics %}
@@ -46,6 +49,10 @@
      title="{{ lang.t('edit.link.title') }}"
      class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
   {% endif %}
+
+{% if page.meta.revision_date %}
+<small><br><i>Updated {{ page.meta.revision_date }}</i></small>
+{% endif %}
 
   <!--
     Hack: check whether the content contains a h1 headline. If it

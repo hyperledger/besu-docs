@@ -73,24 +73,14 @@ BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.
 
 ```bash tab="Example Configuration File"
 bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5:30303"]
-```
-  
-```bash tab="Example Node Acting as Bootnode"
---bootnodes
-```  
+``` 
   
 List of comma-separated enode URLs for P2P discovery bootstrap. 
   
 When connecting to MainNet or public testnets, the default is a predefined list of enode URLs. 
 
-On custom networks defined by [`--genesis-file`](#genesis-file) option,
-an empty list of bootnodes is defined by default unless you define custom bootnodes as described in 
-[private network documentation](../../HowTo/Find-and-Connect/Bootnodes.md#bootnodes).
-
-!!! note
-    Specifying that a node is a [bootnode](../../HowTo/Find-and-Connect/Bootnodes.md#bootnodes) 
-    must be done on the command line using [`--bootnodes`](#bootnodes) option without value,
-    not in a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).  
+In private networks defined using [`--genesis-file`](#genesis-file) or when using [`--network=dev`](#network),
+the default is an empty list of bootnodes.
 
 ### config-file
 
@@ -612,7 +602,7 @@ Options are `upnp` and `none`. The default is `none` (that is, NAT functionality
 --network=rinkeby
 ```
 
-```bash tab="Command Line"
+```bash tab="Environment Variable"
 BESU_NETWORK=rinkeby
 ```
 
@@ -993,6 +983,9 @@ privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 ```
 
 `<FILE>` is the name of the private key file used to [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If this option isn't specified, each transaction is signed with a different randomly generated key.
+
+If using [account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
+and privacy, a private key file must be specified and the signing key included in the accounts whitelist.  
 
 ### privacy-precompiled-address
 
@@ -1490,6 +1483,7 @@ Show the help message and exit.
 ```bash tab="Environment Variable"
 BESU_LOGGING=DEBUG
 ```
+
 ```bash tab="Example Configration File"
 logging="DEBUG"
 ```

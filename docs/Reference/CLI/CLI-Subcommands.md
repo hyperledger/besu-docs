@@ -31,9 +31,9 @@ besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 -
 
 Exports a block, or list of blocks from storage to a file in RLP format. 
 
-If `--start-block` is omitted, then the start block will default to 0 (beginning of the chain), and if `--end-block` is omitted, the end block will default to the end of the chain.
+If `--start-block` is omitted, the start block defaults to 0 (beginning of the chain), and if `--end-block` is omitted, the end block defaults to the end of the chain.
 
-If you are not running the command against the default network (Mainnet), then specify the `--network` or `--genesis-file` parameter.
+If you are not running the command against the default network (MainNet), specify the `--network` or `--genesis-file` parameter.
 
 ## public-key
 
@@ -175,3 +175,24 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
         ``` tab="RLP Output"
         0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
         ```
+
+## retesteth
+
+Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that can generate and run consensus tests against any Ethereum client running such a server.
+
+The command accepts the following command line options:
+
+* [\--data-path](./CLI-Syntax.md#data-path)
+* [\--host-whitelist](./CLI-Syntax.md#host-whitelist)
+* [\--rpc-http-host](./CLI-Syntax.md#rpc-http-host)
+* [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
+* [\--logging](./CLI-Syntax.md#logging)
+
+
+```bash tab="Syntax"
+besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]
+```
+
+```bash tab="Example"
+besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-whitelist=*
+```

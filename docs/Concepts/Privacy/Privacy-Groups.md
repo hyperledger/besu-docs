@@ -26,7 +26,7 @@ Both privacy types create privacy groups and store private transactions with the
 
 ### Access between States 
 
-A contract from a privacy group:
+A contract in a privacy group:
 
 * Can read or write to a contract in the same privacy group.
 * Can read from the public state including public contracts. 

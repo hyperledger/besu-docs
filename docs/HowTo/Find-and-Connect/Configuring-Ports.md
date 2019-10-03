@@ -16,15 +16,19 @@ When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md), [
 
 ## P2P Networking 
 
-To enable peer discovery, the P2P UDP port must be open for inbound connections.
+To enable peer discovery, the P2P UDP port must be open for inbound connections. The P2P port
+is specified by the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is `30303`. 
 
 We also recommended opening the P2P TCP port for inbound connections. This is not strictly required because 
 Besu attempts to initiate outbound TCP connections. However, if no nodes on the network are accepting inbound TCP 
 connections, nodes cannot communicate.
 
-The P2P port is specified by the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. 
-The default is `30303`. 
+The P2P port is combined with [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) when specifying the [P2P host](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [P2P network interface](../../Reference/CLI/CLI-Syntax.md#p2p-interface).
 
+!!! info
+    By default, peer discovery listens on `0.0.0.0:30303` (all interfaces). If the device that Besu runs on must bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.
+ 
+ 
 ## JSON-RPC API 
 
 To enable access to the [JSON-RPC API](../Interact/APIs/Using-JSON-RPC-API.md), open the HTTP JSON-RPC and WebSockets JSON-RPC ports to the intended users 

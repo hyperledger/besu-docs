@@ -602,7 +602,7 @@ Options are `upnp` and `none`. The default is `none` (that is, NAT functionality
 --network=rinkeby
 ```
 
-```bash tab="Command Line"
+```bash tab="Environment Variable"
 BESU_NETWORK=rinkeby
 ```
 
@@ -728,6 +728,28 @@ p2p-host="0.0.0.0"
 
 Specifies the host on which P2P listens.
 The default is 127.0.0.1.
+
+### p2p-interface
+
+```bash tab="Syntax"
+--p2p-interface=<HOST>
+```
+
+```bash tab="Command Line"
+--p2p-interface=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+BESU_P2P_INTERFACE=192.168.1.132
+```
+
+```bash tab="Configuration File"
+p2p-interface="192.168.1.132"
+```
+
+Specifies the network interface on which the node listens for [P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
+Use the option to specify the required network interface when the device that Besu is running on 
+has multiple network interfaces. The default is 0.0.0.0 (all interfaces).
 
 ### p2p-port
 
@@ -983,6 +1005,9 @@ privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 ```
 
 `<FILE>` is the name of the private key file used to [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If this option isn't specified, each transaction is signed with a different randomly generated key.
+
+If using [account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
+and privacy, a private key file must be specified and the signing key included in the accounts whitelist.  
 
 ### privacy-precompiled-address
 
@@ -1418,6 +1443,28 @@ rpc-ws-port="6174"
 
 Specifies Websockets JSON-RPC listening port (TCP).
 The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+
+### target-gas-limit
+
+```bash tab="Syntax"
+--target-gas-limit=<INTEGER>
+```
+
+```bash tab="Command Line"
+--target-gas-limit=8000000
+```
+
+```bash tab="Environment Variable"
+BESU_TARGET_GAS_LIMIT=8000000
+```
+
+```bash tab="Configuration File"
+target-gas-limit="8000000"
+```
+
+Specifies the gas limit toward which Besu will gradually move on an existing network, if enough miners are in agreement. Use `target-gas-limit` to change the block gas limit set in the genesis file without creating a new network. The gas limit between blocks can change only 1/1024th, so the target tells the block creator how to set the gas limit in its block. If the values are the same or within 1/1024th, the limit is set to the specified value. Otherwise, the limit moves as far as it can within that constraint.
+    
+If a value for `target-gas-limit` is not specified, the block gas limit remains at the value specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
 ### tx-pool-max-size
 

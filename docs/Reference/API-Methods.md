@@ -51,23 +51,29 @@ Adds a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).
     
 ### admin_changeLogLevel
 
-Change the log level without restarting Besu. 
+Changes the log level without restarting Besu. You can change the log level for all logs, or you can change the log level for specific packages or classes.
+
+Only one log level can be specified per RPC call.
 
 **Parameters**
 
 `level` - [Log level](CLI/CLI-Syntax.md#logging)
 
+`log_filter`: `Array` - Packages or classes to change the log level for. Optional.
+
 **Returns**
 
 `result` : `Success` if the log level has changed; otherwise `error`. 
 
+This example changes the debug level for specified classes to `DEBUG`.
+
 !!! example
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["DEBUG"], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
     ```
     
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["DEBUG"], "id":1}
+    {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
     ```
     
     ```json tab="JSON result"
@@ -77,7 +83,25 @@ Change the log level without restarting Besu.
      "result": "Success"
     }
     ```
+This example changes the debug level of all logs to `WARN`.
 
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}' http://127.0.0.1:8545
+    ```
+    
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}
+    ```
+    
+    ```json tab="JSON result"
+    {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "Success"
+    }
+    ```
+    
 ### admin_nodeInfo
 
 Returns networking information about the node. The information includes general information about the node
@@ -4016,10 +4040,12 @@ None
 
 ### eea_sendRawTransaction
 
-Creates a [private transaction](../Concepts/Privacy/Privacy-Overview.md) from a signed transaction, generates the transaction hash 
-and submits it to the transaction pool, and returns the transaction hash of the Privacy Marker Transaction.
+Distributes the [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md), 
+generates the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md) and submits it to the transaction pool, 
+and returns the transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
-The signed transaction passed as an input parameter includes the `privateFrom`, `privateFor`, and `restriction` fields.
+The signed transaction passed as an input parameter includes the `privateFrom`, [`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
+and `restriction` fields.
 
 To avoid exposing your private key, create signed transactions offline and send the signed transaction 
 data using `eea_sendRawTransaction`.
@@ -4040,7 +4066,7 @@ data using `eea_sendRawTransaction`.
 
 **Returns**
 
-`result` : `data` - 32-byte transaction hash
+`result` : `data` - 32-byte transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md) 
 
 !!! tip
     If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to retrieve the contract 

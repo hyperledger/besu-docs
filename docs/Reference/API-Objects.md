@@ -180,6 +180,7 @@ Returned by [eth_getTransactionReceipt](API-Methods.md#eth_gettransactionreceipt
 | **to**                | Data, 20&nbsp;bytes  | Address of the receiver, if sending ether; otherwise, null.                          |
 | **transactionHash**   | Data, 32&nbsp;bytes  | Hash of the transaction.                                                             |
 | **transactionIndex**  | Quantity, Integer    | Index position of transaction in the block.                                          |
+| **revertReason**      | String               | ABI-encoded string that displays the [reason for reverting the transaction](../HowTo/Send-Transactions/Revert-Reason.md). Only available if revert reason is [enabled](../Reference/CLI/CLI-Syntax.md#revert-reason-enabled).                 |  
 
 !!!note
     For pre-Byzantium transactions, the transaction receipt object includes the following instead of `status`:

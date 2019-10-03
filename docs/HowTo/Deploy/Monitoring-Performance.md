@@ -71,10 +71,24 @@ block of the `prometheus.yml` file:
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 
 1. From the **Insert metric at cursor** drop-down, select a metric such as `besu_blockchain_difficulty_total` or
-`besu_blockchain_height` and click **Execute**. The values are displayed below.
+`ethereum_blockchain_height` and click **Execute**. The values are displayed.
 
-    Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph. 
-    For example: `{besu_blockchain_height{instance="localhost:9545",job="prometheus"}`
+    Standard Ethereum metrics are prefixed with `ethereum_` and listed in the table below. Metrics specific to Besu are prefixed with `besu_`.
+    
+    | Name | Metric Type | Definition | JSON-RPC Equivalent |
+    | ---  | ---         | ---        | ---                 |                   
+    | `ethereum_blockchain_height` | Gauge | Current height of the canonical chain | `eth_blockNumber` |
+    | `ethereum_best_known_block_number` | Gauge | Estimated highest block available | `highestBlock` of `eth_syncing` or `eth_blockNumber`, if not syncing |
+    | `ethereum_peer_count` | Gauge | Current number of peers connected | `net_peerCount` |
+    | `ethereum_peer_limit` | Gauge | Maximum number of peers this node allows to connect | No equivalent |
+  
+    !!! important 
+        * The `ethereum_best_known_block_number` metric always has a value. When the [`eth_syncing` JSON-RPC method](../../Reference/API-Methods.md#eth_syncing) returns false, the current chain height is used.
+        * Although the `ethereum_peer_limit` metric does not have a JSON-RPC equivalent, the [`max peers` command line option](../../Reference/CLI/CLI-Syntax.md#max-peers) sets the maximum number of P2P connections that can be
+        established.
+      
+    Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph.
+    For example: `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`
 
 !!! tip 
     Use a log ingestion tool such as Logstash to parse the logs and alert you to configured anomalies. 

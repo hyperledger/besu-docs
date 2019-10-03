@@ -26,7 +26,7 @@ connections, nodes cannot communicate.
 The P2P port is combined with [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) when specifying the [P2P host](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [P2P network interface](../../Reference/CLI/CLI-Syntax.md#p2p-interface).
 
 !!! info
-    By default, peer discovery will listen on `0.0.0.0:30303` (all interfaces). If the device that Besu runs on should bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.
+    By default, peer discovery listens on `0.0.0.0:30303` (all interfaces). If the device that Besu runs on must bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.
  
  
 ## JSON-RPC API 

@@ -38,13 +38,8 @@ To start a node to be specified as a bootnode:
         besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath
         ```
 
-To specify this bootnode for another node, specify the [enode URL](../../Concepts/Node-Keys.md#enode-url) using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) 
-option.
+To specify this bootnode for another node, specify the [enode URL](../../Concepts/Node-Keys.md#enode-url) using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 
-!!! info
-    The default host and port for P2P peer discovery is `127.0.0.1:30303`.
-    Use the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
-    [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option to specify a host and port. 
 
 ### Start subsequent nodes pointing to the bootnode 
 
@@ -54,3 +49,8 @@ To start a node specifying the bootnode for P2P discovery:
     ```bash
     besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --bootnodes=enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb99bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303
     ``` 
+
+The default host and port for P2P peer discovery is `127.0.0.1:30303`. Use the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) 
+and [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option to specify a host and port.
+
+By default, peer discovery listens on all available network interfaces. If the device that Besu runs on must bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.

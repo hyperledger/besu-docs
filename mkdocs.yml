@@ -19,7 +19,7 @@ copyright: Hyperledger Besu and its documentation are licensed under Apache 2.0 
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/hyperledger/besu-docs/
+#  doc_site_edit_url: https://github.com/hyperledger/besu-docs/
   latest_version_warning:
     url_contains: /latest/
     text: 'You are reading Hyperledger Besu development version documentation and
@@ -65,6 +65,7 @@ nav:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
+          - Create Besu Gensis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
           - High Availability:
@@ -106,6 +107,7 @@ nav:
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
+          - Use Kubernetes to Deploy a Private Network: HowTo/Deploy/Kubernetes.md
           - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
@@ -161,7 +163,7 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API Methods: Reference/API-Methods.md
         - Besu API Objects: Reference/API-Objects.md
-        - Configuration Items in Genesis File: Reference/Config-Items.md
+        - Genesis File Items: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
@@ -202,3 +204,4 @@ plugins:
           - development/*
           - community/*
           - global/*
+    - git-revision-date

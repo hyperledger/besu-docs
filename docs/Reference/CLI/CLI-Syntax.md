@@ -602,7 +602,7 @@ Options are `upnp` and `none`. The default is `none` (that is, NAT functionality
 --network=rinkeby
 ```
 
-```bash tab="Command Line"
+```bash tab="Environment Variable"
 BESU_NETWORK=rinkeby
 ```
 
@@ -1005,6 +1005,9 @@ privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 ```
 
 `<FILE>` is the name of the private key file used to [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If this option isn't specified, each transaction is signed with a different randomly generated key.
+
+If using [account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
+and privacy, a private key file must be specified and the signing key included in the accounts whitelist.  
 
 ### privacy-precompiled-address
 

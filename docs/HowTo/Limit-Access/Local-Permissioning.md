@@ -76,6 +76,13 @@ A node with account permissioning accepts transactions only from accounts in the
     
 Account whitelisting is at the node level. That is, each node in the network has a [permisssions configuration file](#permissions-configuration-file)
 in the [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.    
+
+!!! caution "Using account permissioning and privacy"
+    Account permissioning cannot be used with [random key signing](../Use-Privacy/Sign-Privacy-Marker-Transactions.md)
+    for [privacy marker transactions](../../Concepts/Privacy/Private-Transaction-Processing.md).
+    
+    If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    command line option and the signing key included in the accounts whitelist. 
     
 Transactions are validated against the accounts whitelist at the following points: 
 

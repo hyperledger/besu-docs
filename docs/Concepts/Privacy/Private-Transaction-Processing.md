@@ -35,12 +35,8 @@ The stored transaction is associated with the transaction hash and privacy group
 
 1. Orion returns the transaction hash to the Private Transaction Handler.
      
-1. The Private Transaction Handler creates a Privacy Marker Transaction for the private 
+1. The Private Transaction Handler creates a [Privacy Marker Transaction](../Privacy/Privacy-Overview.md#privacy-concepts) for the private 
 transaction. The Privacy Marker Transaction is propagated using devP2P in the same way as a public Ethereum transaction. 
-
-    !!! tip 
-        If you want to sign the Privacy Marker Transaction outside of Besu, use [`priv_distributeRawTransaction`](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
-        instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction). 
 
 1. The Privacy Marker Transaction is mined into a block and distributed to all Ethereum nodes in the network. 
 

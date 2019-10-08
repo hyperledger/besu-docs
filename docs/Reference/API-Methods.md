@@ -4277,7 +4277,11 @@ are A and B, a privacy group containing A, B, and C is not returned.
 
 **Returns** 
 
-Privacy groups containing only the specified members. 
+Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy)
+or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types: 
+
+* `LEGACY` for EEA-compliant groups 
+* `BESU` for Besu-extended groups.  
 
 !!! example
     ```bash tab="curl HTTP request"

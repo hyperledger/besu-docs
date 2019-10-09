@@ -7,8 +7,6 @@
 | Name             | Github           | LFID             |
 | ---------------- | ---------------- | ---------------- |
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
-| Edward Evans     | EdJoJob          | EdJoJob          |
-| Joshua Fernandes | joshuafernandes  | joshuafernandes  |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
 | Steven Gregg     | sgregglives      | sagregg          |

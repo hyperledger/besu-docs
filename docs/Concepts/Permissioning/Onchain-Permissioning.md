@@ -58,3 +58,5 @@ node permissions. Once in sync, the permissioning rules in the Account Rules and
 If a sychronized node loses all peer connections (that is, it has 0 peers), it reconnects to the bootnodes to 
 rediscover peers.  
 
+!!! important
+    All bootnodes must be on the nodes whitelist. 

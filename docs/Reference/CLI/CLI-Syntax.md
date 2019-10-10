@@ -75,7 +75,7 @@ BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.
 bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5:30303"]
 ``` 
   
-List of comma-separated enode URLs for P2P discovery bootstrap. 
+List of comma-separated [enode URLs](../../Concepts/Node-Keys.md#enode-url) for [P2P discovery bootstrap](../../HowTo/Find-and-Connect/Bootnodes.md). 
   
 When connecting to MainNet or public testnets, the default is a predefined list of enode URLs. 
 

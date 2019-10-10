@@ -28,7 +28,7 @@ nodes and, signs and submits the [privacy marker transaction] as described in [P
 ## priv_distributeRawTransaction 
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) distributes the 
-private transaction to the participating noes but does not sign and submit the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
+private transaction to the participating nodes but does not sign and submit the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
 That is, [`priv_distributeTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) 
 performs steps 1 to 5 of [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md). 
 

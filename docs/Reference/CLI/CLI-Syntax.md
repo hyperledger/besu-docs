@@ -589,13 +589,11 @@ Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/
 The default is `NONE`, which disables NAT functionality.
 
 !!!tip
-    `UPNP` works well with a typical home or small office environment where a wireless router or modem provides NAT isolation. This should provide
-    automatic detection and port-forwarding. UPnP support is often disabled by default in networking equipment firmware, however, any may need to be
-    explicitly enabled.
+    UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
 
 !!!notes
-    * Option `UPNP` may introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-    * `--nat-method` cannot be used on a Docker image.
+    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
+    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 

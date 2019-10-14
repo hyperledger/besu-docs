@@ -3,16 +3,21 @@ description: Configuring bootnodoes
 
 # Bootnodes
 
-Bootnodes are used to initially discover peers. A bootnode is a regular node to which nodes connect
-on startup. Once a node has connected to the specified bootnodes, the node continues to discover nodes 
-from any node they know about. The discovery process runs continuously and the specified bootnodes may be 
-dropped as peers as the node continues to discover peers.
+Bootnodes are used to initially discover peers. A bootnode is a regular node that the node uses to discover nodes.
+The node discovers nodes from the nodes the bootnode knows about.  
 
-## Mainnet and Public Testnets
+To find peers, configure at least one bootnode or [static node](Static-Nodes.md). 
+
+!!! tip 
+    Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case, you can use only bootnodes, 
+    only static nodes, or both bootnodes and statics nodes. For example, you run multiple nodes on MainNet (discovery via bootnode)
+    but want to ensure your nodes are always connected (using static nodes).
+
+## Mainnet and public testnets
 
 For mainnet, Rinkeby, Ropsten, and Görli, Hyperledger Besu predefines a list of enode URLs.  
 
-## Private Networks
+## Private networks
 
 In private networks for development or testing purposes, specify at least one bootnode.
  

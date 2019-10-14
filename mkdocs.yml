@@ -87,6 +87,7 @@ nav:
               - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and Connect to Peers:
           - Specify Bootnodes: HowTo/Find-and-Connect/Bootnodes.md
+          - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md

@@ -2692,22 +2692,20 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified 
     ```
     
     ```bash tab="curl GraphQL"
-    curl -X POST -H "Content-Type: application/json" --data '{"query": "{block(number:23037) {logs(filter:{topics:[[\"0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8\", \"0x0000000000000000000000000000000000000000000000000000000000000002\"]]}) {index topics data account{address} transaction{hash} }}}"}' http://localhost:8547/graphql
+    curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter:{fromBlock: 1486000, toBlock: 1486010, addresses: [\"0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d\"], topics: [[\"0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d\"]]}) {index topics data account{address} transaction{hash} }}"}' http://localhost:8547/graphql
     ```
     
     ```bash tab="GraphQL"
     {
-      block(number: 23037) {
-        logs(filter: {topics: [["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8", "0x0000000000000000000000000000000000000000000000000000000000000002"]]}) {
-          index
-          topics
-          data
-          account {
-            address
-          }
-          transaction {
-            hash
-          }
+      logs(filter: {fromBlock: 1486000, toBlock: 1486010, addresses: ["0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"], topics: [["0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d"]]}) {
+        index
+        topics
+        data
+        account {
+          address
+        }
+        transaction {
+          hash
         }
       }
     }
@@ -2715,20 +2713,39 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified 
                             
     ```bash tab="GraphQL result"
     {
-      "data" : {
-        "block" : {
-          "logs" : [ {
-            "index" : 0,
-            "topics" : [ "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8", "0x0000000000000000000000000000000000000000000000000000000000000002" ],
-            "data" : "0x0000000000000000000000000000000000000000000000000000000000000003",
-            "account" : {
-              "address" : "0x686afd6e502a81d2e77f2e038a23c0def4949a20"
+      "data": {
+        "logs": [
+          {
+            "index": 0,
+            "topics": [
+              "0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d",
+              "0x0000000000000000000000000000000000000000000000000000000000000004",
+              "0x0000000000000000000000000000000000000000000000000000000000508918"
+            ],
+            "data": "0xa5a04999ec29a8bd19ce32b859280ef9dbb464d846be06f64a1b1012ec08ab03",
+            "account": {
+              "address": "0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"
             },
-            "transaction" : {
-              "hash" : "0x29b541c12ad308960d4e7e0da00e0281a18428b3417f0f9b4ad8f68c4f5adc3c"
+            "transaction": {
+              "hash": "0x36a2186344c6a32760e7700fdf3685936220876c51ff39d071eb48c17f7e802f"
             }
-          } ]
-        }
+          },
+          {
+            "index": 0,
+            "topics": [
+              "0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d",
+              "0x0000000000000000000000000000000000000000000000000000000000000003",
+              "0x0000000000000000000000000000000000000000000000000000000000648c72"
+            ],
+            "data": "0x0ee96b660ad82c8010c90760a03edfbb40b4af5e3634a8c214e4ac7fa1f61492",
+            "account": {
+              "address": "0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"
+            },
+            "transaction": {
+              "hash": "0x9e2cc9e84a9e78839d6f4b591dfd98cc7a454a8ee3cd6ccd0a18e662e22d3818"
+            }
+          }
+        ]
       }
     }
     ```

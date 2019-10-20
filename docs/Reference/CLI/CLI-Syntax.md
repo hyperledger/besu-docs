@@ -293,7 +293,7 @@ BESU_KEY_VALUE_STORAGE=rocksdb
 key-value-storage="rocksdb"
 ```
 
-Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Defaults to `rocksdb`.
+Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
 
 ### max-peers
 

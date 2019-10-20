@@ -275,6 +275,26 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
 
+### key-value-storage
+
+```bash tab="Syntax"
+--key-value-storage=<keyValueStorageName>
+```
+
+```bash tab="Command Line"
+--key-value-storage=rocksdb
+```
+
+```bash tab="Environment Variable"
+BESU_KEY_VALUE_STORAGE=rocksdb
+```
+
+```bash tab="Configuration File"
+key-value-storage="rocksdb"
+```
+
+Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
+
 ### max-peers
 
 ```bash tab="Syntax"

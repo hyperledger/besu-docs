@@ -275,6 +275,26 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
 
+### key-value-storage
+
+```bash tab="Syntax"
+--key-value-storage=<keyValueStorageName>
+```
+
+```bash tab="Command Line"
+--key-value-storage=rocksdb
+```
+
+```bash tab="Environment Variable"
+BESU_KEY_VALUE_STORAGE=rocksdb
+```
+
+```bash tab="Configuration File"
+key-value-storage="rocksdb"
+```
+
+Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
+
 ### max-peers
 
 ```bash tab="Syntax"
@@ -578,19 +598,22 @@ The default is 1000.
 ### nat-method
 
 ```bash tab="Syntax"
---nat-method=<METHOD>
-```
-
-```bash tab="Command Line"
---nat-method=upnp
+--nat-method=UPNP
 ```
 
 ```bash tab="Example Configuration File"
-nat-method="upnp"
+nat-method="UPNP"
 ```
 
-Specifies the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). 
-Options are `upnp` and `none`. The default is `none` (that is, NAT functionality is disabled).
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
+The default is `NONE`, which disables NAT functionality.
+
+!!!tip
+    UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
+
+!!!notes
+    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
+    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -773,27 +796,6 @@ p2p-port="1789"
 
 Specifies the P2P listening ports (UDP and TCP).
 The default is 30303. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
-
-### nat-method
-
-```bash tab="Syntax"
---nat-method=UPNP
-```
-
-```bash tab="Example Configuration File"
-nat-method="UPNP"
-```
-
-Specify the method for handling NAT environments. Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
-
-!!!tip
-    `UPNP` works well with a typical home or small office environment where a wireless router or modem provides NAT isolation. This should provide
-    automatic detection and port-forwarding. UPnP support is often disabled by default in networking equipment firmware, however, any may need to be
-    explicitly enabled.
-
-!!!note
-    Option `UPNP` may introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
 
 ### permissions-accounts-config-file-enabled
 

@@ -200,8 +200,9 @@ BESU_GRAPHQL_HTTP_ENABLED=true
 graphql-http-enabled=true
 ```
 
-Set to `true` to enable the GraphQL HTTP service.
-The default is `false`.
+Set to `true` to enable the GraphQL HTTP service. The default is `false`.
+
+The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
 ### graphql-http-host
 

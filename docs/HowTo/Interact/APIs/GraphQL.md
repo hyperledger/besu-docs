@@ -10,7 +10,10 @@ The GraphQL implementation for Ethereum is described in the [schema](https://git
 The GraphQL service is enabled using the [command line options](API.md#enabling-api-access).
 
 !!! note
-    GraphQL is not supported over WebSockets. 
+    GraphQL is not supported over WebSockets.
+    
+Access the GraphQL endpoint at `http://<HOST>:<PORT>/graphql` where `<HOST>` and `<PORT>` can be configured using [`graphql-http-host`](../../../Reference/CLI/CLI-Syntax.md#graphql-http-host) and [`graphql-http-port`](../../../Reference/CLI/CLI-Syntax.md#graphql-http-port). The default endpoint is `http://127.0.0.1:8547/graphql`.
+
 
 ## GraphQL Requests with Curl 
 

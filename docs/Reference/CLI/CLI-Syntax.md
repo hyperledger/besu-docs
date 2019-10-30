@@ -1150,10 +1150,10 @@ BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd4
 ```
 
 ```bash tab="Configuration File"
-required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
 ```
 
-Block number and hash required by peers.
+Requires a peer with the specified block number to have the specified hash when connection occurs, or that peer is rejected.
 
 ### rpc-http-api
 

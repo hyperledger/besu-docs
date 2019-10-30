@@ -29,7 +29,7 @@ nodes and, signs and submits the [privacy marker transaction] as described in [P
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) distributes the 
 private transaction to the participating noes but does not sign and submit the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
-That is, [`priv_distributeTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) 
+That is, [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) 
 performs steps 1 to 5 of [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md). 
 
 When using [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) 
@@ -40,7 +40,7 @@ as the `data` in a [public Ethereum transaction](Transactions.md). That is, you 
 Signing and submitting the [privacy marker transaction] instead of having it signed by the Besu node 
 when processing the private transaction enables greater control over the signing of the [privacy marker transaction]. 
 
-!!! note 
+!!! warning 
     If the [privacy marker transaction] is not sent after distributing the private transaction, the 
     distributed private transaction is not executed and the private states are not updated.  
     

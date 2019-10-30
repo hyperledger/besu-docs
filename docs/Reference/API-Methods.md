@@ -958,7 +958,7 @@ The API allows IoT devices or mobile apps which are unable to run light clients 
 
 !!! example
     ```bash tab="curl HTTP" 
-    curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭{"jsonrpc":"2.0","method": "eth_getProof","params": [
+    curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
     "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
     ```
          

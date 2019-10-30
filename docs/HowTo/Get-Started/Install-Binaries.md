@@ -10,7 +10,7 @@ description: Install Hyperledger Besu from binary distribution
 * [Homebrew](https://brew.sh/)
 * Java JDK
 
-!!!attention
+!!!important
     Hyperledger Besu requires:
     
       * MacOS High Sierra 10.13 or later versions

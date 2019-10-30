@@ -200,8 +200,9 @@ BESU_GRAPHQL_HTTP_ENABLED=true
 graphql-http-enabled=true
 ```
 
-Set to `true` to enable the GraphQL HTTP service.
-The default is `false`.
+Set to `true` to enable the GraphQL HTTP service. The default is `false`.
+
+The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
 ### graphql-http-host
 
@@ -1332,7 +1333,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM', DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

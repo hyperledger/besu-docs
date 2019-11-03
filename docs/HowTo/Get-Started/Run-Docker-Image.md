@@ -56,8 +56,15 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     Do not mount a volume at the default data path (`/opt/besu`). Mounting a volume at the default 
     data path interferes with the operation of Besu and prevents Besu from safely launching. 
     
-    To run a node that maintains the node state (key and database), [`--data-path` must be set to a location
+    To run a node that maintains the node state (key and database), [`--data-path`] must be set to a location
     other than `/opt/besu` and a storage volume mounted at that location]. 
+
+[Besu environment variables](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables) can be specified with the docker image instead of the command line options.
+
+!!! example
+    ```bash
+    docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=goerli hyperledger/besu:latest
+    ```
 
 ### Run a Node for Testing 
 

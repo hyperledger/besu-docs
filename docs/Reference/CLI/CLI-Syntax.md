@@ -1135,6 +1135,26 @@ remote-connections-max-percentage=25
 Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
 Default is 60. 
 
+### required-block
+
+```bash tab="Syntax"
+--required-block=<BLOCK=HASH>
+```
+
+```bash tab="Command Line"
+--required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Environment Variable"
+BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Configuration File"
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+```
+
+Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+
 ### rpc-http-api
 
 ```bash tab="Syntax"

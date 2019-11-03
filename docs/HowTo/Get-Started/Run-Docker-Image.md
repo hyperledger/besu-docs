@@ -63,7 +63,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
 
 !!! example
     ```bash
-    docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true hyperledger/besu:latest --network=goerli
+    docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=goerli hyperledger/besu:latest
     ```
 
 ### Run a Node for Testing 

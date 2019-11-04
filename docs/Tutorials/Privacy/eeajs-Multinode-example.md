@@ -7,7 +7,7 @@ To use the examples provided in EEA JS library with [your privacy network](Confi
 
 1. Clone the **PegaSysEng/eeajs** repository: 
      ```bash
-     git clone https://github.com/PegaSysEng/eeajs.git
+     git clone https://github.com/PegaSysEng/web3js-eea
      ```
 
 1. In the `eeajs` directory: 

@@ -10,9 +10,6 @@ Other participants cannot access the transaction content or list of participants
     For production systems requiring private transactions, we recommend using a network 
     with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
 
-!!! Caution
-    Do not use pruning on private networks.
-
 ## Private Transaction Manager
 
 Besu uses a Private Transaction Manager to implement privacy. For example, [Orion](http://docs.orion.pegasys.tech).  

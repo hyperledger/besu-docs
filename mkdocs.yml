@@ -149,7 +149,6 @@ nav:
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
-        - Pruning: Concepts/Pruning.md
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md

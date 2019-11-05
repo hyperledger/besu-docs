@@ -1081,6 +1081,9 @@ pruning-enabled=true
 
 Enables pruning of world state of blocks older than the retention period. If Fast Sync is enabled, the default is `true`. Otherwise, the default is `false`.
 
+!!! Caution
+    Pruning can't be used with [`--privacy-enabled`](#privacy-enabled).
+
 ### pruning-block-confirmations
 
 ```bash tab="Syntax"

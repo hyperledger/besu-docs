@@ -16,6 +16,9 @@ steps 1 to 5 of the [Create an IBFT 2.0](../Private-Network/Create-IBFT-Network.
 
 !!! important 
     To support privacy, ensure your genesis file includes at least the `byzantium` milestone.
+    
+    This tutorial configures a private network using IBFT 2.0 for educational purposes only. 
+    IBFT 2.0 requires 4 validators to be Byzantine fault tolerant.
 
 In this tutorial we start Orion nodes for the three Besu nodes and configure each Besu node to be associated 
 with an Orion node. 

@@ -200,8 +200,9 @@ BESU_GRAPHQL_HTTP_ENABLED=true
 graphql-http-enabled=true
 ```
 
-Set to `true` to enable the GraphQL HTTP service.
-The default is `false`.
+Set to `true` to enable the GraphQL HTTP service. The default is `false`.
+
+The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
 ### graphql-http-host
 
@@ -1134,6 +1135,26 @@ remote-connections-max-percentage=25
 Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
 Default is 60. 
 
+### required-block
+
+```bash tab="Syntax"
+--required-block=<BLOCK=HASH>
+```
+
+```bash tab="Command Line"
+--required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Environment Variable"
+BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Configuration File"
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+```
+
+Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+
 ### rpc-http-api
 
 ```bash tab="Syntax"
@@ -1332,7 +1353,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM', DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

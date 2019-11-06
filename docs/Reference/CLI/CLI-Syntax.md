@@ -986,8 +986,10 @@ BESU_PRIVACY_ENABLED=false
 privacy-enabled=false
 ```
 
-Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
-The default is false.  
+Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
+
+!!! Caution
+    Do not use [pruning](../../Concepts/Pruning.md) if you plan to make private transactions. 
 
 ### privacy-marker-transaction-signing-key-file
 

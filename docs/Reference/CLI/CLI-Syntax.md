@@ -986,10 +986,7 @@ BESU_PRIVACY_ENABLED=false
 privacy-enabled=false
 ```
 
-Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
-
-!!! Caution
-    Private transactions can't be used with [`--pruning-enabled`](#pruning-enabled).  
+Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false. 
 
 ### privacy-marker-transaction-signing-key-file
 
@@ -1084,47 +1081,7 @@ pruning-enabled=true
 Enables pruning of world state of blocks older than the retention period. If Fast Sync is enabled, the default is `true`. Otherwise, the default is `false`.
 
 !!! Caution
-    Pruning can't be used with [`--privacy-enabled`](#privacy-enabled).
-
-### pruning-block-confirmations
-
-```bash tab="Syntax"
---pruning-block-confirmations=<INTEGER>
-```
-
-```bash tab="Command Line"
---pruning-block-confirmations=20
-```
-
-```bash tab="Environment Variable"
-BESU_PRUNING_BLOCK_CONFIRMATIONS=20
-```
-
-```bash tab="Configuration File"
-pruning-block-confirmations=20
-```
-
-Minimum number of confirmations on a block before marking begins. Default is 10.
-
-### pruning-blocks-retained
-
-```bash tab="Syntax"
---pruning-blocks-retained=<INTEGER>
-```
-
-```bash tab="Command Line"
---pruning-blocks-retained=2500
-```
-
-```bash tab="Environment Variable"
-BESU_PRUNING_BLOCKS_RETAINED=2500
-```
-
-```bash tab="Configuration File"
-pruning-blocks-retained=2500
-```
-
-Minimum number of recent blocks for which to keep entire world state. Default is 1024.   
+    Pruning can't be used if you plan to make [private transactions](../../Concepts/Privacy/Privacy-Overview.md).
 
 ### revert-reason-enabled
 

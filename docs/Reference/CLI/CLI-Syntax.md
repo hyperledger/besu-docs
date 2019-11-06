@@ -1078,7 +1078,7 @@ BESU_PRUNING_ENABLED=true
 pruning-enabled=true
 ```
 
-Enables pruning of world state of blocks older than the retention period. If Fast Sync is enabled, the default is `true`. Otherwise, the default is `false`.
+Enables pruning of unused world state of old blocks that will not be required except by chain reorganizations. 
 
 !!! Caution
     Pruning can't be used if you plan to make [private transactions](../../Concepts/Privacy/Privacy-Overview.md).

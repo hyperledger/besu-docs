@@ -1078,7 +1078,7 @@ BESU_PRUNING_ENABLED=true
 pruning-enabled=true
 ```
 
-Enables [pruning](../../Concepts/Pruning.md) of unused world state of old blocks that will not be required except by chain reorganizations. Use pruning to reduce the risk of potential storage problems.
+Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the chain.
 
 !!! Caution
     If you plan to use [private transactions](../../Concepts/Privacy/Privacy-Overview.md), do not use pruning.

@@ -336,7 +336,7 @@ metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
 ```
 
 Comma separated list of categories for which to track metrics. Defaults are 
-`BIG_QUEUE`, `BLOCKCHAIN`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PROCESS`, `RPC`, and `SYNCHRONIZER`. 
+`BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `SYNCHRONIZER`, and `TRANSACTION_POOL`. 
 
 Additional options are `KVSTORE_ROCKSDB` and `KVSTORE_ROCKSDB_STATS`.
 

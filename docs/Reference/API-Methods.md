@@ -4149,7 +4149,7 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
 
 ### priv_getEeaTransactionCount
 
-Returns the private transaction count for the specified account and [privacy group](../../Concepts/Privacy/Privacy-Groups/#eea-compliant-privacy).
+Returns the private transaction count for the specified account and [group of sender and recipients](../../Concepts/Privacy/Privacy-Groups/#eea-compliant-privacy).
 
 !!! important 
     If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for 
@@ -4159,13 +4159,13 @@ Returns the private transaction count for the specified account and [privacy gro
 
 `data` - Account address
 
-`data` - Orion address of the sender
+`data` - Base64 encoded Orion address of the sender
 
-`array of data` - Orion addresses of recipients
+`array of data` - Base64 encoded Orion addresses of recipients
 
 **Returns** 
 
-`quantity` - Integer representing the number of private transactions sent from the address to the specified privacy group.
+`quantity` - Integer representing the number of private transactions sent from the address to the specified group of sender and recipients.
 
 !!! example 
     ```bash tab="curl HTTP request"

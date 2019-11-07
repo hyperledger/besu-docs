@@ -6,7 +6,7 @@ description: Pruning
 As the number of transactions increases, the world state grows, and storage can become a problem. Use pruning on any network to remove state tries that aren't necessary.
 
 !!! Caution
-    Do not use pruning if you plan to make [private transactions](Privacy/Privacy-Overview.md).
+    If you plan to use [private transactions](Privacy/Privacy-Overview.md), do not use pruning.
 
 For a full sync to the Ethereum Mainnet with pruning enabled requires 600GB of disk space. To enable pruning, use the [`--pruning-enabled`](../Reference/CLI/CLI-Syntax.md#pruning-enabled) option.
 

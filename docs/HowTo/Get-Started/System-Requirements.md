@@ -26,4 +26,4 @@ Besu requires 4GB of RAM. For Ethereum Mainnet, a minimum of 8GB of RAM is requi
 
 ## Disk Space 
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, you need 600GB.
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, you need 750GB.

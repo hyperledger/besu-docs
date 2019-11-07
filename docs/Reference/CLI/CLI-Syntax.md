@@ -593,7 +593,7 @@ BESU_MIN_GAS_PRICE=1337
 min-gas-price=1337
 ```
 
-The minimum price that a transaction offers for it to be included in a mined block. It is the same as the value returned by `eth_gasPrice`.
+The minimum price that a transaction offers for it to be included in a mined block. It is the same as the value returned by [`eth_gasPrice`](../API-Methods.md).
 The default is 1000.
 
 ### nat-method

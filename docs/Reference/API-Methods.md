@@ -902,7 +902,7 @@ Returns the account balance of the specified address.
     {
       "jsonrpc" : "2.0",
       "id" : 53,
-      "result" : "0x0"
+      "result" : "0x1cfe56f3795885980000"
     }
     ```
     
@@ -922,7 +922,7 @@ Returns the account balance of the specified address.
     {
       "data": {
         "account": {
-          "balance": "0xac70d23585eadfc2e"
+          "balance": "0x1ce96a1ffe7620d00000"
         }
       }
     }    

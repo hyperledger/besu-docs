@@ -87,7 +87,7 @@ when processing the private transaction enables greater control over the signing
 Separate private states are maintained for each [privacy group](../../Concepts/Privacy/Privacy-Groups.md) so 
 the account nonce for an account is specific to the privacy group. That is, the nonce for account A for
 privacy group ABC is different to the account nonce for account A for privacy group AB. Use 
-[`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) to get 
+[`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get 
 the account nonce for an account for the specified privacy group.
 
 !!! note

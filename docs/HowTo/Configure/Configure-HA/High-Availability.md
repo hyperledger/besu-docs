@@ -32,7 +32,7 @@ are sent to multiple nodes, the [`eth_getTransactionCount`](../../../Reference/A
 results can be incorrect. 
 
 !!! note
-    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), `priv_getTransactionCount` is used to obtain 
+    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) is used to obtain 
     the account nonce and [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction)
     to send private transactions. 
 

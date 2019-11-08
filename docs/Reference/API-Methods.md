@@ -4149,7 +4149,7 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
 
 ### priv_getEeaTransactionCount
 
-Returns the private transaction count for the specified account and [group of sender and recipients](../../Concepts/Privacy/Privacy-Groups/#eea-compliant-privacy.md).
+Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy).
 
 !!! important 
     If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for 

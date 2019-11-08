@@ -887,7 +887,9 @@ Returns the account balance of the specified address.
 
 **Returns**
 
-`result` : *QUANTITY* - Integer value of the current balance in wei.
+`result` : *QUANTITY* - Current balance in wei as a hexadecimal value.
+
+If you run the following requests on a network on which blocks were mined or transactions were made, your results might be different than the results in the examples.  
 
 !!! example
     ```bash tab="curl HTTP"

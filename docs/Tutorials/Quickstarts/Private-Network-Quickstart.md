@@ -239,7 +239,7 @@ The result specifies the miner account balance:
 !!!info
     0x79f905c6fd34e80000 = 2250000000000000000000 Wei (2250 Ether).
 !!!tip
-    Use a [unit converter](https://etherconverter.online/) to easily translate values from Wei to Ether.
+    Use a [unit converter](https://www.etherchain.org/tools/unitConverter) to easily translate values from Wei to Ether.
 
 Wait several seconds until new blocks are mined and call `eth_getBalance` again. The balance increases, meaning the miner
 address successfully received the mining reward.
@@ -459,3 +459,4 @@ To shut down the private network and delete all containers and images created du
 ```bash tab="Linux/MacOS"
 ./remove.sh
 ```
+

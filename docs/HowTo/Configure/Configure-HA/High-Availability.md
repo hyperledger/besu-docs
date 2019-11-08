@@ -24,19 +24,19 @@ to determine when a node is ready.
 
 ## Transaction Nonces 
 
-The account nonce for the next transaction is obtained using [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). 
-The account nonce depends on the transactions in the [transaction pool](../../../Concepts/Transactions/Transaction-Pool.md).
+The nonce for the next transaction is obtained using [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). 
+The nonce depends on the transactions in the [transaction pool](../../../Concepts/Transactions/Transaction-Pool.md).
 If [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and 
 [`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a specific account 
 are sent to multiple nodes, the [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount)
 results can be incorrect. 
 
 !!! note
-    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), `priv_getTransactionCount` is used to obtain 
-    the account nonce and [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction)
+    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), [`priv_getTransactionCount`](../../../Reference/API-Methods.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../../Reference/API-Methods.md#priv_geteeatransactioncount) are used to obtain 
+    the nonce and [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction)
     to send private transactions. 
 
-To get correct account nonces when distributing requests across a cluster, do one of:  
+To get correct nonces when distributing requests across a cluster, do one of:  
 
 * Track the next nonce outside of the Besu node (as MetaMask does)
 * Configure the load balancer in sticky mode so requests from a specific account are sent to a single 

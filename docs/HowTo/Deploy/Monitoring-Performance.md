@@ -63,7 +63,7 @@ block of the `prometheus.yml` file:
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file: 
 
     ```bash tab="Example"
-    prometheus --config.file=config.yml 
+    prometheus --config.file=prometheus.yml 
     ```
 
 1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.

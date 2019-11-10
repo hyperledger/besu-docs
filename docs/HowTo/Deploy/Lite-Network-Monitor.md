@@ -10,7 +10,7 @@ about the network and nodes.
 EthStats Lite supports in-memory persistence or using Redis to persist a fixed number of blocks
 (by default, 3000). 
 
-You can also use a full online version of EthStats for the [Ethereum MainNet](https://ethstats.io).
+You can also use a full online version of EthStats for the [Ethereum MainNet](https://ethstats.io/).
 
 !!! note 
     The EthStats Lite is an [Alethio product](https://company.aleth.io/developers).

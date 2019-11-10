@@ -22,7 +22,7 @@ npm install web3-eea
 
 ## Initialize EEA Client
 
-Initilize your EEA client where:
+Initialize your EEA client where:
 
 * `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified by the
 [`--rpc-http-host`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port)

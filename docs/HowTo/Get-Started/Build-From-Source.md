@@ -8,13 +8,16 @@ description: Building Hyperledger Besu from source code
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 !!!important
-    Hyperledger Besu requires Java 11+ to compile; earlier versions are not supported.
+    Hyperledger Besu requires:
+
+      * For Mac installations: MacOS High Sierra 10.13 or later versions
+      * Java 11+ to compile; earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 * [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 
 ## Running Locally
 
-* [Installation on Linux / Unix / Mac OS X](#installation-on-linux-unix-mac-os-x)
+* [Installation on Linux / Unix / MacOS](#installation-on-linux-unix-macos)
 * [Installation on Windows](#installation-on-windows)
 
 ## Running On Virtual Machine
@@ -22,7 +25,7 @@ description: Building Hyperledger Besu from source code
 * [Installation on VM](#installation-on-vm)
 
 
-## Installation on Linux / Unix / Mac OS X
+## Installation on Linux / Unix / MacOS
 
 ###Clone the Besu Repository
 

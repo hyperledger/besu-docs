@@ -200,8 +200,9 @@ BESU_GRAPHQL_HTTP_ENABLED=true
 graphql-http-enabled=true
 ```
 
-Set to `true` to enable the GraphQL HTTP service.
-The default is `false`.
+Set to `true` to enable the GraphQL HTTP service. The default is `false`.
+
+The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
 ### graphql-http-host
 
@@ -274,6 +275,26 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
+
+### key-value-storage
+
+```bash tab="Syntax"
+--key-value-storage=<keyValueStorageName>
+```
+
+```bash tab="Command Line"
+--key-value-storage=rocksdb
+```
+
+```bash tab="Environment Variable"
+BESU_KEY_VALUE_STORAGE=rocksdb
+```
+
+```bash tab="Configuration File"
+key-value-storage="rocksdb"
+```
+
+Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
 
 ### max-peers
 
@@ -578,19 +599,22 @@ The default is 1000.
 ### nat-method
 
 ```bash tab="Syntax"
---nat-method=<METHOD>
-```
-
-```bash tab="Command Line"
---nat-method=upnp
+--nat-method=UPNP
 ```
 
 ```bash tab="Example Configuration File"
-nat-method="upnp"
+nat-method="UPNP"
 ```
 
-Specifies the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). 
-Options are `upnp` and `none`. The default is `none` (that is, NAT functionality is disabled).
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
+The default is `NONE`, which disables NAT functionality.
+
+!!!tip
+    UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
+
+!!!notes
+    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
+    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -773,27 +797,6 @@ p2p-port="1789"
 
 Specifies the P2P listening ports (UDP and TCP).
 The default is 30303. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
-
-### nat-method
-
-```bash tab="Syntax"
---nat-method=UPNP
-```
-
-```bash tab="Example Configuration File"
-nat-method="UPNP"
-```
-
-Specify the method for handling NAT environments. Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
-
-!!!tip
-    `UPNP` works well with a typical home or small office environment where a wireless router or modem provides NAT isolation. This should provide
-    automatic detection and port-forwarding. UPnP support is often disabled by default in networking equipment firmware, however, any may need to be
-    explicitly enabled.
-
-!!!note
-    Option `UPNP` may introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
 
 ### permissions-accounts-config-file-enabled
 
@@ -1132,6 +1135,26 @@ remote-connections-max-percentage=25
 Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
 Default is 60. 
 
+### required-block
+
+```bash tab="Syntax"
+--required-block=<BLOCK=HASH>
+```
+
+```bash tab="Command Line"
+--required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Environment Variable"
+BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Configuration File"
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+```
+
+Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+
 ### rpc-http-api
 
 ```bash tab="Syntax"
@@ -1330,7 +1353,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM', DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

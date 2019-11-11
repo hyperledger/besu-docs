@@ -1078,7 +1078,7 @@ BESU_PRUNING_ENABLED=true
 pruning-enabled=true
 ```
 
-Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state size.
+Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
 
 !!! important
     Using pruning with [private transactions](Privacy/Privacy-Overview.md) is not supported.

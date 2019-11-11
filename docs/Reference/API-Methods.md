@@ -4147,6 +4147,43 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
     } 
     ```
 
+### priv_getEeaTransactionCount
+
+Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy).
+
+!!! important 
+    If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for 
+    the transaction receipt), you must calculate the private transaction nonce outside Besu. 
+
+**Parameters** 
+
+`data` - Account address
+
+`data` - Base64 encoded Orion address of the sender
+
+`array of data` - Base64 encoded Orion addresses of recipients
+
+**Returns** 
+
+`quantity` - Integer representing the number of private transactions sent from the address to the specified group of sender and recipients.
+
+!!! example 
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
+    ```
+    
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "0x1"
+    }
+    ```  
+
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). 

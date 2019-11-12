@@ -5,7 +5,7 @@ description: Configuring Hyperledger Besu privacy
 
 ### Prerequisites
 
-* [Orion](https://docs.orion.pegasys.tech/en/latest/Installation/Overview/)
+* [Orion](https://docs.orion.pegasys.tech/en/latest/HowTo/Install-Binaries/)
 
 Configuring a network that supports private transactions requires starting an Orion node for each
 Hyperledger Besu node. Besu command line options associate the Besu node with the Orion node. 
@@ -72,13 +72,13 @@ tls = "off"
 ```
 
 !!! important 
-    In production systems, only specify [`tls`](http://docs.orion.pegasys.tech/en/latest/Configuring-Orion/Configuration-File/#tls)
+    In production systems, only specify [`tls`](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/)
     is `off` if another transport security mechanism such as WireGuard is in place. 
     
 In the `Node-2/Orion` and `Node-3/Orion` directories, create `orion.conf` files specifying: 
 
 * Different ports
-* Node-1 Orion node as the bootnode (specified by [`othernodes`](http://docs.orion.pegasys.tech/en/latest/Configuring-Orion/Configuration-File/)): 
+* Node-1 Orion node as the bootnode (specified by [`othernodes`](https://docs.orion.pegasys.tech/en/latest/Reference/Configuration-File/)): 
 
 ```bash tab="Node-2"
 nodeurl = "http://127.0.0.1:8081/"

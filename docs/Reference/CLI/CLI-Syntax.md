@@ -276,6 +276,26 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
 
+### identity
+
+```bash tab="Syntax"
+--identity=<String>
+```
+
+```bash tab="Command Line"
+--identity=MyNode
+```
+
+```bash tab="Environment Variable"
+BESU_IDENTITY=MyNode
+```
+
+```bash tab="Configuration File"
+identity="MyNode"
+```
+
+A name for the node. If specified, it is the second part of the client ID provided by some Ethereum network explorers. For example, in the client ID `besu/MyNode/v1.3.4/linux-x86_64/oracle_openjdk-java-11`, the node name is `MyNode`.
+
 ### key-value-storage
 
 ```bash tab="Syntax"

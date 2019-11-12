@@ -743,7 +743,7 @@ None
 
 ### eth_gasPrice
 
-Returns the current gas unit price in a running node in wei. It is the hexadecimal equivalent of the price specified by the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node was started.
+Returns the current gas unit price in a running node in wei. It is the hexadecimal equivalent of the price specified by the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node was started or the default.
 
 **Parameters**
 

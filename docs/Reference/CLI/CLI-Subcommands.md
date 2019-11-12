@@ -39,6 +39,9 @@ If you are not running the command against the default network (MainNet), specif
 
 This command provides node public key related actions.
 
+!!! caution
+If `--data-path` is not specified when you use the following subcommands, a new public key is generated.
+
 ### export
 
 ```bash tab="Syntax"
@@ -54,7 +57,7 @@ besu --data-path=<node data path> public-key export --to=/home/me/me_project/not
 ```
 
 Outputs the node public key to standard output or writes it to the specified file if 
-`--to=<key-file>` is specified. 
+`--to=<key-file>` is specified.
 
 ### export-address
 

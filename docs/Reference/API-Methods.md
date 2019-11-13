@@ -4,10 +4,9 @@ description: Hyperledger Besu JSON-RPC API methods reference
 # Hyperledger Besu API Methods
 
 !!! attention
-    All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. 
-
-    If using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port)
-    options, update the endpoint.  
+    * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port)
+    options, update the endpoint.
+    * Except for the examples made on the Ropsten network, the example requests are made against private networks, and your example results may be different, depending on network configuration and activity.
 
 {!global/Postman.md!}
 
@@ -887,10 +886,7 @@ Returns the account balance of the specified address.
 
 **Returns**
 
-`result` : *QUANTITY* - Current balance in wei as a hexadecimal value.
-
-!!! important
-    If you run the following requests on a network where transactions involving your account were made, your results might be different than the results in the examples.  
+`result` : *QUANTITY* - Current balance in wei as a hexadecimal value.  
 
 !!! example
     ```bash tab="curl HTTP"

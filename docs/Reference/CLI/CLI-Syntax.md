@@ -1084,7 +1084,7 @@ pruning-enabled=true
 Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
 
 !!! important
-    Using pruning with [private transactions](Privacy/Privacy-Overview.md) is not supported.
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### revert-reason-enabled
 

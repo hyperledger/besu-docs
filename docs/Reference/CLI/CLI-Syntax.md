@@ -1061,7 +1061,30 @@ BESU_PRIVACY_URL=http://127.0.0.1:8888
 privacy-url="http://127.0.0.1:8888"
 ```
 
-URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.    
+URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.
+
+### pruning-enabled
+
+```bash tab="Syntax"
+--pruning-enabled
+```
+
+```bash tab="Command Line"
+--pruning-enabled=true
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_ENABLED=true
+```
+
+```bash tab="Configuration File"
+pruning-enabled=true
+```
+
+Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### revert-reason-enabled
 

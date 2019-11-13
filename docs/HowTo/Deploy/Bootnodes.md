@@ -6,10 +6,9 @@ description: Configuring bootnodes in production networks
 A network must have at least one operating bootnode. To allow for continuity in the event of failure, 
 configure two or more bootnodes. 
 
-We do not recommend putting bootnodes behind a load balancer. Put more bootnodes on the network itself. 
+We do not recommend putting bootnodes behind a load balancer since its enode is tied to the node's public key, IP address and discovery ports. Any changes to the bootnode's enode would prevent other nodes from being able to establish a connection with it. This is why it is preferable to put more bootnodes on the network itself.
 
-The [enode](../../Concepts/Node-Keys.md#enode-url) of a bootnode is tied to the node public key and IP address. 
-To simplify recovering from complete bootnode failure: 
+To ensure that the bootnode's enode does not change when recovering from a complete bootnode failure:
 
 1. Create the [node key pair](../../Concepts/Node-Keys.md) (that is, the private and public key) before starting the bootnode.
 1. When creating bootnodes in the cloud (for example, AWS, Azure), attempt to assign a static IP to them. If your network is: 
@@ -18,7 +17,7 @@ To simplify recovering from complete bootnode failure:
    
     * Internal only, specify a private IP address when you create the instance and record this IP address. 
 
-We recommend bootnode configuration is stored under source control. 
+We recommend that the bootnode configuration be stored under source control. 
 
 ## Specifying Bootnodes 
 

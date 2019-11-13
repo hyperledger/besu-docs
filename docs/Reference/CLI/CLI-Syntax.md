@@ -294,7 +294,9 @@ BESU_IDENTITY=MyNode
 identity="MyNode"
 ```
 
-Name for the node. If specified, it is the second part of the client ID provided by some Ethereum network explorers. For example, in the client ID `besu/MyNode/v1.3.4/linux-x86_64/oracle_openjdk-java-11`, the node name is `MyNode`.
+Name for the node. If specified, it is the second section of the client ID provided by some Ethereum network explorers. For example, in the client ID `besu/MyNode/v1.3.4/linux-x86_64/oracle_openjdk-java-11`, the node name is `MyNode`. 
+
+If a name is not specified, the name section is not included in the client ID. For example, `besu/v1.3.4/linux-x86_64/oracle_openjdk-java-11`.
 
 ### key-value-storage
 

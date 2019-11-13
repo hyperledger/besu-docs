@@ -1,17 +1,12 @@
 description: Ethereum Lite Explorer
 <!--- END of page meta data -->
 
-# Alethio Ethereum Lite Explorer
-
 Use the [Alethio Ethereum Lite Explorer](https://lite-explorer.aleth.io/) to explore blockchain data 
 at the block, transaction, and account level.
  
 The Alethio Ethereum Lite Explorer is a web application that connects to any Ethereum 
 JSON-RPC enabled node. No online server, hosting, or trusting third parties to display the blockchain
 data is required. 
-
-!!! note 
-     The Alethio Ethereum Lite Explorer is an [Alethio product](https://company.aleth.io/developers).
 
 ## Prerequisites
 

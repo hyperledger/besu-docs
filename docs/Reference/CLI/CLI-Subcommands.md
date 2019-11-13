@@ -40,7 +40,7 @@ If you are not running the command against the default network (MainNet), specif
 This command provides node public key related actions.
 
 !!!caution
-    If `--data-path` is not specified when you use the following subcommands, a new public key is generated.
+    If `--data-path` is not specified when you use the following subcommands, a new key pair is generated.
 
 ### export
 

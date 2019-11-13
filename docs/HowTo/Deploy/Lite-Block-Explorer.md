@@ -10,9 +10,6 @@ The Alethio Ethereum Lite Explorer is a web application that connects to any Eth
 JSON-RPC enabled node. No online server, hosting, or trusting third parties to display the blockchain
 data is required. 
 
-!!! note 
-     The Alethio Ethereum Lite Explorer is an [Alethio product](https://company.aleth.io/developers).
-
 ## Prerequisites
 
 [Docker](https://docs.docker.com/install/) or [Node.js](https://nodejs.org/)

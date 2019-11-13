@@ -3,17 +3,14 @@ description: Alethio EthStats Lite network monitor
 
 # Alethio EthStats Lite (network monitor)
 
-Use [EthStats Lite](https://github.com/Alethio?utf8=%E2%9C%93&q=ethstats&type=&language=javascript)
+Use [Alethio EthStats Lite](https://github.com/Alethio?utf8=%E2%9C%93&q=ethstats&type=&language=javascript)
 to have a live view of private network health by displaying real time and historical statistics 
 about the network and nodes.
 
 EthStats Lite supports in-memory persistence or using Redis to persist a fixed number of blocks
 (by default, 3000). 
 
-You can also use a full online version of EthStats for the [Ethereum MainNet](https://ethstats.io/).
-
-!!! note 
-    The EthStats Lite is an [Alethio product](https://company.aleth.io/developers).
+A full online version of [EthStats for the Ethereum Mainnet](https://ethstats.io/) is also available.
 
 !!! tip
     Static local ports 80 and 3000 are used in the example [running EthStats Lite 

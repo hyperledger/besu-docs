@@ -276,6 +276,28 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
 
+### identity
+
+```bash tab="Syntax"
+--identity=<String>
+```
+
+```bash tab="Command Line"
+--identity=MyNode
+```
+
+```bash tab="Environment Variable"
+BESU_IDENTITY=MyNode
+```
+
+```bash tab="Configuration File"
+identity="MyNode"
+```
+
+Name for the node. If specified, it is the second section of the client ID provided by some Ethereum network explorers. For example, in the client ID `besu/MyNode/v1.3.4/linux-x86_64/oracle_openjdk-java-11`, the node name is `MyNode`. 
+
+If a name is not specified, the name section is not included in the client ID. For example, `besu/v1.3.4/linux-x86_64/oracle_openjdk-java-11`.
+
 ### key-value-storage
 
 ```bash tab="Syntax"
@@ -986,8 +1008,10 @@ BESU_PRIVACY_ENABLED=false
 privacy-enabled=false
 ```
 
-Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
-The default is false.  
+Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
+
+!!! important
+    Using private transactions with [pruning](../../Concepts/Pruning.md) is not supported.
 
 ### privacy-marker-transaction-signing-key-file
 
@@ -1059,7 +1083,30 @@ BESU_PRIVACY_URL=http://127.0.0.1:8888
 privacy-url="http://127.0.0.1:8888"
 ```
 
-URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.    
+URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.
+
+### pruning-enabled
+
+```bash tab="Syntax"
+--pruning-enabled
+```
+
+```bash tab="Command Line"
+--pruning-enabled=true
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_ENABLED=true
+```
+
+```bash tab="Configuration File"
+pruning-enabled=true
+```
+
+Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### revert-reason-enabled
 
@@ -1353,7 +1400,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

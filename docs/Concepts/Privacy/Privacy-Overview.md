@@ -9,6 +9,9 @@ Other participants cannot access the transaction content or list of participants
 !!! important
     For production systems requiring private transactions, we recommend using a network 
     with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    
+!!! important
+    Using private transactions with [pruning](../Pruning.md) is not supported.
 
 ## Private Transaction Manager
 

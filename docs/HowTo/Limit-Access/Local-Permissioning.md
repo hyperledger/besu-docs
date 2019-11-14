@@ -131,7 +131,7 @@ To view the accounts whitelist, use the [`perm_getAccountsWhitelist`](../../Refe
 
 ### Enabling Account Whitelisting 
 
-To enable account whitelisting, specify the [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-enabled) option 
+To enable account whitelisting, specify the [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled) option 
 when starting Besu. 
 
 The `PERM` API methods are not enabled by default. Use the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 

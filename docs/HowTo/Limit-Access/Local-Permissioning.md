@@ -141,7 +141,7 @@ or [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options to ena
 
 The permissions configuration file contains the nodes and accounts whitelists. If the [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
 and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file) 
-options are not specified, the permissions configuration file must be called `permissions_config.toml` and
+options are not specified, the permissions configuration file must be called [`permissions_config.toml`](#permissions-configuration-file) and
 must be in the [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
 The accounts and nodes whitelists can be specified in the same file or in separate files for accounts and nodes. 

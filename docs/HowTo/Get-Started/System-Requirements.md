@@ -22,8 +22,8 @@ A sample [Grafana dashboard](https://grafana.com/grafana/dashboards/10273) is pr
 
 ## RAM 
 
-Besu requires 4GB of RAM. For Ethereum Mainnet, a minimum of 8GB of RAM is required 
+Besu requires 4GB of RAM. For Ethereum Mainnet, a minimum of 8GB of RAM is required. 
 
 ## Disk Space 
 
-Syncing to the Ethereum mainnet requires 3TB for a full sync. 
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 700GB of available disk space. 

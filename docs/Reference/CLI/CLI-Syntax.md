@@ -615,7 +615,7 @@ BESU_MIN_GAS_PRICE=1337
 min-gas-price=1337
 ```
 
-The minimum price that a transaction offers for it to be included in a mined block.
+The minimum price that a transaction offers for it to be included in a mined block. To retrieve the minimum price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
 The default is 1000.
 
 ### nat-method
@@ -1400,7 +1400,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

@@ -6,7 +6,9 @@ description: Configuring bootnodes in production networks
 A network must have at least one operating bootnode. To allow for continuity in the event of failure, 
 configure two or more bootnodes. 
 
-We do not recommend putting bootnodes behind a load balancer since its [enode](../../Concepts/Node-Keys.md#enode-url) is tied to the node's public key, IP address and discovery ports. Any changes to the bootnode's enode would prevent other nodes from being able to establish a connection with it. This is why it is preferable to put more bootnodes on the network itself.
+We do not recommend putting bootnodes behind a load balancer since the [enode](../../Concepts/Node-Keys.md#enode-url) is 
+tied to the node's public key, IP address, and discovery ports. Any changes to the enode of the bootnode prevents other nodes 
+from being able to establish a connection with the bootnode. This is why we recommend putting more bootnodes on the network itself.
 
 To ensure that the bootnode's enode does not change when recovering from a complete bootnode failure: 
 

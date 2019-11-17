@@ -4,10 +4,9 @@ description: Hyperledger Besu JSON-RPC API methods reference
 # Hyperledger Besu API Methods
 
 !!! attention
-    All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. 
-
-    If using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port)
-    options, update the endpoint.  
+    * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port)
+    options, update the endpoint.
+    * Except for the examples made on the Ropsten network, the example requests are made against private networks. Depending on network configuration and activity, your example results may be different.
 
 {!global/Postman.md!}
 
@@ -887,22 +886,22 @@ Returns the account balance of the specified address.
 
 **Returns**
 
-`result` : *QUANTITY* - Integer value of the current balance in wei.
+`result` : *QUANTITY* - Current balance in wei as a hexadecimal value.  
 
 !!! example
     ```bash tab="curl HTTP"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xdd37f65db31c107f773e82a4f85c693058fef7a9", "latest"],"id":53}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
     ```
     
     ```bash tab="wscat WS"
-    {"jsonrpc":"2.0","method":"eth_getBalance","params":["0xdd37f65db31c107f773e82a4f85c693058fef7a9", "latest"],"id":53}
+    {"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}
     ```
     
     ```json tab="JSON result"
     {
       "jsonrpc" : "2.0",
       "id" : 53,
-      "result" : "0x0"
+      "result" : "0x1cfe56f3795885980000"
     }
     ```
     
@@ -922,7 +921,7 @@ Returns the account balance of the specified address.
     {
       "data": {
         "account": {
-          "balance": "0xac70d23585eadfc2e"
+          "balance": "0x1ce96a1ffe7620d00000"
         }
       }
     }    

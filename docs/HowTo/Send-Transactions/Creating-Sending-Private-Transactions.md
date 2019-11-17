@@ -13,9 +13,6 @@ Create and send [private transactions](../../Concepts/Privacy/Privacy-Overview.m
 All private transaction participants must be online for a private transaction to be successfully distributed. If any 
 participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
 
-All private transaction participants must be online for a private transaction to be successfully distributed. 
-If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
-
 !!! note
     Private transactions either deploy contracts or call contract functions. 
     Ether transfer transactions cannot be private. 

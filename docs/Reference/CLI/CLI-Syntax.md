@@ -631,6 +631,7 @@ BESU_MINER_STRATUM_HOST=192.168.1.132
 ```bash tab="Configuration File"
 miner-stratum-host="192.168.1.132"
 ```
+
 Host of the stratum mining service.
 Default is `0.0.0.0`.
 

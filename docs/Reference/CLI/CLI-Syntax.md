@@ -252,6 +252,14 @@ graphql-http-port="6175"
 Specifies GraphQL HTTP listening port (TCP).
 The default is 8547. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### help
+
+```bash tab="Syntax"
+-h, --help
+```
+
+Show the help message and exit.
+
 ### host-whitelist
 
 ```bash tab="Syntax"
@@ -317,6 +325,28 @@ key-value-storage="rocksdb"
 ```
 
 Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
+
+### logging
+
+```bash tab="Syntax"
+-l, --logging=<LEVEL>
+```
+
+```bash tab="Command Line"
+--logging=DEBUG
+```
+
+```bash tab="Environment Variable"
+BESU_LOGGING=DEBUG
+```
+
+```bash tab="Example Configration File"
+logging="DEBUG"
+```
+
+Sets the logging verbosity.
+Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+Default is `INFO`.
 
 ### max-peers
 
@@ -659,25 +689,23 @@ network="rinkeby"
 Predefined network configuration.
 The default is `mainnet`.
 
-Possible values are :
+Possible values are:
 
-`mainnet`
-:   Main Ethereum network
+| Network   | Description                                                                   |
+|-----------|-------------------------------------------------------------------------------|
+| `classic` | Ethereum Classic network                                                      |
+| `dev`     | PoW development network with a very low difficulty to enable local CPU mining |
+| `goerli`  | PoA test network using Clique                                                 |
+| `kotti`   | Ethereum Classic PoA test network using Clique                                |
+| `mainnet` | Main Ethereum network                                                         |
+| `rinkeby` | PoA test network using Clique                                                 |
+| `ropsten` | PoW test network similar to current main Ethereum network                     |
 
-`ropsten`
-:   PoW test network similar to current main Ethereum network. 
-
-`rinkeby`
-:   PoA test network using Clique.
-
-`goerli`
-:   PoA test network using Clique.
-
-`dev`
-:   PoW development network with a very low difficulty to enable local CPU mining.
-
-!!!note
-    Values are case insensitive, so either `mainnet` or `MAINNET` works.
+!!!tip
+    Values are case insensitive, so either `mainnet` or `MAINNET` works. 
+    
+!!!important
+    The [`--network`](#network) and [`--genesis-file`](#genesis-file) option cannot be used at the same time.
     
 !!!important
     The [`--network`](#network) and [`--genesis-file`](#genesis-file) option cannot be used at the same time.
@@ -820,25 +848,6 @@ p2p-port="1789"
 Specifies the P2P listening ports (UDP and TCP).
 The default is 30303. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### permissions-accounts-config-file-enabled
-
-```bash tab="Syntax"
---permissions-accounts-config-file-enabled[=<true|false>]
-```
-
-```bash tab="Command Line"
---permissions-accounts-config-file-enabled
-```
-
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
-```
-
-```bash tab="Configuration File"
-permissions-accounts-config-file-enabled=true
-```
-
-Set to enable file-based account level permissions. Default is `false`. 
 
 ### permissions-accounts-config-file    
 
@@ -864,6 +873,26 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 !!! tip
     `--permissions-accounts-config-file` and [`--permissions-nodes-config-file`](#permissions-nodes-config-file)
     can use the same file. 
+    
+### permissions-accounts-config-file-enabled
+
+```bash tab="Syntax"
+--permissions-accounts-config-file-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--permissions-accounts-config-file-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
+```
+
+```bash tab="Configuration File"
+permissions-accounts-config-file-enabled=true
+```
+
+Set to enable file-based account level permissions. Default is `false`. 
 
 ### permissions-accounts-contract-address
 
@@ -905,25 +934,6 @@ permissions-accounts-contract-enabled=true
 
 Enables contract-based [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). Default is `false`.
 
-### permissions-nodes-config-file-enabled
-
-```bash tab="Syntax"
---permissions-nodes-config-file-enabled[=<true|false>]
-```
-
-```bash tab="Command Line"
---permissions-nodes-config-file-enabled
-```
-
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
-```
-
-```bash tab="Configuration File"
-permissions-nodes-config-file-enabled=true
-```
-
-Set to enable file-based node level permissions. Default is `false`.
 
 ### permissions-nodes-config-file    
 
@@ -949,6 +959,26 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 !!! tip
     `--permissions-nodes-config-file` and [`--permissions-accounts-config-file`](#permissions-accounts-config-file)
     can use the same file. 
+    
+### permissions-nodes-config-file-enabled
+
+```bash tab="Syntax"
+--permissions-nodes-config-file-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--permissions-nodes-config-file-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
+```
+
+```bash tab="Configuration File"
+permissions-nodes-config-file-enabled=true
+```
+
+Set to enable file-based node level permissions. Default is `false`.
 
 ### permissions-nodes-contract-address
 
@@ -1108,6 +1138,76 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
 !!! important
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
+
+    ### remote-connections-limit-enabled
+
+    ```bash tab="Syntax"
+    --remote-connections-limit-enabled[=<true|false>]
+    ```
+
+    ```bash tab="Command Line"
+    --remote-connections-limit-enabled=false
+    ```
+
+    ```bash tab="Environment Variable"
+    BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
+    ```
+
+    ```bash tab="Configuration File"
+    remote-connections-limit-enabled=false
+    ```
+
+    Specify to limit the percentage of remote P2P connections initiated by peers. Default is true. 
+
+    !!! tip
+        In private networks with a level of trust between peers, disabling the remote connection limits 
+        may increase the speed at which nodes can join the network.
+
+    !!! important
+        To prevent eclipse attacks, ensure the remote connections limit is enabled when connecting to 
+        any public network and especially when using [fast sync](#fast-sync-options). 
+
+    ### remote-connections-max-percentage
+
+    ```bash tab="Syntax"
+    --remote-connections-max-percentage=<DOUBLE>
+    ```
+
+    ```bash tab="Command Line"
+    --remote-connections-max-percentage=25
+    ```
+
+    ```bash tab="Environment Variable"
+    BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
+    ```
+
+    ```bash tab="Configuration File"
+    remote-connections-max-percentage=25
+    ```
+
+    Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
+    Default is 60. 
+
+    ### required-block
+
+    ```bash tab="Syntax"
+    --required-block=<BLOCK=HASH>
+    ```
+
+    ```bash tab="Command Line"
+    --required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+    ```
+
+    ```bash tab="Environment Variable"
+    BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+    ```
+
+    ```bash tab="Configuration File"
+    required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+    ```
+
+    Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+    
 ### revert-reason-enabled
 
 ```bash tab="Syntax"
@@ -1132,75 +1232,6 @@ receipt. Default is `false`.
 !!! caution 
     Enabling revert reason may use a significant amount of memory. We do not recommend enabling revert
     reason when connected to public Ethereum networks. 
-
-### remote-connections-limit-enabled
-
-```bash tab="Syntax"
---remote-connections-limit-enabled[=<true|false>]
-```
-
-```bash tab="Command Line"
---remote-connections-limit-enabled=false
-```
-
-```bash tab="Environment Variable"
-BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
-```
-
-```bash tab="Configuration File"
-remote-connections-limit-enabled=false
-```
-
-Specify to limit the percentage of remote P2P connections initiated by peers. Default is true. 
-
-!!! tip
-    In private networks with a level of trust between peers, disabling the remote connection limits 
-    may increase the speed at which nodes can join the network.
-
-!!! important
-    To prevent eclipse attacks, ensure the remote connections limit is enabled when connecting to 
-    any public network and especially when using [fast sync](#fast-sync-options). 
-
-### remote-connections-max-percentage
-
-```bash tab="Syntax"
---remote-connections-max-percentage=<DOUBLE>
-```
-
-```bash tab="Command Line"
---remote-connections-max-percentage=25
-```
-
-```bash tab="Environment Variable"
-BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
-```
-
-```bash tab="Configuration File"
-remote-connections-max-percentage=25
-```
-
-Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
-Default is 60. 
-
-### required-block
-
-```bash tab="Syntax"
---required-block=<BLOCK=HASH>
-```
-
-```bash tab="Command Line"
---required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-```
-
-```bash tab="Environment Variable"
-BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-```
-
-```bash tab="Configuration File"
-required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
-```
-
-Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
 
 ### rpc-http-api
 
@@ -1575,36 +1606,6 @@ tx-pool-retention-hours="5"
 ```
 
 Maximum period in hours to retain pending transactions in the transaction pool. Default is 13. 
-
-### help
-
-```bash tab="Syntax"
--h, --help
-```
-
-Show the help message and exit.
-
-### logging
-
-```bash tab="Syntax"
--l, --logging=<LEVEL>
-```
-
-```bash tab="Command Line"
---logging=DEBUG
-```
-
-```bash tab="Environment Variable"
-BESU_LOGGING=DEBUG
-```
-
-```bash tab="Example Configration File"
-logging="DEBUG"
-```
-
-Sets the logging verbosity.
-Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
-Default is `INFO`.
 
 ### version
 

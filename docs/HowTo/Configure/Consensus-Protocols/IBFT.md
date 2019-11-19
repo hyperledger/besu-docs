@@ -71,16 +71,16 @@ to generate the `extraData` RLP string to include in the genesis file.
     besu rlp encode --from=toEncode.json
     ```    
 
-Where the `toEncode.json` file contains a list of the initial validators in ascending order. 
+Where the `toEncode.json` file contains a list of the initial validators in ascending order. Use the Besu subcommand [`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) to write the validator address and copy it to the `toEncode.json` file. For example:
 
-!!! example "One Initial Validator"
+!!! example "One Initial Validator in `toEncode.json` file"
     ```json
     [
      "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
     ]
     ``` 
 
-Copy the RLP encoded data to the `extraData` in the genesis file. 
+Copy the RLP encoded data to the `extraData` property in the genesis file. 
 
 ### Block Time 
 

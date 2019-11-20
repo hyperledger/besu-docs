@@ -13,9 +13,6 @@ Create and send [private transactions](../../Concepts/Privacy/Privacy-Overview.m
 All private transaction participants must be online for a private transaction to be successfully distributed. If any 
 participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
 
-All private transaction participants must be online for a private transaction to be successfully distributed. 
-If any participants are offline when the private transaction is submitted, the transaction is not attempted and must be resubmitted.
-
 !!! note
     Private transactions either deploy contracts or call contract functions. 
     Ether transfer transactions cannot be private. 
@@ -28,7 +25,7 @@ nodes and, signs and submits the [privacy marker transaction] as described in [P
 ## priv_distributeRawTransaction 
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) distributes the 
-private transaction to the participating noes but does not sign and submit the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
+private transaction to the participating nodes but does not sign and submit the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
 That is, [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) 
 performs steps 1 to 5 of [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md). 
 
@@ -85,10 +82,10 @@ when processing the private transaction enables greater control over the signing
 ## Private transaction nonce 
 
 Separate private states are maintained for each [privacy group](../../Concepts/Privacy/Privacy-Groups.md) so 
-the account nonce for an account is specific to the privacy group. That is, the nonce for account A for
-privacy group ABC is different to the account nonce for account A for privacy group AB. Use 
-[`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) to get 
-the account nonce for an account for the specified privacy group.
+the nonce for an account is specific to the privacy group. That is, the nonce for account A for
+privacy group ABC is different to the nonce for account A for privacy group AB. Use 
+[`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get 
+the nonce for an account for the specified privacy group.
 
 !!! note
     If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for 

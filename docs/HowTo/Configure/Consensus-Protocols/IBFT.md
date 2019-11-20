@@ -37,10 +37,9 @@ To use IBFT 2.0 requires an IBFT 2.0 genesis file. The genesis file defines prop
         "nonce": "0x0",
         "timestamp": "0x58ee40ba",
         "extraData": "0xf83ea00000000000000000000000000000000000000000000000000000000000000000d594c2ab482b506de561668e07f04547232a72897daf808400000000c0",
-        "gasLimit": "0x47b760",
+        "gasLimit": "0x7A1200",
         "difficulty": "0x1",
         "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
-        "coinbase": "0x0000000000000000000000000000000000000000",
         "alloc": {}
       }
     ```
@@ -71,16 +70,16 @@ to generate the `extraData` RLP string to include in the genesis file.
     besu rlp encode --from=toEncode.json
     ```    
 
-Where the `toEncode.json` file contains a list of the initial validators in ascending order. 
+Where the `toEncode.json` file contains a list of the initial validators in ascending order. Use the Besu subcommand [`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) to write the validator address and copy it to the `toEncode.json` file. For example:
 
-!!! example "One Initial Validator"
+!!! example "One Initial Validator in `toEncode.json` file"
     ```json
     [
      "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
     ]
     ``` 
 
-Copy the RLP encoded data to the `extraData` in the genesis file. 
+Copy the RLP encoded data to the `extraData` property in the genesis file. 
 
 ### Block Time 
 

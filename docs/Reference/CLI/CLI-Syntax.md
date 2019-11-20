@@ -137,6 +137,30 @@ discovery-enabled=false
 Enables or disables P2P peer discovery.
 The default is `true`.
 
+### fast-sync-min-peers
+
+```bash tab="Syntax"
+--fast-sync-min-peers=<INTEGER>
+```
+
+```bash tab="Command Line"
+--fast-sync-min-peers=2
+```
+
+```bash tab="Environment Variable"
+BESU_FAST_SYNC_MIN_PEERS=2
+```
+
+```bash tab="Example Configuration File"
+fast-sync-min-peers=2
+```
+
+Minimum number of peers required before starting fast sync. Default is 5.
+
+!!! note
+    If synchronizing in FAST mode, most historical world state data is unavailable.  Any methods attempting 
+    to access unavailable world state data return `null`.
+
 ### genesis-file
 
 Genesis file is used to create a custom network.
@@ -705,10 +729,7 @@ Possible values are:
     Values are case insensitive, so either `mainnet` or `MAINNET` works. 
     
 !!!important
-    The [`--network`](#network) and [`--genesis-file`](#genesis-file) option cannot be used at the same time.
-    
-!!!important
-    The [`--network`](#network) and [`--genesis-file`](#genesis-file) option cannot be used at the same time.
+    The [`--network`](#network) and [`--genesis-file`](#genesis-file) options cannot be used at the same time.
     
 ### network-id
 
@@ -1139,74 +1160,74 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 
-    ### remote-connections-limit-enabled
+### remote-connections-limit-enabled
 
-    ```bash tab="Syntax"
-    --remote-connections-limit-enabled[=<true|false>]
-    ```
+```bash tab="Syntax"
+--remote-connections-limit-enabled[=<true|false>]
+```
 
-    ```bash tab="Command Line"
-    --remote-connections-limit-enabled=false
-    ```
+```bash tab="Command Line"
+--remote-connections-limit-enabled=false
+```
 
-    ```bash tab="Environment Variable"
-    BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
-    ```
+```bash tab="Environment Variable"
+BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
+```
 
-    ```bash tab="Configuration File"
-    remote-connections-limit-enabled=false
-    ```
+```bash tab="Configuration File"
+remote-connections-limit-enabled=false
+```
 
-    Specify to limit the percentage of remote P2P connections initiated by peers. Default is true. 
+Specify to limit the percentage of remote P2P connections initiated by peers. Default is true. 
 
-    !!! tip
-        In private networks with a level of trust between peers, disabling the remote connection limits 
-        may increase the speed at which nodes can join the network.
+!!! tip
+    In private networks with a level of trust between peers, disabling the remote connection limits 
+    may increase the speed at which nodes can join the network.
 
-    !!! important
-        To prevent eclipse attacks, ensure the remote connections limit is enabled when connecting to 
-        any public network and especially when using [fast sync](#fast-sync-options). 
+!!! important
+    To prevent eclipse attacks, ensure the remote connections limit is enabled when connecting to 
+    any public network and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#--fast-sync-min-peers). 
 
-    ### remote-connections-max-percentage
+### remote-connections-max-percentage
 
-    ```bash tab="Syntax"
-    --remote-connections-max-percentage=<DOUBLE>
-    ```
+```bash tab="Syntax"
+--remote-connections-max-percentage=<DOUBLE>
+```
 
-    ```bash tab="Command Line"
-    --remote-connections-max-percentage=25
-    ```
+```bash tab="Command Line"
+--remote-connections-max-percentage=25
+```
 
-    ```bash tab="Environment Variable"
-    BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
-    ```
+```bash tab="Environment Variable"
+BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
+```
 
-    ```bash tab="Configuration File"
-    remote-connections-max-percentage=25
-    ```
+```bash tab="Configuration File"
+remote-connections-max-percentage=25
+```
 
-    Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
-    Default is 60. 
+Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
+Default is 60. 
 
-    ### required-block
+### required-block
 
-    ```bash tab="Syntax"
-    --required-block=<BLOCK=HASH>
-    ```
+```bash tab="Syntax"
+--required-block=<BLOCK>=<HASH>
+```
 
-    ```bash tab="Command Line"
-    --required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-    ```
+```bash tab="Command Line"
+--required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
 
-    ```bash tab="Environment Variable"
-    BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-    ```
+```bash tab="Environment Variable"
+BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
 
-    ```bash tab="Configuration File"
-    required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
-    ```
+```bash tab="Configuration File"
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+```
 
-    Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
     
 ### revert-reason-enabled
 
@@ -1545,6 +1566,26 @@ rpc-ws-port="6174"
 Specifies Websockets JSON-RPC listening port (TCP).
 The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### sync-mode
+
+```bash tab="Syntax"
+--sync-mode=FAST
+```
+
+```bash tab="Command Line"
+--sync-mode=FAST
+```
+
+```bash tab="Environment Variable"
+BESU_SYNC_MODE=FAST
+```
+
+```bash tab="Configuration File"
+sync-mode="FAST"
+```
+
+Specifies the synchronization mode. Default is `FULL`.
+
 ### target-gas-limit
 
 ```bash tab="Syntax"
@@ -1615,48 +1656,5 @@ Maximum period in hours to retain pending transactions in the transaction pool. 
 
 Print version information and exit.
 
-## Fast Sync Options 
 
-### sync-mode
 
-```bash tab="Syntax"
---sync-mode=FAST
-```
-
-```bash tab="Command Line"
---sync-mode=FAST
-```
-
-```bash tab="Environment Variable"
-BESU_SYNC_MODE=FAST
-```
-
-```bash tab="Configuration File"
-sync-mode="FAST"
-```
-
-Specifies the synchronization mode. Default is `FULL`.
-
-### fast-sync-min-peers
-
-```bash tab="Syntax"
---fast-sync-min-peers=<INTEGER>
-```
-
-```bash tab="Command Line"
---fast-sync-min-peers=2
-```
-
-```bash tab="Environment Variable"
-BESU_FAST_SYNC_MIN_PEERS=2
-```
-
-```bash tab="Example Configuration File"
-fast-sync-min-peers=2
-```
-
-Minimum number of peers required before starting fast sync. Default is 5.
-
-!!! note
-    If synchronizing in FAST mode, most historical world state data is unavailable.  Any methods attempting 
-    to access unavailable world state data return `null`.

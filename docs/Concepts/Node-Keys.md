@@ -18,7 +18,7 @@ If a `key` file exists in the data directory when Besu is started, the node is s
 
 ## Node Public Key
 
-The node public key is displayed in the log after starting Besu. Use the [`public-key`](../Reference/CLI/CLI-Syntax.md#public-key) subcommand to export the public key to a file. 
+The node public key is displayed in the log after starting Besu. Use the [`public-key`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand to export the public key to a file. 
 
 The node public key is also referred to as the node ID. The node ID forms part of the enode URL for a node. 
 

@@ -722,6 +722,7 @@ Possible values are:
 | `goerli`  | PoA test network using Clique                                                 |
 | `kotti`   | Ethereum Classic PoA test network using Clique                                |
 | `mainnet` | Main Ethereum network                                                         |
+| `mordor ` | Ethereum Classic PoW test network                                             |
 | `rinkeby` | PoA test network using Clique                                                 |
 | `ropsten` | PoW test network similar to current main Ethereum network                     |
 

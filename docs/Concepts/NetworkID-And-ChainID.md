@@ -31,6 +31,7 @@ using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option:
 | `goerli`  | 5        | 5          |
 | `kotti`   | 6        | 6          |
 | `mainnet` | 1        | 1          |
+| `mordor ` | 63       | 7          |
 | `rinkeby` | 4        | 4          |
 | `ropsten` | 3        | 3          |
 

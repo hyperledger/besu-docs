@@ -337,12 +337,17 @@ None
 **Returns**
 
 `result` : *string* - Current chain ID.
-- `1` - Ethereum Mainnet
-- `2` - Morden Testnet  (deprecated)
-- `3` - Ropsten Testnet
-- `4` - Rinkeby Testnet
-- `5` - Goerli Testnet
-- `42` - Kovan Testnet
+
+| Chain ID | Network                                        |
+|----------|------------------------------------------------|
+| `61`     | Ethereum Classic network                       |
+| `2018`   | PoW development network                        |
+| `5`      | PoA test network using Clique                  |
+| `6`      | Ethereum Classic PoA test network using Clique |
+| `1`      | Main Ethereum network                          |
+| `63`     | Ethereum Classic PoW test network              |
+| `4`      | PoA test network using Clique                  |
+| `3`      | PoW test network                               |
 
 !!! example
     ```bash tab="curl HTTP request"

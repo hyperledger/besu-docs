@@ -2802,7 +2802,7 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 
 **Returns**
 
-Boolean, `true` if the provided solution is valid, otherwise `false`.
+`result: Boolean`, `true` if the provided solution is valid, otherwise `false`.
 
 !!! example
     ```bash tab="curl HTTP request"

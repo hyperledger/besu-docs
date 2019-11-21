@@ -12,16 +12,11 @@ besu --miner-enabled --miner-coinbase <account>
 
 Where `<account>` is the account to which mining rewards are to be paid. For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
-JSON-RPC API methods for mining are:
-
-* [`miner_start`](../../Reference/API-Methods.md#miner_start) to start mining. 
-* [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining. 
-* [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is actively mining new blocks.   
-* [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per second with which the node is mining. 
+Use the [`miner_start`](../../Reference/API-Methods.md#miner_start) and [`miner_stop`](../../Reference/API-Methods.md#miner_stop) APIs to start and stop mining.
 
 ## Configure GPU Mining
 
-Besu supports GPU mining using [Ethminer](https://github.com/ethereum-mining/ethminer) and the `stratum+tcp` scheme. Start Hyperledger Besu with the following options to enable GPU mining: 
+Besu supports GPU mining and has been tested using [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` scheme. Start Hyperledger Besu with the following options to enable GPU mining: 
 
 ```bash
 besu --miner-enabled --miner-stratum-enabled --miner-coinbase <account>
@@ -35,4 +30,24 @@ Optional command line options are:
 * [`--miner-stratum-port`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-port) to specify the port of the mining service.
 
 !!! note
-    Besu also supports the `http` (getwork mode) scheme using Ethminer. Use the `--miner-stratum-enabled` option and [enable the `ETH` RPCs](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
+    Besu supports the `getwork` scheme. Use the [`--miner-stratum-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-enabled) option and [enable the `ETH` RPCs](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
+    
+    The `getwork` scheme is supported as the `http` scheme in certain mining software.
+
+Use the [`miner_start`](../../Reference/API-Methods.md#miner_start) and [`miner_stop`](../../Reference/API-Methods.md#miner_stop) APIs to start and stop mining.
+
+## Mining APIs
+
+JSON-RPC API methods for mining are:
+
+* [`miner_start`](../../Reference/API-Methods.md#miner_start) to start mining. 
+* [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining. 
+* [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is actively mining new blocks.   
+* [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per second with which the node is mining. 
+* [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block, the seed hash, and the target boundary condition to be met.
+* [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
+
+!!! note
+    `eth_getWork` and `eth_submitWork` are used by the `getwork` scheme in the GPU mining software.
+    
+    `eth_hashrate` does not support GPU mining.

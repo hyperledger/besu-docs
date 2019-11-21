@@ -716,6 +716,8 @@ None
 
 Returns the number of hashes per second with which the node is mining. 
 
+Does not support GPU mining.
+
 **Parameters**
 
 None
@@ -2786,7 +2788,38 @@ None
         ]
     }
     ```
+### eth_submitWork
 
+Submits a Proof of Work (Ethash) solution to the blockchain.
+
+Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+
+**Parameters**
+
+* DATA, 8 Bytes - The retrieved nonce.
+* DATA, 32 Bytes - Hash of the block header (PoW-hash).
+* DATA, 32 Bytes - The mix digest.
+
+**Returns**
+
+Boolean, `true` if the provided solution is valid, otherwise `false`.
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545
+    ```
+    
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}
+    ```
+    
+    ```json tab="JSON result"
+    {
+      "id":1,
+      "jsonrpc":"2.0",
+      "result": true
+    }
+    ```
 
 ## Clique Methods
 
@@ -3451,7 +3484,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ### miner_start
 
-Starts the CPU mining process. To start mining, a miner coinbase must have been previously specified using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.  
+Starts the mining process. To start mining, a miner coinbase must have been previously specified using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.  
 
 **Parameters**
 
@@ -3480,7 +3513,7 @@ None
 
 ### miner_stop
 
-Stops the CPU mining process on the client.
+Stops the mining process on the client.
 
 **Parameters**
 

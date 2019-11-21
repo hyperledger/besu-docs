@@ -40,7 +40,7 @@ If you are not running the command against the default network (MainNet), specif
 This command provides node public key related actions.
 
 !!!caution
-    To obtain the public key or address of an existing node, ensure the [`--data-path`](CLI-Syntax.md#data-path) or [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option is used with the public-key command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when starting Besu.
+    To obtain the public key or address of an existing node, ensure the [`--data-path`](CLI-Syntax.md#data-path) or [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option is used with the `public-key` command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when starting Besu.
 
 ### export
 

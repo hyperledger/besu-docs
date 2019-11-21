@@ -7,7 +7,7 @@ description: Using Hyperledger Besu for PoW CPU mining
 
 Start Hyperledger Besu with the following options to enable CPU mining: 
 ```bash
-besu --miner-enabled --miner-coinbase <account>
+besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
 ```
 
 Where `<account>` is the account to which mining rewards are to be paid. For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
@@ -19,7 +19,7 @@ Use the [`miner_start`](../../Reference/API-Methods.md#miner_start) and [`miner_
 Besu supports GPU mining and has been tested using [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` scheme. Start Hyperledger Besu with the following options to enable GPU mining: 
 
 ```bash
-besu --miner-enabled --miner-stratum-enabled --miner-coinbase <account>
+besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>
 ```
 
 Where `<account>` is the account to which mining rewards are to be paid. For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
@@ -43,11 +43,6 @@ JSON-RPC API methods for mining are:
 * [`miner_start`](../../Reference/API-Methods.md#miner_start) to start mining. 
 * [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining. 
 * [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is actively mining new blocks.   
-* [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per second with which the node is mining. 
-* [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block, the seed hash, and the target boundary condition to be met.
-* [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
-
-!!! note
-    `eth_getWork` and `eth_submitWork` are used by the `getwork` scheme in the GPU mining software.
-    
-    `eth_hashrate` does not support GPU mining.
+* [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per second with which the node is mining. Is not supported for GPU mining.
+* [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block, the seed hash, and the target boundary condition to be met. Only used when using the `getwork` scheme.
+* [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution. Only used when using the `getwork` scheme.

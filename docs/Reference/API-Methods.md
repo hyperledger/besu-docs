@@ -2790,15 +2790,15 @@ None
     ```
 ### eth_submitWork
 
-Submits a Proof of Work (Ethash) solution to the blockchain.
+Submits a Proof of Work (Ethash) solution.
 
 Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
 **Parameters**
 
-* DATA, 8 Bytes - The retrieved nonce.
+* DATA, 8 Bytes - Retrieved nonce.
 * DATA, 32 Bytes - Hash of the block header (PoW-hash).
-* DATA, 32 Bytes - The mix digest.
+* DATA, 32 Bytes - Mix digest.
 
 **Returns**
 

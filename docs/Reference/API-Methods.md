@@ -4426,13 +4426,19 @@ Returns information about the private transaction after the transaction was mine
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
-        "contractAddress": "0xf4464be696b6531b87edbfb8c21dd178c34eb89e",
-        "from": "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-        "to": null,
-        "output": "0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f245811461005b5780636057361d1461008257806367e404ce146100ae575b600080fd5b34801561006757600080fd5b506100706100ec565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100ac600480360360208110156100a557600080fd5b50356100f2565b005b3480156100ba57600080fd5b506100c3610151565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60025490565b604080513381526020810183905281517fc9db20adedc6cf2b5d25252b101ab03e124902a73fcb12b753f3d1aaa2d8f9f5929181900390910190a16002556001805473ffffffffffffffffffffffffffffffffffffffff191633179055565b60015473ffffffffffffffffffffffffffffffffffffffff169056fea165627a7a72305820c7f729cb24e05c221f5aa913700793994656f233fe2ce3b9fd9a505ea17e8d8a0029",
-        "logs": []
-           }
-        }
+         "contractAddress": "0x44c6b21b5c85f2a46d6c9fb2a2d931beb6477c0c",
+         "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+         "output": "0x",
+         "commitmentHash": "0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d",
+         "transactionHash": "0xd0ea567cd25f4746e2b4062ae9f9e1034cab87fc7059b3d0c2491287891df964",
+         "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+         "privateFor": [
+             "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
+         ],
+         "status": "0x0",
+         "logs": []
+      }
+    }
     ```
 
 ## Miscellaneous Methods 

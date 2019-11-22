@@ -1,5 +1,7 @@
 # Transaction Pool 
 
+Mining nodes maintain a transaction pool where pending transactions are stored before they are processed.
+
 Options and methods for configuring and monitoring the transaction pool include: 
 
 * [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions) JSON-RPC API method to list

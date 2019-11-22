@@ -3,7 +3,7 @@ description: Backing up and restoring Besu
 
 # Backups 
 
-In a decentralized blockchain, data is replicated on other nodes so cannot be lost. However, backing up 
+In a decentralized blockchain, data is replicated on other nodes so it cannot be lost. However, backing up 
 configuration and data ensures a smoother recovery.  
 
 ## Genesis File 

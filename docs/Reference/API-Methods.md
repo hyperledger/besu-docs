@@ -338,16 +338,16 @@ None
 
 `result` : *string* - Current chain ID.
 
-| Chain ID | Network                                        |
-|----------|------------------------------------------------|
-| `61`     | Ethereum Classic network                       |
-| `2018`   | PoW development network                        |
-| `5`      | PoA test network using Clique                  |
-| `6`      | Ethereum Classic PoA test network using Clique |
-| `1`      | Main Ethereum network                          |
-| `63`     | Ethereum Classic PoW test network              |
-| `4`      | PoA test network using Clique                  |
-| `3`      | PoW test network                               |
+| Chain ID | Chain | Network | Description
+|----------|-------|---------|-------------------------------|
+| `1`      | ETH   | MainNet | Main Ethereum network         |
+| `3`      | ETH   | Ropsten | PoW test network              |
+| `4`      | ETH   | Rinkeby | PoA test network using Clique |
+| `5`      | ETH   | Goerli  | PoA test network using Clique |
+| `6`      | ETC   | Kotti   | PoA test network using Clique |
+| `61`     | ETC   | Classic | Main Ethereum Classic network |
+| `63`     | ETC   | Mordor  | PoW test network              |
+| `2018`   | ETH   | Dev     | PoW development network       |
 
 !!! example
     ```bash tab="curl HTTP request"

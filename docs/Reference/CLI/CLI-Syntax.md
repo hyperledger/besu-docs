@@ -714,17 +714,17 @@ Predefined network configuration.
 The default is `mainnet`.
 
 Possible values are:
-
-| Network   | Description                                                                   |
-|-----------|-------------------------------------------------------------------------------|
-| `classic` | Ethereum Classic network                                                      |
-| `dev`     | PoW development network with a very low difficulty to enable local CPU mining |
-| `goerli`  | PoA test network using Clique                                                 |
-| `kotti`   | Ethereum Classic PoA test network using Clique                                |
-| `mainnet` | Main Ethereum network                                                         |
-| `mordor ` | Ethereum Classic PoW test network                                             |
-| `rinkeby` | PoA test network using Clique                                                 |
-| `ropsten` | PoW test network similar to current main Ethereum network                     |
+ 
+| Network   | Chain | Type        | Description                                                       |
+|-----------|-------|-------------|-------------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | Main network                                                      |
+| `ropsten` | ETH   | Test        | PoW network similar to current main Ethereum network              |
+| `rinkeby` | ETH   | Test        | PoA network using Clique                                          |
+| `goerli`  | ETH   | Test        | PoA network using Clique                                          |
+| `dev`     | ETH   | Development | PoW network with a very low difficulty to enable local CPU mining |
+| `classic` | ETC   | Production  | Main network                                                      |
+| `mordor ` | ETC   | Test        | PoW network                                                       |
+| `kotti`   | ETC   | Test        | PoA network using Clique                                          |
 
 !!!tip
     Values are case insensitive, so either `mainnet` or `MAINNET` works. 
@@ -1213,7 +1213,7 @@ Default is 60.
 ### required-block
 
 ```bash tab="Syntax"
---required-block=<BLOCK>=<HASH>
+--required-block, --required-blocks[=BLOCK=HASH[,BLOCK=HASH...]...]
 ```
 
 ```bash tab="Command Line"

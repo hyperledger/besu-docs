@@ -4423,21 +4423,23 @@ Returns information about the private transaction after the transaction was mine
                 
     ```json tab="JSON result"
     {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "result": {
-         "contractAddress": "0x44c6b21b5c85f2a46d6c9fb2a2d931beb6477c0c",
-         "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-         "output": "0x",
-         "commitmentHash": "0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d",
-         "transactionHash": "0xd0ea567cd25f4746e2b4062ae9f9e1034cab87fc7059b3d0c2491287891df964",
-         "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
-         "privateFor": [
-             "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
-         ],
-         "status": "0x0",
-         "logs": []
-      }
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+            "contractAddress": "0x493b76031593402e24e16faa81f677b58e2d53f3",
+            "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+            "output": "0x6080604052600436106049576000357c010000000000000000000000000000000000000000000
+            0000000000000900463ffffffff1680633fa4f24514604e57806355241077146076575b600080fd5b3480156059
+            57600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b
+            50609e6004803603810190808035906020019092919050505060a6565b005b60005481565b8060008190555050560
+            0a165627a7a723058202bdbba2e694dba8fff33d9d0976df580f57bff0a40e25a46c398f8063b4c00360029",
+            "commitmentHash": "0x79b9e6b0856db398ad7dc208f15b1d38c0c0b0c5f99e4a443a2c5a85510e96a5",
+            "transactionHash": "0x36219e92b5f53d4150aa9ef7d2d793118cced523de6724100da5b534e3ceb4b8",
+            "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+            "privacyGroupId": "cD636RZlcqVSpoxT/ExbkWQfBO7kPAZO0QlWHErNSL8=",
+            "status": "0x1",
+            "logs": []
+        }
     }
     ```
 

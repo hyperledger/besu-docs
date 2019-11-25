@@ -1,6 +1,6 @@
 # Transaction Pool 
 
-Mining nodes maintain a transaction pool where pending transactions are stored before they are processed.
+All nodes maintain a transaction pool where pending transactions are stored before they are processed.
 
 Options and methods for configuring and monitoring the transaction pool include: 
 

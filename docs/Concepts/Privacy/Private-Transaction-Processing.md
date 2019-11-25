@@ -10,7 +10,7 @@ Ethereum node for later execution.
 
 - **Privacy Marker Transaction**: Public Ethereum transaction with a payload of the enclave key. The enclave key 
 is a pointer to the private transaction in Orion. The `to` attribute of the Privacy Marker Transaction is the address 
-of the privacy precompile contract. 
+of the privacy precompiled contract. 
 
     The Privacy Marker Transaction is [signed with a random key or the key specified on the command line](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
 

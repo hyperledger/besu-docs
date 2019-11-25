@@ -1269,6 +1269,27 @@ rpc-http-authentication-enabled=true
 
 Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC service.  
 
+### rpc-http-authentication-jwt-public-key-file
+
+```bash tab="Syntax"
+--rpc-http-authentication-jwt-public-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-authentication-jwt-public-key-file=publicKey.pem
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+```
+
+```bash tab="Configuration File"
+rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+```
+
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC HTTP authentication.
+
+
 ### rpc-http-cors-origins
 
 ```bash tab="Syntax"
@@ -1407,6 +1428,26 @@ The default is: `ETH`, `NET`, `WEB3`.
     The singular `--rpc-ws-api` and plural `--rpc-ws-apis` are available and are just two
     names for the same option.
 
+### rpc-ws-authentication-jwt-public-key-file
+
+```bash tab="Syntax"
+--rpc-http-authentication-jwt-public-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-authentication-jwt-public-key-file=publicKey.pem
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+```
+
+```bash tab="Configuration File"
+rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+```
+
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC websocket authentication.
+    
 ### rpc-ws-authentication-credentials-file
 
 ```bash tab="Syntax"

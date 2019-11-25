@@ -141,7 +141,7 @@ To display EthStats Lite dashboard, open [http://localhost](http://localhost) in
     Update the first 80 to the required port:
     ```yaml
         ports:
-          - 127.0.0.1:8081:80
+          - 127.0.0.1:8080:80
     ```
 
 ### Stopping and Cleaning Up Resources

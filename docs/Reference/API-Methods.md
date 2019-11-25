@@ -716,7 +716,7 @@ None
 
 Returns the number of hashes per second with which the node is mining. 
 
-Does not support GPU mining.
+Is not supported for GPU mining.
 
 **Parameters**
 

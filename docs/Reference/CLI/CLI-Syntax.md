@@ -651,6 +651,65 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 A hex string representing the 32 bytes to be included in the extra data field of a mined block.
 The default is 0x.
 
+### miner-stratum-enabled
+
+```bash tab="Syntax"
+--miner-stratum-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_ENABLED=true
+```
+
+```bash tab="Configuration File"
+miner-stratum-enabled=true
+```
+
+Enables a node to perform stratum mining. 
+Default is `false`. 
+
+### miner-stratum-host
+
+```bash tab="Syntax"
+--miner-stratum-host=<HOST>
+```
+
+```bash tab="Command Line"
+--miner-stratum-host=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_HOST=192.168.1.132
+```
+
+```bash tab="Configuration File"
+miner-stratum-host="192.168.1.132"
+```
+
+Host of the stratum mining service.
+Default is `0.0.0.0`.
+
+### miner-stratum-port
+
+```bash tab="Syntax"
+--miner-stratum-port=<PORT>
+```
+
+```bash tab="Command Line"
+--miner-stratum-port=8010
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_PORT=8010
+```
+
+```bash tab="Configuration File"
+miner-stratum-port="8010"
+```
+
+Port of the stratum mining service.
+Default is `8008`. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+ 
 ### min-gas-price
 
 ```bash tab="Syntax"
@@ -670,7 +729,7 @@ min-gas-price=1337
 ```
 
 The minimum price that a transaction offers for it to be included in a mined block. To retrieve the minimum price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
-The default is 1000.
+Default is 1000.
 
 ### nat-method
 

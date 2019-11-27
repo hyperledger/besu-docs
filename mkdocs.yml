@@ -118,6 +118,7 @@ nav:
         - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
+          - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
           - Configure Logging: HowTo/Troubleshoot/Logging.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
@@ -141,6 +142,7 @@ nav:
         - Consensus Protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+        - Client Libraries: Concepts/Client-Libraries.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
           - Private Transactions: Concepts/Privacy/Private-Transactions.md

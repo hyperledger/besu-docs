@@ -190,23 +190,38 @@ To add or remove validators without voting:
 1. Copy the `transitions` object and paste it after the `config` object in your genesis file. Specify your own values, where
 
     * `<BlockNumber>` is the upcoming block where you want the change in validators to occur.
-    * `<AValidatorAddress>` is the account address for a validator to be added.
+    * `<ValidatorAddress>` is the account address for a validator to be added.
 
-    !!! example "Transitions Object Example"
-    ```
-    "transitions": {
-    "ibft2": [
-      {
-        "block": <BlockNumber>,
-        "validators": [
-          "<AValidatorAddress>",
-          "<AValidatorAddress>"
-        ]
-      }
-    ]
-    }
-    },
-    ``` 
+    !!! example "Transitions Object"
+        ```bash tab="Syntax"
+        "transitions": {
+        "ibft2": [
+          {
+            "block": <BlockNumber>,
+            "validators": [
+              "<ValidatorAddress>",
+              "<ValidatorAddress>"
+              ]
+            }
+            ]
+          }
+          },
+        ```
+        
+        ```bash tab="Example"
+        "transitions": {
+        "ibft2": [
+          {
+            "block": 1500,
+            "validators": [
+            "0x6b2f9c5235aaa574cbd4096902632ec50b91e194",
+            "0x57a30532bdc0189b19e1aa7e38d5aece428e4748"
+            ]
+          }
+          ]
+        }
+        },
+        ```
 
 1. Restart the network.
 1. To verify the changes after the specified block is produced, call `ibft_getValidatorsByBlockNumber` specifying `latest`, your JSON RPC endpoint, and port. 

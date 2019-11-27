@@ -39,7 +39,7 @@ options specify the HTTP and WebSockets JSON-RPC ports. The defaults are `8545` 
 
 ## Metrics 
 
-To enable [Prometheus to access Besu](../Deploy/Monitoring-Performance.md#monitor-node-performance-using-prometheus), 
+To enable [Prometheus to access Besu](../Monitor/Metrics.md#monitor-node-performance-using-prometheus), 
 open the metrics port or metrics push port to Prometheus or the Prometheus push gateway on TCP.  
 
 The [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) and [`--metrics-push-port`](../../Reference/CLI/CLI-Syntax.md#metrics-push-port) 

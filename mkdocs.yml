@@ -108,7 +108,7 @@ nav:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
           - Use Kubernetes to Deploy a Private Network: HowTo/Deploy/Kubernetes.md
-          - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
+          - Use Prometheus for Monitoring: HowTo/Deploy/Metrics.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md

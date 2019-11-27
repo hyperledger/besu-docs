@@ -120,6 +120,10 @@ Optional configuration options that can be specified in the genesis file are:
 
 ## Adding and Removing Validators
 
+Add and remove validators by [voting](#adding-and-removing-validators-by-voting) or, in some cases, by [skipping the voting process](#adding-and-removing-validators-without-voting).
+
+### Adding and Removing Validators by Voting
+
 To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface 
 using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
 [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled). 
@@ -138,7 +142,7 @@ The JSON-RPC methods to add or remove validators are:
 
 Use [ibft_getSignerMetrics](../../../Reference/API-Methods.md#ibft_getsignermetrics) to view validator metrics for a specified block range.
     
-### Adding a Validator
+#### Adding a Validator
 
 To propose adding a validator, call `ibft_proposeValidatorVote` specifying the address of the proposed validator and `true`. The call must be executed on the majority of the validators.
 
@@ -165,15 +169,49 @@ To discard your proposal after confirming the validator was added, call `ibft_di
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
     ```
-### Removing a Validator
+#### Removing a Validator
 
 The process for removing a validator is the same as adding a validator except you specify `false` as the second parameter of `ibft_proposeValidatorVote`.
 
-### Epoch Transition
+#### Epoch Transition
 
 At each epoch transition, all pending votes collected from received blocks are discarded. Existing proposals remain 
 in effect and validators re-add their vote the next time they create a block. 
 
 An epoch transition occurs every `epochLength` blocks where `epochlength` is defined in the IBFT genesis file.
 
+### Adding and Removing Validators without Voting
 
+In some cases, such as when the results of voting would not yield a majority, you can bypass voting and manually change validators in your genesis file.
+
+To add or remove validators without voting:
+
+1. Stop the network.
+1. Copy the `transitions` object and paste it after the `config` object in your genesis file. Specify your own values, where
+
+    * `<BlockNumber>` is the upcoming block where you want the change in validators to occur.
+    * `<AValidatorAddress>` is the account address for a validator to be added.
+
+    !!! example "Transitions Object Example"
+    ```
+    "transitions": {
+    "ibft2": [
+      {
+        "block": <BlockNumber>,
+        "validators": [
+          "<AValidatorAddress>",
+          "<AValidatorAddress>"
+        ]
+      }
+    ]
+    }
+    },
+    ``` 
+
+1. Restart the network.
+1. To verify the changes after the specified block is produced, call `ibft_getValidatorsByBlockNumber` specifying `latest`, your JSON RPC endpoint, and port. 
+
+    !!! example "JSON-RPC ibft_getValidatorsByBlockNumber Request Example"
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
+        ```

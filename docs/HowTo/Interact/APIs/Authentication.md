@@ -21,7 +21,9 @@ JWT tokens are created internally with username and password authentication, and
 
 ## Username and Password Authentication
 
-Enable authentication from the command line. Supply the credentials file and send a request to the `/login` endpoint using the username and password to obtain the JWT token.
+Enable authentication from the command line. Supply the credentials file and send a request to the `/login` endpoint using the username and password. The `/login` endpoint creates a JWT token that can be used to make permitted JSON RPC requests.
+
+The `/login` endpoint is disabled when using [public key authentication](#jwt-public-key-authentication).
 
 ### 1. Create the Credentials File 
 
@@ -94,9 +96,13 @@ token if access is required after token expiration.
 
 Enable authentication from the command line and supply the public key of the external JWT token. The JWT token must use the `RS256` algorithm.
 
+JWT public authentication disables the Besu `/login` endpoint, meaning [username and password authentication](username-and-password-authentication) will not work.
+
 ### 1. Generate a Private and Public Key Pair
 
 The private and accompanying public key file must be in the `.pem` format.
+
+The key must use a RSA private key of at least 2048 bits.
 
 !!! example "Example using OpenSSL"
     ```bash
@@ -114,7 +120,7 @@ Create the JWT token using an external tool.
 Each payload for the JWT token must contain:
 
 * [JSON-RPC permissions](#json-rpc-permissions)
-* An expiry period. 
+* [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4). 
 
 The following example uses the [JWT.io](https://jwt.io/) website to create a JWT token for testing purposes.
 

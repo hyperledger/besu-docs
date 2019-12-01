@@ -16,8 +16,9 @@ UPnP automatically detects that a node is running in a UPnP environment and prov
 
 Use the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) command line option to enable UPnP.
 
-!!! note
-    Enabling UPnP may slow down node startup, especially on networks without a UPnP gateway device.
+!!! notes
+    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
+    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 When UPnP is enabled: 
 

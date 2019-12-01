@@ -29,7 +29,7 @@ To use Prometheus with Besu, install the [prometheus main component](https://pro
 !!! tip 
     You can also install:
     
-    * Exporters and send system metrics to Prometheus to monitor non-Pantheon specific items such as disk usage and CPU usage.  
+    * Exporters and send system metrics to Prometheus to monitor non-Besu specific items such as disk usage and CPU usage.  
     * Other Prometheus components such as the Alert Manager. Additional configuration is not required for these
     components because Prometheus handles and analyzes data directly from the feed.
 
@@ -63,7 +63,7 @@ block of the `prometheus.yml` file:
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file: 
 
     ```bash tab="Example"
-    prometheus --config.file=config.yml 
+    prometheus --config.file=prometheus.yml 
     ```
 
 1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.

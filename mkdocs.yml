@@ -65,14 +65,14 @@ nav:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
-          - Create Besu Gensis File: HowTo/Configure/Genesis-File.md
+          - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
           - High Availability:
             - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
             - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
           - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
-          - Configure Mining: HowTo/Configure/Mining.md
+          - Configure Mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
         - Interact with Node:
             - Besu APIs:
@@ -150,6 +150,7 @@ nav:
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+        - Pruning: Concepts/Pruning.md
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
@@ -157,6 +158,8 @@ nav:
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
+        - Node Keys: Concepts/Node-Keys.md
+        - Mining: Concepts/Mining.md
         - Alethio: Concepts/AlethioOverview.md
     - Reference:
         - Besu Command Line:

@@ -412,8 +412,8 @@ Example:
 ```
 ```` 
 
-Pygment is the implementation for this extension, refer to Pygment website for a 
-[list of the supported languages](http://pygments.org/languages/).
+Pygment is the implementation for this extension, refer to [Pygment website](https://pygments.org/) for a 
+list of the supported languages.
 
 
 

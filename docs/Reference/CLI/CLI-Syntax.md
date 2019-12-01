@@ -137,6 +137,30 @@ discovery-enabled=false
 Enables or disables P2P peer discovery.
 The default is `true`.
 
+### fast-sync-min-peers
+
+```bash tab="Syntax"
+--fast-sync-min-peers=<INTEGER>
+```
+
+```bash tab="Command Line"
+--fast-sync-min-peers=2
+```
+
+```bash tab="Environment Variable"
+BESU_FAST_SYNC_MIN_PEERS=2
+```
+
+```bash tab="Example Configuration File"
+fast-sync-min-peers=2
+```
+
+Minimum number of peers required before starting fast sync. Default is 5.
+
+!!! note
+    If synchronizing in FAST mode, most historical world state data is unavailable.  Any methods attempting 
+    to access unavailable world state data return `null`.
+
 ### genesis-file
 
 Genesis file is used to create a custom network.
@@ -200,8 +224,9 @@ BESU_GRAPHQL_HTTP_ENABLED=true
 graphql-http-enabled=true
 ```
 
-Set to `true` to enable the GraphQL HTTP service.
-The default is `false`.
+Set to `true` to enable the GraphQL HTTP service. The default is `false`.
+
+The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
 ### graphql-http-host
 
@@ -251,6 +276,14 @@ graphql-http-port="6175"
 Specifies GraphQL HTTP listening port (TCP).
 The default is 8547. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### help
+
+```bash tab="Syntax"
+-h, --help
+```
+
+Show the help message and exit.
+
 ### host-whitelist
 
 ```bash tab="Syntax"
@@ -274,6 +307,70 @@ By default, access from `localhost` and `127.0.0.1` is accepted.
 
 !!!tip
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production code.
+
+### identity
+
+```bash tab="Syntax"
+--identity=<String>
+```
+
+```bash tab="Command Line"
+--identity=MyNode
+```
+
+```bash tab="Environment Variable"
+BESU_IDENTITY=MyNode
+```
+
+```bash tab="Configuration File"
+identity="MyNode"
+```
+
+Name for the node. If specified, it is the second section of the client ID provided by some Ethereum network explorers. For example, in the client ID `besu/MyNode/v1.3.4/linux-x86_64/oracle_openjdk-java-11`, the node name is `MyNode`. 
+
+If a name is not specified, the name section is not included in the client ID. For example, `besu/v1.3.4/linux-x86_64/oracle_openjdk-java-11`.
+
+### key-value-storage
+
+```bash tab="Syntax"
+--key-value-storage=<keyValueStorageName>
+```
+
+```bash tab="Command Line"
+--key-value-storage=rocksdb
+```
+
+```bash tab="Environment Variable"
+BESU_KEY_VALUE_STORAGE=rocksdb
+```
+
+```bash tab="Configuration File"
+key-value-storage="rocksdb"
+```
+
+Key-value storage to be used. Use this option only if using a storage system provided with a plugin. Default is `rocksdb`.
+
+### logging
+
+```bash tab="Syntax"
+-l, --logging=<LEVEL>
+```
+
+```bash tab="Command Line"
+--logging=DEBUG
+```
+
+```bash tab="Environment Variable"
+BESU_LOGGING=DEBUG
+```
+
+```bash tab="Example Configration File"
+logging="DEBUG"
+```
+
+Sets the logging verbosity.
+Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+Default is `INFO`.
 
 ### max-peers
 
@@ -554,6 +651,65 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 A hex string representing the 32 bytes to be included in the extra data field of a mined block.
 The default is 0x.
 
+### miner-stratum-enabled
+
+```bash tab="Syntax"
+--miner-stratum-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_ENABLED=true
+```
+
+```bash tab="Configuration File"
+miner-stratum-enabled=true
+```
+
+Enables a node to perform stratum mining. 
+Default is `false`. 
+
+### miner-stratum-host
+
+```bash tab="Syntax"
+--miner-stratum-host=<HOST>
+```
+
+```bash tab="Command Line"
+--miner-stratum-host=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_HOST=192.168.1.132
+```
+
+```bash tab="Configuration File"
+miner-stratum-host="192.168.1.132"
+```
+
+Host of the stratum mining service.
+Default is `0.0.0.0`.
+
+### miner-stratum-port
+
+```bash tab="Syntax"
+--miner-stratum-port=<PORT>
+```
+
+```bash tab="Command Line"
+--miner-stratum-port=8010
+```
+
+```bash tab="Environment Variable"
+BESU_MINER_STRATUM_PORT=8010
+```
+
+```bash tab="Configuration File"
+miner-stratum-port="8010"
+```
+
+Port of the stratum mining service.
+Default is `8008`. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+ 
 ### min-gas-price
 
 ```bash tab="Syntax"
@@ -572,25 +728,28 @@ BESU_MIN_GAS_PRICE=1337
 min-gas-price=1337
 ```
 
-The minimum price that a transaction offers for it to be included in a mined block.
-The default is 1000.
+The minimum price that a transaction offers for it to be included in a mined block. To retrieve the minimum price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
+Default is 1000.
 
 ### nat-method
 
 ```bash tab="Syntax"
---nat-method=<METHOD>
-```
-
-```bash tab="Command Line"
---nat-method=upnp
+--nat-method=UPNP
 ```
 
 ```bash tab="Example Configuration File"
-nat-method="upnp"
+nat-method="UPNP"
 ```
 
-Specifies the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). 
-Options are `upnp` and `none`. The default is `none` (that is, NAT functionality is disabled).
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
+The default is `NONE`, which disables NAT functionality.
+
+!!!tip
+    UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
+
+!!!notes
+    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
+    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -613,28 +772,24 @@ network="rinkeby"
 Predefined network configuration.
 The default is `mainnet`.
 
-Possible values are :
+Possible values are:
+ 
+| Network   | Chain | Type        | Description                                                       |
+|-----------|-------|-------------|-------------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | Main network                                                      |
+| `ropsten` | ETH   | Test        | PoW network similar to current main Ethereum network              |
+| `rinkeby` | ETH   | Test        | PoA network using Clique                                          |
+| `goerli`  | ETH   | Test        | PoA network using Clique                                          |
+| `dev`     | ETH   | Development | PoW network with a very low difficulty to enable local CPU mining |
+| `classic` | ETC   | Production  | Main network                                                      |
+| `mordor ` | ETC   | Test        | PoW network                                                       |
+| `kotti`   | ETC   | Test        | PoA network using Clique                                          |
 
-`mainnet`
-:   Main Ethereum network
-
-`ropsten`
-:   PoW test network similar to current main Ethereum network. 
-
-`rinkeby`
-:   PoA test network using Clique.
-
-`goerli`
-:   PoA test network using Clique.
-
-`dev`
-:   PoW development network with a very low difficulty to enable local CPU mining.
-
-!!!note
-    Values are case insensitive, so either `mainnet` or `MAINNET` works.
+!!!tip
+    Values are case insensitive, so either `mainnet` or `MAINNET` works. 
     
 !!!important
-    The [`--network`](#network) and [`--genesis-file`](#genesis-file) option cannot be used at the same time.
+    The [`--network`](#network) and [`--genesis-file`](#genesis-file) options cannot be used at the same time.
     
 ### network-id
 
@@ -774,46 +929,6 @@ p2p-port="1789"
 Specifies the P2P listening ports (UDP and TCP).
 The default is 30303. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### nat-method
-
-```bash tab="Syntax"
---nat-method=UPNP
-```
-
-```bash tab="Example Configuration File"
-nat-method="UPNP"
-```
-
-Specify the method for handling NAT environments. Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
-
-!!!tip
-    `UPNP` works well with a typical home or small office environment where a wireless router or modem provides NAT isolation. This should provide
-    automatic detection and port-forwarding. UPnP support is often disabled by default in networking equipment firmware, however, any may need to be
-    explicitly enabled.
-
-!!!note
-    Option `UPNP` may introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-
-### permissions-accounts-config-file-enabled
-
-```bash tab="Syntax"
---permissions-accounts-config-file-enabled[=<true|false>]
-```
-
-```bash tab="Command Line"
---permissions-accounts-config-file-enabled
-```
-
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
-```
-
-```bash tab="Configuration File"
-permissions-accounts-config-file-enabled=true
-```
-
-Set to enable file-based account level permissions. Default is `false`. 
 
 ### permissions-accounts-config-file    
 
@@ -839,6 +954,26 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 !!! tip
     `--permissions-accounts-config-file` and [`--permissions-nodes-config-file`](#permissions-nodes-config-file)
     can use the same file. 
+    
+### permissions-accounts-config-file-enabled
+
+```bash tab="Syntax"
+--permissions-accounts-config-file-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--permissions-accounts-config-file-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
+```
+
+```bash tab="Configuration File"
+permissions-accounts-config-file-enabled=true
+```
+
+Set to enable file-based account level permissions. Default is `false`. 
 
 ### permissions-accounts-contract-address
 
@@ -880,25 +1015,6 @@ permissions-accounts-contract-enabled=true
 
 Enables contract-based [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). Default is `false`.
 
-### permissions-nodes-config-file-enabled
-
-```bash tab="Syntax"
---permissions-nodes-config-file-enabled[=<true|false>]
-```
-
-```bash tab="Command Line"
---permissions-nodes-config-file-enabled
-```
-
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
-```
-
-```bash tab="Configuration File"
-permissions-nodes-config-file-enabled=true
-```
-
-Set to enable file-based node level permissions. Default is `false`.
 
 ### permissions-nodes-config-file    
 
@@ -924,6 +1040,26 @@ Default is the `permissions_config.toml` file in the [data directory](#data-path
 !!! tip
     `--permissions-nodes-config-file` and [`--permissions-accounts-config-file`](#permissions-accounts-config-file)
     can use the same file. 
+    
+### permissions-nodes-config-file-enabled
+
+```bash tab="Syntax"
+--permissions-nodes-config-file-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--permissions-nodes-config-file-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
+```
+
+```bash tab="Configuration File"
+permissions-nodes-config-file-enabled=true
+```
+
+Set to enable file-based node level permissions. Default is `false`.
 
 ### permissions-nodes-contract-address
 
@@ -983,8 +1119,10 @@ BESU_PRIVACY_ENABLED=false
 privacy-enabled=false
 ```
 
-Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
-The default is false.  
+Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
+
+!!! important
+    Using private transactions with [pruning](../../Concepts/Pruning.md) is not supported.
 
 ### privacy-marker-transaction-signing-key-file
 
@@ -1056,32 +1194,31 @@ BESU_PRIVACY_URL=http://127.0.0.1:8888
 privacy-url="http://127.0.0.1:8888"
 ```
 
-URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.    
+URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.
 
-### revert-reason-enabled
+### pruning-enabled
 
 ```bash tab="Syntax"
---revert-reason-enabled[=<true|false>]
+--pruning-enabled
 ```
 
 ```bash tab="Command Line"
---revert-reason-enabled=true
+--pruning-enabled=true
 ```
 
 ```bash tab="Environment Variable"
-REVERT_REASON_ENABLED=true
+BESU_PRUNING_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-revert-reason-enabled=true
+pruning-enabled=true
 ```
 
-Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the transaction 
-receipt. Default is `false`. 
+Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
 
-!!! caution 
-    Enabling revert reason may use a significant amount of memory. We do not recommend enabling revert
-    reason when connected to public Ethereum networks. 
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
+
 
 ### remote-connections-limit-enabled
 
@@ -1109,7 +1246,7 @@ Specify to limit the percentage of remote P2P connections initiated by peers. De
 
 !!! important
     To prevent eclipse attacks, ensure the remote connections limit is enabled when connecting to 
-    any public network and especially when using [fast sync](#fast-sync-options). 
+    any public network and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#--fast-sync-min-peers). 
 
 ### remote-connections-max-percentage
 
@@ -1131,6 +1268,51 @@ remote-connections-max-percentage=25
 
 Percentage of remote P2P connections that can be established with the node. Must be between 0 and 100 inclusive.
 Default is 60. 
+
+### required-block
+
+```bash tab="Syntax"
+--required-block, --required-blocks[=BLOCK=HASH[,BLOCK=HASH...]...]
+```
+
+```bash tab="Command Line"
+--required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Environment Variable"
+BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+```
+
+```bash tab="Configuration File"
+required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+```
+
+Requires a peer with the specified block number to have the specified hash when connecting, or that peer is rejected.
+    
+### revert-reason-enabled
+
+```bash tab="Syntax"
+--revert-reason-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--revert-reason-enabled=true
+```
+
+```bash tab="Environment Variable"
+REVERT_REASON_ENABLED=true
+```
+
+```bash tab="Configuration File"
+revert-reason-enabled=true
+```
+
+Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the transaction 
+receipt. Default is `false`. 
+
+!!! caution 
+    Enabling revert reason may use a significant amount of memory. We do not recommend enabling revert
+    reason when connected to public Ethereum networks. 
 
 ### rpc-http-api
 
@@ -1330,7 +1512,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM', DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -1444,6 +1626,26 @@ rpc-ws-port="6174"
 Specifies Websockets JSON-RPC listening port (TCP).
 The default is 8546. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### sync-mode
+
+```bash tab="Syntax"
+--sync-mode=FAST
+```
+
+```bash tab="Command Line"
+--sync-mode=FAST
+```
+
+```bash tab="Environment Variable"
+BESU_SYNC_MODE=FAST
+```
+
+```bash tab="Configuration File"
+sync-mode="FAST"
+```
+
+Specifies the synchronization mode. Default is `FULL`.
+
 ### target-gas-limit
 
 ```bash tab="Syntax"
@@ -1506,36 +1708,6 @@ tx-pool-retention-hours="5"
 
 Maximum period in hours to retain pending transactions in the transaction pool. Default is 13. 
 
-### help
-
-```bash tab="Syntax"
--h, --help
-```
-
-Show the help message and exit.
-
-### logging
-
-```bash tab="Syntax"
--l, --logging=<LEVEL>
-```
-
-```bash tab="Command Line"
---logging=DEBUG
-```
-
-```bash tab="Environment Variable"
-BESU_LOGGING=DEBUG
-```
-
-```bash tab="Example Configration File"
-logging="DEBUG"
-```
-
-Sets the logging verbosity.
-Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
-Default is `INFO`.
-
 ### version
 
 ```bash tab="Syntax"
@@ -1544,48 +1716,5 @@ Default is `INFO`.
 
 Print version information and exit.
 
-## Fast Sync Options 
 
-### sync-mode
 
-```bash tab="Syntax"
---sync-mode=FAST
-```
-
-```bash tab="Command Line"
---sync-mode=FAST
-```
-
-```bash tab="Environment Variable"
-BESU_SYNC_MODE=FAST
-```
-
-```bash tab="Configuration File"
-sync-mode="FAST"
-```
-
-Specifies the synchronization mode. Default is `FULL`.
-
-### fast-sync-min-peers
-
-```bash tab="Syntax"
---fast-sync-min-peers=<INTEGER>
-```
-
-```bash tab="Command Line"
---fast-sync-min-peers=2
-```
-
-```bash tab="Environment Variable"
-BESU_FAST_SYNC_MIN_PEERS=2
-```
-
-```bash tab="Example Configuration File"
-fast-sync-min-peers=2
-```
-
-Minimum number of peers required before starting fast sync. Default is 5.
-
-!!! note
-    If synchronizing in FAST mode, most historical world state data is unavailable.  Any methods attempting 
-    to access unavailable world state data return `null`.

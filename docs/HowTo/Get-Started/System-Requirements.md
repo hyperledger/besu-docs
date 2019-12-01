@@ -22,7 +22,8 @@ A sample [Grafana dashboard](https://grafana.com/grafana/dashboards/10273) is pr
 
 ## RAM 
 
-Besu requires 4GB of RAM. For Ethereum Mainnet, a minimum of 8GB of RAM is required. 
+Besu requires 4GB of RAM. For public Ethereum networks including Mainnet and testnets such as Ropsten, 
+a minimum of 8GB of RAM is required. 
 
 ## Disk Space 
 

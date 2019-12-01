@@ -416,7 +416,7 @@ Comma separated list of categories for which to track metrics. Defaults are
 
 Additional categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
 
-Categories that contain `PRIVATE` track metrics on systems where [private transactions](../../Concepts/Privacy/Privacy-Overview.md) are enabled.
+Categories that contain `PRIVATE` track metrics when [private transactions](../../Concepts/Privacy/Privacy-Overview.md) are enabled.
 
 ### metrics-enabled
 

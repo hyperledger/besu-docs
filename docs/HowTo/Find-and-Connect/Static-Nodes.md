@@ -9,12 +9,13 @@ and [remote connection](Managing-Peers.md#limiting-remote-connections) limits.
 Besu attempts to maintain connections with static nodes by periodically initiating a connection to any static 
 node that is not connected.
 
-To find peers, configure at least one [bootnode](Bootnodes.md) or static node. 
-
 !!! tip 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case, you can use only bootnodes, 
     only static nodes, or both bootnodes and statics nodes. For example, you run multiple nodes on MainNet (discovery via bootnode)
-    but want to ensure your nodes are always connected (using static nodes).  
+    but want to ensure your nodes are always connected (using static nodes).
+    
+    To find peers, configure one or more [bootnodes](Bootnodes.md).  To configure a specific set of peer connections, use static nodes as 
+    described below.  
 
 ## Configure static nodes 
 

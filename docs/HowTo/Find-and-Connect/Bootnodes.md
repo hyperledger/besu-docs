@@ -3,15 +3,15 @@ description: Configuring bootnodoes
 
 # Bootnodes
 
-Bootnodes are used to initially discover peers. A bootnode is a regular node that the node uses to discover nodes.
-The node discovers nodes from the nodes the bootnode knows about.  
-
-To find peers, configure at least one bootnode or [static node](Static-Nodes.md). 
+Bootnodes are used to initially discover peers. A bootnode is a regular node a node uses to discover nodes.
 
 !!! tip 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case, you can use only bootnodes, 
     only static nodes, or both bootnodes and statics nodes. For example, you run multiple nodes on MainNet (discovery via bootnode)
     but want to ensure your nodes are always connected (using static nodes).
+    
+    To find peers, configure one or more bootnodes as described below.  To configure a 
+    specific set of peer connections, use [static nodes](Static-Nodes.md).  
 
 ## Mainnet and public testnets
 

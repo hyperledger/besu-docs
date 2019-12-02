@@ -1,9 +1,14 @@
-description: Frequently asked questions FAQ and answers for troubleshooting Hyperledger Besu use
+description: Monitoring using metrics and logging 
 <!--- END of page meta data -->
 
-Setting up monitoring on your network requires a time investment upfront but the payoff is two-fold: 
+Monitoring enables identification of node and network issues. Configuring metrics and logging enables: 
 
-You'll have a visual representation of network health and can act early when network health starts to decline. 
+* Identification of declining node or network performance 
+* Collection of log files to enable issue diagnosis. 
+
+
+
+* Visual representation of node and network health.  and can act early when network health starts to decline. 
 If things go wrong, you can easily make your log files accessible to PegaSys so we can diagnose and fix the underlying issue. 
 
 Monitoring Besu involves setting up two things: 

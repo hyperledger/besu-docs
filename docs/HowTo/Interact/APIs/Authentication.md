@@ -11,7 +11,7 @@ Hyperledger Besu supports two mutually exclusive authentication methods:
 * [Username and password](#username-and-password-authentication)
 * [JWT public key](#jwt-public-key-authentication).
 
-JWT tokens are created internally with username and password authentication, and externally with JWT public key authentication.
+JWT tokens are created internally with [username and password authentication](#username-and-password-authentication), and externally with [JWT public key authentication](#jwt-public-key-authentication).
 
 !!! important 
     To prevent interception of authentication credentials and authenticated tokens, make authenticated requests over HTTPS. 
@@ -60,7 +60,7 @@ Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax
   
 Use the [`--rpc-http-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
 and [`--rpc-ws-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file) 
-options to specify the [credentials file](#credentials-file).
+options to specify the [credentials file](#1-create-the-credentials-file).
 
 ### 3. Obtain an Authentication Token 
 
@@ -94,19 +94,19 @@ token if access is required after token expiration.
 
 ## JWT Public Key Authentication
 
-Enable authentication from the command line and supply the public key of the external JWT token. The JWT token must use the `RS256` algorithm.
+Enable authentication from the command line and supply the public key of the external JWT token.
 
-JWT public authentication disables the Besu `/login` endpoint, meaning [username and password authentication](username-and-password-authentication) will not work.
+JWT public authentication disables the Besu `/login` endpoint, meaning [username and password authentication](#username-and-password-authentication) will not work.
 
 ### 1. Generate a Private and Public Key Pair
 
-The private and accompanying public key file must be in the `.pem` format.
+The private and accompanying public key files must be in the `.pem` format.
 
 The key must use a RSA private key of at least 2048 bits.
 
 !!! example "Example using OpenSSL"
     ```bash
-    openssl genrsa -out privateKey.pem 4096
+    openssl genrsa -out privateKey.pem 2048
     openssl rsa -pubout -in privateKey.pem -pubout -out publicKey.pem
     ```
 
@@ -132,7 +132,7 @@ Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax
  [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
  options to require authentication for the JSON-RPC API.
   
-Use the [`--rpc-http-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) and [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file) to specify the public key to use with the externally created JWT token.
+Use the [`--rpc-http-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) and [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file) options to specify the public key to use with the externally created JWT token.
     
 ## JSON-RPC Permissions 
 
@@ -153,7 +153,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 ### Postman
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the token 
-generated [externally](#2-create-the-jwt-token), or by the [`login` request](#3-obtain-an-authentication-token). 
+generated. The token is generated [externally](#2-create-the-jwt-token), or by the [`login` request](#3-obtain-an-authentication-token). 
 
 ### Curl
 

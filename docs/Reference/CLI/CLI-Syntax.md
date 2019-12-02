@@ -1287,7 +1287,7 @@ BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
 rpc-http-authentication-jwt-public-key-file="publicKey.pem"
 ```
 
-[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC HTTP authentication.
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC HTTP authentication when authenticating with an external JWT token.
 
 
 ### rpc-http-cors-origins
@@ -1428,26 +1428,6 @@ The default is: `ETH`, `NET`, `WEB3`.
     The singular `--rpc-ws-api` and plural `--rpc-ws-apis` are available and are just two
     names for the same option.
 
-### rpc-ws-authentication-jwt-public-key-file
-
-```bash tab="Syntax"
---rpc-http-authentication-jwt-public-key-file=<FILE>
-```
-
-```bash tab="Command Line"
---rpc-http-authentication-jwt-public-key-file=publicKey.pem
-```
-
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
-```
-
-```bash tab="Configuration File"
-rpc-http-authentication-jwt-public-key-file="publicKey.pem"
-```
-
-[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC websocket authentication.
-    
 ### rpc-ws-authentication-credentials-file
 
 ```bash tab="Syntax"
@@ -1491,6 +1471,26 @@ Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authenticati
 !!! note 
     `wscat` does not support headers. [Authentication](../../HowTo/Interact/APIs/Authentication.md) requires an authentication token to be passed in the 
     request header. To use authentication with WebSockets, an app that supports headers is required. 
+
+### rpc-ws-authentication-jwt-public-key-file
+
+```bash tab="Syntax"
+--rpc-http-authentication-jwt-public-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-authentication-jwt-public-key-file=publicKey.pem
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+```
+
+```bash tab="Configuration File"
+rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+```
+
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC websocket authentication when authenticating with an external JWT token.
 
 ### rpc-ws-enabled
 

@@ -68,8 +68,8 @@ node create_value_raw_transaction.js http://localhost:32770/jsonrpc
 
 !!! tip
     The default JSON-RPC HTTP endpoint for `create_value_raw_transaction.js` is `http://localhost:8545`.
-    If using `http://localhost:8545`, run `node create_value_raw_transaction.js`.
-    
+    If Besu is listening on `http://localhost:8545`, you can run the command without specifying the endpoint.
+        
 A signed raw transaction string is displayed.
 
 You can send the raw transaction yourself or let the script send it using the web3.js library.

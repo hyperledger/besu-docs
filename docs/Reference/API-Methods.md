@@ -18,7 +18,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 ### admin_addPeer
 
-Adds a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).  
+Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
 
 !!! caution 
     If connections are timing out, ensure the node ID in the [enode URL](../Concepts/Node-Keys.md#enode-url) is correct. 
@@ -29,7 +29,7 @@ Adds a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).
 
 **Returns**
 
-`result` : `boolean` - `true` if peer added or `false` if peer already a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes). 
+`result` : `boolean` - `true` if peer added or `false` if peer already a [static node](../HowTo/Find-and-Connect/Static-Nodes.md). 
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -245,7 +245,7 @@ Removes a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes
 
 **Returns**
 
-`result` : `boolean` - `true` if peer removed or `false` if peer not a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes)). 
+`result` : `boolean` - `true` if peer removed or `false` if peer not a [static node](../HowTo/Find-and-Connect/Static-Nodes.md)). 
 
 !!! example
     ```bash tab="curl HTTP request"

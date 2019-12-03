@@ -237,7 +237,7 @@ match the hex value for `port`. The remote address depends on which node initiat
 
 ### admin_removePeer
 
-Removes a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).  
+Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
 
 **Parameters**
 

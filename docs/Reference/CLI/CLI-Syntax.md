@@ -411,8 +411,12 @@ BESU_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
 metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
 ```
 
-Comma separated list of categories for which to track metrics. The default is all categories: 
-`BIG_QUEUE`, `BLOCKCHAIN`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PROCESS`, `ROCKSDB`, `RPC`, `SYNCHRONIZER`. 
+Comma separated list of categories for which to track metrics. Defaults are 
+`BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `SYNCHRONIZER`, and `TRANSACTION_POOL`. 
+
+Additional categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
+
+Categories that contain `PRIVATE` track metrics when [private transactions](../../Concepts/Privacy/Privacy-Overview.md) are enabled.
 
 ### metrics-enabled
 

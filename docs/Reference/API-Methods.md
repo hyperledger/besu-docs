@@ -18,7 +18,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 ### admin_addPeer
 
-Adds a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).  
+Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
 
 !!! caution 
     If connections are timing out, ensure the node ID in the [enode URL](../Concepts/Node-Keys.md#enode-url) is correct. 
@@ -29,7 +29,7 @@ Adds a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).
 
 **Returns**
 
-`result` : `boolean` - `true` if peer added or `false` if peer already a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes). 
+`result` : `boolean` - `true` if peer added or `false` if peer already a [static node](../HowTo/Find-and-Connect/Static-Nodes.md). 
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -237,7 +237,7 @@ match the hex value for `port`. The remote address depends on which node initiat
 
 ### admin_removePeer
 
-Removes a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes).  
+Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
 
 **Parameters**
 
@@ -245,7 +245,7 @@ Removes a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes
 
 **Returns**
 
-`result` : `boolean` - `true` if peer removed or `false` if peer not a [static node](../HowTo/Find-and-Connect/Managing-Peers.md#static-nodes)). 
+`result` : `boolean` - `true` if peer removed or `false` if peer not a [static node](../HowTo/Find-and-Connect/Static-Nodes.md)). 
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -337,12 +337,17 @@ None
 **Returns**
 
 `result` : *string* - Current chain ID.
-- `1` - Ethereum Mainnet
-- `2` - Morden Testnet  (deprecated)
-- `3` - Ropsten Testnet
-- `4` - Rinkeby Testnet
-- `5` - Goerli Testnet
-- `42` - Kovan Testnet
+
+| Chain ID | Chain | Network | Description
+|----------|-------|---------|-------------------------------|
+| `1`      | ETH   | MainNet | Main Ethereum network         |
+| `3`      | ETH   | Ropsten | PoW test network              |
+| `4`      | ETH   | Rinkeby | PoA test network using Clique |
+| `5`      | ETH   | Goerli  | PoA test network using Clique |
+| `6`      | ETC   | Kotti   | PoA test network using Clique |
+| `61`     | ETC   | Classic | Main Ethereum Classic network |
+| `63`     | ETC   | Mordor  | PoW test network              |
+| `2018`   | ETH   | Dev     | PoW development network       |
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -714,6 +719,8 @@ None
 ### eth_hashrate
 
 Returns the number of hashes per second with which the node is mining. 
+
+Is not supported for GPU mining.
 
 **Parameters**
 
@@ -2785,7 +2792,38 @@ None
         ]
     }
     ```
+### eth_submitWork
 
+Submits a Proof of Work (Ethash) solution.
+
+Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+
+**Parameters**
+
+* DATA, 8 Bytes - Retrieved nonce.
+* DATA, 32 Bytes - Hash of the block header (PoW-hash).
+* DATA, 32 Bytes - Mix digest.
+
+**Returns**
+
+`result: Boolean`, `true` if the provided solution is valid, otherwise `false`.
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545
+    ```
+    
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}
+    ```
+    
+    ```json tab="JSON result"
+    {
+      "id":1,
+      "jsonrpc":"2.0",
+      "result": true
+    }
+    ```
 
 ## Clique Methods
 
@@ -3450,7 +3488,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ### miner_start
 
-Starts the CPU mining process. To start mining, a miner coinbase must have been previously specified using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.  
+Starts the mining process. To start mining, a miner coinbase must have been previously specified using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.  
 
 **Parameters**
 
@@ -3479,7 +3517,7 @@ None
 
 ### miner_stop
 
-Stops the CPU mining process on the client.
+Stops the mining process on the client.
 
 **Parameters**
 

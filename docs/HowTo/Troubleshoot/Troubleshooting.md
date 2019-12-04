@@ -22,7 +22,7 @@ If nodes are not communicating, ensure the [required ports are open](../../HowTo
 If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
 
 Check the [enode URLs](../../Concepts/Node-Keys.md#enode-url) specified for [bootnodes](../Find-and-Connect/Bootnodes.md)
-or [static nodes](../Find-and-Connect/Managing-Peers.md#static-nodes) match the enode URLs 
+or [static nodes](../Find-and-Connect/Static-Nodes.md) match the enode URLs 
 displayed when the remote nodes are started.
 
 ## Mining

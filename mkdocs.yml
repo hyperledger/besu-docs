@@ -86,7 +86,8 @@ nav:
             - Filters:
               - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and Connect to Peers:
-          - Start a Bootnode: HowTo/Find-and-Connect/Bootnodes.md
+          - Specify Bootnodes: HowTo/Find-and-Connect/Bootnodes.md
+          - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
@@ -155,8 +156,9 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
-        - Events and Logs: Concepts/Events-and-Logs.md
+        - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
+        - Events and Logs: Concepts/Events-and-Logs.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
         - Node Keys: Concepts/Node-Keys.md
         - Mining: Concepts/Mining.md

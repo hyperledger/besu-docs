@@ -3,20 +3,31 @@ description: Hyperledger Besu authentication and Authorization for JSON-RPC
 
 # Authentication and Authorization for JSON-RPC
 
-Authentication identifies a user based on a username and password. Authorization verifies whether the user has
-access to the JSON-RPC method they are requesting.  
+Authentication identifies a user, and authorization verifies user 
+access to requested JSON-RPC methods. Users are verified using a [JWT token](https://jwt.io/introduction/)
 
-Hyperledger Besu uses the username and password to authenticate users and 
-[JWT tokens](https://jwt.io/introduction/) to authorize JSON-RPC requests. 
+Hyperledger Besu supports two mutually exclusive authentication methods:
+
+* [Username and password](#username-and-password-authentication)
+* [JWT public key](#jwt-public-key-authentication).
+
+JWT tokens are created internally with [username and password authentication](#username-and-password-authentication), and externally with [JWT public key authentication](#jwt-public-key-authentication).
 
 !!! important 
     To prevent interception of authentication credentials and authenticated tokens, make authenticated requests over HTTPS. 
     We recommended production deployments are run behind a network layer that provides SSL termination. 
     Besu does not provide a HTTPS connection natively.
 
-## Credentials File 
 
-The credentials file is a `toml` file defining user details and the JSON-RPC methods to which they have access. 
+## Username and Password Authentication
+
+Enable authentication from the command line. Supply the credentials file and send a request to the `/login` endpoint using the username and password. The `/login` endpoint creates a JWT token that can be used to make permitted JSON RPC requests.
+
+The `/login` endpoint is disabled when using [public key authentication](#jwt-public-key-authentication).
+
+### 1. Create the Credentials File 
+
+The `toml` file defines user details and the JSON-RPC methods to which they have access. 
 
 !!! example "Example Credentials File"
     ```toml
@@ -33,26 +44,15 @@ Each user requiring JSON-RPC access is listed with:
 
 * Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in `[Users.<username>]` with the username being defined. 
 * Hash of the user password. Use the [`password hash`](../../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the hash. 
-* JSON-RPC permissions. 
+* [JSON-RPC permissions](#json-rpc-permissions). 
 
 !!! example "password hash Subcommand"
     ```bash
     besu password hash --password=pegasys
     ```
     
-## JSON-RPC Permissions 
-
-Each user has a list of permissions strings defining the methods they can access. To give access to: 
-
-* All API methods, specify `["*:*"]`.
-* All API methods in an API group, specify `["<api_group>:*"]`. For example, `["eth:*"]`. 
-* Specific API methods, specify `["<api_group>:<method_name>"]`. For example, `["admin:peers"]`.
-
-If authentication is enabled, to explicitly specify a user cannot access any methods, include the user with an empty permissions list (`[]`). 
-Users with an empty permissions list and users not included in the credentials file cannot access any JSON-RPC
-methods. 
     
-## Enabling Authentication 
+### 2. Enable Authentication 
  
 Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) or 
  [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
@@ -60,9 +60,9 @@ Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax
   
 Use the [`--rpc-http-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
 and [`--rpc-ws-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file) 
-options to specify the [credentials file](#credentials-file).  
+options to specify the [credentials file](#1-create-the-credentials-file).
 
-## Obtaining an Authentication Token 
+### 3. Obtain an Authentication Token 
 
 To obtain an authentication token, make a request to the `/login` endpoint with your username and password. Specify the 
 HTTP port or the WS port to obtain a token to authenticate over HTTP or WS respectively. A different token is required 
@@ -91,7 +91,61 @@ for HTTP and WS.
 
 Authentication tokens expire 5 minutes after being generated. It is necessary to generate a new authentication 
 token if access is required after token expiration.     
+
+## JWT Public Key Authentication
+
+Enable authentication from the command line and supply the public key of the external JWT token.
+
+JWT public authentication disables the Besu `/login` endpoint, meaning [username and password authentication](#username-and-password-authentication) will not work.
+
+### 1. Generate a Private and Public Key Pair
+
+The private and accompanying public key files must be in the `.pem` format.
+
+The key must use a RSA private key of at least 2048 bits.
+
+!!! example "Example using OpenSSL"
+    ```bash
+    openssl genrsa -out privateKey.pem 2048
+    openssl rsa -pubout -in privateKey.pem -pubout -out publicKey.pem
+    ```
+
+### 2. Create the JWT Token
+
+Create the JWT token using an external tool. 
+
+!!! important
+    The JWT token must use the `RS256` algorithm 
+
+Each payload for the JWT token must contain:
+
+* [JSON-RPC permissions](#json-rpc-permissions)
+* [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4). 
+
+The following example uses the [JWT.io](https://jwt.io/) website to create a JWT token for testing purposes.
+
+![Create a JWT token](../../../images/JWT.png)
+
+### 3. Enable Authentication
+
+Use the [` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) or 
+ [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
+ options to require authentication for the JSON-RPC API.
+  
+Use the [`--rpc-http-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) and [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file) options to specify the public key to use with the externally created JWT token.
     
+## JSON-RPC Permissions 
+
+Each user has a list of permissions strings defining the methods they can access. To give access to: 
+
+* All API methods, specify `["*:*"]`.
+* All API methods in an API group, specify `["<api_group>:*"]`. For example, `["eth:*"]`. 
+* Specific API methods, specify `["<api_group>:<method_name>"]`. For example, `["admin:peers"]`.
+
+If authentication is enabled, to explicitly specify a user cannot access any methods, include the user with an empty permissions list (`[]`). 
+Users with an empty permissions list and users not included in the credentials file cannot access any JSON-RPC
+methods. 
+
 ## Using an Authentication Token to Make Requests 
 
 Specify the authentication token as a `Bearer` token in the JSON-RPC request header. 
@@ -99,7 +153,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 ### Postman
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the token 
-generated by the [`login` request](#obtaining-an-authentication-token). 
+generated. The token is generated [externally](#2-create-the-jwt-token), or by the [`login` request](#3-obtain-an-authentication-token). 
 
 ### Curl
 

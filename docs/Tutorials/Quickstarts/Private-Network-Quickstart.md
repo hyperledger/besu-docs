@@ -327,7 +327,7 @@ Install the [Truffle wallet](https://github.com/trufflesuite/truffle-hdwallet-pr
 Note with Truffle 5, you must use a Web3 1.0 enabled wallet or the Truffle tasks will hang.
 
 ```bash
-npm install --save truffle-hdwallet-provider@web3-one
+npm install --save @truffle/hdwallet-provider
 ```
 
 !!!note
@@ -459,4 +459,3 @@ To shut down the private network and delete all containers and images created du
 ```bash tab="Linux/MacOS"
 ./remove.sh
 ```
-

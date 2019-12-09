@@ -52,7 +52,7 @@ open a new issue and include a link to the original issue in the body of your ne
 #### Before Submitting A Bug Report
 * **Confirm the problem** clear the cache of your browser and check if the issue is still there. You
 can also disable all your browser plugins and see if the bug still happens.
-* **Perform a [cursory search of project documentation issues](https://jira.hyperledger.org/rowse/BESU-122?jql=project%20%3D%20BESU%20AND%20resolution%20%3D%20Unresolved%20ORDER%20BY%20priority%20DESC%2C%20updated%20DESC) 
+* **Perform a [cursory search of project documentation issues](https://jira.hyperledger.org/browse/BESU-122?jql=project%20%3D%20BESU%20AND%20resolution%20%3D%20Unresolved%20ORDER%20BY%20priority%20DESC%2C%20updated%20DESC) 
 to see if the problem has already been reported. If it has **and the issue is still open**, add a comment 
 to the existing issue instead of opening a new one.
 

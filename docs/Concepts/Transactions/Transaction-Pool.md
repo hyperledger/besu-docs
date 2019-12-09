@@ -10,7 +10,7 @@ transactions in the node transaction pool
 * [`--tx-pool-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-max-size) command line option to specify the maximum number
 of transactions in the node transaction pool
 
-* [`tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command line option to specify 
+* [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command line option to specify 
 the maximum number of hours to retain pending transactions in the transaction pool
 
 * [`newPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#pending-transactions) and [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)

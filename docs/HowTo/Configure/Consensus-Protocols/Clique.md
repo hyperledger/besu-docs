@@ -63,14 +63,10 @@ initial signer must be specified.
 * 65 bytes (130 hex characters) for proposer signature. In the genesis block there is no initial proproser so the proproser signature is all zeros. 
 
 !!! example "One Initial Signer"
-    `extraData` field for a Clique network with one initial signer with an address of `dd37f65db31c107f773e82a4f85c693058fef7a9`
-    
-    `0x0000000000000000000000000000000000000000000000000000000000000000dd37f65db31c107f773e82a4f85c693058fef7a90000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+    ![One Initial Signer](../../../images/CliqueOneIntialSigner.png)
 
 !!! example "Two Initial Signers"
-    `extraData` field for a Clique network with two initial signers with addresses of `dd37f65db31c107f773e82a4f85c693058fef7a9` and `b9b81ee349c3807e46bc71aa2632203c5b462034`.
-    
-    `0x0000000000000000000000000000000000000000000000000000000000000000dd37f65db31c107f773e82a4f85c693058fef7a9b9b81ee349c3807e46bc71aa2632203c5b4620340000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+    ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 
 ## Connecting to Clique Network 
 

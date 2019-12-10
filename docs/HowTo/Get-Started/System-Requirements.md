@@ -22,7 +22,8 @@ A sample [Grafana dashboard](https://grafana.com/grafana/dashboards/10273) is pr
 
 ## RAM 
 
-Besu requires 4GB of RAM. For Ethereum Mainnet, a minimum of 8GB of RAM is required. 
+Besu requires 4GB of RAM. For public Ethereum networks including Mainnet and testnets such as Ropsten, 
+a minimum of 8GB of RAM is required. 
 
 ## Disk Space 
 
@@ -52,3 +53,4 @@ It is recommended that you create a VM with the following attributes:
 * (Optional) You can create a shared directory in order to copy block files or genesis files from 
 the host computer to the VM. For details on how to create a shared directory, see "Share Folders" in
 [Oracle VirtualBox documentation](https://www.virtualbox.org/manual/UserManual.html#sharedfolders).
+

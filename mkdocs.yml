@@ -71,7 +71,7 @@ nav:
             - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
             - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
           - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
-          - Configure Mining: HowTo/Configure/Mining.md
+          - Configure Mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
         - Interact with Node:
             - Besu APIs:
@@ -85,7 +85,8 @@ nav:
             - Filters:
               - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and Connect to Peers:
-          - Start a Bootnode: HowTo/Find-and-Connect/Bootnodes.md
+          - Specify Bootnodes: HowTo/Find-and-Connect/Bootnodes.md
+          - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
@@ -117,6 +118,7 @@ nav:
         - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
+          - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
           - Configure Logging: HowTo/Troubleshoot/Logging.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
@@ -140,6 +142,7 @@ nav:
         - Consensus Protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+        - Client Libraries: Concepts/Client-Libraries.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
@@ -152,10 +155,12 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
-        - Events and Logs: Concepts/Events-and-Logs.md
+        - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
+        - Events and Logs: Concepts/Events-and-Logs.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
         - Node Keys: Concepts/Node-Keys.md
+        - Mining: Concepts/Mining.md
         - Alethio: Concepts/AlethioOverview.md
     - Reference:
         - Besu Command Line:

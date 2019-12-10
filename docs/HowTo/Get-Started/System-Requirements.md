@@ -27,4 +27,30 @@ a minimum of 8GB of RAM is required.
 
 ## Disk Space 
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 700GB of available disk space. 
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB of available disk space. 
+
+## VM Requirements
+
+You can run Besu on a virtual machine (VM) on a cloud service such as AWS or Azure, or locally
+using a VM manager such as [VirtualBox](https://www.virtualbox.org/).
+
+If you set up your own VM locally using a VM manager such as [VirtualBox](https://www.virtualbox.org/),
+there are a few considerations:
+
+* Ensure that Intel Virtualization Technology (VTx) and Virtualization Technology for Directed
+I/O (VT-d) are enabled in BIOS settings.
+
+* On Windows, you might need to disable Hyper-V in the Windows Feature list.
+
+It is recommended that you create a VM with the following attributes:
+
+* Memory Size: Set to 4096 (recommended)
+
+* Create a virtual hard disk with at least 10 GB; 20 GB is recommended
+
+* Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)
+
+* (Optional) You can create a shared directory in order to copy block files or genesis files from 
+the host computer to the VM. For details on how to create a shared directory, see "Share Folders" in
+[Oracle VirtualBox documentation](https://www.virtualbox.org/manual/UserManual.html#sharedfolders).
+

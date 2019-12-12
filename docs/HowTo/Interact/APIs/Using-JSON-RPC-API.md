@@ -120,5 +120,5 @@ The block parameter can have the following values:
 * `pending` : `tag` - Last block mined plus pending transactions. Use only with [eth_getTransactionCount](../../../Reference/API-Methods.md#eth_gettransactioncount).  
 
 !!! note
-    If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#fast-sync-options), most historical 
-    world state data is unavailable.  Any methods attempting to access unavailable world state data return `null`.
+    If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most historical 
+    world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.

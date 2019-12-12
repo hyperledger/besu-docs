@@ -1,4 +1,4 @@
-#Hyperledger Besu documentation
+# Hyperledger Besu documentation
 
 [Hyperledger Besu](https://github.com/hyperledger/besu/) is a Hyperledger enterprise-grade Java-based,
 Apache 2.0 licensed Ethereum client.

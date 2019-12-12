@@ -14,7 +14,7 @@ With the transaction hash returned when submitting the private transaction, use:
 privacy marker transaction. 
 * [`priv_getTransactionReceipt`](../../Reference/API-Methods.md#priv_gettransactionreceipt) to get the transaction receipt for the private transaction. 
 
-The transaction receipts includes a `status` indicating success (`0x1`) or failure (`0x0`) of the transactions. 
+The transaction receipt includes a `status` indicating success (`0x1`) or failure (`0x0`) of the transactions. 
 
 !!! example "Example Private Transaction Failure"
     A transaction is submitted using [`eea_sendRawTransaction`](../Send-Transactions/Creating-Sending-Private-Transactions.md) 

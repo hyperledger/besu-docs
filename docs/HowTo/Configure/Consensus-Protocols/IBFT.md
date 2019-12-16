@@ -184,60 +184,73 @@ An epoch transition occurs every `epochLength` blocks where `epochlength` is def
 ### Adding and removing validators without voting
 
 If network conditions mean voting cannot be used to change validators you can bypass voting and specify new
-validators in your genesis file. For example, a majority of the current validators are no longer
+validators in the genesis file. For example, a majority of the current validators are no longer
 participating in the network so a vote to add or remove valiators will never be successful. 
+
+!!! caution
+    Do not specify a transition block in the past. Specifying a transition block in the past may result in 
+    unexpected behaviour.  
 
 To add or remove validators without voting:
 
 1. Stop all nodes in the network.
-1. Add the `transitions` object in `config` object in the genesis file where: 
+1. In the genesis file, add the `transitions` configuration item where: 
 
-    * `<BlockNumber>` is the upcoming block where you want the change in validators to occur.
-    * `<ValidatorAddress>` is the account address for a validator to be added.
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are the account addresses of the validators after `<BlockNumber>`.
 
     !!! example "Transitions object in genesis file"
         ```bash tab="Syntax"
         {
-                "config": {
-                  ...
-                  "ibft2": {
-                    ...
-                  },
-                  "transitions": {
-                                   "ibft2": [
-                            {
-                              "block": <BlockNumber>,
-                              "validators": [
-                                "<ValidatorAddress>",
-                                "<ValidatorAddress>"
-                                ]
-                              }
-                              ]
-                            }
-                },
-                ...
-              }
+          "config": {
+             ...
+             "ibft2": {
+               "blockperiodseconds": 15,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 10
+             },
+             "transitions": {
+               "ibft2": [
+               {
+                 "block": <BlockNumber>,
+                 "validators": [
+                    <ValidatorAddressX>,
+                    ... 
+                    <ValidatorAddressZ>
+                 ]
+               }
+               ]
+             }
+          },
+          ...
+        }
         ```
         
         ```bash tab="Example"
-        "transitions": {
-        "ibft2": [
-          {
-            "block": 1500,
-            "validators": [
-            "0x6b2f9c5235aaa574cbd4096902632ec50b91e194",
-            "0x57a30532bdc0189b19e1aa7e38d5aece428e4748"
-            ]
-          }
-          ]
+        {
+          "config": {
+            ...
+            "ibft2": {
+              "blockperiodseconds": 15,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 10
+            },
+            "transitions": {
+               "ibft2": [
+               {
+                "block": 25,
+                "validators": [
+                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                  ]
+                }
+               ]
+            }
+          },
+          ...
         }
-        },
         ```
 
-1. Restart all nodes in th network.
-1. To verify the changes after the specified block is produced, call `ibft_getValidatorsByBlockNumber` specifying `latest`, your JSON RPC endpoint, and port. 
-
-    !!! example "JSON-RPC ibft_getValidatorsByBlockNumber Request Example"
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
-        ```
+1. Restart all nodes in the network using the updated genesis file.
+1. To verify the changes after the transition block, call [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber)
+ specifying `latest`. 

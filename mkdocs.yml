@@ -56,7 +56,6 @@ nav:
         - Get Started with Besu:
             - System Requirements: HowTo/Get-Started/System-Requirements.md
             - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
-            - Build from Source: HowTo/Get-Started/Build-From-Source.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
             - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
             - Migrate from pre v1.2 Docker Image: HowTo/Get-Started/Migration-Docker.md
@@ -105,6 +104,7 @@ nav:
           - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
+          - Run Orion with Besu: HowTo/Use-Privacy/Run-Orion-With-Besu.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md

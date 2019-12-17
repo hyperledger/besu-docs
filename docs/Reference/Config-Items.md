@@ -16,6 +16,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `ethash`            | Specifies network uses [Ethash](../Concepts/Consensus-Protocols/Overview-Consensus.md) and contains [`fixeddifficulty`](#Fixed Difficulty)         |
 | `clique`            | Specifies network uses [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file)                              |
 | `ibft2`             | Specifies network uses [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file)                            |
+| `transitions`       | Specifies block at which to [change IBFT 2.0 validators](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators-without-voting)
 | `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). Default is `24576` and the maximum size is `2147483647`.     |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with very complex smart contracts. Default is `1024`. |
 

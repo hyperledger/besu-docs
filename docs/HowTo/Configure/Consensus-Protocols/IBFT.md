@@ -14,11 +14,11 @@ Validators take turns to create the next block, and a super-majority (greater th
 
 Existing validators propose and vote to [add or remove validators](#adding-and-removing-validators). A majority vote (greater than 50%) is required to add or remove a validator. 
 
-## Minimum Number of Validators 
+## Minimum number of validators 
 
 IBFT 2.0 requires 4 validators to be Byzantine fault tolerant. 
 
-## Genesis File
+## Genesis file
 
 To use IBFT 2.0 requires an IBFT 2.0 genesis file. The genesis file defines properties specific to IBFT 2.0:
 
@@ -59,7 +59,7 @@ Properties that have specific values in IBFT 2.0 genesis files are:
 
 To start a node on an IBFT 2.0 private network, use the [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
 
-### Extra Data 
+### Extra data 
 
 The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization scheme 
 used in Ethereum. Use the Besu subcommand [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) 
@@ -81,7 +81,7 @@ Where the `toEncode.json` file contains a list of the initial validators in asce
 
 Copy the RLP encoded data to the `extraData` property in the genesis file. 
 
-### Block Time 
+### Block time 
 
 When a new chain head is received, the block time (`blockperiodseconds`) and round timeout (`requesttimeoutseconds`) 
 timers are started. When `blockperiodseconds` is reached, a new block is proposed. 
@@ -102,7 +102,7 @@ to two times `blockperiodseconds` generally results in blocks being added every 
     Sydney, and North Virginia (2 validators). With a `blockperiodseconds`of 5 and a `requesttimeoutseconds` of 10,
     the testnet consistently creates block with a 5 second blocktime. 
 
-### Optional Configuration Options 
+### Optional configuration options 
 
 Optional configuration options that can be specified in the genesis file are:  
 
@@ -118,7 +118,12 @@ Optional configuration options that can be specified in the genesis file are:
 *  `futureMessagesMaxDistance` - Default is 10. Specifies the maximum height from the current chain height 
     for which messages are buffered in the future messages buffer. 
 
-## Adding and Removing Validators
+## Adding and removing validators
+
+Add and remove validators by [voting](#adding-and-removing-validators-by-voting) or if network conditions require it,
+by [skipping the voting process](#adding-and-removing-validators-without-voting).
+
+### Adding and removing validators by voting
 
 To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface 
 using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
@@ -138,7 +143,7 @@ The JSON-RPC methods to add or remove validators are:
 
 Use [ibft_getSignerMetrics](../../../Reference/API-Methods.md#ibft_getsignermetrics) to view validator metrics for a specified block range.
     
-### Adding a Validator
+#### Adding a validator
 
 To propose adding a validator, call `ibft_proposeValidatorVote` specifying the address of the proposed validator and `true`. The call must be executed on the majority of the validators.
 
@@ -165,15 +170,88 @@ To discard your proposal after confirming the validator was added, call `ibft_di
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
     ```
-### Removing a Validator
+#### Removing a validator
 
 The process for removing a validator is the same as adding a validator except you specify `false` as the second parameter of `ibft_proposeValidatorVote`.
 
-### Epoch Transition
+#### Epoch transition
 
 At each epoch transition, all pending votes collected from received blocks are discarded. Existing proposals remain 
 in effect and validators re-add their vote the next time they create a block. 
 
 An epoch transition occurs every `epochLength` blocks where `epochlength` is defined in the IBFT genesis file.
 
+### Adding and removing validators without voting
 
+If network conditions mean voting cannot be used to change validators you can bypass voting and specify new
+validators in the genesis file. For example, a majority of the current validators are no longer
+participating in the network so a vote to add or remove valiators will never be successful. 
+
+!!! caution
+    Do not specify a transition block in the past. Specifying a transition block in the past may result in 
+    unexpected behaviour.  
+
+To add or remove validators without voting:
+
+1. Stop all nodes in the network.
+1. In the genesis file, add the `transitions` configuration item where: 
+
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses of 
+    the validators after `<BlockNumber>`.
+
+    !!! example "Transitions object in genesis file"
+        ```bash tab="Syntax"
+        {
+          "config": {
+             ...
+             "ibft2": {
+               "blockperiodseconds": 15,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 10
+             },
+             "transitions": {
+               "ibft2": [
+               {
+                 "block": <BlockNumber>,
+                 "validators": [
+                    <ValidatorAddressX>,
+                    ... 
+                    <ValidatorAddressZ>
+                 ]
+               }
+               ]
+             }
+          },
+          ...
+        }
+        ```
+        
+        ```bash tab="Example"
+        {
+          "config": {
+            ...
+            "ibft2": {
+              "blockperiodseconds": 15,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 10
+            },
+            "transitions": {
+               "ibft2": [
+               {
+                "block": 25,
+                "validators": [
+                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                  ]
+                }
+               ]
+            }
+          },
+          ...
+        }
+        ```
+
+1. Restart all nodes in the network using the updated genesis file.
+1. To verify the changes after the transition block, call [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber)
+ specifying `latest`. 

@@ -90,6 +90,9 @@ nav:
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
+        - Monitor Nodes:
+          - Use Metrics: HowTo/Monitor/Metrics.md
+          - Configure Logging: HowTo/Monitor/Logging.md
         - Send Transactions:
            - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
@@ -109,7 +112,6 @@ nav:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
           - Use Kubernetes to Deploy a Private Network: HowTo/Deploy/Kubernetes.md
-          - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
@@ -121,7 +123,6 @@ nav:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
-          - Configure Logging: HowTo/Troubleshoot/Logging.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Quickstarts:
@@ -156,11 +157,11 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
+        - Monitoring: Concepts/Monitoring.md
+        - Events and Logs: Concepts/Events-and-Logs.md
         - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
-        - Events and Logs: Concepts/Events-and-Logs.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
-        - Node Keys: Concepts/Node-Keys.md
         - Mining: Concepts/Mining.md
         - Alethio: Concepts/AlethioOverview.md
     - Reference:

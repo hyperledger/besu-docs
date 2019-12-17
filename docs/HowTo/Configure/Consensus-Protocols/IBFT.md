@@ -197,7 +197,8 @@ To add or remove validators without voting:
 1. In the genesis file, add the `transitions` configuration item where: 
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
-    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are the account addresses of the validators after `<BlockNumber>`.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses of 
+    the validators after `<BlockNumber>`.
 
     !!! example "Transitions object in genesis file"
         ```bash tab="Syntax"

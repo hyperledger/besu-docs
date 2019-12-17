@@ -3,7 +3,7 @@ description: Monitoring using metrics and logging
 
 # Monitoring 
 
-Monitoring enables identification of node and network issues. Configuring metrics and logging enables: 
+Monitoring enables identification of node and network issues. Specifically, configuring metrics and logging enables: 
 
 * [Visual representation of declining node or network performance](../HowTo/Monitor/Metrics.md) 
 * [Collection of log files to enable issue diagnosis](../HowTo/Monitor/Logging.md). 

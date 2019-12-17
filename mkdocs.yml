@@ -56,7 +56,6 @@ nav:
         - Get Started with Besu:
             - System Requirements: HowTo/Get-Started/System-Requirements.md
             - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
-            - Build from Source: HowTo/Get-Started/Build-From-Source.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
             - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
             - Migrate from pre v1.2 Docker Image: HowTo/Get-Started/Migration-Docker.md
@@ -86,10 +85,14 @@ nav:
             - Filters:
               - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and Connect to Peers:
-          - Start a Bootnode: HowTo/Find-and-Connect/Bootnodes.md
+          - Specify Bootnodes: HowTo/Find-and-Connect/Bootnodes.md
+          - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
+        - Monitor Nodes:
+          - Use Metrics: HowTo/Monitor/Metrics.md
+          - Configure Logging: HowTo/Monitor/Logging.md
         - Send Transactions:
            - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
@@ -104,11 +107,11 @@ nav:
           - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
+          - Run Orion with Besu: HowTo/Use-Privacy/Run-Orion-With-Besu.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
           - Use Kubernetes to Deploy a Private Network: HowTo/Deploy/Kubernetes.md
-          - Use Prometheus for Monitoring: HowTo/Deploy/Monitoring-Performance.md
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
@@ -118,8 +121,8 @@ nav:
         - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
+          - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
-          - Configure Logging: HowTo/Troubleshoot/Logging.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Quickstarts:
@@ -141,6 +144,7 @@ nav:
         - Consensus Protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+        - Client Libraries: Concepts/Client-Libraries.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
@@ -153,10 +157,11 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
+        - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
+        - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
-        - Node Keys: Concepts/Node-Keys.md
         - Mining: Concepts/Mining.md
         - Alethio: Concepts/AlethioOverview.md
     - Reference:

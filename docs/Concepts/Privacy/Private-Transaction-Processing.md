@@ -62,5 +62,8 @@ The privacy group ID specifies the private world state to use.
 the private world state, and read from the public world state.
 
 !!! important
-    For production systems requiring private transactions, we recommend using a network 
-    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    For production systems requiring private transactions: 
+    
+    * We recommend using a network with a consensus mechanism supporting transaction finality. For example, 
+    [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    * Orion must be [highly available and run in a separate instance to Besu](../../HowTo/Use-Privacy/Run-Orion-With-Besu.md).

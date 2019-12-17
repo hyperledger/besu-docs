@@ -412,9 +412,9 @@ Example:
 ```
 ```` 
 
+
 Pygment is the implementation for this extension, refer to [Pygment website](https://pygments.org/) for a 
 list of the supported languages.
-
 
 
 [/docs]: ./docs

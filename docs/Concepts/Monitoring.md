@@ -1,18 +1,12 @@
 description: Monitoring using metrics and logging 
 <!--- END of page meta data -->
 
+# Monitoring 
+
 Monitoring enables identification of node and network issues. Configuring metrics and logging enables: 
 
-* Identification of declining node or network performance 
-* Collection of log files to enable issue diagnosis. 
+* [Visual representation of declining node or network performance](../HowTo/Monitor/Metrics.md) 
+* [Collection of log files to enable issue diagnosis](../HowTo/Monitor/Logging.md). 
 
-
-
-* Visual representation of node and network health.  and can act early when network health starts to decline. 
-If things go wrong, you can easily make your log files accessible to PegaSys so we can diagnose and fix the underlying issue. 
-
-Monitoring Besu involves setting up two things: 
-
-Metrics 
-Logging 
+[This recording](https://www.youtube.com/watch?v=7BuutRe0I28&feature=youtu.be) gives an overview of monitoring Hyperledger Besu. 
 

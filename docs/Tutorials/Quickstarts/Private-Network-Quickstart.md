@@ -96,7 +96,7 @@ wallets such as Metamask.
 - Use the **GraphQL HTTP service endpoint** to access the [HTTP GraphQL](../../HowTo/Interact/APIs/GraphQL.md) node service from your Dapp.
 - Use the **Web block explorer address** to display the block explorer web application. View the block explorer by
 entering the URL in your web browser.
-- Use the **Prometheus address** to access the [Prometheus dashboard](../../HowTo/Deploy/Monitoring-Performance.md).
+- Use the **Prometheus address** to access the [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
 - Use the **Grafana address** to access the [Grafana dashboard](https://grafana.com/dashboards/10273).
 
 To display the list of endpoints again, run:
@@ -138,7 +138,7 @@ health and usage. You can directly access these tools from your browser at the a
 in the endpoint list.
 
 For more details on how to configure and use these tools for your own nodes, refer to our 
-[performances monitoring documentation](../../HowTo/Deploy/Monitoring-Performance.md), 
+[performances monitoring documentation](../../HowTo/Monitor/Metrics.md), 
 as well as [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 

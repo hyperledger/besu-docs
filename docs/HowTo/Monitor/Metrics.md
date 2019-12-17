@@ -1,14 +1,7 @@
-description: Frequently asked questions FAQ and answers for troubleshooting Hyperledger Besu use
+description: Monitoring and metrics 
 <!--- END of page meta data -->
 
-# Monitoring Hyperledger Besu
-
-## Monitor Node Performance and Connectivity Using the JSON-RPC API
-
-You can monitor node performance using the [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics)
-JSON-RPC API method.
-
-## Monitor Node Performance Using Prometheus
+# Use Metrics to Monitor Node Performance 
 
 Use the [`--metrics-enabled` option](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) to enable the [Prometheus](https://prometheus.io/) monitoring and 
 alerting service to access Besu metrics. You can also visualize the collected data using [Grafana](https://grafana.com/).
@@ -20,7 +13,8 @@ The default host and port are 127.0.0.1 and 9545.
 
 Prometheus requires 3MB of space per node per hour for metrics, with a `scrape_interval` of 15s.
 
-To use Prometheus with Besu, install the [prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
+To use Prometheus with Besu, install the [Prometheus main component](https://prometheus.io/download/). 
+On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
 
  ```
  brew install prometheus
@@ -34,7 +28,7 @@ To use Prometheus with Besu, install the [prometheus main component](https://pro
     components because Prometheus handles and analyzes data directly from the feed.
 
 
-###  Setting up and Running Prometheus with Besu
+##  Setting up and Running Prometheus with Besu
 
 To configure Prometheus and run with Besu: 
 
@@ -66,34 +60,12 @@ block of the `prometheus.yml` file:
     prometheus --config.file=prometheus.yml 
     ```
 
-1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
-
-1. Choose **Graph** from the menu bar and click the **Console** tab below.
-
-1. From the **Insert metric at cursor** drop-down, select a metric such as `besu_blockchain_difficulty_total` or
-`ethereum_blockchain_height` and click **Execute**. The values are displayed.
-
-    Standard Ethereum metrics are prefixed with `ethereum_` and listed in the table below. Metrics specific to Besu are prefixed with `besu_`.
-    
-    | Name | Metric Type | Definition | JSON-RPC Equivalent |
-    | ---  | ---         | ---        | ---                 |                   
-    | `ethereum_blockchain_height` | Gauge | Current height of the canonical chain | `eth_blockNumber` |
-    | `ethereum_best_known_block_number` | Gauge | Estimated highest block available | `highestBlock` of `eth_syncing` or `eth_blockNumber`, if not syncing |
-    | `ethereum_peer_count` | Gauge | Current number of peers connected | `net_peerCount` |
-    | `ethereum_peer_limit` | Gauge | Maximum number of peers this node allows to connect | No equivalent |
-  
-    !!! important 
-        * The `ethereum_best_known_block_number` metric always has a value. When the [`eth_syncing` JSON-RPC method](../../Reference/API-Methods.md#eth_syncing) returns false, the current chain height is used.
-        * Although the `ethereum_peer_limit` metric does not have a JSON-RPC equivalent, the [`max peers` command line option](../../Reference/CLI/CLI-Syntax.md#max-peers) sets the maximum number of P2P connections that can be
-        established.
-      
-    Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph.
-    For example: `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`
+1. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
 
 !!! tip 
     Use a log ingestion tool such as Logstash to parse the logs and alert you to configured anomalies. 
 
-### Running Prometheus with Besu in Push Mode 
+## Running Prometheus with Besu in Push Mode 
 
 The [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option enables Prometheus polling 
 Besu but sometimes metrics are hard to poll (for example, when running inside Docker containers with varying IP addresses). 
@@ -133,9 +105,30 @@ To configure Prometheus and run with Besu pushing to a push gateway:
     prometheus --config.file=config.yml 
     ```
 
-1. View the Prometheus graphical interface as described in [Setting up and Running Prometheus with Besu](#setting-up-and-running-prometheus-with-besu).
+1. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
 
-## Monitor Node Performance and Connectivity Using the JSON-RPC API
+## View Prometheus Graphical Interface 
 
-You can monitor node performance using the [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics)
-JSON-RPC API method.
+1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
+
+1. Choose **Graph** from the menu bar and click the **Console** tab below.
+
+1. From the **Insert metric at cursor** drop-down, select a metric such as `besu_blockchain_difficulty_total` or
+`ethereum_blockchain_height` and click **Execute**. The values are displayed.
+
+    Standard Ethereum metrics are prefixed with `ethereum_` and listed in the table below. Metrics specific to Besu are prefixed with `besu_`.
+    
+    | Name | Metric Type | Definition | JSON-RPC Equivalent |
+    | ---  | ---         | ---        | ---                 |                   
+    | `ethereum_blockchain_height` | Gauge | Current height of the canonical chain | `eth_blockNumber` |
+    | `ethereum_best_known_block_number` | Gauge | Estimated highest block available | `highestBlock` of `eth_syncing` or `eth_blockNumber`, if not syncing |
+    | `ethereum_peer_count` | Gauge | Current number of peers connected | `net_peerCount` |
+    | `ethereum_peer_limit` | Gauge | Maximum number of peers this node allows to connect | No equivalent |
+  
+    !!! important 
+        * The `ethereum_best_known_block_number` metric always has a value. When the [`eth_syncing` JSON-RPC method](../../Reference/API-Methods.md#eth_syncing) returns false, the current chain height is used.
+        * Although the `ethereum_peer_limit` metric does not have a JSON-RPC equivalent, the [`max peers` command line option](../../Reference/CLI/CLI-Syntax.md#max-peers) sets the maximum number of P2P connections that can be
+        established.
+      
+    Click the **Graph** tab to view the data as a time-based graph. The query string is displayed below the graph.
+    For example: `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`

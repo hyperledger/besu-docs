@@ -75,7 +75,7 @@ BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.
 bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5:30303"]
 ``` 
   
-List of comma-separated enode URLs for P2P discovery bootstrap. 
+List of comma-separated [enode URLs](../../Concepts/Node-Keys.md#enode-url) for [P2P discovery bootstrap](../../HowTo/Find-and-Connect/Bootnodes.md). 
   
 When connecting to MainNet or public testnets, the default is a predefined list of enode URLs. 
 
@@ -411,8 +411,12 @@ BESU_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
 metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
 ```
 
-Comma separated list of categories for which to track metrics. The default is all categories: 
-`BIG_QUEUE`, `BLOCKCHAIN`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PROCESS`, `ROCKSDB`, `RPC`, `SYNCHRONIZER`. 
+Comma separated list of categories for which to track metrics. Defaults are 
+`BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `SYNCHRONIZER`, and `TRANSACTION_POOL`. 
+
+Additional categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
+
+Categories that contain `PRIVATE` track metrics when [private transactions](../../Concepts/Privacy/Privacy-Overview.md) are enabled.
 
 ### metrics-enabled
 
@@ -1381,6 +1385,27 @@ rpc-http-authentication-enabled=true
 
 Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC service.  
 
+### rpc-http-authentication-jwt-public-key-file
+
+```bash tab="Syntax"
+--rpc-http-authentication-jwt-public-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-authentication-jwt-public-key-file=publicKey.pem
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+```
+
+```bash tab="Configuration File"
+rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+```
+
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC HTTP authentication when authenticating with an external JWT token.
+
+
 ### rpc-http-cors-origins
 
 ```bash tab="Syntax"
@@ -1562,6 +1587,26 @@ Set to `true` to require [authentication](../../HowTo/Interact/APIs/Authenticati
 !!! note 
     `wscat` does not support headers. [Authentication](../../HowTo/Interact/APIs/Authentication.md) requires an authentication token to be passed in the 
     request header. To use authentication with WebSockets, an app that supports headers is required. 
+
+### rpc-ws-authentication-jwt-public-key-file
+
+```bash tab="Syntax"
+--rpc-http-authentication-jwt-public-key-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-authentication-jwt-public-key-file=publicKey.pem
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+```
+
+```bash tab="Configuration File"
+rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+```
+
+[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) for JSON-RPC websocket authentication when authenticating with an external JWT token.
 
 ### rpc-ws-enabled
 

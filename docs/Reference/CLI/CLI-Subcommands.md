@@ -29,7 +29,7 @@ besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
 besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
 ```
 
-Exports a block, or list of blocks from storage to a file in RLP format. 
+Exports a block, or list of blocks from storage to a file in RLP format.
 
 If `--start-block` is omitted, the start block defaults to 0 (beginning of the chain), and if `--end-block` is omitted, the end block defaults to the end of the chain.
 
@@ -56,7 +56,7 @@ besu --data-path=<node data path> public-key export
 besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
 ```
 
-Outputs the node public key to standard output or writes it to the specified file if 
+Outputs the node public key to standard output or writes it to the specified file if
 `--to=<key-file>` is specified.
 
 ### export-address
@@ -74,7 +74,7 @@ besu --data-path=<node data path> public-key export-address --to=/home/me/me_pro
 ```
 
 Outputs the node public key address to standard output or writes it to the specified file if  
-`--to=<key-file>` is specified. 
+`--to=<key-file>` is specified.
 
 ## password
 
@@ -83,7 +83,7 @@ Provides password related actions.
 ### hash
 
 This command generates the hash of a given password. Include the hash in the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
- for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md). 
+ for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ```bash tab="Syntax"
 besu password hash --password=<my-password>
@@ -99,7 +99,7 @@ Provides operator actions.
 
 ### generate-blockchain-config
 
-This command generates [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md). 
+This command generates [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
 
 ```bash tab="Syntax"
 besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
@@ -109,9 +109,30 @@ besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [
 besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
 ```
 
-The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining 
-the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for the `extraData` string. The 
+The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining
+the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for the `extraData` string. The
 second is the `blockchain` property defining the number of key pairs to generate.  
+
+### generate-log-bloom-cache
+
+Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log
+query performance.
+
+!!! note
+    Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
+
+Must be manually executed to add new blocks to the indexes.
+
+The [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API can be used to generate cached log
+bloom indexes while the node is running.
+
+```bash tab="Syntax"
+besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
+```
+
+```bash tab="Example"
+besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
+```
 
 ## rlp
 
@@ -137,13 +158,13 @@ The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding.
 This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
 
 ???+ summary "IBFT 2.0 Extra Data"
-    To generate the RLP encoded `extraData` string, specify a JSON input that is array of validator addresses 
+    To generate the RLP encoded `extraData` string, specify a JSON input that is array of validator addresses
     in ascending order.
 
     ??? tip "JSON Schema for IBFT_EXTRA_DATA"
         The following JSON Schema can be used to validate that your JSON data is well formed. You can use an online validation tool
         such as https://www.jsonschemavalidator.net/ to validate your JSON content.
-        
+
         ```json
         {
           "$schema": "http://json-schema.org/draft-07/schema#",
@@ -165,8 +186,8 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
             "pattern":"^([0-9a-f]{40})$"
           }
         }
-        ``` 
-        
+        ```
+
     !!!example "Example IBFT_EXTRA_DATA encoding"
         ```json tab="JSON Input"
         [
@@ -174,7 +195,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
           "5ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193"
         ]
         ```
-        
+
         ``` tab="RLP Output"
         0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
         ```

@@ -2,21 +2,24 @@
 
 When a transaction is mined, smart contracts emit events and write logs to the blockchain.  
 
-Logs are associated with the contract address and included in the blockchain but logs are not accessible 
-from within contracts. Log storage is cheaper than contract storage (that is, it costs less gas) so if the required data can 
-be stored in and accessed from logs, the cost is reduced. For example, you can use logs to display all 
-transfers made using a specific contract but not the current state of the contract. 
+Logs are associated with the contract address and included in the blockchain but logs are not accessible
+from within contracts. Log storage is cheaper than contract storage (that is, it costs less gas) so if the required data can
+be stored in and accessed from logs, the cost is reduced. For example, you can use logs to display all
+transfers made using a specific contract but not the current state of the contract.
 
-A Dapp front end can either request logs using the [JSON-RPC API filter methods](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md) 
-or subscribe to logs using the [RPC Pub/Sub API](../HowTo/Interact/APIs/RPC-PubSub.md#logs). 
+A Dapp front end can either request logs using the [JSON-RPC API filter methods](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md)
+or subscribe to logs using the [RPC Pub/Sub API](../HowTo/Interact/APIs/RPC-PubSub.md#logs).
 
-## Topics 
+Use [`admin_generateLogBloomCache`](../Reference/API-Methods.md#admin_generatelogbloomcache) to
+improve log retrieval performance.
 
-Log entries contain up to four topics. The first topic is the [event signature hash](#event-signature-hash) and up to three topics 
-are the indexed [event parameters](#event-parameters). 
+## Topics
 
-!!! example 
-    Log entry for an event with one indexed parameter: 
+Log entries contain up to four topics. The first topic is the [event signature hash](#event-signature-hash) and up to three topics
+are the indexed [event parameters](#event-parameters).
+
+!!! example
+    Log entry for an event with one indexed parameter:
 
     ```json
     {
@@ -37,17 +40,17 @@ are the indexed [event parameters](#event-parameters).
 
 ## Event Parameters
 
-Up to three event parameters can have the `indexed` attribute. Indexed parameters are stored as `topics` 
+Up to three event parameters can have the `indexed` attribute. Indexed parameters are stored as `topics`
 in the logs. Indexed parameters can be searched and filtered.
 
-Topics are 32 bytes. If an indexed argument is an array (including `string` and `byte` datatypes), 
-the keccak-256 hash of the paramater is stored as a topic. 
+Topics are 32 bytes. If an indexed argument is an array (including `string` and `byte` datatypes),
+the keccak-256 hash of the paramater is stored as a topic.
 
-Non-indexed parameters are included in the logs `data` but cannot be easily searched or filtered. 
+Non-indexed parameters are included in the logs `data` but cannot be easily searched or filtered.
 
-!!! example 
+!!! example
 
-    A Solidity contract that stores one indexed and one non-indexed parameter and has an event that emits the value of each parameter: 
+    A Solidity contract that stores one indexed and one non-indexed parameter and has an event that emits the value of each parameter:
 
     ```solidity
     pragma solidity ^0.5.1;
@@ -60,7 +63,7 @@ Non-indexed parameters are included in the logs `data` but cannot be easily sear
 	  function setValue(uint256 _valueIndexed, uint256 _valueNotIndexed) public {
     	 valueIndexed = _valueIndexed;
     	 valueNotIndexed = _valueNotIndexed;
-    	 emit Event1(_valueIndexed, _valueNotIndexed); 
+    	 emit Event1(_valueIndexed, _valueNotIndexed);
 	  }
     }
     ```
@@ -88,43 +91,43 @@ Non-indexed parameters are included in the logs `data` but cannot be easily sear
 ## Event Signature Hash
 
 The first topic in a log entry is always the the event signature hash. The event signature hash is a keccak-256
-hash of the event name and input argument types. Argument names are ignored. For example, the event `Hello(uint256 worldId)` 
-has the signature hash `keccak('Hello(uint256)')`. The signature identifies to which event log topics belong. 
+hash of the event name and input argument types. Argument names are ignored. For example, the event `Hello(uint256 worldId)`
+has the signature hash `keccak('Hello(uint256)')`. The signature identifies to which event log topics belong.
 
 !!! example
-    
-    A Solidity contract with two different events: 
 
-    ``` solidity	
+    A Solidity contract with two different events:
+
+    ``` solidity
 	     pragma solidity ^0.5.1;
          contract Storage {
   	     uint256 public valueA;
          uint256 public valueB;
-  
+
   	     event Event1(uint256 indexed valueA);
   	     event Event2(uint256 indexed valueB);
-  
+
   	     function setValue(uint256 _valueA) public {
       	    valueA = _valueA;
-      	    emit Event1(_valueA); 
+      	    emit Event1(_valueA);
   	     }
-  	
+
   	     function setValueAgain(uint256 _valueB) public {
       	    valueB = _valueB;
-      	    emit Event2(_valueB); 
+      	    emit Event2(_valueB);
   	     }
-       } 
+       }
     ```
 
-The event signature hash for event 1 is `keccak('Event1(uint256)')` and the event signature hash for event 
-2 is `keccak('Event2(uint256)')`. The hashes are: 
+The event signature hash for event 1 is `keccak('Event1(uint256)')` and the event signature hash for event
+2 is `keccak('Event2(uint256)')`. The hashes are:
 
 * `04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3` for event 1  
 * `06df6fb2d6d0b17a870decb858cc46bf7b69142ab7b9318f7603ed3fd4ad240e` for event 2
 
 !!! tip
     You can use a library keccak (sha3) hash function such as provided in [Web3.js](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3sha3)
-    or an an online tool such as https://emn178.github.io/online-tools/keccak_256.html to generate event signature hashes. 
+    or an an online tool such as https://emn178.github.io/online-tools/keccak_256.html to generate event signature hashes.
 
 !!! example
     Log entries from invoking the Solidity contract above:  
@@ -164,32 +167,30 @@ The event signature hash for event 1 is `keccak('Event1(uint256)')` and the even
 
 ## Topic Filters
 
-[Filter options objects](../Reference/API-Objects.md#filter-options-object) have a `topics` key to filter logs by topics. 
+[Filter options objects](../Reference/API-Objects.md#filter-options-object) have a `topics` key to filter logs by topics.
 
 Topics are order-dependent. A transaction with a log containing topics `[A, B]` is matched with the following topic filters:
 
 * `[]` - Match any topic
-* `[A]` - Match A in first position 
+* `[A]` - Match A in first position
 * `[[null], [B]]` - Match any topic in first position AND B in second position
 * `[[A],[B]]` - Match A in first position AND B in second position
-* `[[A, C], [B, D]]` - Match (A OR C) in first position AND (B OR D) in second position 
+* `[[A, C], [B, D]]` - Match (A OR C) in first position AND (B OR D) in second position
 
 
 
 !!! example
-    The following filter option object returns log entries for the [Event Parameters example contract](#event-parameters) where `valueIndexed` is set to 
-    5 or 9: 
+    The following filter option object returns log entries for the [Event Parameters example contract](#event-parameters) where `valueIndexed` is set to
+    5 or 9:
 
     ```json
     {
-      "fromBlock":"earliest", 
-      "toBlock":"latest", 
+      "fromBlock":"earliest",
+      "toBlock":"latest",
       "address":"0x43d1f9096674b5722d359b6402381816d5b22f28",
       "topics":[
-       ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"], 
+       ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
        ["0x0000000000000000000000000000000000000000000000000000000000000005", "0x0000000000000000000000000000000000000000000000000000000000000009"]
       ]
     }
     ```
-
-

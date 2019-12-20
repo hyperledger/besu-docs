@@ -62,10 +62,10 @@ npm install
 
 ## Start the Private Network with Privacy Enabled 
 
-In the `besu-quickstart/privacy` directory, start the network: 
+In the `besu-quickstart` directory, start the network with privacy enabled: 
 
 ```bash
-./run.sh
+./run-privacy.sh 
 ```
 
 The Docker images are pulled and network started.  Pulling the images takes a few minutes the first time.

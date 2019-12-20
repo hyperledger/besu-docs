@@ -122,13 +122,12 @@ Must be manually executed to add new blocks to the indexes.
 
 `result` : *object* - Log bloom index details:
 
-* `integer` : `startBlock` - Starting block for the generated indexes
-* `integer` : `endBlock` - End block for the generated indexes
-* `quantity` : `currentBlock` - Hexadecimal integer representing the latest
-   block indexed
+* `quantity` : `startBlock` - Starting block for the last requested cache generation
+* `quantity` : `endBlock` - Ending block for the last requested cache generation
+* `quantity` : `currentBlock` - The most recent block that was added to the cache
 * `boolean` : `indexing` - `true` if indexing is in progress
-* `boolean` : `requestAccepted` - `true` if the request to generate log bloom
-   indexes has been accepted
+* `boolean` : `true` if the request from this call to generate the cache has
+   been accepted
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -2649,7 +2648,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter.
 
-Improve log retrieval performance by using [`admin_generateLogBloomCache`](admin_generatelogbloomcache).
+Use [`admin_generateLogBloomCache`](#admin_generatelogbloomcache) to improve log retrieval performance.
 
 !!!note
      `eth_getFilterLogs` is only used for filters created with `eth_newFilter`.
@@ -2707,7 +2706,7 @@ Improve log retrieval performance by using [`admin_generateLogBloomCache`](admin
 Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified
 filter object.
 
-Improve log retrieval performance by using [`admin_generateLogBloomCache`](admin_generatelogbloomcache).
+Use [`admin_generateLogBloomCache`](#admin_generatelogbloomcache) to improve log retrieval performance.
 
 **Parameters**
 

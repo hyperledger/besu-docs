@@ -10,8 +10,8 @@ transfers made using a specific contract but not the current state of the contra
 A Dapp front end can either request logs using the [JSON-RPC API filter methods](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md)
 or subscribe to logs using the [RPC Pub/Sub API](../HowTo/Interact/APIs/RPC-PubSub.md#logs).
 
-Improve log retrieval performance by using [`admin_generateLogBloomCache`](../Reference/API-Methods.md#admin_generatelogbloomcache) to
-generate cached log bloom indexes for blocks.
+Use [`admin_generateLogBloomCache`](../Reference/API-Methods.md#admin_generatelogbloomcache) to
+improve log retrieval performance.
 
 ## Topics
 

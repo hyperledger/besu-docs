@@ -123,8 +123,8 @@ query performance.
 
 Must be manually executed to add new blocks to the indexes.
 
-The [`admin_generateLogBloomCache`](../API-Methods.md#admin_generateLogBloomCache) API can also be used to generate cached log
-bloom indexes.
+The [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API can be used to generate cached log
+bloom indexes while the node is running.
 
 ```bash tab="Syntax"
 besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]

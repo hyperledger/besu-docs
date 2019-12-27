@@ -22,6 +22,9 @@ To run this tutorial, you must have the following installed:
 
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
 
+    !!! important 
+        If using MacOS, enable Docker to use up to 4GB of memory on the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
+
 - [Git command line](https://git-scm.com/)
 
 - [Curl command line](https://curl.haxx.se/download.html) 
@@ -41,7 +44,7 @@ git clone https://github.com/PegaSysEng/besu-quickstart.git
 !!!note
     Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases.
 
-## Build Docker Images and Start Services and Network
+## Start Services and Network
  
 This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and 
 run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:
@@ -58,35 +61,41 @@ When the process ends, it lists the running services:
 !!! example "Docker-compose services list example"
     ```log
     *************************************
-    Besu Quickstart <version>
+    Besu Quickstart latest
     *************************************
     List endpoints and services
     ----------------------------------
-                  Name                            Command               State               Ports
-    ---------------------------------------------------------------------------------------------------------
-    besu-quickstart_bootnode_1     /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_explorer_1     nginx -g daemon off;             Up      0.0.0.0:32768->80/tcp
-    besu-quickstart_grafana_1      /run.sh                          Up      3000/tcp
-    besu-quickstart_minernode_1    /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_node_1         /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_node_2         /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_node_3         /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_node_4         /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    besu-quickstart_prometheus_1   /bin/prometheus --config.f ...   Up      9090/tcp
-    besu-quickstart_rpcnode_1      /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-    ``` 
+                 Name                            Command               State                                        Ports                                      
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------
+    besu-quickstart_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
+    besu-quickstart_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp                                                              
+    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:32768->80/tcp                                                           
+    besu-quickstart_filebeat_1        /usr/local/bin/docker-entr ...   Up                                                                                      
+    besu-quickstart_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp                                                          
+    besu-quickstart_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp                                                          
+    besu-quickstart_logstash_1        /usr/local/bin/docker-entr ...   Up      5044/tcp, 9600/tcp                                                              
+    besu-quickstart_minernode_1       /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
+    besu-quickstart_node_1            /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
+    besu-quickstart_prometheus_1      /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp                                                          
+    besu-quickstart_redis_1           docker-entrypoint.sh redis ...   Up      6379/tcp                                                                        
+    besu-quickstart_rpcnode_1         /opt/besu/node_start.sh -- ...   Up      30303/tcp, 0.0.0.0:8545->8545/tcp, 8546/tcp, 8547/tcp                           
+    Setting up the besu index pattern in kibana
+    {"type":"index-pattern","id":"besu","attributes":{"title":"besu-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":{"index-pattern":"6.5.0"},"updated_at":"2019-12-27T04:41:07.665Z","version":"WzMsMV0="}
+    Orion not running, skipping the orion index pattern in kibana.
+    ```
 
 Followed by a list of the endpoints:
 
 !!! example "Endpoint list example"
     ```log
     ****************************************************************
-    JSON-RPC HTTP service endpoint      : http://localhost:32768/jsonrpc
-    JSON-RPC WebSocket service endpoint : ws://localhost:32768/jsonws
-    GraphQL HTTP service endpoint       : http://localhost:32768/graphql
-    Web block explorer address          : http://localhost:32768
-    Prometheus address                  : http://localhost:32768/prometheus/graph
-    Grafana address                     : http://localhost:32768/grafana-dashboard                                                                        
+    JSON-RPC HTTP service endpoint      : http://localhost:8545
+    JSON-RPC WebSocket service endpoint : ws://localhost:8546
+    GraphQL HTTP service endpoint       : http://localhost:8547
+    Web block explorer address          : http://localhost:32768/
+    Prometheus address                  : http://localhost:9090/graph
+    Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
+    Kibana logs address                 : http://localhost:5601/app/kibana#/discover
     ****************************************************************
     ```
 
@@ -97,7 +106,8 @@ wallets such as Metamask.
 - Use the **Web block explorer address** to display the block explorer web application. View the block explorer by
 entering the URL in your web browser.
 - Use the **Prometheus address** to access the [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
-- Use the **Grafana address** to access the [Grafana dashboard](https://grafana.com/dashboards/10273).
+- Use the **Grafana address** to access the [Grafana dashboard](../../HowTo/Monitor/Metrics.md).
+- Use the **Kibana logs address** to access the [logs in Kibana](../../HowTo/Monitor/Elastic-Stack.md). 
 
 To display the list of endpoints again, run:
 

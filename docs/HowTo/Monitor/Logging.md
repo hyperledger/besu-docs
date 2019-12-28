@@ -7,17 +7,19 @@ source: log4j2.xml
 
 Hyperledger Besu uses Log4J2 for logging. There are two methods to configure logging behavior:
 
-* Basic - changes the log level. 
-* Advanced - configures the output and format of the logs. 
+* [Basic](#basic-log-level-setting) - changes the log level.
+* [Advanced](#advanced-custom-logging) - configures the output and format of the logs. 
 
-!!!note
-    For most use-cases, the basic method provides sufficient configurability.  
-
+The Besu Quickstart provides an [example implementation using Elastic Stack](Elastic-Stack.md) (also 
+known as ELK) for log management. 
+      
 ## Basic log level setting
 
 Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify 
 the logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes
 the volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
+
+For most use-cases, the basic method provides sufficient configurability.
 
 !!! tip 
     Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method

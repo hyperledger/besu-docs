@@ -9,8 +9,8 @@ The [Besu Quickstart](https://github.com/PegaSysEng/besu-quickstart) provides an
 using Elastic Stack for log management. 
 
 The [Filebeat configuration](https://github.com/PegaSysEng/besu-quickstart/blob/master/filebeat/filebeat.yml)
-ingests the logs and outputs them to Redis for storage. Using Redis enables logs to be stored and pulled 
-by Logstash as needed. Using Redis provides a highly available log management configuration. 
+ingests the logs and outputs them to Redis for storage. Redis provides a highly available mechanism that 
+enables logs to be stored by any of the Elastic Beats and pulled by Logstash as required. 
 
 The [pipeline configuration](https://github.com/PegaSysEng/besu-quickstart/blob/master/logstash/pipeline/20_besu.conf) 
 defines the json format used for Besu logs and automatically picks up any new log fields. 

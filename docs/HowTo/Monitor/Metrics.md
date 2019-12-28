@@ -7,6 +7,8 @@ Use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 alerting service to access Besu metrics. Use [Grafana](https://grafana.com/) to visualize the collected data.
 A sample [Besu Grafana dashboard](https://grafana.com/dashboards/10273) is provided. 
 
+The Besu Quickstart has [monitoring with Prometheus and Grafana configured](../../Tutorials/Quickstarts/Private-Network-Quickstart.md#monitoring-nodes-with-prometheus-and-grafana). 
+
 !!! example
     Use Prometheus to monitor the number of blocks your Besu node is behind the chain head and be alerted 
     if your node is no longer keeping up with the chain head. 

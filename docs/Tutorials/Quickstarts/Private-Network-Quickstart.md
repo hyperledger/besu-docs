@@ -349,7 +349,7 @@ Modify the `truffle-config.js` file in the `pet-shop-tutorial` directory to add 
 code with placeholders to change as directed below:
 
 ```javascript
-const PrivateKeyProvider = require("truffle-hdwallet-provider");
+const PrivateKeyProvider = require("@truffle/hdwallet-provider");
 const privateKey = "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63";
 
 module.exports = {

@@ -1517,6 +1517,93 @@ rpc-http-port="3435"
 Specifies HTTP JSON-RPC listening port (TCP).
 The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md). 
 
+### rpc-http-tls-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-enabled
+```
+
+```bash tab="Environement Variable"
+BESU_RPC_HTTP_TLS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-enabled=true
+```
+
+Enable TLS for the JSON-RPC HTTP service. The default is `false`.
+
+[`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
+
+### rpc-http-tls-keystore-file
+
+```bash tab="Syntax"
+--rpc-http-tls-keystore-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-keystore-file=/home/me/me_node/certificate.pfx
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/certificate.pfx
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-keystore-file="/home/me/me_node/certificate.pfx"
+```
+PKCS #12 keystore file. Must be specified if TLS is enabled for the JSON-RPC
+HTTP service.
+
+### rpc-http-tls-keystore-password-file
+
+```bash tab="Syntax"
+--rpc-http-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+Password file used to decrypt the keystore.
+
+### rpc-http-tls-known-clients-file
+
+```bash tab="Syntax"
+--rpc-http-tls-known-clients-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-known-clients-file=/home/me/me_node/knownClients
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
+```
+
+Enables client authentication.
+
+For client certificates not signed by a known root CA this must contain the
+certifcates's Common Name, and SHA-256 fingerprint in the format
+`<CommonName> <hex-string>`.
+
+Client certificates signed by a known CA do not need to be added to the file.
+
+The file contents can be left empty, which indicates only clients with
+certificates signed by known CAs are allowed.
+
 ### rpc-ws-api
 
 ```bash tab="Syntax"

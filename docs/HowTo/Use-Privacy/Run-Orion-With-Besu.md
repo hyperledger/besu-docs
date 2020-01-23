@@ -14,10 +14,13 @@ All private transaction participants must be online for a private transaction to
 If any participants are offline when the private transaction is submitted, the transaction is not attempted 
 and must be resubmitted.
 
+If an Orion node is unavailable when Besu attempts to process a privacy marker transaction, the Besu node 
+stops processing all new blocks until Orion is available again. The Besu node continues retrying to process
+the privacy marker transaction until Orion is available again. 
+
 !!! caution
-    If a receiving Orion is available when the private transaction is distributed but is unavailable 
-    when the privacy marker transaction is processed, the private transaction is not executed by
-    the receiving Besu node. The private states in the Besu nodes are then inconsistent. 
+    If Orion becomes available but has lost data, Besu resumes processing blocks and the private states
+    in the Besu nodes may become inconsistent.  
     
 ## Separate Instances 
 

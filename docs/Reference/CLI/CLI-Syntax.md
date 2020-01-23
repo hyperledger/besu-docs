@@ -1126,7 +1126,7 @@ privacy-enabled=false
 Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
 
 !!! important
-    Using private transactions with [pruning](../../Concepts/Pruning.md) is not supported.
+    Using private transactions with [pruning](../../Concepts/Pruning.md) and/or Fast Sync is not supported.
 
 ### privacy-marker-transaction-signing-key-file
 
@@ -1690,6 +1690,9 @@ sync-mode="FAST"
 ```
 
 Specifies the synchronization mode. Default is `FULL`.
+
+!!! important
+    Using Fast Sync with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### target-gas-limit
 

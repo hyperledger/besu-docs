@@ -7,23 +7,25 @@ source: log4j2.xml
 
 Hyperledger Besu uses Log4J2 for logging. There are two methods to configure logging behavior:
 
-* Basic - changes the log level. 
-* Advanced - configures the output and format of the logs. 
+* [Basic](#basic-log-level-setting) - changes the log level.
+* [Advanced](#advanced-custom-logging) - configures the output and format of the logs. 
 
-!!!note
-    For most use-cases, the basic method provides sufficient configurability.  
-
-## Basic Log Level Setting
+The Besu Quickstart provides an [example implementation using Elastic Stack](Elastic-Stack.md) (also 
+known as ELK) for log management. 
+      
+## Basic log level setting
 
 Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify 
 the logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes
 the volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
+For most use-cases, the basic method provides sufficient configurability.
+
 !!! tip 
     Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method
     to change the log level while Besu is running. 
 
-## Advanced Custom Logging
+## Advanced custom logging
 
 You can provide your own logging configuration using the standard Log4J2 configuration mechanisms.
 For example, the following Log4J2 configuration is the same as the 
@@ -65,3 +67,8 @@ setting it before starting Besu.
     ```bash
     LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=rinkeby
     ```
+
+### Log rotation 
+
+The [Besu Quickstart](https://github.com/PegaSysEng/besu-quickstart) logging configuration defines a 
+[log rotation to restrict the size of the log files](https://github.com/PegaSysEng/besu-quickstart/blob/master/config/besu/log-config.xml).

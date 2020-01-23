@@ -3,15 +3,19 @@ description: Monitoring and metrics
 
 # Use Metrics to Monitor Node Performance 
 
-Use the [`--metrics-enabled` option](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) to enable the [Prometheus](https://prometheus.io/) monitoring and 
-alerting service to access Besu metrics. You can also visualize the collected data using [Grafana](https://grafana.com/).
+Use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option to enable the [Prometheus](https://prometheus.io/) monitoring and 
+alerting service to access Besu metrics. Use [Grafana](https://grafana.com/) to visualize the collected data.
 A sample [Besu Grafana dashboard](https://grafana.com/dashboards/10273) is provided. 
 
-To specify the host and port on which Prometheus accesses Besu, use the [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host) and 
-[`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. 
-The default host and port are 127.0.0.1 and 9545.
+The Besu Quickstart has [monitoring with Prometheus and Grafana configured](../../Tutorials/Quickstarts/Private-Network-Quickstart.md#monitoring-nodes-with-prometheus-and-grafana). 
 
-Prometheus requires 3MB of space per node per hour for metrics, with a `scrape_interval` of 15s.
+!!! example
+    Use Prometheus to monitor the number of blocks your Besu node is behind the chain head and be alerted 
+    if your node is no longer keeping up with the chain head. 
+ 
+    [This recording](https://www.youtube.com/watch?v=7BuutRe0I28&feature=youtu.be) shows examples of monitoring Hyperledger Besu.
+
+## Install Prometheus 
 
 To use Prometheus with Besu, install the [Prometheus main component](https://prometheus.io/download/). 
 On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus): 
@@ -45,14 +49,20 @@ block of the `prometheus.yml` file:
       - targets:
         - localhost:9545
     ```
+    
+    Prometheus requires 3MB of space per node per hour for metrics, with a `scrape_interval` of 15s.
 
-1. Start Besu with the [`--metrics-enabled` option](../../Reference/CLI/CLI-Syntax.md#metrics-enabled). To start
+1. Start Besu with the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option. To start
  a single node for testing with metrics enabled:
 
     ```bash tab="Example"
     besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73
     --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
+    
+    To specify the host and port on which Prometheus accesses Besu, use the [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host) and 
+    [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. 
+    The default host and port are 127.0.0.1 and 9545.
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file: 
 

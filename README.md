@@ -6,12 +6,12 @@ Apache 2.0 licensed Ethereum client.
 Welcome to the **Besu Documentation** repository.
 The software sources are hosted in https://github.com/hyperledger/besu
 
-This repository only contains the sources for [Besu documentation website hosted by ReadTheDocs](https://besu.hyperledger.org/).
+This repository only contains the sources for [Besu documentation website hosted by ReadTheDocs][Besu User Documentation].
 
 
 ## Useful Links
 
-* [Besu Docs](http://besu.hyperledger.org/)
+* [Besu User Documentation][Besu User Documentation]
 * [Besu Jira](https://jira.hyperledger.org/projects/BESU/issues)
 * [Besu Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
 * [How to Contribute to the Documentation](CONTRIBUTING.md)
@@ -24,3 +24,6 @@ Having the following accounts is necessary for contributing code/issues to Besu.
 * If you want to contribute code, you can make a [LF foundation account here](#).  
 * If you want to raise an issue, you can login to your [Atlassian account here](https://id.atlassian.com/).   
 * Our Rocket Chat also requires a [LF foundation account](#).
+
+
+[Besu User Documentation]: https://besu.hyperledger.org

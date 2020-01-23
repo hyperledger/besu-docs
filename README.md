@@ -21,9 +21,10 @@ This repository only contains the sources for [Besu documentation website hosted
 ## LF / Jira Accounts
 
 Having the following accounts is necessary for contributing code/issues to Besu.  
-* If you want to contribute code, you can make a [LF foundation account here](#).  
+* If you want to contribute code, you can make a [Linux Foundation (LF) account] here.  
 * If you want to raise an issue, you can login to your [Atlassian account here](https://id.atlassian.com/).   
-* Our Rocket Chat also requires a [LF foundation account](#).
+* Our Rocket Chat also requires a [Linux Foundation (LF) account].
 
 
 [Besu User Documentation]: https://besu.hyperledger.org
+[Linux Foundation (LF) account]: https://identity.linuxfoundation.org/

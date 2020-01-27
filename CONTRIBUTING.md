@@ -3,7 +3,7 @@
 
 
 Welcome to the **Hyperledger Besu documentation** repository!  The following are links to a set of guidelines for contributing to this repo.
-These are mostly guidelines, not rules. Use your best judgment, 
+These are mostly guidelines, not rules. Use your best judgement, 
 and feel free to propose changes to this document in a pull request.
 
 * [Hyperledger Besu documentation](http://besu.hyperledger.org/)

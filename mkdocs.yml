@@ -209,7 +209,5 @@ plugins:
     - markdownextradata
     - exclude:
         glob:
-          - development/*
-          - community/*
           - global/*
     - git-revision-date

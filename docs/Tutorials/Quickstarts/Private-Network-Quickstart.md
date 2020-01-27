@@ -327,100 +327,104 @@ npm install -g truffle
     `npm` requires `sudo` on Linux.
     
 
-The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain running and Metamask connected to it, run the command:
-
- ```bash tab="Linux/MacOS"
- ./run-dapp.sh
- ```
+The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain running and Metamask 
+connected to it via the browser, run the command below to start the DApp. 
 
 The script first compiles the contract, then performs a migration to the blockchain network and then runs some tests. 
-You can then search for the deployed contracts and transactions in the block explorer using the addresses displayed in your output.
-Output similar to the following is displayed (your addresses will differ):
+You can then search for the deployed contracts and transactions in the Web Block Explorer using the addresses displayed 
+in your output earlier ```http://localhost:32768/``` (your port will differ)
+Output similar to the following is displayed (your addresses will differ)
 
-```log
-Compiling your contracts...
-===========================
-> Everything is up to date, there is nothing to compile.
+!!! example
+     ```bash tab="Linux/MacOS command"
+     ./run-dapp.sh
+     ```
 
-
-Starting migrations...
-======================
-> Network name:    'quickstartWallet'
-> Network id:      2018
-> Block gas limit: 0xf7b760
-
-
-1_initial_migration.js
-======================
-
-   Replacing 'Migrations'
-   ----------------------
-   > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
-   > block number:        64
-   > block timestamp:     1579833316
-   > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-   > balance:             89999.99472518
-   > gas used:            263741
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00527482 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:          0.00527482 ETH
-
-
-2_deploy_contracts.js
-=====================
-
-   Replacing 'Adoption'
-   --------------------
-   > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
-   > block number:        66
-   > block timestamp:     1579833320
-   > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-   > balance:             89999.9890877
-   > gas used:            239851
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00479702 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:          0.00479702 ETH
-
-
-Summary
-=======
-> Total deployments:   2
-> Final cost:          0.01007184 ETH
-
-
-Compiling your contracts...
-===========================
-> Compiling ./test/TestAdoption.sol
-
-  TestAdoption
-    ✓ testUserCanAdoptPet (2071ms)
-    ✓ testGetAdopterAddressByPetId (6070ms)
-    ✓ testGetAdopterAddressByPetIdInArray (6077ms)
-
-
-  3 passing (37s)
-```
+    ```log tab="dapp result"
+    Compiling your contracts...
+    ===========================
+    > Compiling ./contracts/Adoption.sol
+    > Compiling ./contracts/Migrations.sol
+    
+    
+    Starting migrations...
+    ======================
+    > Network name:    'quickstartWallet'
+    > Network id:      2018
+    > Block gas limit: 0xf7b760
+    
+    
+    1_initial_migration.js
+    ======================
+    
+       Replacing 'Migrations'
+       ----------------------
+       > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
+       > Blocks: 0            Seconds: 0
+       > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
+       > block number:        64
+       > block timestamp:     1579833316
+       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+       > balance:             89999.99472518
+       > gas used:            263741
+       > gas price:           20 gwei
+       > value sent:          0 ETH
+       > total cost:          0.00527482 ETH
+    
+    
+       > Saving migration to chain.
+       > Saving artifacts
+       -------------------------------------
+       > Total cost:          0.00527482 ETH
+    
+    
+    2_deploy_contracts.js
+    =====================
+    
+       Replacing 'Adoption'
+       --------------------
+       > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
+       > Blocks: 0            Seconds: 0
+       > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
+       > block number:        66
+       > block timestamp:     1579833320
+       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+       > balance:             89999.9890877
+       > gas used:            239851
+       > gas price:           20 gwei
+       > value sent:          0 ETH
+       > total cost:          0.00479702 ETH
+    
+    
+       > Saving migration to chain.
+       > Saving artifacts
+       -------------------------------------
+       > Total cost:          0.00479702 ETH
+    
+    
+    Summary
+    =======
+    > Total deployments:   2
+    > Final cost:          0.01007184 ETH
+    
+    
+    Compiling your contracts...
+    ===========================
+    > Compiling ./test/TestAdoption.sol
+    
+      TestAdoption
+        ✓ testUserCanAdoptPet (2071ms)
+        ✓ testGetAdopterAddressByPetId (6070ms)
+        ✓ testGetAdopterAddressByPetIdInArray (6077ms)
+    
+    
+      3 passing (37s)
+    ```
 
 
 Once these tests are successful, it builds a container for the Pet Shop DApp and deployes it, binding it to port 3001 on your machine. 
 
-Open a new tab in browser and navigate to `http://localhost:3001` which should have the Pet Shop running, and you can adopt 
+In the browser that you have metamask enabled and the account loaded, open a new tab and navigate to `http://localhost:3001` which should have the Pet Shop running, and you can adopt 
 pets from the app. When you click on 'Adopt', a Metamask window should pop up and ask for permissions to continue with the transaction.
 Once complete and successful, the status of the pet you adopted will show 'Success'. 
 

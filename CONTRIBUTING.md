@@ -25,7 +25,7 @@ and feel free to propose changes to this document in a pull request.
 ### Other important information
 
 * [Besu Roadmap](https://wiki.hyperledger.org/display/BESU/Roadmap)
-* [Code of Conduct](https://wiki.hyperledger.org/display/BESU/Code-of-conduct)
+* [Code of Conduct](https://wiki.hyperledger.org/display/BESU/Code+of+Conduct)
 * [Governance](https://wiki.hyperledger.org/display/BESU/Governance)
 
 [How to Contribute]: https://wiki.hyperledger.org/display/BESU/How+to+Contribute

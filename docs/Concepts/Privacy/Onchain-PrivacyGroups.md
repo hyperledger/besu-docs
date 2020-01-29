@@ -10,8 +10,10 @@ using onchain privacy groups.
 !!! important 
     Onchain privacy groups are an early access feature in v1.4. Do not use in production networks. 
     
-    Onchain privacy groups are not compatible with privacy groups stored in Orion. You cannot use existing 
-    privacy groups and also create onchain privacy groups in the same chain in v1.4. If you enable  
+    The onchain privacy group interfaces may change between v1.4 and v1.5.  
+    
+    Onchain privacy groups are not compatible with [offchain privacy groups](Privacy-Groups.md). You cannot use existing 
+    privacy groups and also create onchain privacy groups in the same chain in v1.4. If you enable
     onchain privacy groups in a chain with existing privacy groups, you will not longer be able to access
     the existing privacy groups. 
     
@@ -25,7 +27,7 @@ Group administration permissions are defined by the Ethereum account key. In the
 contracts the creator of the group (that is, the Ethereum account that signed the transaction to create the group)
 is the owner of the group. 
 
-The group members (also called the distribution list) are defined by the Orion public keys specified in the 
+The initial group members (also known as the distribution list) are defined by the Orion public keys specified in the 
 transaction that created the group. The Orion public key is used to add or remove a group member. The 
 transaction to add or remove a member must be signed by an Ethereum account with appropriate group 
 administration permissions. The group administration rules are defined in the group management contracts. 

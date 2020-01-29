@@ -9,6 +9,12 @@ stored in Orion with the privacy group ID.
 The Besu nodes maintain the public world state for the blockchain and a private state for each privacy group. 
 The private states contain data that is not shared in the globally replicated world state. 
 
+!!! important 
+    The privacy group implementations described below are offchain privacy groups and cannot have their 
+    group membership updated. Offchain privacy groups are the default privacy group implementation in v1.4. 
+    
+    [Onchain privacy groups are an early access feature in v1.4](Onchain-PrivacyGroups.md). 
+
 ## Privacy Types 
 
 Besu implements two types of privacy: 

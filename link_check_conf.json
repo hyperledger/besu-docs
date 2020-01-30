@@ -7,9 +7,6 @@
             "pattern": "^http(s)?://127.0.0.1"
         },
         {
-            "pattern": "^http(s)?://github.com/hyperledger/besu-docs/community"
-        },
-        {
             "pattern": "^http(s)?://ropsten.etherscan.io/txs\\?block="
         },
         {

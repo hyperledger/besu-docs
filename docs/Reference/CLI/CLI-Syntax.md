@@ -1200,7 +1200,8 @@ privacy-public-key-file="Orion/nodeKey.pub"
 
 Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys). 
 
-Cannot be used when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true` 
+!!! important
+    Cannot be used when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true` 
 
 ### privacy-url
 

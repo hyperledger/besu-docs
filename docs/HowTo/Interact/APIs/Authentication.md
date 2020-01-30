@@ -4,7 +4,8 @@ description: Hyperledger Besu authentication and Authorization for JSON-RPC
 # Authentication and Authorization for JSON-RPC
 
 Authentication identifies a user, and authorization verifies user 
-access to requested JSON-RPC methods. Users are verified using a [JWT token](https://jwt.io/introduction/)
+access to requested JSON-RPC methods. Users are verified using a [JWT token](https://jwt.io/introduction/).
+JWT tokens are also used in [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
 
 Hyperledger Besu supports two mutually exclusive authentication methods:
 
@@ -34,17 +35,21 @@ The `toml` file defines user details and the JSON-RPC methods to which they have
     [Users.username1]
     password = "$2a$10$l3GA7K8g6rJ/Yv.YFSygCuI9byngpEzxgWS9qEg5emYDZomQW7fGC"
     permissions=["net:*","eth:blockNumber"]
+    privacyPublicKey="U7ANiOOd5L9Z/dMxRFjdbhA1Qragw6fLuYgmgCvLoX4="
     
     [Users.username2]
     password = "$2b$10$6sHt1J0MVUGIoNKvJiK33uaZzUwNmMmJlaVLkIwinkPiS1UBnAnF2"
     permissions=["net:version","admin:*"]
+    privacyPublicKey="quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="
     ```
 
 Each user requiring JSON-RPC access is listed with: 
 
 * Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in `[Users.<username>]` with the username being defined. 
 * Hash of the user password. Use the [`password hash`](../../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the hash. 
-* [JSON-RPC permissions](#json-rpc-permissions). 
+* [JSON-RPC permissions](#json-rpc-permissions).
+* Optional. The tenant's Orion public key using `privacyPublicKey`. Only used
+for multi-tenancy. 
 
 !!! example "password hash Subcommand"
     ```bash
@@ -117,10 +122,12 @@ Create the JWT token using an external tool.
 !!! important
     The JWT token must use the `RS256` algorithm 
 
-Each payload for the JWT token must contain:
+Each payload for the JWT token contains:
 
-* [JSON-RPC permissions](#json-rpc-permissions)
-* [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4). 
+* [JSON-RPC permissions](#json-rpc-permissions).
+* [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4).
+* Optional. The tenant's Orion public key using `privacyPublicKey`. Only used
+for multi-tenancy. 
 
 The following example uses the [JWT.io](https://jwt.io/) website to create a JWT token for testing purposes.
 

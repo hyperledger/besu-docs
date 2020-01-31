@@ -6,13 +6,16 @@ description: Onchain Permissioning
 Onchain permissioning uses smart contracts to store and maintain the node, account, and admin whitelists. 
 Using onchain permissioning enables all nodes to read the whitelists from a single source, the blockchain.                                        
 
-!!! important 
-    The dependency chain for our implementation of onchain permissioning includes [web3js](https://github.com/ethereum/web3.js/) which is 
-    LGPL licensed.  
+!!! note 
+    The permissioning smart contracts and Permissioning Management Dapp are a separate product to Hyperledger Besu 
+    and are provided in the [PegaSysEng/permissioning-smart-contracts](https://github.com/PegaSysEng/permissioning-smart-contracts) repository.  
+
+    Custom smart contracts and dapps can be implemented to work with onchain permissioning. 
 
 ## Permissioning Contracts
 
-The permissioning smart contracts are provided in the [PegaSysEng/permissioning-smart-contracts](https://github.com/PegaSysEng/permissioning-smart-contracts) repository: 
+The permissioning smart contracts provided in the [PegaSysEng/permissioning-smart-contracts](https://github.com/PegaSysEng/permissioning-smart-contracts) 
+repository are: 
 
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file that defer the permissioning logic to the 
 Node Rules and Account Rules contracts. The Ingress contracts are deployed to static addresses. 

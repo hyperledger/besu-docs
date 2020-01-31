@@ -13,8 +13,10 @@ stored under source control.
 
 ## Data Backups
 
-We recommend mounting a separate volume to store data. Use the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) 
-command line option to pass the path to Besu. 
+If installed locally, the default data location is the directory in which Besu is installed.
+
+We recommend mounting a [separate volume to store data](../Get-Started/Run-Docker-Image.md#starting-besu). 
+Use the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) command line option to pass the path to Besu. 
 
 The default data location is the directory in which Besu is installed
 or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).

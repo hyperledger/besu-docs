@@ -11,7 +11,7 @@ The private states contain data that is not shared in the globally replicated wo
 
 !!! important 
     The privacy group implementations described below are offchain privacy groups and cannot have their 
-    group membership updated. Offchain privacy groups are the default privacy group implementation in v1.4. 
+    group membership updated. 
     
     [Onchain privacy groups are an early access feature in v1.4](Onchain-PrivacyGroups.md). 
 

@@ -23,7 +23,7 @@ To run this tutorial, you must have the following installed:
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
 
     !!! important 
-        If using MacOS, enable Docker to use up to 4G of memory or 6G of memory if running Privacy examples. The memory settings are found in the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
+        If using MacOS, enable Docker to use up to 4GB of memory or 6GB of memory if running Privacy examples. The memory settings are found in the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
 
 - [Git command line](https://git-scm.com/)
 
@@ -430,7 +430,7 @@ Once complete and successful, the status of the pet you adopted will show 'Succe
 
 ![Dapp UI](../../images/dapp-ui.png)
  
-You can also search for the transaction and view its details in the Block Explorer UI at `http://localhost:25000/`
+You can also search for the transaction and view its details in the Block Explorer UI at http://localhost:25000/
 
 ![Dapp UI](../../images/dapp-explorer-tx.png)
  

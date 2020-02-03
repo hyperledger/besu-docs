@@ -23,7 +23,7 @@ To run this tutorial, you must have the following installed:
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
 
     !!! important 
-        If using MacOS, enable Docker to use up to 4GB of memory on the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
+        If using MacOS, enable Docker to use up to 4G of memory or 6G of memory if running Privacy examples. The memory settings are found in the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
 
 - [Git command line](https://git-scm.com/)
 
@@ -69,7 +69,7 @@ When the process ends, it lists the running services:
     -----------------------------------------------------------------------------------------------------------------------------------------------------------
     besu-quickstart_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
     besu-quickstart_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp                                                              
-    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:32768->80/tcp                                                           
+    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                                           
     besu-quickstart_filebeat_1        /usr/local/bin/docker-entr ...   Up                                                                                      
     besu-quickstart_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp                                                          
     besu-quickstart_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp                                                          
@@ -92,7 +92,7 @@ Followed by a list of the endpoints:
     JSON-RPC HTTP service endpoint      : http://localhost:8545
     JSON-RPC WebSocket service endpoint : ws://localhost:8546
     GraphQL HTTP service endpoint       : http://localhost:8547
-    Web block explorer address          : http://localhost:32768/
+    Web block explorer address          : http://localhost:25000/
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
@@ -161,7 +161,7 @@ You can run RPC requests on `rpcnode`, the node exposed to the host in order to 
 
 For the RPC URL, this tutorial uses the placeholder `<http-rpc-endpoint>`. When you run the tutorial, 
 replace this placeholder with the JSON-RPC HTTP service endpoint provided when you list the endpoints. (For example,
-`http://localhost:32770/jsonrpc`.) The dynamic docker port mapping changes each time you run the network.
+`http://localhost:8545`.) The dynamic docker port mapping changes each time you run the network.
 
 {!global/Postman.md!}
 
@@ -369,7 +369,7 @@ module.exports = {
 };
 ```
 
-Replace `<YOUR HTTP RPC NODE ENDPOINT>` with your HTTP RPC node endpoint (for example, `http://localhost:32770/jsonrpc`).
+Replace `<YOUR HTTP RPC NODE ENDPOINT>` with your HTTP RPC node endpoint (for example, `http://localhost:8545`).
 
 The private key is the miner address, which contains Ether. 
 
@@ -443,7 +443,7 @@ We've already connected the private network to MetaMask, so you can skip the [In
 Continue with the regular tutorial steps from the [Installing and configuring lite-server](https://truffleframework.com/tutorials/pet-shop#installing-and-configuring-lite-server)
 section and finish the tutorial.
 
-When you adopt pets in the browser and approve the transaction in MetaMask, you'll be able to see the transactions in the block explorer.
+When you adopt pets in the browser and approve the transaction in MetaMask, you'll be able to see the transactions in the block explorer at `http://localhost:25000/`
 
 
 ## Stop / Restart Private Network without Removing Containers 

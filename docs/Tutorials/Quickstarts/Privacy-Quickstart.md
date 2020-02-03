@@ -75,7 +75,7 @@ The network details are displayed.
        Name                      Command               State                              Ports                           
 --------------------------------------------------------------------------------------------------------------------------
 privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
-privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:32771->80/tcp                                      
+privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                      
 privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 privacy_node1_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
 privacy_node2_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
@@ -85,9 +85,9 @@ privacy_orion2_1      /orion/bin/orion data/data ...   Up
 privacy_orion3_1      /orion/bin/orion data/data ...   Up                                                                 
 privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 ****************************************************************
-JSON-RPC HTTP service endpoint      : http://localhost:32771/jsonrpc   *
-JSON-RPC WebSocket service endpoint : ws://localhost:32771/jsonws   *
-Web block explorer address          : http://localhost:32771   *                                                                             
+JSON-RPC HTTP service endpoint      : http://localhost:8545   *
+JSON-RPC WebSocket service endpoint : ws://localhost:8546   *
+Web block explorer address          : http://localhost:25000   *                                                                             
 ****************************************************************
 ```
 
@@ -140,7 +140,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","para
 ```
     
 ```bash tab="Example"
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:32771/jsonrpc
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
 ```
 
 The transaction receipt for the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) is displayed with a `contractAddress` of `null`. 

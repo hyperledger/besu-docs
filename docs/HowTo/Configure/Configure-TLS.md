@@ -1,14 +1,13 @@
 description: Configure TLS
 <!--- END of page meta data -->
 
-# Configure TLS
+# Configure TLS for HTTP JSON-RPCs
 
-Hyperledger Besu supports TLS for inbound communication. For example, you can
+Hyperledger Besu supports TLS for inbound HTTP JSON-RPCs. For example, you can
 configure TLS for communication between EthSigner and Besu.
 
-Use the command line to configure TLS.
-
-Besu only supports password-protected PKSC #12 keystore files.
+Private keys and certificates must be stored in a password-protected PKCS #12
+file.
 
 **Prerequisites**:
 

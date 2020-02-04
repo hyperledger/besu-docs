@@ -3,11 +3,14 @@ description: TLS overview
 
 # TLS Communication
 
-Hyperledger Besu supports inbound TLS communication (for example from EthSigner
-or curl).
+Hyperledger Besu supports TLS for inbound HTTP JSON-RPCs (for example from
+EthSigner or curl).
 
-All TLS versions are supported. However, certificates must be PKCS #12 
-formatted.
+!!! note
+    TLS version 1.3 is currently not supported.
+    
+Private keys and certificates must be stored in a password-protected PKCS #12
+file.
 
 [Configure client authentication](../HowTo/Configure/Configure-TLS.md#create-known-clients-file) to specify which clients can
 connect to Besu, and use the [command line options](../HowTo/Configure/Configure-TLS.md#start-besu) to specify the 

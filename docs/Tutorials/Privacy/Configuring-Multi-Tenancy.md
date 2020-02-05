@@ -26,7 +26,7 @@ IBFT-Network/
     ├── Orion 
 ```
 
-!!! tip
+!!! note
     This tutorial covers using [JWT public key authentication](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) to create the tenant's JWT tokens, but [Username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication) can also be used.
     
 ## 1. Generate a Private and Public Key Pair
@@ -42,7 +42,7 @@ In the `Node-1` directory [create the `.pem` formatted key pair](../../HowTo/Int
 In the `Node-1/Orion` directory, [generate a public/private key pair for each
 tenant](Configuring-Privacy.md#3-generate-orion-keys).
 
-Name the key pair `nodeKey2` a `nodeKey3`.
+Name the key pair `nodeKey2` and `nodeKey3`.
 
 ## 3. Update Password File
 
@@ -84,7 +84,7 @@ The command line specifies privacy options:
 
 * [`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) enables authentication
 for JSON-RPC APIs.
-* [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) specifies the tenant owners [public key file](#1-generate-a-private-and-public-key-pair). Used to authenticate the [tenant JWT tokens](#6-generate-tenant-jwt-tokens).
+* [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to authenticate the [tenant JWT tokens](#6-generate-tenant-jwt-tokens).
 * [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy.
 * [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Orion node URL (`clienturl` in `orion.conf`)
 * [`--privacy-multi-tenancy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-multi-tenancy-enabled) enables multi-tenancy.

@@ -14,16 +14,10 @@ Besu nodes managed by Docker Compose.
 
 To run this tutorial, you must have the following installed:
 
-- MacOS or Linux 
-    
-    !!! important 
-        The Private Network Quickstart is not supported on Windows. If using Windows, run the quickstart
-        inside a Linux VM such as Ubuntu. 
-
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
 
     !!! important 
-        If using MacOS, enable Docker to use up to 4GB of memory on the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 4GB of memory on the _Advanced_ tab in _Preferences_.  
 
 - [Git command line](https://git-scm.com/)
 
@@ -45,6 +39,9 @@ git clone https://github.com/PegaSysEng/besu-quickstart.git
     Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases.
 
 ## Start Services and Network
+
+!!!important
+    If running in Windows, please run commands from the GitBash shell
  
 This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and 
 run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:

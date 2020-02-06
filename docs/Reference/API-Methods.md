@@ -1742,6 +1742,71 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call](../Ho
     }
     ```
 
+### priv_call
+
+Invokes a private contract function locally and does not change the state of the blockchain.
+
+You can interact with contracts using [eea_sendRawTransaction or priv_call](../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction).
+
+**Parameters**
+
+*DATA* - 20-byte contract address.
+
+*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+
+*QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+**Returns**
+
+`result` - `data` - Return value of the executed contract.
+
+!!! example
+    ```bash tab="curl HTTP"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":[{"privacyGroupId": "tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw="}, {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS"
+    {"jsonrpc":"2.0","method":"priv_call","params":[{"privacyGroupId": "tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw="}, {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 53,
+        "result": "0x"
+    }
+    ```
+
+    ```bash tab="curl GraphQL"
+    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
+    ```
+
+    ```bash tab="GraphQL"
+    {
+      block {
+        number
+        call(data: {from: "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", to: "0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13", data: "0x12a7b914"}) {
+          data
+          status
+        }
+      }
+    }
+    ```
+
+    ```json tab="GraphQL result"
+    {
+      "data" : {
+        "block" : {
+          "number" : 17449,
+          "call" : {
+            "data" : "0x",
+            "status" : 1
+          }
+        }
+      }
+    }
+    ```
+
 ### eth_estimateGas
 
 Returns an estimate of how much gas is needed for a transaction to complete. The estimation process does not use

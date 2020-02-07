@@ -21,10 +21,11 @@ following components:
 
 ![Besu Plugin API](../images/Hyperledger-Besu-Plugin-API.png)
 
-The Plugin API provides access to [interfaces](../Reference/Plugin-API-Interfaces.md) that allow you to build the plugin.
+The Plugin API provides access to [interfaces](../Reference/Plugin-API-Interfaces.md) that allow you to build
+the plugin.
 
 !!! tip
-    Use the [Besu example plugin](https://github.com/PegaSysEng/PluginsAPIDemo) and view the webinar for an example of how to build a plugin.
+    View the [Plugin API webinar](https://youtu.be/78sa2WuA1rg) for an example of how to build a plugin.
 
 ## Install Plugins
 
@@ -32,7 +33,8 @@ The plugin (`.jar`) must be copied to the `plugins` directory to allow Besu
 access and use the plugin.
 
 !!! important
-    If not already present, the `plugins` directory must be created one level below (`../`) the besu executable.
+    If not already present, the `plugins` directory must be created one directory
+    level below (`../`) the besu executable.
 
 Each plugin in the directory has the following lifecycle events:
 

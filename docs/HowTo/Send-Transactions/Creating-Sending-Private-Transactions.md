@@ -147,3 +147,17 @@ a contract are displayed below.
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
 
+## priv_call vs eea_sendRawTransaction
+
+You can interact with private contracts using [priv_call](../../Reference/API-Methods.md#priv_call) 
+or [eea_sendRawTransaction](../../Reference/API-Methods.md#eea_sendrawtransaction). 
+The table below compares the characteristics of both calls.
+
+| priv_call                                               | eea_sendRawTransaction                                                                                                          |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Read-only                                               | Write                                                                                                                           |
+| Invokes contract function locally                       | Broadcasts to the nodes privy to the private contract                                                                           |
+| Does not change state of blockchain                     | Updates blockchain (for example, transfers ether between accounts)                                                              |
+| Does not consume gas                                    | Requires gas                                                                                                                    |
+| Synchronous                                             | Asynchronous                                                                                                                    |
+| Return value of contract function available immediately | Returns transaction hash only.  Possible transaction may not be included in a block (for example, if the gas price is too low). |

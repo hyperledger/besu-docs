@@ -1683,7 +1683,7 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 Invokes a contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction).
+You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-vs-eth_sendrawtransaction).
 
 **Parameters**
 
@@ -1746,11 +1746,11 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call](../Ho
 
 Invokes a private contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [eea_sendRawTransaction or priv_call](../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction).
+You can interact with contracts using [eea_sendRawTransaction or priv_call](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_call-vs-eea_sendrawtransaction).
 
 **Parameters**
 
-*DATA* - 20-byte contract address.
+*DATA* - 32-byte `privacyGroupId`.
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
@@ -1758,15 +1758,15 @@ You can interact with contracts using [eea_sendRawTransaction or priv_call](../H
 
 **Returns**
 
-`result` - `data` - Return value of the executed contract.
+`result` : *DATA* - Return value of the executed contract.
 
 !!! example
     ```bash tab="curl HTTP"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":[{"privacyGroupId": "tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw="}, {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS"
-    {"jsonrpc":"2.0","method":"priv_call","params":[{"privacyGroupId": "tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw="}, {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}
+    {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":53}
     ```
 
     ```json tab="JSON result"

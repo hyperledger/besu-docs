@@ -14,10 +14,10 @@ Besu nodes managed by Docker Compose.
 
 To run this tutorial, you must have the following installed:
 
-- [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
+- [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 
-    !!! important 
-        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 4GB of memory on the _Advanced_ tab in _Preferences_.  
+    !!! important
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), set Docker to use up to 6GB of memory on the _Advanced_ tab in _Preferences_.  
 
 - [Git command line](https://git-scm.com/)
 
@@ -44,8 +44,8 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 
 !!!important
     If running in Windows, please run commands from the GitBash shell
- 
-This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and 
+
+This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
 run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:
 
 ```bash tab="Linux/MacOS"

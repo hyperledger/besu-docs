@@ -22,7 +22,7 @@ defines the json format used for Besu logs and automatically picks up any new lo
 
 To see the Besu Quickstart logs in Kibana:  
 
-1. [Start the Besu Quickstart](../../Tutorials/Quickstarts/Private-Network-Quickstart.md).
+1. [Start the Besu Quickstart](../../Tutorials/Examples/Private-Network-Quickstart.md).
 1. Open the [`Kibana logs address`](http://localhost:5601/app/kibana#/discover) listed by the Besu Quickstart. 
    The logs are displayed in Kibana. 
    

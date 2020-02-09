@@ -281,7 +281,7 @@ Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or 
 
     This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT 2.0 requires 4 validators to be Byzantine fault tolerant.
 
-Import accounts to MetaMask and send transactions as described in the [Private Network Quickstart Tutorial](../Quickstarts/Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
+Import accounts to MetaMask and send transactions as described in the [Private Network Quickstart Tutorial](../Examples/Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
 
 !!! info 
     Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).

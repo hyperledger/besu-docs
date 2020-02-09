@@ -4,7 +4,7 @@ description: Hyperledger Besu client libraries
 # Create a Signed Transaction using Web3.js
 
 You can use the example Javascript scripts to create and send raw transactions in the private network 
-created by the [Private Network Quickstart](../../Tutorials/Quickstarts/Private-Network-Quickstart.md).
+created by the [Private Network Quickstart](../../Tutorials/Examples/Private-Network-Quickstart.md).
 
 Update the `JSON-RPC endpoint` in the following examples to the endpoint for the private 
 network displayed after running the `./run.sh` script.

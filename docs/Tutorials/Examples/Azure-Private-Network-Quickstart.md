@@ -157,7 +157,7 @@ For the following optional tutorial steps, the RPC endpoints are:
 
 ## Optional Private Network Tutorial
 
-Follow the [private network quickstart tutorial starting from creating RPC requests](../Quickstarts/Private-Network-Quickstart.md#run-json-rpc-requests).
+Follow the [private network quickstart tutorial starting from creating RPC requests](../Examples/Private-Network-Quickstart.md#run-json-rpc-requests).
 
 When complete, resume this tutorial to shut down your resources.
 

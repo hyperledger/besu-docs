@@ -152,8 +152,8 @@ Wait a few seconds and 6 peers and the blocks mined are displayed.
 
 For the following optional tutorial steps, the RPC endpoints are:
 
-* HTTP RPC endpoint: **http://&lt;your VM public IP>/jsonrpc**
-* WebSocket RPC endpoint: **ws://&lt;your VM public IP>/jsonws**
+* HTTP RPC endpoint: **http://&lt;your VM public IP>:8545**
+* WebSocket RPC endpoint: **ws://&lt;your VM public IP>:8546**
 
 ## Optional Private Network Tutorial
 

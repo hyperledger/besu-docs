@@ -21,13 +21,10 @@ This tutorial describes how to use the examples provided in the EEAJS library to
 
 To run this tutorial, you must have the following installed:
 
-- MacOS or Linux 
-    
-    !!! important 
-        The Private Network Quickstart is not supported on Windows. If using Windows, run the quickstart
-        inside a Linux VM such as Ubuntu. 
-
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
+
+    !!! important 
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 6GB of memory on the _Advanced_ tab in _Preferences_.  
 
 - [Nodejs](https://nodejs.org/en/download/)
 
@@ -61,6 +58,9 @@ npm install
 ```
 
 ## Start the Private Network with Privacy Enabled 
+
+!!!important
+    If running in Windows, please run commands from the GitBash shell
 
 In the `besu-quickstart` directory, start the network with privacy enabled: 
 

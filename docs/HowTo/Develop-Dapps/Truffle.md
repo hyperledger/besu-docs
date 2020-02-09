@@ -13,7 +13,7 @@ To use Besu with Truffle, you must configure a Truffle wallet.
 To install the Truffle wallet:
 
 ```bash
-npm install --save truffle-hdwallet-provider@web3-one
+npm install --save @truffle/hdwallet-provider
 ```
 
 !!!note
@@ -27,7 +27,7 @@ Modify the `truffle-config.js` file in the project directory to add the wallet p
 *  `<account-private-key>` with the private key of an Ethereum account containing Ether 
 
 ```javascript
-const PrivateKeyProvider = require("truffle-hdwallet-provider");
+const PrivateKeyProvider = require("@truffle/hdwallet-provider");
 const privateKey = "<account-private-key>";
 const privateKeyProvider = new PrivateKeyProvider(privateKey, "<JSON-RPC-http-endpoint>");
 

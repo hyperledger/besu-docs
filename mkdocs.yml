@@ -157,7 +157,7 @@ nav:
         - Pruning: Concepts/Pruning.md
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
-          - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
+          - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - Node Keys: Concepts/Node-Keys.md

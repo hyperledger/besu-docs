@@ -1201,7 +1201,46 @@ privacy-tls-enabled=false
 Set to enable [TLS for privacy](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
 
 ### privacy-tls-keystore-file
+
+```bash tab="Syntax"
+--privacy-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy--keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+privacy-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+PKCS #12 keystore file. Must be specified if [`--privacy-tls-enabled`](#privacy-tls-enabled) is
+`true`.
+
 ### privacy-tls-keystore-password-file
+
+```bash tab="Syntax"
+--privacy-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy-tls-keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+privacy-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+Password file used to decrypt the keystore.
+
 ### privacy-tls-known-enclave-file
 
 
@@ -1558,7 +1597,9 @@ rpc-http-tls-enabled=true
 
 Enable TLS for the JSON-RPC HTTP service. The default is `false`.
 
-[`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
+!!! note
+    [`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
+
 
 ### rpc-http-tls-keystore-file
 
@@ -1577,6 +1618,7 @@ BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/certificate.pfx
 ```bash tab="Configuration File"
 rpc-http-tls-keystore-file="/home/me/me_node/certificate.pfx"
 ```
+
 PKCS #12 keystore file. Must be specified if TLS is enabled for the JSON-RPC
 HTTP service.
 

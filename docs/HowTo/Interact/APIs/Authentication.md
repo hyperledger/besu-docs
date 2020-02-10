@@ -49,7 +49,7 @@ Each user requiring JSON-RPC access is listed with:
 * Hash of the user password. Use the [`password hash`](../../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the hash. 
 * [JSON-RPC permissions](#json-rpc-permissions).
 * Optional. The tenant's Orion public key using `privacyPublicKey`. Only used
-for multi-tenancy. 
+for [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md). 
 
 !!! example "password hash Subcommand"
     ```bash
@@ -127,7 +127,7 @@ Each payload for the JWT token contains:
 * [JSON-RPC permissions](#json-rpc-permissions).
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4).
 * Optional. The tenant's Orion public key using `privacyPublicKey`. Only used
-for multi-tenancy. 
+for [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md). 
 
 The following example uses the [JWT.io](https://jwt.io/) website to create a JWT token for testing purposes.
 

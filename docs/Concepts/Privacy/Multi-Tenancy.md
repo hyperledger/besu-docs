@@ -16,11 +16,14 @@ owner of the Besu and Orion node.
     
 ![Multi-tenancy](../../images/Multi-tenancy.png)
 
-The Orion client API can only be accessed by the multi-tenant Besu node.
+!!! important
+    Ensure the multi-tenant Orion node client API is configured to allow access only by the multi-tenant Besu node. Access to your data is secured through Besu using multi-tenancy mode.
+
+    If not configured to allow access only by the multi-tenant Besu node, other Orion clients including other Besu nodes may be able to access tenant data.
 
 Multi-tenancy validates that tenants are permitted to use the specified HTTP or
-websocket JSON-RPC requests, and that they have access to the requested privacy
-data. Privacy data is segregated, and each tenant uses a JWT token for
+Websocket JSON-RPC requests, and the tenant has access to the requested privacy
+data. Private data is segregated, and each tenant uses a JWT token for
 authentication.
 
 The JWT token can be created [externally or internally](../../HowTo/Interact/APIs/Authentication.md).

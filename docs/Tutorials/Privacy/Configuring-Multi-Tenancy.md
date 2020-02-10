@@ -27,11 +27,13 @@ IBFT-Network/
 ```
 
 !!! note
-    This tutorial covers using [JWT public key authentication](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) to create the tenant's JWT tokens, but [Username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication) can also be used.
+    This tutorial uses [JWT public key authentication](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication) to create the tenant's JWT tokens, but [Username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication) can also be used.
     
 ## 1. Generate a Private and Public Key Pair
 
 In the `Node-1` directory [create the `.pem` formatted key pair](../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair).
+The key pair belongs to the Operator and is used to authenticate the
+[tenant JWT tokens](#7-generate-tenant-jwt-tokens).
 
 !!! note
     This step is not required when using [username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication)
@@ -84,7 +86,7 @@ The command line specifies privacy options:
 
 * [`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) enables authentication
 for JSON-RPC APIs.
-* [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to authenticate the [tenant JWT tokens](#6-generate-tenant-jwt-tokens).
+* [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file) specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to authenticate the [tenant JWT tokens](#7-generate-tenant-jwt-tokens).
 * [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy.
 * [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Orion node URL (`clienturl` in `orion.conf`)
 * [`--privacy-multi-tenancy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-multi-tenancy-enabled) enables multi-tenancy.
@@ -95,7 +97,7 @@ for JSON-RPC APIs.
     using [username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication),
     use [`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file) instead.
 
-You may now [start the remaining Besu nodes](Configuring-Privacy.md#7-start-besu-node-2).
+[Start the remaining Besu nodes](Configuring-Privacy.md#7-start-besu-node-2).
 
 ## 7. Generate Tenant JWT Tokens
 
@@ -109,4 +111,4 @@ example, ensure the `PRIV` and `EEA` APIs are enabled for privacy.
     This step is not required when using [username and password authentication](../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication)
     to create the required JWT tokens.
     
-  You can now [use the authentication token to make requests](../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests).
+  [Use the authentication token to make requests](../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests).

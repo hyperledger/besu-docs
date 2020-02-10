@@ -6,30 +6,24 @@ description: Hyperledger Besu private network quickstart tutorial
 The Private Network Quickstart uses the Hyperledger Besu Docker image to run a private network of
 Besu nodes managed by Docker Compose.
 
-!!! important 
-    The Private Network Quickstart runs a private network suitable for education or demonstration purposes. 
-    The Private Network Quickstart is not intended for running production networks. 
+!!! important
+    The Private Network Quickstart runs a private network suitable for education or demonstration purposes.
+    The Private Network Quickstart is not intended for running production networks.
 
 ## Prerequisites
 
 To run this tutorial, you must have the following installed:
 
-- MacOS or Linux 
-    
-    !!! important 
-        The Private Network Quickstart is not supported on Windows. If using Windows, run the quickstart
-        inside a Linux VM such as Ubuntu. 
+- [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 
-- [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
-
-    !!! important 
-        If using MacOS, enable Docker to use up to 4GB of memory on the [_Advanced_ tab in _Preferences_](https://docs.docker.com/docker-for-mac/).  
+    !!! important
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), set Docker to use up to 6GB of memory on the _Advanced_ tab in _Preferences_.  
 
 - [Git command line](https://git-scm.com/)
 
-- [Curl command line](https://curl.haxx.se/download.html) 
+- [Curl command line](https://curl.haxx.se/download.html)
 
-- A web browser that supports [Metamask](https://metamask.io/) (currently Chrome, Firefox, Opera, and Brave), and has 
+- A web browser that supports [Metamask](https://metamask.io/) (currently Chrome, Firefox, Opera, and Brave), and has
 the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
 
@@ -45,15 +39,18 @@ git clone https://github.com/PegaSysEng/besu-quickstart.git
     Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases.
 
 ## Start Services and Network
- 
-This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and 
+
+!!!important
+    If running in Windows, please run commands from the GitBash shell
+
+This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
 run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:
 
 ```bash tab="Linux/MacOS"
 ./run.sh
 ```
 
-The `run.sh` script builds the images, and runs the containers. It also scales the regular node 
+The `run.sh` script builds the images, and runs the containers. It also scales the regular node
 container to four containers to simulate a network with enough peers to synchronize.
 
 When the process ends, it lists the running services:
@@ -69,7 +66,7 @@ When the process ends, it lists the running services:
     -----------------------------------------------------------------------------------------------------------------------------------------------------------
     besu-quickstart_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
     besu-quickstart_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp                                                              
-    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:32768->80/tcp                                                           
+    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                                           
     besu-quickstart_filebeat_1        /usr/local/bin/docker-entr ...   Up                                                                                      
     besu-quickstart_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp                                                          
     besu-quickstart_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp                                                          
@@ -92,7 +89,7 @@ Followed by a list of the endpoints:
     JSON-RPC HTTP service endpoint      : http://localhost:8545
     JSON-RPC WebSocket service endpoint : ws://localhost:8546
     GraphQL HTTP service endpoint       : http://localhost:8547
-    Web block explorer address          : http://localhost:32768/
+    Web block explorer address          : http://localhost:25000/
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
@@ -107,7 +104,7 @@ wallets such as Metamask.
 entering the URL in your web browser.
 - Use the **Prometheus address** to access the [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
 - Use the **Grafana address** to access the [Grafana dashboard](../../HowTo/Monitor/Metrics.md).
-- Use the **Kibana logs address** to access the [logs in Kibana](../../HowTo/Monitor/Elastic-Stack.md). 
+- Use the **Kibana logs address** to access the [logs in Kibana](../../HowTo/Monitor/Elastic-Stack.md).
 
 To display the list of endpoints again, run:
 
@@ -143,25 +140,25 @@ You can search for a specific block, transaction hash, or address by clicking th
 
 ## Monitoring nodes with Prometheus and Grafana
 
-The quickstart also includes Prometheus and Grafana monitoring tools to let you visualise the nodes 
-health and usage. You can directly access these tools from your browser at the addresses displayed 
+The quickstart also includes Prometheus and Grafana monitoring tools to let you visualise the nodes
+health and usage. You can directly access these tools from your browser at the addresses displayed
 in the endpoint list.
 
-For more details on how to configure and use these tools for your own nodes, refer to our 
-[performances monitoring documentation](../../HowTo/Monitor/Metrics.md), 
+For more details on how to configure and use these tools for your own nodes, refer to our
+[performances monitoring documentation](../../HowTo/Monitor/Metrics.md),
 as well as [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
 ![Grafana](../../images/grafana.png)
 
-## Run JSON-RPC Requests 
+## Run JSON-RPC Requests
 
-You can run RPC requests on `rpcnode`, the node exposed to the host in order to listen for requests. This tutorial uses 
+You can run RPC requests on `rpcnode`, the node exposed to the host in order to listen for requests. This tutorial uses
 [cURL](https://curl.haxx.se/download.html) to make JSON-RPC requests.
 
-For the RPC URL, this tutorial uses the placeholder `<http-rpc-endpoint>`. When you run the tutorial, 
+For the RPC URL, this tutorial uses the placeholder `<http-rpc-endpoint>`. When you run the tutorial,
 replace this placeholder with the JSON-RPC HTTP service endpoint provided when you list the endpoints. (For example,
-`http://localhost:32770/jsonrpc`.) The dynamic docker port mapping changes each time you run the network.
+`http://localhost:8545`.) The dynamic docker port mapping changes each time you run the network.
 
 {!global/Postman.md!}
 
@@ -173,7 +170,7 @@ Run the following command from the host shell:
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' <http-rpc-endpoint>
 ```
 
-The result specifies the client version: 
+The result specifies the client version:
 
 ```json
 {
@@ -184,8 +181,8 @@ The result specifies the client version:
 ```
 Here we simply query the version of the Besu node, which confirms the node is running.
 
-Successfully calling this method shows that you can connect to the nodes via RPC. From here, you can walk through more 
-interesting requests demonstrated in the rest of this section, or skip ahead to 
+Successfully calling this method shows that you can connect to the nodes via RPC. From here, you can walk through more
+interesting requests demonstrated in the rest of this section, or skip ahead to
 [Creating a Transaction Using MetaMask](#creating-a-transaction-using-metamask).
 
 ### Counting Peers
@@ -228,7 +225,7 @@ The result provides the most recently mined block:
 
 The hexadecimal value `0x8b8` translates to `2232` in decimal, the number of blocks that have been mined so far.
 
-### Checking the Miner Account Balance 
+### Checking the Miner Account Balance
 
 Call `eth_getBalance` to retrieve the balance of the mining address (coinbase) defined in the miner node:
 
@@ -268,7 +265,7 @@ of this private test network.
 {!global/test_accounts.md!}
 
 !!!note
-    Besu doesn't implement [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own account, 
+    Besu doesn't implement [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own account,
     you have to use a third-party tool such as MetaMask.
 
 After you sign in to MetaMask, connect to the private network RPC endpoint:
@@ -282,35 +279,40 @@ Save the configuration and return to the MetaMask main screen. Your current netw
 using the corresponding private key.
 
 !!!note
-    In this tutorial, we don't need to secure the keys, because we're using a private test network to send valueless 
+    In this tutorial, we don't need to secure the keys, because we're using a private test network to send valueless
     Ether. However, be sure to secure your accounts in a real use case on the main Ethereum network (MainNet).
 
 Once this is done, [create another account from scratch](https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-)
 to send Ether to.
 
-In MetaMask, select the new account and copy the account address by clicking the **...** gadget and selecting 
+In MetaMask, select the new account and copy the account address by clicking the **...** gadget and selecting
 **Copy Address to clipboard**.
 
 In the block explorer, search for the new account by clicking on the magnifying glass and pasting the account address
-into the search box. The account is displayed with a zero balance. 
+into the search box. The account is displayed with a zero balance.
 
-[Send Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-) from the first account 
+[Send Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-) from the first account
 (containing ether) to the new one (which has a zero balance).
 
 Refresh the browser page that displays the new account. The updated balance is displayed and reflects the transaction
 completed using MetaMask.
 
 
-## Truffle Pet Shop Tutorial
+## Smart Contract and DApp Usage with the blockchain network
 
-With a few modifications, we can use the private network in this tutorial as the blockchain for the 
-[PetShop tutorial on Truffle website](https://truffleframework.com/tutorials/pet-shop).
+We are going to use the [PetShop tutorial on Truffle website](https://truffleframework.com/tutorials/pet-shop) with a
+few modifications, so we use the private network in this tutorial as the blockchain network.
+
 
 #### Prerequisites
 
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/) (comes with Node)
 
-#### Install Truffle and Unpack Truffle Box
+* Import an account into Metamask using the private key `0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3`.
+The following steps use this account.
+
+
+#### Install Truffle
 
 Install Truffle :
 
@@ -321,132 +323,121 @@ npm install -g truffle
 !!! note
     `npm` requires `sudo` on Linux.
 
-Create a `pet-shop-tutorial` directory and move into it:
 
-```bash
-mkdir pet-shop-tutorial
+The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain running and Metamask
+connected to it via the browser, run the command below to start the DApp.
 
-cd pet-shop-tutorial
-```
+The script first compiles the contract, then performs a migration to the blockchain network and then runs some tests.
+You can then search for the deployed contracts and transactions in the Web Block Explorer using the addresses displayed
+in your output earlier ```http://localhost:32768/``` (your port will differ)
+Output similar to the following is displayed (your addresses will differ)
 
-Unpack Pet Shop [Truffle box](https://truffleframework.com/boxes): 
+!!! example
+     ```bash tab="Linux/MacOS command"
+     ./run-dapp.sh
+     ```
 
-`truffle unbox pet-shop`
-
-Install the [Truffle wallet](https://github.com/trufflesuite/truffle-hdwallet-provider):
-Note with Truffle 5, you must use a Web3 1.0 enabled wallet or the Truffle tasks will hang.
-
-```bash
-npm install --save @truffle/hdwallet-provider
-```
-
-!!!note
-    `npm` requires `sudo` on Linux.
-
-#### Modify the Pet Shop Example
-
-Modify the `truffle-config.js` file in the `pet-shop-tutorial` directory to add our wallet provider. The following shows the
-code with placeholders to change as directed below:
-
-```javascript
-const PrivateKeyProvider = require("truffle-hdwallet-provider");
-const privateKey = "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63";
-
-module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // for more about customizing your Truffle configuration!
-  networks: {
-    development: {
-      host: "127.0.0.1",
-      port: 7545,
-      network_id: "*" // Match any network id
-    },
-    quickstartWallet: {
-      provider: () => new PrivateKeyProvider(privateKey, "<YOUR HTTP RPC NODE ENDPOINT>"),
-      network_id: "*"
-    },
-  }
-};
-```
-
-Replace `<YOUR HTTP RPC NODE ENDPOINT>` with your HTTP RPC node endpoint (for example, `http://localhost:32770/jsonrpc`).
-
-The private key is the miner address, which contains Ether. 
-
-Once this is done, follow the [Truffle tutorial steps](https://truffleframework.com/tutorials/pet-shop#directory-structure)
-up to Step 3 in the [Migration section](https://truffleframework.com/tutorials/pet-shop#migration).
-
-We're using the private network instead of [Ganache](https://truffleframework.com/ganache), so skip steps 3, 4, and 5 in
-the [Migration section](https://truffleframework.com/tutorials/pet-shop#migration). 
-
-In step 4, specify the private network: 
-
-```bash
-truffle migrate --network quickstartWallet
-```
-
-Output similar to the following is displayed (your addresses will differ):
-
-```log
-Using network 'quickstartWallet'.
-
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0xfc1dbc1eaa14fa283c2c4415364579da0d195b3f2f2fefd7e0edb600a6235bdb
-  Migrations: 0x9a3dbca554e9f6b9257aaa24010da8377c57c17e
-Saving successful migration to network...
-  ... 0x77cc6e9966b886fb74268f118b3ff44cf973d32b616ed4f050b3eabf0a31a30e
-Saving artifacts...
-Running migration: 2_deploy_contracts.js
-  Deploying Adoption...
-  ... 0x5035fe3ea7dab1d81482acc1259450b8bf8fefecfbe1749212aca86dc765660a
-  Adoption: 0x2e1f232a9439c3d459fceca0beef13acc8259dd8
-Saving successful migration to network...
-  ... 0xa7b5a36e0ebc9c25445ce29ff1339a19082d0dda516e5b72c06ee6b99a901ec0
-Saving artifacts...
-```
-
-Search for the deployed contracts and transactions in the block explorer using the addresses displayed in your output.
-
-Continue with the Truffle tutorial steps in the [Testing the smart contract](https://truffleframework.com/tutorials/pet-shop#testing-the-smart-contract) section.
-
-To run the tests in the [Running the tests](https://truffleframework.com/tutorials/pet-shop#running-the-tests) section,
-specify the private network: 
-
-```bash
-truffle test --network quickstartWallet
-```
-
-Output similar to the following is displayed: 
-```log
-Using network 'quickstartWallet'.
-
-Compiling ./contracts/Adoption.sol...
-Compiling ./test/TestAdoption.sol...
-Compiling truffle/Assert.sol...
-Compiling truffle/DeployedAddresses.sol...
+    ```log tab="dapp result"
+    Compiling your contracts...
+    ===========================
+    > Compiling ./contracts/Adoption.sol
+    > Compiling ./contracts/Migrations.sol
 
 
-  TestAdoption
-    ✓ testUserCanAdoptPet (2071ms)
-    ✓ testGetAdopterAddressByPetId (6070ms)
-    ✓ testGetAdopterAddressByPetIdInArray (6077ms)
+    Starting migrations...
+    ======================
+    > Network name:    'quickstartWallet'
+    > Network id:      2018
+    > Block gas limit: 0xf7b760
 
 
-  3 passing (37s)
-```
+    1_initial_migration.js
+    ======================
 
-Continue with the Truffle tutorial steps in the [Creating a user interface to interact with the smart contract](https://truffleframework.com/tutorials/pet-shop#creating-a-user-interface-to-interact-with-the-smart-contract) section.
+       Replacing 'Migrations'
+       ----------------------
+       > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
+       > Blocks: 0            Seconds: 0
+       > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
+       > block number:        64
+       > block timestamp:     1579833316
+       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+       > balance:             89999.99472518
+       > gas used:            263741
+       > gas price:           20 gwei
+       > value sent:          0 ETH
+       > total cost:          0.00527482 ETH
 
-We've already connected the private network to MetaMask, so you can skip the [Installing and configuring MetaMask](https://truffleframework.com/tutorials/pet-shop#installing-and-configuring-metamask) section.
 
-Continue with the regular tutorial steps from the [Installing and configuring lite-server](https://truffleframework.com/tutorials/pet-shop#installing-and-configuring-lite-server)
-section and finish the tutorial.
+       > Saving migration to chain.
+       > Saving artifacts
+       -------------------------------------
+       > Total cost:          0.00527482 ETH
 
-When you adopt pets in the browser and approve the transaction in MetaMask, you'll be able to see the transactions in the block explorer.
+
+    2_deploy_contracts.js
+    =====================
+
+       Replacing 'Adoption'
+       --------------------
+       > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
+       > Blocks: 0            Seconds: 0
+       > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
+       > block number:        66
+       > block timestamp:     1579833320
+       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+       > balance:             89999.9890877
+       > gas used:            239851
+       > gas price:           20 gwei
+       > value sent:          0 ETH
+       > total cost:          0.00479702 ETH
 
 
-## Stop / Restart Private Network without Removing Containers 
+       > Saving migration to chain.
+       > Saving artifacts
+       -------------------------------------
+       > Total cost:          0.00479702 ETH
+
+
+    Summary
+    =======
+    > Total deployments:   2
+    > Final cost:          0.01007184 ETH
+
+
+    Compiling your contracts...
+    ===========================
+    > Compiling ./test/TestAdoption.sol
+
+      TestAdoption
+        ✓ testUserCanAdoptPet (2071ms)
+        ✓ testGetAdopterAddressByPetId (6070ms)
+        ✓ testGetAdopterAddressByPetIdInArray (6077ms)
+
+
+      3 passing (37s)
+    ```
+
+
+Once these tests are successful, it builds a container for the Pet Shop DApp and deployes it, binding it to port 3001 on your machine.
+
+In the browser that you have metamask enabled and the account loaded, open a new tab and navigate to `http://localhost:3001` which should have the Pet Shop running, and you can adopt
+pets from the app. When you click on 'Adopt', a Metamask window should pop up and ask for permissions to continue with the transaction.
+Once complete and successful, the status of the pet you adopted will show 'Success'.
+
+![Dapp UI](../../images/dapp-ui.png)
+
+You can also search for the transaction and view its details in the Block Explorer UI at http://localhost:25000/
+
+![Dapp UI](../../images/dapp-explorer-tx.png)
+
+Additionally, the Metmask UI also keeps a record of the transaction
+
+![Dapp UI](../../images/dapp-metamask-tx.png)
+
+
+
+## Stop / Restart Private Network without Removing Containers
 
 To shut down the private network without deleting the containers:
 

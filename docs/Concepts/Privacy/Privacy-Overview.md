@@ -36,6 +36,10 @@ By default, each participant in a privacy network uses its own Besu and Orion
 node. [Multi-tenancy](Multi-Tenancy.md) allows multiple participants to use the same Besu and Orion
 node.
 
+By default, each participant in a privacy network uses its own Besu and Orion
+node. [Multi-tenancy](Multi-Tenancy.md) allows multiple participants to use the same Besu and Orion
+node.
+
 !!! tip
 
     Private Transaction Managers are also refered to as Enclaves.

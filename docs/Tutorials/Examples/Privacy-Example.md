@@ -1,16 +1,16 @@
 description: Hyperledger Besu private network with privacy enabled quickstart tutorial
 <!--- END of page meta data -->
 
-# Private Network with Privacy Enabled Quickstart Tutorial
+# Private Network with Privacy Enabled Example Tutorial
 
-The Private Network with Privacy Enabled Quickstart runs a private network of Hyperledger Besu and
+The Private Network with Privacy Enabled Example runs a private network of Hyperledger Besu and
 Orion nodes managed by Docker Compose.
-It is an expanded version of the [Private Network Quickstart](Private-Network-Quickstart.md). 
+It is an expanded version of the [Private Network Example](Private-Network-Example.md). 
 
-You can use the [Block Explorer](Private-Network-Quickstart.md#block-explorer), 
-make [JSON-RPC requests](Private-Network-Quickstart.md#run-json-rpc-requests), and 
-create [transactions using Metamask](Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
-as described in the [Private Network Quickstart tutorial](Private-Network-Quickstart.md). 
+You can use the [Block Explorer](Private-Network-Example.md#block-explorer), 
+make [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and 
+create [transactions using Metamask](Private-Network-Example.md#creating-a-transaction-using-metamask)
+as described in the [Private Network Example tutorial](Private-Network-Example.md). 
 This tutorial describes how to use the examples provided in the EEAJS library to [create and send private transactions](#send-private-transactions-and-read-values). 
 
 !!! important 

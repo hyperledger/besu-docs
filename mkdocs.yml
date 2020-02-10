@@ -127,8 +127,8 @@ nav:
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Examples:
-        - Private Network Quickstart: Tutorials/Examples/Private-Network-Quickstart.md
-        - Private Network Quickstart for Private Transactions: Tutorials/Examples/Privacy-Quickstart.md
+        - Private Network Example: Tutorials/Examples/Private-Network-Example.md
+        - Private Network Example for Private Transactions: Tutorials/Examples/Privacy-Example.md
       - Create a Private Network:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md

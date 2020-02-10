@@ -139,6 +139,7 @@ nav:
         - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
       - Privacy:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
+        - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3.js-eea Multinode Example: Tutorials/Privacy/eeajs-Multinode-example.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
@@ -151,6 +152,7 @@ nav:
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
+          - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md

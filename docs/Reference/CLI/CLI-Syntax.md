@@ -1180,6 +1180,31 @@ privacy-public-key-file="Orion/nodeKey.pub"
 
 Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).     
 
+### privacy-tls-enabled
+
+```bash tab="Syntax"
+--privacy-tls-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-tls-enabled=false
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_ENABLED=false
+```
+
+```bash tab="Configuration File"
+privacy-tls-enabled=false
+```
+
+Set to enable [TLS for privacy](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
+
+### privacy-tls-keystore-file
+### privacy-tls-keystore-password-file
+### privacy-tls-known-enclave-file
+
+
 ### privacy-url
 
 ```bash tab="Syntax"

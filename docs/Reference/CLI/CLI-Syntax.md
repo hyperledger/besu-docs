@@ -1151,6 +1151,26 @@ privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 If using [account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
 and privacy, a private key file must be specified and the signing key included in the accounts whitelist.  
 
+### privacy-multi-tenancy-enabled
+
+```bash tab="Syntax"
+--privacy-multi-tenancy-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-multi-tenancy-enabled=false
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_MULTI_TENANCY_ENABLED=false
+```
+
+```bash tab="Configuration File"
+privacy-multi-tenancy-enabled=false
+```
+
+Set to enable [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private transactions. Default is `false`.
+
 ### privacy-precompiled-address
 
 ```bash tab="Syntax"
@@ -1178,7 +1198,10 @@ BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
 privacy-public-key-file="Orion/nodeKey.pub"
 ```
 
-Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).     
+Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys). 
+
+!!! important
+    Cannot be used when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true` 
 
 ### privacy-url
 

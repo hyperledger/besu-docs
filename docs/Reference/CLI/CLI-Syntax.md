@@ -1198,7 +1198,9 @@ BESU_PRIVACY_TLS_ENABLED=false
 privacy-tls-enabled=false
 ```
 
-Set to enable [TLS for privacy](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
+Enables [TLS with the Private Transaction Manager](../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager).
+
+The default is false.
 
 ### privacy-tls-keystore-file
 
@@ -1243,6 +1245,28 @@ Password file used to decrypt the keystore.
 
 ### privacy-tls-known-enclave-file
 
+```bash tab="Syntax"
+--privacy-tls-known-enclave-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy-tls-known-enclave-file=/home/me/me_node/knownEnclave
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
+```
+
+```bash tab="Configuration File"
+privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
+```
+
+Enables client authentication.
+
+Path to a file containing the fingerprints of the authorized privacy enclave.
+
+The file contain the certificates’s Common Name, and SHA-256 fingerprint in the
+format `<CommonName> <hex-string>`.
 
 ### privacy-url
 
@@ -1581,13 +1605,51 @@ rpc-http-port="3435"
 Specifies HTTP JSON-RPC listening port (TCP).
 The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md). 
 
+### rpc-http-tls-ca-clients-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-ca-clients-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-ca-clients-enabled=true
+```
+
+Allows clients with trusted CA certificates to connect.
+
+!!! note
+    Client authentication must be enabled using [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled).
+
+### rpc-http-tls-client-auth-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-client-auth-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_CLIENT_AUTH_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-client-auth-enabled=true
+```
+
+Enables TLS client authentication for the JSON-RPC HTTP service.
+
+!!! note
+    [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file) must be specified.
+
 ### rpc-http-tls-enabled
 
 ```bash tab="Syntax"
 --rpc-http-tls-enabled
 ```
 
-```bash tab="Environement Variable"
+```bash tab="Environment Variable"
 BESU_RPC_HTTP_TLS_ENABLED=true
 ```
 
@@ -1660,16 +1722,13 @@ BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
 rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 ```
 
-Enables client authentication.
+Used to authenticate clients that use self-signed certificates.
 
-For client certificates not signed by a known root CA this must contain the
-certifcates's Common Name, and SHA-256 fingerprint in the format
-`<CommonName> <hex-string>`.
+Must contain the certificates's Common Name, and SHA-256 fingerprint in the
+format `<CommonName> <hex-string>`.
 
-Client certificates signed by a known CA do not need to be added to the file.
-
-The file contents can be left empty, which indicates only clients with
-certificates signed by known CAs are allowed.
+!!! note
+    Client authentication must be enabled using [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled).
 
 ### rpc-ws-api
 

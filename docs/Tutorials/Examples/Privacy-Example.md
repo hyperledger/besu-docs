@@ -1,21 +1,21 @@
-description: Hyperledger Besu private network with privacy enabled quickstart tutorial
+description: Hyperledger Besu private network with privacy enabled tutorial
 <!--- END of page meta data -->
 
-# Private Network with Privacy Enabled Quickstart Tutorial
+# Privacy-enabled Private Network Example Tutorial
 
-The Private Network with Privacy Enabled Quickstart runs a private network of Hyperledger Besu and
+The Private Network with Privacy Enabled Example runs a private network of Hyperledger Besu and
 Orion nodes managed by Docker Compose.
-It is an expanded version of the [Private Network Quickstart](Private-Network-Quickstart.md). 
+It is an expanded version of the [Private Network Example](Private-Network-Example.md). 
 
-You can use the [Block Explorer](Private-Network-Quickstart.md#block-explorer), 
-make [JSON-RPC requests](Private-Network-Quickstart.md#run-json-rpc-requests), and 
-create [transactions using Metamask](Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
-as described in the [Private Network Quickstart tutorial](Private-Network-Quickstart.md). 
+You can use the [Block Explorer](Private-Network-Example.md#block-explorer), 
+make [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and 
+create [transactions using Metamask](Private-Network-Example.md#creating-a-transaction-using-metamask)
+as described in the [Private Network Example tutorial](Private-Network-Example.md). 
 This tutorial describes how to use the examples provided in the EEAJS library to [create and send private transactions](#send-private-transactions-and-read-values). 
 
 !!! important 
-    The quickstart runs a private network suitable for education or demonstration purposes. 
-    The quickstart is not intended for running production networks. 
+    The sample-network runs a private network suitable for education or demonstration purposes. 
+    The sample-network is not intended for running production networks. 
 
 ## Prerequisites
 
@@ -32,16 +32,16 @@ To run this tutorial, you must have the following installed:
 
 - [Curl command line](https://curl.haxx.se/download.html) 
 
-## Clone Besu Quickstart Source Code
+## Clone Besu Sample Networks Source Code
 
-Clone the repository from the `besu-quickstart` repository. 
+Clone the repository from the `besu-` repository. 
 
 ```bash tab="Linux/MacOS"
-git clone https://github.com/PegaSysEng/besu-quickstart.git
+git clone https://github.com/PegaSysEng/besu-sample-networks.git
 ```
 
 !!!note
-    Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases. 
+    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
 ## Clone EEAJS Libraries 
 
@@ -57,12 +57,12 @@ In the `eeajs` directory:
 npm install
 ```
 
-## Start the Private Network with Privacy Enabled 
+## Start the Network
 
 !!!important
     If running in Windows, please run commands from the GitBash shell
 
-In the `besu-quickstart` directory, start the network with privacy enabled: 
+In the `besu-sample-networks` directory, start the network with privacy enabled: 
 
 ```bash
 ./run-privacy.sh 

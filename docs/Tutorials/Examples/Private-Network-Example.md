@@ -1,14 +1,14 @@
-description: Hyperledger Besu private network quickstart tutorial
+description: Hyperledger Besu private network tutorial
 <!--- END of page meta data -->
 
-# Private Network Quickstart Tutorial
+# Private Network Example Tutorial
 
-The Private Network Quickstart uses the Hyperledger Besu Docker image to run a private network of
+The Private Network Example uses the Hyperledger Besu Docker image to run a private network of
 Besu nodes managed by Docker Compose.
 
 !!! important
-    The Private Network Quickstart runs a private network suitable for education or demonstration purposes.
-    The Private Network Quickstart is not intended for running production networks.
+    The Private Network Example runs a private network suitable for education or demonstration purposes.
+    The Private Network Example is not intended for running production networks.
 
 ## Prerequisites
 
@@ -27,24 +27,24 @@ To run this tutorial, you must have the following installed:
 the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
 
-## Clone Besu Quickstart Source Code
+## Clone Besu Sample Networks Source Code
 
-Clone the repository from the `besu-quickstart` repository:
+Clone the repository from the `besu-sample-networks` repository:
 
 ```bash tab="Linux/MacOS"
-git clone https://github.com/PegaSysEng/besu-quickstart.git
+git clone https://github.com/PegaSysEng/besu-sample-networks.git
 ```
 
 !!!note
-    Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases.
+    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
-## Start Services and Network
+## Start the Network
 
 !!!important
     If running in Windows, please run commands from the GitBash shell
 
 This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
-run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:
+run the private network. To build the docker images and run the containers, go to the `besu-sample-networks` directory and run:
 
 ```bash tab="Linux/MacOS"
 ./run.sh
@@ -58,24 +58,24 @@ When the process ends, it lists the running services:
 !!! example "Docker-compose services list example"
     ```log
     *************************************
-    Besu Quickstart latest
+    Sample Network for Besu at latest
     *************************************
     List endpoints and services
     ----------------------------------
                  Name                            Command               State                                        Ports                                      
     -----------------------------------------------------------------------------------------------------------------------------------------------------------
-    besu-quickstart_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
-    besu-quickstart_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp                                                              
-    besu-quickstart_explorer_1        nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                                           
-    besu-quickstart_filebeat_1        /usr/local/bin/docker-entr ...   Up                                                                                      
-    besu-quickstart_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp                                                          
-    besu-quickstart_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp                                                          
-    besu-quickstart_logstash_1        /usr/local/bin/docker-entr ...   Up      5044/tcp, 9600/tcp                                                              
-    besu-quickstart_minernode_1       /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
-    besu-quickstart_node_1            /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
-    besu-quickstart_prometheus_1      /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp                                                          
-    besu-quickstart_redis_1           docker-entrypoint.sh redis ...   Up      6379/tcp                                                                        
-    besu-quickstart_rpcnode_1         /opt/besu/node_start.sh -- ...   Up      30303/tcp, 0.0.0.0:8545->8545/tcp, 8546/tcp, 8547/tcp                           
+    besu-sample-network_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
+    besu-sample-network_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp                                                              
+    besu-sample-network_explorer_1        nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                                           
+    besu-sample-network_filebeat_1        /usr/local/bin/docker-entr ...   Up                                                                                      
+    besu-sample-network_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp                                                          
+    besu-sample-network_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp                                                          
+    besu-sample-network_logstash_1        /usr/local/bin/docker-entr ...   Up      5044/tcp, 9600/tcp                                                              
+    besu-sample-network_minernode_1       /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
+    besu-sample-network_node_1            /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp                                         
+    besu-sample-network_prometheus_1      /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp                                                          
+    besu-sample-network_redis_1           docker-entrypoint.sh redis ...   Up      6379/tcp                                                                        
+    besu-sample-network_rpcnode_1         /opt/besu/node_start.sh -- ...   Up      30303/tcp, 0.0.0.0:8545->8545/tcp, 8546/tcp, 8547/tcp                           
     Setting up the besu index pattern in kibana
     {"type":"index-pattern","id":"besu","attributes":{"title":"besu-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":{"index-pattern":"6.5.0"},"updated_at":"2019-12-27T04:41:07.665Z","version":"WzMsMV0="}
     Orion not running, skipping the orion index pattern in kibana.
@@ -140,7 +140,7 @@ You can search for a specific block, transaction hash, or address by clicking th
 
 ## Monitoring nodes with Prometheus and Grafana
 
-The quickstart also includes Prometheus and Grafana monitoring tools to let you visualise the nodes
+The sample network also includes Prometheus and Grafana monitoring tools to let you visualise the nodes
 health and usage. You can directly access these tools from your browser at the addresses displayed
 in the endpoint list.
 
@@ -455,7 +455,7 @@ To restart the private network:
 
 ## Stop Private Network and Remove Containers
 
-To shut down the private network and delete all containers and images created during the quickstart:
+To shut down the private network and delete all containers and images created from running the sample network:
 
 ```bash tab="Linux/MacOS"
 ./remove.sh

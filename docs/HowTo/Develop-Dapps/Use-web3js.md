@@ -63,7 +63,7 @@ node create_value_raw_transaction.js <YOUR JSON-RPC HTTP ENDPOINT>
 ```
 
 ```bash tab="Example"
-node create_value_raw_transaction.js http://localhost:32770/jsonrpc
+node create_value_raw_transaction.js http://localhost:8545
 ```
 
 !!! tip
@@ -93,7 +93,7 @@ node create_contract_raw_transaction.js <YOUR JSON-RPC HTTP ENDPOINT>
 ```
 
 ```bash tab="Example"
-node create_contract_raw_transaction.js http://localhost:32770/jsonrpc
+node create_contract_raw_transaction.js http://localhost:8545
 ```
 
 !!! tip

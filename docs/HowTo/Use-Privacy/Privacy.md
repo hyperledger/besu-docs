@@ -19,10 +19,7 @@ create the privacy group containing the recipients of the private transaction.
 Specify `privacyGroupId` when creating the signed transaction passed as an input parameter to [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
 to create an EEA-compliant private transaction. 
 
-!!! note
-    Support for specifying `privacyGroupId` when using `eea_sendTransaction` with EthSigner will be available in
-    a future EthSigner release. 
-    
+
 ## Privacy Group Type 
 
 Privacy groups created using  [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)

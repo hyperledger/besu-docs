@@ -41,7 +41,7 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 ```
 
 !!!note
-    To use a particular version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
+    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
 ## Clone EEAJS Libraries 
 

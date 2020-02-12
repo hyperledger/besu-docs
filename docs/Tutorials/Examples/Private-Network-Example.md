@@ -40,13 +40,11 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 
 ## Start the Network
 
-## Start Services and Network
-
 !!!important
     If running in Windows, please run commands from the GitBash shell
 
 This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
-run the private network. To build the docker images and run the containers, go to the `besu-quickstart` directory and run:
+run the private network. To build the docker images and run the containers, go to the `besu-sample-networks` directory and run:
 
 ```bash tab="Linux/MacOS"
 ./run.sh

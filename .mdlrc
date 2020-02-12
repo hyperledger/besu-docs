@@ -1,3 +1,3 @@
 rules "~MD034"
 show_kramdown_warnings true
-style stylefile.rb
+style ./stylefile.rb

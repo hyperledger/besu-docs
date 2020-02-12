@@ -5,7 +5,7 @@ description: Using Elastick Stack (ELK) with Hyperledger Besu
 
 Elastic Stack (also known as ELK) is a common open-source log management platform. 
 
-The [Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) provides an example implementation 
+The [Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) provides example implementations 
 using Elastic Stack for log management. 
 
 The [Filebeat configuration](https://github.com/PegaSysEng/besu-sample-networks/blob/master/filebeat/filebeat.yml)

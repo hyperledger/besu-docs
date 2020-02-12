@@ -38,7 +38,7 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 !!!note
     To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
-## Start Services and Network
+## Start the Network
 
 !!!important
     If running in Windows, please run commands from the GitBash shell

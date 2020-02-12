@@ -1,7 +1,7 @@
 description: Hyperledger Besu private network with privacy enabled tutorial
 <!--- END of page meta data -->
 
-# Private Network with Privacy Enabled Example Tutorial
+# Privacy-enabled Private Network Example Tutorial
 
 The Private Network with Privacy Enabled Example runs a private network of Hyperledger Besu and
 Orion nodes managed by Docker Compose.
@@ -57,7 +57,7 @@ In the `eeajs` directory:
 npm install
 ```
 
-## Start the Private Network with Privacy Enabled 
+## Start the Network
 
 !!!important
     If running in Windows, please run commands from the GitBash shell

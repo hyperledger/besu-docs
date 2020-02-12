@@ -16,7 +16,7 @@ Use this Docker image to run a single Besu node without installing Besu.
     !!! important 
         The Docker image does not run on Windows. 
 
-## Simple Mainnet Node
+## Default Node for Mainnet
 
 To run a Besu node in a container connected to the Ethereum mainnet: 
 

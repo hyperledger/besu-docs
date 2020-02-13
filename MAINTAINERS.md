@@ -17,7 +17,6 @@
 |--------------|-------------|---------|
 | Steven Gregg | sgregglives | sagregg |
 
-
 ## Becoming a maintainer
 
 Besu doc welcomes community contribution. Community members can progress to

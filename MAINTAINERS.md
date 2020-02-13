@@ -23,7 +23,7 @@ Besu doc welcomes community contribution. Community members can progress to
 becoming maintainers. To become a maintainer the following steps, in
 approximate order, occur:
 
-- Five significant changes were authored by the proposed maintainer and
+- Five significant changes are authored by the proposed maintainer and
   accepted.
 - The proposed maintainer has the sponsorship of at least one other maintainer.
   - This sponsoring maintainer creates a PR modifying the list of maintainers.
@@ -37,8 +37,8 @@ approximate order, occur:
   an absolute majority of current maintainers.
   - These votes are recorded in the PR modifying the list of maintainers.
 - No veto by another maintainer within 2 weeks of proposal are recorded.
-  - All vetoes must be accompanied by a public explanation as a comment in the
-    PR for adding this maintainer
+  - All vetoes must include a public explanation as a comment in the PR for
+    adding this maintainer
   - The explanation of the veto must be reasonable.
   - A veto can be retracted, in which case the approval/veto timeframe is
     reset.
@@ -50,9 +50,9 @@ approximate order, occur:
 
 ## Removing maintainers
 
-Being a maintainer is not a status symbol or a title to be maintained
-indefinitely. It is occasionally necessary and appropriate to move a maintainer
-to emeritus status. This can occur in the following situations:
+Being a maintainer is not a status symbol or a title held indefinitely. It is
+occasionally necessary and appropriate to move a maintainer to emeritus status,
+as outlined in the following situations:
 
 - Resignation of a maintainer
 - Violation of the Code of Conduct warranting removal
@@ -60,8 +60,8 @@ to emeritus status. This can occur in the following situations:
   - A general measure of inactivity is no commits or code review comments for
     one reporting quarter, although this is not strictly enforced if the
     maintainer expresses a reasonable intent to continue contributing.
-  - Reasonable exceptions to inactivity are granted for known long-term
-    leave, such as parental leave and medical leave.
+  - Reasonable exceptions to inactivity include known long-term leave, such as
+    parental leave or medical leave.
 - Other unspecified circumstances.
 
 Like adding a maintainer, a PR modifying the lists of maintainers and emeritus

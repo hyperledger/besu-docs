@@ -1,5 +1,6 @@
 # Contributing to the Hyperledger Besu Documentation
-## :tada: Thanks for taking the time to contribute! :tada:
+
+## Thanks for taking the time to contribute!
 
 Welcome to the **Hyperledger Besu documentation** repository! The following are
 links to a set of guidelines for contributing to this repository. These are

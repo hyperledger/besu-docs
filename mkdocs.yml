@@ -119,7 +119,9 @@ nav:
           - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
           - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
-        - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
+        - Upgrade:
+          - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
+          - Upgrade Protocol: HowTo/Upgrade/Upgrade-Protocol.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
@@ -155,6 +157,7 @@ nav:
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+        - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md

@@ -121,7 +121,7 @@ nav:
           - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
         - Upgrade:
-          - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md
+          - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
           - Upgrade Protocol: HowTo/Upgrade/Upgrade-Protocol.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md

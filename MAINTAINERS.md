@@ -56,8 +56,8 @@ as outlined in the following situations:
 - Violation of the Code of Conduct warranting removal
 - Inactivity:
   - A general measure of inactivity is no commits or code review comments for
-    one reporting quarter, although this is not strictly enforced if the
-    maintainer expresses a reasonable intent to continue contributing.
+    one reporting quarter, although this is not enforced if the maintainer
+    expresses a reasonable intent to continue contributing.
   - Reasonable exceptions to inactivity include known long-term leave, such as
     parental leave or medical leave.
 - Other unspecified circumstances.

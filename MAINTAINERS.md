@@ -23,8 +23,7 @@ Besu doc welcomes community contribution. Community members can progress to
 becoming maintainers. To become a maintainer the following steps, in
 approximate order, occur:
 
-- Five significant changes are authored by the proposed maintainer and
-  accepted.
+- The proposed maintainer authors and has accepted five significant changes.
 - The proposed maintainer has the sponsorship of at least one other maintainer.
   - This sponsoring maintainer creates a PR modifying the list of maintainers.
   - The proposed maintainer accepts the nomination and expresses a willingness
@@ -33,10 +32,13 @@ approximate order, occur:
   - This PR is communicated in all appropriate communication channels and
     mentioned in any maintainer/community call. The PR is also posted to the
     appropriate mailing lists or chat channels if they exist.
+  - All appropriate communication channels and maintainer/community calls
+    advertise the PR. The PR is also posted to the appropriate mailing lists or
+    chat channels if they exist.
 - Approval by at least 3 current maintainers within 2 weeks of the proposal or
   an absolute majority of current maintainers.
-  - These votes are recorded in the PR modifying the list of maintainers.
-- No veto by another maintainer within 2 weeks of proposal are recorded.
+  - The PR modifying the list of maintainers records these votes.
+- Veto by another maintainer must occur within 2 weeks of the proposal.
   - All vetoes must include a public explanation as a comment in the PR for
     adding this maintainer
   - The explanation of the veto must be reasonable.

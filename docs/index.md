@@ -43,4 +43,4 @@ miner.
 Besu does not support
 [key management](HowTo/Send-Transactions/Account-Management.md) inside the
 client. You can use [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/)
-with Besu to provide access to your key store and sign transactions.
+with Besu to access your key store and sign transactions.

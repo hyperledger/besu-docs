@@ -29,21 +29,17 @@ approximate order, occur:
   - The proposed maintainer accepts the nomination and expresses a willingness
     to be a long-term (more than 6 months) committer.
   - This would be a comment in the PR.
-  - This PR is communicated in all appropriate communication channels and
-    mentioned in any maintainer/community call. The PR is also posted to the
-    appropriate mailing lists or chat channels if they exist.
   - All appropriate communication channels and maintainer/community calls
     advertise the PR. The PR is also posted to the appropriate mailing lists or
     chat channels if they exist.
 - Approval by at least 3 current maintainers within 2 weeks of the proposal or
   an absolute majority of current maintainers.
   - The PR modifying the list of maintainers records these votes.
-- Veto by another maintainer must occur within 2 weeks of the proposal.
+- A veto by another maintainer must occur within 2 weeks of the proposal.
   - All vetoes must include a public explanation as a comment in the PR for
     adding this maintainer
-  - The explanation of the veto must be reasonable.
-  - A veto can be retracted, in which case the approval/veto timeframe is
-    reset.
+  - The veto explanation must be reasonable.
+  - For retracted vetos the approval/veto timeframe is reset.
   - It is bad form to veto, retract, and veto again.
 - The proposed maintainer becomes a maintainer either:
   - Two weeks after the third approval, or

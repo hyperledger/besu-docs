@@ -43,4 +43,4 @@ If log messages indicate a corrupt database, the cleanest way to recover is:
 
 ## Finding Peers on Restarting 
 
-The process for finding peers on restarting is the same as [finding peers after upgrading and restarting](../Upgrade/Upgrade-Network.md#finding-peers-on-restarting). 
+The process for finding peers on restarting is the same as [finding peers after upgrading and restarting](../Upgrade/Upgrade-Node.md#finding-peers-on-restarting). 

@@ -24,6 +24,6 @@ the placeholders.
 
 ## Starting a Production Permissioned Network 
 
-Follow the procedure as for [Getting Started with Onchain Perissioning](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md)
+Follow the procedure as for [Getting Started with Onchain Permissioning](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md)
 but do not perform the steps using `yarn` to install, build, and start the development server. Instead follow the procedure above to 
 deploy the Permissioning Management Dapp to your webserver.  

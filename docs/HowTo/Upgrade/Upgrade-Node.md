@@ -1,7 +1,7 @@
 description: Upgrade Besu     
 <!--- END of page meta data -->
 
-# Upgrading your Network 
+# Upgrading your Besu node  
 
 We recommend: 
 
@@ -10,11 +10,11 @@ We recommend:
 
 ## Ansible 
 
-The [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon) can be used directly
-or customised to suit your needs. Upgrade by running the play. The play: 
+The [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/hyperledger_besu) can be used directly
+or customised to suit your needs. 
 
-Upgrade the Besu version on nodes by running the play with the new version. For details, see the [Readme on Galaxy](https://galaxy.ansible.com/pegasyseng/pantheon). 
-The play: 
+Upgrade the Besu version on nodes by running the play with the new version. For details, see 
+the [Readme on Galaxy](https://galaxy.ansible.com/pegasyseng/hyperledger_besu). The play: 
 
 1. Stops Besu.
 1. Downloads the updated version.

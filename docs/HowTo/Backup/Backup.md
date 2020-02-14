@@ -27,6 +27,9 @@ or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started
 The default data location is the directory in which Besu is installed
 or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
+The default data location is the directory in which Besu is installed
+or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+
 Having some data reduces the time to synchronise a new node. Periodic backups can be performed of 
 the data directory and the data sent to your preferred backup mechanism. For example, cron job and 
 rsync, archives to cloud such as s3, or `tar.gz` archives. 
@@ -51,4 +54,4 @@ If log messages indicate a corrupt database, the cleanest way to recover is:
 
 ## Finding Peers on Restarting 
 
-The process for finding peers on restarting is the same as [finding peers after upgrading and restarting](../Upgrade/Upgrade-Network.md#finding-peers-on-restarting). 
+The process for finding peers on restarting is the same as [finding peers after upgrading and restarting](../Upgrade/Upgrade-Node.md#finding-peers-on-restarting). 

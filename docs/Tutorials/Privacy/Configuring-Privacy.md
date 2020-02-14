@@ -142,7 +142,7 @@ Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
 
-### 7. Start Besu Node-2 
+## 7. Start Besu Node-2 
 
 In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
  
@@ -160,7 +160,7 @@ The command line specifies the same options as for Node-1 with different ports a
 !!!note
     When running Besu from the [Docker image](../../HowTo/Get-Started/Run-Docker-Image.md), [expose ports](../../HowTo/Get-Started/Run-Docker-Image.md#exposing-ports).
 
-### 8. Start Besu Node-3
+## 8. Start Besu Node-3
 
 In the `Node-3` directory and start Besu Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
 

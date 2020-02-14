@@ -13,7 +13,7 @@ private network:
 1. Network participants agree on block number at which to
    [upgrade](../../Concepts/Protocol-Upgrades.md).
 1. For each node in the network:
-    
+
      a. Add the
         [milestone block number](../../Reference/Config-Items.md#milestone-blocks) to the genesis
         file.

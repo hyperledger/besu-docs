@@ -7,7 +7,7 @@
 | Name             | Github           | LFID             |
 | ---------------- | ---------------- | ---------------- |
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
-| Grant Noble.     | grantnoble       | grantnoble       |
+| Grant Noble      | grantnoble       | grantnoble       |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
 

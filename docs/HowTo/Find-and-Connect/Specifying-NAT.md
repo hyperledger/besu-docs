@@ -32,7 +32,7 @@ option set as required.
 
 # Manual 
 
-Specify `MANUAL` to explicitly configure the external IP and ports to broadcast. 
+Specify `MANUAL` to configure the external IP and ports to broadcast. 
 
 When `MANUAL` is specified:  
 
@@ -41,12 +41,21 @@ When `MANUAL` is specified:
 
 # Docker 
 
-Specify `DOCKER` to explicitly configure NAT when running Hyperledger Besu inside a Docker container. 
-When `DOCKER` is specified the host IP is advertised not the container IP. 
+Specify `DOCKER` to explicitly specify Hyperledger Besu is running inside a Docker container. 
+If the NAT method is `DOCKER`, the host IP is advertised not the container IP. 
+
+The host IP is the advertised host in the `docker run` command. If not specified in the `docker run`
+command, the advertised host defaults to the `--p2p-host` and `--p2p-port`. 
 
 # Auto 
 
-Default. 
+`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside Docker container and:  
+
+* If so, acts as if `DOCKER` is specified.  
+* If not, acts as if `NONE` is specfied. 
 
 # None 
 
+Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is `NONE` and `--p2p-host`, 
+`--p2p-port`, `--rpc-http-host`, and `rpc-http-port` are specified, they are ignored in the advertised 
+addresses. 

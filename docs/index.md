@@ -36,6 +36,6 @@ use cases, using tools such as [Truffle](http://truffleframework.com/),
 [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports
 common JSON-RPC API methods such as eth, net, web3, debug, and miner.
 
-Besu does not support [key management](HowTo/Send-Transactions/Account-Management.md) inside the
+Besu doesn't support [key management](HowTo/Send-Transactions/Account-Management.md) inside the
 client. You can use [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu to access
 your key store and sign transactions.

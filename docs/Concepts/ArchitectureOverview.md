@@ -3,7 +3,7 @@ description: Hyperledger Besu architecture
 
 # Hyperledger Besu architecture
 
-A diagram outlining the Hyperledger Besu high-level architecture is shown below.
+The following diagram outlines the Hyperledger Besu high-level architecture.
 
 ![Architecture](../images/Architecture.png)
 

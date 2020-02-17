@@ -2,11 +2,10 @@
 
 Transaction mining causes smart contracts to emit events and write logs to the blockchain.
 
-The smart contract address is the link to the logs and the blockchain includes the logs, but logs
-cannot be accessed from within contracts. Log storage is cheaper than contract storage (that is, it
-costs less gas) so storing and accessing the required data in logs reduces the cost. For example,
-use logs to display all transfers made using a specific contract, but not the current state of the
-contract.
+The smart contract address is the link to the logs and the blockchain includes the logs, but
+contracts cannot access logs. Log storage is cheaper than contract storage (that is, it costs less
+gas) so storing and accessing the required data in logs reduces the cost. For example, use logs to
+display all transfers made using a specific contract, but not the current state of the contract.
 
 A Dapp front end can either access logs using the
 [JSON-RPC API filter methods](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md) or
@@ -181,7 +180,7 @@ for event 2 is `keccak('Event2(uint256)')`. The hashes are:
 [Filter options objects](../Reference/API-Objects.md#filter-options-object) have a `topics` key to
 filter logs by topics.
 
-Topics are order-dependent. A transaction with a log containing topics `[A, B]` is matched with the
+Topics are order-dependent. A transaction with a log containing topics `[A, B]` matches with the
 following topic filters:
 
 * `[]` - Match any topic

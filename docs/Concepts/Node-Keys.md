@@ -50,11 +50,12 @@ and the default port is `30303`).
     The enode URL is:
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303`
 
-The enode URL displays when starting a Besu node and is obtained using the
-[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method.
+The enode URL displays when starting a Besu node. Use the
+[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to obtain the enode URL
+for the node.
 
-If [UPnP](../HowTo/Find-and-Connect/Using-UPnP.md) is enabled, the enode advertised to other nodes
-during discovery is the external IP address and port. 
+If Besu has [UPnP](../HowTo/Find-and-Connect/Using-UPnP.md) enabled, the enode advertised to other
+nodes during discovery is the external IP address and port.
 
 ## Specifying a custom node private key file
 

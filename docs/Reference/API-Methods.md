@@ -3825,7 +3825,6 @@ parameter to the latest block.
     }
     ```
 
-
 ## Permissioning Methods
 
 The permissioning API methods are used for [local](../HowTo/Limit-Access/Local-Permissioning.md) permissioning only.
@@ -4138,6 +4137,114 @@ None
                 "isReceivedFromLocalSource": true,
                 "addedToPoolAt": "2019-03-21T01:36:00.374Z"
             }
+        ]
+    }
+    ```
+
+## Trace Methods
+
+!!! note
+    The `TRACE` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
+    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `TRACE` API methods.
+
+### trace_replayBlockTransactions
+
+Provides detailed tracing of transaction processing.
+
+!!! important 
+    Either your node must be an archive node (that is, synchronised without using pruning or fast sync)
+    or the requested block must be within the last 1024 blocks. 
+
+**Parameters**
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
+or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+`array of strings` - Tracing options are [`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). 
+Specify any combination of the three options.  
+
+**Returns**
+
+`result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing one object 
+per transaction in the order the transactions were executed. 
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result":[ 
+          { 
+            "output":"0x",
+            "vmTrace":{
+              "code":"0x7f3940be4289e4c3587d88c1856cc95352461992db0a584c281226faefe560b3016000527f14c4d2c102bdeb2354bfc3dc96a95e4512cf3a8461e0560e2272dbf884ef3905601052600851",
+              "ops":[ 
+                { 
+                  "cost":3,
+                  "ex":{ 
+                    "mem":null,
+                    "push":[ 
+                      "0x8"
+                    ],
+                    "store":null,
+                    "used":16756175
+                  },
+                  "pc":72,
+                  "sub":null
+                },
+                ...
+              ]
+            },
+            "trace":[ 
+              { 
+                "action":{ 
+                  "callType":"call",
+                  "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas":"0xffadea",
+                  "input":"0x",
+                  "to":"0x0100000000000000000000000000000000000000",
+                  "value":"0x0"
+                },
+                "result":{ 
+                  "gasUsed":"0x1e",
+                  "output":"0x"
+                },
+                "subtraces":0,
+                "traceAddress":[      
+                ],
+                "type":"call"
+              }
+            ],
+            "stateDiff":{
+              "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{ 
+                "balance":{ 
+                  "*":{ 
+                    "from":"0xffffffffffffffffffffffffffffffffc3e12a20b",
+                    "to":"0xffffffffffffffffffffffffffffffffc3dc5f091"
+                  }
+                },
+                "code":"=",
+                "nonce":{ 
+                  "*":{ 
+                    "from":"0x14",
+                    "to":"0x15"
+                  }
+                },
+                "storage":{              
+                }
+              }
+            },
+            "transactionHash":"0x2a5079cc535c429f668f13a7fb9a28bdba6831b5462bd04f781777b332a8fcbd",
+          },
+          {...}
         ]
     }
     ```

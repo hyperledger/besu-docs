@@ -7,7 +7,7 @@ The following objects are parameters for or returned by Besu API Methods.
 
 ## Block Object
 
-Returned by [eth_getBlockByHash](API-Methods.md#eth_getblockbyhash) and [eth_getBlockByNumber](API-Methods.md#eth_getblockbynumber).
+Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and [`eth_getBlockByNumber`](API-Methods.md#eth_getblockbynumber).
 
 | Key                  | Type                  | Value                                                                                                                            |
 |----------------------|:---------------------:|----------------------------------------------------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ Returned by [eth_getBlockByHash](API-Methods.md#eth_getblockbyhash) and [eth_get
 
 ## Filter Options Object
 
-Parameter for [eth_newFilter](API-Methods.md#eth_newfilter) and [eth_getLogs](API-Methods.md#eth_getlogs). Used to [filter logs](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md). 
+Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter) and [`eth_getLogs`](API-Methods.md#eth_getlogs). Used to [`filter logs`](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md). 
 
 | Key           | Type                              | Required/Optional | Value                                                                                                                                       |
 |---------------|:---------------------------------:|:-----------------:|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ Parameter for [eth_newFilter](API-Methods.md#eth_newfilter) and [eth_getLogs](AP
 | **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Concepts/Events-and-Logs.md) originate.                                                                           |
 | **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Concepts/Events-and-Logs.md#topic-filters).                             |
 
-[eth_getLogs](API-Methods.md#eth_getlogs) has an additional key. 
+[`eth_getLogs`](API-Methods.md#eth_getlogs) has an additional key. 
 
 | Key   |   Type            | Required/Optional | Value  |  
 |------------|:-----------------:|:-----------------:|------|
@@ -51,7 +51,7 @@ Parameter for [eth_newFilter](API-Methods.md#eth_newfilter) and [eth_getLogs](AP
 
 ## Log Object 
 
-Returned by [eth_getFilterChanges](API-Methods.md#eth_getfilterchanges) and [transaction receipt objects](#transaction-receipt-object) can contain an array of log objects.  
+Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`transaction receipt objects`](#transaction-receipt-object) can contain an array of log objects.  
 
 | Key                  | Type                              | Value                                                                                                                                                                                                               |
 |----------------------|-:- :------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -67,7 +67,7 @@ Returned by [eth_getFilterChanges](API-Methods.md#eth_getfilterchanges) and [tra
 
 ## Private Transaction Object
 
-Returned by [priv_getPrivateTransaction](API-Methods.md#priv_getprivatetransaction).
+Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransaction).
 
 | Key                  | Type                              | Value                                                                           |
 |----------------------|-:-:-------------------------------|---------------------------------------------------------------------------------|
@@ -89,7 +89,7 @@ Returned by [priv_getPrivateTransaction](API-Methods.md#priv_getprivatetransacti
  
 ## Range Object
 
-Returned by [debug_storageRangeAt](API-Methods.md#debug_storagerangeat).
+Returned by [`debug_storageRangeAt`](API-Methods.md#debug_storagerangeat).
 
 | Key             | Type    | Value                                                             |
 |-----------------|:-------:|-------------------------------------------------------------------|
@@ -115,8 +115,8 @@ Log information returned as part of the [Trace object](#trace-object).
 
 ## Trace Object
 
-Returned by [debug_traceBlock](API-Methods.md#debug_traceblock), [debug_traceBlockByHash](API-Methods.md#debug_traceblockbyhash),
-[debug_traceBlockByNumber](API-Methods.md#debug_traceblockbynumber), and [debug_traceTransaction](API-Methods.md#debug_tracetransaction).
+Returned by [`debug_traceBlock`](API-Methods.md#debug_traceblock), [`debug_traceBlockByHash`](API-Methods.md#debug_traceblockbyhash),
+[`debug_traceBlockByNumber`](API-Methods.md#debug_traceblockbynumber), and [`debug_traceTransaction`](API-Methods.md#debug_tracetransaction).
 
 | Key             | Type    | Value                                                             |
 |-----------------|:-------:|-------------------------------------------------------------------|
@@ -127,7 +127,7 @@ Returned by [debug_traceBlock](API-Methods.md#debug_traceblock), [debug_traceBlo
 
 ## Transaction Object
 
-Returned by [eth_getTransactionByHash](API-Methods.md#eth_gettransactionbyhash), [eth_getTransactionByBlockHashAndIndex](API-Methods.md#eth_gettransactionbyblockhashandindex), and [eth_getTransactionsByBlockNumberAndIndex](API-Methods.md#eth_gettransactionbyblocknumberandindex).
+Returned by [`eth_getTransactionByHash`](API-Methods.md#eth_gettransactionbyhash), [`eth_getTransactionByBlockHashAndIndex`](API-Methods.md#eth_gettransactionbyblockhashandindex), and [`eth_getTransactionsByBlockNumberAndIndex`](API-Methods.md#eth_gettransactionbyblocknumberandindex).
 
 | Key                  | Type                | Value                                                                                  |
 |----------------------|:-------------------:|----------------------------------------------------------------------------------------|
@@ -148,10 +148,10 @@ Returned by [eth_getTransactionByHash](API-Methods.md#eth_gettransactionbyhash),
 
 ## Transaction Call Object
 
-Parameter for [eth_call](API-Methods.md#eth_call) and [eth_estimateGas](API-Methods.md#eth_estimategas).
+Parameter for [`eth_call`](API-Methods.md#eth_call) and [`eth_estimateGas`](API-Methods.md#eth_estimategas).
 
 !!!note
-    All parameters are optional for [eth_estimateGas](API-Methods.md#eth_estimategas)
+    All parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas)
 
 | Key          | Type                | Required/Optional | Value                                                                                                                                                                  |
 |--------------|:-------------------:|:-----------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -164,7 +164,7 @@ Parameter for [eth_call](API-Methods.md#eth_call) and [eth_estimateGas](API-Meth
 
 ## Transaction Receipt Object 
 
-Returned by [eth_getTransactionReceipt](API-Methods.md#eth_gettransactionreceipt).
+Returned by [`eth_getTransactionReceipt`](API-Methods.md#eth_gettransactionreceipt).
 
 | Key                   | Type                 | Value                                                                                |
 |-----------------------|:--------------------:|--------------------------------------------------------------------------------------|
@@ -189,9 +189,22 @@ Returned by [eth_getTransactionReceipt](API-Methods.md#eth_gettransactionreceipt
 |-------|:-----------------:|---------|
 | **root** | Data, 32&nbsp;bytes| Post-transaction stateroot|
 
+## Transaction Trace Object 
+
+Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktransactions). 
+
+| Key                                  | Type                         | Value                                                                                |
+|-----------------------               |:--------------------:        |--------------------------------------------------------------------------------------|
+| **output**                           | ?                            | Transaction result 
+| **stateDiff**                        | Object                       | [State changes in the requested block](../Concepts/Transactions/Trace-Types.md)
+| **trace**                            | Array                        | [Ordered list of calls to other contracts](../Concepts/Transactions/Trace-Types.md)
+| **vmTrace**                          | Object                       | [Ordered list of EVM actions](../Concepts/Transactions/Trace-Types.md)
+| **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction
+
+
 ## Private Transaction Receipt Object 
 
-Returned by [priv_getTransactionReceipt](API-Methods.md#priv_getTransactionReceipt).
+Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
 
 | Key                                  | Type                         | Value                                                                                |
 |-----------------------               |:--------------------:        |--------------------------------------------------------------------------------------|

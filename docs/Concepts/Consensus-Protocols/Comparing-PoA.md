@@ -37,7 +37,7 @@ chain reorganizations occurring.
 
 ### Minimum number of validators
 
-IBFT 2.0 requires four validators to be Byzantine fault tolerant.
+To be Byzantine fault tolerant, IBFT 2.0 requires a minimum of four validators.
 
 Clique can operate with a single validator but operating with a single validator offers no
 redundancy if the validator fails.

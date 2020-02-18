@@ -1,4 +1,4 @@
-description: Privacy
+description: Privacy groups
 <!--- END of page meta data -->
 
 # Privacy groups

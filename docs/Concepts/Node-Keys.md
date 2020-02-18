@@ -63,7 +63,7 @@ Use the [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-
 specify a custom `key` file in any location. 
 
 If the `key` file exists, the node starts with the private key in the `key` file. If the `key` file
-does not exist, the system generates a node private key and writes it to the `key` file.
+does not exist, Besu generates a node private key and writes it to the `key` file.
 
 For example, the following command either reads the node private key from `privatekeyfile` or
 writes a generated private key to `privatekeyfile`:

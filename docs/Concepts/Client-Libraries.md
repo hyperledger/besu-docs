@@ -16,4 +16,8 @@ Use the [web3.js-eea library](../HowTo/Interact/Client-Libraries/eeajs.md) with 
 Use client libraries to:
 
 * [Create signed transactions](../HowTo/Develop-Dapps/Use-web3js.md)
-* [Create and send private transactions](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+* [Create and send private transactions].
+
+<!-- Links -->
+[Create and send private transactions]: ../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
+

@@ -44,8 +44,8 @@ When `MANUAL` is specified:
 Specify `DOCKER` to explicitly specify Hyperledger Besu is running inside a Docker container. 
 If the NAT method is `DOCKER`, the host IP is advertised not the container IP. 
 
-The host IP is the advertised host in the `docker run` command. If not specified in the `docker run`
-command, the advertised host defaults to the `--p2p-host` and `--p2p-port`. 
+The host IP is the advertised host in the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host). 
+If not specified in the `docker run` command, the advertised host defaults to the `--p2p-host` and `--p2p-port`. 
 
 # Auto 
 
@@ -58,4 +58,6 @@ command, the advertised host defaults to the `--p2p-host` and `--p2p-port`.
 
 Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is `NONE` and `--p2p-host`, 
 `--p2p-port`, `--rpc-http-host`, and `rpc-http-port` are specified, they are ignored in the advertised 
-addresses. 
+addresses and the default values are advertised. 
+
+

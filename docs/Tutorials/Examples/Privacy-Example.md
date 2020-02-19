@@ -1,33 +1,30 @@
-description: Hyperledger Besu private network with privacy enabled quickstart tutorial
+description: Hyperledger Besu private network with privacy enabled tutorial
 <!--- END of page meta data -->
 
-# Private Network with Privacy Enabled Quickstart Tutorial
+# Privacy-enabled Private Network Example Tutorial
 
-The Private Network with Privacy Enabled Quickstart runs a private network of Hyperledger Besu and
+The Private Network with Privacy Enabled Example runs a private network of Hyperledger Besu and
 Orion nodes managed by Docker Compose.
-It is an expanded version of the [Private Network Quickstart](Private-Network-Quickstart.md). 
+It is an expanded version of the [Private Network Example](Private-Network-Example.md). 
 
-You can use the [Block Explorer](Private-Network-Quickstart.md#block-explorer), 
-make [JSON-RPC requests](Private-Network-Quickstart.md#run-json-rpc-requests), and 
-create [transactions using Metamask](Private-Network-Quickstart.md#creating-a-transaction-using-metamask)
-as described in the [Private Network Quickstart tutorial](Private-Network-Quickstart.md). 
+You can use the [Block Explorer](Private-Network-Example.md#block-explorer), 
+make [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and 
+create [transactions using Metamask](Private-Network-Example.md#creating-a-transaction-using-metamask)
+as described in the [Private Network Example tutorial](Private-Network-Example.md). 
 This tutorial describes how to use the examples provided in the EEAJS library to [create and send private transactions](#send-private-transactions-and-read-values). 
 
 !!! important 
-    The quickstart runs a private network suitable for education or demonstration purposes. 
-    The quickstart is not intended for running production networks. 
+    The sample-network runs a private network suitable for education or demonstration purposes. 
+    The sample-network is not intended for running production networks. 
 
 ## Prerequisites
 
 To run this tutorial, you must have the following installed:
 
-- MacOS or Linux 
-    
-    !!! important 
-        The Private Network Quickstart is not supported on Windows. If using Windows, run the quickstart
-        inside a Linux VM such as Ubuntu. 
-
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
+
+    !!! important 
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 6GB of memory on the _Advanced_ tab in _Preferences_.  
 
 - [Nodejs](https://nodejs.org/en/download/)
 
@@ -35,16 +32,16 @@ To run this tutorial, you must have the following installed:
 
 - [Curl command line](https://curl.haxx.se/download.html) 
 
-## Clone Besu Quickstart Source Code
+## Clone Besu Sample Networks Source Code
 
-Clone the repository from the `besu-quickstart` repository. 
+Clone the repository from the `besu-` repository. 
 
 ```bash tab="Linux/MacOS"
-git clone https://github.com/PegaSysEng/besu-quickstart.git
+git clone https://github.com/PegaSysEng/besu-sample-networks.git
 ```
 
 !!!note
-    Download a specific release at https://github.com/PegaSysEng/besu-quickstart/releases. 
+    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
 ## Clone EEAJS Libraries 
 
@@ -60,9 +57,12 @@ In the `eeajs` directory:
 npm install
 ```
 
-## Start the Private Network with Privacy Enabled 
+## Start the Network
 
-In the `besu-quickstart` directory, start the network with privacy enabled: 
+!!!important
+    If running in Windows, please run commands from the GitBash shell
+
+In the `besu-sample-networks` directory, start the network with privacy enabled: 
 
 ```bash
 ./run-privacy.sh 
@@ -75,7 +75,7 @@ The network details are displayed.
        Name                      Command               State                              Ports                           
 --------------------------------------------------------------------------------------------------------------------------
 privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
-privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:32771->80/tcp                                      
+privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                      
 privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 privacy_node1_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
 privacy_node2_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
@@ -85,9 +85,9 @@ privacy_orion2_1      /orion/bin/orion data/data ...   Up
 privacy_orion3_1      /orion/bin/orion data/data ...   Up                                                                 
 privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
 ****************************************************************
-JSON-RPC HTTP service endpoint      : http://localhost:32771/jsonrpc   *
-JSON-RPC WebSocket service endpoint : ws://localhost:32771/jsonws   *
-Web block explorer address          : http://localhost:32771   *                                                                             
+JSON-RPC HTTP service endpoint      : http://localhost:8545   *
+JSON-RPC WebSocket service endpoint : ws://localhost:8546   *
+Web block explorer address          : http://localhost:25000   *                                                                             
 ****************************************************************
 ```
 
@@ -140,7 +140,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","para
 ```
     
 ```bash tab="Example"
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:32771/jsonrpc
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
 ```
 
 The transaction receipt for the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) is displayed with a `contractAddress` of `null`. 

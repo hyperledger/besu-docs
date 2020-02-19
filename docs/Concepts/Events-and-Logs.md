@@ -22,7 +22,7 @@ Log entries contain up to four topics. The first topic is the
 
 !!! example
 
-    Log entry for an event with one indexed parameter:
+    A log entry for an event with one indexed parameter:
 
     ```json
     {
@@ -74,8 +74,8 @@ Log `data` includes non-indexed parameters but is difficult to search or filter.
 
 !!! example
 
-    Log entry created by invoking the contract in the previous example with `valueIndexed` set to 5
-    and `valueNotIndexed` set to 7:
+    A log entry created by invoking the contract in the previous example with `valueIndexed` set to
+    5 and `valueNotIndexed` set to 7:
 
     ```json
      {
@@ -133,6 +133,7 @@ for event 2 is `keccak('Event2(uint256)')`. The hashes are:
 * `06df6fb2d6d0b17a870decb858cc46bf7b69142ab7b9318f7603ed3fd4ad240e` for event 2.
 
 !!! tip
+
     You can use a library keccak (sha3) hash function, such as provided in
     [Web3.js](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3sha3), or an an online tool,
     such as https://emn178.github.io/online-tools/keccak_256.html, to generate event signature

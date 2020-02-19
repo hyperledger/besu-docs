@@ -9,9 +9,9 @@ Each node has a node key pair consisting of a node private key and a node public
 
 If a `key` file does not exist in the data directory and the
 [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option is not
-specified when starting Besu, the system generates a node private key and writes it to the `key`
-file. Stopping and restarting Besu without deleting the `key` file causes Besu to reuse the same
-private key when restarting.
+specified when starting Besu, Besu generates a node private key and writes it to the `key` file.
+Stopping and restarting Besu without deleting the `key` file causes Besu to reuse the same private
+key when restarting.
 
 If a `key` file exists in the data directory when starting Besu, the node starts with the private
 key in the `key` file.
@@ -36,8 +36,8 @@ The enode URL identifies a node. For example, the `--bootnodes` option and the
 The enode URL format is `enode://<id>@<host:port>` where:
 
 * `<id>` is the node public key, excluding the initial 0x.
-* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery.
-Specified by the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
+* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery. This is
+specified by the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options (the default host is `127.0.0.1`
 and the default port is `30303`).
 
@@ -45,9 +45,8 @@ and the default port is `30303`).
 
     If the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) or
     [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options are not specified and the node
-    public key is `0xc35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f`
-    
-    The enode URL is:
+    public key is `0xc35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f`,
+    then the enode URL is
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303`
 
 The enode URL displays when starting a Besu node. Use the
@@ -66,7 +65,7 @@ If the `key` file exists, the node starts with the private key in the `key` file
 does not exist, Besu generates a node private key and writes it to the `key` file.
 
 For example, the following command either reads the node private key from `privatekeyfile` or
-writes a generated private key to `privatekeyfile`:
+writes a generated private key to `privatekeyfile`.
 
 !!! example
     ```bash

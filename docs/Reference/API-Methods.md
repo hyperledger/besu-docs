@@ -176,8 +176,8 @@ Properties of the node object are:
 
 !!! note
     If the node is running locally, the host of the `enode` and `listenAddr` are displayed as `[::]` in the result.
-    If [UPnP](../HowTo/Find-and-Connect/Specifying-NAT.md) is enabled, the external address is
-    displayed for the `enode` and `listenAddr`.
+    When advertising externally, the external address displayed for the `enode` and `listenAddr` is 
+    defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
 
 !!! example
     ```bash tab="curl HTTP request"

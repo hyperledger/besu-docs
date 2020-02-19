@@ -6,7 +6,7 @@ description: Multi-tenancy
 By default, each participant in a privacy network uses its own Besu and Orion node.
 
 Multi-tenancy allows multiple participants to use the same Besu and Orion node. Each participant is
-called a _tenant_, and the operator is the _owner_ of the Besu and Orion node.
+a _tenant_, and the operator is the _owner_ of the Besu and Orion node.
 
 !!! important
 
@@ -24,9 +24,9 @@ called a _tenant_, and the operator is the _owner_ of the Besu and Orion node.
     If not configured to allow access only by the multi-tenant Besu node, other Orion clients,
     including other Besu nodes, might be able to access tenant data.
 
-Multi-tenancy validates that tenants are permitted to use the specified HTTP or Websocket JSON-RPC
-requests, and the tenant has access to the requested privacy data. Private data is segregated, and
-each tenant uses a JWT token for authentication.
+Multi-tenancy validates that tenants have permission to use the specified HTTP or Websocket
+JSON-RPC requests, and the tenant has access to the requested privacy data. There is segregation of
+private data, and each tenant uses a JWT token for authentication.
 
-The JWT token can be created
+You can create the JWT token either 
 [externally or internally](../../HowTo/Interact/APIs/Authentication.md).

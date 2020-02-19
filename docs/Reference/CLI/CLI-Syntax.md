@@ -1220,8 +1220,10 @@ BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 privacy-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-PKCS #12 keystore file. Must be specified if [`--privacy-tls-enabled`](#privacy-tls-enabled) is
-`true`.
+Keystore file (in PKCS #12 format) that contains private key and the certificate
+presented during authentication.  
+
+Must be specified if [`--privacy-tls-enabled`](#privacy-tls-enabled) is `true`.
 
 ### privacy-tls-keystore-password-file
 
@@ -1241,7 +1243,7 @@ BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 privacy-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-Password file used to decrypt the keystore.
+Path to a file that contains the password to decrypt the keystore.
 
 ### privacy-tls-known-enclave-file
 
@@ -1261,12 +1263,8 @@ BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
 privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 ```
 
-Enables client authentication.
-
-Path to a file containing the fingerprints of the authorized privacy enclave.
-
-The file contain the certificates’s Common Name, and SHA-256 fingerprint in the
-format `<CommonName> <hex-string>`.
+Path to a file containing the hostnames, ports, and SHA256 certificate fingerprints
+of the [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md##create-the-known-servers-file).
 
 ### privacy-url
 
@@ -1612,14 +1610,14 @@ The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ```
 
 ```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
+BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED[=<true|false>]
 ```
 
 ```bash tab="Configuration File"
 rpc-http-tls-ca-clients-enabled=true
 ```
 
-Allows clients with trusted CA certificates to connect.
+Allows clients with trusted CA certificates to connect. Defaults to `false`.
 
 !!! note
     Client authentication must be enabled using [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled).
@@ -1638,7 +1636,8 @@ BESU_RPC_HTTP_TLS_CLIENT_AUTH_ENABLED=true
 rpc-http-tls-client-auth-enabled=true
 ```
 
-Enables TLS client authentication for the JSON-RPC HTTP service.
+Enables TLS client authentication for the JSON-RPC HTTP service. Defaults to
+`false`.
 
 !!! note
     [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file) must be specified.
@@ -1657,7 +1656,7 @@ BESU_RPC_HTTP_TLS_ENABLED=true
 rpc-http-tls-enabled=true
 ```
 
-Enable TLS for the JSON-RPC HTTP service. The default is `false`.
+Enable TLS for the JSON-RPC HTTP service. Defaults to `false`.
 
 !!! note
     [`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
@@ -1670,19 +1669,19 @@ Enable TLS for the JSON-RPC HTTP service. The default is `false`.
 ```
 
 ```bash tab="Command Line"
---rpc-http-tls-keystore-file=/home/me/me_node/certificate.pfx
+--rpc-http-tls-keystore-file=/home/me/me_node/keystore.pfx
 ```
 
 ```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/certificate.pfx
+BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
 ```
 
 ```bash tab="Configuration File"
-rpc-http-tls-keystore-file="/home/me/me_node/certificate.pfx"
+rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 ```
 
-PKCS #12 keystore file. Must be specified if TLS is enabled for the JSON-RPC
-HTTP service.
+Keystore file (in PKCS #12 format) that contains private key and the certificate
+presented to the client during authentication. 
 
 ### rpc-http-tls-keystore-password-file
 
@@ -1702,7 +1701,7 @@ BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 rpc-http-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-Password file used to decrypt the keystore.
+Path to a file that contains the password to decrypt the keystore.
 
 ### rpc-http-tls-known-clients-file
 
@@ -1722,7 +1721,8 @@ BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
 rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 ```
 
-Used to authenticate clients that use self-signed certificates.
+Used to [authenticate clients](../../HowTo/Configure/Configure-TLS.md##create-the-known-clients-file) that use self-signed certificates or non-public
+certificates.
 
 Must contain the certificates's Common Name, and SHA-256 fingerprint in the
 format `<CommonName> <hex-string>`.

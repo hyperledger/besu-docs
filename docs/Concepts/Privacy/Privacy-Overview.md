@@ -14,13 +14,11 @@ participants. Other participants cannot access the transaction content or list o
     finality, such as [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
     * Orion must be [highly available and run in a separate instance to Besu].
 
-!!! important
-
     Using private transactions with [pruning](../Pruning.md) is not supported.
 
 ## Private Transaction Manager
 
-Besu uses a Private Transaction Manager, [Orion](http://docs.orion.pegasys.tech), to implement
+Besu uses a private transaction manager, [Orion](http://docs.orion.pegasys.tech), to implement
 privacy. Each Besu node sending or receiving private transactions requires an associated Orion
 node.
 
@@ -30,9 +28,8 @@ Private transactions pass from the Besu node to the associated Orion node. The O
 encrypts and directly distributes (that is, point-to-point) the private transaction to the Orion
 nodes participating in the transaction.
 
-By default, each participant in a privacy network uses its own Besu and Orion
-node. [Multi-tenancy](Multi-Tenancy.md) allows multiple participants to use the same Besu and Orion
-node.
+By default, each participant in a privacy network uses its own Besu and Orion node.
+[Multi-tenancy](Multi-Tenancy.md) allows multiple participants to use the same Besu and Orion node.
 
 !!! tip
 

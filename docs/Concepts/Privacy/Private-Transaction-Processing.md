@@ -23,10 +23,10 @@ Private transaction processing is illustrated and described in the following dia
 [eea_sendRawTransaction](../../Reference/API-Methods.md#eea_sendrawtransaction). The signed
 transaction includes transaction attributes specific to private transactions, including:
 
-   * `privateFor` or `privacyGroupId` specifies the list of recipients
-   * `privateFrom` specifies the sender
-   * `restriction` specifies the transaction is of type
-   [_restricted_](../Privacy/Privacy-Overview.md#private-transactions).
+    * `privateFor` or `privacyGroupId` specifies the list of recipients
+    * `privateFrom` specifies the sender
+    * `restriction` specifies the transaction is of type
+    [_restricted_](../Privacy/Privacy-Overview.md#private-transactions).
 
 1. The JSON-RPC endpoint passes the private transaction to the Private Transaction Handler.
 
@@ -45,11 +45,12 @@ in the same way as a public Ethereum transaction.
 
     !!! tip
         If you want to sign the Privacy Marker Transaction outside of Besu, use
-        [`priv_distributeRawTransaction`] instead of
+        [`priv_distributeRawTransaction`](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+        instead of
         [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 
-1. Besu mines the Privacy Marker Transaction into a block and it is distributed to all Ethereum
-nodes in the network.
+1. Besu mines the Privacy Marker Transaction into a block and the Privacy Marker Transaction is
+distributed to all Ethereum nodes in the network.
 
 1. The Mainnet Transaction Processor processes the Privacy Marker Transaction in the same way as
 any other public transaction. On nodes containing the privacy precompile contract specified in the
@@ -79,5 +80,4 @@ can read and write to the private world state, and read from the public world st
 
 <!-- Links -->
 [signed with a random key or the key specified on the command line]: ../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
-[`priv_distributeRawTransaction`]: ../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction
 [highly available and run in a separate instance to Besu]: ../../HowTo/Use-Privacy/Run-Orion-With-Besu.md

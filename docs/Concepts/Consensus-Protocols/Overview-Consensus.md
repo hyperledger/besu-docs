@@ -3,7 +3,7 @@ description: Besu consensus protocols
 
 # Consensus protocols
 
-Besu implements a number of consensus protocols, including:
+Besu implements the following consensus protocols:
 
 * Ethash (Proof of Work)
 * [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (Proof of Authority)

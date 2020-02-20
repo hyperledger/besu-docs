@@ -89,7 +89,7 @@ nav:
           - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
-          - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
+          - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
           - Configure Logging: HowTo/Monitor/Logging.md

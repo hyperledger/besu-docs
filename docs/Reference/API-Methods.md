@@ -4544,8 +4544,7 @@ Returns information about the private transaction after the transaction was mine
 
 ### plugins_reloadPluginConfig
 
-Reloads plugin configuration. If no parameters are specified, Besu attempts to reload all plugin 
-configurations. 
+Reloads specified plugin configuration. 
 
 **Parameters**
 
@@ -4553,16 +4552,11 @@ configurations.
 
 **Returns**
 
-? 
-
+`string` - `Success` 
 
 !!! example
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
-    ```
-    
-    ```bash tab="Reload all plugins"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":[],"id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
@@ -4571,11 +4565,9 @@ configurations.
 
     ```json tab="JSON result"
     {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "result": {
-            ?
-        }
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "Success"
     }
     ```
 

@@ -3103,6 +3103,8 @@ If the boolean value is `true`, the proposal is to add a signer. If `false`, the
 !!! note
     The `DEBUG` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `DEBUG` API methods.
+    
+    The DEBUG API is an more verbose alternative to the [TRACE API](#trace-methods). 
 
 ### debug_accountRange
 
@@ -4146,13 +4148,15 @@ None
 !!! note
     The `TRACE` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `TRACE` API methods.
+    
+    The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
 
 ### trace_replayBlockTransactions
 
-Provides detailed tracing of transaction processing.
+Provides transaction processing tracing.
 
 !!! important 
-    Either your node must be an archive node (that is, synchronised without using pruning or fast sync)
+    Your node must be an archive node (that is, synchronised without pruning or fast sync)
     or the requested block must be within the last 1024 blocks. 
 
 **Parameters**
@@ -4161,7 +4165,7 @@ Provides detailed tracing of transaction processing.
 or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `array of strings` - Tracing options are [`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). 
-Specify any combination of the three options.  
+Specify any combination of the three options including none of them.   
 
 **Returns**
 

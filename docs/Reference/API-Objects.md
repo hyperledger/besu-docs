@@ -195,11 +195,11 @@ Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktr
 
 | Key                                  | Type                         | Value                                                                                |
 |-----------------------               |:--------------------:        |--------------------------------------------------------------------------------------|
-| **output**                           | ?                            | Transaction result 
-| **stateDiff**                        | Object                       | [State changes in the requested block](../Concepts/Transactions/Trace-Types.md)
-| **trace**                            | Array                        | [Ordered list of calls to other contracts](../Concepts/Transactions/Trace-Types.md)
-| **vmTrace**                          | Object                       | [Ordered list of EVM actions](../Concepts/Transactions/Trace-Types.md)
-| **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction
+| **output**                           | Boolean                      | Transaction result. 1 for success and 0 for failure.  
+| **stateDiff**                        | Object                       | [State changes in the requested block.](../Concepts/Transactions/Trace-Types.md#statediff)
+| **trace**                            | Array                        | [Ordered list of calls to other contracts.](../Concepts/Transactions/Trace-Types.md#trace)
+| **vmTrace**                          | Object                       | [Ordered list of EVM actions.](../Concepts/Transactions/Trace-Types.md#vmtrace)
+| **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction.
 
 
 ## Private Transaction Receipt Object 

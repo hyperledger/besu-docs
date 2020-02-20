@@ -745,15 +745,16 @@ Default is 1000.
 nat-method="UPNP"
 ```
 
-Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md). 
+Options are: [`UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip
     UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
 
 !!!notes
     * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+    * `--nat-method=DOCKER` must be specified when using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 

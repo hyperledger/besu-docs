@@ -11,7 +11,7 @@ Hyperledger Besu node on AWS is:
 When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md), [expose ports](../Get-Started/Run-Docker-Image.md#exposing-ports). 
 
 !!! tip 
-    Besu supports [UPnP](Using-UPnP.md) for home or small office environments where a wireless router 
+    Besu supports [UPnP](Specifying-NAT.md) for home or small office environments where a wireless router 
     or modem provides NAT isolation. 
 
 ## P2P Networking 

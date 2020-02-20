@@ -35,4 +35,4 @@ price, Besu replaces the pending transaction with the new one with the higher ga
 
 Decreasing the maximum size of the transaction pool reduces memory use. If the network is busy and
 there is a backlog of transactions, increasing the size of the transaction pool reduces the risk of
-transactions being removed from the transaction pool.
+removing transactions from the transaction pool.

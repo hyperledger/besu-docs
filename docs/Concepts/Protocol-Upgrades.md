@@ -26,4 +26,4 @@ example, [Istanbul](https://eips.ethereum.org/EIPS/eip-1679).
     For compatibility with future protocol upgrades, do not hardcode any gas price assumptions.
 
     Implementing upgradeable contracts enables contracts to be upgraded if a protocol upgrade does
-    include breaking changes. 
+    include breaking changes.

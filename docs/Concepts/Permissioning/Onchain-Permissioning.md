@@ -58,8 +58,8 @@ Permissioning implements three whitelists:
 
 ## Bootnodes
 
-When a node joins a network, it connects to the bootnodes until it synchronizes to the chain head
-regardless of node permissions. After synchronization, the Account Rules and Node Rules smart
+When a network adds a node, the node connects to the bootnodes until it synchronizes to the chain
+head, regardless of node permissions. After synchronization, the Account Rules and Node Rules smart
 contracts apply the permissioning rules.
 
 If a sychronized node loses all peer connections (that is, it has zero peers), it reconnects to the

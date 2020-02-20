@@ -1,13 +1,15 @@
-description: Configuring Besu at the network level compared to the node level 
+description: Configuring Besu at the network level compared to the node level
 <!--- END of page meta data -->
 
-# Network vs Node Configuration 
+# Network vs node configuration
 
-Besu is configured at the network level and the node level. 
+You can configure Besu at the network level and the node level.
 
-Network wide settings are specified in the [genesis file](../Reference/Config-Items.md).  Examples include `evmStackSize` and the 
-[consensus mechanism](Consensus-Protocols/Overview-Consensus.md). 
+Specify network-wide settings in the [genesis file](../Reference/Config-Items.md). For example,
+include `evmStackSize` or specify the
+[consensus mechanism](Consensus-Protocols/Overview-Consensus.md).
 
-Node settings are specified on the command line or in the [node configuration file](../HowTo/Configure/Using-Configuration-File.md). 
-For example, the [JSON-RPC API methods to enable](../Reference/API-Methods.md) or the 
-[data directory](../Reference/CLI/CLI-Syntax.md#data-path) for the node. 
+Specify node settings on the command line or in the
+[node configuration file](../HowTo/Configure/Using-Configuration-File.md). For example, enable
+[JSON-RPC API methods](../Reference/API-Methods.md) or specify the
+[data directory](../Reference/CLI/CLI-Syntax.md#data-path) for the node.

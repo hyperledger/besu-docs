@@ -7,17 +7,14 @@ Onchain permissioning uses smart contracts to store and administer the node, acc
 whitelists. Using onchain permissioning enables all nodes to read the whitelists from a single
 source, the blockchain.
 
-!!! note 
-    The permissioning smart contracts and Permissioning Management Dapp are a separate product to Hyperledger Besu 
-    and are provided in the [PegaSysEng/permissioning-smart-contracts](https://github.com/PegaSysEng/permissioning-smart-contracts) repository.  
-
-    Custom smart contracts and dapps can be implemented to work with onchain permissioning. 
+!!! note
 
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to
     Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
 
-The permissioning smart contracts provided in the [PegaSysEng/permissioning-smart-contracts](https://github.com/PegaSysEng/permissioning-smart-contracts) 
-repository are: 
+    The permissioning smart contracts and Permissioning Management Dapp are a separate product to
+    Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
+    Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts
 

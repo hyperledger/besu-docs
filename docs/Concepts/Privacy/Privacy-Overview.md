@@ -16,7 +16,7 @@ participants. Other participants cannot access the transaction content or list o
 
     Using private transactions with [pruning](../Pruning.md) is not supported.
 
-## Private Transaction Manager
+## Private transaction manager
 
 Besu uses a private transaction manager, [Orion](http://docs.orion.pegasys.tech), to implement
 privacy. Each Besu node sending or receiving private transactions requires an associated Orion

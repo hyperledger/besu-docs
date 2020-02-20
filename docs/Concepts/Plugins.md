@@ -43,4 +43,4 @@ Each plugin in the directory has the following lifecycle events:
 * **Stop** - Plugins are stopped by Besu.
 
 !!! note
-    Besu does not guarantee the order of the lifecycle events. 
+    Besu does not guarantee the order plugins are called during lifecycle events. 

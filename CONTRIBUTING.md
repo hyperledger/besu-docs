@@ -12,12 +12,12 @@ best judgement, and feel free to propose changes to this document in a pull requ
 
 ### Useful docs contributing links
 
-* [I just have a quick question](https://wiki.hyperledger.org/display/BESU/I+just+have+a+quick+question)
+* [I just have a quick question]
 * [How to contribute](https://wiki.hyperledger.org/display/BESU/How+to+Contribute)
-* [Reporting bugs in the documentation](https://wiki.hyperledger.org/display/BESU/Reporting+Bugs+in+the+Doc)
-* [Submitting a Documentation Enhancement Suggestion](https://wiki.hyperledger.org/display/BESU/Suggesting+Documentation+Enhancements)
-* [Documentation Style Guide](https://wiki.hyperledger.org/display/BESU/Besu+Documentation+Style+Guide)
-* [Pull Request Labels](https://wiki.hyperledger.org/display/BESU/Pull+Request+Labels)
+* [Reporting bugs in the documentation]
+* [Submitting a documentation enhancement suggestion]
+* [Documentation style guide]
+* [Pull request labels](https://wiki.hyperledger.org/display/BESU/Pull+Request+Labels)
 * [Security](SECURITY.md)
 
 ### Other important information
@@ -26,3 +26,8 @@ best judgement, and feel free to propose changes to this document in a pull requ
 * [Code of Conduct](https://wiki.hyperledger.org/display/BESU/Code+of+Conduct)
 * [Governance](https://wiki.hyperledger.org/display/BESU/Governance)
 
+<!-- Links -->
+[I just have a quick question]: https://wiki.hyperledger.org/display/BESU/I+just+have+a+quick+question
+[Reporting bugs in the documentation]: https://wiki.hyperledger.org/display/BESU/Reporting+Bugs+in+the+Doc
+[Submitting a documentation enhancement suggestion]: https://wiki.hyperledger.org/display/BESU/Suggesting+Documentation+Enhancements
+[Documentation style guide]: https://wiki.hyperledger.org/display/BESU/Besu+Documentation+Style+Guide

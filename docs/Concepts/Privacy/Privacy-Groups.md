@@ -49,7 +49,7 @@ provided by Orion.
 
     The previous diagram illustrates two privacy groups enabling:
 
-    * A, B, and C to send transactions that are private from D
+    * A, B, and C to send transactions that are private from D.
     * A, C, and D to send transactions that are private from B.
 
     Using EEA-compliant privacy, to send private transactions between A, B, and C, A initializes a

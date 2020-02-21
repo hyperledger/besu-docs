@@ -51,7 +51,7 @@ To get correct nonces when distributing requests across a cluster, either:
 
 * Track the next nonce outside of the Besu node (as MetaMask does)
 * Configure the load balancer in sticky mode to send requests from a specific account to a single
-node, unless that node is unavailable.
+  node, unless that node is unavailable.
 
 ## Subscriptions
 

@@ -18,9 +18,10 @@ Besu supports enterprise features including privacy and permissioning.
 
 ## What can you do with Besu?
 
-Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and [JSON-RPC API](HowTo/Interact/APIs/API.md)
-for running, maintaining, debugging, and monitoring nodes in an Ethereum network. You can use the API via RPC
-over HTTP/HTTPS or via WebSockets, and Pub/Sub is supported. The API supports typical Ethereum functionalities such as:
+Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and
+[JSON-RPC API](HowTo/Interact/APIs/API.md) for running, maintaining, debugging, and monitoring
+nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSockets. Besu also
+supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
 * Ether mining
 * Smart contract development

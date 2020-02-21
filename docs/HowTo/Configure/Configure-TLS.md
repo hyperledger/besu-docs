@@ -5,7 +5,9 @@ description: Configure TLS
 # Configure TLS
 
 Hyperledger Besu supports TLS for client and server communication. For example, you can
-[configure TLS](../../Concepts/TLS.md) for communication between [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Concepts/TLS/) and Besu, and Besu and [Orion](https://docs.orion.pegasys.tech/en/latest/Concepts/TLS-Communication/).
+[configure TLS](../../Concepts/TLS.md) for communication between
+[EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Concepts/TLS/) and Besu, and Besu and
+[Orion](https://docs.orion.pegasys.tech/en/latest/Concepts/TLS-Communication/).
 
 Configure TLS communication from the command line.
 

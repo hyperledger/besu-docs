@@ -1198,7 +1198,7 @@ BESU_PRIVACY_TLS_ENABLED=false
 privacy-tls-enabled=false
 ```
 
-Enables [TLS with the Private Transaction Manager](../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager).
+Enables [TLS on communication with the Private Transaction Manager](../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager).
 
 The default is false.
 
@@ -1264,7 +1264,7 @@ privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 ```
 
 Path to a file containing the hostnames, ports, and SHA256 certificate fingerprints
-of the [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md##create-the-known-servers-file).
+of the [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
 
 ### privacy-url
 
@@ -1606,11 +1606,11 @@ The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-
 ### rpc-http-tls-ca-clients-enabled
 
 ```bash tab="Syntax"
---rpc-http-tls-ca-clients-enabled
+--rpc-http-tls-ca-clients-enabled[=<true|false>]
 ```
 
 ```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED[=<true|false>]
+BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
@@ -1721,7 +1721,7 @@ BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
 rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 ```
 
-Used to [authenticate clients](../../HowTo/Configure/Configure-TLS.md##create-the-known-clients-file) that use self-signed certificates or non-public
+Used to [authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) that use self-signed certificates or non-public
 certificates.
 
 Must contain the certificates's Common Name, and SHA-256 fingerprint in the

@@ -10,7 +10,7 @@ Configure TLS communication from the command line.
 
 **Prerequisites**:
 
-* Besu's password-protected PKSC #12 keystore.
+* Besu's password-protected PKCS #12 keystore.
 * File containing the keystore password
 
 ## Configure Client TLS
@@ -18,10 +18,10 @@ Configure TLS communication from the command line.
 Allow clients (for example a dApp, curl, or EthSigner) to send and receive
 secure HTTP JSON-RPCs.
 
-**Prerequisites**:
+**Client Prerequisites**:
 
 * The client must be configured for TLS.
-* Client's PKSC #12 keystore information.
+* Client's PKCS #12 keystore information.
 
 ### Create the Known Clients File
 
@@ -40,7 +40,8 @@ clients. Use the format`<common_name> <hex-string>` where:
     curl FC:18:BF:39:45:45:9A:15:46:76:A6:E7:C3:94:64:B8:34:84:A3:8E:B8:EA:67:DC:61:C0:29:E6:38:B8:B7:99
     ```
     
-You can use `openssl` or `keytool` to display the SHA256 fingerprint.
+You can use [`openssl`](https://www.openssl.org/) or [`keytool`](https://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html)
+to display the SHA256 fingerprint.
 
 !!! example
     ```
@@ -62,7 +63,7 @@ option.
 * Specifies the keystore using the [`--rpc-http-tls-keystore-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-file) option.
 * Specifies the file that contains the password to decrypt the keystore using
 the [`--rpc-http-tls-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-password-file) option.
-* [Specify the clients](#create-the-known-clients-file) that are allowed to connect to Besu using the
+* [Specifies the clients](#create-the-known-clients-file) that are allowed to connect to Besu using the
 [`--rpc-http-tls-known-clients-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
 
 !!! note
@@ -71,9 +72,9 @@ the [`--rpc-http-tls-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#
     
 ## Configure Server TLS
 
-Allow Besu to securely communicate with the server (Orion)
+Allow Besu to securely communicate with the server (Orion).
  
-**Prerequisites**:
+**Server Prerequisites**:
 
 * The server must be configured to allow TLS communication
 * Server's certificate information.

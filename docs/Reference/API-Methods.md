@@ -4535,6 +4535,41 @@ Returns information about the private transaction after the transaction was mine
         }
     }
     ```
+    
+## Plugins Methods 
+
+!!! note
+    The `PLUGINS` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
+    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PLUGINS` API methods.
+
+### plugins_reloadPluginConfig
+
+Reloads specified plugin configuration. 
+
+**Parameters**
+
+`string` - Plugin 
+
+**Returns**
+
+`string` - `Success` 
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "Success"
+    }
+    ```
 
 ## Miscellaneous Methods
 

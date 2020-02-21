@@ -1,22 +1,24 @@
-description: What transaction validation is performed when 
+description: What transaction validation and when
 <!--- END of page meta data -->
 
-# Validating Transactions 
+# Validating transactions
 
-When transactions are submitted and added to a block, validations are performed as illustrated. 
+For transactions submitted and added to a block, Besu validates the transactions, as illustrated in
+the following diagram.
 
 ![Transaction Validation](../../images/transaction-validation.png)
 
-The set of transaction pool validations are repeated when the transaction is propagated. The same set of 
-validations are repeated when the block including the transaction is imported except the nonce must be 
-exactly right when importing the block. 
+Besu repeats the set of transaction pool validations after propagating the transaction. Besu
+repeats the same set of validations when importing the block that includes the transaction, except
+the nonce must be exactly right when importing the block.
 
-When the transaction is added to a block an additional validation is performed to check the transaction gas limit
-is less than the remaining block gas limit. After creating a block, the node imports the block and
-the transaction pool validations are repeated. 
+When adding the transaction to a block, Besu performs an additional validation to check that the
+transaction gas limit is less than the remaining block gas limit. After creating a block, the node
+imports the block and then repeats the transaction pool validations.
 
-!!! important 
-    The transaction is only added if the entire transaction gas limit is less than the remaining gas 
-    for the block. The total gas used by the transaction is not relevant to this validation. That is, if the total gas used
-    by the transaction is less than the remaining block gas but the transaction gas limit is more than the remaining black 
-    gas, the transaction is not added. 
+!!! important
+
+    The transaction is only added if the entire transaction gas limit is less than the remaining
+    gas for the block. The total gas used by the transaction is not relevant to this validation.
+    That is, if the total gas used by the transaction is less than the remaining block gas, but the
+    transaction gas limit is more than the remaining block gas, the transaction is not added.

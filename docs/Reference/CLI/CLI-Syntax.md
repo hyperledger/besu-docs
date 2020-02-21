@@ -745,15 +745,16 @@ Default is 1000.
 nat-method="UPNP"
 ```
 
-Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md). 
+Options are: [`UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip
     UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
 
 !!!notes
     * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+    * `--nat-method=DOCKER` must be specified when using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -1126,7 +1127,7 @@ privacy-enabled=false
 Set to enable [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default is false.
 
 !!! important
-    Using private transactions with [pruning](../../Concepts/Pruning.md) is not supported.
+    Using private transactions with [pruning](../../Concepts/Pruning.md) and/or Fast Sync is not supported.
 
 ### privacy-marker-transaction-signing-key-file
 
@@ -1150,6 +1151,26 @@ privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 
 If using [account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
 and privacy, a private key file must be specified and the signing key included in the accounts whitelist.  
+
+### privacy-multi-tenancy-enabled
+
+```bash tab="Syntax"
+--privacy-multi-tenancy-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-multi-tenancy-enabled=false
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_MULTI_TENANCY_ENABLED=false
+```
+
+```bash tab="Configuration File"
+privacy-multi-tenancy-enabled=false
+```
+
+Set to enable [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private transactions. Default is `false`.
 
 ### privacy-precompiled-address
 
@@ -1178,7 +1199,10 @@ BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
 privacy-public-key-file="Orion/nodeKey.pub"
 ```
 
-Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).     
+Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys). 
+
+!!! important
+    Cannot be used when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true` 
 
 ### privacy-tls-enabled
 
@@ -1424,7 +1448,8 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on the HTTP JSON-RPC channel.
 When you use this option, the `--rpc-http-enabled` option must also be specified.
-The available API options are: `ADMIN`, `ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`, `ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, 
+`MINER`, `EEA`, `PRIV`, `PLUGINS`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -1750,7 +1775,8 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, 
+`MINER`, `EEA`, `PRIV`, `PLUGINS`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -1903,6 +1929,9 @@ sync-mode="FAST"
 ```
 
 Specifies the synchronization mode. Default is `FULL`.
+
+!!! important
+    Using Fast Sync with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### target-gas-limit
 

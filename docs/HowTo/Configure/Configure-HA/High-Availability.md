@@ -28,11 +28,11 @@ determine when a node is ready.
 
 ## Transaction nonces
 
-Obtain the nonce for the next transaction using
+Retrieve the nonce for the next transaction using
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). The nonce
 depends on the transactions in the
 [transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If you send
-[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and 
+[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and
 [`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a
 specific account to multiple nodes, the
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) results
@@ -69,12 +69,12 @@ the load balancer in sticky mode to associate the subscription with a specific n
 
 ## Recovering from dropped subscriptions
 
-Dropped subscriptions can occur in the case of:
+Dropped subscriptions can occur because of:
 
 * A disconnected WebSockets connection
-* Removal of the node serving the subscription from the ready pool.
+* The removal of the node serving the subscription from the ready pool.
 
-If there is a dropped subscription, there might be missed events while reconnecting to a different
+If there is a dropped subscription, missed events might occur while reconnecting to a different
 node. To recover dropped messages, create another subscription and follow the process for that
 [subscription type](../../Interact/APIs/RPC-PubSub.md#subscribing):
 

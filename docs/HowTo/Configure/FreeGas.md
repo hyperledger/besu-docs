@@ -11,9 +11,9 @@ The miner (or validator in PoA networks) that includes the transaction in a bloc
 transaction cost.
 
 In many private networks, network participants run the validators and do not require gas as an
-incentive. Networks that do not require gas as an incentive usually configure the gas price to
-be zero (that is, make the gas free). Some private networks might allocate Ether and use a non-zero
-gas price to limit resource use.
+incentive. Networks no require gas as an incentive usually configure the gas price to be zero (that
+is, make the gas free). Some private networks might allocate Ether and use a non-zero gas price to
+limit resource use.
 
 !!! tip
 

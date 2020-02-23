@@ -3,7 +3,7 @@ description: Backing up and restoring Besu
 
 # Backups
 
-In a decentralized blockchain, data replicates between nodes so it is not lost, but backing up
+In a decentralized blockchain, data replicates between nodes so it is not lost. However,backing up
 configuration and data ensures a smoother recovery from corrupted data or other failures.
 
 ## Genesis file
@@ -22,6 +22,7 @@ to Besu.
 
 The default data location is the Besu installation directory, or `/opt/besu/database` if using the
 [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+
 Having some data reduces the time to synchronise a new node. You can perform periodic backups of
 the data directory and send the data to your preferred backup mechanism. For example, cron job and
 rsync, archives to the cloud such as s3, or `tar.gz` archives.

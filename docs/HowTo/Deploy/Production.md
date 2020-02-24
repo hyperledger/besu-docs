@@ -21,7 +21,7 @@ To deploy the Permissioning Management Dapp for production:
      ```
 
 1. On your webserver, host the contents of the directory as static files and direct root requests
-to `index.html`.
+   to `index.html`.
 
 ## Starting a production permissioned network
 

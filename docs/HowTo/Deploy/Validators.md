@@ -31,7 +31,7 @@ You can [vote validators in or out of the validator pool].
 ## Validators as bootnodes
 
 Validators can also be bootnodes. Other than the [usual configuration for bootnodes](Bootnodes.md),
-you do not need to specify any additional configuration when a validator is also a bootnode.
+you do not need to specify any extra configuration when a validator is also a bootnode.
 
 If you remove a validator that is also a bootnode, ensure there are enough remaining bootnodes on
 the network.

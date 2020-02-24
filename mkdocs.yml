@@ -217,3 +217,13 @@ plugins:
         glob:
           - global/*
     - git-revision-date
+    - redirects:
+        redirect_maps:
+          # Configure redirects using key:value pairs:
+          # old_path.md: new_path.md
+          # you can't use an already redirected path as an old_path.
+          # new_path can be a file inside the docs/ folder or any URL (http://...)
+          HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
+          HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
+          HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
+          HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md

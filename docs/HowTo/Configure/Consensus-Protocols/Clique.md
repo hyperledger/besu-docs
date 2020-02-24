@@ -7,19 +7,20 @@ source: rinkeby.json
 
 # Clique
 
-Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. Clique is used by the
-Rinkeby testnet and can be used for private networks. 
+Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. The Rinkeby testnet uses
+Clique and private networks can also use Clique.
 
-In Clique networks, transactions and blocks are validated by approved accounts, known as signers.
-Signers take turns to create the next block. Existing signers propose and vote to add or remove signers. 
+In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
+take turns to create the next block. Existing signers propose and vote to add or remove signers.
 
-## Genesis File
+## Genesis file
 
 To use Clique in a private network, Besu requires a Clique genesis file. When connecting to Rinkeby,
-Besu uses the [`rinkeby.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/rinkeby.json) 
+Besu uses the
+[`rinkeby.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/rinkeby.json)
 genesis file in the `/besu/config/src/main/resources` directory.
 
-A PoA genesis file defines properties specific to Clique:
+A Clique genesis file defines properties specific to Clique.
 
 !!! example "Example Clique Genesis File"
     ```json
@@ -45,89 +46,109 @@ A PoA genesis file defines properties specific to Clique:
       "parentHash":"0x0000000000000000000000000000000000000000000000000000000000000000"
     }
     ```
-    
+
 The properties specific to Clique are:
 
-* `blockperiodseconds` - Block time in seconds. 
+* `blockperiodseconds` - Block time in seconds.
 * `epochlength` - Number of blocks after which to reset all votes.
-* `extraData` - Initial signers are specified after the 32 bytes reserved for vanity data. 
+* `extraData` - Vanity data takes up the first 32 bytes, followed by the initial signers.
 
-### Extra Data 
+### Extra data
 
-The `extraData` field consists of: 
+The `extraData` field consists of:
 
-* 0x prefix
-* 32 bytes (64 hex characters) of vanity data 
-* Concatenated list of initial signer addresses. 20 bytes (40 hex characters) for each signer. At least one
-initial signer must be specified. 
-* 65 bytes (130 hex characters) for proposer signature. In the genesis block there is no initial proproser so the proproser signature is all zeros. 
+* 0x prefix.
+* 32 bytes (64 hex characters) of vanity data.
+* A concatenated list of initial signer addresses (at least one initial signer required). 20 bytes
+  (40 hex characters) for each signer.
+* 65 bytes (130 hex characters) for the proposer signature. In the genesis block there is no
+  initial proproser so the proproser signature is all zeros.
 
 !!! example "One Initial Signer"
+
     ![One Initial Signer](../../../images/CliqueOneIntialSigner.png)
 
 !!! example "Two Initial Signers"
+
     ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 
-## Connecting to Clique Network 
+## Connecting to a Clique network
 
-To connect to the Rinkeby testnet, start Besu with the [`--network=rinkeby`](../../../Reference/CLI/CLI-Syntax.md#network)
-command line option. To start a node on a Clique private network, use the 
-[`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom genesis file. 
+To connect to the Rinkeby testnet, start Besu with the
+[`--network=rinkeby`](../../../Reference/CLI/CLI-Syntax.md#network) command line option. To start a
+node on a Clique private network, use the
+[`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
+genesis file.
 
-## Adding and Removing Signers
+## Adding and removing signers
 
-To propose adding or removing signers using the JSON-RPC methods, enable the HTTP interface 
-using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or WebSockets interface using 
-[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled). 
+To propose adding or removing signers using the JSON-RPC methods, enable the HTTP interface using
+[`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the WebSockets
+interface using [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
 
-The Clique API methods are not enabled by default. To enable, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
+The Clique API methods are not enabled by default. To enable them, specify the
+[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
 
 The JSON-RPC methods to add or remove signers are:
 
-* [clique_propose](../../../Reference/API-Methods.md#clique_propose)
-* [clique_getSigners](../../../Reference/API-Methods.md#clique_getsigners)
-* [clique_discard](../../../Reference/API-Methods.md#clique_discard)
+* [`clique_propose`](../../../Reference/API-Methods.md#clique_propose)
+* [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners)
+* [`clique_discard`](../../../Reference/API-Methods.md#clique_discard).
 
 !!! important
-    A majority of existing signers must agree to add or remove a signer. That is, `clique_propose` must be executed on the majority (greater than 50%) of signers to take effect. For example, if you have 4 signers, the vote must be made on 3 signers.
 
-Use [clique_getSignerMetrics](../../../Reference/API-Methods.md#clique_getsignermetrics) to view signer metrics for a specified block range.
+    A majority of existing signers must agree to add or remove a signer. That is, more than 50% of
+    signers must execute `clique_propose` to add or remove a signer. For example, if you have four
+    signers, the vote must be made on three signers.
 
-### Adding a Signer
+To view signer metrics for a specified block range, call
+[`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
 
-To propose adding a signer, call `clique_propose` specifying the address of the proposed signer and `true`. The call must be executed on the majority of signers.
+### Adding a signer
+
+To propose adding a signer, call
+[`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the
+proposed signer and `true`. A majority of signers must execute the call.
 
 !!! example "JSON-RPC clique_propose Request Example"
+
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
     ``` 
 
-When the next block is created by the signer, a vote is added to the block for the proposed signer.  
+When the signer creates the next block, the signer adds a vote to the block for the proposed
+signer.
 
-When more than half of the existing signers propose adding the signer and their votes have been
-distributed in blocks, the signer is added and can begin signing blocks. 
+When more than half of the existing signers propose adding the signer and their votes are
+distributed in blocks, the signer can begin signing blocks.
 
-Use `clique_getSigners` to return a list of the signers and to confirm that your proposed signer has
-been added. 
+To return a list of signers and confirm the addition of a proposed signer, call
+[`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
+
 !!! example "JSON-RPC clique_getSigners Request Example"
+
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
-    ```  
+    ```
  
-To discard your proposal after confirming the signer was added, call `clique_discard` specifying the address of the proposed signer.
+To discard your proposal after confirming the addition of a signer, call
+[`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the
+proposed signer.
+
 !!! example "JSON-RPC clique_discard Request Example"
+
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
     ```
-### Removing a Signer
-The process for removing a signer is the same as adding a signer except you specify `false` as the 
-second parameter of `clique_propose`. 
 
-### Epoch Transition
+### Removing a signer
+The process for removing a signer is the same as adding a signer except you specify `false` as the
+second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
 
-At each epoch transition, all pending votes collected from received blocks are discarded. 
-Existing proposals remain in effect and signers re-add their vote the next time they create a block. 
+### Epoch transition
 
-Define the number of blocks between epoch transitions in the genesis file. 
+At each epoch transition, Clique discards all pending votes collected from received blocks.
+Existing proposals remain in effect and signers re-add their vote the next time they create a block.
 
+Define the number of blocks between epoch transitions in the genesis file.

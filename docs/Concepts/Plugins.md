@@ -3,12 +3,12 @@ description: Plugins
 
 # Plugins
 
-You can extend Hyperledger Besu functionality by building Java plugins. The
-Plugin API allows you to take data from any Besu network, public or
-permissioned, and feed it into an application or system. 
+You can extend Hyperledger Besu functionality by building Java plugins. Use the
+Plugin API to take data from any Besu network, public or permissioned, and feed
+it into an application or system. 
 
-For example, a plugin can add additional monitoring functionality or stream
-event data to a third-party application. The API exposes data about the
+For example, create a plugin to add additional monitoring functionality or
+stream event data to a third-party application. The API exposes data about the
 following components:
 
 * Blocks
@@ -34,7 +34,7 @@ access and use the plugin.
 
 !!! important
     If not already present, the `plugins` directory must be created one directory
-    level below (`../`) the besu executable.
+    level below (`../`) the `besu` executable.
 
 Each plugin in the directory has the following lifecycle events:
 

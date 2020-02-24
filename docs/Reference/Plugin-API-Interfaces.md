@@ -3,7 +3,7 @@ description: Plugin interfaces
 
 # Plugin API Interfaces
 
-Hyperledger Besu provides API interfaces to allow users to [build plugins](../Concepts/Plugins.md) to
+API interfaces in Hyperledger Besu allow users to [build plugins](../Concepts/Plugins.md) to
 extend Besu functionality.
 
 ## Core Plugin Classes
@@ -27,7 +27,7 @@ The following interfaces provide services that can be retrieved.
 | **IbftQueryService** | Allows IBFT 2.0 aspects of the blockchain to be queried. |
 | **MetricCategoryRegistry** | Adds a new metrics category to the CLI. |
 | **MetricsSystem**  | Register metrics with the Prometheus endpoint. |
-| **PoAQueryService** | Query the current state of Clique and IBFT consensus protocols. |       
+| **PoAQueryService** | Query the current state of Clique and IBFT 2.0 consensus protocols. |       
 | **PicoCLIOptions** | Adds CLI commands to the Besu command line.  |
 | **StorageService** | Allows plugins to register as a storage engine.  |
 

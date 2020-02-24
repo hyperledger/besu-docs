@@ -1,7 +1,8 @@
+---
 description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
 path: blob/master/config/src/main/resources/
 source: rinkeby.json
-<!--- END of page meta data -->
+---
 
 *[vanity data]: Signers can include anything they like as vanity data.
 

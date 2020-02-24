@@ -4209,15 +4209,15 @@ data using `eea_sendRawTransaction`.
 
 Invokes a private contract function locally and does not change the state of the blockchain.
 
-`priv_call` is the equivalent to `eth_call` for private contracts.
+For private contracts, `priv_call` is the equivalent to [`eth_call`](#eth_call).
 
 **Parameters**
 
-`data` - 32-byte `privacyGroupId`.
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
-`quantity|tag* - Integer representing a block number or one of the string tags `latest`, `earliest`, 
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
 or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 **Returns**

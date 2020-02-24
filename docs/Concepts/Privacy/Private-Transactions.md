@@ -1,5 +1,6 @@
+---
 description: Private transaction overview
-<!--- END of page meta data -->
+---
 
 # Private transactions
 

@@ -1,5 +1,6 @@
+---
 description: Private transaction processing
-<!--- END of page meta data -->
+---
 
 # Processing private transactions
 

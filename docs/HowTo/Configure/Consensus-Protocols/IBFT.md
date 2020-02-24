@@ -23,13 +23,12 @@ IBFT 2.0 requires four validators to be Byzantine fault tolerant. Byzantine faul
 ability for a blockchain network to function correctly and reach consensus despite nodes failing or
 propagating incorrect information to peers.
 
-
 ## Genesis file
 
 To use IBFT 2.0, Besu requires an IBFT 2.0 genesis file. The genesis file defines properties
 specific to IBFT 2.0.
 
-!!! example "Example IBFT 2.0 Genesis File"
+!!! example "Sample IBFT 2.0 Genesis File"
 
     ```json
       {
@@ -54,9 +53,9 @@ specific to IBFT 2.0.
 
 The properties specific to IBFT 2.0 are:
 
-* `blockperiodseconds` - Minimum block time in seconds.
-* `epochlength` - Number of blocks after which to reset all votes.
-* `requesttimeoutseconds` - Timeout for each consensus round before a round change.
+* `blockperiodseconds` - The minimum block time, in seconds.
+* `epochlength` - The number of blocks after which to reset all votes.
+* `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
 
 The properties with specific values in the IBFT 2.0 genesis files are:
@@ -128,15 +127,16 @@ blocks every `blockperiodseconds`.
 
 Optional configuration options in the IBFT 2.0 genesis file are:
 
-* `messageQueueLimit` - Default is 1000. In very large networks with limited resources, increasing
-  the message queue limit might help with message activity surges.
-* `duplicateMesageLimit` - Default is 100. If the same node is retransmitting messages, increasing
-  the duplicate message limit might reduce the number of retransmissions. A value of two to three
-  times the number of validators is usually enough.
-* `futureMessagesLimit` - Default is 1000. The future messages buffer holds IBFT 2.0 messages for a
-  future chain height. For large networks, increasing the future messages limit might be useful.
-* `futureMessagesMaxDistance` - Default is 10. Specifies the maximum height from the current chain
-  height for buffering messages in the future messages buffer.
+* `messageQueueLimit` - In large networks with limited resources, increasing the message queue
+  limit might help with message activity surges. The default is 1000.
+* `duplicateMesageLimit` - If the same node is retransmitting messages, increasing the duplicate
+  message limit might reduce the number of retransmissions. A value of two to three times the
+  number of validators is usually enough. The default is 100.
+* `futureMessagesLimit` - The future messages buffer holds IBFT 2.0 messages for a future chain
+  height. For large networks, increasing the future messages limit might be useful. The default is
+  1000.
+* `futureMessagesMaxDistance` - The maximum height from the current chain height for buffering
+  messages in the future messages buffer. The default is 10.
 
 ## Adding and removing validators
 
@@ -235,6 +235,7 @@ To add or remove validators without voting:
 
 1. Stop all nodes in the network.
 1. In the genesis file, add the `transitions` configuration item where:
+
     * `<BlockNumber>` is the upcoming block at which to change validators.
     * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
       of the validators after `<BlockNumber>`.

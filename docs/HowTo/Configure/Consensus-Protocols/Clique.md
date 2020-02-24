@@ -50,8 +50,8 @@ A Clique genesis file defines properties specific to Clique.
 
 The properties specific to Clique are:
 
-* `blockperiodseconds` - Block time in seconds.
-* `epochlength` - Number of blocks after which to reset all votes.
+* `blockperiodseconds` - The block time, in seconds.
+* `epochlength` - The number of blocks after which to reset all votes.
 * `extraData` - Vanity data takes up the first 32 bytes, followed by the initial signers.
 
 ### Extra data

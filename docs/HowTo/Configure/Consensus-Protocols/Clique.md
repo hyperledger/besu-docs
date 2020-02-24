@@ -22,7 +22,8 @@ genesis file in the `/besu/config/src/main/resources` directory.
 
 A Clique genesis file defines properties specific to Clique.
 
-!!! example "Example Clique Genesis File"
+!!! example "Sample Clique Genesis File"
+
     ```json
     {
       "config":{
@@ -115,13 +116,13 @@ proposed signer and `true`. A majority of signers must execute the call.
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
-    ``` 
+    ```
 
 When the signer creates the next block, the signer adds a vote to the block for the proposed
 signer.
 
-When more than half of the existing signers propose adding the signer and their votes are
-distributed in blocks, the signer can begin signing blocks.
+When more than half of the existing signers propose adding the signer, with their votes distributed
+in blocks, the signer can begin signing blocks.
 
 To return a list of signers and confirm the addition of a proposed signer, call
 [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
@@ -131,7 +132,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
     ```
- 
+
 To discard your proposal after confirming the addition of a signer, call
 [`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the
 proposed signer.
@@ -143,6 +144,7 @@ proposed signer.
     ```
 
 ### Removing a signer
+
 The process for removing a signer is the same as adding a signer except you specify `false` as the
 second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
 

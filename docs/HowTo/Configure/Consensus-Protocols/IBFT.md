@@ -3,7 +3,6 @@ description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protoc
 
 *[Vanity]: Validators can include anything they like as vanity data.
 *[RLP]: Recursive Length Prefix.
-*[Byzantine fault tolerant]: The ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.
 
 # IBFT 2.0
 
@@ -20,7 +19,10 @@ requires a majority vote (greater than 50%) of validators.
 
 ## Minimum number of validators
 
-IBFT 2.0 requires four validators to be Byzantine fault tolerant.
+IBFT 2.0 requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
+ability for a blockchain network to function correctly and reach consensus despite nodes failing or
+propagating incorrect information to peers.
+
 
 ## Genesis file
 
@@ -74,7 +76,6 @@ The `extraData` property is RLP encoded. RLP encoding is a space efficient objec
 scheme used in Ethereum. To generate the `extraData` RLP string for inclusion in the genesis file,
 use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
 
-
 !!! example
 
     ```bash
@@ -116,7 +117,7 @@ networks with geographically dispersed validators. Setting `blockperiodseconds` 
 block time and `requesttimeoutseconds` to two times `blockperiodseconds` usually results in adding
 blocks every `blockperiodseconds`.
 
-!!! example 
+!!! example
 
     An internal PegaSys IBFT 2.0 testnet has four geographically dispersed validators in Sweden,
     Sydney, and two in North Virginia. With a `blockperiodseconds`of 5 and a
@@ -144,14 +145,14 @@ conditions require it, [without voting](#adding-and-removing-validators-without-
 
 ### Adding and removing validators by voting
 
-To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface 
+To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface
 using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
 WebSockets interface using
 [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
 
 The IBFT API methods are not enabled by default. To enable them, specify the
-[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
+[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
 
 The JSON-RPC methods to add or remove validators are:
 
@@ -197,7 +198,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
     ```
- 
+
 To discard your proposal after confirming the addition of a validator, call
 [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardValidatorVote),
 specifying the address of the proposed validator.
@@ -228,13 +229,12 @@ file.
 Network conditions might not allow voting to change validators. For example, if a majority
 of the current validators are no longer participating in the network, so a vote to add or remove
 valiators will never be successful. You can bypass voting and specify new validators in the genesis
-file. 
+file.
 
 To add or remove validators without voting:
 
 1. Stop all nodes in the network.
 1. In the genesis file, add the `transitions` configuration item where:
-
     * `<BlockNumber>` is the upcoming block at which to change validators.
     * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
       of the validators after `<BlockNumber>`.
@@ -256,7 +256,7 @@ To add or remove validators without voting:
                  "block": <BlockNumber>,
                  "validators": [
                     <ValidatorAddressX>,
-                    ... 
+                    ...
                     <ValidatorAddressZ>
                  ]
                }

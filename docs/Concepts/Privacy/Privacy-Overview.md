@@ -13,8 +13,8 @@ Other participants cannot access the transaction content or list of participants
     [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
     * Orion must be [highly available and run in a separate instance to Besu](../../HowTo/Use-Privacy/Run-Orion-With-Besu.md).
     
-!!! important
-    Using private transactions with [pruning](../Pruning.md) is not supported.
+    Using private transactions with [pruning](../Pruning.md) or [fast sync](../../Reference/CLI/CLI-Syntax.md#sync-mode)
+    is not supported.
 
 ## Private Transaction Manager
 
@@ -33,3 +33,10 @@ node.
 
 !!! tip
     Private Transaction Managers are also known as Enclaves.
+
+## Reorg Compatible Privacy
+
+In v1.4, using private transactions in a network using a probabilistic consensus mechanism is an early 
+access feature. For example, Ropsten. 
+
+Do not use private transctions in production networks using a probabilistic consensus mechanism. 

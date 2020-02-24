@@ -8,3 +8,4 @@ MarkupSafe>=1.1
 mkdocs-markdownextradata-plugin==0.0.5
 mkdocs-exclude==1.0.2
 mkdocs-git-revision-date-plugin==0.1.5
+mkdocs-redirects==1.0.0

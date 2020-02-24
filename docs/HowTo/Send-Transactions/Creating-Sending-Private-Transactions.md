@@ -19,7 +19,7 @@ participants are offline when the private transaction is submitted, the transact
     
 !!! tip
     For private contracts, [`priv_call`](../../Reference/API-Methods.md#priv_call) is the equivalent 
-    of [eth_call](../../Reference/API-Methods.md#eth_call)
+    of [`eth_call`](../../Reference/API-Methods.md#eth_call).
 
 ## eea_sendRawTransaction 
 

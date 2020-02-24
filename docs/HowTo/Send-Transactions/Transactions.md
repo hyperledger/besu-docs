@@ -29,8 +29,8 @@ and create a smart contract.
 
 ## eth_call vs eth_sendRawTransaction
 
-You can interact with contracts using  
-or [eth_sendRawTransaction](../../Reference/API-Methods.md#eth_sendrawtransaction). 
+You can interact with contracts using [`eth_call`](../../Reference/API-Methods.md#eth_call) 
+or [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). 
 The table below compares the characteristics of both calls.
 
 | eth_call                                                | eth_sendRawTransaction                                                                                                         |

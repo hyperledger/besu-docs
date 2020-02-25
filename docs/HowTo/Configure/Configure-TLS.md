@@ -22,7 +22,7 @@ Allow clients (for example a dApp, curl, or EthSigner) to send and receive secur
 
 **Client Prerequisites**:
 
-* [Configure the client for TLS](https://docs.ethsigner.pegasys.tech/en/latest/HowTo/Configure-TLS/#server-tls-connection).
+* [Configure the client for TLS]
 * Client's PKCS #12 keystore information.
 
 ### Create the Known Clients File
@@ -86,7 +86,7 @@ Allow Besu to securely communicate with the server (Orion).
 
 **Server Prerequisites**:
 
-* [Configure the server to allow TLS communication](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/).
+* [Configure the server to allow TLS communication]
 * Server's certificate information.
 
 ### Create the Known Servers file
@@ -127,3 +127,8 @@ The command line:
   [`--privacy-tls-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-keystore-password-file) option.
 * Specifies the trusted servers using the
   [`--privacy-tls-known-enclave-file`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-known-enclave-file) option.
+
+<!-- Links -->
+[Configure the client for TLS]: https://docs.ethsigner.pegasys.tech/en/latest/HowTo/Configure-TLS/#server-tls-connection
+[Configure the server to allow TLS communication]: https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/
+

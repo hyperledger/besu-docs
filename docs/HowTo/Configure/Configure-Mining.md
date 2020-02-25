@@ -12,7 +12,7 @@ To enable CPU mining, start Hyperledger Besu with the following options:
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
 ```
 
-Where `<account>` is the account to which mining rewards are paid. For example,
+Where `<account>` is the account you pay mining rewards to. For example,
 `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
 Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#miner_start) and
@@ -29,7 +29,7 @@ To enable GPU mining, start Hyperledger Besu with the following options:
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>
 ```
 
-Where `<account>` is the account to which mining rewards are paid. For example,
+Where `<account>` is the account you pay mining rewards to. For example,
 `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
 Optional command line options are:

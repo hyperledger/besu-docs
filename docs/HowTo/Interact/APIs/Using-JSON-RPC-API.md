@@ -104,7 +104,8 @@ curl -v 'http://localhost:8545/liveness'
 The `ETH`, `NET`, and `WEB3` API methods are enabled by default. 
 
 Use the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) 
-options to enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, and `TXPOOL` API methods.
+options to enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, 
+and `TXPOOL` API methods.
 
 ## Block Parameter
 

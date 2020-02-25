@@ -4245,7 +4245,7 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
 
 ### priv_getEeaTransactionCount
 
-Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy).
+Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy).
 
 !!! important
     If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for
@@ -4427,7 +4427,7 @@ are A and B, a privacy group containing A, B, and C is not returned.
 
 **Returns**
 
-Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy)
+Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
 or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups

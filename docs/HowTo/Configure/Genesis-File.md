@@ -19,7 +19,7 @@ nodes in a network must use the same genesis file.
 
 !!! example
 
-    ```json 
+    ```json
     {
       "config": {
         "chainId": 2018,
@@ -40,7 +40,7 @@ nodes in a network must use the same genesis file.
       "alloc": {
         "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb": {
           "balance": "0xad78ebc5ac6200000"
-        } 
+        }
       }
     }
     ```

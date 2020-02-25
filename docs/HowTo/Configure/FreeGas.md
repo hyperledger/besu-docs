@@ -70,8 +70,8 @@ min-gas-price=0
 If using Truffle to develop on your free gas network, you also need to configure free gass in
 Truffle.
 
-Similar to setting block and contract size limits to their maximum values for Besu, set the
-transaction gas limit in Truffle to the maximum possible.
+Like setting block and contract size limits to their maximum values for Besu, set the transaction
+gas limit in Truffle to the maximum possible.
 
 !!! important
 

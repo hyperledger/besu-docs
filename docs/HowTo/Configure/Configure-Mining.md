@@ -12,7 +12,7 @@ To enable CPU mining, start Hyperledger Besu with the following options:
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
 ```
 
-Where `<account>` is the account to which mining rewards are to be paid. For example,
+Where `<account>` is the account to which mining rewards are paid. For example,
 `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
 Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#miner_start) and
@@ -20,8 +20,8 @@ Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#m
 
 ## Configure GPU mining
 
-Besu supports GPU mining and is tested using
-[Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` scheme.
+Besu supports GPU mining, tested using [Ethminer](https://github.com/ethereum-mining/ethminer) with
+the `stratum+tcp` scheme.
 
 To enable GPU mining, start Hyperledger Besu with the following options:
 
@@ -29,7 +29,7 @@ To enable GPU mining, start Hyperledger Besu with the following options:
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>
 ```
 
-Where `<account>` is the account to which mining rewards are to be paid. For example,
+Where `<account>` is the account to which mining rewards are paid. For example,
 `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
 Optional command line options are:
@@ -44,7 +44,7 @@ Optional command line options are:
     Besu also supports the `getwork` scheme. Use the
     [`--miner-stratum-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-enabled) option and
     [enable the `ETH` RPCs](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
-    
+
     The `getwork` scheme is supported as the `http` scheme in certain mining software.
 
 Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#miner_start) and
@@ -61,7 +61,7 @@ The JSON-RPC API methods for mining are:
 * [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per
   second with which the node is mining. Not supported for GPU mining.
 * [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block,
-  the seed hash, and the target boundary condition to be met. Only used when using the `getwork`
+  the seed hash, and the target boundary condition. Only used when using the `getwork`
   scheme.
 * [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
   Only used when using the `getwork` scheme.

@@ -5,8 +5,8 @@ Use the [Alethio Ethereum Lite Explorer](https://lite-explorer.aleth.io/) to exp
 data at the block, transaction, and account level.
 
 The Alethio Ethereum Lite Explorer is a web application that connects to any Ethereum
-JSON-RPC-enabled node. It does not require an online server, hosting, or trusting third parties to
-display the blockchain data.
+JSON-RPC-enabled node. The Explorer does not require an online server, hosting, or trusting third
+parties to display the blockchain data.
 
 ## Prerequisites
 

@@ -21,21 +21,8 @@ We recommend mounting a
 [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) command line option to pass the path
 to Besu.
 
-The default data location is the directory in which Besu is installed
-or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
-
-The default data location is the directory in which Besu is installed
-or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
-
-The default data location is the directory in which Besu is installed
-or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
-
-The default data location is the directory in which Besu is installed
-or `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
-
-Having some data reduces the time to synchronise a new node. Periodic backups can be performed of 
-the data directory and the data sent to your preferred backup mechanism. For example, cron job and 
-rsync, archives to cloud such as s3, or `tar.gz` archives. 
+The default data location is the Besu installation directory, or `/opt/besu/database` if using the
+[Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 Having some data reduces the time to synchronise a new node. You can perform periodic backups of
 the data directory and send the data to your preferred backup mechanism. For example, cron job and

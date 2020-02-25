@@ -9,15 +9,16 @@
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
+| Steven Gregg     | sgregglives      | sagregg          |
 | Grant Noble      | grantnoble       | grantnoble       |
 
 ## Emeritus Maintainers
 
 None.
 <!--
-| Name         | Github      | LFID    |
-|--------------|-------------|---------|
-| Steven Gregg | sgregglives | sagregg |
+| Name | Github | LFID |
+|------|--------|------|
+| null | null   | null |
 -->
 
 ## Becoming a Maintainer

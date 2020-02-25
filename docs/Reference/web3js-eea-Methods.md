@@ -100,7 +100,7 @@ Finds privacy groups containing only the specified members.
 
 ## generatePrivacyGroup
     
-Generates the privacy group ID for [EEA privacy](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy). 
+Generates the privacy group ID for [EEA privacy](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy). 
 The privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
     
 **Parameters**

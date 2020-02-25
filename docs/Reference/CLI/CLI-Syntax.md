@@ -745,15 +745,16 @@ Default is 1000.
 nat-method="UPNP"
 ```
 
-Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Using-UPnP.md). Options are: `UPNP` and `NONE`.
-The default is `NONE`, which disables NAT functionality.
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md). 
+Options are: [`UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip
     UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
 
 !!!notes
     * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-    * `--nat-method` cannot be used with the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+    * `--nat-method=DOCKER` must be specified when using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -1203,6 +1204,92 @@ Path to the [public key of the Orion node](../../Concepts/Privacy/Privacy-Overvi
 !!! important
     Cannot be used when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true` 
 
+### privacy-tls-enabled
+
+```bash tab="Syntax"
+--privacy-tls-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-tls-enabled=false
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_ENABLED=false
+```
+
+```bash tab="Configuration File"
+privacy-tls-enabled=false
+```
+
+Enables [TLS on communication with the Private Transaction Manager](../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager).
+
+The default is false.
+
+### privacy-tls-keystore-file
+
+```bash tab="Syntax"
+--privacy-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy--keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+privacy-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+Keystore file (in PKCS #12 format) that contains private key and the certificate
+presented during authentication.  
+
+Must be specified if [`--privacy-tls-enabled`](#privacy-tls-enabled) is `true`.
+
+### privacy-tls-keystore-password-file
+
+```bash tab="Syntax"
+--privacy-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy-tls-keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+privacy-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+Path to a file that contains the password to decrypt the keystore.
+
+### privacy-tls-known-enclave-file
+
+```bash tab="Syntax"
+--privacy-tls-known-enclave-file=<FILE>
+```
+
+```bash tab="Command Line"
+--privacy-tls-known-enclave-file=/home/me/me_node/knownEnclave
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
+```
+
+```bash tab="Configuration File"
+privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
+```
+
+Path to a file containing the hostnames, ports, and SHA256 certificate fingerprints
+of the [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
+
 ### privacy-url
 
 ```bash tab="Syntax"
@@ -1361,7 +1448,8 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on the HTTP JSON-RPC channel.
 When you use this option, the `--rpc-http-enabled` option must also be specified.
-The available API options are: `ADMIN`, `ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`, `ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, 
+`MINER`, `EEA`, `PRIV`, `PLUGINS`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -1540,6 +1628,133 @@ rpc-http-port="3435"
 Specifies HTTP JSON-RPC listening port (TCP).
 The default is 8545. Ports must be [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md). 
 
+### rpc-http-tls-ca-clients-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-ca-clients-enabled[=<true|false>]
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-ca-clients-enabled=true
+```
+
+Allows clients with trusted CA certificates to connect. Defaults to `false`.
+
+!!! note
+    Client authentication must be enabled using [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled).
+
+### rpc-http-tls-client-auth-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-client-auth-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_CLIENT_AUTH_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-client-auth-enabled=true
+```
+
+Enables TLS client authentication for the JSON-RPC HTTP service. Defaults to
+`false`.
+
+!!! note
+    [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file) must be specified.
+
+### rpc-http-tls-enabled
+
+```bash tab="Syntax"
+--rpc-http-tls-enabled
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-enabled=true
+```
+
+Enable TLS for the JSON-RPC HTTP service. Defaults to `false`.
+
+!!! note
+    [`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
+
+
+### rpc-http-tls-keystore-file
+
+```bash tab="Syntax"
+--rpc-http-tls-keystore-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-keystore-file=/home/me/me_node/keystore.pfx
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
+```
+
+Keystore file (in PKCS #12 format) that contains private key and the certificate
+presented to the client during authentication. 
+
+### rpc-http-tls-keystore-password-file
+
+```bash tab="Syntax"
+--rpc-http-tls-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-keystore-password-file=/home/me/me_node/password
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+Path to a file that contains the password to decrypt the keystore.
+
+### rpc-http-tls-known-clients-file
+
+```bash tab="Syntax"
+--rpc-http-tls-known-clients-file=<FILE>
+```
+
+```bash tab="Command Line"
+--rpc-http-tls-known-clients-file=/home/me/me_node/knownClients
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
+```
+
+```bash tab="Configuration File"
+rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
+```
+
+Used to [authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) that use self-signed certificates or non-public
+certificates.
+
+Must contain the certificates's Common Name, and SHA-256 fingerprint in the
+format `<CommonName> <hex-string>`.
+
+!!! note
+    Client authentication must be enabled using [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled).
+
 ### rpc-ws-api
 
 ```bash tab="Syntax"
@@ -1560,7 +1775,8 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 Comma-separated APIs to enable on WebSockets channel.
 When you use this option, the `--rpc-ws-enabled` option must also be specified.
-The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, and `TXPOOL`.
+The available API options are: `ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, 
+`MINER`, `EEA`, `PRIV`, `PLUGINS`, and `TXPOOL`.
 The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

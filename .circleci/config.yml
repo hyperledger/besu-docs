@@ -10,6 +10,10 @@ executors:
   shell_executor:
     docker:
       - image: circleci/buildpack-deps:buster-scm
+  ruby_executor:
+    docker:
+      - image: circleci/ruby:2-stretch
+
 jobs:
   dco:
     executor: shell_executor
@@ -61,18 +65,17 @@ jobs:
     executor: python_executor
     steps:
       - checkout
-      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: |
+            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v1.7.1
       - run:
           name: Run Vale
           command: |
-            # create a dummy container which will hold a volume with data
-            docker create -v /doc --name docVol alpine:3.4 /bin/true
-            # copy files into this volume
-            docker cp ./ docVol:/doc
-            docker run --rm --volumes-from docVol jdkato/vale --config /doc/.vale.ini --glob='*.{md}' . > vale.out
+            ./bin/vale --config ./CI/vale_styles/.vale.ini --glob='*.{md}' . | tee ./vale.out
       - store_artifacts:
           path: ./vale.out
-          destination: vale.out
+          destination: ./vale.out
 
   linkchecker:
     executor: node_executor
@@ -101,21 +104,28 @@ jobs:
           destination: linkchecker.out
 
   markdownlint:
-    executor: python_executor
+    executor: ruby_executor
     steps:
       - checkout
-      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: |
+            gem install mdl
+      - run:
+          shell: /bin/bash #this is a non breaking command so it will always return success
+          name: Run Markdownlint info checks
+          command: |
+            mdl --ignore-front-matter --style ./CI/markdownlint/info_style.rb . | tee ./markdownlint_info.out
       - run:
           name: Run Markdownlint
           command: |
-            # create a dummy container which will hold a volume with data
-            docker create -v /doc --name docVol alpine:3.4 /bin/true
-            # copy files into this volume
-            docker cp ./ docVol:/doc
-            docker run --rm --volumes-from docVol -w /doc pipelinecomponents/markdownlint mdl --style all . > markdownlint.out
+            mdl --ignore-front-matter --style ./CI/markdownlint/style.rb . | tee ./markdownlint.out
       - store_artifacts:
           path: ./markdownlint.out
-          destination: markdownlint.out
+          destination: ./markdownlint.out
+      - store_artifacts:
+          path: ./markdownlint_info.out
+          destination: ./markdownlint_info.out
 
 workflows:
   version: 2
@@ -125,4 +135,14 @@ workflows:
       - build
       - vale
       - markdownlint
+      - linkchecker
+  nightly:
+    triggers:
+      - schedule: # GMT
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
       - linkchecker

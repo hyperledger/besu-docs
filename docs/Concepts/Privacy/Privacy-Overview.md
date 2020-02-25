@@ -36,7 +36,8 @@ node.
 
 ## Reorg Compatible Privacy
 
-In v1.4, using private transactions in a network using a probabilistic consensus mechanism is an early 
-access feature. For example, Ropsten. 
+In v1.4, using private transactions in a network using a consensus mechanism 
+where forks occur (that is, PoW or Clique) is an early access feature. For example, using private
+transactions on Ropsten. 
 
-Do not use private transctions in production networks using a probabilistic consensus mechanism. 
+Do not use private transctions in production networks using consensus mechanisms that fork.  

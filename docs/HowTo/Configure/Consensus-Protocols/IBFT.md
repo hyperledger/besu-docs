@@ -10,7 +10,7 @@ description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protoc
 Besu implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. Private networks can use
 IBFT 2.0.
 
-In IBFT 2.0 networks, approved accounts, known as validatoris, validate transactions and blocks.
+In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
 
@@ -108,8 +108,8 @@ the block time and timeout timers reset. The timeout period for the new round is
 `requesttimeoutseconds`. The timeout period continues to double each time a round fails to add a
 block.
 
-Usually, the protocol adds the proposed block before reaching `requesttimeoutseconds`. This causes
-a new round to start, and resets the block time and round timeout timers. When `blockperiodseconds`
+Usually, the protocol adds the proposed block before reaching `requesttimeoutseconds`. A new round
+then starts, resetting the block time and round timeout timers. When `blockperiodseconds`
 expires, the protocol proposes the next new block.
 
 The time from proposing a block to adding the block is small (approximately one second) even in

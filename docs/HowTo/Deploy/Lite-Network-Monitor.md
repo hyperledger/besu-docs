@@ -62,8 +62,8 @@ EthStats Lite consists of a:
 
 !!! important
 
-    This example describes how to run EthStats Lite for a single Besu node. Running EthStats Lite
-    for a network requires starting a [client](#3-client) for each node in the network.
+    This example describes how to run EthStats Lite for a single Besu node. For a network, run one
+    dedicated [EthStats Lite client](#3-client) for each node on the network.
 
 ### 1. Server
 

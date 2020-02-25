@@ -112,12 +112,20 @@ jobs:
           command: |
             gem install mdl
       - run:
+          shell: /bin/bash #this is a non breaking command so it will always return success
+          name: Run Markdownlint info checks
+          command: |
+            mdl --ignore-front-matter --style ./CI/markdownlint/info_style.rb . | tee ./markdownlint_info.out
+      - run:
           name: Run Markdownlint
           command: |
             mdl --ignore-front-matter --style ./CI/markdownlint/style.rb . | tee ./markdownlint.out
       - store_artifacts:
           path: ./markdownlint.out
           destination: ./markdownlint.out
+      - store_artifacts:
+          path: ./markdownlint_info.out
+          destination: ./markdownlint_info.out
 
 workflows:
   version: 2

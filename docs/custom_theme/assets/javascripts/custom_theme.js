@@ -12,7 +12,7 @@ function displayLatestWarning(){
 }
 
 function makeImagesZoomable(){
-  $('img').each(function (index, value){
+  $(':not(a) > img').each(function (index, value){
     $(this).zoomify();
   });
 }

@@ -1,5 +1,6 @@
+---
 description: Configuring free gas networks
-<!--- END of page meta data -->
+---
 
 # Free gas networks
 

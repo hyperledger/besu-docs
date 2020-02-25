@@ -1,5 +1,6 @@
+---
 description: Predeploying contracts in the genesis file
-<!--- END of page meta data -->
+---
 
 # Predeploying contracts in the genesis file
 

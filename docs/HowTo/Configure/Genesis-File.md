@@ -1,5 +1,6 @@
+---
 description: Configuring a network using the genesis file
-<!--- END of page meta data -->
+---
 
 # Creating the Hyperledger Besu genesis file
 

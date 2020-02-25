@@ -1,5 +1,6 @@
+---
 description: Using the Hyperledger Besu configuration file
-<!--- END of page meta data -->
+---
 
 # Using the Hyperledger Besu configuration file
 

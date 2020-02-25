@@ -1,5 +1,6 @@
+---
 description: Using Hyperledger Besu for PoW CPU mining
-<!--- END of page meta data -->
+---
 
 # Mining
 
@@ -34,9 +35,9 @@ Where `<account>` is the account to which mining rewards are to be paid. For exa
 Optional command line options are:
 
 * [`--miner-stratum-host`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-host) to specify the
-host of the mining service.
+  host of the mining service.
 * [`--miner-stratum-port`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-port) to specify the
-port of the mining service.
+  port of the mining service.
 
 !!! note
 
@@ -56,11 +57,11 @@ The JSON-RPC API methods for mining are:
 * [`miner_start`](../../Reference/API-Methods.md#miner_start) to start mining.
 * [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining.
 * [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is
-actively mining new blocks.
+  actively mining new blocks.
 * [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per
-second with which the node is mining. Not supported for GPU mining.
+  second with which the node is mining. Not supported for GPU mining.
 * [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block,
-the seed hash, and the target boundary condition to be met. Only used when using the `getwork`
-scheme.
+  the seed hash, and the target boundary condition to be met. Only used when using the `getwork`
+  scheme.
 * [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
-Only used when using the `getwork` scheme.
+  Only used when using the `getwork` scheme.

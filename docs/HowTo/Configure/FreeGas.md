@@ -1,54 +1,61 @@
-description: Configuring Free Gas Networks 
-<!--- END of page meta data -->
+---
+description: Configuring free gas networks
+---
 
-# Free Gas Networks 
+# Free gas networks
 
-Transactions use computational resources so have an associated cost. Gas is the cost unit and the gas 
-price is the price per gas unit. The transaction cost is the gas used * gas price. 
+Transactions use computational resources so have an associated cost. Gas is the cost unit and the
+gas price is the price per gas unit. The transaction cost is the gas used * gas price.
 
-In public networks, the transaction cost is paid in Ether by the account submitting the transaction.
-The transaction cost is paid to the miner (or validator in PoA networks) that includes the transaction in a block.  
+In public networks, the account submitting the transaction pays the transaction cost, in Ether.
+The miner (or validator in PoA networks) that includes the transaction in a block receives
+transaction cost.
 
-In many private networks, the validators are run by the network participants and do not require gas as an 
-incentive to participate.  Generally, networks that do not require gas as an incentive, configure the gas price to be 0 (that is, make gas free). 
-Some private networks may allocate Ether and use a non-zero gas price to limit resource use.  
+In many private networks, network participants run the validators and do not require gas as an
+incentive. Networks no require gas as an incentive usually configure the gas price to be zero (that
+is, make the gas free). Some private networks might allocate Ether and use a non-zero gas price to
+limit resource use.
 
 !!! tip
-    We are using the term _free gas network_ to refer to a network where the gas price is set to zero. 
-    A network with gas price of zero is also known as a _zero gas network_ or _no gas network_. 
 
-In a free gas network, transactions still use gas but the gas price is 0 meaning the transaction cost is 0:
+    We use the term _free gas network_ to refer to a network with a gas price of zero. A network
+    with a gas price of zero is also known as a _zero gas network_ or _no gas network_.
 
-Transaction cost = gas used * 0 (gas price)    
+In a free gas network, transactions still use gas but the gas price is zero, meaning the
+transaction cost is zero. Transaction cost = gas used * 0 (the gas price).
 
-## Configuring Hyperledger Besu for Free Gas 
+## Configuring free gas in Hyperledger Besu
 
-When gas is free, limiting block and contract sizes is less important. In free gas networks, we increase the 
-block size limit and set the contract size limit to the maximum value.   
+When gas is free, limiting block and contract sizes is less important. In free gas networks, we
+increase the block size limit and set the contract size limit to the maximum value.
 
-### 1. Set Block Size 
+### 1. Set the block size
 
-If you want to remove gas from consideration and don't mind blocks potentially taking longer 
-to be created, set the block size limit (measured in gas) in the genesis file to the maximum accepted by Truffle (`0x1fffffffffffff`): 
+If you want to remove gas from consideration and don't mind blocks potentially taking longer to
+create, in the genesis file set the block size limit (measured in gas) to the maximum accepted by
+Truffle (`0x1fffffffffffff`).
 
 ```json
 "gasLimit": "0x1fffffffffffff"
 ```
 
-If you are more concerned about blocks arriving on time and don't have very expensive individual transactions, set the 
-`gasLimit` to a value closer to the amount of gas your validators can process in the configured block time.
+If you are more concerned about blocks arriving on time and don't have expensive individual
+transactions, set `gasLimit` to a value closer to the amount of gas your validators can process in
+the configured block time.
 
-### 2. Set Contract Size 
+### 2. Set the contract size
 
-Set the contract size limit to the maximum supported size (in bytes) in the `config` section of the genesis file:
+In the `config` section of the genesis file set the contract size limit to the maximum supported
+size (in bytes).
 
 ```json
 "contractSizeLimit": 2147483647
 ```
 
-### 3. Start Besu with Minimum Gas Price of 0 
+### 3. Start Besu with a minimum gas price of zero
 
-When starting nodes, set the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price) to 0: 
+When starting nodes, set the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price)
+to zero.
 
 ```bash tab="Command Line"
 --min-gas-price=0
@@ -58,30 +65,31 @@ When starting nodes, set the [minimum gas price](../../Reference/CLI/CLI-Syntax.
 min-gas-price=0
 ```
 
-## Configuring Truffle for Free Gas 
+## Configuring free gas in Truffle
 
-If using Truffle to develop on your free gas network, you also need to configure Truffle for free gas.
+If using Truffle to develop on your free gas network, you also need to configure free gass in
+Truffle.
 
-Similar to setting block and contract size limits to their maximum values for Besu, we set the 
-transaction gas limit in Truffle to the maximum possible. 
+Like setting block and contract size limits to their maximum values for Besu, set the transaction
+gas limit in Truffle to the maximum possible.
 
 !!! important
-    Besu does not implement private key management. To use Besu with Truffle, you must configure 
-    a [Truffle wallet](../Develop-Dapps/Truffle.md).
 
+    Besu does not support private key management. To use Besu with Truffle, you must configure
+    a [Truffle wallet](../Develop-Dapps/Truffle.md).
 
 ### Update truffle-config.js
 
-Update the `truffle-config.js` file: 
+Update the `truffle-config.js` file:
 
-1. Set the gas price to 0: 
+1. Set the gas price to zero.
 
     ```js
     gasPrice:0
     ```
 
-1. Set the gas limit for a transaction (that is, contract creation) to be the block gas limit - 1
+1. Set the gas limit for a transaction (that is, contract creation) to be the block gas limit - 1.
 
     ```js
     gas: "0x1ffffffffffffe"
-    ``` 
+    ```

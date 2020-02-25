@@ -28,10 +28,10 @@ determine when a node is ready.
 
 ## Transaction nonces
 
-Retrieve the nonce for the next transaction using
+Besu obtains the nonce for the next transaction using
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). The nonce
 depends on the transactions in the
-[transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If you send
+[transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If sending
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and
 [`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a
 specific account to multiple nodes, the

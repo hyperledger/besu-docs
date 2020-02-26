@@ -1686,7 +1686,7 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 Invokes a contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction).
+You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-vs-eth_sendrawtransaction).
 
 **Parameters**
 
@@ -3106,6 +3106,8 @@ If the boolean value is `true`, the proposal is to add a signer. If `false`, the
 !!! note
     The `DEBUG` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `DEBUG` API methods.
+    
+    The DEBUG API is an more verbose alternative to the [TRACE API](#trace-methods). 
 
 ### debug_accountRange
 
@@ -3828,7 +3830,6 @@ parameter to the latest block.
     }
     ```
 
-
 ## Permissioning Methods
 
 The permissioning API methods are used for [local](../HowTo/Limit-Access/Local-Permissioning.md) permissioning only.
@@ -4145,6 +4146,116 @@ None
     }
     ```
 
+## Trace Methods
+
+!!! note
+    The `TRACE` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
+    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `TRACE` API methods.
+    
+    The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
+
+### trace_replayBlockTransactions
+
+Provides transaction processing tracing.
+
+!!! important 
+    Your node must be an archive node (that is, synchronised without pruning or fast sync)
+    or the requested block must be within the last 1024 blocks. 
+
+**Parameters**
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
+or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+`array of strings` - Tracing options are [`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). 
+Specify any combination of the three options including none of them.   
+
+**Returns**
+
+`result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing one object 
+per transaction in the order the transactions were executed. 
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result":[ 
+          { 
+            "output":"0x",
+            "vmTrace":{
+              "code":"0x7f3940be4289e4c3587d88c1856cc95352461992db0a584c281226faefe560b3016000527f14c4d2c102bdeb2354bfc3dc96a95e4512cf3a8461e0560e2272dbf884ef3905601052600851",
+              "ops":[ 
+                { 
+                  "cost":3,
+                  "ex":{ 
+                    "mem":null,
+                    "push":[ 
+                      "0x8"
+                    ],
+                    "store":null,
+                    "used":16756175
+                  },
+                  "pc":72,
+                  "sub":null
+                },
+                ...
+              ]
+            },
+            "trace":[ 
+              { 
+                "action":{ 
+                  "callType":"call",
+                  "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas":"0xffadea",
+                  "input":"0x",
+                  "to":"0x0100000000000000000000000000000000000000",
+                  "value":"0x0"
+                },
+                "result":{ 
+                  "gasUsed":"0x1e",
+                  "output":"0x"
+                },
+                "subtraces":0,
+                "traceAddress":[      
+                ],
+                "type":"call"
+              }
+            ],
+            "stateDiff":{
+              "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{ 
+                "balance":{ 
+                  "*":{ 
+                    "from":"0xffffffffffffffffffffffffffffffffc3e12a20b",
+                    "to":"0xffffffffffffffffffffffffffffffffc3dc5f091"
+                  }
+                },
+                "code":"=",
+                "nonce":{ 
+                  "*":{ 
+                    "from":"0x14",
+                    "to":"0x15"
+                  }
+                },
+                "storage":{              
+                }
+              }
+            },
+            "transactionHash":"0x2a5079cc535c429f668f13a7fb9a28bdba6831b5462bd04f781777b332a8fcbd",
+          },
+          {...}
+        ]
+    }
+    ```
+
 ## EEA Methods
 
 !!! note
@@ -4166,6 +4277,9 @@ data using `eea_sendRawTransaction`.
 !!! important
     For production systems requiring private transactions, we recommend using a network
     with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    
+    Using private transactions with [pruning](../Concepts/Pruning.md) or [fast sync](CLI/CLI-Syntax.md#sync-mode)
+    is not supported.
 
     Besu does not implement [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
@@ -4207,6 +4321,72 @@ data using `eea_sendRawTransaction`.
 !!! note
     The `PRIV` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
     or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PRIV` API methods.
+
+### priv_call
+
+Invokes a private contract function locally and does not change the privacy group state.
+
+For private contracts, `priv_call` is the equivalent to [`eth_call`](#eth_call).
+
+**Parameters**
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`object` - [Transaction call object](API-Objects.md#transaction-call-object).
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
+or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+**Returns**
+
+`result` : `data` - Return value of the executed contract.
+
+!!! example
+    ```bash tab="curl HTTP"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS"
+    {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
+    }
+    ```
+
+    ```bash tab="curl GraphQL"
+    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
+    ```
+
+    ```bash tab="GraphQL"
+    {
+      block {
+        number
+        call(data: {from: "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", to: "0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13", data: "0x12a7b914"}) {
+          data
+          status
+        }
+      }
+    }
+    ```
+
+    ```json tab="GraphQL result"
+    {
+      "data" : {
+        "block" : {
+          "number" : 17449,
+          "call" : {
+            "data" : "0x",
+            "status" : 1
+          }
+        }
+      }
+    }
+    ```
 
 ### priv_distributeRawTransaction
 

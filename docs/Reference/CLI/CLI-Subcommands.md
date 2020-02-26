@@ -115,13 +115,16 @@ second is the `blockchain` property defining the number of key pairs to generate
 
 ### generate-log-bloom-cache
 
+!!! tip 
+    Manually executing `generate-log-bloom-cache` is not required unless the 
+    [`--auto-log-bloom-caching-enabled`](CLI-Syntax.md#auto-log-bloom-caching-enabled) command line 
+    option has been set to false.  
+
 Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log
 query performance.
 
 !!! note
     Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
-
-Must be manually executed to add new blocks to the indexes.
 
 The [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API can be used to generate cached log
 bloom indexes while the node is running.

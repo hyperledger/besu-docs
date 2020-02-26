@@ -67,6 +67,7 @@ nav:
           - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
+          - Configure TLS: HowTo/Configure/Configure-TLS.md
           - High Availability:
             - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
             - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
@@ -89,7 +90,7 @@ nav:
           - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
-          - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
+          - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
           - Configure Logging: HowTo/Monitor/Logging.md
@@ -149,6 +150,7 @@ nav:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Client Libraries: Concepts/Client-Libraries.md
+        - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
@@ -166,6 +168,7 @@ nav:
           - Transaction Trace Types: Concepts/Transactions/Trace-Types.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
+        - TLS Communication: Concepts/TLS.md
         - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
@@ -179,6 +182,7 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Genesis File Items: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
+        - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
@@ -217,3 +221,13 @@ plugins:
         glob:
           - global/*
     - git-revision-date
+    - redirects:
+        redirect_maps:
+          # Configure redirects using key:value pairs:
+          # old_path.md: new_path.md
+          # you can't use an already redirected path as an old_path.
+          # new_path can be a file inside the docs/ folder or any URL (http://...)
+          HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
+          HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
+          HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
+          HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md

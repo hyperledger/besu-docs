@@ -87,7 +87,8 @@ node create_value_raw_transaction.js http://localhost:8545
 
 A signed raw transaction string displays.
 
-You can send the raw transaction yourself or let the script send it using the web3.js library.
+You can send the raw transaction yourself or let the script send it using the web3.js client
+library.
 
 If sending the transaction yourself, the curl command displays, which you can copy and paste.
 Otherwise, the script sends the transaction and the transaction receipt displays.
@@ -122,7 +123,8 @@ node create_contract_raw_transaction.js http://localhost:8545
 
 A signed raw transaction string displays.
 
-You can send the raw transaction yourself or let the script send it using the web3.js library.
+You can send the raw transaction yourself or let the script send it using the web3.js client
+library.
 
 If sending the transaction yourself, the curl command displays, which you can copy and paste.
 Otherwise, the script sends the transaction and the transaction receipt displays.

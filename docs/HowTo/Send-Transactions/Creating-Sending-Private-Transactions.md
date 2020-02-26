@@ -97,7 +97,7 @@ the nonce for an account for the specified privacy group.
     
 ## EEA-compliant or Besu-extended Privacy 
 
-To create an [EEA-compliant private transaction](../../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy), 
+To create an [EEA-compliant private transaction](../../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy), 
 specify `privateFor` when creating the signed transaction 
 passed as an input parameter to [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 

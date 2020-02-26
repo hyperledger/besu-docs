@@ -176,8 +176,8 @@ Properties of the node object are:
 
 !!! note
     If the node is running locally, the host of the `enode` and `listenAddr` are displayed as `[::]` in the result.
-    If [UPnP](../HowTo/Find-and-Connect/Using-UPnP.md) is enabled, the external address is
-    displayed for the `enode` and `listenAddr`.
+    When advertising externally, the external address displayed for the `enode` and `listenAddr` is 
+    defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
 
 !!! example
     ```bash tab="curl HTTP request"
@@ -4163,6 +4163,9 @@ data using `eea_sendRawTransaction`.
 !!! important
     For production systems requiring private transactions, we recommend using a network
     with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    
+    Using private transactions with [pruning](../Concepts/Pruning.md) or [fast sync](CLI/CLI-Syntax.md#sync-mode)
+    is not supported.
 
     Besu does not implement [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
@@ -4308,7 +4311,7 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
 
 ### priv_getEeaTransactionCount
 
-Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy).
+Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy).
 
 !!! important
     If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for
@@ -4490,7 +4493,7 @@ are A and B, a privacy group containing A, B, and C is not returned.
 
 **Returns**
 
-Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy)
+Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
 or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups
@@ -4599,6 +4602,41 @@ Returns information about the private transaction after the transaction was mine
             "status": "0x1",
             "logs": []
         }
+    }
+    ```
+    
+## Plugins Methods 
+
+!!! note
+    The `PLUGINS` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
+    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PLUGINS` API methods.
+
+### plugins_reloadPluginConfig
+
+Reloads specified plugin configuration. 
+
+**Parameters**
+
+`string` - Plugin 
+
+**Returns**
+
+`string` - `Success` 
+
+!!! example
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "Success"
     }
     ```
 

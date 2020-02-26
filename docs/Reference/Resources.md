@@ -17,6 +17,8 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 
 ## Webinars 
 
+[Besu Plugin API: Learn How to Leverage Plugin APIs on Hyperledger Besu](https://youtu.be/78sa2WuA1rg)
+
 [Permissioning in Blockchain: A Technical Look at Benefits and Best Practices](https://www.youtube.com/watch?v=CD0pHtNDqZs)
 
 [Privacy in Besu: How PegaSys Redefined Blockchain for Enterprises](https://www.youtube.com/watch?v=8l7SSZLyFL8)

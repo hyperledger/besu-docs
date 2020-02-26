@@ -19,7 +19,7 @@ any unconnected static node.
     nodes are always connected (using static nodes).
 
     To find peers, configure one or more [bootnodes](Bootnodes.md). To configure a specific set of
-	peer connections, use static nodes, as described below.
+    peer connections, use static nodes, as described below.
 
 ## Configure static nodes
 
@@ -42,7 +42,7 @@ To update the list of static peers at run time, use the
 
     Runtime modifications of static nodes are not persisted between runs. The `static-nodes.json`
     file is not updated by the `admin_addPeer` and `admin_removePeer` methods.
-    
+
     Nodes not in the list of the static nodes are not prevented from connecting. To prevent nodes
     from connecting, use [Permissioning](../../Concepts/Permissioning/Permissioning-Overview.md).
 
@@ -52,7 +52,7 @@ To update the list of static peers at run time, use the
     [`admin_peers`](../../Reference/API-Methods.md#admin_peers)), check the the supplied
     [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, and the
     node is listening for TCP connections on the endpoint.
-    
+
 ### static-nodes.json file
 
 The `static-nodes.json` file must be in the data directory (specified by

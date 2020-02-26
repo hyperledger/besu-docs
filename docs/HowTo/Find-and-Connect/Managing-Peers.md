@@ -3,12 +3,12 @@ description: Managing Hyperledger Besu peers
 ---
 
 # Managing peers
- 
+
 ## Limiting peers
 
 Limiting peers reduces the bandwidth used by Hyperledger Besu. Limiting peers also reduces the CPU
 time and disk access used to manage and respond to peers.
- 
+
 To reduce the maximum number of peers, use the
 [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers) option. The default is 25.
 
@@ -34,7 +34,7 @@ JSON-RPC API methods to monitor peer connections include:
 
 The default logging configuration does not list node connection and disconnection messages.
 
-To enable listing of node connection and disconnection messages, specify the 
+To enable listing of node connection and disconnection messages, specify the
 [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option `--logging=DEBUG`. For more
 verbosity, specify `--logging=TRACE`.
 

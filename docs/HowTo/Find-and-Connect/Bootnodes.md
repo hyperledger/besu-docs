@@ -13,7 +13,7 @@ to discover other nodes.
     you can use only bootnodes, only static nodes, or both bootnodes and statics nodes. For
     example, you run multiple nodes on MainNet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
-    
+
     To find peers, configure one or more bootnodes as described below. To configure a specific set
     of peer connections, use [static nodes](Static-Nodes.md).
 
@@ -25,7 +25,7 @@ enode URLs.
 ## Private networks
 
 In private networks for development or testing purposes, specify at least one bootnode.
- 
+
 In production networks, [configure two or more nodes as bootnodes](../Deploy/Bootnodes.md).
 
 ### Specify a bootnode

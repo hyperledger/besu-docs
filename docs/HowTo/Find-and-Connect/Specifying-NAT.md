@@ -48,7 +48,7 @@ By specifying `MANUAL`:
 ## Docker
 
 Specify `DOCKER` to explicitly specify Hyperledger Besu is running inside a Docker container. If
-you specify `DOCKER`, the host IP address is advertised not the container IP address.
+you specify `DOCKER`, you advertise the host IP address not the container IP address.
 
 The host IP is the advertised host specified in the
 [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
@@ -64,9 +64,9 @@ Docker container, `AUTO` acts as if you specified [`NONE`](#none).
 
 ## None
 
-Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is `NONE` and you
-specified the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host),
+Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is `NONE`, Besu
+ignores any values specified in the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host),
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port),
 [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host), and
-[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) options, these values are
-ignored in the advertised addresses, with the default values advertised instead.
+[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) options, with the default
+values advertised instead.

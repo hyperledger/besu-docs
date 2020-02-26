@@ -41,5 +41,5 @@ Adding new bootnodes is a similar process to creating bootnodes. Once the bootno
 update the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) command line option for each node to include the new bootnodes. 
 
 When bootnodes are added, running nodes don’t need to be restarted. Updating the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes)
-option means the next time they are restarted (for example, when [upgrading](../Upgrade/Upgrade-Network.md)), 
+option means the next time they are restarted (for example, when [upgrading](../Upgrade/Upgrade-Node.md)), 
 the node connects to the new bootnodes.  

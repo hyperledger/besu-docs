@@ -29,7 +29,7 @@ extra:
     chat: https://chat.hyperledger.org/channel/besu
     email: besu@lists.hyperledger.org
     website: https://www.hyperledger.org/projects/besu
-    issues: https://pegasys1.atlassian.net/secure/Dashboard.jspa?selectPageId=10000
+    issues: https://jira.hyperledger.org/projects/BESU/issues
   google:
     site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'
@@ -67,6 +67,7 @@ nav:
           - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
+          - Configure TLS: HowTo/Configure/Configure-TLS.md
           - High Availability:
             - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
             - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
@@ -89,7 +90,7 @@ nav:
           - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
-          - Use UPnP: HowTo/Find-and-Connect/Using-UPnP.md
+          - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
           - Configure Logging: HowTo/Monitor/Logging.md
@@ -119,17 +120,18 @@ nav:
           - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
           - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
-        - Upgrade Network: HowTo/Upgrade/Upgrade-Network.md
+        - Upgrade:
+          - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md
+          - Upgrade Protocol: HowTo/Upgrade/Upgrade-Protocol.md
         - Develop Dapps on Besu:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
-      - Quickstarts:
-        - Private Network Quickstart: Tutorials/Quickstarts/Private-Network-Quickstart.md
-        - Private Network Quickstart for Private Transactions: Tutorials/Quickstarts/Privacy-Quickstart.md
-        - Private Network Quickstart On Azure: Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md
+      - Examples:
+        - Private Network Example: Tutorials/Examples/Private-Network-Example.md
+        - Private Network Example for Private Transactions: Tutorials/Examples/Privacy-Example.md
       - Create a Private Network:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
@@ -139,6 +141,7 @@ nav:
         - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
       - Privacy:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
+        - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3.js-eea Multinode Example: Tutorials/Privacy/eeajs-Multinode-example.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
@@ -152,15 +155,18 @@ nav:
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
+          - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+        - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
-          - Vadidating Transactions: Concepts/Transactions/Transaction-Validation.md
+          - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
+        - TLS Communication: Concepts/TLS.md
         - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
@@ -211,7 +217,15 @@ plugins:
     - markdownextradata
     - exclude:
         glob:
-          - development/*
-          - community/*
           - global/*
     - git-revision-date
+    - redirects:
+        redirect_maps:
+          # Configure redirects using key:value pairs:
+          # old_path.md: new_path.md
+          # you can't use an already redirected path as an old_path.
+          # new_path can be a file inside the docs/ folder or any URL (http://...)
+          HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
+          HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
+          HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
+          HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md

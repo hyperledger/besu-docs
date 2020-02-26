@@ -16,7 +16,7 @@ Use this Docker image to run a single Besu node without installing Besu.
     !!! important 
         The Docker image does not run on Windows. 
 
-## Quickstart
+## Default Node for Mainnet
 
 To run a Besu node in a container connected to the Ethereum mainnet: 
 
@@ -56,8 +56,12 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     Do not mount a volume at the default data path (`/opt/besu`). Mounting a volume at the default 
     data path interferes with the operation of Besu and prevents Besu from safely launching. 
     
-    To run a node that maintains the node state (key and database), [`--data-path`] must be set to a location
-    other than `/opt/besu` and a storage volume mounted at that location]. 
+    To run a node that maintains the node state (key and database), [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) 
+    must be set to a location other than `/opt/besu` and a storage volume mounted at that location.
+    
+    When running in a Docker container, [`--nat-method`](../Find-and-Connect/Specifying-NAT.md) must
+    be set to `DOCKER` or `AUTO` (default). Do not set [`--nat-method`](../Find-and-Connect/Specifying-NAT.md) 
+    to `NONE`, `UPNP`, or `MANUAL`. 
 
 [Besu environment variables](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables) can be specified with the docker image instead of the command line options.
 

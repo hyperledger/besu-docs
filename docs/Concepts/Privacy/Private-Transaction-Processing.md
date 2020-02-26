@@ -73,11 +73,12 @@ can read and write to the private world state, and read from the public world st
 
 !!! important
     
-    For production systems requiring private transactions:
-
-    * It is recommended you use a network with a consensus mechanism supporting transaction
-    finality, such as [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
-    * Orion must be [highly available and run in a separate instance to Besu].
+    * We recommend using a network with a consensus mechanism supporting transaction finality. For example, 
+    [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    * Orion must be [highly available and run in a separate instance to Besu](../../HowTo/Use-Privacy/Run-Orion-With-Besu.md).
+    
+    Using private transactions with [pruning](../Pruning.md) or [fast sync](../../Reference/CLI/CLI-Syntax.md#sync-mode)
+    is not supported.
 
 <!-- Links -->
 [signed with a random key or the key specified on the command line]: ../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md

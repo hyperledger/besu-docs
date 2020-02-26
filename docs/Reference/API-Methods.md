@@ -109,7 +109,7 @@ This example changes the debug level of all logs to `WARN`.
     option has been set to false.  
 
 Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs)
-and [`eth_getFilterLogs`](#eth_getfilterlogs) use the indexes for improved
+and [`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved
 performance.  
 
 !!! note

@@ -4207,7 +4207,7 @@ data using `eea_sendRawTransaction`.
 
 ### priv_call
 
-Invokes a private contract function locally and does not change the state of the blockchain.
+Invokes a private contract function locally and does not change the privacy group state.
 
 For private contracts, `priv_call` is the equivalent to [`eth_call`](#eth_call).
 
@@ -4226,18 +4226,18 @@ or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSO
 
 !!! example
     ```bash tab="curl HTTP"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS"
-    {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13"}, "latest"],"id":1}
+    {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
     ```
 
     ```json tab="JSON result"
     {
         "jsonrpc": "2.0",
         "id": 1,
-        "result": "0x"
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
     }
     ```
 

@@ -103,14 +103,17 @@ This example changes the debug level of all logs to `WARN`.
 
 ### admin_generateLogBloomCache
 
+!!! tip 
+    Manually executing `admin_generateLogBloomCache` is not required unless the 
+    [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command line 
+    option has been set to false.  
+
 Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs)
 and [`eth_getFilterLogs`](#eth_getfilterlogs) use the indexes for improved
 performance.  
 
 !!! note
     Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
-
-Must be manually executed to add new blocks to the indexes.
 
 **Parameters**
 
@@ -2642,13 +2645,12 @@ Polls the specified filter and returns an array of changes that have occurred si
 
     ```
 
-
-
 ### eth_getFilterLogs
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter.
 
-Use [`admin_generateLogBloomCache`](#admin_generatelogbloomcache) to improve log retrieval performance.
+Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+command line option at the default value of `true` to improve log retrieval performance.
 
 !!!note
      `eth_getFilterLogs` is only used for filters created with `eth_newFilter`.
@@ -2706,7 +2708,8 @@ Use [`admin_generateLogBloomCache`](#admin_generatelogbloomcache) to improve log
 Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified
 filter object.
 
-Use [`admin_generateLogBloomCache`](#admin_generatelogbloomcache) to improve log retrieval performance.
+Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+command line option at the default value of `true` to improve log retrieval performance.
 
 **Parameters**
 

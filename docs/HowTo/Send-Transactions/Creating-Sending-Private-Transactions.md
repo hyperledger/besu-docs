@@ -16,6 +16,10 @@ participants are offline when the private transaction is submitted, the transact
 !!! note
     Private transactions either deploy contracts or call contract functions. 
     Ether transfer transactions cannot be private. 
+    
+!!! tip
+    For private contracts, [`priv_call`](../../Reference/API-Methods.md#priv_call) is the equivalent 
+    of [`eth_call`](../../Reference/API-Methods.md#eth_call).
 
 ## eea_sendRawTransaction 
 
@@ -146,4 +150,3 @@ a contract are displayed below.
 <!-- links ----> 
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
-

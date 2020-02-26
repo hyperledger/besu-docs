@@ -10,6 +10,7 @@
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
 | Steven Gregg     | sgregglives      | sagregg          |
+| Grant Noble      | grantnoble       | grantnoble       |
 
 ## Emeritus Maintainers
 

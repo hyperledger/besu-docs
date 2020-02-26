@@ -27,12 +27,10 @@ and create a smart contract.
     Libraries such as [web3j](https://github.com/web3j/web3j) or [ethereumj](https://github.com/ethereum/ethereumj)
     and tools such as [MyCrypto](https://mycrypto.com/) can also be used to create signed transactions.
 
-
-
 ## eth_call vs eth_sendRawTransaction
 
-You can interact with contracts using [eth_call](../../Reference/API-Methods.md#eth_call) 
-or [eth_sendRawTransaction](../../Reference/API-Methods.md#eth_sendrawtransaction). 
+You can interact with contracts using [`eth_call`](../../Reference/API-Methods.md#eth_call) 
+or [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). 
 The table below compares the characteristics of both calls.
 
 | eth_call                                                | eth_sendRawTransaction                                                                                                         |

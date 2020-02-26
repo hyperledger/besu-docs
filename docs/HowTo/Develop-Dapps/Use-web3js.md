@@ -15,7 +15,7 @@ displayed after running the `./run.sh` script.
 
     Do not use the accounts in the examples on mainnet or any public network except for testing.
     They display the private keys, which means the accounts are not secure.
-    
+
     All accounts and private keys in the examples are from the `dev.json` genesis file in the
     [`/besu/ethereum/core/src/main/resources`](https://github.com/hyperledger/besu/tree/master/config/src/main/resources)
     directory.
@@ -24,7 +24,7 @@ displayed after running the `./run.sh` script.
     offline, or use [EthSigner](https://docs.ethsigner.pegasys.tech/) to isolate your private keys
     and sign transactions with
     [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
-    
+
 ## Example JavaScript scripts
 
 ### 1. Requirements

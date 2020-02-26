@@ -5,8 +5,7 @@ description: Configure TLS
 # Configure TLS
 
 Hyperledger Besu supports TLS for client and server communication. For example, you can
-[configure TLS](../../Concepts/TLS.md) for communication between EthSigner and Besu, and Besu and
-Orion.
+[configure TLS](../../Concepts/TLS.md) for communication between [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Concepts/TLS/) and Besu, and Besu and [Orion](https://docs.orion.pegasys.tech/en/latest/Concepts/TLS-Communication/).
 
 Configure TLS communication from the command line.
 
@@ -21,7 +20,7 @@ Allow clients (for example a dApp, curl, or EthSigner) to send and receive secur
 
 **Client Prerequisites**:
 
-* Configure the client for TLS.
+* [Configure the client for TLS](https://docs.ethsigner.pegasys.tech/en/latest/HowTo/Configure-TLS/#server-tls-connection).
 * Client's PKCS #12 keystore information.
 
 ### Create the Known Clients File
@@ -85,7 +84,7 @@ Allow Besu to securely communicate with the server (Orion).
 
 **Server Prerequisites**:
 
-* Configure the server to allow TLS communication.
+* [Configure the server to allow TLS communication](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/).
 * Server's certificate information.
 
 ### Create the Known Servers file

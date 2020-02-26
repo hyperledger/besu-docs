@@ -26,6 +26,8 @@ the plugin.
 
 !!! tip
     View the [Plugin API webinar](https://youtu.be/78sa2WuA1rg) for an example of how to build a plugin.
+    
+    The [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html) provides additional information about the available interfaces.
 
 ## Install Plugins
 

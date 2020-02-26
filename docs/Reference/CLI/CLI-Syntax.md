@@ -33,6 +33,28 @@ To start a Besu node run:
 ```bash
 besu [OPTIONS] [COMMAND]
 ```
+
+### auto-log-bloom-caching-enabled
+
+```bash tab="Syntax"
+--auto-log-bloom-caching-enabled=false
+```
+
+```bash tab="Environment Variable"
+BESU_AUTO_LOG_BLOOM_CACHING_ENABLED=false
+```
+
+```bash tab="Example Configuration File"
+auto-log-bloom-caching-enabled=false
+```
+
+Enables or disables automatic log bloom caching. APIs such as [`eth_getLogs`](../API-Methods.md#eth_getlogs)
+and [`eth_getFilterLogs`](../API-Methods.md#eth_getfilterlogs) use the cache for improved performance. 
+The default is `true`.
+
+Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms for a 
+large number of blocks, you might want to disable automatic log bloom caching.  
+
 ### banned-node-ids
 
 ```bash tab="Syntax"

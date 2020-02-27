@@ -68,5 +68,5 @@ Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is
 ignores any values specified in the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host),
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port),
 [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host), and
-[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) options, with the default
-values advertised instead.
+[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) options. Besu advertises the
+default values instead.

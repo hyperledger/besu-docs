@@ -4,8 +4,8 @@ description: Configuring bootnodoes
 
 # Bootnodes
 
-Using Bootnodes is method for initially discovering peers. A bootnode is a regular node a node uses
-to discover other nodes.
+Using Bootnodes is a method for initially discovering peers. Bootnodes are regular nodes used to
+discover other nodes.
 
 !!! tip
 
@@ -20,7 +20,8 @@ to discover other nodes.
 ## MainNet and public testnets
 
 For MainNet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu predefines a list of
-enode URLs.
+enode URLs and uses this list automatically when you specify the
+[`--network`](../../Reference/CLI/CLI-Syntax.md#network) option.
 
 ## Private networks
 
@@ -39,8 +40,9 @@ using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
     besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --bootnodes=enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb99bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303
     ```
 
-The default host and port for P2P peer discovery is `127.0.0.1:30303`. To specify a different host
-or port, use the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
+The default host and port advertised to other peers for P2P peer discovery is `127.0.0.1:30303`. To
+specify a different host or port, use the
+[`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) options.
 
 By default, peer discovery listens on all available network interfaces. If the device Besu is

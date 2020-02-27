@@ -12,8 +12,6 @@ source, the blockchain.
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to
     Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
 
-    The permissioning smart contracts and Permissioning Management Dapp are a separate product to
-    Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts

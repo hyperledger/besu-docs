@@ -131,4 +131,3 @@ The command line:
 <!-- Links -->
 [Configure the client for TLS]: https://docs.ethsigner.pegasys.tech/en/latest/HowTo/Configure-TLS/#server-tls-connection
 [Configure the server to allow TLS communication]: https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/
-

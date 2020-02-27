@@ -53,9 +53,8 @@ The enode URL displays when starting a Besu node. Use the
 [`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to obtain the enode URL
 for the node.
 
-The enode URL displays when starting a Besu node. Use the
-[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to obtain the enode URL
-for the node.
+The enode advertised to other nodes during discovery is the external IP address and port, as defined 
+by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md). 
 
 ## Specifying a custom node private key file
 

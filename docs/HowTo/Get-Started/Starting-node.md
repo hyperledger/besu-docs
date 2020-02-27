@@ -1,5 +1,6 @@
+---
 description: Starting Hyperledger Besu
-<!--- END of page meta data -->
+---
 
 # Starting Hyperledger Besu
 

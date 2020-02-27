@@ -29,7 +29,6 @@ brew install hyperledger/besu/besu
 
 Display Besu command line help to confirm installation:
 
-
 ```bash
 besu --help
 ```

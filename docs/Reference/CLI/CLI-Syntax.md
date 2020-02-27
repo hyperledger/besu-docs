@@ -1334,6 +1334,11 @@ URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-c
 
 ### pruning-enabled
 
+!!! caution 
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+    
+    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+
 ```bash tab="Syntax"
 --pruning-enabled
 ```

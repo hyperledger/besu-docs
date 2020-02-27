@@ -36,7 +36,7 @@ Ropsten, Besu requires a minimum of 8GB of RAM.
 
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
-    
+
     If using fast sync in v1.4.0, explicitly disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 

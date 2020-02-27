@@ -55,7 +55,7 @@ confirm the node is running.
 
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
-        ``` 
+        ```
 
         For example, after connecting to mainnet `eth_syncing` will return something similar to:
 
@@ -106,7 +106,7 @@ To run a node on Ropsten with the HTTP JSON-RPC service enabled and allow Remix 
 ```bash
 besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins "http://remix.ethereum.org"
 ```
-    
+
 ## Run a node on rinkeby testnet
 
 To run a node on Rinkeby specifying a data directory:
@@ -114,6 +114,7 @@ To run a node on Rinkeby specifying a data directory:
 ```bash
 besu --network=rinkeby --data-path=<path>/<rinkebydata-path>
 ```
+
 Where `<path>` and `<rinkebydata-path>` are the path and directory to save the Rinkeby chain data
 to.
 
@@ -125,8 +126,8 @@ To run a node on [Goerli](https://github.com/goerli/testnet) specifying a data d
 besu --network=goerli --data-path=<path>/<goerlidata-path>
 ```
 
-Where `<path>` and `<goerlidata-path>` are the path and directory where the Goerli chain data is to be saved.
-   
+Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
+
 ## Run a node on Ethereum MainNet
 
 To run a node on the Ethereum MainNet:

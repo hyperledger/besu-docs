@@ -13,7 +13,7 @@ Use this Docker image to run a single Besu node without installing Besu.
 * [Docker](https://docs.docker.com/install/)
 
 * MacOS or Linux
-    
+
     !!! important
         The Docker image does not run on Windows.
 
@@ -52,6 +52,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
 !!!example
 
     To enable JSON-RPC HTTP calls to `127.0.0.1:8545` and P2P discovery on `127.0.0.1:13001`:
+
     ```bash
     docker run -p 8545:8545 -p 13001:30303 hyperledger/besu:latest --rpc-http-enabled
     ```
@@ -107,9 +108,9 @@ docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/rinkeby>,target
 
 ## Stopping Besu and cleaning up resources
 
-When you are done running nodes, you can shut down the node container without deleting resources or
-you can delete the container after stopping it. Run `docker container ls` and `docker volume ls` to
-get the container and volume names.
+When done running nodes, you can shut down the node container without deleting resources or you can
+delete the container after stopping it. Run `docker container ls` and `docker volume ls` to get the
+container and volume names.
 
 To stop a container:
 

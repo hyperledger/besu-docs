@@ -120,7 +120,8 @@ or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
 ## Block parameter
 
 When you make requests that might have different results depending on the block accessed, the block
-parameter specifies the block. Various methods, such as [eth_getTransactionByBlockNumberAndIndex],
+parameter specifies the block. Methods such as
+[`eth_getTransactionByBlockNumberAndIndex`](../../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex)
 have a block parameter.
 
 The block parameter can have the following values:
@@ -138,5 +139,3 @@ The block parameter can have the following values:
     historical world state data is unavailable. Any methods attempting to access unavailable world
     state data return `null`.
 
-<!-- Links -->
-[eth_getTransactionByBlockNumberAndIndex]: ../../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex

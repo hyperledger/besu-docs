@@ -52,11 +52,13 @@ subscription ID.
     ```
 
     The result includes the subscription ID of `"0x1"`:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
 
     The notifications also include the subscription ID of `"0x1"`:
+
     ```json
     {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x1","result":{"startingBlock":"0x0","currentBlock":"0x50","highestBlock":"0x343c19"}}}
     ```
@@ -106,6 +108,7 @@ notifications include transaction hashes.
     ```
 
     Example notification without the `{"includeTransactions": true}` parameter included:
+
     ```json
     {
       "jsonrpc": "2.0",
@@ -319,8 +322,8 @@ To notify you about transactions dropped from the transaction pool for the node,
 
 The dropped transactions subscription returns the transaction hashes of the dropped transactions.
 
-Transactions can be re-added to the transaction pool from a variety of sources after being dropped.
-For example, receiving a previously dropped transaction from a peer. As a result, it is possible to
+Dropped transactions can be re-added to the transaction pool from a variety of sources. For
+example, receiving a previously dropped transaction from a peer. As a result, it's possible to
 receive multiple dropped transaction notifications for the same transaction.
 
 !!!example

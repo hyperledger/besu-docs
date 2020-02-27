@@ -16,6 +16,10 @@ participants are offline when the private transaction is submitted, the transact
 !!! note
     Private transactions either deploy contracts or call contract functions. 
     Ether transfer transactions cannot be private. 
+    
+!!! tip
+    For private contracts, [`priv_call`](../../Reference/API-Methods.md#priv_call) is the equivalent 
+    of [`eth_call`](../../Reference/API-Methods.md#eth_call).
 
 ## eea_sendRawTransaction 
 
@@ -93,7 +97,7 @@ the nonce for an account for the specified privacy group.
     
 ## EEA-compliant or Besu-extended Privacy 
 
-To create an [EEA-compliant private transaction](../../Concepts/Privacy/Privacy-Groups.md#eea-compliant-privacy), 
+To create an [EEA-compliant private transaction](../../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy), 
 specify `privateFor` when creating the signed transaction 
 passed as an input parameter to [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 
@@ -146,4 +150,3 @@ a contract are displayed below.
 <!-- links ----> 
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
-

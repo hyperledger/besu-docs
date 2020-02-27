@@ -11,6 +11,9 @@
         },
         {
             "pattern": "^http(s)?://ropsten.etherscan.io/tx/0x"
+        },
+        {
+            "pattern": "/postman/92e3da11d1769ce7e667.json"
         }
     ]
 }

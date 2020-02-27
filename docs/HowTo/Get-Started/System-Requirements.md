@@ -18,7 +18,8 @@ To determine system requirements, monitor CPU and disk space requirements using 
 A sample [Grafana dashboard](https://grafana.com/grafana/dashboards/10273) is provided for Besu. 
 
 !!! tip
-    CPU requirements are highest when syncing to the network and typically reduce once the node is synchronized to the chain head. 
+    CPU requirements are highest when syncing to the network and typically reduce once the node is 
+    synchronized to the chain head. 
 
 ## RAM 
 
@@ -27,7 +28,14 @@ a minimum of 8GB of RAM is required.
 
 ## Disk Space 
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB of available disk space. 
+!!! caution 
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+    
+    If using fast sync in v1.4.0, explicitly disable pruning using [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
+
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use 
+[pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB of available disk 
+space. 
 
 ## VM Requirements
 

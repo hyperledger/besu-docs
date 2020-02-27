@@ -15,6 +15,7 @@ Use this Docker image to run a single Besu node without installing Besu.
 * MacOS or Linux
 
     !!! important
+
         The Docker image does not run on Windows.
 
 ## Default node for MainNet
@@ -26,6 +27,7 @@ docker run hyperledger/besu:latest
 ```
 
 !!! note
+
     https://hub.docker.com/r/hyperledger/besu/tags lists the available tags for the image.
 
     If you previously pulled `latest`, Docker runs the cached version.

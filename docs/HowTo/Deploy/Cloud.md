@@ -2,6 +2,8 @@
 description: Deploying Besu to the cloud
 ---
 
+# Deploying Hyperledger Besu to the cloud
+
 When deploying Hyperledger Besu to the cloud:
 
 * Ensure you have enough spread across Availability Zones (AZs) and Regions, especially for

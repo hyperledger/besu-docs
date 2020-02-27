@@ -1,5 +1,6 @@
+---
 description: Ethereum Lite Explorer
-<!--- END of page meta data -->
+---
 
 Use the [Alethio Ethereum Lite Explorer](https://lite-explorer.aleth.io/) to explore blockchain
 data at the block, transaction, and account level.

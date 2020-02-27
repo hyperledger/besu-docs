@@ -1,5 +1,6 @@
+---
 description: Configuring validators in production networks
-<!--- END of page meta data -->
+---
 
 # Configuring validators in a production network
 

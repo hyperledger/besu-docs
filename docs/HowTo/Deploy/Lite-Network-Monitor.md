@@ -1,5 +1,6 @@
+---
 description: Alethio EthStats Lite network monitor
-<!--- END of page meta data -->
+---
 
 # Alethio EthStats Lite (network monitor)
 
@@ -63,7 +64,7 @@ EthStats Lite consists of a:
 !!! important
 
     This example describes how to run EthStats Lite for a single Besu node. For a network, run one
-    dedicated [EthStats Lite client](#3-client) for each node on the network.
+    dedicated [EthStats Lite client](#3-client) for each Besu node.
 
 ### 1. Server
 

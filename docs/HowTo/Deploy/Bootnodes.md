@@ -1,5 +1,6 @@
+---
 description: Configuring bootnodes in production networks
-<!--- END of page meta data -->
+---
 
 # Configuring bootnodes in a production network
 

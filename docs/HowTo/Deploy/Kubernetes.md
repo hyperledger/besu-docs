@@ -1,6 +1,7 @@
+---
 title: Deploy a Hyperledger Besu private network with Kubernetes
 description: Deploying Hyperledger Besu with Kubernetes
-<!--- END of page meta data -->
+---
 
 Use the [reference implementations](https://github.com/PegaSysEng/besu-kubernetes) to install
 private networks using Kubernetes(K8s). Reference implementations are available using:

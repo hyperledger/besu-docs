@@ -1334,6 +1334,9 @@ URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-c
 
 ### pruning-enabled
 
+!!! caution 
+    Hyperledger Besu v1.4.0 has a [known pruning bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues). 
+
 ```bash tab="Syntax"
 --pruning-enabled
 ```

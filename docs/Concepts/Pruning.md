@@ -3,6 +3,9 @@ description: Pruning
 
 # Pruning
 
+!!! caution 
+    Hyperledger Besu v1.4.0 has a [known pruning bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+
 Use pruning to reduce storage required for the world state. Pruning removes state trie nodes that
 are not required.
 

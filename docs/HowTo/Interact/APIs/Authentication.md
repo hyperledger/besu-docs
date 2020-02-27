@@ -24,7 +24,6 @@ Besu creates JWT tokens internally with
     authenticated requests over HTTPS. We recommended production deployments run behind a network
     layer that provides SSL termination. Besu does not provide a HTTPS connection natively.
 
-
 ## Username and password authentication
 
 Enable authentication from the command line. Supply the credentials file and send a request to the
@@ -71,7 +70,7 @@ Each user requiring JSON-RPC access the configuration file lists the:
 ### 2. Enable authentication
 
 To require authentication for the JSON-RPC API, use the
-[` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
+[`--rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
 or [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
 options.
 
@@ -80,15 +79,15 @@ To specify the [credentials file](#1-create-the-credentials-file), use the
 and [`--rpc-ws-authentication-credentials-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file)
 options.
 
-### 3. Obtain an authentication token
+### 3. Generate an authentication token
 
-To obtain an authentication token, make a request to the `/login` endpoint with your username and
-password. Specify the HTTP port or the WS port to obtain a token to authenticate over HTTP or WS
+To generate an authentication token, make a request to the `/login` endpoint with your username and
+password. Specify the HTTP port or the WS port to generate a token to authenticate over HTTP or WS
 respectively. HTTP and WS requires a different token.
 
 !!! example
 
-    ```bash tab="Obtain Token for HTTP"
+    ```bash tab="Generate a token for HTTP"
     curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-http-hostname:http-port>/login
     ```
 
@@ -96,7 +95,7 @@ respectively. HTTP and WS requires a different token.
     curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8545/login
     ```
 
-    ```bash tab="Obtain Token for WS"
+    ```bash tab="Generate a token for WS"
     curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-ws-hostname:ws-port>/login
     ```
 
@@ -108,7 +107,7 @@ respectively. HTTP and WS requires a different token.
     {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MDYwNCwiZXhwIjoxNTUwNDYwOTA0fQ.l2Ycqzl_AyvReXBeUSayOlOMS_E8-DCuz3q0Db0DKD7mqyl6q-giWoEtfdWzUEvZbRRi2_ecKO3N6JkXq7zMKQAJbVAEzobfbaaXWcQEpHOjtnK4_Yz-UPyKiXtu7HGdcdl5Tfx3dKoksbqkBl3U3vFWxzmFnuu3dAISfVJYUNA"}
     ```
 
-Authentication tokens expire five minutes after generation. If access is required after the token
+Authentication tokens expire five minutes after generation. If you require access after the token
 expires, you need to generate a new token.
 
 ## JWT public key authentication
@@ -154,7 +153,7 @@ testing purposes.
 ### 3. Enable authentication
 
 To require authentication for the JSON-RPC API, use the
-[` --rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
+[`--rpc-http-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
 or [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
 options.
 
@@ -162,7 +161,7 @@ To specify the public key to use with the externally created JWT token, use the
 [`--rpc-http-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
 and [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file)
 options.
-    
+
 ## JSON-RPC permissions
 
 Each user has a list of permissions strings defining the methods they can access. To give access
@@ -174,7 +173,7 @@ to:
 
 With authentication enabled, to explicitly specify a user cannot access any methods, include the
 user with an empty permissions list (`[]`). Users with an empty permissions list and users not
-included in the credentials file cannot access any JSON-RPC methods. 
+included in the credentials file cannot access any JSON-RPC methods.
 
 ## Using an authentication token to make requests
 
@@ -184,7 +183,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the
 token (generated either [externally](#2-create-the-jwt-token) or by the
-[`login` request](#3-obtain-an-authentication-token)).
+[`login` request](#3-generate-an-authentication-token)).
 
 ### cURL
 

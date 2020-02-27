@@ -1,5 +1,6 @@
+---
 description: How to access the Hyperledger Besu API using GraphQL
-<!--- END of page meta data -->
+---
 
 # GraphQL over HTTP
 
@@ -42,7 +43,7 @@ interface for editing and testing GraphQL queries and mutations. GraphiQL also p
 
 ## Pending
 
-The Pending query is supported for `transactionCount` and `transactions`.
+`transactionCount` and `transactions` supports the Pending query.
 
 !!! important
 
@@ -50,6 +51,7 @@ The Pending query is supported for `transactionCount` and `transactions`.
     for Pending do not reflect pending transactions.
 
 !!! example
+
     ```bash tab="Pending Transaction Count"
     curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
     ```

@@ -54,11 +54,11 @@ Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#p
 
 To prevent DNS rebinding, Besu accepts incoming HTTP requests, WebSockets connections, and GraphQL
 requests only from hostnames specified using the
-[`--host-whitelist`](../../../Reference/CLI/CLI-Syntax.md#host-whitelist) option. By default,
-`localhost` and `127.0.0.1` are accepted.
+[`--host-whitelist`](../../../Reference/CLI/CLI-Syntax.md#host-whitelist) option. Besu accepts
+incoming requests and connections from `localhost` and `127.0.0.1` by default.
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.
- 
+
 !!! example
 
     ```bash

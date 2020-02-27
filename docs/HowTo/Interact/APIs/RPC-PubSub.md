@@ -43,7 +43,6 @@ created over the connection.
 `eth_subscribe` returns a subscription ID for each subscription created. Notifications include the
 subscription ID.
 
-
 !!!example
 
     For example, to create a synchronizing subscription:
@@ -51,10 +50,12 @@ subscription ID.
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["syncing"]}
     ```
+
     The result includes the subscription ID of `"0x1"`:
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
+
     The notifications also include the subscription ID of `"0x1"`:
     ```json
     {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x1","result":{"startingBlock":"0x0","currentBlock":"0x50","highestBlock":"0x343c19"}}}
@@ -99,6 +100,7 @@ notifications include transaction hashes.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":2,"result":"0x1"}
     ```
@@ -136,6 +138,7 @@ notifications include transaction hashes.
     ```
 
     Example notification with the `{"includeTransactions": true}` parameter included:
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -190,19 +193,25 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
 !!!example
 
     To subscribe to all logs notifications:
+
     ```json
      {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
     ```
+
     To subscribe to logs for a specific address and topic:
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x2"}
     ```
+
     Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -233,7 +242,7 @@ The pending transactions subscription returns the transaction hashes or transact
 pending transactions. If the `includeTransactions` parameter is not included, the default is
 transaction hashes only.
 
-If a chain reorganization occurs, transactions are resubmitted for inclusion in the new canonical
+If a chain reorganization occurs, Besu resubmits transactions for inclusion in the new canonical
 chain. This means the subscription can publish notifications for the same pending transaction more
 than once.
 
@@ -246,11 +255,13 @@ than once.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
 
     Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -271,11 +282,13 @@ than once.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x2"}
     ```
 
     Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -319,12 +332,14 @@ receive multiple dropped transaction notifications for the same transaction.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
 
 
     Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -352,6 +367,7 @@ synchronization progress. When fully synchronized, returns `false`.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x4"}
     ```
@@ -403,6 +419,7 @@ error.
     ```
 
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":true}
     ```

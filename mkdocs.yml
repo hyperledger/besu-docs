@@ -127,6 +127,7 @@ nav:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
+          - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Examples:
@@ -164,6 +165,7 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
+          - Transaction Trace Types: Concepts/Transactions/Trace-Types.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - TLS Communication: Concepts/TLS.md

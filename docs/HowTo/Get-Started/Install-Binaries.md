@@ -20,7 +20,7 @@ description: Install Hyperledger Besu from binary distribution
 
 ```bash
 brew tap hyperledger/besu
-brew install besu
+brew install hyperledger/besu/besu
 ```
 Display Besu command line help to confirm installation:
 

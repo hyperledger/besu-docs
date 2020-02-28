@@ -17,7 +17,6 @@ To remove a node from the nodes whitelist:
 
 1. On the _Whitelisted Nodes_ tab of the Permissioning Management Dapp, hover over the row of the
    node you are removing. A trash can displays.
-
 1. Click on the trash can.
 
 !!! tip
@@ -35,14 +34,14 @@ To remove a node from the nodes whitelist:
 To add an account to the accounts whitelist:
 
 1. On the _Whitelisted Accounts_ tab of the Permissioning Management Dapp, click the
-  _Add Whitelisted Account_ button. The add Account Window displays.
+   _Add Whitelisted Account_ button. The add Account Window displays.
 1. Enter the account address in the _Account Address_ field and click the
-  _Add Whitelisted Account_ button.
+   _Add Whitelisted Account_ button.
 
 To remove an account from the accounts whitelist:
 
 1. On the _Whitelisted Accounts_ tab of the Permissioning Management Dapp, hover over the row of
-the account you are removing. A trash can displays.
+   the account you are removing. A trash can displays.
 1. Click on the trash can.
 
 ## Update admins

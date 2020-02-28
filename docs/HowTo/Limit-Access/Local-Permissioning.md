@@ -45,7 +45,7 @@ To view the nodes whitelist, use the
     On-chain permissioning is under development. On-chain permissioning will use one on-chain
     nodes whitelist.
 
-!!! example "Example of Different Node Whitelists"
+!!! example "An Example of Different Node Whitelists"
 
     Node 1 Whitelist = [Node 2, Node 3]
 
@@ -114,11 +114,11 @@ After adding transactions to a block, the transactions are not validated against
 received by another node. That is, a node can synchronise and add blocks containing transactions
 from accounts that are not on the accounts whitelist of that node.
 
-The following diagram illustrates when local and onchain permissioning rules are applied.
+The following diagram illustrates applying local and onchain permissioning rules.
 
 ![Permissioning Flow](../../images/PermissioningFlow.png)
 
-!!! example "Example of Different Account Whitelists"
+!!! example "An Example of Different Account Whitelists"
 
     Node 1 Whitelist = [Account A, Account B]
 
@@ -172,7 +172,7 @@ The `PERM` API methods are not enabled by default. To enable the `PERM` API meth
 The permissions configuration file contains the nodes and accounts whitelists. If the
 [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
 and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
-options are not specified, the permissions configuration file must be called
+options are not specified, the name of the permissions configuration file must be
 [`permissions_config.toml`](#permissions-configuration-file) and must be in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 

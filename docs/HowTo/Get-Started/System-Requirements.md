@@ -57,7 +57,7 @@ If you set up your own VM locally using a VM manager, there are a few considerat
 
 We recommend you create a VM with the following attributes:
 
-* Memory Size: Set to 4096 (recommended)
+* Memory Size: Set to 4096 MB (recommended)
 * Create a virtual hard disk with at least 10 GB (20 GB recommended)
 * Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)
 * (Optional) You can create a shared directory to copy block files or genesis files from the host

@@ -14,13 +14,13 @@ were:
 
 * If the file existed:
 
-  * [`--config-file /etc/besu/besu.conf`](../../Reference/CLI/CLI-Syntax.md#config-file)
-  * [`--genesis-file /etc/besu/genesis.json`](../../Reference/CLI/CLI-Syntax.md#genesis-file)
-  * [`--rpc-http-authentication-credentials-file /etc/besu/rpc_http_auth_config.toml`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
-  * [`--rpc-ws-authentication-credentials-file /etc/besu/rpc_ws_auth_config.toml`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file)
-  * [`--privacy-public-key-file /etc/besu/privacy_public_key`](../../Reference/CLI/CLI-Syntax.md#privacy-public-key-file)
-  * [`--permissions-nodes-config-file /etc/besu/permissions_config.toml`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
-  * [`--permissions-accounts-config-file /etc/besu/permissions_config.toml`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
+    * [`--config-file /etc/besu/besu.conf`](../../Reference/CLI/CLI-Syntax.md#config-file)
+    * [`--genesis-file /etc/besu/genesis.json`](../../Reference/CLI/CLI-Syntax.md#genesis-file)
+    * [`--rpc-http-authentication-credentials-file /etc/besu/rpc_http_auth_config.toml`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
+    * [`--rpc-ws-authentication-credentials-file /etc/besu/rpc_ws_auth_config.toml`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file)
+    * [`--privacy-public-key-file /etc/besu/privacy_public_key`](../../Reference/CLI/CLI-Syntax.md#privacy-public-key-file)
+    * [`--permissions-nodes-config-file /etc/besu/permissions_config.toml`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+    * [`--permissions-accounts-config-file /etc/besu/permissions_config.toml`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
 
 * [`--data-path /var/lib/besu`](../../Reference/CLI/CLI-Syntax.md#data-path)
 * [`--rpc-http-host=0.0.0.0`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host)

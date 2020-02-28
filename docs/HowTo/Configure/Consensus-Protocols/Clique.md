@@ -4,8 +4,6 @@ path: blob/master/config/src/main/resources/
 source: rinkeby.json
 ---
 
-*[vanity data]: Signers can include anything they like as vanity data.
-
 # Clique
 
 Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. The Rinkeby testnet uses
@@ -155,3 +153,7 @@ At each epoch transition, Clique discards all pending votes collected from recei
 Existing proposals remain in effect and signers re-add their vote the next time they create a block.
 
 Define the number of blocks between epoch transitions in the genesis file.
+
+<!-- Acronyms and Definitions -->
+
+*[vanity data]: Signers can include anything they like as vanity data.

@@ -2,9 +2,6 @@
 description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protocol implementation
 ---
 
-*[Vanity]: Validators can include anything they like as vanity data.
-*[RLP]: Recursive Length Prefix.
-
 # IBFT 2.0
 
 Besu implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. Private networks can use
@@ -302,3 +299,8 @@ To add or remove validators without voting:
 !!! caution
     Do not specify a transition block in the past. Specifying a transition block in the past could
     result in unexpected behaviour.
+
+<!-- Acronyms and Definitions -->
+
+*[Vanity]: Validators can include anything they like as vanity data.
+*[RLP]: Recursive Length Prefix.

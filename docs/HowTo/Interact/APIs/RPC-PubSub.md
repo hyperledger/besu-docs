@@ -1,59 +1,72 @@
+---
 description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
-<!--- END of page meta data -->
+---
 
 # RPC Pub/Sub over WebSockets
 
 ## Introduction
 
-Subscribe to events by using either RPC Pub/Sub over WebSockets or [filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
+Subscribe to events by using either RPC Pub/Sub over WebSockets or
+[filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example,
-a Dapp can subscribe to logs to be notified when a specific event has occurred.
+Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, a Dapp
+can subscribe to logs and receive notification when a specific event occurs.
 
-Methods specific to RPC Pub/Sub are: 
+Methods specific to RPC Pub/Sub are:
 
-* `eth_subscribe` - create a subscription for specific events.
+* `eth_subscribe` - create a subscription for specific events
 * `eth_unsubscribe` - cancel a subscription.
 
 !!!important
-    Unlike other [Hyperledger Besu API methods](../../../Reference/API-Methods.md), 
-    the RPC Pub/Sub methods cannot be called over HTTP. Use the [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option to enable
-    the WebSockets JSON-RPC service. 
-    
+
+    Unlike other [Hyperledger Besu API methods](../../../Reference/API-Methods.md), you cannot call
+    the RPC Pub/Sub methods over HTTP. Use the
+    [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option to enable the
+    WebSockets JSON-RPC service.
+
 ### Using RPC Pub/Sub
 
-The RPC Pub/Sub API is supported on [WebSockets](Using-JSON-RPC-API.md#http-and-websocket-requests). 
+[WebSockets](Using-JSON-RPC-API.md#http-and-websocket-requests) supports the RPC Pub/Sub API.
 
-Use `eth_subscribe` to create subscriptions. Once subscribed, notifications are published by the API using `eth_subscription`. 
+To create subscriptions, use `eth_subscribe`. Once subscribed, the API publishes notifications
+using `eth_subscription`.
 
-!!!note 
-    Notifications are published by `eth_subscription`; you do not need to call `eth_subscription`. 
+!!!note
 
-Subscriptions are coupled to a connection. If the connection is closed, all subscriptions created over this connection are removed.
+    `eth_subscription` publishes notifications; you do not need to call `eth_subscription`.
+
+Subscriptions couple with connections. If a connection is closes, this removes all subscriptions
+created over the connection.
 
 ### Subscription ID
 
-`eth_subscribe` returns a subscription ID for each subscription created. Notifications include the subscription ID. 
-
+`eth_subscribe` returns a subscription ID for each subscription created. Notifications include the
+subscription ID.
 
 !!!example
-    For example, to create a synchonizing subscription
-  
+
+    For example, to create a synchronizing subscription:
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["syncing"]}
     ```
-    The result includes the subscription ID of `"0x1"`: 
+
+    The result includes the subscription ID of `"0x1"`:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
-    The notifications also include the subscription ID of `"0x1"`: 
+
+    The notifications also include the subscription ID of `"0x1"`:
+
     ```json
     {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x1","result":{"startingBlock":"0x0","currentBlock":"0x50","highestBlock":"0x343c19"}}}
     ```
 
-### Notifications when Synchronizing
+### Notifications when synchronizing
 
-Subscribing to some events (for example, logs) can cause a flood of notifications while the node is synchronizing.
+Subscribing to some events (for example, logs) can cause a flood of notifications while the node is
+synchronizing.
 
 ## Subscribing
 
@@ -63,32 +76,39 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 * [Logs](#logs)
 * [Pending transactions](#pending-transactions)
 * [Dropped transactions](#dropped-transactions)
-* [Synchronizng](#synchronizing) 
+* [Synchronizng](#synchronizing)
 
-### New Headers
+### New headers
 
-Use the `newHeads` parameter with `eth_subscribe` to be notified each time a block is added to the blockchain.  
+To notify you about each block added to the blockchain, use the `newHeads` parameter with
+`eth_subscribe`.
 
-If a chain reorganization occurs, the subscription publishes notifications for blocks in the new chain. 
-This means the subscription can publish notifications for multiple blocks at the same height on the blockchain.
+If a chain reorganization occurs, the subscription publishes notifications for blocks in the new
+chain. This means the subscription can publish notifications for multiple blocks at the same height
+on the blockchain.
 
-The new headers notification returns [block objects](../../../Reference/API-Objects.md#block-object). The 
-second parameter is optional.  If specified, whole [transaction objects](../../../Reference/API-Objects.md#transaction-object) 
-are included in the notifications. Otherwise, the transaction hashes are included. 
+The new headers notification returns
+[block objects](../../../Reference/API-Objects.md#block-object). The second parameter is optional.
+If specified, the notifications include whole
+[transaction objects](../../../Reference/API-Objects.md#transaction-object), Otherwise, the
+notifications include transaction hashes.
 
 !!!example
+
     To subscribe to new header notifications:
-    
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["newHeads", {"includeTransactions": true}]}
     ```
-    
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":2,"result":"0x1"}
     ```
-    
+
     Example notification without the `{"includeTransactions": true}` parameter included:
+
     ```json
     {
       "jsonrpc": "2.0",
@@ -119,8 +139,9 @@ are included in the notifications. Otherwise, the transaction hashes are include
       }
     }
     ```
-    
-    Example notification with the `{"includeTransactions": true}` parameter included: 
+
+    Example notification with the `{"includeTransactions": true}` parameter included:
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -154,35 +175,46 @@ are included in the notifications. Otherwise, the transaction hashes are include
 
 ### Logs
 
-Use the `logs` parameter with `eth_subscribe` to be notified of [logs](../../../Concepts/Events-and-Logs.md) included in new blocks. You can 
-specify a filter object to receive notifications only for logs matching your filter.   
+To notify you about [logs](../../../Concepts/Events-and-Logs.md) included in new blocks, use the
+`logs` parameter with `eth_subscribe`. You can specify a filter object to receive notifications
+only for logs matching your filter.
 
 Logs subscriptions have an filter object parameter with the following fields:
 
-  - `address` - (optional) Either an address or an array of addresses. Returns only logs created from these addresses.
-  - `topics` - (optional) Returns only logs that match the [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
+* `address` - (optional) Either an address or an array of addresses. Returns only logs created from
+  these addresses.
+* `topics` - (optional) Returns only logs that match the
+  [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
 
-If a chain reorganization occurs, the subscription publishes notifications for logs from the old chain 
-with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object) set to `true`. 
-This means the subscription can publish notifications for multiple logs for the same transaction.
+If a chain reorganization occurs, the subscription publishes notifications for logs from the old
+chain with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object)
+set to `true`. This means the subscription can publish notifications for multiple logs for the same
+transaction.
 
-The logs subscription returns [log objects](../../../Reference/API-Objects.md#log-object). 
+The logs subscription returns [log objects](../../../Reference/API-Objects.md#log-object).
 
 !!!example
+
     To subscribe to all logs notifications:
+
     ```json
      {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
     ```
-    To subscribe to logs for a specific address and topic: 
+
+    To subscribe to logs for a specific address and topic:
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
-    
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x2"}
     ```
-    Example notification: 
+
+    Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -204,31 +236,35 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
     }
     ```
 
-### Pending Transactions
+### Pending transactions
 
-Use the `newPendingTransactions` parameter with `eth_subscribe` to be notified of pending transactions 
-added to the transaction pool for the node. 
+To notify you about pending transactions added to the transaction pool for the node, use the
+`newPendingTransactions` parameter with `eth_subscribe`.
 
-The pending transactions subscription returns the transaction hashes or transaction details of the pending transactions. 
-If the `includeTransactions` parameter is not included, the default is transaction hashes only. 
+The pending transactions subscription returns the transaction hashes or transaction details of the
+pending transactions. If the `includeTransactions` parameter is not included, the default is
+transaction hashes only.
 
-If a chain reorganization occurs, transactions are resubmitted to be included in the new canonical chain. 
-This means the subscription can publish notifications for the same pending transaction more than once.
+If a chain reorganization occurs, Besu resubmits transactions for inclusion in the new canonical
+chain. This means the subscription can publish notifications for the same pending transaction more
+than once.
 
 !!!example "Transaction Hashes"
+
     To subscribe to pending transaction notifications and receive transaction hashes only:
-    
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions", {"includeTransactions":false}]}
     ```
-    
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
-    
-    
-    Example notification: 
+
+    Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -241,18 +277,21 @@ This means the subscription can publish notifications for the same pending trans
     ```
 
 !!!example "Transaction Details"
+
     To subscribe to pending transaction notifications and receive transaction details:
-    
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions", {"includeTransactions":true}]}
     ```
-        
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x2"}
-    ```    
-        
-    Example notification: 
+    ```
+
+    Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -275,32 +314,35 @@ This means the subscription can publish notifications for the same pending trans
       }
     }
     ```
-    
-### Dropped Transactions
 
-Use the `droppedPendingTransactions` parameter with `eth_subscribe` to be notified of transactions 
-dropped from the transaction pool for the node. 
+### Dropped transactions
 
-The dropped transactions subscription returns the transaction hashes of the dropped transactions. 
+To notify you about transactions dropped from the transaction pool for the node, use the
+`droppedPendingTransactions` parameter with `eth_subscribe`.
 
-Transactions can be re-added to the transaction pool from a variety of sources after being dropped. For example, 
-receiving a previously dropped transaction from a peer. As a result it's possible to receive multiple dropped 
-transaction notifications for the same transaction.
+The dropped transactions subscription returns the transaction hashes of the dropped transactions.
+
+Dropped transactions can be re-added to the transaction pool from a variety of sources. For
+example, receiving a previously dropped transaction from a peer. As a result, it's possible to
+receive multiple dropped transaction notifications for the same transaction.
 
 !!!example
+
     To subscribe to dropped transaction notifications:
-    
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["droppedPendingTransactions"]}
     ```
-    
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
-    
-    
-    Example notification: 
+
+
+    Example notification:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -314,24 +356,27 @@ transaction notifications for the same transaction.
 
 ### Synchronizing
 
-Use the `syncing` parameter with `eth_subscribe` to be notified about synchronization progress.
+To notify you about synchronization progress, use the `syncing` parameter with `eth_subscribe`.
 
-When behind the chain head, the synchronizing subscription returns an object indicating the synchronization 
-progress. When fully synchronized, returns false. 
+When behind the chain head, the synchronizing subscription returns an object indicating the
+synchronization progress. When fully synchronized, returns `false`.
 
 !!!example
+
     To subscribe to synchronizing notifications:
+
     ```json
     {"id": 1, "method": "eth_subscribe", "params": ["syncing"]}
     ```
-    
+
     Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":"0x4"}
     ```
-    
-    Example notification while synchronizing: 
-    
+
+    Example notification while synchronizing:
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -346,9 +391,9 @@ progress. When fully synchronized, returns false.
       }
     }
     ```
-    
+
     Example notification when synchronized with chain head:
-   
+
     ```json
     {
       "jsonrpc":"2.0",
@@ -359,21 +404,25 @@ progress. When fully synchronized, returns false.
       }
     }
     ```
-   
+
 ## Unsubscribing
 
-Use the [subscription ID](#subscription-id) with `eth_unsubscribe` to cancel a subscription. Only the 
-connection that created a subscription can unsubscribe from it. 
+To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_unsubscribe`. Only
+the connection that created a subscription can unsubscribe from it.
 
-`eth_unsubscribe` returns `true` if subscription succuessfully unsubscribed; otherwise, an error is returned. 
+`eth_unsubscribe` returns `true` if subscription succuessfully unsubscribed; otherwise, returns an
+error.
 
 !!!example
+
     To unsubscribe from a subsciption with subscription ID of `0x1`:
+
     ```json
     {"id": 1, "method": "eth_unsubscribe", "params": ["0x1"]}
     ```
-    
-    Example result: 
+
+    Example result:
+
     ```json
     {"jsonrpc":"2.0","id":1,"result":true}
     ```

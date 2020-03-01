@@ -127,6 +127,7 @@ nav:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
+          - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Examples:
@@ -149,6 +150,7 @@ nav:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Client Libraries: Concepts/Client-Libraries.md
+        - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
@@ -163,6 +165,7 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
+          - Transaction Trace Types: Concepts/Transactions/Trace-Types.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - TLS Communication: Concepts/TLS.md
@@ -179,6 +182,7 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Genesis File Items: Reference/Config-Items.md
         - web3.js-eaa Methods: Reference/web3js-eea-Methods.md
+        - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md

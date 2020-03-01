@@ -1,40 +1,41 @@
-description: Configuring validators in production networks    
-<!--- END of page meta data -->
+---
+description: Configuring validators in production networks
+---
 
-# Configuring Validators in a Production Network 
+# Configuring validators in a production network
 
-As when [configuring bootnodes](Bootnodes.md):  
+As when [configuring bootnodes](Bootnodes.md):
 
-1. Create the [node key pair](../../Concepts/Node-Keys.md) (that is, the private and public key) before starting the validator.
-1. When creating validators in the cloud (for example, AWS, Azure), attempt to assign a static IP to them. 
-If your network is: 
-    
-    * Publicly accessible, assign an elastic IP. 
-    * Internal only, specify a private IP address when you create the instance and record this IP address. 
+1. Create the [node key pair](../../Concepts/Node-Keys.md) (that is, the private and public key)
+   before starting the validator.
+1. When creating validators in the cloud (for example, AWS or Azure), attempt to assign static IP
+   addresses to them. If your network is:
 
-We recommend validator configuration is stored under source control. 
+    * Publicly accessible, assign an elastic IP address.
+    * Internal only, specify a private IP address when you create the instance and record this IP
+      address.
 
-## Number of Validators Required 
+We recommend storing validator configuration under source control.
 
-Ensure sufficient validators are configured to allow for redundancy. The number of faulty validators that can be tolerated when
-using IBFT 2.0 is:
+## Number of validators required
 
-`f = (n-1)/3` 
+Ensure you confingure enough validators to allow for redundancy. IBFT 2.0 tolerates `f = (n-1)/3`
+faulty validators, where:
 
-Where:
+* `f` is the number of faulty validators
+* `n` is the number of validators.
 
-* f = number of faulty validators
-* n = number of validators 
+## Adding and removing validators
 
-## Adding and Removing Validators
+You can [vote validators in or out of the validator pool].
 
-Validators are [voted in or out of the validator pool](../Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators). 
+## Validators as bootnodes
 
-## Validators as Bootnodes 
+Validators can also be bootnodes. Other than the [usual configuration for bootnodes](Bootnodes.md),
+you do not need to specify any extra configuration when a validator is also a bootnode.
 
-Validators can also be bootnodes. Other than the [usual configuration for bootnodes](Bootnodes.md) no additional configuration
-is required when a validator is also a bootnode. 
+If you remove a validator that is also a bootnode, ensure there are enough remaining bootnodes on
+the network.
 
-If a validator is removed that is also a bootnode, ensure there are enough remaining bootnodes on the 
-network. 
-
+<!-- Links -->
+[vote validators in or out of the validator pool]: ../Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators

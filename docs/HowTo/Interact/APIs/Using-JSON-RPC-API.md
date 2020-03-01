@@ -1,41 +1,46 @@
+---
 description: How to access the Hyperledger Besu API using JSON-RPC
-<!--- END of page meta data -->
+---
 
 # JSON-RPC over HTTP and WebSockets
 
-To enable JSON-RPC over HTTP or WebSockets, use the [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) 
-and [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) options.
+To enable JSON-RPC over HTTP or WebSockets, use the
+[`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) and
+[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) options.
 
 {!global/Postman.md!}
 
-## Geth Console 
+## Geth console
 
-The geth console is a REPL (Read, Evaluate, & Print Loop) Javascript console. Use JSON-RPC APIs supported by geth and 
-Hyperledger Besu directly in the console.  
+The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Use JSON-RPC APIs
+supported by geth and Hyperledger Besu directly in the console.
 
-To use the geth console with Besu: 
+To use the geth console with Besu:
 
-1. Start Besu with the [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option. 
+1. Start Besu with the
+   [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
+1. Specify which APIs to enable using the
+   [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option.
+1. Start the geth console specifying the JSON-RPC endpoint:
 
-1. Specify which APIs to enable using the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option. 
-
-1. Start the geth console specifying the JSON-RPC endpoint: 
    ```bash
     geth attach http://localhost:8545
-   ``` 
-   
-Use the geth console to call [JSON-RPC API methods](../../../Reference/API-Methods.md) that geth and Besu share. 
+   ```
 
-!!! example 
+Use the geth console to call [JSON-RPC API methods](../../../Reference/API-Methods.md) that geth
+and Besu share.
+
+!!! example
+
     ```bash
     eth.syncing
     ```
-    
-## JSON-RPC Authentication 
 
-[Authentication](Authentication.md) is disabled by default. 
+## JSON-RPC authentication
 
-## HTTP and WebSocket Requests
+Besu disables [Authentication](Authentication.md) by default.
+
+## HTTP and WebSocket requests
 
 ### HTTP
 
@@ -47,7 +52,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],
 
 ### WebSockets
 
-To make RPC requests over WebSockets, you can use [wscat](https://github.com/websockets/wscat), a Node.js based command-line tool.
+To make RPC requests over WebSockets, you can use [wscat](https://github.com/websockets/wscat), a
+Node.js based command-line tool.
 
 First connect to the WebSockets server using `wscat` (you only need to connect once per session):
 
@@ -55,32 +61,36 @@ First connect to the WebSockets server using `wscat` (you only need to connect o
 wscat -c ws://<JSON-RPC-ws-endpoint:port>
 ```
 
-After the connection is established, the terminal displays a '>' prompt.
-Send individual requests as a JSON data package at each prompt:
+After you establish a connection, the terminal displays a '>' prompt. Send individual requests as a
+JSON data package at each prompt:
 
 ```bash
 {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":53}
 ```
 
-!!! note 
-    `wscat` does not support headers. [Authentication](Authentication.md) requires an authentication token to be passed in the 
-    request header. To use authentication with WebSockets, an app that supports headers is required. 
+!!! note
 
-## Readiness and Liveness Endpoints 
+    `wscat` does not support headers. [Authentication](Authentication.md) requires you to pass an
+    authentication token in the request header. To use authentication with WebSockets, you require
+    an app that supports headers.
+
+## Readiness and liveness endpoints
 
 Besu provides readiness and liveness endpoints to confirm the Besu node status. Both return a
-`200 OK` status when ready or live and a `503 Service Unavailable` status if not ready or live. 
- 
-By default, the readiness check requires a peer to be connected and the node to be within 2 blocks of the best
-known block. If [p2p communication is disabled](../../../Reference/CLI/CLI-Syntax.md#p2p-enabled), 
-no peers are required. A live node with p2p disabled is always ready. 
+`200 OK` status when ready or live and a `503 Service Unavailable` status if not ready or live.
 
-Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required and number of blocks tolerance.
+By default, the readiness check requires a connected peer and the node to be within two blocks of
+the best known block. If you have
+[disabled p2p communication](../../../Reference/CLI/CLI-Syntax.md#p2p-enabled), you do not need
+peers. A live node with p2p disabled is always ready.
+
+Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required
+and the number of blocks tolerance.
 
 ```bash tab="Readiness Endpoint"
 http://<JSON-RPC-HTTP-endpoint:port>/readiness
 ```
-    
+
 ```bash tab="curl Request Example"
 curl -v 'http://localhost:8545/readiness'
 ```
@@ -89,37 +99,43 @@ curl -v 'http://localhost:8545/readiness'
 curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
 ```
 
-The liveness check requires the JSON RPC server to be up. 
+The liveness check requires the JSON RPC server to be up.
 
 ```bash tab="Liveness Endpoint"
 http://<JSON-RPC-HTTP-endpoint:port>/liveness
 ```
-    
+
 ```bash tab="curl Request Example"
 curl -v 'http://localhost:8545/liveness'
 ```
 
-## API Methods Enabled by Default
+## API methods enabled by default
 
-The `ETH`, `NET`, and `WEB3` API methods are enabled by default. 
+Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
-Use the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) 
-options to enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, 
-and `TXPOOL` API methods.
+To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, and
+`TXPOOL` API methods, use the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api)
+or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-## Block Parameter
+## Block parameter
 
-When you make requests that might have different results depending on the block accessed, 
-the block parameter specifies the block. 
-Several methods, such as [eth_getTransactionByBlockNumberAndIndex](../../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex), have a block parameter.
+When you make requests that might have different results depending on the block accessed, the block
+parameter specifies the block. Methods such as
+[`eth_getTransactionByBlockNumberAndIndex`](../../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex)
+have a block parameter.
 
 The block parameter can have the following values:
 
-* `blockNumber` : `quantity` - Block number. Can be specified in hexadecimal or decimal. 0 represents the genesis block.
-* `earliest` : `tag` - Earliest (genesis) block. 
-* `latest` : `tag` - Last block mined.
-* `pending` : `tag` - Last block mined plus pending transactions. Use only with [eth_getTransactionCount](../../../Reference/API-Methods.md#eth_gettransactioncount).  
+* `blockNumber` : `quantity` - The block number, specified in hexadecimal or decimal. 0 represents
+  the genesis block.
+* `earliest` : `tag` - The earliest (genesis) block.
+* `latest` : `tag` - The last block mined.
+* `pending` : `tag` - The last block mined plus pending transactions. Use only with
+  [eth_getTransactionCount](../../../Reference/API-Methods.md#eth_gettransactioncount).
 
 !!! note
-    If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most historical 
-    world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
+
+    If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most
+    historical world state data is unavailable. Any methods attempting to access unavailable world
+    state data return `null`.
+

@@ -1,41 +1,48 @@
-description: Accessing Logs Using Hyperledger Besu API
-<!--- END of page meta data -->
-# Accessing Logs Using Hyperledger Besu API
+---
+description: Accessing logs using the Hyperledger Besu API
+---
 
-Subscribe to events, such as logs, using either [RPC Pub/Sub over WebSockets](../APIs/RPC-PubSub.md) or filters over HTTP.  
- 
-Access logs by using the following Hyperledger Besu API methods:
- 
+# Accessing logs using the Hyperledger Besu API
+
+Subscribe to events, such as logs, using either
+[RPC Pub/Sub over WebSockets](../APIs/RPC-PubSub.md) or filters over HTTP.
+
+Access logs using the following Hyperledger Besu API methods:
+
 * [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges)
 * [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)
-* [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs)
+* [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).
 
 Use [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) to create the filter before
-using [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) and [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)). 
+using [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) and
+[`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)).
 
 !!! note
-    The following examples are created using the sample contract included in [Events and Logs](../../../Concepts/Events-and-Logs.md). 
 
-## Creating a Filter
+    The sample contract included in [Events and Logs](../../../Concepts/Events-and-Logs.md) created
+    the following examples.
 
-Create a filter using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter). 
+## Creating a filter
+
+Create a filter using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter).
 
 !!! example
-    
-    If the [example contract](../../../Concepts/Events-and-Logs.md#example) was deployed to 0x42699a7612a82f1d9c36148af9c77354759b210b, the 
-    following request for `eth_newFilter` creates a filter to log when `valueIndexed` is set to 5: 
-    
+
+    If the [example contract](../../../Concepts/Events-and-Logs.md#example) was deployed to
+    0x42699a7612a82f1d9c36148af9c77354759b210b, the following request for `eth_newFilter` creates a
+    filter to log when `valueIndexed` is set to 5:
+
     ```json
     {
      "jsonrpc":"2.0",
      "method":"eth_newFilter",
      "params":[
         {
-          "fromBlock":"earliest", 
-          "toBlock":"latest", 
-          "address":"0x42699a7612a82f1d9c36148af9c77354759b210b", 
+          "fromBlock":"earliest",
+          "toBlock":"latest",
+          "address":"0x42699a7612a82f1d9c36148af9c77354759b210b",
           "topics":[
-              ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"], 
+              ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
               ["0x0000000000000000000000000000000000000000000000000000000000000005"]
           ]
          }
@@ -43,20 +50,23 @@ Create a filter using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_ne
       "id":1
     }
     ```
-        
-[`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) returns a filter ID hash (for example, `0x1ddf0c00989044e9b41cc0ae40272df3`). 
 
-### Polling Filter for Changes
+[`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) returns a filter ID hash (for
+example, `0x1ddf0c00989044e9b41cc0ae40272df3`).
 
-To poll the filter for changes that have occurred since the last poll, use [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges)
-with the filter ID hash returned by [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter). 
+### Polling a Filter for changes
 
-!!! example 
-    
-    If the contract had been executed twice since the last poll, with `valueIndexed` set to 1 and 5, 
-    [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) returns
-    only the log where the [topic](../../../Concepts/Events-and-Logs.md#event-parameters) for `valueIndexed` is 5: 
-    
+To poll the filter for changes since the last poll, use
+[`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) with the filter ID
+hash returned by [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter).
+
+!!! example
+
+    If the contract had been executed twice since the last poll, with `valueIndexed` set to 1 and
+    5, [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) returns
+    only the log where the [topic](../../../Concepts/Events-and-Logs.md#event-parameters) for
+    `valueIndexed` is 5:
+
     ```json
     {
         "jsonrpc": "2.0",
@@ -80,15 +90,16 @@ with the filter ID hash returned by [`eth_newFilter`](../../../Reference/API-Met
     }
     ```
 
-### Getting All Logs for a Filter
+### Getting all logs for a filter
 
-To get all logs for a filter, use [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs). 
+To get all logs for a filter, use
+[`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs).
 
 !!! example
-    
-    If the contract had been executed twice with `valueIndexed` set to 5 since the filter was created using `eth_newFilter`,
-    `eth_getFilterLogs` returns: 
-    
+
+    If the contract had been executed twice with `valueIndexed` set to 5 since the filter was
+    created using `eth_newFilter`, `eth_getFilterLogs` returns:
+
     ```json
     {
         "jsonrpc": "2.0",
@@ -125,43 +136,50 @@ To get all logs for a filter, use [`eth_getFilterLogs`](../../../Reference/API-M
         ]
     }
     ```
-    
-!!! tip 
-    You can use [`eth_getLogs`](#getting-logs-using-a-filter-options-object) with a filter options object 
-    to get all logs matching the filter options instead of using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter)
-    followed by [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs). 
-    
-## Uninstalling a Filter
 
-When you are finished using a filter, use [`eth_uninstallFilter`](../../../Reference/API-Methods.md#eth_uninstallfilter) to remove the filter.     
-    
-## Getting Logs Using a Filter Options Object 
+!!! tip
 
-To get all logs for a filter options object, use [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).   
+    You can use [`eth_getLogs`](#getting-logs-using-a-filter-options-object) with a filter options
+    object to get all logs matching the filter options instead of using
+    [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) followed by
+    [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs).
 
-!!! example 
+## Uninstalling a filter
 
-    The following request for `eth_getLogs` returns all the logs where the example contract has been 
-    deployed to 0x42699a7612a82f1d9c36148af9c77354759b210b and executed with `valueIndexed` set to 5.
-    
+When a filter is no longer required, use
+[`eth_uninstallFilter`](../../../Reference/API-Methods.md#eth_uninstallfilter) to remove the
+filter.
+
+## Getting logs using a filter options object
+
+To get all logs for a filter options object, use
+[`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).
+
+!!! example
+
+    The following request for `eth_getLogs` returns all the logs where the example contract has
+    been deployed to 0x42699a7612a82f1d9c36148af9c77354759b210b and executed with `valueIndexed`
+    set to 5.
+
     ```json
     {
       "jsonrpc":"2.0",
       "method":"eth_getLogs",
       "params":[
         {
-          "fromBlock":"earliest", 
-          "toBlock":"latest", 
-          "address":"0x42699a7612a82f1d9c36148af9c77354759b210b", 
+          "fromBlock":"earliest",
+          "toBlock":"latest",
+          "address":"0x42699a7612a82f1d9c36148af9c77354759b210b",
           "topics":[
-            ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"], 
+            ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
             ["0x0000000000000000000000000000000000000000000000000000000000000005"]
           ]
-    	  }
-      ], 
+          }
+      ],
       "id":1
     }
-    ``` 
-    
-    This returns the same result as calling [eth_newFilter](#creating-a-fitler) followed by [eth_getFilterLogs](#getting-all-logs-for-a-filter). 
+    ```
+
+    The above example returns the same result as calling [eth_newFilter](#creating-a-fitler)
+    followed by [eth_getFilterLogs](#getting-all-logs-for-a-filter).
 

@@ -10,10 +10,9 @@ method.
 
 Signed transactions can be simple value transfers, contract creation, or contract invocation.
 
-[Example scripts](../Develop-Dapps/Use-web3js.md) demonstrate how to create a signed raw
-transaction to pass to
-[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to send Ether and
-create a smart contract.
+[Example scripts](../Develop-Dapps/Use-web3js.md) show how to create a signed raw transaction to
+pass to [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to send
+Ether and create a smart contract.
 
 !!! warning "Private keys"
 

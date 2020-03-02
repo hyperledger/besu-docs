@@ -77,10 +77,10 @@ the revert reason as an ABI-encoded string.
 
 ## Revert reason format
 
-As described in the [Solidity documentation], the revert reason is included as an ABI-encoded
-string consisting of:
+As described in the [Solidity documentation], the transaction receipt includes the revert reason as
+an ABI-encoded string consisting of:
 
-```
+```bash
 0x08c379a0                                                         // Function selector for Error(string)
 0x0000000000000000000000000000000000000000000000000000000000000020 // Data offset
 0x000000000000000000000000000000000000000000000000000000000000001a // String length

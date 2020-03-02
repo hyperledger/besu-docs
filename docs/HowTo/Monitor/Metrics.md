@@ -26,7 +26,7 @@ To use Prometheus with Besu, install the
 [Prometheus main component](https://prometheus.io/download/). On MacOS, install with
 [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
- ```
+ ```bash
  brew install prometheus
 ```
 
@@ -40,7 +40,7 @@ To use Prometheus with Besu, install the
       required for these components because Prometheus handles and analyzes data directly from the
       feed.
 
-##  Setting up and running Prometheus with Besu
+## Setting up and running Prometheus with Besu
 
 To configure Prometheus and run with Besu:
 
@@ -92,8 +92,7 @@ To configure Prometheus and run with Besu:
 
 The [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option enables
 Prometheus polling of Besu, but sometimes metrics are hard to poll (for example, when running
-inside Docker containers with varying IP addresses). 
-To enable Besu to push metrics to a
+inside Docker containers with varying IP addresses). To enable Besu to push metrics to a
 [Prometheus Pushgateway](https://github.com/prometheus/pushgateway), use the
 [`--metrics-push-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-push-enabled) option.
 

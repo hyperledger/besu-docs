@@ -29,19 +29,19 @@ the required ports.
 
 Check that the [enode URLs](../../Concepts/Node-Keys.md#enode-url) specified for
 [bootnodes](../Find-and-Connect/Bootnodes.md) or
-[static nodes](../Find-and-Connect/Static-Nodes.md) match the enode URLs displayed when the remote
-nodes are started.
+[static nodes](../Find-and-Connect/Static-Nodes.md) match the enode URLs displayed when staring the
+remote nodes.
 
 ## Mining
 
-Check blocks are being created. On mining nodes, log messages indicate blocks are being created.
+Check block creation. On mining nodes, log messages indicate block creation.
 
 ```bash
 2019-05-08 20:28:27.026+10:00 | pool-10-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=660, Round=0}, hash=0x759afaba4e923d89175d850ceca4b8ef81f7d9c727b0b0b8e714b624a4b8e8cc
 2019-05-08 20:28:29.020+10:00 | pool-10-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=661, Round=0}, hash=0x5443e504256765f06b3cebfbee82276a034ebcc8d685b7c3d1a6010fd4acfa14
 ```
 
-On non-mining nodes, log messages indicate blocks are being imported.
+On non-mining nodes, log messages indicate importing blocks.
 
 ```bash
 2019-05-08 20:28:29.026+10:00 | EthScheduler-Workers-1 | INFO  | BlockPropagationManager | Imported #661 / 0 tx / 0 om / 0 (0.0%) gas / (0x5443e504256765f06b3cebfbee82276a034ebcc8d685b7c3d1a6010fd4acfa14) in 0.000s.
@@ -51,27 +51,27 @@ On non-mining nodes, log messages indicate blocks are being imported.
 To confirm the block number is increasing, use the
 [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) JSON-RPC API method.
 
-If blocks are not being created in [Clique](../Configure/Consensus-Protocols/Clique.md#extra-data)
+If there is no block creating in [Clique](../Configure/Consensus-Protocols/Clique.md#extra-data)
 or [IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#extra-data) networks, ensure the validator
 addresses in the genesis file match running nodes.
 
-## Transactions not being mined
+## Transactions are not mined
 
-If a transaction is added to the
+If you add a transaction to the
 [transaction pool](../../Concepts/Transactions/Transaction-Pool.md) and the transaction hash
-returned but the transaction is never being mined, check the
+returns, but the transaction is never mined, check the
 [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) option on mining nodes. If the
 `gasPrice` on a [transaction](../Send-Transactions/Transactions.md) is lower than the
-`min-gas-price` for the mining node, the transaction will never be mined.
+`min-gas-price` for the mining node, the transaction will never mine.
 
-In [free gas networks](../Configure/FreeGas.md),
-[`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) must be set to zero.
+In [free gas networks](../Configure/FreeGas.md), you must set
+[`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) to zero.
 
 ## Genesis milestone
 
-Not including a sufficient milestone in the genesis file can lead to unexpected and inconsistent
-behavior without specific errors. Ensure a sufficient milestone is included in the genesis file
-(for example, `constantinoplefixblock`).
+Not including a milestone far enough in advance in the genesis file can lead to unexpected and
+inconsistent behavior without specific errors. Ensure you include a milestone that is far enough in
+advance in the genesis file (for example, `constantinoplefixblock`).
 
 ## Illegal reflective access error on startup
 

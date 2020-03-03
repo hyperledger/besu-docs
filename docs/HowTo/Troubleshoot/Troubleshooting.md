@@ -105,7 +105,7 @@ hyphens.
 ## New line characters at the end of files
 
 Ensure there is no new line character (`\n`) at the end of password files. New line characters
-might not be displayed in all editors.
+might not display in all editors.
 
 ## Logging
 

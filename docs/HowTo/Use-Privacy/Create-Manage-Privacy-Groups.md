@@ -16,4 +16,4 @@ groups:
     You can find and delete 
     [EEA-compliant privacy groups](../../Concepts/Privacy/Privacy-Groups.md) using
     [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) and
-    [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup). 
+    [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup).

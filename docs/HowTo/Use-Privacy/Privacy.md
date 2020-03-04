@@ -23,7 +23,7 @@ transaction passed as an input parameter to
 
 Privacy groups created using
 [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)
-have a privacy group type of `BESU` when returned by
+have a `BESU` privacy group type when returned by
 [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
 
 !!! example

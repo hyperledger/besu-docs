@@ -18,8 +18,8 @@ transaction passed as an input parameter to
 
 ## Privacy group type
 
-Privacy groups created when specifying `privateFrom` and `privateFor` have a privacy group type of
-`LEGACY` when returned by
+Privacy groups created when specifying `privateFrom` and `privateFor` have a `LEGACY` privacy group
+type when returned by
 [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
 
 !!! example

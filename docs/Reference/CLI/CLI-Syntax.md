@@ -768,12 +768,15 @@ nat-method="UPNP"
 ```
 
 Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
-Options are:[`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp),
-[`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual),
-[`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker),
-[`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes),
-[`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto), and
-[`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
+The options are:
+
+* [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
+* [`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual)
+* [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
+* [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
+* [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
+* [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
+
 The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip

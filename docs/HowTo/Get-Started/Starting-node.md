@@ -94,6 +94,18 @@ rpc-http-enabled=true
 data-path="/tmp/tmpdata-path"
 ```
 
+!!! caution
+
+    Enabling the HTTP JSON-RPC service
+    ([`--rpc-http-enabled`]((../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled))) and setting
+    [`-rpc-http-host`]((../../Reference/CLI/CLI-Syntax.md#rpc-http-host)) to 0.0.0.0 exposes the
+    RPC connection on your node to any remote connection. Setting
+    [`--host-whitelist`]((../../Reference/CLI/CLI-Syntax.md#host-whitelist)) to `"*"` allows
+    JSON-RPC API access from any host. Setting
+    [`--rpc-http-cors-origins`]((../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins)) to
+    `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain. We do not
+    recommend using these settings in production environments.
+
 ## Run a node on ropsten testnet
 
 To run a node on Ropsten:

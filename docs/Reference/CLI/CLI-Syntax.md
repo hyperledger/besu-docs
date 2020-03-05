@@ -767,16 +767,27 @@ Default is 1000.
 nat-method="UPNP"
 ```
 
-Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md). 
-Options are: [`UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+Options are:[`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp),
+[`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual),
+[`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker),
+[`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes),
+[`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto), and
+[`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
 The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip
-    UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
+
+    UPnP support is often disabled by default in networking firmware. If disabled by default,
+    explicitly enable UPnP support.
 
 !!!notes
-    * Option `UPNP` might introduce delays during node startup, especially on networks where no UPnP gateway device can be found.
-    * `--nat-method=DOCKER` must be specified when using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+
+    Specifying `UPNP` might introduce delays during node startup, especially on networks without a
+    UPnP gateway device.
+
+    You must specify `DOCKER` when using the
+    [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 

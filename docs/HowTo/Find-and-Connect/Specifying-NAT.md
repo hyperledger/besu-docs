@@ -50,17 +50,28 @@ By specifying `MANUAL`:
 Specify `DOCKER` to explicitly specify Hyperledger Besu is running inside a Docker container. If
 you specify `DOCKER`, you advertise the host IP address not the container IP address.
 
-The host IP is the advertised host specified in the
+The host IP address is the advertised host specified in the
 [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
 If not specified in the `docker run` command, the advertised host defaults to the values for
 [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 
+## Kubernetes
+
+Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
+Besu automatically detects if it is running inside of a Kubernetes cluster and interacts with
+Kubernetes APIs as required to determine external IP addresses and exposed ports. The configuration
+is stored in `/opt/besu/shared/kube-config`.
+
 ## Auto
 
-`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside Docker container. If
-inside a Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker). If not inside a
-Docker container, `AUTO` acts as if you specified [`NONE`](#none).
+`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Docker container or a
+Kubernetes cluster. If running inside:
+
+* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
+* A Kubernetes cluster, `AUTO` acts as if you specified [`KUBERNETES`](#kubernetes).
+* Neither a Docker container nor a Kubernetes cluster, `AUTO` acts as if you specified
+  [`NONE`](#none).
 
 ## None
 

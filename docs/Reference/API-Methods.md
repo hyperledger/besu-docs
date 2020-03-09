@@ -144,9 +144,9 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 
 * `quantity` : `startBlock` - Starting block for the last requested cache generation.
 * `quantity` : `endBlock` - Ending block for the last requested cache generation.
-* `quantity` : `currentBlock` - The most recent block that was added to the cache.
+* `quantity` : `currentBlock` - The most recent block added to the cache.
 * `boolean` : `indexing` - `true` if indexing is in progress.
-* `boolean` : `true` if the request from this call to generate the cache was accepted.
+* `boolean` : `true` indicates acceptance of the request from this call to generate the cache.
 
 !!! example
 
@@ -788,7 +788,7 @@ None
 
 ### eth_mining
 
-Whether the client is actively mining new blocks. Mining is paused while the client synchronizes
+Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
 with the network regardless of command settings or methods called.
 
 **Parameters**
@@ -851,9 +851,9 @@ None
 
 ### eth_gasPrice
 
-Returns the current gas unit price, in wei. It is the hexadecimal equivalent of the price specified
-for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node was
-started or the default minimum gas price.
+Returns the current gas unit price, in wei. It's the hexadecimal equivalent of the price specified
+for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
+started, or the default minimum gas price.
 
 **Parameters**
 
@@ -1074,9 +1074,9 @@ from untrusted sources, by using a trusted block hash.
 * `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
 * `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`.
 * `storageProof`:`Array`- Storage entries. Each entry is an object that displays:
-   * `key`:`Quantity` - Storage key.
-   * `value`:`Quantity` - Storage value.
-   * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
+  * `key`:`Quantity` - Storage key.
+  * `value`:`Quantity` - Storage value.
+  * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
 
 !!! example
 
@@ -1344,7 +1344,6 @@ Returns the number of transactions in a block matching the specified block numbe
       }
     }
     ```
-
 
 ### eth_getUncleByBlockHashAndIndex
 
@@ -1654,8 +1653,8 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
 
 ### eth_getCode
 
-Returns the code of the smart contract at the specified address. Compiled smart contract code is
-stored as a hexadecimal value.
+Returns the code of the smart contract at the specified address. Besu stores compiled smart
+contract code as a hexadecimal value.
 
 **Parameters**
 
@@ -1846,12 +1845,12 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
 ### eth_estimateGas
 
-Returns an estimate of how much gas is needed for a transaction to complete. The estimation process
+Returns an estimate of the gas required for a transaction to complete. The estimation process
 does not use gas and the transaction is not added to the blockchain. The resulting estimate can be
-greater than the amount of gas that the transaction actually uses, for various reasons including
-EVM mechanics and node performance.
+greater than the amount of gas the transaction ends up using, for reasons including EVM mechanics
+and node performance.
 
-The `eth_estimateGas` call does not send a transaction. You must make a subsequent call to
+The `eth_estimateGas` call does not send a transaction. You must call
 [eth_sendRawTransaction](#eth_sendrawtransaction) to execute the transaction.
 
 **Parameters**
@@ -1866,7 +1865,7 @@ process (unlike transactions, in which gas limits apply).
 
 `result` : `quantity` -  Amount of gas used.
 
-The following example returns an estimate of 21000 wei (0x5208) for the transaction.
+The following example returns an estimate of 21000 wei (`0x5208`) for the transaction.
 
 !!! example
 
@@ -1909,8 +1908,8 @@ The following example returns an estimate of 21000 wei (0x5208) for the transact
     ```
 
 The following example request estimates the cost of deploying a simple storage smart contract to
-the network. The data field contains the hash of the compiled contract to be deployed. (You can
-obtain the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
+the network. The data field contains the hash of the compiled contract you want to deploy. (You can
+get the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
 WEB3DEPLOY**.) The result is 113355 wei.
 
 **Returns**
@@ -1942,7 +1941,6 @@ WEB3DEPLOY**.) The result is 113355 wei.
     }
     ```
 
-
 ### eth_getBlockByHash
 
 Returns information about the block by hash.
@@ -1956,8 +1954,8 @@ if `false`, returns the transaction hashes.
 
 **Returns**
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when no block is
-found.
+`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
+block.
 
 !!! example
 
@@ -2070,8 +2068,8 @@ if `false`, returns only the hashes of the transactions.
 
 **Returns**
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when no block is
-found.
+`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
+block.
 
 !!! example
 
@@ -2193,7 +2191,6 @@ found.
     }
     ```
 
-
 ### eth_getTransactionByHash
 
 Returns transaction information for the specified transaction hash.
@@ -2204,8 +2201,8 @@ Returns transaction information for the specified transaction hash.
 
 **Returns**
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is
-found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
 
@@ -2302,8 +2299,8 @@ Returns transaction information for the specified block hash and transaction ind
 
 **Returns**
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is
-found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
 
@@ -2384,8 +2381,8 @@ Returns transaction information for the specified block number and transaction i
 
 **Returns**
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is
-found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
 
@@ -2461,8 +2458,8 @@ found.
 Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
 available.
 
-If [revert reason](../HowTo/Send-Transactions/Revert-Reason.md) is enabled, includes available
-revert reasons in the response.
+If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
+available revert reasons in the response.
 
 **Parameters**
 
@@ -2471,7 +2468,7 @@ revert reasons in the response.
 **Returns**
 
 `Object` - [Transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when
-no receipt is found.
+there is no receipt.
 
 !!! example
 
@@ -2953,7 +2950,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
 ### eth_getWork
 
-Returns the hash of the current block, the seed hash, and the target boundary condition to be met.
+Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
 **Parameters**
 
@@ -2965,7 +2962,7 @@ None
 
 * DATA, 32 Bytes - Hash of the current block header (pow-hash).
 * DATA, 32 Bytes - The seed hash used for the DAG.
-* DATA, 32 Bytes - The target boundary condition to be met; 2^256 / difficulty.
+* DATA, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
 
 !!! example
 
@@ -2988,6 +2985,7 @@ None
         ]
     }
     ```
+
 ### eth_submitWork
 
 Submits a Proof of Work (Ethash) solution.
@@ -3110,11 +3108,12 @@ in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-paramete
 `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-If no parameters are specified, metrics are provided for the last 100 blocks or all blocks if there
-are less than 100 blocks.
+If you specify:
 
-If only the first parameter is specified, metrics are provided for all blocks from the block
-specified by the first parameter to the latest block.
+* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
+  than 100 blocks.
+* Only the first parameter, the call provides metrics for all blocks from the block specified to
+  the latest block.
 
 **Returns**
 
@@ -3260,7 +3259,7 @@ remove a signer.
 
 ## Debug methods
 
-!!! 
+!!! note
 
     The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
@@ -3290,7 +3289,7 @@ Returns the accounts for a specified block.
 `result`:`object` - Account details:
 
 * `addressMap`:`object` - List of address hashes and account addresses.
-* `nextKey`:`data` - Hash of the next address if any addresses are left in the state, otherwise
+* `nextKey`:`data` - Hash of the next address if any addresses remain in the state, otherwise
   zero.
 
 !!! example
@@ -3373,8 +3372,8 @@ Returns the contract storage for the specified range.
 
 Returns metrics providing information on the internal operation of Besu.
 
-The available metrics may change over time. The JVM metrics may vary based on the JVM
-implementation being used.
+The available metrics might change over time. The JVM metrics might vary based on the JVM
+implementation used.
 
 The metric types are:
 
@@ -3504,7 +3503,7 @@ None
 [Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the
 _Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
 
-Reruns the transaction with the same state as when the transaction was executed.
+Reruns the transaction with the same state as when the transaction executed.
 
 **Parameters**
 
@@ -3724,7 +3723,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ### miner_start
 
-Starts the mining process. To start mining, a miner coinbase must have been previously specified
+Starts the mining process. To start mining, a miner coinbase must have been specified before
 using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
 
 **Parameters**
@@ -3733,7 +3732,7 @@ None
 
 **Returns**
 
-`result` :  `boolean` - `true` if the mining start request was received successfully; otherwise
+`result` :  `boolean` - `true` if Besu received the mining start request successfully; otherwise
 returns an error.
 
 !!! example
@@ -3981,11 +3980,12 @@ in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-paramete
 `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-If no parameters are specified, metrics are provided for the last 100 blocks or all blocks if there
-are less than 100 blocks.
+If you specify:
 
-If only the first parameter is specified, metrics are provided for all blocks from the block
-specified by the first parameter to the latest block.
+* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
+  than 100 blocks.
+* Only the first parameter, the call provides metrics for all blocks from the block specified to
+  the latest block.
 
 **Returns**
 
@@ -4031,7 +4031,7 @@ specified by the first parameter to the latest block.
 
 ## Permissioning methods
 
-The permissioning API methods are used for [local](../HowTo/Limit-Access/Local-Permissioning.md)
+Use the permissioning API methods for [local](../HowTo/Limit-Access/Local-Permissioning.md)
 permissioning only.
 
 !!! important
@@ -4147,6 +4147,7 @@ or including invalid account addresses.
         "result": "Success"
     }
     ```
+
 ### perm_addNodesToWhitelist
 
 Adds nodes to the
@@ -4405,7 +4406,7 @@ combination of the three options including none of them.
 **Returns**
 
 `result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
-one object per transaction in the order the transactions were executed.
+one object per transaction, in transaction execution order.
 
 !!! example
 
@@ -4515,11 +4516,11 @@ transaction data using `eea_sendRawTransaction`.
 !!! important
 
     For production systems requiring private transactions, we recommend using a network with a
-	consensus mechanism supporting transaction finality. For example,
-	[IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md).
+    consensus mechanism supporting transaction finality. For example,
+    [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md).
 
     Using private transactions with [pruning](../Concepts/Pruning.md) or
-	[fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
+    [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
 
     Besu does not implement
     [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
@@ -4573,7 +4574,7 @@ transaction data using `eea_sendRawTransaction`.
 
 Invokes a private contract function locally and does not change the privacy group state.
 
-For private contracts, `priv_call` is the equivalent to [`eth_call`](#eth_call).
+For private contracts, `priv_call` is the same as [`eth_call`](#eth_call).
 
 **Parameters**
 
@@ -4722,10 +4723,9 @@ specified group of sender and recipients.
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the
-[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
-is specified by the
-[`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address) command line
-option.
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). Specify the
+address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
+command line option.
 
 **Parameters**
 
@@ -4802,17 +4802,15 @@ a participant in the private transaction.
     }
     ```
 
-
 ### priv_createPrivacyGroup
 
-Creates a privacy group containing the specified members. Members are specified by their
-[Orion](https://docs.orion.pegasys.tech/) public key.
+Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
 
 **Parameters**
 
 `Object` - Request options:
 
-* `addresses`: `array of data` - Array of members specified by
+* `addresses`: `array of data` - Array of nodes, specified by
   [Orion](https://docs.orion.pegasys.tech/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
@@ -4953,7 +4951,7 @@ specified privacy group.
 
 ### priv_getTransactionReceipt
 
-Returns information about the private transaction after the transaction was mined. Receipts for
+Returns information about the private transaction after mining the transaction. Receipts for
 pending transactions are not available.
 
 **Parameters**

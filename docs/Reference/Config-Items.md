@@ -23,7 +23,6 @@ genesis file.
 | `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). The default is `24576` and the maximum size is `2147483647`.                                |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                    |
 
-
 ## Genesis block parameters
 
 The purpose of some genesis block parameters varies depending on the consensus protocol (Ethash,

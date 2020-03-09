@@ -19,7 +19,6 @@ The following table lists the interfaces providing core plugin classes.
 | [**BesuContext**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuContext.html) | Allows plugins to access Besu services. |
 | [**BesuPlugin**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html)   | Used to manage the plugin lifecycle.    |
 
-
 ## Plugin services
 
 The following table lists interfaces providing services you can retrieve.

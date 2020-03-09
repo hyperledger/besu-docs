@@ -25,14 +25,13 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 | **miner**            | Data, 20&nbsp;bytes   | Address to pay mining rewards to.                                  |
 | **difficulty**       | Quantity, Integer     | Difficulty for this block.                                         |
 | **totalDifficulty**  | Quantity, Integer     | Total difficulty of the chain until this block.                    |
-| **extraData**        | Data                  | Extra data field of this block. The first 32 bytes is vanity data you can using the [`--miner-extra-data`](../Reference/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores additional data when used with [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) and [IBFT](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
+| **extraData**        | Data                  | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../Reference/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores extra data when used with [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) and [IBFT](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
 | **size**             | Quantity, Integer     | Size of block in bytes.                                            |
 | **gasLimit**         | Quantity              | Maximum gas allowed in this block.                                 |
 | **gasUsed**          | Quantity              | Total gas used by all transactions in this block.                  |
 | **timestamp**        | Quantity              | Unix timestamp for block assembly.                                 |
 | **transactions**     | Array                 | Array of [transaction objects](#transaction-object), or 32 byte transaction hashes depending on the specified boolean parameter. |
 | **uncles**           | Array                 | Array of uncle hashes.                                             |
-
 
 ## Filter options object
 
@@ -47,7 +46,7 @@ Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter) and
 | **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Concepts/Events-and-Logs.md) originate.                                                                |
 | **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Concepts/Events-and-Logs.md#topic-filters).                                                                           |
 
-[`eth_getLogs`](API-Methods.md#eth_getlogs) has an additional key.
+[`eth_getLogs`](API-Methods.md#eth_getlogs) has an extra key.
 
 | Key           | Type               | Required/Optional | Value  |
 |---------------|:------------------:|:-----------------:|--------|
@@ -60,7 +59,7 @@ Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and
 
 | Key                  | Type                              | Value                                                                                                                                                                                                               |
 |----------------------|-:- :------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **removed**          | Tag                               | `true` when the log was removed because of chain reorganization. `false` if valid a log.                                                                                                                                         |
+| **removed**          | Tag                               | `true` if log removed because of a chain reorganization. `false` if a valid log.                                                                                                                                         |
 | **logIndex**         | Quantity, Integer                 | Log index position in the block. `null` when log is pending.                                                                                                                                                        |
 | **transactionIndex** | Quantity, Integer                 | Index position of the starting transaction for the log. `null` when log is pending.                                                                                                                               |
 | **transactionHash**  | Data, 32&nbsp;bytes               | Hash of the starting transaction for the log. `null` when log is pending.                                                                                                                                         |
@@ -100,7 +99,6 @@ Returned by [`debug_storageRangeAt`](API-Methods.md#debug_storagerangeat).
 |-----------------|:-------:|-------------------------------------------------------------------------|
 | **storage**     | Object  | Key hash and value. Preimage key is null if it falls outside the cache. |
 | **nextKey**     | Hash    | Hash of next key if further storage in range. Otherwise, not included.  |
-
 
 ### Structured log object
 
@@ -215,16 +213,15 @@ Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktr
 | **vmTrace**                          | Object                       | [Ordered list of EVM actions.](../Concepts/Transactions/Trace-Types.md#vmtrace).            |
 | **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction.                                                           |
 
-
 ## Private transaction receipt object
 
 Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
 
 | Key                                  | Type                         | Value                                                                                                  |
 |--------------------------------------|:----------------------------:|--------------------------------------------------------------------------------------------------------|
-| **contractAddress**                  | Data, 20&nbsp;bytes          | Contract address created, if a contract creation transaction; otherwise, `null`.                       |
+| **contractAddress**                  | Data, 20&nbsp;bytes          | Contract address created if a contract creation transaction; otherwise, `null`.                       |
 | **from**                             | Data, 20&nbsp;bytes          | Address of the sender.                                                                                 |
-| **output**                           | Data                         | RLP-encoded return value of a contract call, if a value is returned; otherwise, `null`.                |
+| **output**                           | Data                         | RLP-encoded return value of a contract call if a value returns; otherwise, `null`.                |
 | **commitmentHash**                   | Data, 32&nbsp;bytes          | Hash of the privacy marker transaction.                                                                |
 | **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the private transaction.                                                                       |
 | **privateFrom**                      | Data, 32&nbsp;bytes          | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of the sender.                          |

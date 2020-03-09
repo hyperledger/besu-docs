@@ -129,7 +129,7 @@ privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
 ## getMarkerTransaction
 
 Retrieves the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
-transaction receipt.
+receipt.
 
 **Parameters**
 

@@ -1,16 +1,19 @@
+---
 description: Including revert reason in transactions with Hyperledger Besu
-<!--- END of page meta data -->
+---
 
-# Revert Reason 
+# Revert reason
 
-In smart contracts, the [`revert`](https://solidity.readthedocs.io/en/v0.5.10/control-structures.html#revert) operation 
-triggers an exception to flag an error and revert the current call. An optional string message containing 
-information about the error is passed back to the client from the EVM.
+In smart contracts, the
+[`revert`](https://solidity.readthedocs.io/en/v0.5.10/control-structures.html#revert) operation
+triggers an exception to flag an error and revert the current call. The EVM passes back to the
+client an optional string message containing information about the error.
 
 !!! example
+
     ```sol
     pragma solidity >=0.5.0 <0.7.0;
-    
+
     contract VendingMachine {
         function buy(uint amount) public payable {
             if (amount > msg.value / 2 ether)
@@ -25,28 +28,33 @@ information about the error is passed back to the client from the EVM.
     }
     ```
 
-## Enabling Revert Reason 
+## Enabling revert reason
 
-Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled) command line option
-to include the revert reason in the transaction receipt in Hyperledger Besu. 
+Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
+command line option to include the revert reason in the transaction receipt in Hyperledger Besu.
 
-!!! caution 
-    Enabling revert reason may use a significant amount of memory. We do not recommend enabling revert
-    reason when connected to public Ethereum networks. 
+!!! caution
 
-## Where is the Revert Reason Included 
+    Enabling revert reason may use a significant amount of memory. We do not recommend enabling
+    revert reason when connected to public Ethereum networks.
 
-When revert reason is enabled, the revert reason is included as an ABI-encoded string in the transaction receipt returned by 
-[`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt). 
+## Where is the revert reason included
 
-!!! important 
-    The revert reason is not included in the transactions receipts root hash. Not being included in the 
-    transactions receipts root hash means the revert reason is only available to nodes that execute the 
-    transaction when importing the block. That is, the revert reason is not available if using fast sync. 
+With revert reason enabled, the transaction receipt returned by
+[`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt) includes
+the revert reason as an ABI-encoded string.
 
-!!! example 
+!!! important
+
+    The revert reason is not included in the transactions receipts root hash. Not including the
+    revert reason in the transactions receipts root hash means the revert reason is only available
+    to nodes that execute the transaction when importing the block. That is, the revert reason is
+    not available if using fast sync.
+
+!!! example
+
     ```
-    { 
+    {
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
@@ -66,13 +74,13 @@ When revert reason is enabled, the revert reason is included as an ABI-encoded s
        }
     }
     ```
-    
-## Revert Reason Format
-    
-As described in the [Solidity documentation](https://solidity.readthedocs.io/en/v0.5.10/control-structures.html#revert),
-the revert reason is included as an ABI-encoded string consisting of: 
 
-```
+## Revert reason format
+
+As described in the [Solidity documentation], the transaction receipt includes the revert reason as
+an ABI-encoded string consisting of:
+
+```bash
 0x08c379a0                                                         // Function selector for Error(string)
 0x0000000000000000000000000000000000000000000000000000000000000020 // Data offset
 0x000000000000000000000000000000000000000000000000000000000000001a // String length
@@ -80,13 +88,16 @@ the revert reason is included as an ABI-encoded string consisting of:
 ```
 
 !!! example
+
     ```bash tab="Revert reason string for Not enough Ether provided."
     "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
     ```
 
-## Dapp Support 
+## Dapp support
 
-Client libraries (eg, web3j) do not support extracting the revert reason from the transaction receipt. 
-To extract the revert reason your Dapp must interact directly with Besu using a custom JSON -> Object 
-converter. 
+Client libraries, such as web3j, do not support extracting the revert reason from the transaction
+receipt. To extract the revert reason your Dapp must interact directly with Besu using a custom
+JSON -> Object converter.
 
+<!-- Links -->
+[Solidity documentation]: https://solidity.readthedocs.io/en/v0.5.10/control-structures.html#revert

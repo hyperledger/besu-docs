@@ -1074,9 +1074,9 @@ from untrusted sources, by using a trusted block hash.
 * `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
 * `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`.
 * `storageProof`:`Array`- Storage entries. Each entry is an object that displays:
-  * `key`:`Quantity` - Storage key.
-  * `value`:`Quantity` - Storage value.
-  * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
+    * `key`:`Quantity` - Storage key.
+    * `value`:`Quantity` - Storage value.
+    * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
 
 !!! example
 
@@ -3723,8 +3723,8 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ### miner_start
 
-Starts the mining process. To start mining, a miner coinbase must have been specified before
-using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
+Starts the mining process. To start mining, you must first specify a miner coinbase using the
+[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
 
 **Parameters**
 
@@ -3763,7 +3763,7 @@ None
 
 **Returns**
 
-`result` :  `boolean` - `true` if the mining stop request was received successfully; otherwise
+`result` :  `boolean` - `true` if Besu received the mining stop request successfully; otherwise
 returns an error.
 
 !!! example

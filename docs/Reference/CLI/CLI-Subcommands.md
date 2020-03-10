@@ -1,5 +1,6 @@
+---
 description: Hyperledger Besu command line interface subcommands
-<!--- END of page meta data -->
+---
 
 # Subcommands
 
@@ -31,16 +32,23 @@ besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 -
 
 Exports a block, or list of blocks from storage to a file in RLP format.
 
-If `--start-block` is omitted, the start block defaults to 0 (beginning of the chain), and if `--end-block` is omitted, the end block defaults to the end of the chain.
+If you omit `--start-block`, the start block defaults to 0 (the beginning of the chain), and if you
+omit `--end-block`, the end block defaults to the end of the chain.
 
-If you are not running the command against the default network (MainNet), specify the `--network` or `--genesis-file` parameter.
+If you are not running the command against the default network (MainNet), specify the `--network`
+or `--genesis-file` parameter.
 
 ## public-key
 
 This command provides node public key related actions.
 
 !!!caution
-    To obtain the public key or address of an existing node, ensure the [`--data-path`](CLI-Syntax.md#data-path) or [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option is used with the `public-key` command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when starting Besu.
+
+    To get the public key or address of an existing node, ensure you use the
+    [`--data-path`](CLI-Syntax.md#data-path) or
+    [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option with the `public-key
+    command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when
+    starting Besu.
 
 ### export
 
@@ -56,8 +64,8 @@ besu --data-path=<node data path> public-key export
 besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
 ```
 
-Outputs the node public key to standard output or writes it to the specified file if
-`--to=<key-file>` is specified.
+Outputs the node public key to standard output or writes it to the file specified by
+`--to=<key-file>`.
 
 ### export-address
 
@@ -73,7 +81,7 @@ besu --data-path=<node data path> public-key export-address
 besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
 ```
 
-Outputs the node public key address to standard output or writes it to the specified file if  
+Outputs the node public key address to standard output or writes it to the specified file if
 `--to=<key-file>` is specified.
 
 ## password
@@ -82,8 +90,9 @@ Provides password related actions.
 
 ### hash
 
-This command generates the hash of a given password. Include the hash in the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
- for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
+This command generates the hash of a given password. Include the hash in the
+[credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
+[authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ```bash tab="Syntax"
 besu password hash --password=<my-password>
@@ -99,7 +108,8 @@ Provides operator actions.
 
 ### generate-blockchain-config
 
-This command generates [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
+This command generates
+[IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
 
 ```bash tab="Syntax"
 besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
@@ -109,25 +119,29 @@ besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [
 besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
 ```
 
-The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining
-the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for the `extraData` string. The
-second is the `blockchain` property defining the number of key pairs to generate.  
+The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining the
+[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for
+the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
+generate.
 
 ### generate-log-bloom-cache
 
-!!! tip 
-    Manually executing `generate-log-bloom-cache` is not required unless the 
-    [`--auto-log-bloom-caching-enabled`](CLI-Syntax.md#auto-log-bloom-caching-enabled) command line 
-    option has been set to false.  
+!!! tip
 
-Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log
-query performance.
+    Manually executing `generate-log-bloom-cache` is not required unless you set the
+    [`--auto-log-bloom-caching-enabled`](CLI-Syntax.md#auto-log-bloom-caching-enabled) command line
+    option to false.
+
+Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log query
+performance.
 
 !!! note
-    Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
 
-The [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API can be used to generate cached log
-bloom indexes while the node is running.
+    Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not
+    indexed.
+
+To generate cached log bloom indexes while the node is running, use the
+[`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API.
 
 ```bash tab="Syntax"
 besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
@@ -143,7 +157,8 @@ Provides RLP related actions.
 
 ### encode
 
-This command encodes a typed JSON value from a file or from the standard input into an RLP hexadecimal string.
+This command encodes a typed JSON value from a file or from the standard input into an RLP
+hexadecimal string.
 
 ```bash tab="Syntax"
 besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
@@ -157,16 +172,19 @@ besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt
 cat extra_data.json | besu rlp encode > rlp.txt
 ```
 
-The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding.
-This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
+The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding. The
+[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
+the `IBFT_EXTRA_DATA` type.
 
 ???+ summary "IBFT 2.0 Extra Data"
-    To generate the RLP encoded `extraData` string, specify a JSON input that is array of validator addresses
-    in ascending order.
+
+    To generate the RLP encoded `extraData` string, specify a JSON input that is an array of
+    validator addresses in ascending order.
 
     ??? tip "JSON Schema for IBFT_EXTRA_DATA"
-        The following JSON Schema can be used to validate that your JSON data is well formed. You can use an online validation tool
-        such as https://www.jsonschemavalidator.net/ to validate your JSON content.
+        Use the following JSON Schema to validate that your JSON data is well formed. To validate
+        your JSON content, use an online validation tool, such as
+        https://www.jsonschemavalidator.net/.
 
         ```json
         {
@@ -192,6 +210,7 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
         ```
 
     !!!example "Example IBFT_EXTRA_DATA encoding"
+
         ```json tab="JSON Input"
         [
           "be068f726a13c8d46c44be6ce9d275600e1735a4",
@@ -205,7 +224,9 @@ This data is included in the [IBFT 2.0 genesis file](../../HowTo/Configure/Conse
 
 ## retesteth
 
-Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a developer tool that can generate and run consensus tests against any Ethereum client running such a server.
+Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a
+developer tool that can generate and run consensus tests against any Ethereum client running such a
+server.
 
 The command accepts the following command line options:
 

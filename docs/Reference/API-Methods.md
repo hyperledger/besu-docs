@@ -32,11 +32,11 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
     If connections are timing out, ensure the node ID in the
     [enode URL](../Concepts/Node-Keys.md#enode-url) is correct.
 
-**Parameters**
+#### Parameters
 
 `string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to add
 
-**Returns**
+#### Returns
 
 `result` : `boolean` - `true` if peer added or `false` if peer already a
 [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
@@ -66,13 +66,13 @@ can change the log level for specific packages or classes.
 
 You can specify only one log level per RPC call.
 
-**Parameters**
+#### Parameters
 
 `level` - [Log level](CLI/CLI-Syntax.md#logging)
 
 `log_filter`: `Array` - Packages or classes to change the log level for. Optional.
 
-**Returns**
+#### Returns
 
 `result` : `Success` if the log level has changed; otherwise `error`.
 
@@ -132,13 +132,13 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
     Each index file contains 100000 blocks. The last fragment of blocks less than 100000 are not
     indexed.
 
-**Parameters**
+#### Parameters
 
 `integer` - Block to start generating indexes.
 
 `integer` - Block to stop generating indexes.
 
-**Returns**
+#### Returns
 
 `result` : *object* - Log bloom index details:
 
@@ -177,11 +177,11 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 Returns networking information about the node. The information includes general information about
 the node and specific information from each running Ethereum sub-protocol (for example, `eth`).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : Node object
 
@@ -255,11 +255,11 @@ Properties of the node object are:
 
 Returns networking information about connected remote nodes.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *array* of *objects* - Object returned for each remote node.
 
@@ -316,11 +316,11 @@ Properties of the remote node object are:
 
 Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
-**Parameters**
+#### Parameters
 
 `string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to remove.
 
-**Returns**
+#### Returns
 
 `result` : `boolean` - `true` if peer removed or `false` if peer not a
 [static node](../HowTo/Find-and-Connect/Static-Nodes.md)).
@@ -349,11 +349,11 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 Returns the current client version.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *string* - Current client version.
 
@@ -380,11 +380,11 @@ None
 Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value
 is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
 
-**Parameters**
+#### Parameters
 
 `DATA` - Data to convert to a SHA3 hash.
 
-**Returns**
+#### Returns
 
 `result` (*DATA*) - SHA3 result of the input data.
 
@@ -412,11 +412,11 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
 
 Returns the current chain ID.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *string* - Current chain ID.
 
@@ -461,11 +461,11 @@ None
 
 Whether the client is actively listening for network connections.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` (*BOOLEAN*) - `true` if the client is actively listening for network connections;
 otherwise `false`.
@@ -492,11 +492,11 @@ otherwise `false`.
 
 Returns the number of peers currently connected to the client.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *integer* - Number of connected peers in hexadecimal.
 
@@ -522,11 +522,11 @@ None
 
 Returns the [enode URL](../Concepts/Node-Keys.md#enode-url).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node.
 
@@ -552,11 +552,11 @@ None
 
 Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *objects* - Enabled services.
 
@@ -603,11 +603,11 @@ None
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *Object|Boolean* - Object with synchronization status data or `false`, when not
 synchronizing:
@@ -672,11 +672,11 @@ synchronizing:
 
 Returns the [chain ID](../Concepts/NetworkID-And-ChainID.md).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *quantity* - Chain ID, in hexadecimal.
 
@@ -702,11 +702,11 @@ None
 
 Returns current Ethereum protocol version.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *quantity* - Ethereum protocol version.
 
@@ -760,11 +760,11 @@ Etherscan. For example:
     besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
     ```
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *data* - Coinbase address.
 
@@ -791,11 +791,11 @@ None
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
 with the network regardless of command settings or methods called.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` (*BOOLEAN*) - `true` if the client is actively mining new blocks; otherwise `false`.
 
@@ -823,11 +823,11 @@ Returns the number of hashes per second with which the node is mining.
 
 Not supported for GPU mining.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : `quantity` - Number of hashes per second.
 
@@ -855,11 +855,11 @@ Returns the current gas unit price, in wei. It's the hexadecimal equivalent of t
 for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
 started, or the default minimum gas price.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *quantity* - Current gas unit price, in wei, as a hexadecimal value.
 
@@ -912,11 +912,11 @@ Returns a list of account addresses a client owns.
     To provide access to your key store and and then sign transactions, use
     [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `Array of data` : List of 20-byte account addresses owned by the client.
 
@@ -942,11 +942,11 @@ None
 
 Returns the index corresponding to the block number of the current chain head.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Hexadecimal integer representing the index corresponding to the block
 number of the current chain head.
@@ -995,7 +995,7 @@ number of the current chain head.
 
 Returns the account balance of the specified address.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte account address from which to retrieve the balance.
 
@@ -1003,7 +1003,7 @@ Returns the account balance of the specified address.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Current balance, in wei, as a hexadecimal value.
 
@@ -1054,7 +1054,7 @@ Returns the account and storage values of the specified account, including the m
 The API allows IoT devices or mobile apps which are unable to run light clients to verify responses
 from untrusted sources, by using a trusted block hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte address of the account or contract.
 
@@ -1064,7 +1064,7 @@ from untrusted sources, by using a trusted block hash.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result`: *Object* - Account details:
 
@@ -1125,7 +1125,7 @@ from untrusted sources, by using a trusted block hash.
 
 Returns the value of a storage position at a specified address.
 
-**Parameters**
+#### Parameters
 
 `DATA` - A 20-byte storage address.
 
@@ -1135,7 +1135,7 @@ Returns the value of a storage position at a specified address.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *DATA* - The value at the specified storage position.
 
@@ -1186,7 +1186,7 @@ Returns the value of a storage position at a specified address.
 Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
 account nonce.
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte account address.
 
@@ -1194,7 +1194,7 @@ account nonce.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *quantity* - Integer representing the number of transactions sent from the specified
 address.
@@ -1243,11 +1243,11 @@ address.
 
 Returns the number of transactions in the block matching the given block hash.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result` : `quantity` - Integer representing the number of transactions in the specified block.
 
@@ -1295,13 +1295,13 @@ Returns the number of transactions in the block matching the given block hash.
 
 Returns the number of transactions in a block matching the specified block number.
 
-**Parameters**
+#### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of transactions in the specified block.
 
@@ -1349,13 +1349,13 @@ Returns the number of transactions in a block matching the specified block numbe
 
 Returns uncle specified by block hash and index.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
 `quantity` - Index of the uncle.
 
-**Returns**
+#### Returns
 
 `result` : [Block object](API-Objects.md#block-object)
 
@@ -1455,14 +1455,14 @@ Returns uncle specified by block hash and index.
 
 Returns uncle specified by block number and index.
 
-**Parameters**
+#### Parameters
 
 `quantity|tag` - Index of the block, or one of the string tags `latest`, `earliest`, or `pending`,
 as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `quantity` - Index of the uncle.
 
-**Returns**
+#### Returns
 
 `result` : [Block object](API-Objects.md#block-object)
 
@@ -1549,11 +1549,11 @@ as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#b
 
 Returns the number of uncles in a block from a block matching the given block hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
 
@@ -1601,13 +1601,13 @@ Returns the number of uncles in a block from a block matching the given block ha
 
 Returns the number of uncles in a block matching the specified block number.
 
-**Parameters**
+#### Parameters
 
 `QUANTITY|TAG` - Integer representing either the index of the block within the blockchain, or one
 of the string tags `latest`, `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
 
@@ -1656,7 +1656,7 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
 Returns the code of the smart contract at the specified address. Besu stores compiled smart
 contract code as a hexadecimal value.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte contract address.
 
@@ -1664,7 +1664,7 @@ contract code as a hexadecimal value.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *DATA* - Code stored at the specified address.
 
@@ -1725,7 +1725,7 @@ transaction data using `eth_sendRawTransaction`.
     [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements
     [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
-**Parameters**
+#### Parameters
 
 `data` -  Signed transaction serialized to hexadecimal format. For example:
 
@@ -1737,7 +1737,7 @@ transaction data using `eth_sendRawTransaction`.
     examples of creating signed transactions using the
     [web3.js](https://github.com/ethereum/web3.js/) library.
 
-**Returns**
+#### Returns
 
 `result` : `data` - 32-byte transaction hash.
 
@@ -1783,7 +1783,7 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
-**Parameters**
+#### Parameters
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
@@ -1791,7 +1791,7 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` - `data` - Return value of the executed contract.
 
@@ -1853,7 +1853,7 @@ and node performance.
 The `eth_estimateGas` call does not send a transaction. You must call
 [eth_sendRawTransaction](#eth_sendrawtransaction) to execute the transaction.
 
-**Parameters**
+#### Parameters
 
 The transaction call object parameters are the same as those for [eth_call](#eth_call), except that
 in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
@@ -1861,7 +1861,7 @@ process (unlike transactions, in which gas limits apply).
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
-**Returns**
+#### Returns
 
 `result` : `quantity` -  Amount of gas used.
 
@@ -1912,7 +1912,7 @@ the network. The data field contains the hash of the compiled contract you want 
 get the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
 WEB3DEPLOY**.) The result is 113355 wei.
 
-**Returns**
+#### Returns
 
 !!! example
 
@@ -1945,14 +1945,14 @@ WEB3DEPLOY**.) The result is 113355 wei.
 
 Returns information about the block by hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a block.
 
 `Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
 if `false`, returns the transaction hashes.
 
-**Returns**
+#### Returns
 
 `result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
 block.
@@ -2057,7 +2057,7 @@ block.
 
 Returns information about a block by block number.
 
-**Parameters**
+#### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
@@ -2066,7 +2066,7 @@ Returns information about a block by block number.
 `Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
 if `false`, returns only the hashes of the transactions.
 
-**Returns**
+#### Returns
 
 `result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
 block.
@@ -2195,11 +2195,11 @@ block.
 
 Returns transaction information for the specified transaction hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte transaction hash.
 
-**Returns**
+#### Returns
 
 Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
 transaction.
@@ -2291,13 +2291,13 @@ transaction.
 
 Returns transaction information for the specified block hash and transaction index position.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a block.
 
 `QUANTITY` - Integer representing the transaction index position.
 
-**Returns**
+#### Returns
 
 Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
 transaction.
@@ -2371,7 +2371,7 @@ transaction.
 
 Returns transaction information for the specified block number and transaction index position.
 
-**Parameters**
+#### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
@@ -2379,7 +2379,7 @@ Returns transaction information for the specified block number and transaction i
 
 `QUANTITY` - The transaction index position.
 
-**Returns**
+#### Returns
 
 Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
 transaction.
@@ -2461,11 +2461,11 @@ available.
 If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
 available revert reasons in the response.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a transaction.
 
-**Returns**
+#### Returns
 
 `Object` - [Transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when
 there is no receipt.
@@ -2564,7 +2564,7 @@ there is no receipt.
 Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
 created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 `Object` - [Filter options object](API-Objects.md#filter-options-object).
 
@@ -2573,7 +2573,7 @@ created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
     `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
     using `eth_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
 
-**Returns**
+#### Returns
 
 `data` - Filter ID hash.
 
@@ -2600,11 +2600,11 @@ created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
 Creates a filter to retrieve new block hashes. To poll for new blocks, use
 [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `data` - Filter ID hash.
 
@@ -2631,11 +2631,11 @@ None
 Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions,
 use [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `data` - Filter ID hash.
 
@@ -2664,11 +2664,11 @@ Uninstalls a filter with the specified ID. When a filter is no longer required, 
 Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchanges) for 10
 minutes.
 
-**Parameters**
+#### Parameters
 
 `data` - Filter ID hash.
 
-**Returns**
+#### Returns
 
 `Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
 
@@ -2696,11 +2696,11 @@ minutes.
 
 Polls the specified filter and returns an array of changes that have occurred since the last poll.
 
-**Parameters**
+#### Parameters
 
 `data` - Filter ID hash
 
-**Returns**
+#### Returns
 
 `result` : `Array of Object` - If nothing changed since the last poll, an empty list. Otherwise:
 
@@ -2790,11 +2790,11 @@ command line option at the default value of `true` to improve log retrieval perf
     `eth_getFilterLogs` is only used for filters created with `eth_newFilter`. To specify a filter
     object and get logs without creating a filter, use `eth_getLogs` .
 
-**Parameters**
+#### Parameters
 
 `data` - Filter ID hash.
 
-**Returns**
+#### Returns
 
 `array` - [Log objects](API-Objects.md#log-object).
 
@@ -2843,11 +2843,11 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified 
 Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
-**Parameters**
+#### Parameters
 
 `Object` - [Filter options object](API-Objects.md#filter-options-object).
 
-**Returns**
+#### Returns
 
 `array` - [Log objects](API-Objects.md#log-object).
 
@@ -2952,11 +2952,11 @@ command line option at the default value of `true` to improve log retrieval perf
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : `Array of DATA` with the following fields:
 
@@ -2992,13 +2992,13 @@ Submits a Proof of Work (Ethash) solution.
 
 Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
-**Parameters**
+#### Parameters
 
 * DATA, 8 Bytes - Retrieved nonce.
 * DATA, 32 Bytes - Hash of the block header (PoW-hash).
 * DATA, 32 Bytes - Mix digest.
 
-**Returns**
+#### Returns
 
 `result: Boolean`, `true` if the provided solution is valid, otherwise `false`.
 
@@ -3032,11 +3032,11 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 
 Discards a proposal to [add or remove a signer with the specified address].
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte address of proposed signer.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
@@ -3062,13 +3062,13 @@ Discards a proposal to [add or remove a signer with the specified address].
 
 Lists [signers for the specified block].
 
-**Parameters**
+#### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of 20-byte addresses of signers.
 
@@ -3099,7 +3099,7 @@ Provides validator metrics for the specified range:
   range).
 * All validators present in the last block.
 
-**Parameters**
+#### Parameters
 
 `fromBlockNumber` - Integer representing a block number or the string tag `earliest`, as described
 in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
@@ -3115,7 +3115,7 @@ If you specify:
 * Only the first parameter, the call provides metrics for all blocks from the block specified to
   the latest block.
 
-**Returns**
+#### Returns
 
 `result`: _object_ - List of validator objects.
 
@@ -3161,11 +3161,11 @@ If you specify:
 
 Lists signers for the specified block.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of 20-byte addresses of signers.
 
@@ -3191,13 +3191,13 @@ Lists signers for the specified block.
 
 Propose to [add or remove a signer with the specified address].
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte address.
 
 `boolean` -  `true` to propose adding signer or `false` to propose removing signer.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
@@ -3224,11 +3224,11 @@ Propose to [add or remove a signer with the specified address].
 Returns
 [current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result`:_object_ - Map of account addresses to corresponding boolean values indicating the
 proposal for each account.
@@ -3274,7 +3274,7 @@ remove a signer.
 
 Returns the accounts for a specified block.
 
-**Parameters**
+#### Parameters
 
 `blockHashOrNumber` : `data` - Block hash or number.
 
@@ -3284,7 +3284,7 @@ Returns the accounts for a specified block.
 
 `limit` : `integer` - Maximum number of account entries to return.
 
-**Returns**
+#### Returns
 
 `result`:`object` - Account details:
 
@@ -3326,7 +3326,7 @@ _Debugger_ tab in Remix instead of calling `debug_storageRangeAt` directly.
 
 Returns the contract storage for the specified range.
 
-**Parameters**
+#### Parameters
 
 `blockHash` : `data` - Block hash.
 
@@ -3338,7 +3338,7 @@ Returns the contract storage for the specified range.
 
 `limit` : `integer` - Number of storage entries to return.
 
-**Returns**
+#### Returns
 
 `result`:`object` - [Range object](API-Objects.md#range-object).
 
@@ -3381,11 +3381,11 @@ The metric types are:
 * Counter
 * Gauge.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result`:`object`
 
@@ -3505,7 +3505,7 @@ _Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
 
 Reruns the transaction with the same state as when the transaction executed.
 
-**Parameters**
+#### Parameters
 
 `transactionHash` : `data` - Transaction hash.
 
@@ -3515,7 +3515,7 @@ Reruns the transaction with the same state as when the transaction executed.
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`object` - [Trace object](API-Objects.md#trace-object).
 
@@ -3555,7 +3555,7 @@ Reruns the transaction with the same state as when the transaction executed.
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
 `Block` : `data` - RLP of the block.
 
@@ -3565,7 +3565,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`object` - [Trace object](API-Objects.md#trace-object).
 
@@ -3605,7 +3605,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
 `block hash` : `data` - Block hash.
 
@@ -3615,7 +3615,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
 
@@ -3660,7 +3660,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
@@ -3672,7 +3672,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
 
@@ -3726,11 +3726,11 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 Starts the mining process. To start mining, you must first specify a miner coinbase using the
 [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` :  `boolean` - `true` if Besu received the mining start request successfully; otherwise
 returns an error.
@@ -3757,11 +3757,11 @@ returns an error.
 
 Stops the mining process on the client.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` :  `boolean` - `true` if Besu received the mining stop request successfully; otherwise
 returns an error.
@@ -3796,11 +3796,11 @@ returns an error.
 
 Discards a proposal to [add or remove a validator] with the specified address.
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte address of proposed validator.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
@@ -3827,11 +3827,11 @@ Discards a proposal to [add or remove a validator] with the specified address.
 Returns
 [current votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result`: `object` - Map of account addresses to corresponding boolean values indicating the vote
 for each account.
@@ -3864,11 +3864,11 @@ remove a validator.
 
 Lists the validators defined in the specified block.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of validator addresses.
 
@@ -3898,13 +3898,13 @@ Lists the validators defined in the specified block.
 
 Lists the validators defined in the specified block.
 
-**Parameters**
+#### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of validator addresses.
 
@@ -3934,13 +3934,13 @@ Lists the validators defined in the specified block.
 
 Propose to [add or remove a validator] with the specified address.
 
-**Parameters**
+#### Parameters
 
 `data` - Account address
 
 `boolean` -  `true` to propose adding validator or `false` to propose removing validator.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
@@ -3971,7 +3971,7 @@ Provides validator metrics for the specified range:
   range).
 * All validators present in the last block of the range.
 
-**Parameters**
+#### Parameters
 
 `fromBlockNumber` - Integer representing a block number or the string tag `earliest` as described
 in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
@@ -3987,7 +3987,7 @@ If you specify:
 * Only the first parameter, the call provides metrics for all blocks from the block specified to
   the latest block.
 
-**Returns**
+#### Returns
 
 `result`: _object_ - List of validator objects
 
@@ -4045,7 +4045,7 @@ permissioning only.
 Adds accounts (participants) to the
 [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
 `list of strings` - List of account addresses.
 
@@ -4054,7 +4054,7 @@ Adds accounts (participants) to the
     The parameters list contains a list which is why the account addresses are enclosed by double
     square brackets.
 
-**Returns**
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to add accounts already on the whitelist
 or including invalid account addresses.
@@ -4082,11 +4082,11 @@ or including invalid account addresses.
 Lists accounts (participants) in the
 [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result: list` - Accounts (participants) in the accounts whitelist.
 
@@ -4116,7 +4116,7 @@ None
 Removes accounts (participants) from the
 [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
 `list of strings` - List of account addresses.
 
@@ -4125,7 +4125,7 @@ Removes accounts (participants) from the
     The parameters list contains a list which is why the account addresses are enclosed by double
     square brackets.
 
-**Returns**
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to remove accounts not on the whitelist
 or including invalid account addresses.
@@ -4153,7 +4153,7 @@ or including invalid account addresses.
 Adds nodes to the
 [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
 `list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url).
 
@@ -4162,7 +4162,7 @@ Adds nodes to the
     The parameters list contains a list which is why the enode URLs are enclosed by double
     square brackets.
 
-**Returns**
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to add nodes already on the whitelist or
 including invalid enode URLs.
@@ -4190,11 +4190,11 @@ including invalid enode URLs.
 Lists nodes in the
 [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes whitelist.
 
@@ -4224,7 +4224,7 @@ None
 Removes nodes from the
 [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
 `list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url)
 
@@ -4233,7 +4233,7 @@ Removes nodes from the
     The parameters list contains a list which is why the enode URLs are enclosed by double square
     brackets.
 
-**Returns**
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to remove nodes not on the whitelist or
 including invalid enode URLs.
@@ -4260,11 +4260,11 @@ including invalid enode URLs.
 
 Reloads the accounts and nodes whitelists from the [permissions configuration file].
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` - `Success`, or `error` if the permissions configuration file is not valid.
 
@@ -4298,11 +4298,11 @@ None
 
 Lists statistics about the node transaction pool.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` - Transaction pool statistics:
 
@@ -4337,11 +4337,11 @@ None
 
 Lists transactions in the node transaction pool.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` - List of transactions.
 
@@ -4393,7 +4393,7 @@ Provides transaction processing tracing.
     Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
     requested block must be within the last 1024 blocks.
 
-**Parameters**
+#### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
@@ -4403,7 +4403,7 @@ Provides transaction processing tracing.
 [`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). Specify any
 combination of the three options including none of them.
 
-**Returns**
+#### Returns
 
 `result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
 one object per transaction, in transaction execution order.
@@ -4528,13 +4528,13 @@ transaction data using `eea_sendRawTransaction`.
     [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and
     implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
-**Parameters**
+#### Parameters
 
 `data` -  Signed RLP-encoded private transaction. For example:
 
 `params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
 
-**Returns**
+#### Returns
 
 `result` : `data` - 32-byte transaction hash of the
 [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
@@ -4576,7 +4576,7 @@ Invokes a private contract function locally and does not change the privacy grou
 
 For private contracts, `priv_call` is the same as [`eth_call`](#eth_call).
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
@@ -4586,7 +4586,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call).
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : `data` - Return value of the executed contract.
 
@@ -4649,13 +4649,13 @@ Distributes a signed, RLP encoded
     use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
     instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
 
-**Parameters**
+#### Parameters
 
 `data` -  Signed RLP-encoded private transaction. For example:
 
 `params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
 
-**Returns**
+#### Returns
 
 `result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
 [Orion](https://docs.orion.pegasys.tech/).
@@ -4689,7 +4689,7 @@ Returns the private transaction count for the specified account and
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
     Besu.
 
-**Parameters**
+#### Parameters
 
 `data` - Account address.
 
@@ -4697,7 +4697,7 @@ Returns the private transaction count for the specified account and
 
 `array of data` - Base64 encoded Orion addresses of recipients.
 
-**Returns**
+#### Returns
 
 `quantity` - Integer representing the number of private transactions sent from the address to the
 specified group of sender and recipients.
@@ -4727,11 +4727,11 @@ Returns the address of the
 address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
 command line option.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : `data` - Address of the privacy precompile.
 
@@ -4757,12 +4757,12 @@ None
 
 Returns the private transaction if you are a participant; otherwise, `null`.
 
-**Parameters**
+#### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
 [`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
-**Returns**
+#### Returns
 
 Object - [Private transaction object](API-Objects.md#private-transaction-object), or `null` if not
 a participant in the private transaction.
@@ -4806,7 +4806,7 @@ a participant in the private transaction.
 
 Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
 
-**Parameters**
+#### Parameters
 
 `Object` - Request options:
 
@@ -4815,7 +4815,7 @@ Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
-**Returns**
+#### Returns
 
 Privacy group ID
 
@@ -4841,7 +4841,7 @@ Privacy group ID
 
 Deletes the specified privacy group.
 
-**Parameters**
+#### Parameters
 
 `data` - Privacy group ID
 
@@ -4868,11 +4868,11 @@ Deletes the specified privacy group.
 Returns a list of privacy groups containing only the listed members. For example, if the listed
 members are A and B, a privacy group containing A, B, and C is not returned.
 
-**Parameters**
+#### Parameters
 
 `array of data` - Members specified by [Orion](https://docs.orion.pegasys.tech/) public keys.
 
-**Returns**
+#### Returns
 
 Privacy groups containing only the specified members. Privacy groups are
 [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
@@ -4920,13 +4920,13 @@ Returns the private transaction count for specified account and privacy group.
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
     Besu.
 
-**Parameters**
+#### Parameters
 
 `data` - Account address.
 
 `data` - Privacy group ID.
 
-**Returns**
+#### Returns
 
 `quantity` - Integer representing the number of private transactions sent from the address to the
 specified privacy group.
@@ -4954,11 +4954,11 @@ specified privacy group.
 Returns information about the private transaction after mining the transaction. Receipts for
 pending transactions are not available.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte hash of a transaction.
 
-**Returns**
+#### Returns
 
 `Object` - [Private Transaction receipt object](API-Objects.md#private-transaction-receipt-object),
 or `null` if no receipt found.
@@ -5007,11 +5007,11 @@ or `null` if no receipt found.
 
 Reloads specified plugin configuration.
 
-**Parameters**
+#### Parameters
 
 `string` - Plugin
 
-**Returns**
+#### Returns
 
 `string` - `Success`
 
@@ -5040,11 +5040,11 @@ Reloads specified plugin configuration.
 Lists [enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
 and the version of each.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 Enabled APIs.
 

@@ -2,15 +2,15 @@
 description: Upgrading protocol versions
 ---
 
-## Upgrading your protocol in a private network
+# Upgrading your protocol in a private network
 
 To [upgrade the protocol](../../Concepts/Protocol-Upgrades.md) (also known as a hardfork) in a
 private network:
 
-1. Review included EIPs for breaking changes. A [meta EIP](https://eips.ethereum.org/meta)
-   for each protocol upgrade lists included EIPs. For example,
+1. Review included EIPs for breaking changes. A [meta EIP](https://eips.ethereum.org/meta) for each
+   protocol upgrade lists included EIPs. For example,
    [Istanbul](https://eips.ethereum.org/EIPS/eip-1679).
-1. Network participants agree on block number at which to
+1. Network participants agree on the block number at which to
    [upgrade](../../Concepts/Protocol-Upgrades.md).
 1. For each node in the network:
 

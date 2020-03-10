@@ -1,21 +1,34 @@
-description: How to sign a Privacy Marker Transaction with Hyperledger Besu
-<!--- END of page meta data -->
+---
+description: How to sign a privacy marker transaction with Hyperledger Besu
+---
 
-# Signing Privacy Marker Transactions
+# Signing privacy marker transactions
 
-Privacy Marker Transactions are signed with a random or specified key. To sign Privacy Marker Transactions with a specified private key, use [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file) when starting Hyperledger Besu.
+You can sign privacy marker transactions with either a random key or a specified key. To sign
+privacy marker transactions with a specified private key, use
+[`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+when starting Hyperledger Besu.
 
-You must specify a key in networks where gas is paid, and the associated account must contain adequate funds.
-    
-In [free gas networks](../../HowTo/Configure/FreeGas.md), exclude the `--privacy-marker-transaction-signing-key-file` command line option to sign each Privacy Marker Transaction with a different random key to add additional anonymity.
+In networks where you pay gas, you must specify a key and the associated account must contain
+adequate funds.
+
+In [free gas networks](../../HowTo/Configure/FreeGas.md), to provide further anonimity by signing
+each privacy marker transaction with a different random key, exclude the
+[`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+command line option when starting Besu.
 
 !!! caution "Using account permissioning and privacy"
-    [Account permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning) 
-    cannot be used with random key signing.
-    
-    If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key included in the accounts whitelist. 
+
+    You cannot use [Account permissioning] with random key signing.
+
+    If using account permissioning and privacy, a signing key must be specified using the
+    [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    command line option and the signing key included in the accounts whitelist.
 
 !!! note
-    During the [private transaction process](../../Concepts/Privacy/Private-Transaction-Processing.md), Privacy Marker Transactions are signed in Hyperledger Besu.
-    
+
+    Besu signs privacy marker transactions during the
+    [private transaction process](../../Concepts/Privacy/Private-Transaction-Processing.md).
+
+<!-- Links -->
+[Account permissioning]: ../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning

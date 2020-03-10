@@ -23,7 +23,7 @@ The Options parameter has the following properties:
 
 Creates a privacy group for Hyperledger Besu privacy.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter)
 
@@ -31,7 +31,7 @@ Creates a privacy group for Hyperledger Besu privacy.
 
 `description` : `string` - Description for the privacy group. Optional.
 
-#### Returns
+### Returns
 
 `string` : Privacy group ID.
 
@@ -55,11 +55,11 @@ Creates a privacy group for Hyperledger Besu privacy.
 
 Deletes a privacy group.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter).
 
-#### Returns
+### Returns
 
 `string` : Privacy group ID.
 
@@ -81,11 +81,11 @@ Deletes a privacy group.
 
 Finds privacy groups containing only the specified members.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter).
 
-#### Returns
+### Returns
 
 `array of objects` : Privacy groups containing only the specified members.
 
@@ -109,11 +109,11 @@ Generates the privacy group ID for
 [EEA privacy](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy). The
 privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter).
 
-#### Returns
+### Returns
 
 `string` : Privacy group ID.
 
@@ -131,7 +131,7 @@ privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
 Retrieves the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
 receipt.
 
-#### Parameters
+### Parameters
 
 `txHash` - `string` : Transaction hash of the private transaction.
 
@@ -139,7 +139,7 @@ receipt.
 
 `delay` - `int` : Delay between retries in milliseconds.
 
-#### Returns
+### Returns
 
 Privacy marker transaction receipt.
 
@@ -153,11 +153,11 @@ Privacy marker transaction receipt.
 
 Retrieves the number of transactions sent from the specified address for the privacy group.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter).
 
-#### Returns
+### Returns
 
 `int` : Transaction count for that account (`privateKey`) and privacy group.
 
@@ -177,7 +177,7 @@ Retrieves the number of transactions sent from the specified address for the pri
 Retrieves the private transaction receipt using
 [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
 
-#### Parameters
+### Parameters
 
 `txHash` - `string` : Transaction hash of the private transaction.
 
@@ -188,7 +188,7 @@ receipt. The default is `300`.
 
 `delay` - `int` : Optional. Delay between retries in milliseconds. The default is `1000`.
 
-#### Returns
+### Returns
 
 Private transaction receipt.
 
@@ -206,11 +206,11 @@ Signs and sends a RLP-encoded private transaction to Besu using
 `sendRawTransaction` supports [EEA-compliant privacy](../HowTo/Use-Privacy/EEA-Compliant.md) using
 `privateFor`, or [Besu-extended privacy](../HowTo/Use-Privacy/Privacy.md) using `privacyGroupId`.
 
-#### Parameters
+### Parameters
 
 [Transaction options](#options-parameter).
 
-#### Returns
+### Returns
 
 `string` : Transaction hash of the
 [`privacy marker transaction`](../Concepts/Privacy/Private-Transaction-Processing.md).

@@ -82,7 +82,7 @@ besu --data-path=<node data path> public-key export-address --to=/home/me/me_pro
 ```
 
 Outputs the node public key address to standard output or writes it to the specified file if
-`--to=<key-file>` is specified.
+you specify `--to=<key-file>`.
 
 ## password
 
@@ -235,7 +235,6 @@ The command accepts the following command line options:
 * [\--rpc-http-host](./CLI-Syntax.md#rpc-http-host)
 * [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
 * [\--logging](./CLI-Syntax.md#logging)
-
 
 ```bash tab="Syntax"
 besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]

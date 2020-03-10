@@ -759,8 +759,8 @@ BESU_MINER_STRATUM_PORT=8010
 miner-stratum-port="8010"
 ```
 
-The port of the stratum mining service. The default is `8008`. Ports must be
-exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+The port of the stratum mining service. The default is `8008`. You must
+[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### min-gas-price
 
@@ -989,8 +989,8 @@ BESU_P2P_PORT=1789
 p2p-port="1789"
 ```
 
-The P2P listening ports (UDP and TCP). The default is 30303. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+The P2P listening ports (UDP and TCP). The default is 30303. You must
+[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### permissions-accounts-config-file
 
@@ -1080,7 +1080,6 @@ permissions-accounts-contract-enabled=true
 Enables or disables contract-based
 [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default
 is `false`.
-
 
 ### permissions-nodes-config-file
 
@@ -1611,7 +1610,6 @@ The
 [JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication)
 for JSON-RPC HTTP authentication when authenticating with an external JWT token.
 
-
 ### rpc-http-cors-origins
 
 ```bash tab="Syntax"
@@ -1723,8 +1721,8 @@ BESU_RPC_HTTP_PORT=3435
 rpc-http-port="3435"
 ```
 
-The HTTP JSON-RPC listening port (TCP). The default is 8545. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
+[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### rpc-http-tls-ca-clients-enabled
 
@@ -1787,7 +1785,6 @@ Enables TLS for the JSON-RPC HTTP service. The default is `false`.
 !!! note
 
     [`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
-
 
 ### rpc-http-tls-keystore-file
 
@@ -2016,8 +2013,8 @@ BESU_RPC_WS_PORT=6174
 rpc-ws-port="6174"
 ```
 
-The Websockets JSON-RPC listening port (TCP). The default is 8546. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
+[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### sync-mode
 

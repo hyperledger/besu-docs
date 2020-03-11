@@ -4,8 +4,7 @@ description: Onchain Privacy Groups
 # Onchain Privacy Groups 
 
 Onchain privacy groups use smart contracts to store and maintain the group membership. 
-Onchain privacy groups can have their membership updated. That is, you can add and remove members when 
-using onchain privacy groups. 
+You can add and remove members to and from onchain privacy groups. 
 
 !!! important 
     Onchain privacy groups are an early access feature in v1.4. Do not use in production networks. 
@@ -27,7 +26,7 @@ group is created, the bytecode is the genesis state of the privacy group.
 The provided group management contracts do not enforce any permissioning on group members. That is, any 
 member of a group can make transactions in the group, and add or remove group members. 
    
-## Creating Onchain Privacy Group 
+## Onchain Privacy Group IDs 
 
 Privacy group IDs for onchain privacy group must be generated outside of Hyperledger Besu and are passed 
 as a parameter when creating an onchain privacy group. 
@@ -37,9 +36,3 @@ as a parameter when creating an onchain privacy group.
     a privacy group is created with an existing privacy group ID, the existing privacy group is overwritten. 
     
     We recommend using 256 bit SecureRandom to ensure unique privacy group IDs. 
-
-
-## Adding Members to Onchain Privacy Group 
-
-
-## Removing Members from Onchain Privacy Group 

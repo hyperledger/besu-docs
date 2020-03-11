@@ -137,7 +137,7 @@ The block explorer displays a summary of the private network:
 
 ![Block Explorer](../../images/ExplorerSummary.png)
 
-Note that the explorer indicates six peers: the four regular nodes, the mining node, and the
+See that the explorer indicates six peers: the four regular nodes, the mining node, and the
 bootnode.
 
 Click the block number to the right of **Best Block** to display the block details:
@@ -193,6 +193,7 @@ The result specifies the client version:
    "result" : "besu/<version number>"
 }
 ```
+
 Here we query the version of the Besu node, which confirms the node is running.
 
 Successfully calling this method shows that you can connect to the nodes using RPC. From here, you
@@ -308,8 +309,8 @@ the private network RPC node.
 When you're finished importing an existing account, [create another account from scratch] to send
 Ether to.
 
-In MetaMask, select the new account and copy the account address by clicking the **...** gadget and
-selecting **Copy Address to clipboard**.
+In MetaMask, select the new account and copy the account address by clicking the **&hellip;**
+gadget and selecting **Copy Address to clipboard**.
 
 In the block explorer, search for the new account by clicking on the magnifying glass and pasting
 the account address into the search box. The account displays with a zero balance.

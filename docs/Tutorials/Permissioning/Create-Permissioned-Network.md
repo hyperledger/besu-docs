@@ -288,7 +288,7 @@ The result confirms Node-1 (the node running the JSON-RPC service) has two peers
 
 #### Send a Transaction from an Account in the Whitelist 
 
-Import the first account from the genesis file into MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask):
+Import the first account from the genesis file into MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#create-a-transaction-using-metamask):
 
 !!! example "Account 1"
     * Address: `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`
@@ -300,7 +300,7 @@ Import the first account from the genesis file into MetaMask and send transactio
 
 ### Try Sending a Transaction from an Account Not in the Accounts Whitelist 
 
-Import the last account from the genesis file into MetaMask and try to send a transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask):
+Import the last account from the genesis file into MetaMask and try to send a transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#create-a-transaction-using-metamask):
 
 !!! example "Account 3"
     * Address: `0xf17f52151EbEF6C7334FAD080c5704D77216b732`

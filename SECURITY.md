@@ -18,6 +18,4 @@ The other way is to file a confidential security bug in our
 Be sure to set the “Security Level” to “Security issue”.
 
 The process by which the Hyperledger Security Team handles security bugs
-is documented further in our
-[Defect Response](https://wiki.hyperledger.org/display/HYP/Defect+Response)
-page on our [wiki](https://wiki.hyperledger.org).
+is documented further in [Hyperledger defect response wiki page](https://wiki.hyperledger.org/display/SEC/Defect+Response).

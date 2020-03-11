@@ -1,36 +1,39 @@
+---
 description: Hyperledger Besu log level setting and log formatting
 path: blob/master/besu/src/main/resources/
 source: log4j2.xml
-<!--- END of page meta data -->
+---
 
 # Logging
 
 Hyperledger Besu uses Log4J2 for logging. There are two methods to configure logging behavior:
 
 * [Basic](#basic-log-level-setting) - changes the log level.
-* [Advanced](#advanced-custom-logging) - configures the output and format of the logs. 
+* [Advanced](#advanced-custom-logging) - configures the output and format of the logs.
 
-The Besu Quickstart provides an [example implementation using Elastic Stack](Elastic-Stack.md) (also 
-known as ELK) for log management. 
-      
+[Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) provides an
+[example implementation using Elastic Stack](Elastic-Stack.md) (also known as ELK) for log
+management.
+
 ## Basic log level setting
 
-Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify 
-the logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes
-the volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
+Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify
+logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes the
+volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`,
+`INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
 For most use-cases, the basic method provides sufficient configurability.
 
-!!! tip 
-    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method
-    to change the log level while Besu is running. 
+!!! tip
+
+    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API
+    method to change the log level while Besu is running.
 
 ## Advanced custom logging
 
 You can provide your own logging configuration using the standard Log4J2 configuration mechanisms.
-For example, the following Log4J2 configuration is the same as the 
-[default configuration](https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml) 
-except logging of stack traces for exceptions is excluded.
+For example, the following Log4J2 configuration is the same as the [default configuration] except
+for the exclusion of logging of stack traces for exceptions.
 
 ```xml tab="debug.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -52,23 +55,28 @@ except logging of stack traces for exceptions is excluded.
 </Configuration>
 ```
 
-To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the 
-location of your configuration file.  
+To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the
+location of your configuration file.
 
-If you have more specific requirements, you can create your own 
+If you have more specific requirements, you can create your own
 [log4j2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-For Bash-based executions, you can set the variable for only the scope of the program execution by 
-setting it before starting Besu.  
+For Bash-based executions, you can set the variable for only the scope of the program execution by
+setting it before starting Besu.
 
 !!!example
+
     To set the debug logging and start Besu connected to the Rinkeby testnet:
 
     ```bash
     LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=rinkeby
     ```
 
-### Log rotation 
+### Log rotation
 
-The [Besu Quickstart](https://github.com/PegaSysEng/besu-quickstart) logging configuration defines a 
-[log rotation to restrict the size of the log files](https://github.com/PegaSysEng/besu-quickstart/blob/master/config/besu/log-config.xml).
+[Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) logging configuration
+defines a [log rotation to restrict the size of the log files].
+
+<!-- Links -->
+[default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml
+[log rotation to restrict the size of the log files]: https://github.com/PegaSysEng/besu-sample-networks/blob/master/config/besu/log-config.xml

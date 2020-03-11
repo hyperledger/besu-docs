@@ -1,12 +1,13 @@
 description: Besu network ID and chain ID implementation
 <!--- END of page meta data -->
 
-# Network ID and Chain ID
+# Network ID and chain ID
 
-Ethereum networks have a network ID and a chain ID. The network ID defaults to the chain ID specified 
-in the genesis file.
+Ethereum networks have a network ID and a chain ID. The network ID defaults to the chain ID
+specified in the genesis file.
 
 !!! example "Chain ID in Genesis File"
+
     ```json
     {
       "config": {
@@ -18,11 +19,12 @@ in the genesis file.
     }
     ```
 
-For most networks including MainNet and the public testnets, the network ID and the chain ID are the
-same and are specified in the genesis file.
+For most networks, including MainNet and the public testnets, the network ID and the chain ID are
+the same and specified in the genesis file.
 
-The network ID and chain ID are automatically defined by Besu when connecting to networks specified 
-using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option:
+The network ID and chain ID are automatically defined by Besu when connecting to networks specified
+using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following table lists
+the available networks and their network and chain IDs.
 
 | Network   | Chain | Chain ID | Network ID | Type        |
 |-----------|-------|----------|------------|-------------|
@@ -35,7 +37,6 @@ using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option:
 | `mordor`  | ETC   | 63       | 7          | Test        |
 | `kotti`   | ETC   | 6        | 6          | Test        |
 
-When using the [`--network=dev`](../Reference/CLI/CLI-Syntax.md#network) or 
-[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) options, you can override the 
-network ID using the [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option. 
-
+When using the [`--network=dev`](../Reference/CLI/CLI-Syntax.md#network) or
+[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) options, you can override the
+network ID using the [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.

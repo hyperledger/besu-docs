@@ -1,104 +1,119 @@
-description: Hyperledger Besu high availability 
+description: Hyperledger Besu high availability
 <!--- END of page meta data -->
 
-# High Availability of JSON-RPC and RPC Pub/Sub APIs
+# High availability of JSON-RPC and RPC Pub/Sub APIs
 
-To enable high availability to the [RPC Pub/Sub API over WebSockets](../../Interact/APIs/RPC-PubSub.md) 
-or the [JSON-RPC API](../../Interact/APIs/Using-JSON-RPC-API.md) run and synchronize multiple Hyperledger Besu 
-nodes to the network. Use a load balancer to distribute requests across nodes in the cluster that 
-are ready to receive requests. 
+To enable high availability to the
+[RPC Pub/Sub API over WebSockets](../../Interact/APIs/RPC-PubSub.md) or the
+[JSON-RPC API](../../Interact/APIs/Using-JSON-RPC-API.md), run and synchronize multiple Hyperledger
+Besu nodes to the network. Use a load balancer to distribute requests across nodes in the cluster
+that are ready to receive requests.
 
 ![Load Balancer](../../../images/LoadBalancer.png)
 
-!!! important 
-    We do not recommend putting [bootnodes](../../Deploy/Bootnodes.md) behind a load balancer. 
+!!! important
 
-## Determining When a Node is Ready 
+    We do not recommend putting [bootnodes](../../Deploy/Bootnodes.md) behind a load balancer.
 
-Use the [readiness endpoint](../../Interact/APIs/Using-JSON-RPC-API.md#readiness-and-liveness-endpoints) 
-to determine when a node is ready. 
+## Determining when a node is ready
 
-!!! note
-    The minimum number of peers and number of blocks from the best known block for a node to be considered ready
-    is deployment specific. 
-
-## Transaction Nonces 
-
-The nonce for the next transaction is obtained using [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). 
-The nonce depends on the transactions in the [transaction pool](../../../Concepts/Transactions/Transaction-Pool.md).
-If [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and 
-[`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a specific account 
-are sent to multiple nodes, the [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount)
-results can be incorrect. 
+Use the
+[readiness endpoint](../../Interact/APIs/Using-JSON-RPC-API.md#readiness-and-liveness-endpoints) to
+determine when a node is ready.
 
 !!! note
-    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), [`priv_getTransactionCount`](../../../Reference/API-Methods.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../../Reference/API-Methods.md#priv_geteeatransactioncount) are used to obtain 
-    the nonce and [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction)
-    to send private transactions. 
 
-To get correct nonces when distributing requests across a cluster, do one of:  
+    The minimum number of peers and number of blocks from the best known block for determining if a
+    node considered ready is deployment specific.
+
+## Transaction nonces
+
+Besu obtains the nonce for the next transaction using
+[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). The nonce
+depends on the transactions in the
+[transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If sending
+[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and
+[`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a
+specific account to multiple nodes, the
+[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) results
+might be incorrect.
+
+!!! note
+
+    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), retrieve the
+    nonce using
+    [`priv_getTransactionCount`](../../../Reference/API-Methods.md#priv_gettransactioncount) or
+    [`priv_getEeaTransactionCount`](../../../Reference/API-Methods.md#priv_geteeatransactioncount)
+    and send the private transactions using
+    [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction).
+
+To get correct nonces when distributing requests across a cluster, either:
 
 * Track the next nonce outside of the Besu node (as MetaMask does)
-* Configure the load balancer in sticky mode so requests from a specific account are sent to a single 
-node unless that node is unavailable. 
+* Configure the load balancer in sticky mode to send requests from a specific account to a single
+  node, unless that node is unavailable.
 
-## Subscriptions 
+## Subscriptions
 
-You can subscribe to events using:  
+You can subscribe to events using:
 
-* [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md) 
-* [Filters over HTTP](../../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md) 
+* [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md)
+* [Filters over HTTP](../../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md).
 
-We recommend using [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md) because WebSockets 
-connections are associated a specific node and do not require using the load balancer in sticky mode. 
+We recommend using [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md) because
+WebSockets connections associate with a specific node and do not require using the load balancer in
+sticky mode.
 
-If using [filters over HTTP](../../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md), configure the load balancer 
-in sticky mode to associate the subscription with a specific node. 
+If using [filters over HTTP](../../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md), configure
+the load balancer in sticky mode to associate the subscription with a specific node.
 
-## Recovering from Dropped Subscriptions 
+## Recovering from dropped subscriptions
 
-Subscriptions can be dropped if: 
+Dropped subscriptions can occur because of:
 
-* WebSockets connection is disconnected
-* Node serving the subscription is removed from the ready pool 
+* A disconnected WebSockets connection
+* The removal of the node serving the subscription from the ready pool.
 
-If a subscription is dropped, events can be missed while reconnecting to a different node. 
-To recover dropped messages, create another subscription and follow the process for that [subscription type](../../Interact/APIs/RPC-PubSub.md#subscribing):  
+If there is a dropped subscription, missed events might occur while reconnecting to a different
+node. To recover dropped messages, create another subscription and follow the process for that
+[subscription type](../../Interact/APIs/RPC-PubSub.md#subscribing):
 
 * [`newHeads`](#new-headers)
 * [`logs`](#logs)
 * [`newPendingTransactions`](#new-pending-transactions)
 * [`droppedPendingTransactions`](#dropped-pending-transactions)
-* [`syncing`](#syncing)
+* [`syncing`](#syncing).
 
+### New headers
 
-### New Headers
+To request information on blocks from the last block before the subscription dropped to the first
+block received from the new subscription, use
+[`eth_getBlockByNumber`](../../../Reference/API-Methods.md#eth_getblockbynumber).
 
-Use [`eth_getBlockByNumber`](../../../Reference/API-Methods.md#eth_getblockbynumber) to request information on 
-blocks from the last block before the subscription dropped to the first block received from the new subscription.
+### Logs
 
-### Logs 
+To request logs from the block number of the last log received before the subscription dropped to
+the current chain head, use [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).
 
-Use [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs) to request logs from the block number 
-of the last log received before the subscription dropped to the current chain head.
+### New pending transactions
 
-### New Pending Transactions
-
-Use [`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions) to 
-request all pending transactions for the new node.
+To request all pending transactions for the new node, use
+[`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions).
 
 !!! note
+
     Nodes do not all store the same pending transactions.
 
-### Dropped Pending Transactions
+### Dropped pending transactions
 
-Use [`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions) to 
-request all pending transactions for the new node.
+To request all pending transactions for the new node, use
+[`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions).
 
 !!! note
+
     Nodes do not all store the same pending transactions.
 
 ### Syncing
 
-The syncing state of each node is specific to that node. Use [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing)
-to retrieve the syncing state of the new node.
+The syncing state of each node is specific to that node. To retrieve the syncing state of the new
+node, use [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing).

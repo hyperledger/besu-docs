@@ -1,35 +1,37 @@
-description: web3.js-eea Client Library
-<!--- END of page meta data -->
+---
+description: web3.js-eea client library
+---
 
-# web3.js-eea Client Library
+# web3.js-eea client library
 
-The [web3.js-eea library](https://github.com/PegaSysEng/eeajs) adds an additional property to your web3
-instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and send
-RLP-encoded transactions using JSON-RPC.
+The [web3.js-eea library](https://github.com/PegaSysEng/eeajs) adds a property to your web3
+instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and
+send RLP-encoded transactions using JSON-RPC.
 
 !!! note
     web3.js-eea supports JSON-RPC over HTTP only.
 
 ## Prerequisites
 
-- [Node.js (version > 10)](https://nodejs.org/en/download/)  
+* [Node.js (version > 10)](https://nodejs.org/en/download/)
 
-## Add web3.js-eea to Project
+## Add web3.js-eea to project
 
 ```bash
 npm install web3-eea
 ```
 
-## Initialize EEA Client
+## Initialize EEA client
 
 Initialize your EEA client where:
 
-* `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified by the
-[`--rpc-http-host`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
-command line options.
+* `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified
+  by the [`--rpc-http-host`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and
+  [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port) command line options.
 * `<chain_id>` is the [chain ID](../../../Concepts/NetworkID-And-ChainID.md) of your network.
 
 !!! example
+
     ```js tab="Syntax"
     const EEAClient = require("web3-eea");
     const web3 = new EEAClient(new Web3("<JSON-RPC HTTP endpoint>"), <chain_id>);
@@ -40,12 +42,14 @@ command line options.
     const web3 = new EEAClient(new Web3("http://localhost:8545"), 2018);
     ```
 
-## Deploying a Contract with sendRawTransaction
+## Deploying a contract with sendRawTransaction
 
-To deploy a private contract, you need the contract binary. You can use [Solidity](https://solidity.readthedocs.io/en/develop/using-the-compiler.html)
-to get the contract binary.
+To deploy a private contract, you need the contract binary. You can use
+[Solidity](https://solidity.readthedocs.io/en/develop/using-the-compiler.html) to get the
+contract binary.
 
-!!! example "Deploying a Contract with sendRawTransaction"  
+!!! example "Deploying a Contract with sendRawTransaction"
+
     ```js
     const contractOptions = {
       data: `0x123`, // contract binary
@@ -56,8 +60,10 @@ to get the contract binary.
     return web3.eea.sendRawTransaction(contractOptions);
     ```
 
-The transaction hash is returned. To get the private transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
+`web3.eea.sendRawTransaction(contractOptions)` returns the transaction hash. To get the private
+transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
 
-## web3.js-eea Methods
+## web3.js-eea methods
 
-Refer to the [web3.js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).
+For more information about the web3.js-eea methods, see the
+[web3.js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).

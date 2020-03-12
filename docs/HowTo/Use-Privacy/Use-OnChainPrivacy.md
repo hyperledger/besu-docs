@@ -43,3 +43,13 @@ To create and find an onchain privacy group using the [web3.js-eea library](http
     In the Orion logs for Orion 1 and Orion 2, `PrivacyGroupNotFound` errors are displayed. The errors 
     are expected behaviour and occur because private transactions check offchain and onchain to find
     the privacy group for a private transaction.
+
+## Adding and removing members 
+
+To add and remove members from an onchain privacy group, use the `addToPrivacyGroup` and 
+`removeFromPrivayGroup` methods in the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea)
+client library. 
+
+!!! note 
+    When a member is added, all existing group transactions are pushed to the new member. If there are a 
+    large number of existing transactions, pushing the transactions may take some time. 

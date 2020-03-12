@@ -49,5 +49,5 @@ To add and remove members from an onchain privacy group, use the `addToPrivacyGr
 client library. 
 
 !!! note 
-    When a member is added, all existing group transactions are pushed to the new member. If there are a 
-    large number of existing transactions, pushing the transactions may take some time. 
+    When a member is added, all existing group transactions are pushed to the new member and processed. 
+    If there are a large number of existing transactions, adding the member may take some time. 

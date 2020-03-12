@@ -15,7 +15,7 @@ To start a network with onchain permissioning:
 
 1. [Install the prerequisites](#prerequisites)
 1. [Add the ingress contracts to the genesis file](#add-the-ingress-contracts-to-genesis-file)
-1. [Set environment variables](#set-environment-variables)
+1. [Set the environment variables](#set-the-environment-variables)
 1. [Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]
 1. [Clone the permissioning contracts repository and install dependencies]
 1. [Build the project](#build-the-project)
@@ -67,7 +67,7 @@ in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEn
     To support the permissioning contracts, ensure your genesis file includes at least the
     `constantinopleFixBlock` milestone.
 
-## Set environment variables
+## Set the environment variables
 
 Create the following environment variables and set to the specified values:
 
@@ -178,8 +178,8 @@ The migration logs the addresses of the Admin and Rules contracts.
 The first node must [add itself to the whitelist] before adding other nodes.
 
 <!-- Links -->
-[Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]: (#onchain-permissioning-command-line-options
-[Clone the permissioning contracts repository and install dependencies]: (#clone-the-contracts-and-install-dependencies
-[Start the webserver for the Permissioning Management Dapp]: (#start-the-webserver-for-the-permissioning-management-dapp
+[Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]: #onchain-permissioning-command-line-options
+[Clone the permissioning contracts repository and install dependencies]: #clone-the-contracts-and-install-dependencies
+[Start the webserver for the Permissioning Management Dapp]: #start-the-webserver-for-the-permissioning-management-dapp
 [add itself to the whitelist]: ../../HowTo/Limit-Access/Updating-Whitelists.md#update-nodes-whitelist
 

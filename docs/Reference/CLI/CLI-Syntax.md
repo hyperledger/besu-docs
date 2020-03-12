@@ -1194,6 +1194,26 @@ privacy-multi-tenancy-enabled=false
 
 Set to enable [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private transactions. Default is `false`.
 
+### privacy-onchain-groups-enabled
+
+```bash tab="Syntax"
+--privacy-onchain-groups-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-onchain-groups-enabled=true
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+privacy-multi-tenancy-enabled=true
+```
+
+Set to enable [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md). Default is `false`.
+
 ### privacy-precompiled-address
 
 ```bash tab="Syntax"

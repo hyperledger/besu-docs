@@ -17,6 +17,11 @@ membership of onchain privacy groups.
     We do not recommend creating onchain privacy groups in a chain with existing 
     [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md). 
     
+## Enabling onchain privacy groups 
+
+Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+command line option to enable onchain privacy groups. 
+    
 ## Simple onchain privacy group example 
 
 To create and find an onchain privacy group using the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea): 

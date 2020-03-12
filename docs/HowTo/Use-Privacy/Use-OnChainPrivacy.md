@@ -34,10 +34,8 @@ To create and find an onchain privacy group using the [web3.js-eea library](http
     node simpleOnChainPrivacy.js
     ```
 
-    Two transactions are created and mined. The first transaction initiates the onchain privacy group
-    and the second transaction adds the members. 
-
-    `findPrivacyGroup` finds and displays the privacy group created by the two transactions. 
+    The onchain privacy group is created with two members. `findPrivacyGroup` finds and displays the 
+    created privacy group. 
 
 !!! tip 
     In the Orion logs for Orion 1 and Orion 2, `PrivacyGroupNotFound` errors are displayed. The errors 

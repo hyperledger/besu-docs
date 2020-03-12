@@ -18,10 +18,11 @@ You can add and remove members to and from onchain privacy groups.
 ## Group Management Contracts 
 
 The privacy group management contract bytecode is hard-coded into Hyperledger Besu and when a privacy
-group is created, the bytecode is the genesis state of the privacy group.  
+group is created, the contract bytecode is part of the genesis state of the privacy group.  
 
 !!! caution 
-    All members of an onchain privacy group must be using the same version of Hyperledger Besu. 
+    All members of an onchain privacy group must be using the same version of Hyperledger Besu. If 
+    using different versions, the private state within the privacy group may become inconsistent.  
 
 The provided group management contracts do not enforce any permissioning on group members. That is, any 
 member of a group can make transactions in the group, and add or remove group members. 
@@ -31,8 +32,13 @@ member of a group can make transactions in the group, and add or remove group me
 Privacy group IDs for onchain privacy group must be generated outside of Hyperledger Besu and are passed 
 as a parameter when creating an onchain privacy group. 
 
+The [web3js-eea library](../../HowTo/Use-Privacy/Use-OnChainPrivacy.md) generates a unique privacy 
+group ID and passes the ID to Hyperledger Besu when creating a privacy group. 
+
 !!! caution 
     When generating a privacy group ID, you must ensure the ID is unique across all network participants. If 
     a privacy group is created with an existing privacy group ID, the existing privacy group is overwritten. 
     
     We recommend using 256 bit SecureRandom to ensure unique privacy group IDs. 
+    
+     

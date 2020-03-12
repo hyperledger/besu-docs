@@ -1,46 +1,61 @@
-description: Hyperledger Besu ports must be exposed appropriately to enable communication
-<!--- END of page meta data -->
+---
+description: To enable communication you must expose Hyperledger Besu ports appropriately
+---
 
-# Configuring Ports 
+# Configuring ports
 
-Ports must be exposed appropriately to enable communication. An example port configuration for a 
-Hyperledger Besu node on AWS is: 
-                                     
+To enable communication you must expose Hyperledger Besu ports appropriately. The following shows
+an example port configuration for a Besu node on AWS.
+
 ![Port Configuration](../../images/PortConfiguration.png)
 
-When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md), [expose ports](../Get-Started/Run-Docker-Image.md#exposing-ports). 
+When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md),
+[expose ports](../Get-Started/Run-Docker-Image.md#exposing-ports).
 
-!!! tip 
-    Besu supports [UPnP](Using-UPnP.md) for home or small office environments where a wireless router 
-    or modem provides NAT isolation. 
+!!! tip
 
-## P2P Networking 
+    Besu supports [UPnP](Specifying-NAT.md) for home or small office environments where a wireless
+    router or modem provides NAT isolation.
 
-To enable peer discovery, the P2P UDP port must be open for inbound connections. The P2P port
-is specified by the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is `30303`. 
+## P2P networking
 
-We also recommended opening the P2P TCP port for inbound connections. This is not strictly required because 
-Besu attempts to initiate outbound TCP connections. However, if no nodes on the network are accepting inbound TCP 
-connections, nodes cannot communicate.
+To enable peer discovery, the P2P UDP port must be open for inbound connections. Specify the P2P
+port using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is
+`30303`.
 
-The P2P port is combined with [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) when specifying the [P2P host](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [P2P network interface](../../Reference/CLI/CLI-Syntax.md#p2p-interface).
+We also recommended opening the P2P TCP port for inbound connections. This is not strictly required
+because Besu attempts to initiate outbound TCP connections. But if no nodes on the network are
+accepting inbound TCP connections, nodes cannot communicate.
+
+Combine the P2P port with the values for the
+[`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
+[`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) options when specifying the
+[P2P host](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
+[P2P network interface](../../Reference/CLI/CLI-Syntax.md#p2p-interface).
 
 !!! info
-    By default, peer discovery listens on `0.0.0.0:30303` (all interfaces). If the device that Besu runs on must bind to a specific interface, use the [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option to specify the network interface to use.
- 
- 
-## JSON-RPC API 
 
-To enable access to the [JSON-RPC API](../Interact/APIs/Using-JSON-RPC-API.md), open the HTTP JSON-RPC and WebSockets JSON-RPC ports to the intended users 
-of the JSON-RPC API on TCP. 
+    By default, peer discovery listens on `0.0.0.0:30303` (all interfaces). If the device Besu is
+    running on must bind to a specific network interface, specify the interface using the
+    [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option.
 
-The [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) and [`--rpc-ws-port`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-port) 
-options specify the HTTP and WebSockets JSON-RPC ports. The defaults are `8545` and `8546`.  
+## JSON-RPC API
 
-## Metrics 
+To enable access to the [JSON-RPC API](../Interact/APIs/Using-JSON-RPC-API.md), open the HTTP
+JSON-RPC and WebSockets JSON-RPC ports to the intended users of the JSON-RPC API on TCP.
 
-To enable [Prometheus to access Besu](../Monitor/Metrics.md#monitor-node-performance-using-prometheus), 
-open the metrics port or metrics push port to Prometheus or the Prometheus push gateway on TCP.  
+Specify the HTTP and WebSockets JSON-RPC ports using the
+[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) and
+[`--rpc-ws-port`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-port) options. The defaults are `8545`
+and `8546`.
 
-The [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) and [`--metrics-push-port`](../../Reference/CLI/CLI-Syntax.md#metrics-push-port) 
-options specify the ports for Prometheus and Prometheus push gateway. The defaults are `9545` and `9001`.  
+## Metrics
+
+To enable
+[Prometheus to access Besu](../Monitor/Metrics.md#monitor-node-performance-using-prometheus), open
+the metrics port or metrics push port to Prometheus or the Prometheus push gateway on TCP.
+
+Specify the ports for Prometheus and Prometheus push gateway using the
+[`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) and
+[`--metrics-push-port`](../../Reference/CLI/CLI-Syntax.md#metrics-push-port) options. The defaults
+are `9545` and `9001`.

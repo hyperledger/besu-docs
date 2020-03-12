@@ -1,24 +1,30 @@
-description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy 
-<!--- END of page meta data -->
+---
+description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy
+---
 
-# Using EEA-compliant Privacy 
+# Using EEA-compliant privacy
 
-When using Hyperledger Besu [EEA-compliant privacy](../../Concepts/Privacy/Privacy-Groups.md), the group of nodes specified by `privateFrom`and `privateFor` form a privacy group and are given a unique 
-privacy group ID by Orion.
+When using Hyperledger Besu [EEA-compliant privacy](../../Concepts/Privacy/Privacy-Groups.md), the
+group of nodes specified by `privateFrom` and `privateFor` form a privacy group, to which Orion
+assigns a unique privacy group ID.
 
-Enable the [`EEA` API methods](../../Reference/API-Methods.md#eea-methods) using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) 
-or [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
+To enable the [`EEA` API methods](../../Reference/API-Methods.md#eea-methods), use the
+[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
 
-Specify `privateFor` when creating the signed transaction passed as an input parameter to [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
-to create an EEA-compliant private transaction. 
+To create an EEA-compliant private transaction, specify `privateFor` when creating the signed
+transaction passed as an input parameter to
+[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 
-## Privacy Group Type 
+## Privacy group type
 
-Privacy groups created when specifying `privateFrom` and `privateFor` are identified as type `LEGACY` 
-when returned by [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup). 
+Privacy groups created when specifying `privateFrom` and `privateFor` have a `LEGACY` privacy group
+type when returned by
+[`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
 
 !!! example
-    ```json 
+
+    ```json
     {
         "jsonrpc": "2.0",
         "id": 1,

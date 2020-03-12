@@ -1,34 +1,33 @@
+---
 description: Hyperledger Besu-extended privacy
-<!--- END of page meta data -->
+---
 
-# Using Hyperledger Besu-extended Privacy 
+# Using Hyperledger Besu-extended privacy
 
-Hyperledger Besu provides an extended implementation of privacy by allowing a [privacy
-group to be created for a set of participants](../../Concepts/Privacy/Privacy-Groups.md). The privacy group ID 
-must be specified when sending private transactions. 
+Hyperledger Besu provides an extended implementation of privacy allowing you to
+[create a privacy group for a set of participants](../../Concepts/Privacy/Privacy-Groups.md). You
+must specify the privacy group ID when sending private transactions.
 
-Using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api)
-command line options enable: 
+To enable the [`PRIV` API methods](../../Reference/API-Methods.md#priv-methods), use the
+[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
 
-* [`EEA` API methods](../../Reference/API-Methods.md#eea-methods) 
-* [`PRIV` API methods](../../Reference/API-Methods.md#priv-methods)
+To create the privacy group containing the recipients of a private transaction, use
+[`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup).
 
-Use [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup) to 
-create the privacy group containing the recipients of the private transaction. 
+To create an EEA-compliant private transaction, specify `privacyGroupId` when creating the signed
+transaction passed as an input parameter to
+[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 
-Specify `privacyGroupId` when creating the signed transaction passed as an input parameter to [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
-to create an EEA-compliant private transaction. 
+## Privacy group type
 
-!!! note
-    Support for specifying `privacyGroupId` when using `eea_sendTransaction` with EthSigner will be available in
-    a future EthSigner release. 
-    
-## Privacy Group Type 
+Privacy groups created using
+[`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)
+have a `BESU` privacy group type when returned by
+[`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
 
-Privacy groups created using  [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)
-are identified as type `BESU` when returned by [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
+!!! example
 
-!!! example 
     ```json
     {
       "jsonrpc": "2.0",

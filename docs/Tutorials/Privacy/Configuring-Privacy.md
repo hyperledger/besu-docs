@@ -119,7 +119,7 @@ tls = "off"
 In each `Orion` directory, start Orion specifying the
 [configuration file](#3-create-a-configuration-file) created in the previous step:
 
-```
+```bash
 orion orion.conf
 ```
 
@@ -145,7 +145,7 @@ The command line specifies privacy options:
   [3. Generate Orion Keys](#3-generate-orion-keys))
 * [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) includes `EEA` and `PRIV` in
   the list of JSON-RPC APIs to enable privacy JSON-RPC API methods.
-* [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) is set to 0 for a
+* [`--min-gas-price`](../../Reference/CLI/CLI-Syntax.md#min-gas-price) is 0 for a
   [free gas network](../../HowTo/Configure/FreeGas.md).
 
 !!! note

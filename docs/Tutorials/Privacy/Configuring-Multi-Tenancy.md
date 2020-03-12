@@ -87,8 +87,8 @@ besu --data-path=data --genesis-file=../genesis.json --rpc-http-authentication-e
 
 The command line specifies privacy options:
 
-* [`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled) enables authentication
-for JSON-RPC APIs.
+* [`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
+  enables authentication for JSON-RPC APIs.
 * [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
   authenticate the [tenant JWT tokens](#7-generate-tenant-jwt-tokens).

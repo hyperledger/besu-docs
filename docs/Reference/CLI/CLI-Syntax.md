@@ -1212,7 +1212,7 @@ BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
 privacy-multi-tenancy-enabled=true
 ```
 
-Set to enable [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md). Default is `false`.
+Set to enable onchain privacy groups. Default is `false`.
 
 ### privacy-precompiled-address
 

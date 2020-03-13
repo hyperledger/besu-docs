@@ -1332,6 +1332,66 @@ privacy-url="http://127.0.0.1:8888"
 
 URL on which the [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is running.
 
+### pruning-block-confirmations
+
+!!! caution 
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
+    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+    
+    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+
+```bash tab="Syntax"
+--pruning-block-confirmations=<INTEGER>
+```
+
+```bash tab="Command Line"
+--pruning-block-confirmations=5
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_BLOCK_CONFIRMATIONS=5
+```
+
+```bash tab="Configuration File"
+pruning-block-confirmations=5
+```
+
+The minimum number of confirmations on a block before marking begins. The default is 10.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
+    supported.
+
+### pruning-blocks-retained
+
+!!! caution 
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
+    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+    
+    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+
+```bash tab="Syntax"
+--pruning-blocks-retained=<INTEGER>
+```
+
+```bash tab="Command Line"
+--pruning-blocks-retained=10000
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_BLOCKS_RETAINED=10000
+```
+
+```bash tab="Configuration File"
+pruning-blocks-retained=10000
+```
+
+The minimum number of recent blocks to keep the entire world state for. The default is 1024.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
+    supported.
+
 ### pruning-enabled
 
 !!! caution 

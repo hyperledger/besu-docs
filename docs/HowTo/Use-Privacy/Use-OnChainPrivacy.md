@@ -20,7 +20,11 @@ membership of onchain privacy groups.
 ## Enabling onchain privacy groups 
 
 Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
-command line option to enable onchain privacy groups. 
+command line option to enable onchain privacy groups. When onchain privacy groups are enabled, the 
+[`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup), 
+[`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup), 
+and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for 
+[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled. 
     
 ## Simple onchain privacy group example 
 

@@ -45,6 +45,13 @@ By specifying `MANUAL`:
   [`rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) define the advertised host and
   port for the JSON-RPC service.
 
+## Kubernetes
+
+Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
+Besu automatically detects if it is running inside of a Kubernetes cluster and interacts with
+Kubernetes APIs as required to determine external IP addresses and exposed ports. The configuration
+is stored in `/opt/besu/shared/kube-config`.
+
 ## Docker
 
 Specify `DOCKER` to explicitly specify Hyperledger Besu is running inside a Docker container. If
@@ -56,21 +63,14 @@ If not specified in the `docker run` command, the advertised host defaults to th
 [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 
-## Kubernetes
-
-Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
-Besu automatically detects if it is running inside of a Kubernetes cluster and interacts with
-Kubernetes APIs as required to determine external IP addresses and exposed ports. The configuration
-is stored in `/opt/besu/shared/kube-config`.
-
 ## Auto
 
-`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Docker container or a
-Kubernetes cluster. If running inside:
+`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Kubernetes cluster or
+a Docker container. If running inside:
 
-* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
 * A Kubernetes cluster, `AUTO` acts as if you specified [`KUBERNETES`](#kubernetes).
-* Neither a Docker container nor a Kubernetes cluster, `AUTO` acts as if you specified
+* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
+* Neither a Kubernetes cluster nor a Docker container, `AUTO` acts as if you specified
   [`NONE`](#none).
 
 ## None

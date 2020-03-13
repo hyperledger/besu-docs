@@ -772,8 +772,8 @@ The options are:
 
 * [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
 * [`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual)
-* [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
 * [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
+* [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
 * [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
 * [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
 

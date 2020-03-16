@@ -100,7 +100,7 @@ data-path="/tmp/tmpdata-path"
     
     * Enabling the HTTP JSON-RPC service
       ([`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled)) and setting
-      [`-rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) to 0.0.0.0 exposes the
+      [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) to 0.0.0.0 exposes the
       RPC connection on your node to any remote connection.
     * Setting [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) to `"*"`
       allows JSON-RPC API access from any host.

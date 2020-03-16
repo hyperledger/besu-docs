@@ -210,7 +210,7 @@ Use the [Clique API to add](../../HowTo/Configure/Consensus-Protocols/Clique.md#
 !!! note
     To add Node-2 or Node-3 as a signer you need the [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer. 
 
-Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask)
+Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#create-a-transaction-using-metamask)
 
 !!! info 
     Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).

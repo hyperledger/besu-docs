@@ -793,9 +793,16 @@ price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). T
 nat-method="UPNP"
 ```
 
-The method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md). Options
-are:
-[`UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+The options are:
+
+* [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
+* [`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual)
+* [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
+* [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
+* [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
+* [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
+
 The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!tip
@@ -805,10 +812,11 @@ The default is `AUTO`. `NONE` disables NAT functionality.
 
 !!!notes
 
-    * The `UPNP` option might introduce delays during node startup, especially on networks where
-      there is no UPnP gateway device.
-    * You must specify `--nat-method=DOCKER` when using the
-      [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+    Specifying `UPNP` might introduce delays during node startup, especially on networks without a
+    UPnP gateway device.
+
+    You must specify `DOCKER` when using the
+    [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### network
 
@@ -1243,6 +1251,26 @@ privacy-multi-tenancy-enabled=false
 
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
+
+### privacy-onchain-groups-enabled
+
+```bash tab="Syntax"
+--privacy-onchain-groups-enabled[=<true|false>]
+```
+
+```bash tab="Command Line"
+--privacy-onchain-groups-enabled=true
+```
+
+```bash tab="Environment Variable"
+BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+privacy-multi-tenancy-enabled=true
+```
+
+Set to enable onchain privacy groups. Default is `false`.
 
 ### privacy-precompiled-address
 

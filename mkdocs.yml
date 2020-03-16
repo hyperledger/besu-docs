@@ -157,6 +157,7 @@ nav:
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
+          - Onchain Privacy Groups: Concepts/Privacy/Onchain-PrivacyGroups.md
           - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md

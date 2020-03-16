@@ -781,7 +781,8 @@ min-gas-price=1337
 ```
 
 The minimum price a transaction offers to include it in a mined block. To retrieve the minimum
-price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000.
+price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000
+Wei.
 
 ### nat-method
 
@@ -873,7 +874,7 @@ network-id="8675309"
 
 The [P2P network identifier](../../Concepts/NetworkID-And-ChainID.md).
 
-Use this option to override the default network ID. The default value is the network chain ID
+Use this option to override the default network ID. The default value is the same as the chain ID
 defined in the genesis file.
 
 ### node-private-key-file
@@ -1250,8 +1251,8 @@ transactions. The default is `false`.
 --privacy-precompiled-address=<privacyPrecompiledAddress>
 ```
 
-The [privacy pre-compiled contract](../../Concepts/Privacy/Private-Transaction-Processing.md)
-address. The default is 126.
+The [predefined contract address](../../Concepts/Privacy/Private-Transaction-Processing.md). The
+default is 126.
 
 ### privacy-public-key-file
 
@@ -1341,7 +1342,7 @@ BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 privacy-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-The file containing the password to decrypt the keystore.
+The path to the file containing the password to decrypt the keystore.
 
 ### privacy-tls-known-enclave-file
 
@@ -1361,7 +1362,7 @@ BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
 privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 ```
 
-The file containing the hostnames, ports, and SHA256 certificate fingerprints of the
+The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
 [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
 
 ### privacy-url
@@ -1825,7 +1826,7 @@ BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 rpc-http-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-The file that contains the password to decrypt the keystore.
+The path to the file containing the password to decrypt the keystore.
 
 ### rpc-http-tls-known-clients-file
 
@@ -1845,7 +1846,7 @@ BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
 rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 ```
 
-The file used to
+The path to the file used to
 [authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
@@ -1903,8 +1904,8 @@ BESU_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
 rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
-The [Credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC
-API [authentication](../../HowTo/Interact/APIs/Authentication.md).
+The path to the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
+for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ### rpc-ws-authentication-enabled
 

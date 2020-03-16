@@ -191,7 +191,7 @@ Import accounts to MetaMask and send transactions as described in the
 
 !!! info
 
-    Besu does not implement
+    Besu does not support
     [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
 Send transactions using `eth_sendRawTransaction` to

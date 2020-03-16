@@ -1,112 +1,119 @@
-description: Hyperledger Besu private network with privacy enabled tutorial
-<!--- END of page meta data -->
+---
+description: Hyperledger Besu privacy-enabled private network tutorial
+---
 
-# Privacy-enabled Private Network Example Tutorial
+# Privacy-enabled private network example tutorial
 
-The Private Network with Privacy Enabled Example runs a private network of Hyperledger Besu and
-Orion nodes managed by Docker Compose.
-It is an expanded version of the [Private Network Example](Private-Network-Example.md). 
+The privacy-enabled private network example runs a private network of Hyperledger Besu and Orion
+nodes managed by Docker Compose. It's an expanded version of the
+[private network example](Private-Network-Example.md).
 
-You can use the [Block Explorer](Private-Network-Example.md#block-explorer), 
-make [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and 
-create [transactions using Metamask](Private-Network-Example.md#creating-a-transaction-using-metamask)
-as described in the [Private Network Example tutorial](Private-Network-Example.md). 
-This tutorial describes how to use the examples provided in the EEAJS library to [create and send private transactions](#send-private-transactions-and-read-values). 
+You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
+[JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
+[create transactions using Metamask] as described in the
+[private network example](Private-Network-Example.md). This tutorial describes how to use the
+examples provided in the EEAJS library to
+[create and send private transactions](#send-private-transactions-and-read-values).
 
-!!! important 
-    The sample-network runs a private network suitable for education or demonstration purposes. 
-    The sample-network is not intended for running production networks. 
+!!! important
+
+    This tutorial runs a private network suitable for education or demonstration purposes and is
+    not intended for running production networks.
 
 ## Prerequisites
 
 To run this tutorial, you must have the following installed:
 
-- [Docker and Docker-compose](https://docs.docker.com/compose/install/) 
+* [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 
-    !!! important 
-        If using [MacOS](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 6GB of memory on the _Advanced_ tab in _Preferences_.  
+    !!! important
 
-- [Nodejs](https://nodejs.org/en/download/)
+        If using [MacOS](https://docs.docker.com/docker-for-mac/) or
+        [Windows](https://docs.docker.com/docker-for-windows/), enable Docker to use up to 6GB of
+        memory on the _Advanced_ tab in _Preferences_.
 
-- [Git command line](https://git-scm.com/)
+* [Nodejs](https://nodejs.org/en/download/)
+* [Git command line](https://git-scm.com/)
+* [Curl command line](https://curl.haxx.se/download.html).
 
-- [Curl command line](https://curl.haxx.se/download.html) 
+## Clone Besu sample networks source code
 
-## Clone Besu Sample Networks Source Code
-
-Clone the repository from the `besu-` repository. 
+Clone the repository from the `besu-` repository.
 
 ```bash tab="Linux/MacOS"
 git clone https://github.com/PegaSysEng/besu-sample-networks.git
 ```
 
 !!!note
+
     To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
-## Clone EEAJS Libraries 
+## Clone EEAJS libraries
 
-Clone the `PegaSysEng/eeajs` library: 
+Clone the `PegaSysEng/eeajs` library:
 
 ```bash
 git clone https://github.com/PegaSysEng/eeajs.git
 ```
 
-In the `eeajs` directory: 
-   
+In the `eeajs` directory:
+
 ```bash
 npm install
 ```
 
-## Start the Network
+## Start the network
 
 !!!important
+
     If running in Windows, please run commands from the GitBash shell
 
-In the `besu-sample-networks` directory, start the network with privacy enabled: 
+In the `besu-sample-networks` directory, start the network with privacy enabled:
 
 ```bash
-./run-privacy.sh 
+./run-privacy.sh
 ```
 
-The Docker images are pulled and network started.  Pulling the images takes a few minutes the first time.
-The network details are displayed. 
+The script pulls the Docker images starts the network. Pulling the images takes a few minutes the
+first time. The network details display.
 
 ```bash
-       Name                      Command               State                              Ports                           
+       Name                      Command               State                              Ports
 --------------------------------------------------------------------------------------------------------------------------
-privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
-privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp                                      
-privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
+privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp
+privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp
+privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
 privacy_node1_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
 privacy_node2_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
 privacy_node3_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20004->8545/tcp, 0.0.0.0:20005->8546/tcp
-privacy_orion1_1      /orion/bin/orion data/data ...   Up                                                                 
-privacy_orion2_1      /orion/bin/orion data/data ...   Up                                                                 
-privacy_orion3_1      /orion/bin/orion data/data ...   Up                                                                 
-privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp                              
+privacy_orion1_1      /orion/bin/orion data/data ...   Up
+privacy_orion2_1      /orion/bin/orion data/data ...   Up
+privacy_orion3_1      /orion/bin/orion data/data ...   Up
+privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
 ****************************************************************
 JSON-RPC HTTP service endpoint      : http://localhost:8545   *
 JSON-RPC WebSocket service endpoint : ws://localhost:8546   *
-Web block explorer address          : http://localhost:25000   *                                                                             
+Web block explorer address          : http://localhost:25000   *
 ****************************************************************
 ```
 
-## Send Private Transactions and Read Values 
+## Send private transactions and read values
 
-The Event Emitter script deploys a contract with a privacy group of Node1 and Node2. That is, the other nodes
-cannot access the contract. After deploying the contract, Event Emitter stores a value. 
+The Event Emitter script deploys a contract with a privacy group of Node1 and Node2. That is, the
+other nodes cannot access the contract. After deploying the contract, Event Emitter stores a value.
 
-In the `eeajs` directory, run `eventEmitter.js`: 
+In the `eeajs` directory, run `eventEmitter.js`:
 
 ```bash
 node example/eventEmitter.js
 ```
 
-!!! tip 
-    The network takes a minute or so to get started.  If you get a ` Error: socket hang up` error, the network
-    isn't fully setup. Wait and then run the command again. 
+!!! tip
 
-The Event Emitter logs are displayed. 
+    The network takes a few minutes to get started. If you get a ` Error: socket hang up` error,
+    the network isn't fully setup. Wait and then run the command again.
+
+The Event Emitter logs display.
 
 ```bash
 Transaction Hash  0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f
@@ -131,19 +138,21 @@ Get Value: 0x000000000000000000000000000000000000000000000000000000000000002a
 ```
 
 Call [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt) where:
- 
-* `<TransactionHash>` is the transaction hash displayed in the Event Emitter logs. 
-* `<JSON-RPC Endpoint>` is the JSON-RPC HTTP service endpoint displayed when starting the network. 
+
+* `<TransactionHash>` is the transaction hash displayed in the Event Emitter logs.
+* `<JSON-RPC Endpoint>` is the JSON-RPC HTTP service endpoint displayed when starting the network.
 
 ```bash tab="curl HTTP request"
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' <JSON-RPC Endpoint>
 ```
-    
+
 ```bash tab="Example"
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
 ```
 
-The transaction receipt for the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) is displayed with a `contractAddress` of `null`. 
+The transaction receipt for the
+[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) displays
+with a `contractAddress` of `null`.
 
 ```json
 {
@@ -166,24 +175,27 @@ The transaction receipt for the [privacy marker transaction](../../Concepts/Priv
 }
 ```
 
-## Stop Network
+## Stop the network
 
-Do one of the following to stop the network: 
+Do one of the following to stop the network:
 
-* Stop the network: 
+* Stop the network:
 
     ```bash
     ./stop.sh
     ```
-    
-* Stop the network and remove the containers and volumes: 
+
+* Stop the network and remove the containers and volumes:
 
     ```bash
     ./remove.sh
     ```
 
-* Stop the network and delete the Docker images: 
+* Stop the network and delete the Docker images:
 
     ```bash
     ./delete.sh
     ```
+
+<!-- Links -->
+[create transactions using Metamask]: Private-Network-Example.md#create-a-transaction-using-metamask

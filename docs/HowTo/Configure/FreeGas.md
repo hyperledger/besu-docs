@@ -33,10 +33,17 @@ increase the block size limit and set the contract size limit to the maximum val
 
 If you want to remove gas from consideration and don't mind blocks potentially taking longer to
 create, in the genesis file set the block size limit (measured in gas) to the maximum accepted by
-Truffle (`0x1fffffffffffff`).
+Truffle (`0x1fffffffffffff`). In the genesis file, specify `gasLimit` below the `config` key. 
 
 ```json
-"gasLimit": "0x1fffffffffffff"
+{ 
+  "config": {
+  ....
+  },
+  ...
+  "gasLimit": "0x1fffffffffffff",
+  ....
+} 
 ```
 
 If you are more concerned about blocks arriving on time and don't have expensive individual
@@ -45,11 +52,18 @@ the configured block time.
 
 ### 2. Set the contract size
 
-In the `config` section of the genesis file set the contract size limit to the maximum supported
+In the `config` section of the genesis file, set the contract size limit to the maximum supported
 size (in bytes).
 
 ```json
-"contractSizeLimit": 2147483647
+( 
+  "config": {
+    ...
+    "contractSizeLimit": 2147483647,
+    ...
+  } 
+  ...
+} 
 ```
 
 ### 3. Start Besu with a minimum gas price of zero

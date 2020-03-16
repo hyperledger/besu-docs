@@ -1,37 +1,48 @@
+---
 description: Hyperledger Besu JSON-RPC API methods reference
-<!--- END of page meta data -->
+---
 
-# Hyperledger Besu API Methods
+# Hyperledger Besu API methods
 
 !!! attention
-    * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port)
-    options, update the endpoint.
-    * Except for the examples made on the Ropsten network, the example requests are made against private networks. Depending on network configuration and activity, your example results may be different.
+
+    * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If
+      using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or
+      [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port) options, update the endpoint.
+    * Except for the examples made on the Ropsten network, the example requests are made against
+      private networks. Depending on network configuration and activity, your example results might
+      be different.
 
 {!global/Postman.md!}
 
-## Admin Methods
+## Admin methods
 
 !!! note
-    The `ADMIN` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `ADMIN` API methods.
+
+    The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### admin_addPeer
 
-Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
+Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 !!! caution
-    If connections are timing out, ensure the node ID in the [enode URL](../Concepts/Node-Keys.md#enode-url) is correct.
 
-**Parameters**
+    If connections are timing out, ensure the node ID in the
+    [enode URL](../Concepts/Node-Keys.md#enode-url) is correct.
+
+#### Parameters
 
 `string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to add
 
-**Returns**
+#### Returns
 
-`result` : `boolean` - `true` if peer added or `false` if peer already a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
+`result` : `boolean` - `true` if peer added or `false` if peer already a
+[static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
     ```
@@ -50,23 +61,25 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 ### admin_changeLogLevel
 
-Changes the log level without restarting Besu. You can change the log level for all logs, or you can change the log level for specific packages or classes.
+Changes the log level without restarting Besu. You can change the log level for all logs, or you
+can change the log level for specific packages or classes.
 
-Only one log level can be specified per RPC call.
+You can specify only one log level per RPC call.
 
-**Parameters**
+#### Parameters
 
 `level` - [Log level](CLI/CLI-Syntax.md#logging)
 
 `log_filter`: `Array` - Packages or classes to change the log level for. Optional.
 
-**Returns**
+#### Returns
 
 `result` : `Success` if the log level has changed; otherwise `error`.
 
 This example changes the debug level for specified classes to `DEBUG`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
     ```
@@ -82,9 +95,11 @@ This example changes the debug level for specified classes to `DEBUG`.
      "result": "Success"
     }
     ```
+
 This example changes the debug level of all logs to `WARN`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}' http://127.0.0.1:8545
     ```
@@ -103,36 +118,38 @@ This example changes the debug level of all logs to `WARN`.
 
 ### admin_generateLogBloomCache
 
-!!! tip 
-    Manually executing `admin_generateLogBloomCache` is not required unless the 
-    [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command line 
-    option has been set to false.  
+!!! tip
 
-Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs)
-and [`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved
-performance.  
+    Manually executing `admin_generateLogBloomCache` is not required unless the
+    [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command
+    line option was set to false.
+
+Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and
+[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
 
 !!! note
-    Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
 
-**Parameters**
+    Each index file contains 100000 blocks. The last fragment of blocks less than 100000 are not
+    indexed.
 
-`integer` - Block to start generating indexes
+#### Parameters
 
-`integer` - Block to stop generating indexes
+`integer` - Block to start generating indexes.
 
-**Returns**
+`integer` - Block to stop generating indexes.
+
+#### Returns
 
 `result` : *object* - Log bloom index details:
 
-* `quantity` : `startBlock` - Starting block for the last requested cache generation
-* `quantity` : `endBlock` - Ending block for the last requested cache generation
-* `quantity` : `currentBlock` - The most recent block that was added to the cache
-* `boolean` : `indexing` - `true` if indexing is in progress
-* `boolean` : `true` if the request from this call to generate the cache has
-   been accepted
+* `quantity` : `startBlock` - Starting block for the last requested cache generation.
+* `quantity` : `endBlock` - Ending block for the last requested cache generation.
+* `quantity` : `currentBlock` - The most recent block added to the cache.
+* `boolean` : `indexing` - `true` if indexing is in progress.
+* `boolean` : `true` indicates acceptance of the request from this call to generate the cache.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545
     ```
@@ -157,32 +174,35 @@ performance.
 
 ### admin_nodeInfo
 
-Returns networking information about the node. The information includes general information about the node
-and specific information from each running Ethereum sub-protocol (for example, `eth`).
+Returns networking information about the node. The information includes general information about
+the node and specific information from each running Ethereum sub-protocol (for example, `eth`).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : Node object
 
 Properties of the node object are:
 
-* `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node  
-* `listenAddr` - Host and port for the node
-* `name` - Client name
-* `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key)
-* `ports` - Peer discovery and listening [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration)
-* `protocols` - List of objects containing information for each Ethereum sub-protocol
+* `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node.
+* `listenAddr` - Host and port for the node.
+* `name` - Client name.
+* `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key).
+* `ports` - Peer discovery and listening
+  [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration).
+* `protocols` - List of objects containing information for each Ethereum sub-protocol.
 
 !!! note
-    If the node is running locally, the host of the `enode` and `listenAddr` are displayed as `[::]` in the result.
-    When advertising externally, the external address displayed for the `enode` and `listenAddr` is 
-    defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
+
+    If the node is running locally, the host of the `enode` and `listenAddr` display as `[::]` in
+    the result. When advertising externally, the external address displayed for the `enode` and
+    `listenAddr` is defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -235,25 +255,28 @@ Properties of the node object are:
 
 Returns networking information about connected remote nodes.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *array* of *objects* - Object returned for each remote node.
 
 Properties of the remote node object are:
 
-* `version` - P2P protocol version
-* `name` - Client name
-* `caps` - List of Ethereum sub-protocol capabilities
-* `network` - Local and remote addresses established at time of bonding with the peer. The remote address may not
-match the hex value for `port`. The remote address depends on which node initiated the connection.
-* `port` - Port on the remote node on which P2P peer discovery is listening
-* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode URL `enode://<id ex 0x>@<host>:<port>`.
+* `version` - P2P protocol version.
+* `name` - Client name.
+* `caps` - List of Ethereum sub-protocol capabilities.
+* `network` - Local and remote addresses established at time of bonding with the peer. The remote
+  address might not match the hex value for `port`. The remote address depends on which node
+  initiated the connection.
+* `port` - Port on the remote node on which P2P peer discovery is listening.
+* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode
+  URL `enode://<id ex 0x>@<host>:<port>`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -291,17 +314,19 @@ match the hex value for `port`. The remote address depends on which node initiat
 
 ### admin_removePeer
 
-Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).  
+Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
-**Parameters**
+#### Parameters
 
-`string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to remove
+`string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to remove.
 
-**Returns**
+#### Returns
 
-`result` : `boolean` - `true` if peer removed or `false` if peer not a [static node](../HowTo/Find-and-Connect/Static-Nodes.md)).
+`result` : `boolean` - `true` if peer removed or `false` if peer not a
+[static node](../HowTo/Find-and-Connect/Static-Nodes.md)).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
     ```
@@ -318,21 +343,22 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
     }
     ```
 
-## Web3 Methods
+## Web3 methods
 
 ### web3_clientVersion
 
 Returns the current client version.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *string* - Current client version.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -351,17 +377,19 @@ None
 
 ### web3_sha3
 
-Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
+Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value
+is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
 
-**Parameters**
+#### Parameters
 
 `DATA` - Data to convert to a SHA3 hash.
 
-**Returns**
+#### Returns
 
 `result` (*DATA*) - SHA3 result of the input data.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545
     ```
@@ -378,17 +406,17 @@ Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data
     }
     ```
 
-## Net Methods
+## Net methods
 
 ### net_version
 
 Returns the current chain ID.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *string* - Current chain ID.
 
@@ -404,6 +432,7 @@ None
 | `2018`   | ETH   | Dev     | PoW development network       |
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -418,7 +447,7 @@ None
       "id" : 51,
       "result" : "1"
     }
-    ```    
+    ```
 
     ```json tab="JSON result for Ropsten"
     {
@@ -430,17 +459,19 @@ None
 
 ### net_listening
 
-Indicates whether the client is actively listening for network connections.
+Whether the client is actively listening for network connections.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively listening for network connections; otherwise `false`.
+`result` (*BOOLEAN*) - `true` if the client is actively listening for network connections;
+otherwise `false`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -461,15 +492,16 @@ None
 
 Returns the number of peers currently connected to the client.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *integer* - Number of connected peers in hexadecimal.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -490,15 +522,16 @@ None
 
 Returns the [enode URL](../Concepts/Node-Keys.md#enode-url).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node
+`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -519,15 +552,16 @@ None
 
 Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *objects* - Enabled services
+`result` : *objects* - Enabled services.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -557,31 +591,37 @@ None
     }
     ```
 
-## Eth Methods
+## Eth methods
 
 !!! note
-    Methods with an equivalent [GraphQL](../HowTo/Interact/APIs/GraphQL.md) query include a GraphQL request and result in the method example.
-    The parameter and result descriptions apply to the JSON-RPC requests. The GraphQL specification is defined in the [schema](https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls).  
+
+    Methods with an equivalent [GraphQL](../HowTo/Interact/APIs/GraphQL.md) query include a GraphQL
+    request and result in the method example. The parameter and result descriptions apply to the
+    JSON-RPC requests. The GraphQL specification is defined in the [schema].
 
 ### eth_syncing
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *Object|Boolean* - Object with synchronization status data or `false`, when not synchronizing:
+`result` : *Object|Boolean* - Object with synchronization status data or `false`, when not
+synchronizing:
 
-* `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network synchronization starts.
-
-* `currentBlock` : *quantity* - Index of the latest block (also known as the best block) for the current node. This is the same index that [eth_blockNumber](#eth_blocknumber) returns.
-
-* `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the highest block so far discovered among peer nodes). This is the same value as `currentBlock` if the current node has no peers.
+* `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
+  synchronization starts.
+* `currentBlock` : *quantity* - Index of the latest block (also known as the best block) for the
+  current node. This is the same index that [eth_blockNumber](#eth_blocknumber) returns.
+* `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
+  highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
+  the current node has no peers.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545
     ```
@@ -632,15 +672,16 @@ None
 
 Returns the [chain ID](../Concepts/NetworkID-And-ChainID.md).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *quantity* - Chain ID in hexadecimal.
+`result` : *quantity* - Chain ID, in hexadecimal.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545
     ```
@@ -661,15 +702,16 @@ None
 
 Returns current Ethereum protocol version.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *quantity* - Ethereum protocol version
+`result` : *quantity* - Ethereum protocol version.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -706,25 +748,28 @@ None
 
 ### eth_coinbase
 
-Returns the client coinbase address. The coinbase address is the account to which mining rewards are paid.
+Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
 
-To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum account address.
-You can get the Ethereum account address from a client such as MetaMask or Etherscan. For example:
+To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum
+account address. You can get the Ethereum account address from a client such as MetaMask or
+Etherscan. For example:
 
 !!!example
+
     ```bash
     besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
     ```
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : *data* - Coinbase address.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -743,17 +788,19 @@ None
 
 ### eth_mining
 
-Indicates whether the client is actively mining new blocks. Mining is paused while the client synchronizes with the network regardless of command settings or methods called.
+Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
+with the network regardless of command settings or methods called.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` (*BOOLEAN*) - `true` if the client is actively mining new blocks; otherwise `false`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -774,17 +821,18 @@ None
 
 Returns the number of hashes per second with which the node is mining.
 
-Is not supported for GPU mining.
+Not supported for GPU mining.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : `quantity` - Number of hashes per second
+`result` : `quantity` - Number of hashes per second.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -803,17 +851,20 @@ None
 
 ### eth_gasPrice
 
-Returns the current gas unit price in wei. It is the hexadecimal equivalent of the price specified for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node was started or the default minimum gas price.
+Returns the current gas unit price, in wei. It's the hexadecimal equivalent of the price specified
+for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
+started, or the default minimum gas price.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *quantity* - Current gas unit price in wei as a hexadecimal value.
+`result` : *quantity* - Current gas unit price, in wei, as a hexadecimal value.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -846,27 +897,31 @@ None
         "gasPrice" : "0x3e8"
       }
     }
-    ```   
+    ```
 
 ### eth_accounts
 
-Returns a list of account addresses that the client owns.
+Returns a list of account addresses a client owns.
 
 !!!note
-    This method returns an empty object because Besu [doesn't support key management](../HowTo/Send-Transactions/Account-Management.md)
-    inside the client.
 
-    Use [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu to provide access to your key store and sign transactions.
+    This method returns an empty object because Besu
+    [doesn't support key management](../HowTo/Send-Transactions/Account-Management.md) inside the
+    client.
 
-**Parameters**
+    To provide access to your key store and and then sign transactions, use
+    [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu.
+
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `Array of data` : List of 20-byte account addresses owned by the client.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":53}' http://127.0.0.1:8545
     ```
@@ -887,16 +942,17 @@ None
 
 Returns the index corresponding to the block number of the current chain head.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : *QUANTITY* - Hexadecimal integer representing the index corresponding to the block number of the current chain head.
-
+`result` : *QUANTITY* - Hexadecimal integer representing the index corresponding to the block
+number of the current chain head.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}' http://127.0.0.1:8545
     ```
@@ -939,17 +995,20 @@ None
 
 Returns the account balance of the specified address.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte account address from which to retrieve the balance.
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
-`result` : *QUANTITY* - Current balance in wei as a hexadecimal value.  
+`result` : *QUANTITY* - Current balance, in wei, as a hexadecimal value.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
     ```
@@ -985,38 +1044,42 @@ Returns the account balance of the specified address.
           "balance": "0x1ce96a1ffe7620d00000"
         }
       }
-    }    
+    }
     ```
 
 ### eth_getProof
 
 Returns the account and storage values of the specified account, including the merkle proof.
 
-The API allows IoT devices or mobile apps which are unable to run light clients to verify responses from untrusted sources, by using a trusted block hash.
+The API allows IoT devices or mobile apps which are unable to run light clients to verify responses
+from untrusted sources, by using a trusted block hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte address of the account or contract.
 
 `ARRAY` - Array of 32-byte storage keys to generate proofs for.
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result`: *Object* - Account details:
 
-* `balance`:`Quantity` - Account balance
-* `codeHash`:`Data, 32-byte` - Hash of the account code
-* `nonce`:`Quantity` - Number of transactions sent from the account
-* `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`
-* `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`
+* `balance`:`Quantity` - Account balance.
+* `codeHash`:`Data, 32-byte` - Hash of the account code.
+* `nonce`:`Quantity` - Number of transactions sent from the account.
+* `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
+* `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`.
 * `storageProof`:`Array`- Storage entries. Each entry is an object that displays:
-     * `key`:`Quantity` - Storage key
-     * `value`:`Quantity` - Storage value
-     * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`
+    * `key`:`Quantity` - Storage key.
+    * `value`:`Quantity` - Storage value.
+    * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
     "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
@@ -1062,19 +1125,22 @@ The API allows IoT devices or mobile apps which are unable to run light clients 
 
 Returns the value of a storage position at a specified address.
 
-**Parameters**
+#### Parameters
 
 `DATA` - A 20-byte storage address.
 
 `QUANTITY` - Integer index of the storage position.
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *DATA* - The value at the specified storage position.
 
 !!! example
+
     Calculating the correct position depends on the storage you want to retrieve.
 
     ```bash tab="curl HTTP"
@@ -1112,24 +1178,29 @@ Returns the value of a storage position at a specified address.
           "storage" : "0x0000000000000000000000000000000000000000000000000000000000000000"
         }
       }
-    }   
+    }
     ```
 
 ### eth_getTransactionCount
 
-Returns the number of transactions sent from a specified address. Use the `pending` tag to get the account nonce.
+Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
+account nonce.
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte account address.
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
-`result` : *quantity* - Integer representing the number of transactions sent from the specified address.
+`result` : *quantity* - Integer representing the number of transactions sent from the specified
+address.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1172,15 +1243,16 @@ Returns the number of transactions sent from a specified address. Use the `pendi
 
 Returns the number of transactions in the block matching the given block hash.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result` : `quantity` - Integer representing the number of transactions in the specified block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545
     ```
@@ -1223,15 +1295,18 @@ Returns the number of transactions in the block matching the given block hash.
 
 Returns the number of transactions in a block matching the specified block number.
 
-**Parameters**
+#### Parameters
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of transactions in the specified block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545
     ```
@@ -1270,25 +1345,26 @@ Returns the number of transactions in a block matching the specified block numbe
     }
     ```
 
-
 ### eth_getUncleByBlockHashAndIndex
 
 Returns uncle specified by block hash and index.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
 `quantity` - Index of the uncle.
 
-**Returns**
+#### Returns
 
 `result` : [Block object](API-Objects.md#block-object)
 
 !!! note
+
     Uncles do not contain individual transactions.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1379,20 +1455,23 @@ Returns uncle specified by block hash and index.
 
 Returns uncle specified by block number and index.
 
-**Parameters**
+#### Parameters
 
-`quantity|tag` - Index of the block, or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Index of the block, or one of the string tags `latest`, `earliest`, or `pending`,
+as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `quantity` - Index of the uncle.
 
-**Returns**
+#### Returns
 
 `result` : [Block object](API-Objects.md#block-object)
 
 !!! note
+
     Uncles do not contain individual transactions.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1470,15 +1549,16 @@ Returns uncle specified by block number and index.
 
 Returns the number of uncles in a block from a block matching the given block hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1521,15 +1601,18 @@ Returns the number of uncles in a block from a block matching the given block ha
 
 Returns the number of uncles in a block matching the specified block number.
 
-**Parameters**
+#### Parameters
 
-`QUANTITY|TAG` - Integer representing either the index of the block within the blockchain, or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing either the index of the block within the blockchain, or one
+of the string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1570,19 +1653,23 @@ Returns the number of uncles in a block matching the specified block number.
 
 ### eth_getCode
 
-Returns the code of the smart contract at the specified address. Compiled smart contract code is stored as a hexadecimal value.
+Returns the code of the smart contract at the specified address. Besu stores compiled smart
+contract code as a hexadecimal value.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte contract address.
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *DATA* - Code stored at the specified address.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
     ```
@@ -1623,31 +1710,39 @@ Returns the code of the smart contract at the specified address. Compiled smart 
 
 ### eth_sendRawTransaction
 
-Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send ether, deploy a contract, or interact with a contract.  
+Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
+ether, deploy a contract, or interact with a contract.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction).
+You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
-To avoid exposing your private key, create signed transactions offline and send the signed transaction data using `eth_sendRawTransaction`.
+To avoid exposing your private key, create signed transactions offline and send the signed
+transaction data using `eth_sendRawTransaction`.
 
 !!!important
+
     Besu does not implement [eth_sendTransaction](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements
+    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
-**Parameters**
+#### Parameters
 
 `data` -  Signed transaction serialized to hexadecimal format. For example:
 
 `params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
 
 !!! note
-    [Creating and Sending Transactions](../HowTo/Send-Transactions/Transactions.md) includes examples of creating signed transactions using the [web3.js](https://github.com/ethereum/web3.js/) library.
 
-**Returns**
+    [Creating and Sending Transactions](../HowTo/Send-Transactions/Transactions.md) includes
+    examples of creating signed transactions using the
+    [web3.js](https://github.com/ethereum/web3.js/) library.
 
-`result` : `data` - 32-byte transaction hash
+#### Returns
+
+`result` : `data` - 32-byte transaction hash.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545
     ```
@@ -1686,19 +1781,22 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 Invokes a contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call](../HowTo/Send-Transactions/Transactions.md#eth_call-vs-eth_sendrawtransaction).
+You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
-**Parameters**
+#### Parameters
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
-*QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+*QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` - `data` - Return value of the executed contract.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","value":"0x1"}, "latest"],"id":53}' http://127.0.0.1:8545
     ```
@@ -1747,28 +1845,30 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call](../Ho
 
 ### eth_estimateGas
 
-Returns an estimate of how much gas is needed for a transaction to complete. The estimation process does not use
-gas and the transaction is not added to the blockchain. The resulting estimate can be greater than the amount of
-gas that the transaction actually uses, for various reasons including EVM mechanics and node performance.
+Returns an estimate of the gas required for a transaction to complete. The estimation process
+does not use gas and the transaction is not added to the blockchain. The resulting estimate can be
+greater than the amount of gas the transaction ends up using, for reasons including EVM mechanics
+and node performance.
 
-The `eth_estimateGas` call does not send a transaction. You must make a subsequent call to
+The `eth_estimateGas` call does not send a transaction. You must call
 [eth_sendRawTransaction](#eth_sendrawtransaction) to execute the transaction.
 
-**Parameters**
+#### Parameters
 
-The transaction call object parameters are the same as those for [eth_call](#eth_call), except that in `eth_estimateGas`,
-all fields are optional. Setting a gas limit is irrelevant to the estimation process (unlike transactions, in which gas
-limits apply).
+The transaction call object parameters are the same as those for [eth_call](#eth_call), except that
+in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
+process (unlike transactions, in which gas limits apply).
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
-**Returns**
+#### Returns
 
 `result` : `quantity` -  Amount of gas used.
 
-The following example returns an estimate of 21000 wei (0x5208) for the transaction.
+The following example returns an estimate of 21000 wei (`0x5208`) for the transaction.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73","to":"0x44Aa93095D6749A706051658B970b941c72c1D53","value":"0x1"}],"id":53}' http://127.0.0.1:8545
     ```
@@ -1804,16 +1904,18 @@ The following example returns an estimate of 21000 wei (0x5208) for the transact
           "estimateGas" : 21000
         }
       }
-    }   
+    }
     ```
 
-The following example request estimates the cost of deploying a simple storage smart contract to the network. The data field
-contains the hash of the compiled contract to be deployed. (You can obtain the compiled contract hash from your IDE;
-for example, **Remix > Compile tab > details > WEB3DEPLOY**.) The result is 113355 wei.
+The following example request estimates the cost of deploying a simple storage smart contract to
+the network. The data field contains the hash of the compiled contract you want to deploy. (You can
+get the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
+WEB3DEPLOY**.) The result is 113355 wei.
 
-**Returns**
+#### Returns
 
 !!! example
+
     ```bash tab="curl HTTP request"
      curl -X POST \
         http://127.0.0.1:8545 \
@@ -1830,6 +1932,7 @@ for example, **Remix > Compile tab > details > WEB3DEPLOY**.) The result is 1133
     ```
 
 !!! example
+
     ```json tab="JSON result"
     {
         "jsonrpc": "2.0",
@@ -1838,22 +1941,24 @@ for example, **Remix > Compile tab > details > WEB3DEPLOY**.) The result is 1133
     }
     ```
 
-
 ### eth_getBlockByHash
 
 Returns information about the block by hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a block.
 
-`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object); if `false`, returns the transaction hashes.
+`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
+if `false`, returns the transaction hashes.
 
-**Returns**
+#### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when no block is found.
+`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
+block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x16b69965a5949262642cfb5e86368ddbbe57ab9f17d999174a65fd0e66580d8f", false],"id":53}' http://127.0.0.1:8545
     ```
@@ -1952,17 +2057,22 @@ Returns information about the block by hash.
 
 Returns information about a block by block number.
 
-**Parameters**
+#### Parameters
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object); if `false`, returns only the hashes of the transactions.
+`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
+if `false`, returns only the hashes of the transactions.
 
-**Returns**
+#### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when no block is found.
+`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
+block.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x64", true],"id":1}' http://127.0.0.1:8545
     ```
@@ -2081,20 +2191,21 @@ Returns information about a block by block number.
     }
     ```
 
-
 ### eth_getTransactionByHash
 
 Returns transaction information for the specified transaction hash.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte transaction hash.
 
-**Returns**
+#### Returns
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545
     ```
@@ -2180,17 +2291,19 @@ Object - [Transaction object](API-Objects.md#transaction-object), or `null` when
 
 Returns transaction information for the specified block hash and transaction index position.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a block.
 
 `QUANTITY` - Integer representing the transaction index position.
 
-**Returns**
+#### Returns
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545
     ```
@@ -2258,18 +2371,24 @@ Object - [Transaction object](API-Objects.md#transaction-object), or `null` when
 
 Returns transaction information for the specified block number and transaction index position.
 
-**Parameters**
+#### Parameters
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `QUANTITY` - The transaction index position.
 
-**Returns**
+#### Returns
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when no transaction is found.
+Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction.
 
 !!! example
-    This request returns the third transaction in the 82990 block on the Ropsten testnet. You can also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction](https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6) on Etherscan.
+
+    This request returns the third transaction in the 82990 block on the Ropsten testnet. You can
+    also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on
+    Etherscan.
 
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545
@@ -2336,20 +2455,23 @@ Object - [Transaction object](API-Objects.md#transaction-object), or `null` when
 
 ### eth_getTransactionReceipt
 
-Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not available.
+Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
+available.
 
-If [revert reason](../HowTo/Send-Transactions/Revert-Reason.md) is enabled, includes available revert
-reasons in the response.
+If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
+available revert reasons in the response.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 32-byte hash of a transaction.
 
-**Returns**
+#### Returns
 
-`Object` - [Transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when no receipt is found.
+`Object` - [Transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when
+there is no receipt.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545
     ```
@@ -2439,20 +2561,24 @@ reasons in the response.
 
 ### eth_newFilter
 
-Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
+Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
+created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 `Object` - [Filter options object](API-Objects.md#filter-options-object).
 
-!!!note
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs using `eth_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
+!!! note
 
-**Returns**
+    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
+    using `eth_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
 
-`data` - Filter ID hash
+#### Returns
+
+`data` - Filter ID hash.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
     ```
@@ -2471,17 +2597,19 @@ Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associa
 
 ### eth_newBlockFilter
 
-Creates a filter to retrieve new block hashes. To poll for new blocks, use [eth_getFilterChanges](#eth_getfilterchanges).
+Creates a filter to retrieve new block hashes. To poll for new blocks, use
+[eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`data` - Filter ID hash
+`data` - Filter ID hash.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -2500,17 +2628,19 @@ None
 
 ### eth_newPendingTransactionFilter
 
-Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions, use [eth_getFilterChanges](#eth_getfilterchanges).
+Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions,
+use [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`data` - Filter ID hash
+`data` - Filter ID hash.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -2531,17 +2661,19 @@ None
 
 Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
 
-Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchanges) for 10 minutes.
+Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchanges) for 10
+minutes.
 
-**Parameters**
+#### Parameters
 
-`data` - Filter ID hash
+`data` - Filter ID hash.
 
-**Returns**
+#### Returns
 
 `Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
 
 !!! example
+
     The following request deletes the block filter with an ID of 0x4:
 
     ```bash tab="curl HTTP request"
@@ -2564,11 +2696,11 @@ Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchan
 
 Polls the specified filter and returns an array of changes that have occurred since the last poll.
 
-**Parameters**
+#### Parameters
 
 `data` - Filter ID hash
 
-**Returns**
+#### Returns
 
 `result` : `Array of Object` - If nothing changed since the last poll, an empty list. Otherwise:
 
@@ -2577,6 +2709,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 * For filters created with `eth_newFilter`, returns [log objects](API-Objects.md#log-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xf8bf5598d9e04fbe84523d42640b9b0e"],"id":1}' http://127.0.0.1:8545
     ```
@@ -2652,18 +2785,18 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified fil
 Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
-!!!note
-     `eth_getFilterLogs` is only used for filters created with `eth_newFilter`.
+!!! note
 
-      You can use `eth_getLogs` to specify a filter object and get logs without creating a filter.
+    `eth_getFilterLogs` is only used for filters created with `eth_newFilter`. To specify a filter
+    object and get logs without creating a filter, use `eth_getLogs` .
 
-**Parameters**
+#### Parameters
 
-`data` - Filter ID hash
+`data` - Filter ID hash.
 
-**Returns**
+#### Returns
 
-`array` - [Log objects](API-Objects.md#log-object)
+`array` - [Log objects](API-Objects.md#log-object).
 
 !!! example
 
@@ -2705,21 +2838,21 @@ command line option at the default value of `true` to improve log retrieval perf
 
 ### eth_getLogs
 
-Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified
-filter object.
+Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
 
 Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
-**Parameters**
+#### Parameters
 
-`Object` - [Filter options object](API-Objects.md#filter-options-object)
+`Object` - [Filter options object](API-Objects.md#filter-options-object).
 
-**Returns**
+#### Returns
 
-`array` - [Log objects](API-Objects.md#log-object)
+`array` - [Log objects](API-Objects.md#log-object).
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}' http://127.0.0.1:8545
     ```
@@ -2817,21 +2950,22 @@ command line option at the default value of `true` to improve log retrieval perf
 
 ### eth_getWork
 
-Returns the hash of the current block, the seed hash, and the target boundary condition to be met.
+Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` : `Array of DATA` with the following fields:
 
 * DATA, 32 Bytes - Hash of the current block header (pow-hash).
 * DATA, 32 Bytes - The seed hash used for the DAG.
-* DATA, 32 Bytes - The target boundary condition to be met; 2^256 / difficulty.
+* DATA, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -2851,23 +2985,25 @@ None
         ]
     }
     ```
+
 ### eth_submitWork
 
 Submits a Proof of Work (Ethash) solution.
 
 Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
-**Parameters**
+#### Parameters
 
 * DATA, 8 Bytes - Retrieved nonce.
 * DATA, 32 Bytes - Hash of the block header (PoW-hash).
 * DATA, 32 Bytes - Mix digest.
 
-**Returns**
+#### Returns
 
 `result: Boolean`, `true` if the provided solution is valid, otherwise `false`.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545
     ```
@@ -2884,25 +3020,28 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
     }
     ```
 
-## Clique Methods
+## Clique methods
 
 !!! note
-    The `CLIQUE` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `CLIQUE` API methods.
+
+    The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
+    methods use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### clique_discard
 
-Discards a proposal to [add or remove a signer with the specified address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Discards a proposal to [add or remove a signer with the specified address].
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte address of proposed signer.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' http://127.0.0.1:8545
     ```
@@ -2921,17 +3060,20 @@ Discards a proposal to [add or remove a signer with the specified address](../Ho
 
 ### clique_getSigners
 
-Lists [signers for the specified block](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Lists [signers for the specified block].
 
-**Parameters**
+#### Parameters
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of 20-byte addresses of signers.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' http://127.0.0.1:8545
     ```
@@ -2952,29 +3094,37 @@ Lists [signers for the specified block](../HowTo/Configure/Consensus-Protocols/C
 
 Provides validator metrics for the specified range:
 
-- Number of blocks from each validator
-- Block number of the last block proposed by each validator (if any proposed in the specified range)
-- All validators present in the last block
+* Number of blocks from each validator.
+* Block number of the last block proposed by each validator (if any proposed in the specified
+  range).
+* All validators present in the last block.
 
-**Parameters**
+#### Parameters
 
-`fromBlockNumber` - Integer representing a block number or the string tag `earliest` as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+`fromBlockNumber` - Integer representing a block number or the string tag `earliest`, as described
+in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or
+`pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-If no parameters are specified, metrics are provided for the last 100 blocks or all blocks if there are less than 100 blocks.
+If you specify:
 
-If only the first parameter is specified, metrics are provided for all blocks from the block specified by the first
-parameter to the latest block.
+* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
+  than 100 blocks.
+* Only the first parameter, the call provides metrics for all blocks from the block specified to
+  the latest block.
 
-**Returns**
+#### Returns
 
-`result`: _object_ - List of validator objects
+`result`: _object_ - List of validator objects.
 
 !!! note
+
     The proposer of the genesis block has address `0x0000000000000000000000000000000000000000`.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3011,15 +3161,16 @@ parameter to the latest block.
 
 Lists signers for the specified block.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
 `result: array of data` - List of 20-byte addresses of signers.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3038,19 +3189,20 @@ Lists signers for the specified block.
 
 ### clique_propose
 
-Proposes [adding or removing a signer with the specified address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Propose to [add or remove a signer with the specified address].
 
-**Parameters**
+#### Parameters
 
 `data` - 20-byte address.
 
 `boolean` -  `true` to propose adding signer or `false` to propose removing signer.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' http://127.0.0.1:8545
     ```
@@ -3069,19 +3221,23 @@ Proposes [adding or removing a signer with the specified address](../HowTo/Confi
 
 ### clique_proposals
 
-Returns [current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Returns
+[current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result`:_object_ - Map of account addresses to corresponding boolean values indicating the proposal for each account.
+`result`:_object_ - Map of account addresses to corresponding boolean values indicating the
+proposal for each account.
 
-If the boolean value is `true`, the proposal is to add a signer. If `false`, the proposal is to remove a signer.
+If the boolean value is `true`, the proposal is to add a signer. If `false`, the proposal is to
+remove a signer.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -3101,38 +3257,43 @@ If the boolean value is `true`, the proposal is to add a signer. If `false`, the
     }
     ```
 
-## Debug Methods
+## Debug methods
 
 !!! note
-    The `DEBUG` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `DEBUG` API methods.
-    
-    The DEBUG API is an more verbose alternative to the [TRACE API](#trace-methods). 
+
+    The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+    The DEBUG API is an more verbose alternative to the [TRACE API](#trace-methods).
 
 ### debug_accountRange
 
-[Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses `debug_accountRange` to implement debugging.
+[Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses
+`debug_accountRange` to implement debugging.
 
 Returns the accounts for a specified block.
 
-**Parameters**
+#### Parameters
 
-`blockHashOrNumber` : `data` - Block hash or number
+`blockHashOrNumber` : `data` - Block hash or number.
 
-`txIndex` : `integer` - Transaction index from which to start
+`txIndex` : `integer` - Transaction index from which to start.
 
-`address` : `data` - Address hash from which to start
+`address` : `data` - Address hash from which to start.
 
-`limit` : `integer` - Maximum number of account entries to return
+`limit` : `integer` - Maximum number of account entries to return.
 
-**Returns**
+#### Returns
 
 `result`:`object` - Account details:
 
 * `addressMap`:`object` - List of address hashes and account addresses.
-* `nextKey`:`data` - Hash of the next address if any addresses are left in the state, otherwise zero
+* `nextKey`:`data` - Hash of the next address if any addresses remain in the state, otherwise
+  zero.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
     ```
@@ -3160,27 +3321,29 @@ Returns the accounts for a specified block.
 
 ### debug_storageRangeAt
 
-[Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the _Debugger_ tab in Remix rather than calling `debug_storageRangeAt` directly.  
+[Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the
+_Debugger_ tab in Remix instead of calling `debug_storageRangeAt` directly.
 
 Returns the contract storage for the specified range.
 
-**Parameters**
+#### Parameters
 
-`blockHash` : `data` - Block hash
+`blockHash` : `data` - Block hash.
 
-`txIndex` : `integer` - Transaction index from which to start
+`txIndex` : `integer` - Transaction index from which to start.
 
-`address` : `data` - Contract address
+`address` : `data` - Contract address.
 
-`startKey` : `hash` - Start key
+`startKey` : `hash` - Start key.
 
-`limit` : `integer` - Number of storage entries to return
+`limit` : `integer` - Number of storage entries to return.
 
-**Returns**
+#### Returns
 
-`result`:`object` - [Range object](API-Objects.md#range-object)  
+`result`:`object` - [Range object](API-Objects.md#range-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545
     ```
@@ -3209,23 +3372,25 @@ Returns the contract storage for the specified range.
 
 Returns metrics providing information on the internal operation of Besu.
 
-The available metrics may change over time. The JVM metrics may vary based on the JVM implementation being used.
+The available metrics might change over time. The JVM metrics might vary based on the JVM
+implementation used.
 
 The metric types are:
 
 * Timer
 * Counter
-* Gauge
+* Gauge.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result`:`object`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -3335,11 +3500,12 @@ None
 
 ### debug_traceTransaction
 
-[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the _Debugger_ tab in Remix rather than calling `debug_traceTransaction` directly.  
+[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the
+_Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
 
-Reruns the transaction with the same state as when the transaction was executed.
+Reruns the transaction with the same state as when the transaction executed.
 
-**Parameters**
+#### Parameters
 
 `transactionHash` : `data` - Transaction hash.
 
@@ -3349,11 +3515,12 @@ Reruns the transaction with the same state as when the transaction was executed.
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`object` - [Trace object](API-Objects.md#trace-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545
     ```
@@ -3388,9 +3555,9 @@ Reruns the transaction with the same state as when the transaction was executed.
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
-`Block` : `data` - RLP of the block
+`Block` : `data` - RLP of the block.
 
 `Object` - request options (all optional and default to `false`):
 
@@ -3398,11 +3565,12 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`object` - [Trace object](API-Objects.md#trace-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545
     ```
@@ -3431,15 +3599,15 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
         } ]
       }
     }
-    ```    
+    ```
 
 ### debug_traceBlockByHash
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
-`block hash` : `data` - Block hash
+`block hash` : `data` - Block hash.
 
 `Object` - request options (all optional and default to `false`):
 
@@ -3447,11 +3615,12 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3491,9 +3660,11 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
-**Parameters**
+#### Parameters
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `Object` - request options (all optional and default to `false`):
 
@@ -3501,11 +3672,12 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 * `disableMemory` : `boolean` - `true` disables memory capture.
 * `disableStack` : `boolean` - `true` disables stack capture.
 
-**Returns**
+#### Returns
 
 `result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545
     ```
@@ -3541,25 +3713,30 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
     }
     ```
 
-## Miner Methods
+## Miner methods
 
 !!! note
-    The `MINER` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `MINER` API methods.
+
+    The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### miner_start
 
-Starts the mining process. To start mining, a miner coinbase must have been previously specified using the [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.  
+Starts the mining process. To start mining, you must first specify a miner coinbase using the
+[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` :  `boolean` - `true` if the mining start request was received successfully; otherwise returns an error.
+`result` :  `boolean` - `true` if Besu received the mining start request successfully; otherwise
+returns an error.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -3580,15 +3757,17 @@ None
 
 Stops the mining process on the client.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` :  `boolean` - `true` if the mining stop request was received successfully; otherwise returns an error.
+`result` :  `boolean` - `true` if Besu received the mining stop request successfully; otherwise
+returns an error.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -3605,25 +3784,28 @@ None
     }
     ```
 
-## IBFT 2.0 Methods
+## IBFT 2.0 methods
 
 !!! note
-    The `IBFT` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `IBFT` API methods.
+
+    The `IBFT` API methods are not enabled by default for JSON-RPC. To enable the `IBFT` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### ibft_discardValidatorVote
 
-Discards a proposal to [add or remove a validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) with the specified address.
+Discards a proposal to [add or remove a validator] with the specified address.
 
-**Parameters**
+#### Parameters
 
-`data` - 20-byte address of proposed validator
+`data` - 20-byte address of proposed validator.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3642,19 +3824,23 @@ Discards a proposal to [add or remove a validator](../HowTo/Configure/Consensus-
 
 ### ibft_getPendingVotes
 
-Returns [current votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators).
+Returns
+[current votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result`: `object` - Map of account addresses to corresponding boolean values indicating the vote for each account.
+`result`: `object` - Map of account addresses to corresponding boolean values indicating the vote
+for each account.
 
-If the boolean value is `true`, the vote is to add a validator. If `false`, the proposal is to remove a validator.
+If the boolean value is `true`, the vote is to add a validator. If `false`, the proposal is to
+remove a validator.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -3678,15 +3864,16 @@ If the boolean value is `true`, the vote is to add a validator. If `false`, the 
 
 Lists the validators defined in the specified block.
 
-**Parameters**
+#### Parameters
 
-`data` - 32-byte block hash
+`data` - 32-byte block hash.
 
-**Returns**
+#### Returns
 
-`result: array of data` - List of validator addresses
+`result: array of data` - List of validator addresses.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3711,15 +3898,18 @@ Lists the validators defined in the specified block.
 
 Lists the validators defined in the specified block.
 
-**Parameters**
+#### Parameters
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
-`result: array of data` - List of validator addresses
+`result: array of data` - List of validator addresses.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3742,19 +3932,20 @@ Lists the validators defined in the specified block.
 
 ### ibft_proposeValidatorVote
 
-Proposes [adding or removing a validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) with the specified address.
+Propose to [add or remove a validator] with the specified address.
 
-**Parameters**
+#### Parameters
 
 `data` - Account address
 
 `boolean` -  `true` to propose adding validator or `false` to propose removing validator.
 
-**Returns**
+#### Returns
 
 `result: boolean` - `true`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
     ```
@@ -3775,29 +3966,37 @@ Proposes [adding or removing a validator](../HowTo/Configure/Consensus-Protocols
 
 Provides validator metrics for the specified range:
 
-- Number of blocks from each validator
-- Block number of the last block proposed by each validator (if any proposed in the specified range)
-- All validators present in the last block of the range
+* Number of blocks from each validator.
+* Block number of the last block proposed by each validator (if any proposed in the specified
+  range).
+* All validators present in the last block of the range.
 
-**Parameters**
+#### Parameters
 
-`fromBlockNumber` - Integer representing a block number or the string tag `earliest` as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+`fromBlockNumber` - Integer representing a block number or the string tag `earliest` as described
+in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or
+`pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-If no parameters are specified, metrics are provided for the last 100 blocks or all blocks if there are less than 100 blocks.
+If you specify:
 
-If only the first parameter is specified, metrics are provided for all blocks from the block specified by the first
-parameter to the latest block.
+* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
+  than 100 blocks.
+* Only the first parameter, the call provides metrics for all blocks from the block specified to
+  the latest block.
 
-**Returns**
+#### Returns
 
 `result`: _object_ - List of validator objects
 
 !!! note
+
     The proposer of the genesis block has address `0x0000000000000000000000000000000000000000`.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
     ```
@@ -3830,31 +4029,38 @@ parameter to the latest block.
     }
     ```
 
-## Permissioning Methods
+## Permissioning methods
 
-The permissioning API methods are used for [local](../HowTo/Limit-Access/Local-Permissioning.md) permissioning only.
+Use the permissioning API methods for [local](../HowTo/Limit-Access/Local-Permissioning.md)
+permissioning only.
 
 !!! important
-    The `PERM` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options to enable the `PERM` API methods.
+
+    The `PERM` API methods are not enabled by default for JSON-RPC. To enable the `PERM` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options.
 
 ### perm_addAccountsToWhitelist
 
-Adds accounts (participants) to the [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+Adds accounts (participants) to the
+[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
-`list of strings` - List of account addresses
+`list of strings` - List of account addresses.
 
 !!! note
-    The parameters list contains a list which is why the account addresses are enclosed by double square brackets.
 
-**Returns**
+    The parameters list contains a list which is why the account addresses are enclosed by double
+    square brackets.
 
-`result` - `Success` or `error`. Errors include attempting to add accounts already on the whitelist or
-including invalid account addresses.
+#### Returns
+
+`result` - `Success` or `error`. Errors include attempting to add accounts already on the whitelist
+or including invalid account addresses.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
@@ -3873,17 +4079,19 @@ including invalid account addresses.
 
 ### perm_getAccountsWhitelist
 
-Lists accounts (participants) in the [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+Lists accounts (participants) in the
+[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result: list` - Accounts (participants) in the accounts whitelist.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsWhitelist","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -3905,21 +4113,25 @@ None
 
 ### perm_removeAccountsFromWhitelist
 
-Removes accounts (participants) from the [accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+Removes accounts (participants) from the
+[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
 
-**Parameters**
+#### Parameters
 
-`list of strings` - List of account addresses
+`list of strings` - List of account addresses.
 
 !!! note
-    The parameters list contains a list which is why the account addresses are enclosed by double square brackets.
 
-**Returns**
+    The parameters list contains a list which is why the account addresses are enclosed by double
+    square brackets.
 
-`result` - `Success` or `error`. Errors include attempting to remove accounts not on the whitelist or
-including invalid account addresses.
+#### Returns
+
+`result` - `Success` or `error`. Errors include attempting to remove accounts not on the whitelist
+or including invalid account addresses.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
@@ -3935,23 +4147,28 @@ including invalid account addresses.
         "result": "Success"
     }
     ```
+
 ### perm_addNodesToWhitelist
 
-Adds nodes to the [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+Adds nodes to the
+[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
-`list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url)
+`list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url).
 
 !!! note
-    The parameters list contains a list which is why the enode URLs are enclosed by double square brackets.
 
-**Returns**
+    The parameters list contains a list which is why the enode URLs are enclosed by double
+    square brackets.
+
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to add nodes already on the whitelist or
 including invalid enode URLs.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
@@ -3970,17 +4187,19 @@ including invalid enode URLs.
 
 ### perm_getNodesWhitelist
 
-Lists nodes in the [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+Lists nodes in the
+[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes whitelist.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesWhitelist","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -4002,21 +4221,25 @@ None
 
 ### perm_removeNodesFromWhitelist
 
-Removes nodes from the [nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+Removes nodes from the
+[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
 
-**Parameters**
+#### Parameters
 
 `list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url)
 
 !!! note
-    The parameters list contains a list which is why the enode URLs are enclosed by double square brackets.
 
-**Returns**
+    The parameters list contains a list which is why the enode URLs are enclosed by double square
+    brackets.
+
+#### Returns
 
 `result` - `Success` or `error`. Errors include attempting to remove nodes not on the whitelist or
 including invalid enode URLs.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
@@ -4035,17 +4258,18 @@ including invalid enode URLs.
 
 ### perm_reloadPermissionsFromFile
 
-Reloads the accounts and nodes whitelists from the [permissions configuration file](../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file).
+Reloads the accounts and nodes whitelists from the [permissions configuration file].
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` - `Success` or `error` if the permissions configuration file is not valid.
+`result` - `Success`, or `error` if the permissions configuration file is not valid.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -4062,30 +4286,33 @@ None
     }
     ```
 
-## Txpool Methods
+## Txpool methods
 
 !!! note
-    The `TXPOOL` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `TXPOOL` API methods.
+
+    The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### txpool_besuStatistics
 
 Lists statistics about the node transaction pool.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 `result` - Transaction pool statistics:
 
-* `maxSize` - Maximum number of transactions kept in the transaction pool. Use the [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size)
- option to configure the maximum size.
-* `localCount` - Number of transactions submitted directly to this node
+* `maxSize` - Maximum number of transactions kept in the transaction pool. Use the
+  [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size) option to configure the maximum size.
+* `localCount` - Number of transactions submitted directly to this node.
 * `remoteCount` - Number of transactions received from remote nodes.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -4110,15 +4337,16 @@ None
 
 Lists transactions in the node transaction pool.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` - List of transactions
+`result` - List of transactions.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -4146,36 +4374,42 @@ None
     }
     ```
 
-## Trace Methods
+## Trace methods
 
 !!! note
-    The `TRACE` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `TRACE` API methods.
-    
+
+    The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
     The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
 
 ### trace_replayBlockTransactions
 
 Provides transaction processing tracing.
 
-!!! important 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync)
-    or the requested block must be within the last 1024 blocks. 
+!!! important
 
-**Parameters**
+    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    requested block must be within the last 1024 blocks.
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
-or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+#### Parameters
 
-`array of strings` - Tracing options are [`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). 
-Specify any combination of the three options including none of them.   
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+`array of strings` - Tracing options are
+[`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). Specify any
+combination of the three options including none of them.
 
-`result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing one object 
-per transaction in the order the transactions were executed. 
+#### Returns
+
+`result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
+one object per transaction, in transaction execution order.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545
     ```
@@ -4188,17 +4422,17 @@ per transaction in the order the transactions were executed.
     {
         "jsonrpc": "2.0",
         "id": 1,
-        "result":[ 
-          { 
+        "result":[
+          {
             "output":"0x",
             "vmTrace":{
               "code":"0x7f3940be4289e4c3587d88c1856cc95352461992db0a584c281226faefe560b3016000527f14c4d2c102bdeb2354bfc3dc96a95e4512cf3a8461e0560e2272dbf884ef3905601052600851",
-              "ops":[ 
-                { 
+              "ops":[
+                {
                   "cost":3,
-                  "ex":{ 
+                  "ex":{
                     "mem":null,
-                    "push":[ 
+                    "push":[
                       "0x8"
                     ],
                     "store":null,
@@ -4210,9 +4444,9 @@ per transaction in the order the transactions were executed.
                 ...
               ]
             },
-            "trace":[ 
-              { 
-                "action":{ 
+            "trace":[
+              {
+                "action":{
                   "callType":"call",
                   "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
                   "gas":"0xffadea",
@@ -4220,32 +4454,32 @@ per transaction in the order the transactions were executed.
                   "to":"0x0100000000000000000000000000000000000000",
                   "value":"0x0"
                 },
-                "result":{ 
+                "result":{
                   "gasUsed":"0x1e",
                   "output":"0x"
                 },
                 "subtraces":0,
-                "traceAddress":[      
+                "traceAddress":[
                 ],
                 "type":"call"
               }
             ],
             "stateDiff":{
-              "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{ 
-                "balance":{ 
-                  "*":{ 
+              "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{
+                "balance":{
+                  "*":{
                     "from":"0xffffffffffffffffffffffffffffffffc3e12a20b",
                     "to":"0xffffffffffffffffffffffffffffffffc3dc5f091"
                   }
                 },
                 "code":"=",
-                "nonce":{ 
-                  "*":{ 
+                "nonce":{
+                  "*":{
                     "from":"0x14",
                     "to":"0x15"
                   }
                 },
-                "storage":{              
+                "storage":{
                 }
               }
             },
@@ -4256,50 +4490,63 @@ per transaction in the order the transactions were executed.
     }
     ```
 
-## EEA Methods
+## EEA methods
 
 !!! note
-    The `EEA` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `EEA` API methods.
+
+    The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
+    use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### eea_sendRawTransaction
 
-Distributes the [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
-generates the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md) and submits it to the transaction pool,
-and returns the transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+Distributes the
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
+generates the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+and submits it to the transaction pool, and returns the transaction hash of the
+[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
-The signed transaction passed as an input parameter includes the `privateFrom`, [`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
+The signed transaction passed as an input parameter includes the `privateFrom`,
+[`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
 
-To avoid exposing your private key, create signed transactions offline and send the signed transaction
-data using `eea_sendRawTransaction`.
+To avoid exposing your private key, create signed transactions offline and send the signed
+transaction data using `eea_sendRawTransaction`.
 
 !!! important
-    For production systems requiring private transactions, we recommend using a network
-    with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md).
-    
-    Using private transactions with [pruning](../Concepts/Pruning.md) or [fast sync](CLI/CLI-Syntax.md#sync-mode)
-    is not supported.
 
-    Besu does not implement [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+    For production systems requiring private transactions, use a network with a consensus mechanism
+    supporting transaction finality to make sure the private state does not become inconsistent
+    with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
+    provides the required finality.
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    Using private transactions with [pruning](../Concepts/Pruning.md) or
+    [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
 
-**Parameters**
+    Besu does not implement
+    [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+
+    [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and
+    implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+
+#### Parameters
 
 `data` -  Signed RLP-encoded private transaction. For example:
 
 `params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
 
-**Returns**
+#### Returns
 
-`result` : `data` - 32-byte transaction hash of the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+`result` : `data` - 32-byte transaction hash of the
+[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 !!! tip
-    If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to retrieve the contract
-    address after the transaction is finalized.
+
+    If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to
+    retrieve the contract address after the transaction is finalized.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
     ```
@@ -4316,32 +4563,36 @@ data using `eea_sendRawTransaction`.
     }
     ```
 
-## Priv Methods
+## Priv methods
 
 !!! note
-    The `PRIV` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PRIV` API methods.
+
+    The `PRIV` API methods are not enabled by default for JSON-RPC. To enable the `PRIV` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### priv_call
 
 Invokes a private contract function locally and does not change the privacy group state.
 
-For private contracts, `priv_call` is the equivalent to [`eth_call`](#eth_call).
+For private contracts, `priv_call` is the same as [`eth_call`](#eth_call).
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`, 
-or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : `data` - Return value of the executed contract.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
     ```
@@ -4390,23 +4641,28 @@ or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSO
 
 ### priv_distributeRawTransaction
 
-Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+Distributes a signed, RLP encoded
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
 
 !!! tip
-    If you want to sign the Privacy Marker Transaction outside of Besu, use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+
+    If you want to sign the Privacy Marker Transaction outside of Besu,
+    use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
     instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
 
-**Parameters**
+#### Parameters
 
 `data` -  Signed RLP-encoded private transaction. For example:
 
 `params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
 
-**Returns**
+#### Returns
 
-`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in [Orion](https://docs.orion.pegasys.tech/).
+`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
+[Orion](https://docs.orion.pegasys.tech/).
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
     ```
@@ -4425,25 +4681,30 @@ Distributes a signed, RLP encoded [private transaction](../HowTo/Send-Transactio
 
 ### priv_getEeaTransactionCount
 
-Returns the private transaction count for the specified account and [group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy).
+Returns the private transaction count for the specified account and
+[group of sender and recipients].
 
 !!! important
-    If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for
-    the transaction receipt), you must calculate the private transaction nonce outside Besu.
 
-**Parameters**
+    If sending more than one transaction to be mined in the same block (that is, you are not
+    waiting for the transaction receipt), you must calculate the private transaction nonce outside
+    Besu.
 
-`data` - Account address
+#### Parameters
 
-`data` - Base64 encoded Orion address of the sender
+`data` - Account address.
 
-`array of data` - Base64 encoded Orion addresses of recipients
+`data` - Base64 encoded Orion address of the sender.
 
-**Returns**
+`array of data` - Base64 encoded Orion addresses of recipients.
 
-`quantity` - Integer representing the number of private transactions sent from the address to the specified group of sender and recipients.
+#### Returns
+
+`quantity` - Integer representing the number of private transactions sent from the address to the
+specified group of sender and recipients.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
     ```
@@ -4458,22 +4719,25 @@ Returns the private transaction count for the specified account and [group of se
       "id": 1,
       "result": "0x1"
     }
-    ```  
+    ```
 
 ### priv_getPrivacyPrecompileAddress
 
-Returns the address of the [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md).
-The address is specified by the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address) command line option.
+Returns the address of the
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). Specify the
+address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
+command line option.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
-`result` : `data` - Address of the privacy precompile
+`result` : `data` - Address of the privacy precompile.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}' http://127.0.0.1:8545
     ```
@@ -4492,18 +4756,20 @@ None
 
 ### priv_getPrivateTransaction
 
-Returns the private transaction if you are a participant; otherwise, null.
+Returns the private transaction if you are a participant; otherwise, `null`.
 
-**Parameters**
+#### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction). .
+[`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
-**Returns**  
+#### Returns
 
-Object - [Private transaction object](API-Objects.md#private-transaction-object), or `null` if not a participant in the private transaction.
+Object - [Private transaction object](API-Objects.md#private-transaction-object), or `null` if not
+a participant in the private transaction.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}' http://127.0.0.1:8545
     ```
@@ -4537,24 +4803,25 @@ Object - [Private transaction object](API-Objects.md#private-transaction-object)
     }
     ```
 
+### priv_createPrivacyGroup
 
-### priv_createPrivacyGroup  
+Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
 
-Creates a privacy group containing the specified members. Members are specified by their Orion public key.
-
-**Parameters**  
+#### Parameters
 
 `Object` - Request options:
 
-* `addresses`: `array of data` - Array of members specified by Orion public keys.
+* `addresses`: `array of data` - Array of nodes, specified by
+  [Orion](https://docs.orion.pegasys.tech/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
-**Returns**
+#### Returns
 
 Privacy group ID
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}' http://127.0.0.1:8545
     ```
@@ -4575,11 +4842,12 @@ Privacy group ID
 
 Deletes the specified privacy group.
 
-**Parameters**
+#### Parameters
 
 `data` - Privacy group ID
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
     ```
@@ -4598,22 +4866,24 @@ Deletes the specified privacy group.
 
 ### priv_findPrivacyGroup
 
-Returns a list of privacy groups containing only the listed members. For example, if the listed members
-are A and B, a privacy group containing A, B, and C is not returned.
+Returns a list of privacy groups containing only the listed members. For example, if the listed
+members are A and B, a privacy group containing A, B, and C is not returned.
 
-**Parameters**
+#### Parameters
 
-`array of data` - Members specified by Orion public keys
+`array of data` - Members specified by [Orion](https://docs.orion.pegasys.tech/) public keys.
 
-**Returns**
+#### Returns
 
-Privacy groups containing only the specified members. Privacy groups are [EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
+Privacy groups containing only the specified members. Privacy groups are
+[EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
 or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
 
-* `LEGACY` for EEA-compliant groups
-* `BESU` for Besu-extended groups.  
+* `LEGACY` for EEA-compliant groups.
+* `BESU` for Besu-extended groups.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}' http://127.0.0.1:8545
     ```
@@ -4646,20 +4916,24 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
 Returns the private transaction count for specified account and privacy group.
 
 !!! important
-    If sending more than 1 transaction to be mined in the same block (that is, you're not waiting for
-    the transaction receipt), you must calculate the private transaction nonce outside Besu.
 
-**Parameters**
+    If sending more than one transaction to be mined in the same block (that is, you are not
+    waiting for the transaction receipt), you must calculate the private transaction nonce outside
+    Besu.
 
-`data` - Account address
+#### Parameters
 
-`data` - Privacy group ID
+`data` - Account address.
 
-**Returns**
+`data` - Privacy group ID.
 
-`quantity` - Integer representing the number of private transactions sent from the address to the specified privacy group.
+#### Returns
+
+`quantity` - Integer representing the number of private transactions sent from the address to the
+specified privacy group.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}' http://127.0.0.1:8545
     ```
@@ -4674,21 +4948,24 @@ Returns the private transaction count for specified account and privacy group.
       "id": 1,
       "result": "0x1"
     }
-    ```  
+    ```
 
 ### priv_getTransactionReceipt
 
-Returns information about the private transaction after the transaction was mined. Receipts for pending transactions are not available.
+Returns information about the private transaction after mining the transaction. Receipts for
+pending transactions are not available.
 
-**Parameters**
+#### Parameters
 
 `data` - 32-byte hash of a transaction.
 
-**Returns**
+#### Returns
 
-`Object` - [Private Transaction receipt object](API-Objects.md#private-transaction-receipt-object), or `null` if no receipt found.
+`Object` - [Private Transaction receipt object](API-Objects.md#private-transaction-receipt-object),
+or `null` if no receipt found.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
     ```
@@ -4718,26 +4995,29 @@ Returns information about the private transaction after the transaction was mine
         }
     }
     ```
-    
-## Plugins Methods 
+
+## Plugins methods
 
 !!! note
-    The `PLUGINS` API methods are not enabled by default for JSON-RPC. Use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api)
-    or [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options to enable the `PLUGINS` API methods.
+
+    The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ### plugins_reloadPluginConfig
 
-Reloads specified plugin configuration. 
+Reloads specified plugin configuration.
 
-**Parameters**
+#### Parameters
 
-`string` - Plugin 
+`string` - Plugin
 
-**Returns**
+#### Returns
 
-`string` - `Success` 
+`string` - `Success`
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
     ```
@@ -4754,21 +5034,23 @@ Reloads specified plugin configuration.
     }
     ```
 
-## Miscellaneous Methods
+## Miscellaneous methods
 
 ### rpc_modules
 
-Lists [enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default) and the version of each.  
+Lists [enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
+and the version of each.
 
-**Parameters**
+#### Parameters
 
 None
 
-**Returns**
+#### Returns
 
 Enabled APIs.
 
 !!! example
+
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' http://127.0.0.1:8545
     ```
@@ -4787,3 +5069,13 @@ Enabled APIs.
             "net": "1.0"
         }
     }
+
+<!-- Links -->
+[schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
+[eth_sendRawTransaction or eth_call]: ../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction
+[transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6
+[add or remove a signer with the specified address]: ../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
+[signers for the specified block]: ../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
+[add or remove a validator]: ../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators
+[permissions configuration file]: ../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
+[group of sender and recipients]: ../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy

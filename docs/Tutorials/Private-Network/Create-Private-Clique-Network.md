@@ -1,30 +1,33 @@
-description: Hyperledger Besu private network using Clique (Proof of Authority) Consensus Protocol tutorial 
-<!--- END of page meta data -->
+---
+description: Hyperledger Besu private network using the Clique (Proof of Authority) consensus protocol
+---
 
-# Creating a Private Network using Clique (Proof of Authority) Consensus Protocol
+# Create a private network using the Clique (Proof of Authority) consensus protocol
 
-A private network provides a configurable network for testing. This private network uses the [Clique (Proof of Authority)
-consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md). 
+A private network provides a configurable network for testing. This private network uses the
+[Clique (Proof of Authority) consensus protocol].
 
 !!!important
-    An Ethereum private network created as described here is isolated but not protected or secure. 
-    We recommend running the private network behind a properly configured firewall.
 
-## Prerequisites 
+    The steps in this tutorial create an isolated, but not protected or secure, Ethereum private
+    network. We recommend running the private network behind a properly configured firewall.
 
-[Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md) 
+## Prerequisites
 
-[Curl (or similar web service client)](https://curl.haxx.se/download.html) 
+* [Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md)
+* [Curl (or similar web service client)](https://curl.haxx.se/download.html).
 
 ## Steps
 
-The steps to create a private network using Clique are displayed on the right.
+Listed on the right-hand side of the page are the steps to create a private network using Clique.
 
-### 1. Create Folders 
+### 1. Create directories
 
-Each node requires a data directory for the blockchain data. When the node is started, the [node key](../../Concepts/Node-Keys.md) is saved in this directory. 
+Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
+[node key](../../Concepts/Node-Keys.md) in this directory.
 
-Create directories for your private network, each of the three nodes, and a data directory for each node: 
+Create directories for your private network, each of the three nodes, and a data directory for each
+node:
 
 ```bash
 Clique-Network/
@@ -36,13 +39,15 @@ Clique-Network/
     ├── data
 ```
 
-### 2. Get Address for Node-1 
+### 2. Get the address for Node-1
 
-In Clique networks, the address of at least one initial signer must be included in the genesis file. 
-For this Clique network, we will use Node-1 as the initial signer. This requires obtaining the address for Node-1. 
+In Clique networks, you must include the address of at least one initial signer in the genesis
+file. For this Clique network, we'll use Node-1 as the initial signer. This requires obtaining the
+address for Node-1.
 
-To obtain the address for Node-1, in the `Node-1` directory, use the [`public-key export-address`](../../Reference/CLI/CLI-Subcommands.md#export-address)
-subcommand to write the node address to the specified file (`node1Address` in this example)
+To get the address for Node-1, in the `Node-1` directory, use the
+[`public-key export-address`](../../Reference/CLI/CLI-Subcommands.md#export-address) subcommand to
+write the node address to the specified file (`node1Address` in this example).
 
 ```bash tab="MacOS"
 besu --data-path=data public-key export-address --to=data/node1Address
@@ -52,14 +57,17 @@ besu --data-path=data public-key export-address --to=data/node1Address
 besu --data-path=data public-key export-address --to=data\node1Address
 ```
 
-### 3. Create Genesis File 
+### 3. Create the genesis file
 
-The genesis file defines the genesis block of the blockchain (that is, the start of the blockchain).
-The [Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes the address of Node-1 as the initial signer in the `extraData` field.    
+The genesis file defines the genesis block of the blockchain (that is, the start of the
+blockchain). The
+[Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes
+the address of Node-1 as the initial signer in the `extraData` field.
 
-All nodes in a network must use the same genesis file. 
+All nodes in a network must use the same genesis file.
 
-Copy the following genesis definition to a file called `cliqueGenesis.json` and save it in the `Clique-Network` directory: 
+Copy the following genesis definition to a file called `cliqueGenesis.json` and save it in the
+`Clique-Network` directory:
 
 ```json
 {
@@ -102,10 +110,11 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 }
 ```
 
-In `extraData`, replace `<Node 1 Address>` with the [address for Node-1](#2-get-address-for-node-1) excluding the 0x prefix. 
+In `extraData`, replace `<Node 1 Address>` with the
+[address for Node-1](#2-get-address-for-node-1), excluding the 0x prefix.
 
 !!! example
-    
+
     ```json
     {
       ...
@@ -114,85 +123,100 @@ In `extraData`, replace `<Node 1 Address>` with the [address for Node-1](#2-get-
     }
     ```
 
-!!! warning 
-    Do not use the accounts in `alloc` in the genesis file on mainnet or any public network except for testing.
-        
-    The private keys are displayed which means the accounts are not secure.  
+!!! warning
 
-### 4. Start First Node as Bootnode
+    Do not use the accounts in `alloc` in the genesis file on MainNet or any public network except
+    for testing. The private keys display, which means the accounts are not secure.
+
+### 4. Start the first node as the bootnode
 
 Start Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"      
+besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all"
 ```
 
-The command line specifies: 
+The command line enables:
 
-* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
-* ETH,NET, and CLIQUE APIs are enabled using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
-* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
-* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option 
+* The JSON-RPC API using the
+  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+* The ETH, NET, and CLIQUE APIs using the
+  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+* All-host access to the HTTP JSON-RPC API using the
+  [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
+* All-domain access to the node through the HTTP JSON-RPC API using the
+  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
 
-When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
-Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
+When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays.
+Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
 
-### 5. Start Node-2 
+### 5. Start Node-2
 
-Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
- 
+Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1
+enode URL copied when starting Node-1 as the bootnode:
+
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-The command line specifies: 
+The command line specifies:
 
-* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
-* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
-* Data directory for Node-2 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* A Different port to Node-1 for P2P peer discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A Different port to Node-1 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The enode URL for Node-1 using the
+  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* The data directory for Node-2 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
-
 
 ### 6. Start Node-3
 
-Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
+Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1
+enode URL copied when starting Node-1 as the bootnode:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-The command line specifies: 
+The command line specifies:
 
- * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
- * Data directory for Node-3 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
- * Bootnode as for [Node-2](#6-start-node-2).
- * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
+* A different port to Node-1 and Node-2 for P2P peer discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The data directory for Node-3 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* The bootnode as for [Node-2](#6-start-node-2)
+* Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
-### 7. Confirm Private Network is Working 
+### 7. Confirm the private network is working
 
-Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
+Start another terminal, use curl to call the JSON-RPC API
+[`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are
+functioning as peers:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
 ```
 
 The result confirms Node-1 has two peers (Node-2 and Node-3):
+
 ```json
 {
   "jsonrpc" : "2.0",
@@ -201,23 +225,36 @@ The result confirms Node-1 has two peers (Node-2 and Node-3):
 }
 ```
 
-## Next Steps 
+## Next steps
 
-Look at the logs displayed to confirm Node-1 is producing blocks and Node-2 and Node-3 are importing blocks. 
+Look at the logs displayed to confirm Node-1 is producing blocks and Node-2 and Node-3 are
+importing blocks.
 
-Use the [Clique API to add](../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers) Node-2 or Node-3 as a signer. 
+Use the [Clique API to add] Node-2 or Node-3 as a signer.
 
 !!! note
-    To add Node-2 or Node-3 as a signer you need the [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer. 
 
-Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask)
+    To add Node-2 or Node-3 as a signer you need the
+    [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer.
 
-!!! info 
-    Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+Import accounts to MetaMask and send transactions, as described in the
+[private network example tutorial].
 
-## Stop Nodes
+!!! info
 
-When finished using the private network, stop all nodes using ++ctrl+c++ in each terminal window. 
+    Besu does not support
+    [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+
+## Stop the nodes
+
+When finished using the private network, stop all nodes using ++ctrl+c++ in each terminal window.
 
 !!!tip
-    To restart the Clique network in the future, start from [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode). 
+
+    To restart the Clique network in the future, start from
+    [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode).
+
+<!-- Links -->
+[Clique (Proof of Authority) consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
+[Clique API to add]: ../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
+[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask

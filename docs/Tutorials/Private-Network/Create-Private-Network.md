@@ -164,7 +164,7 @@ The result confirms Node-1 (the node running the JSON-RPC service) has two peers
 
 ## Next Steps 
 
-Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask)
+Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#create-a-transaction-using-metamask)
 
 !!! info 
     Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).

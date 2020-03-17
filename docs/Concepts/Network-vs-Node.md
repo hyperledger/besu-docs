@@ -1,5 +1,6 @@
+---
 description: Configuring Besu at the network level compared to the node level
-<!--- END of page meta data -->
+---
 
 # Network vs node configuration
 

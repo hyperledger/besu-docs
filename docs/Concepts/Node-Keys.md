@@ -1,5 +1,6 @@
+---
 description: Besu private and public key used to identify node
-<!--- END of page meta data -->
+---
 
 # Node keys
 
@@ -7,9 +8,9 @@ Each node has a node key pair consisting of a node private key and a node public
 
 ## Node private key
 
-If a `key` file does not exist in the data directory and the
+If a `key` file does not exist in the data directory and when starting Besu the
 [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option is not
-specified when starting Besu, Besu generates a node private key and writes it to the `key` file.
+specified, Besu generates a node private key and writes it to the `key` file.
 Stopping and restarting Besu without deleting the `key` file causes Besu to reuse the same private
 key when restarting.
 
@@ -17,7 +18,8 @@ If a `key` file exists in the data directory when starting Besu, the node starts
 key in the `key` file.
 
 !!!info
-    The private key is not encrypted. 
+
+    The private key is not encrypted.
 
 ## Node public key
 
@@ -26,9 +28,9 @@ The node public key displays in the log after starting Besu. Use the
 to a file.
 
 The node public key is also referred to as the node ID. The node ID forms part of the enode URL of
-a node. 
+a node.
 
-## Enode URL 
+## Enode URL
 
 The enode URL identifies a node. For example, the `--bootnodes` option and the
 `perm_addNodesToWhitelist` method specify nodes by enode URL.
@@ -36,10 +38,10 @@ The enode URL identifies a node. For example, the `--bootnodes` option and the
 The enode URL format is `enode://<id>@<host:port>` where:
 
 * `<id>` is the node public key, excluding the initial 0x.
-* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery. This is
-specified by the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
-[`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options (the default host is `127.0.0.1`
-and the default port is `30303`).
+* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery. Specify
+  the host and port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
+  [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
+  and the default port is `30303`.
 
 !!! example
 
@@ -50,16 +52,16 @@ and the default port is `30303`).
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303`
 
 The enode URL displays when starting a Besu node. Use the
-[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to obtain the enode URL
-for the node.
+[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to get the enode URL for
+the node.
 
-The enode advertised to other nodes during discovery is the external IP address and port, as defined 
-by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md). 
+The enode advertised to other nodes during discovery is the external IP address and port, as
+defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
 
 ## Specifying a custom node private key file
 
 Use the [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option to
-specify a custom `key` file in any location. 
+specify a custom `key` file in any location.
 
 If the `key` file exists, the node starts with the private key in the `key` file. If the `key` file
 does not exist, Besu generates a node private key and writes it to the `key` file.
@@ -68,6 +70,7 @@ For example, the following command either reads the node private key from `priva
 writes a generated private key to `privatekeyfile`.
 
 !!! example
+
     ```bash
     besu --node-private-key-file="/Users/username/privatekeyfile"
     ```

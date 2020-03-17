@@ -33,7 +33,7 @@ increase the block size limit and set the contract size limit to the maximum val
 
 If you want to remove gas from consideration and don't mind blocks potentially taking longer to
 create, in the genesis file set the block size limit (measured in gas) to the maximum accepted by
-Truffle (`0x1fffffffffffff`). In the genesis file, specify `gasLimit` below the `config` key. 
+Truffle (`0x1fffffffffffff`). In the genesis file, specify `gasLimit` following the `config` key. 
 
 ```json
 { 

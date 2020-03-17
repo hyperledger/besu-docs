@@ -1,5 +1,6 @@
+---
 description: Besu network ID and chain ID implementation
-<!--- END of page meta data -->
+---
 
 # Network ID and chain ID
 

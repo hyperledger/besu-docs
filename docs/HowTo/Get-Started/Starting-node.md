@@ -96,8 +96,8 @@ data-path="/tmp/tmpdata-path"
 
 !!! caution
 
-    We do not recommend using the following settings in a production environment:
-    
+    The following settings are a security risk in production environments:
+
     * Enabling the HTTP JSON-RPC service
       ([`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled)) and setting
       [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) to 0.0.0.0 exposes the
@@ -108,7 +108,7 @@ data-path="/tmp/tmpdata-path"
       [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) to
       `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain.
 
-## Run a node on ropsten testnet
+## Run a node on Ropsten testnet
 
 To run a node on Ropsten:
 
@@ -122,7 +122,7 @@ To run a node on Ropsten with the HTTP JSON-RPC service enabled and allow Remix 
 besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins "http://remix.ethereum.org"
 ```
 
-## Run a node on rinkeby testnet
+## Run a node on Rinkeby testnet
 
 To run a node on Rinkeby specifying a data directory:
 
@@ -133,7 +133,7 @@ besu --network=rinkeby --data-path=<path>/<rinkebydata-path>
 Where `<path>` and `<rinkebydata-path>` are the path and directory to save the Rinkeby chain data
 to.
 
-## Run a node on goerli testnet
+## Run a node on Goerli testnet
 
 To run a node on [Goerli](https://github.com/goerli/testnet) specifying a data directory:
 

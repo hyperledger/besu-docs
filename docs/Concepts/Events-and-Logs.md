@@ -1,3 +1,7 @@
+---
+description: Hyperledger Besu events and logs
+---
+
 # Events and logs
 
 Transaction mining causes smart contracts to emit events and write logs to the blockchain.
@@ -47,7 +51,7 @@ Up to three event parameters can have the `indexed` attribute. Logs store these 
 as `topics`. Indexed parameters are searchable and filterable.
 
 Topics are 32 bytes. If an indexed argument is an array (including `string` and `byte` datatypes),
-the log stores the the keccak-256 hash of the paramater as a topic.
+the log stores the keccak-256 hash of the paramater as a topic.
 
 Log `data` includes non-indexed parameters but is difficult to search or filter.
 
@@ -96,7 +100,7 @@ Log `data` includes non-indexed parameters but is difficult to search or filter.
 
 ## Event signature hash
 
-The first topic in a log entry is always the the event signature hash. The event signature hash is
+The first topic in a log entry is always the event signature hash. The event signature hash is
 a keccak-256 hash of the event name and input argument types, with argument names ignored. For
 example, the event `Hello(uint256 worldId)` has the signature hash `keccak('Hello(uint256)')`. The
 signature identifies to which event log topics belong.

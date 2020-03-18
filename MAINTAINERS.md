@@ -32,14 +32,13 @@ To become a maintainer the following steps occur, roughly in order.
     - The proposed maintainer accepts the nomination and expresses a willingness to be a long-term
       (more than six months) committer.
     - This would be a comment in the above PR.
-    - This PR will be communicated in all appropriate communication channels. It should be
     - All appropriate communication channels will advertise this PR, as well as mentioned in any
-      maintainer/community call. It should also be posted to the appropriate mailing list or chat
-      channels if they exist.
+      maintainer/community call. The appropriate mailing lists or chat channels (if they exist)
+      will also advertise the PR.
 - Approval by at least three current maintainers within two weeks of the proposal or an absolute
   majority of current maintainers.
     - The PR modifying the list of maintainers keeps a record of these votes.
-- No veto by another maintainer within two weeks of proposal are recorded.
+- No recorded vetos by another maintainer within two weeks of the proposal.
     - Accompanying all vetoes must be a public explanation as a comment in the PR for adding this
       maintainer.
     - The explanation of the veto must be reasonable.

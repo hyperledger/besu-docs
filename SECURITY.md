@@ -15,6 +15,6 @@ To report a security bug:
 * File a confidential security bug in our [JIRA bug tracking system](https://jira.hyperledger.org).
   Be sure to set the **Security Level** to “Security issue”.
 
-The process by which the Hyperledger Security Team handles security bugs is documented further on
-the
+For more information about the process by which the Hyperledger Security Team handles security bugs,
+see the
 [Hyperledger defect response wiki page](https://wiki.hyperledger.org/display/SEC/Defect+Response).

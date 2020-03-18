@@ -21,4 +21,3 @@ Use client libraries to:
 
 <!-- Links -->
 [Create and send private transactions]: ../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
-

@@ -19,7 +19,7 @@ from the pool.
     For the rest of this page, the term validator is used to refer to signers and validators.
 
 ## Properties
-   
+
 Properties to consider when comparing Clique and IBFT 2.0 are:
 
 * Immediate finality

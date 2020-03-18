@@ -1,4 +1,4 @@
-description: Transaction pool overview 
+description: Transaction pool overview
 <!--- END of page meta data -->
 
 # Transaction pool

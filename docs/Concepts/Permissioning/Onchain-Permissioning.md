@@ -17,17 +17,17 @@ source, the blockchain.
 ## Permissioning contracts
 
 The permissioning smart contracts provided in the [PegaSysEng/permissioning-smart-contracts]
-repository are: 
+repository are:
 
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
-the permissioning logic to the Node Rules and Account Rules contracts. The Ingress contracts deploy
-to static addresses.
+  the permissioning logic to the Node Rules and Account Rules contracts. The Ingress contracts deploy
+  to static addresses.
 * Node Rules - stores the node whitelist and node whitelist operations (for example, add and
-remove).
+  remove).
 * Account Rules - stores the accounts whitelist and account whitelist operations (for example, add
-and remove).
+  and remove).
 * Admin - stores the list of admin accounts and admin list operations (for example, add and
-remove). There is one list of admin accounts for node and accounts.
+  remove). There is one list of admin accounts for node and accounts.
 
 ## Permissioning management Dapp
 

@@ -29,27 +29,27 @@ maintainer. To become a maintainer the following steps occur, roughly in order.
 - 5 significant changes have been authored by the proposed maintainer and
   accepted.
 - The proposed maintainer has the sponsorship of at least one other maintainer.
-  - This sponsoring maintainer will create a PR modifying the list of
-    maintainers.
-  - The proposed maintainer accepts the nomination and expresses a willingness
-    to be a long-term (more than 6 month) committer.
-  - This would be a comment in the above PR.
-  - This PR will be communicated in all appropriate communication channels. It
-    should be mentioned in any maintainer/community call. It should also be
-    posted to the appropriate mailing list or chat channels if they exist.
+    - This sponsoring maintainer will create a PR modifying the list of
+      maintainers.
+    - The proposed maintainer accepts the nomination and expresses a willingness
+      to be a long-term (more than 6 month) committer.
+    - This would be a comment in the above PR.
+    - This PR will be communicated in all appropriate communication channels. It
+      should be mentioned in any maintainer/community call. It should also be
+      posted to the appropriate mailing list or chat channels if they exist.
 - Approval by at least 3 current maintainers within two weeks of the proposal or
   an absolute majority of current maintainers.
-  - These votes will be recorded in the PR modifying the list of maintainers.
+    - These votes will be recorded in the PR modifying the list of maintainers.
 - No veto by another maintainer within two weeks of proposal are recorded.
-  - All vetoes must be accompanied by a public explanation as a comment in the
-    PR for adding this maintainer
-  - The explanation of the veto must be reasonable.
-  - A veto can be retracted, in that case the approval/veto timeframe is reset.
-  - It is bad form to veto, retract, and veto again.
+    - All vetoes must be accompanied by a public explanation as a comment in the
+      PR for adding this maintainer
+    - The explanation of the veto must be reasonable.
+    - A veto can be retracted, in that case the approval/veto timeframe is reset.
+    - It is bad form to veto, retract, and veto again.
 - The proposed maintainer becomes a maintainer
-  - Either two weeks have passed since the third approval,
-  - Or an absolute majority of maintainers approve.
-  - In either case, no maintainer presents a veto.
+    - Either two weeks have passed since the third approval,
+    - Or an absolute majority of maintainers approve.
+    - In either case, no maintainer presents a veto.
 
 ## Removing Maintainers
 

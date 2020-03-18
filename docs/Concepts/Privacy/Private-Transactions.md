@@ -26,7 +26,7 @@ For more information about creating and sending private transactions, see the
 
 Besu and Orion nodes both have public/private key pairs identifying them. A Besu node sending a
 private transaction to an Orion node signs the transaction with the Besu node private key. The
-`privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for 
+`privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) are the public
 keys of the Orion nodes sending and receiving the transaction.
 

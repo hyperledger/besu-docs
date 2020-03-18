@@ -22,9 +22,9 @@ Go to the besu-doc project root directory and run one of the following scripts:
 
 You will notice messages like:
 
-```
+```bash
 ====>> Saving Cache
-Error: 
+Error:
 Skipping cache - error checking storage: not supported
 
 Step failed

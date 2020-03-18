@@ -9,14 +9,14 @@ node permissioning and account permissioning on the network.
 !!! important "Permissioning is not Privacy"
 
     In peer-to-peer networks, node permissioning enforces rules on nodes you control.
-         
+
     Permissioning requires a distributed network of trust across the network where participants
     agree to follow the rules. One bad actor can decide not to follow the rules. Nodes can take
     action to prevent the bad actor adding to the chain but they cannot prevent the bad actor from
     allowing access to the chain.
-    
+
     Besu also implements [privacy](../Privacy/Privacy-Overview.md).
-    
+
 ## Node permissioning
 
 Use node permissioning to restrict access to known participants only.

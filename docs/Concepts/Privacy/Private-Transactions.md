@@ -10,11 +10,11 @@ Private transactions have additional attributes to public Ethereum transactions:
 * `privateFor` - The Orion public keys of the transaction recipients, or
 * `privacyGroupId` - [The privacy group to receive the transaction](Privacy-Groups.md)
 * `restriction` - Whether the private transaction is `restricted` or `unrestricted`. In:
-   - `restricted` private transactions, only the nodes participating in the transaction receive
-   and store the payload of the private transaction.
-   - `unrestricted` private transactions, all nodes in the network receive the payload of the
-   private transaction, but only the nodes participating in the transaction can read the
-   transaction.
+    * `restricted` private transactions, only the nodes participating in the transaction receive
+      and store the payload of the private transaction.
+    * `unrestricted` private transactions, all nodes in the network receive the payload of the
+      private transaction, but only the nodes participating in the transaction can read the
+      transaction.
 
     !!! important
         Besu implements `restricted` private transactions only.

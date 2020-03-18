@@ -1,5 +1,6 @@
+---
 description: Besu consensus protocols
-<!--- END of page meta data -->
+---
 
 # Consensus protocols
 

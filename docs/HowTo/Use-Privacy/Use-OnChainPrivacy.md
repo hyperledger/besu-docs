@@ -31,8 +31,7 @@ and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygro
 To create and find an onchain privacy group using the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 
 1. Update the `example/keys.js` file to match your network configuration.
-
-2. Run:
+1. Run:
 
     ```
     node simpleOnChainPrivacy.js

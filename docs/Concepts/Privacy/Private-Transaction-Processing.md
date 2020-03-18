@@ -6,10 +6,10 @@ description: Private transaction processing
 
 Processing private transactions involves the following:
 
-- **Precompiled Contract**: A smart contract compiled from the source language to EVM bytecode and
+* **Precompiled Contract**: A smart contract compiled from the source language to EVM bytecode and
   stored by an Ethereum node for later execution.
 
-- **Privacy Marker Transaction**: A public Ethereum transaction with a payload of the enclave key.
+* **Privacy Marker Transaction**: A public Ethereum transaction with a payload of the enclave key.
   The enclave key is a pointer to the private transaction in Orion. The `to` attribute of the Privacy
   Marker Transaction is the address of the privacy precompiled contract.
 

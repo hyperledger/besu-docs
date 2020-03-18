@@ -1,5 +1,6 @@
+---
 description: Besu permissioning feature
-<!--- END of page meta data -->
+---
 
 # Permissioning
 

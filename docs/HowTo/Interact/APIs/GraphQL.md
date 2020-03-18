@@ -4,8 +4,8 @@ description: How to access the Hyperledger Besu API using GraphQL
 
 # GraphQL over HTTP
 
-GraphQL can reduce the overhead needed for common queries. For example, instead of querying each receipt in a
-block, GraphQL can get the same result with a single query for the entire block.
+GraphQL can reduce the overhead needed for common queries. For example, instead of querying each
+receipt in a block, GraphQL can get the same result with a single query for the entire block.
 
 The [Besu GraphQL schema] describes the GraphQL implementation for Ethereum. Enable the GraphQL
 service using [command line options](API.md#enabling-api-access).

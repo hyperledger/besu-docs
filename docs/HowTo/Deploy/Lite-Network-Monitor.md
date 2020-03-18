@@ -24,9 +24,9 @@ available.
 Statistics displayed by EthStats Lite include:
 
 * Nodes in the network. Metrics for nodes include:
-  * Information about the last received block such as block number, block hash, transaction count,
-    uncle count, block time and propagation time.
-  * Connected peers, whether the node is mining, hash rate, latency, and uptime.
+    * Information about the last received block such as block number, block hash, transaction count,
+      uncle count, block time and propagation time.
+    * Connected peers, whether the node is mining, hash rate, latency, and uptime.
 * Charts for Block Time, Block Difficulty, Block Gas Limit, Block Uncles, Block Transactions,
   Block Gas Used, Block Propagation Histogram, and Top Miners.
 * IP-based geolocation overview.

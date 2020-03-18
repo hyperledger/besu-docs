@@ -1,5 +1,6 @@
+---
 description: Onchain Privacy Groups
-<!--- END of page meta data -->
+---
 
 # Onchain Privacy Groups
 
@@ -36,7 +37,8 @@ The [web3js-eea library](../../HowTo/Use-Privacy/Use-OnChainPrivacy.md) generate
 group ID and passes the ID to Hyperledger Besu when creating a privacy group.
 
 !!! caution
-    When generating a privacy group ID, you must ensure the ID is unique across all network participants. If
-    a privacy group is created with an existing privacy group ID, the existing privacy group is overwritten.
+    When generating a privacy group ID, you must ensure the ID is unique across all network
+    participants. If a privacy group is created with an existing privacy group ID, the existing
+    privacy group is overwritten.
 
     We recommend using 256 bit SecureRandom to ensure unique privacy group IDs.

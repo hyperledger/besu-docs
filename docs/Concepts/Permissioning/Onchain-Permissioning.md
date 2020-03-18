@@ -1,5 +1,6 @@
+---
 description: Onchain permissioning
-<!--- END of page meta data -->
+---
 
 # Onchain permissioning
 
@@ -58,9 +59,9 @@ Permissioning implements three whitelists:
 
 ## Bootnodes
 
-When a node is added to the network, the node connects to the bootnodes until it synchronizes to the chain
-head, regardless of node permissions. After synchronization, the Account Rules and Node Rules smart
-contracts apply the permissioning rules.
+When a node is added to the network, the node connects to the bootnodes until it synchronizes to
+the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
+Rules smart contracts apply the permissioning rules.
 
 If a sychronized node loses all peer connections (that is, it has zero peers), it reconnects to the
 bootnodes to rediscover peers.

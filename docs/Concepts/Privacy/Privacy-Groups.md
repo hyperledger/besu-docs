@@ -22,7 +22,7 @@ state.
 Besu implements two types of privacy:
 
 * Enterprise Ethereum Alliance (EEA) privacy, where private transactions include `privateFor` as
-the recipient.
+  the recipient.
 * Besu-extended privacy, where private transactions include `privacyGroupId` as the recipient.
 
 Both privacy types create privacy groups and store private transactions with their privacy group in
@@ -72,7 +72,6 @@ provided by Orion.
     For the ACD private state to remain consistent, A, C, and D must be included on transactions
     (as either `privateFrom` or `privateFor`) even if they are between only two of the three
     parties.
-
 
 ### Besu-extended privacy
 

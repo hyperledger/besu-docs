@@ -1,5 +1,6 @@
+---
 description: Tracing transactions
-<!--- END of page meta data -->
+---
 
 # Transaction Trace Types
 
@@ -57,10 +58,10 @@ Besu only reports actual data returned from a `RETURN` opcode. Besu does not
 return the contents of the reserved output space for the call operations. As a result:
 
 * Besu reports null when a call operation ends because of a `STOP`, `HALT`, `REVERT`, running out of
-instructions, or any exceptional halts.
+  instructions, or any exceptional halts.
 * When a `RETURN` operation returns data of a different length to the space reserved by the call, only
-the data passed to the `RETURN` operation is reported. Besu does not include pre-existing memory data
-or trim the returned data.
+  the data passed to the `RETURN` operation is reported. Besu does not include pre-existing memory data
+  or trim the returned data.
 
 For out of gas operations, Besu reports the operation that caused the out of gas exception including
 the calculated gas cost. No `ex` values are reported because the operation is not executed.

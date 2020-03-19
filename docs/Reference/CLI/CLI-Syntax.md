@@ -1439,7 +1439,8 @@ BESU_PRUNING_BLOCK_CONFIRMATIONS=5
 pruning-block-confirmations=5
 ```
 
-The minimum number of confirmations on a block before marking begins. The default is 10.
+The minimum number of confirmations on a block before marking of newly-stored or in-use state trie
+nodes that cannot be pruned. The default is 10.
 
 !!! important
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not

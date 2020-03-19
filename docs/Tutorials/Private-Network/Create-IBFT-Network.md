@@ -331,4 +331,3 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.
-

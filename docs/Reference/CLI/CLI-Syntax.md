@@ -1646,7 +1646,8 @@ for JSON-RPC HTTP authentication when authenticating with an external JWT token.
 ```
 
 ```bash tab="Command Line"
-# You can whitelist one or more domains with a comma-separated list.
+
+$# You can whitelist one or more domains with a comma-separated list.
 
 --rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
@@ -1660,7 +1661,8 @@ rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
 ```
 
 ```bash tab="Remix Example"
-# The following allows Remix to interact with your Besu node.
+
+$# The following allows Remix to interact with your Besu node.
 
 --rpc-http-cors-origins="http://remix.ethereum.org"
 ```

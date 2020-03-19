@@ -1,5 +1,6 @@
+---
 description: Besu consensus protocols
-<!--- END of page meta data -->
+---
 
 # Consensus protocols
 
@@ -19,9 +20,9 @@ example:
     ...
      "ethash": {
       ...
-   } 
+   }
   },
-  ...  
+  ...
 }
 ```
 
@@ -37,7 +38,7 @@ example:
 }
 ```
 
-```json tab="IBFT 2.0" 
+```json tab="IBFT 2.0"
 {
   "config": {
    ...
@@ -47,9 +48,9 @@ example:
   },
   ...
 }
-``` 
+```
 
-```json tab="IBFT 1.0" 
+```json tab="IBFT 1.0"
 {
   "config": {
    ...

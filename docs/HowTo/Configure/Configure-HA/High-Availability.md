@@ -1,5 +1,6 @@
+---
 description: Hyperledger Besu high availability
-<!--- END of page meta data -->
+---
 
 # High availability of JSON-RPC and RPC Pub/Sub APIs
 

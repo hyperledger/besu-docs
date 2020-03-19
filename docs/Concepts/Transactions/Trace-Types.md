@@ -55,18 +55,18 @@ An ordered list of calls to other contracts, excluding precompiled contracts.
 
 An ordered list of EVM actions when processing the transaction.
 
-Besu only reports actual data returned from a `RETURN` opcode. Besu does not return the contents of
-the reserved output space for the call operations. As a result:
+`vmTrace` only reports actual data returned from a `RETURN` opcode and does not return the
+contents of the reserved output space for the call operations. As a result:
 
-* Besu reports `null` when a call operation ends because of a `STOP`, `HALT`, `REVERT`, running out
-  of instructions, or any exceptional halts.
+* `vmTrace` reports `null` when a call operation ends because of a `STOP`, `HALT`, `REVERT`,
+  running out of instructions, or any exceptional halts.
 * When a `RETURN` operation returns data of a different length to the space reserved by the call,
-  Besu reports only the data passed to the `RETURN` operation. Besu does not include pre-existing
-  memory data or trim the returned data.
+  `vmTrace` reports only the data passed to the `RETURN` operation and does not include
+  pre-existing memory data or trim the returned data.
 
-For out of gas operations, Besu reports the operation that caused the out of gas exception,
-including the calculated gas cost. No `ex` values are reported because the operation is not
-executed.
+For out of gas operations, `vmTrace` reports the operation that caused the out of gas exception,
+including the calculated gas cost. `vmTrace` does not report `ex` values because the operation is
+not executed.
 
 ```json tab="vmTrace Example"
 "vmTrace":{

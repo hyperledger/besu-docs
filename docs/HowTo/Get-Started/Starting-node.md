@@ -80,7 +80,7 @@ To run a node that mines blocks at a rate suitable for testing purposes:
 besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
-Alternatively, use the following [configuration file](../Configure/Using-Configuration-File.md)
+You can also use the following [configuration file](../Configure/Using-Configuration-File.md)
 on the command line to start a node with the same options as above:
 
 ```toml

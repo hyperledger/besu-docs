@@ -2,14 +2,15 @@
 description: Tracing transactions
 ---
 
-# Transaction Trace Types
+# Transaction trace types
 
-When using [`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions)
-the trace options are [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
+When using
+[`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions) the
+trace options are [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
 ## trace
 
-Ordered list of calls to other contracts excluding precompiled contracts.
+An ordered list of calls to other contracts, excluding precompiled contracts.
 
 ```json tab="trace Example"
 "trace":[
@@ -34,37 +35,38 @@ Ordered list of calls to other contracts excluding precompiled contracts.
 ]
 ```
 
-| Key            | Value                                                                                |
-|----------------| --------------------------------------------------------------------------------------|
+| Key            | Value                                                                          |
+|----------------| -------------------------------------------------------------------------------|
 | `action`       | Transaction details.
-| `callType`     | Indicates whether the transaction is `call` or `create`.
-| `from`         | Address from which transaction was sent.
+| `callType`     | Whether the transaction is `call` or `create`.
+| `from`         | Address of the transaction sender.
 | `gas`          | Gas provided by sender.
 | `input`        | Transaction data.
 | `to`           | Target of the transaction.
-| `value`        | Value transferred in transaction.
+| `value`        | Value transferred in the transaction.
 | `result`       | Transaction result.
 | `gasUsed`      | Gas used by the transaction. Includes any refunds of unused gas.
-| `output`       | Return value of contract call. Contains only the actual value sent by a `RETURN` operation.  If a `RETURN` was not executed, the output is empty bytes.
+| `output`       | Return value of the contract call. Contains only the actual value sent by a `RETURN` operation. If a `RETURN` was not executed, the output is empty bytes.
 | `subTraces`    | Traces of contract calls made by the transaction.
 | `traceAddress` | Tree list address of where the call occurred, address of the parents, and order of the current sub call.
-| `type`         | Indicates whether the transaction is a `CALL` or `CREATE` series operation.
+| `type`         | Whether the transaction is a `CALL` or `CREATE` series operation.
 
 ## vmTrace
 
-Ordered list of EVM actions when processing the transaction.
+An ordered list of EVM actions when processing the transaction.
 
-Besu only reports actual data returned from a `RETURN` opcode. Besu does not
-return the contents of the reserved output space for the call operations. As a result:
+Besu only reports actual data returned from a `RETURN` opcode. Besu does not return the contents of
+the reserved output space for the call operations. As a result:
 
-* Besu reports null when a call operation ends because of a `STOP`, `HALT`, `REVERT`, running out of
-  instructions, or any exceptional halts.
-* When a `RETURN` operation returns data of a different length to the space reserved by the call, only
-  the data passed to the `RETURN` operation is reported. Besu does not include pre-existing memory data
-  or trim the returned data.
+* Besu reports `null` when a call operation ends because of a `STOP`, `HALT`, `REVERT`, running out
+  of instructions, or any exceptional halts.
+* When a `RETURN` operation returns data of a different length to the space reserved by the call,
+  Besu reports only the data passed to the `RETURN` operation. Besu does not include pre-existing
+  memory data or trim the returned data.
 
-For out of gas operations, Besu reports the operation that caused the out of gas exception including
-the calculated gas cost. No `ex` values are reported because the operation is not executed.
+For out of gas operations, Besu reports the operation that caused the out of gas exception,
+including the calculated gas cost. No `ex` values are reported because the operation is not
+executed.
 
 ```json tab="vmTrace Example"
 "vmTrace":{
@@ -88,14 +90,14 @@ the calculated gas cost. No `ex` values are reported because the operation is no
 }
 ```
 
-| Key       | Value                                                                                |
-|-----------| --------------------------------------------------------------------------------------|
+| Key       | Value                                                                               |
+|-----------| ------------------------------------------------------------------------------------|
 | `code`    | Code executed by the EVM.
 | `ops`     | Sequence of EVM operations (opcodes) executed in the transaction.
 | `cost`    | Gas cost of the opcode. Includes memory expansion costs but not gas refunds. For precompiled contract calls, reports only the actual cost.
 | `ex`      | Executed operations.
 | `mem`     | Memory read or written by the operation.
-| `push`    | Adjusted stack items. For swap, includes all intermediate values and end result. Otherwise, is the value pushed onto stack.
+| `push`    | Adjusted stack items. For swap, includes all intermediate values and the result. Otherwise, is the value pushed onto the stack.
 | `store`   | Account storage written by the operation.
 | `used`    | Remaining gas taking into account the all but 1/64th rule for calls.
 | `pc`      | Program counter.
@@ -103,15 +105,15 @@ the calculated gas cost. No `ex` values are reported because the operation is no
 
 ## stateDiff
 
-State changes in the requested block for each transaction represented as
-a map of accounts to an object. The balance, code, nonce, and storage changes are enumerated
-from immediately before the transaction to after the transaction.  For the `key:value` pairs:
+State changes in the requested block for each transaction represented as a map of accounts to an
+object. Besu lists the balance, code, nonce, and storage changes from immediately before the
+transaction to after the transaction. For the `key:value` pairs:
 
 * `+` indicates the field didn’t exist before and now has the specified value
-* `-` indicates the value was deleted
+* `-` indicates a deleted value
 * `*` has a from and a to value.
 
-An absent value is distinct from zero when accounts or storage are created or cleared.
+An absent value is distinct from zero when creating accounts or clearing storage.
 
 ```json tab="stateDiff Example"
 "stateDiff":{
@@ -135,13 +137,13 @@ An absent value is distinct from zero when accounts or storage are created or cl
 }
 ```
 
-| Key            | Value                                                                                |
-|-----------     | --------------------------------------------------------------------------------------|
+| Key            | Value                                                                          |
+|-----------     | -------------------------------------------------------------------------------|
 | `balance`      | Change of balance event.
-| `balance.from` | Balance before transaction.
-| `balance.to`   | Balance after transaction.
+| `balance.from` | Balance before the transaction.
+| `balance.to`   | Balance after the transaction.
 | `code`         | Changes to code. None in this example.
 | `nonce`        | Change of nonce.
-| `nonce.from`   | Nonce before transaction.
-| `nonce.to`     | Nonce after transaction.
+| `nonce.from`   | Nonce before the transaction.
+| `nonce.to`     | Nonce after the transaction.
 | `storage`      | Changes to storage. None in this example.

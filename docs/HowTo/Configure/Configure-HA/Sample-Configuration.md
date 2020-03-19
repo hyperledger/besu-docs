@@ -1,5 +1,6 @@
+---
 description: Sample Load Balancers
-<!--- END of page meta data -->
+---
 
 # Sample load balancer configurations
 

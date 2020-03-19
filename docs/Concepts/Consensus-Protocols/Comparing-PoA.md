@@ -1,5 +1,6 @@
-*[Byzantine fault tolerant]: The ability to function correctly and reach consensus despite nodes
-failing or propagating incorrect information to peers.
+---
+description: Besu  Proof of Authority consensus protocols comparison
+---
 
 # Comparing Proof of Authority consensus protocols
 
@@ -19,7 +20,7 @@ from the pool.
     For the rest of this page, the term validator is used to refer to signers and validators.
 
 ## Properties
-   
+
 Properties to consider when comparing Clique and IBFT 2.0 are:
 
 * Immediate finality
@@ -64,3 +65,6 @@ Reaching consensus and adding blocks is faster in Clique networks. For Clique, t
 fork increases number as the of validators increases.
 
 For IBFT 2.0, the time to add new blocks increases as the number of validators increases.
+
+*[Byzantine fault tolerant]: The ability to function correctly and reach consensus despite nodes
+failing or propagating incorrect information to peers.

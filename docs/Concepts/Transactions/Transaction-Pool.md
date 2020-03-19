@@ -1,5 +1,6 @@
-description: Transaction pool overview 
-<!--- END of page meta data -->
+---
+description: Transaction pool overview
+---
 
 # Transaction pool
 
@@ -8,15 +9,15 @@ All nodes maintain a transaction pool to store pending transactions before proce
 Options and methods for configuring and monitoring the transaction pool include:
 
 * [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions) JSON-RPC API
-method to list transactions in the transaction pool.
+  method to list transactions in the transaction pool.
 * [`--tx-pool-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-max-size) command line option to
-specify the maximum number of transactions in the transaction pool.
+  specify the maximum number of transactions in the transaction pool.
 * [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command
-line option to specify the maximum number of hours to keep pending transactions in the transaction
-pool.
+  line option to specify the maximum number of hours to keep pending transactions in the transaction
+  pool.
 * [`newPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#pending-transactions) and
-[`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
-RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
+  [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
+  RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
 
 ## Dropping transactions when the transaction pool is full
 

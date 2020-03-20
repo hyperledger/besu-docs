@@ -1,21 +1,21 @@
 ---
-description: web3.js-eea client library
+description: web3js-eea client library
 ---
 
-# web3.js-eea client library
+# web3js-eea client library
 
-The [web3.js-eea library](https://github.com/PegaSysEng/eeajs) adds a property to your web3
+The [web3js-eea library](https://github.com/PegaSysEng/web3js-eea) adds a property to your web3
 instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and
 send RLP-encoded transactions using JSON-RPC.
 
 !!! note
-    web3.js-eea supports JSON-RPC over HTTP only.
+    web3js-eea supports JSON-RPC over HTTP only.
 
 ## Prerequisites
 
 * [Node.js (version > 10)](https://nodejs.org/en/download/)
 
-## Add web3.js-eea to project
+## Add web3js-eea to project
 
 ```bash
 npm install web3-eea
@@ -63,7 +63,7 @@ contract binary.
 `web3.eea.sendRawTransaction(contractOptions)` returns the transaction hash. To get the private
 transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
 
-## web3.js-eea methods
+## web3js-eea methods
 
-For more information about the web3.js-eea methods, see the
-[web3.js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).
+For more information about the web3js-eea methods, see the
+[web3js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).

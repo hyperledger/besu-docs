@@ -1,19 +1,19 @@
 ---
-description: web3.js-eea client library multinode example
+description: web3js-eea client library multinode example
 ---
 
-# Use the multinode example in the web3.js-eea client library
+# Use the multinode example in the web3js-eea client library
 
-To use the examples provided in the EEA JS library with
+To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):
 
-1. Clone the **PegaSysEng/eeajs** repository:
+1. Clone the **PegaSysEng/web3js-eea** repository:
 
     ```bash
     git clone https://github.com/PegaSysEng/web3js-eea
     ```
 
-1. In the `eeajs` directory:
+1. In the `web3js-eea` directory:
 
     ```bash
     npm install

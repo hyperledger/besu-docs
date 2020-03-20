@@ -53,7 +53,7 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 Clone the `PegaSysEng/web3js-eea` library:
 
 ```bash
-https://github.com/PegaSysEng/web3js-eea.git
+git clone https://github.com/PegaSysEng/web3js-eea.git
 ```
 
 In the `web3js-eea` directory:

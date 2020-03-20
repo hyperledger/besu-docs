@@ -1417,10 +1417,11 @@ running.
 
 ### pruning-block-confirmations
 
-!!! caution 
+!!! caution
+
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
-    
+
     If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
 
 ```bash tab="Syntax"
@@ -1448,10 +1449,11 @@ nodes that cannot be pruned. The default is 10.
 
 ### pruning-blocks-retained
 
-!!! caution 
+!!! caution
+
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
-    
+
     If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
 
 ```bash tab="Syntax"

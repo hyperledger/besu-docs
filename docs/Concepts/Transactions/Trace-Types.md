@@ -95,7 +95,7 @@ the calculated gas cost. No `ex` values are reported because the operation is no
 | `cost`    | Gas cost of the opcode. Includes memory expansion costs but not gas refunds. For precompiled contract calls, reports only the actual cost.
 | `ex`      | Executed operations.
 | `mem`     | Memory read or written by the operation.
-| `push`    | Adjusted stack items. For swap, includes all intermediate values and end result. Otherwise, is the value pushed onto stack.
+| `push`    | Adjusted stack items. For swap, includes all intermediate values and result. Otherwise, is the value pushed onto stack.
 | `store`   | Account storage written by the operation.
 | `used`    | Remaining gas taking into account the all but 1/64th rule for calls.
 | `pc`      | Program counter.

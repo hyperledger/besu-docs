@@ -51,7 +51,7 @@ The configuration file defines the
 number of node key pairs to generate.
 
 The configuration file has two subnested JSON nodes. The first is the `genesis` property defining
-the IBFT 2.0 genesis file, except for the `extraData` string, which is generated automatically in
+the IBFT 2.0 genesis file, except for the `extraData` string, which Besu generates automatically in
 the resulting genesis file. The second is the `blockchain` property defining the number of key
 pairs to generate.
 

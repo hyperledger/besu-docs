@@ -4,7 +4,7 @@ description: Private transaction overview
 
 # Private transactions
 
-Private transactions have additional attributes to public Ethereum transactions:
+Private transactions have extra attributes to public Ethereum transactions:
 
 * `privateFrom` - The Orion public key of the transaction sender
 * `privateFor` - The Orion public keys of the transaction recipients, or
@@ -17,6 +17,7 @@ Private transactions have additional attributes to public Ethereum transactions:
       transaction.
 
     !!! important
+
         Besu implements `restricted` private transactions only.
 
 For more information about creating and sending private transactions, see the

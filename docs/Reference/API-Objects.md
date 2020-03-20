@@ -79,7 +79,7 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **gas**              | Quantity                          | Gas provided by the sender.                                                     |
 | **gasPrice**         | Quantity                          | Gas price, in Wei, provided by the sender.                                      |
 | **hash**             | Data, 32&nbsp;bytes               | Hash of the transaction.                                                        |
-| **input**            | Data                              | Data to create or invoke a contract.                                            |
+| **input**            | Data                              | The data to create or invoke a contract.                                            |
 | **nonce**            | Quantity                          | Number of transactions made by the sender to the privacy group before this one. |
 | **to**               | Data, 20&nbsp;bytes               | `null` if a contract creation transaction; otherwise, the contract address.     |
 | **value**            | Quantity                          | `null` because private transactions cannot transfer Ether.                      |

@@ -24,7 +24,7 @@ port using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option
 `30303`.
 
 We also recommended opening the P2P TCP port for inbound connections. This is not strictly required
-because Besu attempts to initiate outbound TCP connections. But if no nodes on the network are
+because Besu attempts to open outbound TCP connections. But if no nodes on the network are
 accepting inbound TCP connections, nodes cannot communicate.
 
 Combine the P2P port with the values for the

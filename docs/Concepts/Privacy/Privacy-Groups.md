@@ -4,16 +4,17 @@ description: Privacy groups
 
 # Privacy groups
 
-A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Each private
-transaction is stored in Orion with the privacy group ID.
+A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Orion stores
+each private transaction with the privacy group ID.
 
 The Besu nodes maintain the public world state for the blockchain and a private state for each
 privacy group. The private states contain data that is not shared in the globally replicated world
 state.
 
 !!! important
-    The privacy group implementations described below are offchain privacy groups and cannot have their
-    group membership updated.
+
+    The privacy group implementations described below are offchain privacy groups and cannot have
+    their group membership updated.
 
     [Onchain privacy groups are an early access feature in v1.4](Onchain-PrivacyGroups.md).
 

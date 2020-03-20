@@ -4,10 +4,22 @@ description: Besu network ID and chain ID implementation
 
 # Network ID and chain ID
 
-Ethereum networks have a network ID and a chain ID. The network ID defaults to the chain ID
-specified in the genesis file.
+Ethereum networks have two identifiers, a network ID and a chain ID. Although they often have the
+same value, they have different uses.
 
-!!! example "Chain ID in Genesis File"
+Peer-to-peer communication between nodes uses the _network ID_, while the transaction signature
+process uses the _chain ID_.
+
+!!! note
+
+    [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) introduced using
+    the chain ID as part of the transaction signing process to protect against transaction
+    replay attacks.
+
+For most networks, including MainNet and the public testnets, the network ID and the chain ID are
+the same, with the network ID defaulting to the chain ID, as specified in the genesis file.
+
+!!! example "Chain ID in the Genesis File"
 
     ```json
     {
@@ -20,12 +32,9 @@ specified in the genesis file.
     }
     ```
 
-For most networks, including MainNet and the public testnets, the network ID and the chain ID are
-the same and specified in the genesis file.
-
-The network ID and chain ID are automatically defined by Besu when connecting to networks specified
-using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following table lists
-the available networks and their network and chain IDs.
+Besu sets the chain ID, and by default the network ID, automatically when connecting to a network
+specified using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following
+table lists the available networks and their chain and network IDs.
 
 | Network   | Chain | Chain ID | Network ID | Type        |
 |-----------|-------|----------|------------|-------------|
@@ -38,6 +47,6 @@ the available networks and their network and chain IDs.
 | `mordor`  | ETC   | 63       | 7          | Test        |
 | `kotti`   | ETC   | 6        | 6          | Test        |
 
-When using the [`--network=dev`](../Reference/CLI/CLI-Syntax.md#network) or
-[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) options, you can override the
-network ID using the [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.
+If you use the [`--network=dev`](../Reference/CLI/CLI-Syntax.md#network) or
+[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) options, you can specify a
+different network ID using the [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.

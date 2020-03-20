@@ -4,13 +4,13 @@ description: Backing up and restoring Besu
 
 # Backups
 
-In a decentralized blockchain, data replicates between nodes so it is not lost. However,backing up
+In a decentralized blockchain, data replicates between nodes so it's not lost. But backing up
 configuration and data ensures a smoother recovery from corrupted data or other failures.
 
 ## Genesis file
 
-The genesis file for a network must be accessible on every node. We recommend the genesis file is
-stored under source control.
+The genesis file for a network must be accessible on every node. We recommend storing the genesis
+file under source control.
 
 ## Data backups
 
@@ -35,7 +35,7 @@ To restore data:
 1. If the node is running, stop the node.
 1. If required, move the data directory to another location for analysis.
 1. Restore the data from your last known good backup to the same directory.
-1. Ensure user permissions are valid so the data directory can be read from and written to.
+1. Ensure user permissions are valid so you can read from and write to the data directory.
 1. Restart the node.
 
 ## Corrupted data

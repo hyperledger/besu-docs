@@ -352,7 +352,7 @@ running and Metamask connected to it via the browser, run the command below to s
 The script first compiles the contract, then performs a migration to the blockchain network and
 then runs some tests. You can then search for the deployed contracts and transactions in the Web
 Block Explorer using the addresses displayed in your output earlier `http://localhost:32768/`
-(your port will differ). Output similar to the following displays (your addresses will differ).
+(your port will differ). Similar output to the following displays (your addresses will differ).
 
 !!! example
 

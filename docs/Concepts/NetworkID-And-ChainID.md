@@ -32,8 +32,9 @@ the same, with the network ID defaulting to the chain ID, as specified in the ge
     }
     ```
 
-Besu sets the chain ID, and by default the network ID, automatically when connecting to a network
-specified using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following
+Besu sets the chain ID (and by default the network ID) automatically, using either the
+[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) option or when specifying a
+network using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following
 table lists the available networks and their chain and network IDs.
 
 | Network   | Chain | Chain ID | Network ID | Type        |
@@ -47,6 +48,9 @@ table lists the available networks and their chain and network IDs.
 | `mordor`  | ETC   | 63       | 7          | Test        |
 | `kotti`   | ETC   | 6        | 6          | Test        |
 
-If you use the [`--network=dev`](../Reference/CLI/CLI-Syntax.md#network) or
-[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) options, you can specify a
-different network ID using the [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.
+## Specify a different network ID
+
+Usually the network ID is the same as the chain ID, but if you want to separate specific nodes from
+the rest of the network so they can't connect or synchronize with other nodes, you can override the
+default network ID for those nodes using the
+[`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.

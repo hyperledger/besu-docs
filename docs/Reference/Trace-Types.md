@@ -5,8 +5,11 @@ description: Tracing transactions
 # Transaction trace types
 
 When using
-[`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions) the
+[`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktransactions) the
 trace options are [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
+
+[`trace_transaction`](API-Methods.md#trace_transaction) retrieves only the [`trace`](#trace)
+option. 
 
 ## trace
 

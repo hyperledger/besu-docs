@@ -10,13 +10,15 @@ To get detailed information about transaction processing, use the
 [`-rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
 
-To specify the trace types required, use the
-[`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions)
-JSON RPC API method. Options are
-[`trace`, `vmTrace`, or `stateDiff`](../../Concepts/Transactions/Trace-Types.md).
+To specify the trace types required and retrieve the transaction traces for a block, use
+[`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions). Options are
+[`trace`, `vmTrace`, or `stateDiff`](../../Reference/Trace-Types.md).
+
+To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a specific 
+transaction, use [`trace_transaction`](../../Reference/API-Methods.md#trace_transaction). 
 
 Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-requested block must be within the last 1024 blocks.
+requested block must be within the [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained).
 
 !!! important
 

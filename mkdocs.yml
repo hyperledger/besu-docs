@@ -167,7 +167,6 @@ nav:
         - Transactions:
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
-          - Transaction Trace Types: Concepts/Transactions/Trace-Types.md
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - TLS Communication: Concepts/TLS.md
@@ -182,6 +181,7 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API Methods: Reference/API-Methods.md
         - Besu API Objects: Reference/API-Objects.md
+        - Transaction Trace Types: Reference/Trace-Types.md
         - Genesis File Items: Reference/Config-Items.md
         - web3js-eaa Methods: Reference/web3js-eea-Methods.md
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
@@ -233,3 +233,4 @@ plugins:
           HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
           HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
           HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md
+          Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md

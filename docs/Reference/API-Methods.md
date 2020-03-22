@@ -1184,7 +1184,7 @@ Returns the value of a storage position at a specified address.
 ### eth_getTransactionCount
 
 Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
-account nonce.
+next account nonce not used by any pending transactions.
 
 #### Parameters
 

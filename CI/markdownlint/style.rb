@@ -4,10 +4,18 @@
 # But for instance, ul-indent = MD007
 all
 
-rule "no-duplicate-header", :allow_different_nesting => true
 rule 'no-trailing-punctuation', :punctuation=>'.,;:!'
 rule 'ul-indent', :indent=> 4
 
 exclude_rule 'no-bare-urls'
 exclude_rule 'code-block-style'
 exclude_rule 'line-length'
+
+# excluded rule for as kramdown has a bug.
+# see https://github.com/markdownlint/markdownlint/issues/294#issuecomment-600600407
+# these are now in info style.
+# to be put back in error style once bug fixed.
+exclude_rule 'single-h1'
+exclude_rule 'no-space-in-code'
+exclude_rule 'no-duplicate-header'
+exclude_rule 'first-line-h1'

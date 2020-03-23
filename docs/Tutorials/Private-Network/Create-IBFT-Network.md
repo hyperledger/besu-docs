@@ -1,36 +1,36 @@
-description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) private network tutorial 
-<!--- END of page meta data -->
+---
+description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
+---
 
-*[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.
+# Create a private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 
-# Creating a Private Network using IBFT 2.0 (Proof of Authority) Consensus Protocol
-
-A private network provides a configurable network for testing. This private network uses the [IBFT 2.0 (Proof of Authority)
-consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md). 
+A private network provides a configurable network for testing. This private network uses the
+[IBFT 2.0 (Proof of Authority) consensus protocol].
 
 !!!important
-    An Ethereum private network created as described here is isolated but not protected or secure. 
-    We recommend running the private network behind a properly configured firewall.
-    
-    This tutorial configures a private network using IBFT 2.0 for educational purposes only. 
-    IBFT 2.0 requires 4 validators to be Byzantine fault tolerant.
 
-## Prerequisites 
+    The steps in this tutorial create an isolated, but not protected or secure, Ethereum private
+    network. We recommend running the private network behind a properly configured firewall.
 
-[Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md) 
+    This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT
+    2.0 requires 4 validators to be Byzantine fault tolerant.
 
-[Curl (or similar web service client)](https://curl.haxx.se/download.html) 
+## Prerequisites
+
+* [Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md)
+* [Curl (or similar web service client)](https://curl.haxx.se/download.html).
 
 ## Steps
 
-The steps to create a private network using IBFT 2.0 with four nodes are on the right. The four nodes are 
-all validators.   
+Listed on the right-hand side of the page are the steps to create a private network using IBFT 2.0
+with four nodes. The four nodes are all validators.
 
-### 1. Create Folders 
+### 1. Create directories
 
-Each node requires a data directory for the blockchain data. 
+Each node requires a data directory for the blockchain data.
 
-Create directories for your private network, each of the four nodes, and a data directory for each node: 
+Create directories for your private network, each of the four nodes, and a data directory for each
+node:
 
 ```bash
 IBFT-Network/
@@ -44,16 +44,19 @@ IBFT-Network/
     ├── data
 ```
 
-### 2. Create Configuration File 
+### 2. Create a configuration file
 
-The configuration file defines the [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) 
-and the number of node key pairs to generate.    
+The configuration file defines the
+[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+number of node key pairs to generate.
 
-The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining 
-the IBFT 2.0 genesis file except for the `extraData` string. The second is the `blockchain` property 
-defining the number of key pairs to generate. 
-    
-Copy the following configuration file definition to a file called `ibftConfigFile.json` and save it in the `IBFT-Network` directory: 
+The configuration file has two subnested JSON nodes. The first is the `genesis` property defining
+the IBFT 2.0 genesis file, except for the `extraData` string, which Besu generates automatically in
+the resulting genesis file. The second is the `blockchain` property defining the number of key
+pairs to generate.
+
+Copy the following configuration file definition to a file called `ibftConfigFile.json` and save it
+in the `IBFT-Network` directory:
 
 ```json
 {
@@ -89,7 +92,7 @@ Copy the following configuration file definition to a file called `ibftConfigFil
          "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
          "balance": "90000000000000000000000"
        }
-	  }
+      }
  },
  "blockchain": {
    "nodes": {
@@ -100,23 +103,25 @@ Copy the following configuration file definition to a file called `ibftConfigFil
 }
 ```
 
-!!! warning 
-    Do not use the accounts in `alloc` in the genesis file on mainnet or any public network except for testing.
-        
-    The private keys are displayed which means the accounts are not secure.  
+!!! warning
 
-### 3. Generate Node Keys and Genesis File 
+    Do not use the accounts in `alloc` in the genesis file on MainNet or any public network except
+    for testing. The private keys display, which means the accounts are not secure.
 
-In the `IBFT-Network` directory, generate the node key and genesis file: 
+### 3. Generate node keys and a genesis file
+
+In the `IBFT-Network` directory, generate the node key and genesis file:
 
 ```bash tab="MacOS"
 besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
 ```
 
-In the `networkFiles` directory, the following are created: 
+Besu creates the following in the `networkFiles` directory:
 
-* `genesis.json` - genesis file including the `extraData` property specifying the four nodes are validators
-* Directory for each node named with the node address and containing the public and private key for each node 
+* `genesis.json` - The genesis file including the `extraData` property specifying the four nodes
+  are validators.
+* A directory for each node named using the node address and containing the public and private key
+  for each node.
 
 ```bash
 networkFiles/
@@ -135,15 +140,14 @@ networkFiles/
         ├── key
         └── key.pub
 ```
-    
-### 4. Copy the Genesis File to the IBFT-Network Directory 
 
-Copy the `genesis.json` file to the `IBFT-Network` directory. 
-    
-### 5. Copy Node Private Keys to Node Directories 
+### 4. Copy the genesis file to the IBFT-Network directory
 
-For each node, copy the key files to the `data` directory for that node 
+Copy the `genesis.json` file to the `IBFT-Network` directory.
 
+### 5. Copy the node private keys to the node directories
+
+For each node, copy the key files to the `data` directory for that node
 
 ```bash
 IBFT-Network/
@@ -166,101 +170,121 @@ IBFT-Network/
 │   │    ├── key.pub
 ```
 
-### 6. Start First Node as Bootnode
+### 6. Start the first node as the bootnode
 
 In the `Node-1` directory, start Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"      
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"    
+besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all"
 ```
 
-The command line specifies: 
+The command line:
 
-* Data directory for Node-1 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* JSON-RPC API is enabled using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
-* ETH,NET, and IBFT APIs are enabled using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
-* All hosts can access the HTTP JSON-RPC API using the [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
-* All domains can access the node using the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option 
+* Specifies the data directory for Node-1 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* Enables the JSON-RPC API using the
+  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+* Enables the ETH, NET, and IBFT APIs using the
+  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+* Enables all-host access to the HTTP JSON-RPC API using the
+  [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
+* Enables all-domain access to the node through the HTTP JSON-RPC API using the
+  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option
 
-When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displayed.
-Copy the enode URL to specify Node-1 as the bootnode in the following steps. 
+When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
+enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
 
-### 7. Start Node-2 
+### 7. Start Node-2
 
-Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
- 
+Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1
+enode URL copied when starting Node-1 as the bootnode:
+
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546     
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-The command line specifies: 
+The command line specifies:
 
-* Data directory for Node-2 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* Different port to Node-1 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
-* Different port to Node-1 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* Enode URL for Node-1 using the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* The data directory for Node-2 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* A different port to Node-1 for P2P peer discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A different port to Node-1 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The enode URL for Node-1 using the
+  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
-
 
 ### 8. Start Node-3
 
-Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
+Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1
+enode URL copied when starting Node-1 as the bootnode:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547    
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-The command line specifies: 
+The command line specifies:
 
- * Data directory for Node-3 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
- * Different port to Node-1 and Node-2 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1 and Node-2 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
- * Bootnode as for [Node-2](#6-start-node-2).
- * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
- 
+* The data directory for Node-3 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* A different port to Node-1 and Node-2 for P2P peer discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The bootnode as for [Node-2](#6-start-node-2).
+* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+
 ### 9. Start Node-4
 
-Start another terminal, change to the `Node-4` directory and start Node-4 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode: 
+Start another terminal, change to the `Node-4` directory and start Node-4 specifying the Node-1
+enode URL copied when starting Node-1 as the bootnode:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548    
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
 ```
 
-The command line specifies: 
+The command line specifies:
 
- * Data directory for Node-4 using the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
- * Different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
- * Different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
- * Bootnode as for [Node-2](#6-start-node-2).
- * Other options as for [Node-1](#5-start-first-node-as-bootnode). 
+* The data directory for Node-4 using the
+  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
+* A different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The bootnode as for [Node-2](#6-start-node-2).
+* Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
-### 10. Confirm Private Network is Working 
+### 10. Confirm the private network is working
 
-Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are functioning as peers: 
+Start another terminal, use curl to call the JSON-RPC API
+[`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are
+functioning as peers:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
 ```
 
 The result confirms Node-1 has three peers (Node-2, Node-3, and Node-4):
+
 ```json
 {
   "jsonrpc" : "2.0",
@@ -269,26 +293,41 @@ The result confirms Node-1 has three peers (Node-2, Node-3, and Node-4):
 }
 ```
 
-## Next Steps 
+## Next steps
 
-Look at the logs displayed to confirm blocks are being produced. 
+Look at the logs displayed to confirm Besu is producing blocks.
 
 Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or add validators.
 
 !!! note
-    To add or remove nodes as validators you need the node address. The directory [created for each node](#3-generate-node-keys-and-genesis-file) 
-    is named with the node address.
 
-    This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT 2.0 requires 4 validators to be Byzantine fault tolerant.
+    To add or remove nodes as validators you need the node address. The directory
+    [created for each node](#3-generate-node-keys-and-genesis-file) has the node address as the
+    name.
 
-Import accounts to MetaMask and send transactions as described in the [Private Network Example Tutorial](../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask)
+    This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT
+    2.0 requires four validators to be Byzantine fault tolerant.
 
-!!! info 
-    Besu does not implement [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+Import accounts to MetaMask and send transactions as described in the
+[private network example tutorial].
 
-## Stop Nodes
+!!! info
 
-When finished using the private network, stop all nodes using ++ctrl+c++ in each terminal window. 
+    Besu does not support
+    [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+
+## Stop the nodes
+
+When finished using the private network, stop all nodes using ++ctrl+c++ in each terminal window.
 
 !!!tip
-    To restart the IBFT 2.0 network in the future, start from [6. Start First Node as Bootnode](#6-start-first-node-as-bootnode). 
+
+    To restart the IBFT 2.0 network in the future, start from
+    [6. Start First Node as Bootnode](#6-start-first-node-as-bootnode).
+
+<!-- Links -->
+[IBFT 2.0 (Proof of Authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
+[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
+
+<!-- Acronyms and Definitions -->
+*[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

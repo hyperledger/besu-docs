@@ -56,7 +56,8 @@ To view the nodes whitelist, use the
 
 ### Bootnodes
 
-The nodes whitelist must include the bootnodes or Hyperledger Besu does not start with node permissions enabled.
+The nodes whitelist must include the bootnodes or Hyperledger Besu does not start
+with node permissions enabled.
 
 !!! example
 

@@ -1,5 +1,6 @@
+---
 description: Hyperledger Besu architecture
-<!--- END of page meta data -->
+---
 
 # Hyperledger Besu architecture
 

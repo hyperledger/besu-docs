@@ -4,11 +4,11 @@ description: Use Onchain Privacy
 
 # Using onchain privacy groups
 
-Use the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea) to create and update 
-membership of [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md). 
+Use the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea) to create and update
+membership of [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md).
 
 !!! important
-    [Onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md) are an early access 
+    [Onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md) are an early access
     feature in v1.4. Do not use in production networks.
 
     The onchain privacy group interfaces may change between v1.4 and v1.5. There may not be an
@@ -24,7 +24,7 @@ Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#p
 command line option to enable [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md).
 When onchain privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup), 
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
-and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for 
+and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
 [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple onchain privacy group example

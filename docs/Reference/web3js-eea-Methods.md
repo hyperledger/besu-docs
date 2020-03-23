@@ -1,39 +1,42 @@
+---
 description: web3js-eea methods reference
-<!--- END of page meta data -->
+---
 
-# web3js-eea 
+# web3js-eea
 
-Use the [web3.js-eea library](https://github.com/PegaSysEng/eeajs) to [create and send 
-private transactions](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+Use the [web3js-eea library](https://github.com/PegaSysEng/web3js-eea) to
+[create and send private transactions].
 
-## Options Parameter 
+## Options parameter
 
-The Options parameter has the following properties: 
+The Options parameter has the following properties:
 
-* `privateKey`: Ethereum private key with which to sign the transaction
-* `privateFrom` : Orion public key of the sender
-* [`privateFor` : Orion public keys of recipients or `privacyGroupId`: Privacy group to receive the transaction](../Concepts/Privacy/Privacy-Groups.md)  
+* `privateKey`: Ethereum private key with which to sign the transaction.
+* `privateFrom` : Orion public key of the sender.
+* [`privateFor` : Orion public keys of recipients or `privacyGroupId`: Privacy group to receive the transaction](../Concepts/Privacy/Privacy-Groups.md)
 * `nonce` : Optional. If not provided, calculated using [`eea_getTransctionCount`](API-Methods.md).
-* `to` : Optional. Contract address to send the transaction to. Do not specify for contract deployment transactions
-* `data` : Transaction data
+* `to` : Optional. Contract address to send the transaction to. Do not specify for contract
+  deployment transactions.
+* `data` : Transaction data.
 
 ## createPrivacyGroup
 
-Creates privacy group for Hyperledger Besu privacy. 
+Creates a privacy group for Hyperledger Besu privacy.
 
-**Parameters**
+### Parameters
 
 [Transaction options](#options-parameter)
 
 `name` : `string` - Name of the privacy group. Optional.
 
-`description` : `string` - Name of the privacy group. Optional. 
+`description` : `string` - Description for the privacy group. Optional.
 
-**Returns** 
+### Returns
 
-`string` : Privacy group ID 
+`string` : Privacy group ID.
 
-!!! example 
+!!! example
+
     ```bash
     const createPrivacyGroup = () => {
       const contractOptions = {
@@ -50,17 +53,18 @@ Creates privacy group for Hyperledger Besu privacy.
 
 ## deletePrivacyGroup
 
-Deletes privacy group. 
+Deletes a privacy group.
 
-**Parameters**
+### Parameters
 
-[Transaction options](#options-parameter)
+[Transaction options](#options-parameter).
 
-**Returns** 
+### Returns
 
-`string` : Privacy group ID 
+`string` : Privacy group ID.
 
-!!! example 
+!!! example
+
     ```bash
     const deletePrivacyGroup = givenPrivacyGroupId => {
       const contractOptions = {
@@ -77,15 +81,16 @@ Deletes privacy group.
 
 Finds privacy groups containing only the specified members.
 
-**Parameters**
+### Parameters
 
-[Transaction options](#options-parameter)
+[Transaction options](#options-parameter).
 
-**Returns** 
+### Returns
 
-`array of objects` : Privacy groups containing only the specified members. 
+`array of objects` : Privacy groups containing only the specified members.
 
-!!! example 
+!!! example
+
     ```bash
     const findPrivacyGroup = () => {
       const contractOptions = {
@@ -99,19 +104,21 @@ Finds privacy groups containing only the specified members.
     ```
 
 ## generatePrivacyGroup
-    
-Generates the privacy group ID for [EEA privacy](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy). 
-The privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
-    
-**Parameters**
-    
-[Transaction options](#options-parameter)
-    
-**Returns**
-    
-`string` : Privacy group ID 
+
+Generates the privacy group ID for
+[EEA privacy](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy). The
+privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
+
+### Parameters
+
+[Transaction options](#options-parameter).
+
+### Returns
+
+`string` : Privacy group ID.
 
 !!! example
+
     ```bash
     const privacyGroupId = web3.eea.generatePrivacyGroup({
       privateFrom: "A1aVtMxLCUHmBVHXoZzzBgPbW/wj5axDpW9X8l91SGo=",
@@ -121,38 +128,41 @@ The privacy group ID is the RLP-encoded `privateFor` and `privateFrom` keys.
 
 ## getMarkerTransaction
 
-Gets the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md) transaction receipt.
+Retrieves the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+receipt.
 
-**Parameters**
+### Parameters
 
-`txHash` - `string` : Transaction hash of the private transaction
+`txHash` - `string` : Transaction hash of the private transaction.
 
-`retries` - `int` : Maximum number of attempts to get the private marker transaction receipt 
+`retries` - `int` : Maximum number of attempts to get the private marker transaction receipt.
 
-`delay` - `int` : Delay between retries in milliseconds
+`delay` - `int` : Delay between retries in milliseconds.
 
-**Returns**
+### Returns
 
-Privacy marker transaction receipt 
+Privacy marker transaction receipt.
 
 !!! example
+
     ```bash
     const privateMarkerTransacion = web3.eea.getMarkerTransaction("0x9c41b3d44ed73511c82a9e2b1ef581eb797475c82f318ca2802358d3ba4a8274", 5, 100);
     ```
-        
-## getTransactionCount 
 
-Returns the number of transactions sent from the specified address for the privacy group.
+## getTransactionCount
 
-**Parameters**
+Retrieves the number of transactions sent from the specified address for the privacy group.
 
-[Transaction options](#options-parameter)
+### Parameters
 
-**Returns**
+[Transaction options](#options-parameter).
 
-`int` : Transaction count for that account (`privateKey`) and privacy group
+### Returns
+
+`int` : Transaction count for that account (`privateKey`) and privacy group.
 
 !!! example
+
     ```bash
     return web3.eea
        .getTransactionCount({
@@ -161,45 +171,52 @@ Returns the number of transactions sent from the specified address for the priva
        privateFor: [orion.node2.publicKey],
     })
     ```
-        
-## getTransactionReceipt 
 
-Gets the private transaction receipt using [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
+## getTransactionReceipt
 
-**Parameters**
+Retrieves the private transaction receipt using
+[`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
 
-`txHash` - `string` : Transaction hash of the private transaction
+### Parameters
 
-`enclavePublicKey` - `string` : [`privateFrom` key for the transaction](#options-parameter) 
+`txHash` - `string` : Transaction hash of the private transaction.
 
-`retries` - `int` : Optional. Maximum number of attempts to get the private marker transaction receipt. Default is `300`. 
+`enclavePublicKey` - `string` : [`privateFrom` key for the transaction](#options-parameter).
 
-`delay` - `int` : Optional. Delay between retries in milliseconds. Default is `1000`.
+`retries` - `int` : Optional. Maximum number of attempts to get the private marker transaction
+receipt. The default is `300`.
 
-**Returns**
+`delay` - `int` : Optional. Delay between retries in milliseconds. The default is `1000`.
 
-Private transaction receipt 
+### Returns
+
+Private transaction receipt.
 
 !!! example
+
     ```bash
     const privateTxReceipt = web3.eea.getTransactionReceipt("0x9c41b3d44ed73511c82a9e2b1ef581eb797475c82f318ca2802358d3ba4a8274", "A1aVtMxLCUHmBVHXoZzzBgPbW/wj5axDpW9X8l91SGo=");
     ```
-    
-## sendRawTransaction 
 
-Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTransaction`](API-Methods.md#eea_sendrawtransaction). 
+## sendRawTransaction
 
-`sendRawTransaction` supports [EEA-compliant privacy](../HowTo/Use-Privacy/EEA-Compliant.md) using `privateFor`, or [Besu-extended privacy](../HowTo/Use-Privacy/Privacy.md) using `privacyGroupId`. 
+Signs and sends a RLP-encoded private transaction to Besu using
+[`eea_sendRawTransaction`](API-Methods.md#eea_sendrawtransaction).
 
-**Parameters**
+`sendRawTransaction` supports [EEA-compliant privacy](../HowTo/Use-Privacy/EEA-Compliant.md) using
+`privateFor`, or [Besu-extended privacy](../HowTo/Use-Privacy/Privacy.md) using `privacyGroupId`.
 
-[Transaction options](#options-parameter)
+### Parameters
 
-**Returns**
+[Transaction options](#options-parameter).
 
-`string` : Transaction hash of the [`privacy marker transaction`](../Concepts/Privacy/Private-Transaction-Processing.md)   
-        
+### Returns
+
+`string` : Transaction hash of the
+[`privacy marker transaction`](../Concepts/Privacy/Private-Transaction-Processing.md).
+
 !!! example "Besu-extended Privacy"
+
     ```bash tab="Contract Deployment with privacyGroupId"
     const createPrivateEmitterContract = privacyGroupId => {
       const contractOptions = {
@@ -211,7 +228,7 @@ Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTra
       return web3.eea.sendRawTransaction(contractOptions);
     };
     ```
-                
+
     ```bash tab="Contract Invocation with privacyGroupId "
     const functionCall = {
        to: address,
@@ -224,6 +241,7 @@ Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTra
     ```
 
 !!! example "EEA-compliant Privacy"
+
     ```bash tab="Contract Deployment with privateFor"
     const createPrivateEmitterContract = () => {
       const contractOptions = {
@@ -235,7 +253,7 @@ Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTra
       return web3.eea.sendRawTransaction(contractOptions);
     };
     ```
-            
+
     ```bash tab="Contract Invocation with privateFor"
     const functionCall = {
       to: address,
@@ -246,3 +264,6 @@ Signs and sends a RLP-encoded private transaction to Besu using [`eea_sendRawTra
     };
     return web3.eea.sendRawTransaction(functionCall);
     ```
+
+<!-- Links -->
+[create and send private transactions]: ../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md

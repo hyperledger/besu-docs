@@ -22,7 +22,7 @@ logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) 
 volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`,
 `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
-For most use-cases, the basic method provides sufficient configurability.
+For most use-cases, the basic method provides enough configurability.
 
 !!! tip
 
@@ -35,25 +35,27 @@ You can provide your own logging configuration using the standard Log4J2 configu
 For example, the following Log4J2 configuration is the same as the [default configuration] except
 for the exclusion of logging of stack traces for exceptions.
 
-```xml tab="debug.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
-  <Properties>
-    <Property name="root.log.level">INFO</Property>
-  </Properties>
+!!! example "debug.xml"
 
-  <Appenders>
-    <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZZZ} | %t | %-5level | %c{1} | %msg %throwable{short.message}%n" />
-    </Console>
-  </Appenders>
-  <Loggers>
-    <Root level="${sys:root.log.level}">
-      <AppenderRef ref="Console" />
-    </Root>
-  </Loggers>
-</Configuration>
-```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration status="INFO">
+      <Properties>
+        <Property name="root.log.level">INFO</Property>
+      </Properties>
+
+      <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+          <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZZZ} | %t | %-5level | %c{1} | %msg %throwable{short.message}%n" />
+        </Console>
+      </Appenders>
+      <Loggers>
+        <Root level="${sys:root.log.level}">
+          <AppenderRef ref="Console" />
+        </Root>
+      </Loggers>
+    </Configuration>
+    ```
 
 To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the
 location of your configuration file.

@@ -1,13 +1,14 @@
+---
 description: Hyperledger Besu high availability
-<!--- END of page meta data -->
+---
 
 # High availability of JSON-RPC and RPC Pub/Sub APIs
 
 To enable high availability to the
 [RPC Pub/Sub API over WebSockets](../../Interact/APIs/RPC-PubSub.md) or the
-[JSON-RPC API](../../Interact/APIs/Using-JSON-RPC-API.md), run and synchronize multiple Hyperledger
-Besu nodes to the network. Use a load balancer to distribute requests across nodes in the cluster
-that are ready to receive requests.
+[JSON-RPC API](../../Interact/APIs/Using-JSON-RPC-API.md), run and synchronize more than one
+Hyperledger Besu nodes to the network. Use a load balancer to distribute requests across nodes in
+the cluster that are ready to receive requests.
 
 ![Load Balancer](../../../images/LoadBalancer.png)
 
@@ -34,7 +35,7 @@ depends on the transactions in the
 [transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If sending
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and
 [`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a
-specific account to multiple nodes, the
+specific account to more than one node, the
 [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) results
 might be incorrect.
 

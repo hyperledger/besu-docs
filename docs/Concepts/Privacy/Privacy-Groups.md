@@ -4,19 +4,26 @@ description: Privacy groups
 
 # Privacy groups
 
-A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Each private
-transaction is stored in Orion with the privacy group ID.
+A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Orion stores
+each private transaction with the privacy group ID.
 
 The Besu nodes maintain the public world state for the blockchain and a private state for each
 privacy group. The private states contain data that is not shared in the globally replicated world
 state.
+
+!!! important
+
+    The privacy group implementations described below are offchain privacy groups and cannot have
+    their group membership updated.
+
+    [Onchain privacy groups are an early access feature in v1.4](Onchain-PrivacyGroups.md).
 
 ## Privacy types
 
 Besu implements two types of privacy:
 
 * Enterprise Ethereum Alliance (EEA) privacy, where private transactions include `privateFor` as
-the recipient.
+  the recipient.
 * Besu-extended privacy, where private transactions include `privacyGroupId` as the recipient.
 
 Both privacy types create privacy groups and store private transactions with their privacy group in
@@ -67,9 +74,8 @@ provided by Orion.
     (as either `privateFrom` or `privateFor`) even if they are between only two of the three
     parties.
 
-
 ### Besu-extended privacy
- 
+
 The Besu-extended privacy implementation creates a privacy group using
 [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup) with private
 transactions sent to the privacy group ID.

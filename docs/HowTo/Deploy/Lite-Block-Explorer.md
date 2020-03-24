@@ -62,9 +62,9 @@ To run the Ethereum Lite Explorer using the Docker image:
 
 1. Change into the `ethereum-lite-explorer` directory:
 
-   ```bash
-   cd ethereum-lite-explorer
-   ```
+    ```bash
+    cd ethereum-lite-explorer
+    ```
 
 1. Install npm packages:
 

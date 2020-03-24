@@ -14,11 +14,10 @@ To specify the trace types required and retrieve the transaction traces for a bl
 [`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions). Options are
 [`trace`, `vmTrace`, or `stateDiff`](../../Reference/Trace-Types.md).
 
-To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a specific:  
+To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a specific:
 
-* Block, use [`trace_block`](../../Reference/API-Methods.md#trace_block). 
+* Block, use [`trace_block`](../../Reference/API-Methods.md#trace_block).
 * Transaction, use [`trace_transaction`](../../Reference/API-Methods.md#trace_transaction). 
-
 
 Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
 requested block or transaction must be within the [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)

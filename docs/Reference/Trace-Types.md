@@ -9,7 +9,7 @@ When using
 trace options are [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
 [`trace_block`](API-Methods.md#trace_block) and [`trace_transaction`](API-Methods.md#trace_transaction)
-retrieve only the [`trace`](#trace) option. 
+retrieve only the [`trace`](#trace) option.
 
 ## trace
 

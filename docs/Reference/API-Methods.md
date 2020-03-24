@@ -4516,7 +4516,6 @@ one object per call, in transaction execution order.
 
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
-    
     ```
 
     ```bash tab="wscat WS request"
@@ -4592,7 +4591,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 !!! important
 
     Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-    requested transaction must be contained in a blocked within 
+    requested transaction must be contained in a blocked within
     [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
 
 #### Parameters

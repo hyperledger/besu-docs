@@ -21,7 +21,8 @@ To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a speci
 
 
 Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-requested block or transaction must be within the [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained).
+requested block or transaction must be within the [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
+(by default, 1024).
 
 !!! important
 

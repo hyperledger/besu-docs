@@ -85,4 +85,4 @@ For [account management](../../Send-Transactions/Account-Management.md), use thi
 
 ### Protocols
 
-Besu does not implement the Whisper and Swarm protocols.
+Besu does not support the Whisper and Swarm protocols.

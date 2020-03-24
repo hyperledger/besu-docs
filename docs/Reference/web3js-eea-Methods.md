@@ -4,7 +4,7 @@ description: web3js-eea methods reference
 
 # web3js-eea
 
-Use the [web3.js-eea library](https://github.com/PegaSysEng/eeajs) to
+Use the [web3js-eea library](https://github.com/PegaSysEng/web3js-eea) to
 [create and send private transactions].
 
 ## Options parameter

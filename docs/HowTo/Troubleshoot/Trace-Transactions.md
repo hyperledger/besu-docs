@@ -16,7 +16,7 @@ To specify the trace types required and retrieve the transaction traces for a bl
 
 To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a specific:  
 
-* Block, use [`trace_transaction`](../../Reference/API-Methods.md#trace_transaction). 
+* Block, use [`trace_block`](../../Reference/API-Methods.md#trace_block). 
 * Transaction, use [`trace_transaction`](../../Reference/API-Methods.md#trace_transaction). 
 
 

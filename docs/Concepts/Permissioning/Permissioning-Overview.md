@@ -4,8 +4,8 @@ description: Besu permissioning feature
 
 # Permissioning
 
-A permissioned network permits only specified nodes and accounts to participate by enabling
-node permissioning and account permissioning on the network.
+A permissioned network enables node permissioning and account permissioning, allowing only
+specified nodes and accounts to access the network.
 
 !!! important "Permissioning is not Privacy"
 

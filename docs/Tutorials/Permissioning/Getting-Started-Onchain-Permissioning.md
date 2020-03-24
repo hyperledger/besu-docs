@@ -156,17 +156,17 @@ The migration logs the addresses of the Admin and Rules contracts.
     yarn start
     ```
 
-   The Dapp displays at [http://localhost:3000](http://localhost:3000).
+    The Dapp displays at [http://localhost:3000](http://localhost:3000).
 
 1. Ensure MetaMask connects to your local node (by default `http://localhost:8545`).
 
-   A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
-   account.
+    A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
+    account.
 
 1. Click the _Connect_ button.
 
-   The Dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
-   variable in the _Whitelisted Accounts_ and _Admin Accounts_ tabs.
+    The Dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
+    variable in the _Whitelisted Accounts_ and _Admin Accounts_ tabs.
 
 !!! note
 

@@ -30,6 +30,24 @@ To determine system requirements, monitor CPU and disk space requirements using
 Besu requires 4GB of RAM. For public Ethereum networks, including MainNet and testnets such as
 Ropsten, Besu requires a minimum of 8GB of RAM.
 
+## Java Virtual Machine size
+
+Depending on your environment and network setup, Besu has the following minimum Java Virtual
+Machine (JVM) memory requiements. For:
+
+* Private networks, 4GB
+* MainNet and testnets, such as Ropten, 16GB.
+
+Two JVM parameters can be set to suit your memory requirements:
+
+* `-Xms<size>`, which specifies the initial Java heap size.
+* `-Xmx<size>`, which specifies the maximum Java heap size.
+
+[Set the JVM options](../Configure/Passing-JVM-Options.md) in the `BESU_OPTS` environment variable.
+
+JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
+to the chain head. Monitor your system to determine your actual JVM memory needs.
+
 ## Disk space
 
 !!! caution

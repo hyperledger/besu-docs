@@ -5,18 +5,18 @@ description: System requirements to sync and run Besu
 
 # System requirements
 
-The system requirements for Hyperledger Besu depend on various factors:
+The system requirements for Hyperledger Besu depend on different factors, including the:
 
-* Size of the world state for the network
-* Number of transactions submitted to the network
-* [Block gas limit](../../Reference/Config-Items.md#genesis-block-parameters)
+* Size of the world state for the network.
+* Number of transactions submitted to the network.
+* [Block gas limit](../../Reference/Config-Items.md#genesis-block-parameters).
 * Number and complexity of [JSON-RPC](../Interact/APIs/Using-JSON-RPC-API.md),
   [PubSub](../Interact/APIs/RPC-PubSub.md), or [GraphQL](../Interact/APIs/GraphQL.md) queries
-  handled by the node
+  handled by the node.
 
 ## Determining system requirements
 
-To determine system requirements, monitor CPU and disk space requirements using
+To determine system requirements, check CPU and disk space requirements using
 [Prometheus](../Monitor/Metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
 [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
@@ -58,9 +58,9 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
     If using fast sync in v1.4.0, explicitly disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use
-[pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB of available
-disk space.
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the disk space required,
+use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB
+of available disk space.
 
 ## VM requirements
 

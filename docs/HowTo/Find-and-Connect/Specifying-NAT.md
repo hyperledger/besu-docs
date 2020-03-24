@@ -48,9 +48,9 @@ By specifying `MANUAL`:
 ## Kubernetes
 
 Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
-Besu automatically detects if it is running inside of a Kubernetes cluster and interacts with
-Kubernetes APIs as required to determine external IP addresses and exposed ports. The configuration
-is stored in `/opt/besu/shared/kube-config`.
+Besu automatically detects if it's running inside of a Kubernetes cluster and interacts with
+Kubernetes APIs as required to determine external IP addresses and exposed ports. Besue stores the
+configuration in `/opt/besu/shared/kube-config`.
 
 ## Docker
 

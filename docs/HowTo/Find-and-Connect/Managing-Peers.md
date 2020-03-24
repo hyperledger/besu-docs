@@ -19,8 +19,8 @@ To disable P2P peer discovery, use the
 
 With discovery disabled, peers that have already discovered or are otherwise configured to connect
 to the local node (for example, using
-[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)) can initiate connections.
-[Static nodes](Static-Nodes.md) can also initiate connections.
+[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)) can open connections.
+[Static nodes](Static-Nodes.md) can also open connections.
 
 ## Monitoring peer connections
 

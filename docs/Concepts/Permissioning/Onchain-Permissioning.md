@@ -44,8 +44,8 @@ The [Permissioning Management Dapp] provides view and maintain access to the whi
 Permissioning implements three whitelists:
 
 * Accounts, which can submit transactions to the network.
-* Nodes, which can participate in the network.
-* Admins, which are accounts that can update the accounts and nodes whitelists.
+* Nodes, which can join the network.
+* Admins, which are accounts able to update the accounts and nodes whitelists.
 
 !!! caution "Using account permissioning and privacy"
 
@@ -59,7 +59,7 @@ Permissioning implements three whitelists:
 
 ## Bootnodes
 
-When a node is added to the network, the node connects to the bootnodes until it synchronizes to
+When a node joins the network, the node connects to the bootnodes until it synchronizes to
 the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
 Rules smart contracts apply the permissioning rules.
 

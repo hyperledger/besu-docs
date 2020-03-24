@@ -1477,7 +1477,7 @@ default is true.
 
     To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to
     any public network, and especially when using [`--sync-mode`](#sync-mode) and
-    [`--fast-sync-min-peers`](#--fast-sync-min-peers).
+    [`--fast-sync-min-peers`](#fast-sync-min-peers).
 
 ### remote-connections-max-percentage
 
@@ -2065,11 +2065,16 @@ BESU_SYNC_MODE=FAST
 sync-mode="FAST"
 ```
 
-The synchronization mode. The default is `FULL`.
+The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
+
+!!! note
+
+    If fast synchronization fails, usually because the node can't find enough valid peers, fast
+    synchronization restarts after a short delay.
 
 !!! important
 
-    Using Fast Sync with
+    Using fast synchronization with
     [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### target-gas-limit

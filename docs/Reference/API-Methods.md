@@ -1184,7 +1184,7 @@ Returns the value of a storage position at a specified address.
 ### eth_getTransactionCount
 
 Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
-account nonce.
+next account nonce not used by any pending transactions.
 
 #### Parameters
 
@@ -3732,8 +3732,7 @@ None
 
 #### Returns
 
-`result` :  `boolean` - `true` if Besu received the mining start request successfully; otherwise
-returns an error.
+`result` :  `boolean` - `true` if mining starts, or if the node was already mining.
 
 !!! example
 
@@ -3763,8 +3762,7 @@ None
 
 #### Returns
 
-`result` :  `boolean` - `true` if Besu received the mining stop request successfully; otherwise
-returns an error.
+`result` :  `boolean` - `true` if mining stops, or if the node was not mining.
 
 !!! example
 

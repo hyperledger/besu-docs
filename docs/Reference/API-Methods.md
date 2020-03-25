@@ -4384,12 +4384,13 @@ None
 
 ### trace_replayBlockTransactions
 
-Provides transaction processing tracing.
+Provides transaction processing tracing per block.
 
 !!! important
 
     Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-    requested block must be within the last 1024 blocks.
+    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
 
 #### Parameters
 
@@ -4398,7 +4399,7 @@ Provides transaction processing tracing.
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `array of strings` - Tracing options are
-[`trace`, `vmTrace`, and `stateDiff`](../Concepts/Transactions/Trace-Types.md). Specify any
+[`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
 combination of the three options including none of them.
 
 #### Returns
@@ -4485,6 +4486,222 @@ one object per transaction, in transaction execution order.
           },
           {...}
         ]
+    }
+    ```
+
+### trace_block
+
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified block.
+
+!!! important
+
+    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
+
+#### Parameters
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result` - Array of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in transaction execution order.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "action": {
+              "callType": "call",
+              "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+              "gas": "0xffad82",
+              "input": "0x0000000000000000000000000000000000000999",
+              "to": "0x0020000000000000000000000000000000000000",
+              "value": "0x0"
+            },
+            "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+            "blockNumber": 6,
+            "result": {
+              "gasUsed": "0x7536",
+              "output": "0x"
+            },
+            "subtraces": 1,
+            "traceAddress": [],
+            "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
+            "transactionPosition": 0,
+            "type": "call"
+          },
+          {
+            "action": {
+              "address": "0x0020000000000000000000000000000000000000",
+              "balance": "0x300",
+              "refundAddress": "0x0000000000000999000000000000000000000000"
+            },
+            "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+            "blockNumber": 6,
+            "result": null,
+            "subtraces": 0,
+            "traceAddress": [
+              0
+            ],
+            "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
+            "transactionPosition": 0,
+            "type": "suicide"
+          },
+          {
+            "action": {
+              "author": "0x0000000000000000000000000000000000000000",
+              "rewardType": "block",
+              "value": "0x1bc16d674ec80000"
+            },
+            "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+            "blockNumber": 6,
+            "result": null,
+            "subtraces": 0,
+            "traceAddress": [],
+            "transactionHash": null,
+            "transactionPosition": null,
+            "type": "reward"
+          }
+        ],
+        "id": 1
+      }
+    ```
+
+### trace_transaction
+
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transction.
+
+!!! important
+
+    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    requested transaction must be contained in a blocked within
+    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+
+#### Parameters
+
+`data` : Transaction hash
+
+#### Returns
+
+`result` - Array of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in the order called by the transaction.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "action": {
+              "creationMethod": "create",
+              "from": "0x627306090abab3a6e1400e9345bc60c78a8bef57",
+              "gas": "0xff2e26",
+              "init": "0x60006000600060006000732c2b9c9a4a25e24b174f26114e8926a9f2128fe45af2600060006000600060007300a00000000000000000000000000000000000005af2",
+              "value": "0x0"
+            },
+            "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+            "blockNumber": 19,
+            "result": {
+              "address": "0x30753e4a8aad7f8597332e813735def5dd395028",
+              "code": "0x",
+              "gasUsed": "0x1c39"
+            },
+            "subtraces": 2,
+            "traceAddress": [],
+            "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+            "transactionPosition": 3,
+            "type": "create"
+          },
+          {
+            "action": {
+              "callType": "callcode",
+              "from": "0x30753e4a8aad7f8597332e813735def5dd395028",
+              "gas": "0xfb2ea9",
+              "input": "0x",
+              "to": "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4",
+              "value": "0x0"
+            },
+            "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+            "blockNumber": 19,
+            "result": {
+              "gasUsed": "0x138e",
+              "output": "0x"
+            },
+            "subtraces": 1,
+            "traceAddress": [
+              0
+            ],
+            "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+            "transactionPosition": 3,
+            "type": "call"
+          },
+          {
+            "action": {
+              "address": "0x30753e4a8aad7f8597332e813735def5dd395028",
+              "balance": "0x0",
+              "refundAddress": "0x0000000000000000000000000000000000000000"
+            },
+            "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+            "blockNumber": 19,
+            "result": null,
+            "subtraces": 0,
+            "traceAddress": [
+              0,
+              0
+            ],
+            "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+            "transactionPosition": 3,
+            "type": "suicide"
+          },
+          {
+            "action": {
+              "callType": "callcode",
+              "from": "0x30753e4a8aad7f8597332e813735def5dd395028",
+              "gas": "0xfb18a5",
+              "input": "0x",
+              "to": "0x00a0000000000000000000000000000000000000",
+              "value": "0x0"
+            },
+            "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+            "blockNumber": 19,
+            "result": {
+              "gasUsed": "0x30b",
+              "output": "0x"
+            },
+            "subtraces": 0,
+            "traceAddress": [
+              1
+            ],
+            "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+            "transactionPosition": 3,
+            "type": "call"
+          }
+        ],
+        "id": 1
     }
     ```
 

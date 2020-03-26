@@ -33,7 +33,7 @@ Use account permissioning to:
 * Blacklist broken contracts
 * Restrict the actions an account can perform.
 
-![Account Permissioning](../../images/account-permissioning.png)
+![Account Permissioning](../../images/enterprise-ethereum-account-permissioning.png)
 
 ## Specifying permissioning
 

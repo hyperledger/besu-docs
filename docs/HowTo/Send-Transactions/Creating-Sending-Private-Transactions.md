@@ -6,7 +6,7 @@ description: Creating and sending private transactions with Hyperledger Besu
 
 Create and send [private transactions](../../Concepts/Privacy/Privacy-Overview.md) using:
 
-* [web3.js-eea client library](../Interact/Client-Libraries/eeajs.md) or
+* [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) or
   [web3j client library](https://github.com/web3j/web3j)
 * [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/)
 * [`eea_sendRawTransaction`](#eea_sendrawtransaction)
@@ -164,7 +164,7 @@ private transactions to create a contract.
 !!! tip
 
     The `example` directory in the
-    [web3.js-eea client library](../Interact/Client-Libraries/eeajs.md) contains examples of
+    [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) contains examples of
     signing and encoding private transactions.
 
 <!-- links ---->

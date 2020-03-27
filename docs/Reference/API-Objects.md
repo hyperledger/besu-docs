@@ -79,7 +79,7 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **gas**              | Quantity                          | Gas provided by the sender.                                                     |
 | **gasPrice**         | Quantity                          | Gas price, in Wei, provided by the sender.                                      |
 | **hash**             | Data, 32&nbsp;bytes               | Hash of the transaction.                                                        |
-| **input**            | Data                              | Data to create or invoke a contract.                                            |
+| **input**            | Data                              | The data to create or invoke a contract.                                            |
 | **nonce**            | Quantity                          | Number of transactions made by the sender to the privacy group before this one. |
 | **to**               | Data, 20&nbsp;bytes               | `null` if a contract creation transaction; otherwise, the contract address.     |
 | **value**            | Quantity                          | `null` because private transactions cannot transfer Ether.                      |
@@ -208,9 +208,9 @@ Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktr
 | Key                                  | Type                         | Value                                                                                       |
 |--------------------------------------|:----------------------------:|---------------------------------------------------------------------------------------------|
 | **output**                           | Boolean                      | Transaction result. 1 for success and 0 for failure.                                        |
-| **stateDiff**                        | Object                       | [State changes in the requested block.](../Concepts/Transactions/Trace-Types.md#statediff). |
-| **trace**                            | Array                        | [Ordered list of calls to other contracts.](../Concepts/Transactions/Trace-Types.md#trace). |
-| **vmTrace**                          | Object                       | [Ordered list of EVM actions.](../Concepts/Transactions/Trace-Types.md#vmtrace).            |
+| **stateDiff**                        | Object                       | [State changes in the requested block.](Trace-Types.md#statediff). |
+| **trace**                            | Array                        | [Ordered list of calls to other contracts.](Trace-Types.md#trace). |
+| **vmTrace**                          | Object                       | [Ordered list of EVM actions.](Trace-Types.md#vmtrace).            |
 | **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction.                                                           |
 
 ## Private transaction receipt object

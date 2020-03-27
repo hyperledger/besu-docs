@@ -4,8 +4,8 @@ description: Besu permissioning feature
 
 # Permissioning
 
-A permissioned network permits only specified nodes and accounts to participate by enabling
-node permissioning and account permissioning on the network.
+A permissioned network enables node permissioning and account permissioning, allowing only
+specified nodes and accounts to access the network.
 
 !!! important "Permissioning is not Privacy"
 
@@ -33,7 +33,7 @@ Use account permissioning to:
 * Blacklist broken contracts
 * Restrict the actions an account can perform.
 
-![Account Permissioning](../../images/account-permissioning.png)
+![Account Permissioning](../../images/enterprise-ethereum-account-permissioning.png)
 
 ## Specifying permissioning
 

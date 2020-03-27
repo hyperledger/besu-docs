@@ -12,7 +12,7 @@ You can use the [Block Explorer](Private-Network-Example.md#block-explorer), mak
 [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
 [create transactions using Metamask] as described in the
 [private network example](Private-Network-Example.md). This tutorial describes how to use the
-examples provided in the EEAJS library to
+examples provided in the web3js-eea library to
 [create and send private transactions](#send-private-transactions-and-read-values).
 
 !!! important
@@ -48,15 +48,15 @@ git clone https://github.com/PegaSysEng/besu-sample-networks.git
 
     To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
 
-## Clone EEAJS libraries
+## Clone web3js-eea libraries
 
-Clone the `PegaSysEng/eeajs` library:
+Clone the `PegaSysEng/web3js-eea` library:
 
 ```bash
-git clone https://github.com/PegaSysEng/eeajs.git
+git clone https://github.com/PegaSysEng/web3js-eea.git
 ```
 
-In the `eeajs` directory:
+In the `web3js-eea` directory:
 
 ```bash
 npm install
@@ -102,7 +102,7 @@ Web block explorer address          : http://localhost:25000   *
 The Event Emitter script deploys a contract with a privacy group of Node1 and Node2. That is, the
 other nodes cannot access the contract. After deploying the contract, Event Emitter stores a value.
 
-In the `eeajs` directory, run `eventEmitter.js`:
+In the `web3js-eea` directory, run `eventEmitter.js`:
 
 ```bash
 node example/eventEmitter.js

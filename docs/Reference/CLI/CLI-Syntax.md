@@ -1415,6 +1415,69 @@ The URL on which the
 [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
 running.
 
+### pruning-block-confirmations
+
+!!! caution
+
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
+    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+
+    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+
+```bash tab="Syntax"
+--pruning-block-confirmations=<INTEGER>
+```
+
+```bash tab="Command Line"
+--pruning-block-confirmations=5
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_BLOCK_CONFIRMATIONS=5
+```
+
+```bash tab="Configuration File"
+pruning-block-confirmations=5
+```
+
+The minimum number of confirmations on a block before marking of newly-stored or in-use state trie
+nodes that cannot be pruned. The default is 10.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
+    supported.
+
+### pruning-blocks-retained
+
+!!! caution
+
+    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
+    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
+
+    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+
+```bash tab="Syntax"
+--pruning-blocks-retained=<INTEGER>
+```
+
+```bash tab="Command Line"
+--pruning-blocks-retained=10000
+```
+
+```bash tab="Environment Variable"
+BESU_PRUNING_BLOCKS_RETAINED=10000
+```
+
+```bash tab="Configuration File"
+pruning-blocks-retained=10000
+```
+
+The minimum number of recent blocks to keep the entire world state for. The default is 1024.
+
+!!! important
+    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
+    supported.
+
 ### pruning-enabled
 
 !!! caution
@@ -1477,7 +1540,7 @@ default is true.
 
     To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to
     any public network, and especially when using [`--sync-mode`](#sync-mode) and
-    [`--fast-sync-min-peers`](#--fast-sync-min-peers).
+    [`--fast-sync-min-peers`](#fast-sync-min-peers).
 
 ### remote-connections-max-percentage
 
@@ -2065,11 +2128,16 @@ BESU_SYNC_MODE=FAST
 sync-mode="FAST"
 ```
 
-The synchronization mode. The default is `FULL`.
+The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
+
+!!! note
+
+    If fast synchronization fails, usually because the node can't find enough valid peers, fast
+    synchronization restarts after a short delay.
 
 !!! important
 
-    Using Fast Sync with
+    Using fast synchronization with
     [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
 
 ### target-gas-limit

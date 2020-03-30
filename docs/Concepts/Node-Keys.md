@@ -1,21 +1,21 @@
 ---
-description: Besu private and public key used to identify node
+description: Private and public key, and node address used to identify nodes
 ---
 
-# Node keys
+# Node keys and node address
 
-Each node has a node key pair consisting of a node private key and a node public key.
+Each node has a private / public key pair and a node address. Besu uses the private / public key
+pair to sign and verify transactions, and the node address as an identifier for the node.
 
 ## Node private key
 
-If a `key` file does not exist in the data directory and when starting Besu the
+When starting Hyperledger Besu, if the
 [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option is not
-specified, Besu generates a node private key and writes it to the `key` file.
-Stopping and restarting Besu without deleting the `key` file causes Besu to reuse the same private
-key when restarting.
+specified and a `key` file does not exist in the data directory for the node, Besu generates a node
+private key and writes it to the `key` file.
 
-If a `key` file exists in the data directory when starting Besu, the node starts with the private
-key in the `key` file.
+If a `key` file does exist in the data directory when starting Besu, the node starts with using
+private key in the `key` file.
 
 !!!info
 
@@ -23,12 +23,20 @@ key in the `key` file.
 
 ## Node public key
 
-The node public key displays in the log after starting Besu. Use the
-[`public-key`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand to export the public key
-to a file.
+The node public key (`key.pub` in the data directory for the node) displays in the log after
+starting Besu. Also refered to as the node ID, Besu uses the node public key to generate the node
+address and forms part the enode URL for a node.
 
-The node public key is also referred to as the node ID. The node ID forms part of the enode URL of
-a node.
+You can export the node public key, either to standard output or to a specified file, using the
+[`public-key export`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.
+
+## Node address
+
+Besu generates the node address by creating a hash of the node public key and using the last 20
+bytes of the hash as the node address.
+
+You can export the node address, either to standard output or to a specified file, using the
+[`public-key export-address`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.
 
 ## Enode URL
 

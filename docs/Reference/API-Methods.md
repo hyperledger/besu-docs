@@ -1625,17 +1625,18 @@ Returns the code of the smart contract at the specified address. Compiled smart 
 
 Returns the code of the private smart contract at the specified address. Compiled smart contract code is stored as a hexadecimal value.
 
-**Parameters**
+#### Parameters
 
 `DATA` - 20-byte contract address.
 
 `QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-**Returns**
+#### Returns
 
 `result` : *DATA* - Code stored at the specified address.
 
 !!! example
+
     ```bash tab="curl HTTP"
     curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
     ```

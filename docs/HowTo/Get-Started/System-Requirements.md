@@ -5,18 +5,18 @@ description: System requirements to sync and run Besu
 
 # System requirements
 
-The system requirements for Hyperledger Besu depend on various factors:
+The system requirements for Hyperledger Besu depend on different factors, including the:
 
-* Size of the world state for the network
-* Number of transactions submitted to the network
-* [Block gas limit](../../Reference/Config-Items.md#genesis-block-parameters)
+* Size of the world state for the network.
+* Number of transactions submitted to the network.
+* [Block gas limit](../../Reference/Config-Items.md#genesis-block-parameters).
 * Number and complexity of [JSON-RPC](../Interact/APIs/Using-JSON-RPC-API.md),
   [PubSub](../Interact/APIs/RPC-PubSub.md), or [GraphQL](../Interact/APIs/GraphQL.md) queries
-  handled by the node
+  handled by the node.
 
 ## Determining system requirements
 
-To determine system requirements, monitor CPU and disk space requirements using
+To determine system requirements, check CPU and disk space requirements using
 [Prometheus](../Monitor/Metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
 [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
@@ -25,10 +25,23 @@ To determine system requirements, monitor CPU and disk space requirements using
     CPU requirements are highest when syncing to the network and typically reduce after the node is
     synchronized to the chain head.
 
-## RAM
+## Java Virtual Machine size
 
-Besu requires 4GB of RAM. For public Ethereum networks, including MainNet and testnets such as
-Ropsten, Besu requires a minimum of 8GB of RAM.
+Depending on your environment and network setup, Besu has the following minimum Java Virtual
+Machine (JVM) memory requiements. For:
+
+* Private networks, 4GB
+* MainNet and testnets, such as Ropten, 8GB.
+
+Two JVM parameters can be set to suit your memory requirements:
+
+* `-Xms<size>`, which specifies the initial Java heap size.
+* `-Xmx<size>`, which specifies the maximum Java heap size.
+
+[Set the JVM options](../Configure/Passing-JVM-Options.md) in the `BESU_OPTS` environment variable.
+
+JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
+to the chain head. Monitor your system to determine your actual JVM memory needs.
 
 ## Disk space
 
@@ -40,9 +53,9 @@ Ropsten, Besu requires a minimum of 8GB of RAM.
     If using fast sync in v1.4.0, explicitly disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the requirement, use
-[pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB of available
-disk space.
+Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the disk space required,
+use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB
+of available disk space.
 
 ## VM requirements
 

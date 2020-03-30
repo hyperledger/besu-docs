@@ -4,8 +4,8 @@ description: Hyperledger Besu consensus protocols
 
 # IBFT 1.0
 
-Besu nodes can participate (that is, submit transactions and receive blocks) in a Quorum
-[IBFT 1.0](https://github.com/ethereum/EIPs/issues/650) network, but cannot be a validator.
+Besu nodes can operate (that is, submit transactions and receive blocks) in a Quorum
+[IBFT 1.0](https://github.com/ethereum/EIPs/issues/650) network, but cannot be validators.
 
 To connect to a Quorum IBFT 1.0 network:
 

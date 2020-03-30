@@ -1,5 +1,6 @@
+---
 description: Monitoring using metrics and logging
-<!--- END of page meta data -->
+---
 
 # Monitoring
 

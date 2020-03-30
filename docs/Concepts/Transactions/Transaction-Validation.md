@@ -1,5 +1,6 @@
+---
 description: What transaction validation and when
-<!--- END of page meta data -->
+---
 
 # Validating transactions
 

@@ -19,9 +19,8 @@ Archive nodes require significantly more disk space (approximately 3TB) than ful
 
 To run a full node, enable either:
 
-* Fast synchronization using [`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)
-* Pruning using
-  [`--pruning-enabled=true`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
+* Fast synchronization using [`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)
+* Pruning using [`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
 To run an archive node, disable both fast synchronization and pruning.
 
@@ -33,9 +32,8 @@ To run an archive node, disable both fast synchronization and pruning.
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
     If using fast synchronization
-    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly
-    disable pruning using
-    [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
+    ([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly disable
+    pruning using [`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
 Pruning reduces the storage required for the world state, removing state trie nodes that are not
 required.

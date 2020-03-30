@@ -21,7 +21,7 @@ To run a full node, enable either:
 
 * Fast synchronization using [`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)
 * Pruning using
-[`--pruning-enabled=true`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
+  [`--pruning-enabled=true`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
 To run an archive node, disable both fast synchronization and pruning.
 

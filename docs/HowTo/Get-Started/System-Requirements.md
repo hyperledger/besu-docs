@@ -50,12 +50,20 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using
+    If using fast synchronization
+    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly
+    disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
-Syncing to the Ethereum Mainnet requires 3TB for a full sync. To reduce the disk space required,
-use [pruning](../../Concepts/Pruning.md). With pruning, we recommend approximately 750GB
-of available disk space.
+How you synchronize with the Ethereum MainNet and the type of node you run (either a full or an
+archive node) determines your disk space requirement.
+
+A full node, that is with [fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) or
+[pruning](../../Concepts/Pruning.md) enabled, requires approximately 750GB of disk space. An
+archive node, where fast synchronization and pruning are disabled, requires approximately 3TB.
+
+For more information about the difference between full and archive nodes, see
+[Node type and pruning](../../Concepts/Pruning.md).
 
 ## VM requirements
 

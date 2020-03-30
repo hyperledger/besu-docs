@@ -1422,7 +1422,9 @@ running.
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    [`--pruning-enabled=false`](#pruning-enabled).
 
 ```bash tab="Syntax"
 --pruning-block-confirmations=<INTEGER>
@@ -1454,7 +1456,9 @@ nodes that cannot be pruned. The default is 10.
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    [`--pruning-enabled=false`](#pruning-enabled).
 
 ```bash tab="Syntax"
 --pruning-blocks-retained=<INTEGER>
@@ -1485,7 +1489,10 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    `--pruning-enabled=false`.
+
 
 ```bash tab="Syntax"
 --pruning-enabled

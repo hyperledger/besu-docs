@@ -1493,7 +1493,6 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
     `--pruning-enabled=false`.
 
-
 ```bash tab="Syntax"
 --pruning-enabled
 ```

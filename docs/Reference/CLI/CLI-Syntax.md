@@ -2131,14 +2131,25 @@ sync-mode="FAST"
 The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
 
 !!! note
-
-    If fast synchronization fails, usually because the node can't find enough valid peers, fast
-    synchronization restarts after a short delay.
+    
+    On AWS, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435) issue causes fast sync 
+    to fail occassionally. The following error is displayed repeatedly: 
+    
+    ```
+    ...
+    EthScheduler-Services-1 (importBlock) | ERROR | PipelineChainDownloader | Chain download failed. Restarting after short delay.
+    java.util.concurrent.CompletionException: org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: block checksum mismatch:
+    ....
+    ```
+    
+    A full restart of the AWS VM is required to restart the fast sync. 
+    
 
 !!! important
 
-    Using fast synchronization with
-    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
+    Using fast sync with
+    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets 
+    is not supported.
 
 ### target-gas-limit
 

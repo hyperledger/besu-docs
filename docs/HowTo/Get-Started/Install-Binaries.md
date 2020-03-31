@@ -29,13 +29,19 @@ brew tap hyperledger/besu
 brew install hyperledger/besu/besu
 ```
 
-To upgrade an existing Besu installation:
+To upgrade an existing Besu installation using Homebrew:
 
 ```bash
 brew upgrade hyperledger/besu/besu
 ```
 
-Display Besu command line help to confirm installation:
+To display the Besu version and confirm installation:
+
+```bash
+besu --version
+```
+
+To display Besu command line help:
 
 ```bash
 besu --help

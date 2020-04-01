@@ -1,14 +1,14 @@
 ---
-description: Node type and pruning
+description: Full and archive node types
 ---
 
-# Node type and pruning
+# Full and archive node types
 
 Besu supports two node types: _full nodes_ and _archive nodes_.
 
 Full nodes have a complete history of every block and every transaction, all fully validated, and
 can serve the network with any data request. With a full node you can check balances, sign and send
-transactions and look at current Dapp data.
+transactions, and look at current Dapp data.
 
 Archive nodes have all of this and they also store the intermediary state of every account and
 contract for every block since the genesis block. With an archive node you can do everything you
@@ -17,12 +17,17 @@ do with a full node, as well as access historical state data.
 Archive nodes require significantly more disk space (approximately 3TB) than full nodes
 (approximately 750GB).
 
-To run a full node, enable either:
-
-* Fast synchronization using [`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)
-* Pruning using [`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled).
-
 To run an archive node, disable both fast synchronization and pruning.
+
+If you enable fast synchronization
+(using [`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)), pruning
+(using [`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)), or both, the
+node does not store all intermediary state and runs as a full node.
+
+## Fast sychronization
+
+Instead of starting from the genesis block and reprocessing all transactions, fast synchronization
+downloads the transaction receipts along with the blocks.
 
 ## Pruning
 

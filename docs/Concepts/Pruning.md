@@ -4,11 +4,12 @@ description: Full and archive node types
 
 # Full and archive node types
 
-Besu supports two node types: _full nodes_ and _archive nodes_.
+Besu supports two node types, commonly referred to as _full nodes_ and _archive nodes_.
 
-Full nodes have a complete history of every block and every transaction, all fully validated, and
-can serve the network with any data request. With a full node you can check balances, sign and send
-transactions, and look at current Dapp data.
+Full nodes have just the current state of the blockchain so cannot serve the network with all data
+requests (for example, the balance of an account as at an old block). Full nodes can guarantee the
+latest state for the blockchain (and some older states, but not all). You can check current
+balances, sign and send transactions, and look at current Dapp data.
 
 Archive nodes have all of this and they also store the intermediary state of every account and
 contract for every block since the genesis block. With an archive node you can do everything you
@@ -17,17 +18,26 @@ do with a full node, as well as access historical state data.
 Archive nodes require significantly more disk space (approximately 3TB) than full nodes
 (approximately 750GB).
 
-To run an archive node, disable both fast synchronization and pruning.
+To run an archive node, enable full synchronization using
+[`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode), which by default also disables
+pruning ([`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)).
 
-If you enable fast synchronization
-(using [`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)), pruning
-(using [`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)), or both, the
-node does not store all intermediary state and runs as a full node.
+To run a full node, enable fast synchronization using
+[`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode), which by default also enables
+pruning ([`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)).
 
-## Fast sychronization
+## Fast synchronization
 
-Instead of starting from the genesis block and reprocessing all transactions, fast synchronization
-downloads the transaction receipts along with the blocks.
+Instead of a full synchronization ([`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode)),
+which starts from the genesis block and reprocesses all transactions, fast synchronization
+([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) downloads the transaction receipts
+along with the blocks.
+
+!!! note
+
+    Fast synchronization enables pruning by default, but you can explicitly disable pruning
+    using [`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled). Full
+    synchronization disables pruning by default.
 
 ## Pruning
 

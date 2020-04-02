@@ -55,12 +55,13 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
     disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
-How you synchronize with the Ethereum MainNet and the type of node you run (either [a full or an
-archive node](../../Concepts/Pruning.md)) determines your disk space requirement.
+How you synchronize with the Ethereum MainNet and whether you
+[enable or disable pruning](../../Concepts/Pruning.md)) determines your disk space requirement.
 
-A full node, that is with [fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) or
-[pruning](../../Concepts/Pruning.md) enabled, requires approximately 750GB of disk space. An
-archive node, where fast synchronization and pruning are disabled, requires approximately 3TB.
+[Fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which enables
+[pruning](../../Concepts/Pruning.md) by default, requires approximately 750GB of disk space.
+[Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which disables
+[pruning](../../Concepts/Pruning.md) by default, requires approximately 3TB.
 
 ## VM requirements
 

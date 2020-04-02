@@ -2136,6 +2136,11 @@ sync-mode="FAST"
 
 The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
 
+Full synchronization disables pruning
+([`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)) by default. Fast
+synchronization enables pruning
+([`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)) by default.
+
 !!! note
 
     If fast synchronization fails, usually because the node can't find enough valid peers, fast

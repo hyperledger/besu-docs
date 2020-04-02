@@ -619,6 +619,12 @@ synchronizing:
 * `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
   highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
   the current node has no peers.
+* `pulledStates`: *quantity* - If fast synchronizing, the number of state entries fetched so far,
+  or `null` if this is not known or not relevant. If full synchronizing or fully synchronized, this
+  field is not returned.
+* `knownStates`: *quantity* - When fast synchronizing, the number of states the node knows of so
+  far, or `null` if this is not known or not relevant. If full synchronizing or fully synchronized,
+  this field is not returned.
 
 !!! example
 
@@ -637,13 +643,15 @@ synchronizing:
       "result" : {
         "startingBlock" : "0x5a0",
         "currentBlock" : "0xad9",
-        "highestBlock" : "0xad9"
+        "highestBlock" : "0xad9",
+        "pulledStates" : "0x34",
+        "knownStates" : "0x98"
       }
     }
     ```
 
     ```bash tab="curl GraphQL"
-    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
+    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
     ```
 
     ```bash tab="GraphQL"
@@ -652,6 +660,8 @@ synchronizing:
         startingBlock
         currentBlock
         highestBlock
+        pulledStates
+        knownStates
       }
     }
     ```
@@ -662,7 +672,9 @@ synchronizing:
         "syncing" : {
           "startingBlock" : 1592,
           "currentBlock" : 31988,
-          "highestBlock" : 4389714
+          "highestBlock" : 4389714,
+          "pullStates" : 52,
+          "knownStates" : 153
         }
       }
     }

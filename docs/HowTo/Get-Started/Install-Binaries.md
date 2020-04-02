@@ -1,5 +1,5 @@
 ---
-description: Install Hyperledger Besu from binary distribution
+description: Install or upgrade Hyperledger Besu from binary distribution
 ---
 
 # Install binary distribution

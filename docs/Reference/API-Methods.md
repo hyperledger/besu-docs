@@ -641,11 +641,11 @@ synchronizing:
       "jsonrpc" : "2.0",
       "id" : 51,
       "result" : {
-        "startingBlock" : "0x5a0",
-        "currentBlock" : "0xad9",
-        "highestBlock" : "0xad9",
-        "pulledStates" : "0x34",
-        "knownStates" : "0x98"
+        "startingBlock" : "0x0",
+        "currentBlock" : "0x1518",
+        "highestBlock" : "0x9567a3",
+        "pulledStates" : "0x203ca",
+        "knownStates" : "0x200636"
       }
     }
     ```
@@ -670,11 +670,11 @@ synchronizing:
     {
       "data" : {
         "syncing" : {
-          "startingBlock" : 1592,
-          "currentBlock" : 31988,
-          "highestBlock" : 4389714,
-          "pullStates" : 52,
-          "knownStates" : 153
+          "startingBlock" : 0,
+          "currentBlock" : 5400,
+          "highestBlock" : 9791395,
+          "pullStates" : 132042,
+          "knownStates" : 2098742
         }
       }
     }

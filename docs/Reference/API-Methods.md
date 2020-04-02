@@ -609,7 +609,7 @@ None
 
 #### Returns
 
-`result` : *Object|Boolean* - Object with synchronization status data or `false`, when not
+`result` : *Object|Boolean* - Object with synchronization status data or `false` if not
 synchronizing:
 
 * `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
@@ -622,7 +622,7 @@ synchronizing:
 * `pulledStates`: *quantity* - If fast synchronizing, the number of state entries fetched so far,
   or `null` if this is not known or not relevant. If full synchronizing or fully synchronized, this
   field is not returned.
-* `knownStates`: *quantity* - When fast synchronizing, the number of states the node knows of so
+* `knownStates`: *quantity* - If fast synchronizing, the number of states the node knows of so
   far, or `null` if this is not known or not relevant. If full synchronizing or fully synchronized,
   this field is not returned.
 

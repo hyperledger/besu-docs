@@ -23,9 +23,8 @@ private key in the `key` file.
 
 ## Node public key
 
-The node public key (`key.pub` in the data directory for the node) displays in the log after
-starting Besu. Also refered to as the node ID, Besu uses the node public key to generate the node
-address and forms part the enode URL for a node.
+The node public key displays in the log after starting Besu. Also refered to as the node ID, the
+node public key forms part the enode URL for a node.
 
 You can export the node public key, either to standard output or to a specified file, using the
 [`public-key export`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.

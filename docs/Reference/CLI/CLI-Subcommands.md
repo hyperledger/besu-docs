@@ -44,9 +44,9 @@ This command provides node public key related actions.
 
 !!!caution
 
-    To get the public key or address of an existing node, ensure you use the
+    To get the public key or address of a node, ensure you use the
     [`--data-path`](CLI-Syntax.md#data-path) or
-    [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option with the `public-key
+    [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option with the `public-key`
     command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when
     starting Besu.
 
@@ -64,8 +64,7 @@ besu --data-path=<node data path> public-key export
 besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
 ```
 
-Outputs the node public key to standard output or writes it to the file specified by
-`--to=<key-file>`.
+Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
 
 ### export-address
 
@@ -81,8 +80,7 @@ besu --data-path=<node data path> public-key export-address
 besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
 ```
 
-Outputs the node public key address to standard output or writes it to the specified file if
-you specify `--to=<key-file>`.
+Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
 
 ## password
 

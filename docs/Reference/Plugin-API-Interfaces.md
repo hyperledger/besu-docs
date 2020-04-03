@@ -24,7 +24,7 @@ The following table lists the interfaces providing core plugin classes.
 The following table lists interfaces providing services you can retrieve.
 
 | Interface                                                                                                                                                              | Description                                                         |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
 | [**BesuEvents**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/BesuEvents.html)                                   | Allows plugins to attach to events during Besu operation.           |
 | [**BesuConfiguration**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/BesuConfiguration.html)                     | Provides file system locations of Besu's storage.                   |
 | [**IbftQueryService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/query/IbftQueryService.html)                 | Allows query of the IBFT 2.0 aspects of the blockchain.             |

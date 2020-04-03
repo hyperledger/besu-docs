@@ -35,8 +35,8 @@ pruning ([`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabl
 
 Instead of a full synchronization ([`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode)),
 which starts from the genesis block and reprocesses all transactions, fast synchronization
-([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) downloads the transaction receipts
-along with the blocks.
+([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) downloads the block headers and
+transaction receipts, and verifies the chain of block headers from the genesis block.
 
 !!! note
 
@@ -55,8 +55,8 @@ along with the blocks.
     ([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly disable
     pruning using [`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
-Pruning reduces the storage required for the world state, removing state trie nodes that are not
-required.
+In Besu, pruning reduces the storage required by removing state trie nodes that are unreachable
+from [recent blocks](../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained).
 
 !!! Important
 

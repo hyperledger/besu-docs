@@ -1,5 +1,5 @@
 ---
-description: Install Hyperledger Besu from binary distribution
+description: Install or upgrade Hyperledger Besu from binary distribution
 ---
 
 # Install binary distribution
@@ -20,14 +20,28 @@ description: Install Hyperledger Besu from binary distribution
         `brew cask install adoptopenjdk`. Alternatively, you can manually install the
         [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-### Install using Homebrew
+### Install (or upgrade) using Homebrew
+
+To install Besu using Homebrew:
 
 ```bash
 brew tap hyperledger/besu
 brew install hyperledger/besu/besu
 ```
 
-Display Besu command line help to confirm installation:
+To upgrade an existing Besu installation using Homebrew:
+
+```bash
+brew upgrade hyperledger/besu/besu
+```
+
+To display the Besu version and confirm installation:
+
+```bash
+besu --version
+```
+
+To display Besu command line help:
 
 ```bash
 besu --help

@@ -49,7 +49,8 @@ the revert reason as an ABI-encoded string.
     The revert reason is not included in the transactions receipts root hash. Not including the
     revert reason in the transactions receipts root hash means the revert reason is only available
     to nodes that execute the transaction when importing the block. That is, the revert reason is
-    not available if using fast sync.
+    not available if using fast synchronization
+    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)).
 
 !!! example
 

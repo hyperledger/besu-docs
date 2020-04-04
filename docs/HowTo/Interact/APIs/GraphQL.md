@@ -36,8 +36,8 @@ is `http://127.0.0.1:8547/graphql`.
 ## GraphQL requests with GraphiQL App
 
 The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provides a tabbed
-interface for editing and testing GraphQL queries and mutations. GraphiQL also provides access the
-[Besu GraphQL schema] from within the app.
+interface for editing and testing GraphQL queries and mutations. GraphiQL also provides access to
+the [Besu GraphQL schema] from within the app.
 
 ![GraphiQL](../../../images/GraphiQL.png)
 

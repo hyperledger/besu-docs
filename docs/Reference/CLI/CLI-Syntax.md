@@ -1634,10 +1634,10 @@ BESU_RPC_HTTP_API=ETH,NET,WEB3
 rpc-http-api=["ETH","NET","WEB3"]
 ```
 
-A list of comma-separated APIs to enable on the HTTP JSON-RPC channel. When you use this option,
+A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
 you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
-`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, `PLUGINS`, and
-`TXPOOL`. The default is: `ETH`, `NET`, `WEB3`.
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
 
@@ -1975,10 +1975,10 @@ BESU_RPC_WS_API=ETH,NET,WEB3
 rpc-ws-api=["ETH","NET","WEB3"]
 ```
 
-A comma-separated list of APIs to enable on WebSockets channel. When you use this option, you must
-also specify the [`--rpc-ws-enabled`](#rpc-ws-enabled) option. The available API options are:
-`ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, `PLUGINS`,
-and `TXPOOL`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
+you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
 
@@ -2196,6 +2196,26 @@ tx-pool-max-size="2000"
 ```
 
 The maximum number of transactions kept in the transaction pool. The default is 4096.
+
+### tx-pool-hashes-max-size
+
+```bash tab="Syntax"
+--tx-pool-hashes-max-size=<INTEGER>
+```
+
+```bash tab="Command Line"
+--tx-pool-hashes-max-size=2000
+```
+
+```bash tab="Environment Variable"
+BESU_TX_POOL_HASHES_MAX_SIZE=2000
+```
+
+```bash tab="Configuration File"
+tx-pool-hashes-max-size="2000"
+```
+
+The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
 ### tx-pool-retention-hours
 

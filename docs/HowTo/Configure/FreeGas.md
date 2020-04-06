@@ -24,8 +24,8 @@ to limit resource use.
 !!! note
 
     Networks implementing the smart contract outlined in
-	[EIP-1820](https://eips.ethereum.org/EIPS/eip-1820) must transfer a small amount of gas (0.08
-	ether) to the single-use deployment account described in the EIP.
+    [EIP-1820](https://eips.ethereum.org/EIPS/eip-1820) must transfer a small amount of gas (0.08
+    ether) to the single-use deployment account described in the EIP.
 
 In a free gas network, transactions still use gas but the gas price is zero, meaning the
 transaction cost is zero. Transaction cost = gas used * 0 (the gas price).

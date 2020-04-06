@@ -43,17 +43,19 @@ distributes the private transaction to the participating nodes but does not sign
 performs steps 1 to 5 of
 [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
 
-When using
+If using
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
-instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction), send
-the enclave key returned by
-[`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
-as the `data` in a [public Ethereum transaction](Transactions.md). That is, you sign and submit the
-privacy marker transaction yourself.
+instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction), use
+the value returned by
+[`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
+which is the enclave key to the private transaction in [Orion](https://docs.orion.pegasys.tech/),
+in the `data` field of a call to
+[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). 
 
-Signing and submitting the [privacy marker transaction] instead of having it signed by the Besu
-node when processing the private transaction enables greater control over the signing of the
-[privacy marker transaction].
+By using the [public Ethereum transaction](Transactions.md),
+[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
+and submitting the [privacy marker transaction] yourself instead of having it signed by the Besu
+node, giving you greater control over the [privacy marker transaction].
 
 !!! warning
 
@@ -73,7 +75,7 @@ node when processing the private transaction enables greater control over the si
     }
     ```
 
-    Enclave key is returned by `priv_distributeRawTransaction`:
+    Enclave key to the private transaction in Orion returned by `priv_distributeRawTransaction`:
 
     ```json
     {
@@ -83,7 +85,7 @@ node when processing the private transaction enables greater control over the si
     }
     ```
 
-    Send privacy marker transaction using `eth_sendTransaction` with EthSinger:
+    Send the enclave key in the `data` field of `eth_sendTransaction`:
 
     ```json
     {

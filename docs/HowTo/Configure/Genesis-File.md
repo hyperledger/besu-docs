@@ -11,7 +11,8 @@ For Ethereum MainNet and public testnets (for example, Rinkeby) the genesis conf
 definition is in Besu and used when specifying a public network using the
 [`--network`](../../Reference/CLI/CLI-Syntax.md#network) command line option.
 
-For private networks, create a JSON genesis file and specify the genesis file using the
+For private networks, which you might want to [configure for free gas](FreeGas.md) for example,
+create a JSON genesis file and then specify the genesis file using the
 [`--genesis-file`](../../Reference/CLI/CLI-Syntax.md#genesis-file) command line option.
 
 The genesis file specifies the [network-wide settings](../../Reference/Config-Items.md) so all

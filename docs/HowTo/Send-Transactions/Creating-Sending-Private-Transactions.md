@@ -50,7 +50,7 @@ the value returned by
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
 which is the enclave key to the private transaction in [Orion](https://docs.orion.pegasys.tech/),
 in the `data` field of a call to
-[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). 
+[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction).
 
 By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing

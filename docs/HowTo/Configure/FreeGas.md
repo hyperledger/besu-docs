@@ -12,14 +12,20 @@ The miner (or validator in PoA networks) that includes the transaction in a bloc
 transaction cost.
 
 In many private networks, network participants run the validators and do not require gas as an
-incentive. Networks no require gas as an incentive usually configure the gas price to be zero (that
-is, make the gas free). Some private networks might allocate Ether and use a non-zero gas price to
-limit resource use.
+incentive. Networks that don't require gas as an incentive usually configure the gas price to be
+zero (that is, free gas). Some private networks might allocate Ether and use a non-zero gas price
+to limit resource use.
 
 !!! tip
 
     We use the term _free gas network_ to refer to a network with a gas price of zero. A network
     with a gas price of zero is also known as a _zero gas network_ or _no gas network_.
+
+!!! note
+
+    Networks implementing the smart contract outlined in
+	[EIP-1820](https://eips.ethereum.org/EIPS/eip-1820) must transfer a small amount of gas (0.08
+	ether) to the single-use deployment account described in the EIP.
 
 In a free gas network, transactions still use gas but the gas price is zero, meaning the
 transaction cost is zero. Transaction cost = gas used * 0 (the gas price).

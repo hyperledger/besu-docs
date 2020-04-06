@@ -9,9 +9,10 @@ Elastic Stack (also known as ELK) is a common open-source log management platfor
 [Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) provides example
 implementations using Elastic Stack for log management.
 
-The [Filebeat] and [Metricbeat] configurations ingest the logs and output them to Redis for
-storage. Redis provides a highly available mechanism enabling log storage by any of the Elastic
-Beats and pulled by Logstash as required.
+The [Filebeat] configuration ingests logs and the [Metricbeat] configuration collects metrics from
+the nodes at regular defined intervals and outputs them to Redis for storage. Redis provides a
+highly available mechanism enabling storage by any of the Elastic Beats and pulled by Logstash
+as required.
 
 The [pipeline configuration] defines the JSON format used for Besu logs and automatically picks up
 any new log fields.

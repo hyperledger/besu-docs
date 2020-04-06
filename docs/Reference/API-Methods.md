@@ -609,7 +609,7 @@ None
 
 #### Returns
 
-`result` : *Object|Boolean* - Object with synchronization status data or `false`, when not
+`result` : *Object|Boolean* - Object with synchronization status data or `false` if not
 synchronizing:
 
 * `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
@@ -619,6 +619,12 @@ synchronizing:
 * `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
   highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
   the current node has no peers.
+* `pulledStates`: *quantity* - If fast synchronizing, the number of state entries fetched so far,
+  or `null` if this is not known or not relevant. If full synchronizing or fully synchronized, this
+  field is not returned.
+* `knownStates`: *quantity* - If fast synchronizing, the number of states the node knows of so
+  far, or `null` if this is not known or not relevant. If full synchronizing or fully synchronized,
+  this field is not returned.
 
 !!! example
 
@@ -635,15 +641,17 @@ synchronizing:
       "jsonrpc" : "2.0",
       "id" : 51,
       "result" : {
-        "startingBlock" : "0x5a0",
-        "currentBlock" : "0xad9",
-        "highestBlock" : "0xad9"
+        "startingBlock" : "0x0",
+        "currentBlock" : "0x1518",
+        "highestBlock" : "0x9567a3",
+        "pulledStates" : "0x203ca",
+        "knownStates" : "0x200636"
       }
     }
     ```
 
     ```bash tab="curl GraphQL"
-    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
+    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
     ```
 
     ```bash tab="GraphQL"
@@ -652,6 +660,8 @@ synchronizing:
         startingBlock
         currentBlock
         highestBlock
+        pulledStates
+        knownStates
       }
     }
     ```
@@ -660,9 +670,11 @@ synchronizing:
     {
       "data" : {
         "syncing" : {
-          "startingBlock" : 1592,
-          "currentBlock" : 31988,
-          "highestBlock" : 4389714
+          "startingBlock" : 0,
+          "currentBlock" : 5400,
+          "highestBlock" : 9791395,
+          "pullStates" : 132042,
+          "knownStates" : 2098742
         }
       }
     }

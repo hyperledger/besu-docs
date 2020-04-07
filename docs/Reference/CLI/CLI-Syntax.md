@@ -2131,24 +2131,24 @@ sync-mode="FAST"
 The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
 
 !!! note
-    
+
     When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
-    issue causes fast sync to fail occassionally. The following error is displayed repeatedly: 
-    
+    issue causes fast sync to fail occassionally. The following error is displayed repeatedly:
+
     ```
     ...
     EthScheduler-Services-1 (importBlock) | ERROR | PipelineChainDownloader | Chain download failed. Restarting after short delay.
     java.util.concurrent.CompletionException: org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: block checksum mismatch:
     ....
     ```
-    
-    The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to 
+
+    The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to
     restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143). 
 
 !!! important
 
     Using fast sync with
-    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets 
+    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets
     is not supported.
 
 ### target-gas-limit

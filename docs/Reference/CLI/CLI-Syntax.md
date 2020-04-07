@@ -2152,7 +2152,7 @@ Fast synchronization enables pruning ([`--pruning-enabled=true`](#pruning-enable
     ```
 
     The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to
-    restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143). 
+    restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143).
 
 !!! important
 

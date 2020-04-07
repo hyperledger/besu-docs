@@ -2132,8 +2132,8 @@ The synchronization mode. The options are `FAST` and `FULL`. The default is `FUL
 
 !!! note
     
-    On AWS, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435) issue causes fast sync 
-    to fail occassionally. The following error is displayed repeatedly: 
+    When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
+    issue causes fast sync to fail occassionally. The following error is displayed repeatedly: 
     
     ```
     ...
@@ -2142,8 +2142,8 @@ The synchronization mode. The options are `FAST` and `FULL`. The default is `FUL
     ....
     ```
     
-    A full restart of the AWS VM is required to restart the fast sync. 
-    
+    The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to 
+    restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143). 
 
 !!! important
 

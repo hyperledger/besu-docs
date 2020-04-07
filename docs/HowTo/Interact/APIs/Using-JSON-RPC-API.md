@@ -113,9 +113,10 @@ curl -v 'http://localhost:8545/liveness'
 
 Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
-To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, and
-`TXPOOL` API methods, use the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api)
-or [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`,
+`TRACE`, and `TXPOOL` API methods, use the
+[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ## Block parameter
 

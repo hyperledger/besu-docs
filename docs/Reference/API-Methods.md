@@ -609,7 +609,7 @@ None
 
 #### Returns
 
-`result` : *Object|Boolean* - Object with synchronization status data or `false`, when not
+`result` : *Object|Boolean* - Object with synchronization status data or `false` if not
 synchronizing:
 
 * `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
@@ -619,6 +619,12 @@ synchronizing:
 * `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
   highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
   the current node has no peers.
+* `pulledStates`: *quantity* - If fast synchronizing, the number of state entries fetched so far,
+  or `null` if this is not known or not relevant. If full synchronizing or fully synchronized, this
+  field is not returned.
+* `knownStates`: *quantity* - If fast synchronizing, the number of states the node knows of so
+  far, or `null` if this is not known or not relevant. If full synchronizing or fully synchronized,
+  this field is not returned.
 
 !!! example
 
@@ -635,15 +641,17 @@ synchronizing:
       "jsonrpc" : "2.0",
       "id" : 51,
       "result" : {
-        "startingBlock" : "0x5a0",
-        "currentBlock" : "0xad9",
-        "highestBlock" : "0xad9"
+        "startingBlock" : "0x0",
+        "currentBlock" : "0x1518",
+        "highestBlock" : "0x9567a3",
+        "pulledStates" : "0x203ca",
+        "knownStates" : "0x200636"
       }
     }
     ```
 
     ```bash tab="curl GraphQL"
-    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
+    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
     ```
 
     ```bash tab="GraphQL"
@@ -652,6 +660,8 @@ synchronizing:
         startingBlock
         currentBlock
         highestBlock
+        pulledStates
+        knownStates
       }
     }
     ```
@@ -660,9 +670,11 @@ synchronizing:
     {
       "data" : {
         "syncing" : {
-          "startingBlock" : 1592,
-          "currentBlock" : 31988,
-          "highestBlock" : 4389714
+          "startingBlock" : 0,
+          "currentBlock" : 5400,
+          "highestBlock" : 9791395,
+          "pullStates" : 132042,
+          "knownStates" : 2098742
         }
       }
     }
@@ -1676,6 +1688,60 @@ contract code as a hexadecimal value.
 
     ```bash tab="wscat WS"
     {"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 53,
+        "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
+    }
+    ```
+
+    ```bash tab="curl GraphQL"
+    curl -X POST -H "Content-Type: application/json" --data '{"query": "{account(address: \"0xa50a51c09a5c451c52bb714527e1974b686d8e77\"){ code }}"}' http://localhost:8547/graphql
+    ```
+
+    ```bash tab="GraphQL"
+    {
+      account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
+        code
+      }
+    }
+    ```
+
+    ```bash tab="GraphQL result"
+    {
+      "data" : {
+        "account" : {
+          "code" : "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
+        }
+      }
+    }
+    ```
+
+### priv_getCode
+
+Returns the code of the private smart contract at the specified address. Compiled smart contract code is stored as a hexadecimal value.
+
+#### Parameters
+
+`DATA` - 20-byte contract address.
+
+`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result` : *DATA* - Code stored at the specified address.
+
+!!! example
+
+    ```bash tab="curl HTTP"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS"
+    {"jsonrpc":"2.0","method":"priv_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
     ```
 
     ```json tab="JSON result"

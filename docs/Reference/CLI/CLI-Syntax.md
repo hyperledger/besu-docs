@@ -1422,7 +1422,9 @@ running.
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    [`--pruning-enabled=false`](#pruning-enabled).
 
 ```bash tab="Syntax"
 --pruning-block-confirmations=<INTEGER>
@@ -1454,7 +1456,9 @@ nodes that cannot be pruned. The default is 10.
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    [`--pruning-enabled=false`](#pruning-enabled).
 
 ```bash tab="Syntax"
 --pruning-blocks-retained=<INTEGER>
@@ -1485,7 +1489,9 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
-    If using fast sync in v1.4.0, explicitly disable pruning using `--pruning-enabled=false`.
+    If using fast synchronization
+    ([`--sync-mode=FAST`](#sync-mode)) in v1.4.0, explicitly disable pruning using
+    `--pruning-enabled=false`.
 
 ```bash tab="Syntax"
 --pruning-enabled
@@ -1628,10 +1634,10 @@ BESU_RPC_HTTP_API=ETH,NET,WEB3
 rpc-http-api=["ETH","NET","WEB3"]
 ```
 
-A list of comma-separated APIs to enable on the HTTP JSON-RPC channel. When you use this option,
+A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
 you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
-`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, `PLUGINS`, and
-`TXPOOL`. The default is: `ETH`, `NET`, `WEB3`.
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
 
@@ -1969,10 +1975,10 @@ BESU_RPC_WS_API=ETH,NET,WEB3
 rpc-ws-api=["ETH","NET","WEB3"]
 ```
 
-A comma-separated list of APIs to enable on WebSockets channel. When you use this option, you must
-also specify the [`--rpc-ws-enabled`](#rpc-ws-enabled) option. The available API options are:
-`ADMIN`,`ETH`, `NET`, `WEB3`, `CLIQUE`, `IBFT`, `PERM`, `DEBUG`, `MINER`, `EEA`, `PRIV`, `PLUGINS`,
-and `TXPOOL`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
+you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
 
@@ -2130,6 +2136,9 @@ sync-mode="FAST"
 
 The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
 
+Full synchronization disables pruning ([`--pruning-enabled=false`](#pruning-enabled)) by default.
+Fast synchronization enables pruning ([`--pruning-enabled=true`](#pruning-enabled)) by default.
+
 !!! note
 
     When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
@@ -2198,6 +2207,26 @@ tx-pool-max-size="2000"
 ```
 
 The maximum number of transactions kept in the transaction pool. The default is 4096.
+
+### tx-pool-hashes-max-size
+
+```bash tab="Syntax"
+--tx-pool-hashes-max-size=<INTEGER>
+```
+
+```bash tab="Command Line"
+--tx-pool-hashes-max-size=2000
+```
+
+```bash tab="Environment Variable"
+BESU_TX_POOL_HASHES_MAX_SIZE=2000
+```
+
+```bash tab="Configuration File"
+tx-pool-hashes-max-size="2000"
+```
+
+The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
 ### tx-pool-retention-hours
 

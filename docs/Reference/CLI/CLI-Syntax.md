@@ -2141,13 +2141,24 @@ Fast synchronization enables pruning ([`--pruning-enabled=true`](#pruning-enable
 
 !!! note
 
-    If fast synchronization fails, usually because the node can't find enough valid peers, fast
-    synchronization restarts after a short delay.
+    When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
+    issue causes fast sync to fail occassionally. The following error is displayed repeatedly:
+
+    ```
+    ...
+    EthScheduler-Services-1 (importBlock) | ERROR | PipelineChainDownloader | Chain download failed. Restarting after short delay.
+    java.util.concurrent.CompletionException: org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: block checksum mismatch:
+    ....
+    ```
+
+    The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to
+    restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143).
 
 !!! important
 
-    Using fast synchronization with
-    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not supported.
+    Using fast sync with
+    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets
+    is not supported.
 
 ### target-gas-limit
 

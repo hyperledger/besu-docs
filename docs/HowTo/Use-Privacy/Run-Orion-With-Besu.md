@@ -11,8 +11,7 @@ Hyperledger Besu.
 
 ## High availability
 
-Privacy requires
-[Orion to be highly available](https://docs.orion.pegasys.tech/en/latest/HowTo/High-Availability/).
+Privacy requires you to [configure Orion for high availability].
 
 To successfully distribute a private transaction, all private transaction participants must be
 online. If any participants are offline when submitting the private transaction, the transaction is
@@ -32,3 +31,6 @@ attempts to process the privacy marker transaction until Orion is available agai
 For production systems, we recommend running Besu and Orion in separate instances. If running Besu
 and Orion in the same instance, restrict the amount of memory used by each JVM to ensure each has
 enough memory.
+
+<!-- Links -->
+[configure Orion for high availability]: https://docs.orion.pegasys.tech/en/latest/HowTo/High-Availability/

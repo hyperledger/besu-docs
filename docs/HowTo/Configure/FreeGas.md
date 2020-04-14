@@ -12,14 +12,20 @@ The miner (or validator in PoA networks) that includes the transaction in a bloc
 transaction cost.
 
 In many private networks, network participants run the validators and do not require gas as an
-incentive. Networks no require gas as an incentive usually configure the gas price to be zero (that
-is, make the gas free). Some private networks might allocate Ether and use a non-zero gas price to
-limit resource use.
+incentive. Networks that don't require gas as an incentive usually configure the gas price to be
+zero (that is, free gas). Some private networks might allocate Ether and use a non-zero gas price
+to limit resource use.
 
 !!! tip
 
     We use the term _free gas network_ to refer to a network with a gas price of zero. A network
     with a gas price of zero is also known as a _zero gas network_ or _no gas network_.
+
+!!! note
+
+    Some pre-crafted transactions require the deployment account to have gas available. For
+    example, the transaction that creates the smart contract in
+    [EIP-1820](https://eips.ethereum.org/EIPS/eip-1820).
 
 In a free gas network, transactions still use gas but the gas price is zero, meaning the
 transaction cost is zero. Transaction cost = gas used * 0 (the gas price).
@@ -81,7 +87,7 @@ min-gas-price=0
 
 ## Configuring free gas in Truffle
 
-If using Truffle to develop on your free gas network, you also need to configure free gass in
+If using Truffle to develop on your free gas network, you also need to configure free gas in
 Truffle.
 
 Like setting block and contract size limits to their maximum values for Besu, set the transaction

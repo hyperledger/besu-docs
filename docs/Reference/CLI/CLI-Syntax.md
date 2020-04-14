@@ -55,6 +55,9 @@ Enables or disables automatic log bloom caching. APIs such as
 [`eth_getFilterLogs`](../API-Methods.md#eth_getfilterlogs) use the cache for improved performance.
 The default is `true`.
 
+If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu
+performs an uncached query for logs not yet written to the cache.
+
 Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms
 for a large number of blocks, you might want to disable automatic log bloom caching.
 

@@ -38,7 +38,7 @@ private transaction to the participating nodes, and signs and submits the
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 distributes the private transaction to the participating nodes but does not sign and submit the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).That is,
+[privacy marker transaction]. That is,
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 performs steps 1 to 5 of
 [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
@@ -54,8 +54,9 @@ in the `data` field of a call to
 
 By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
-and submitting the [privacy marker transaction] yourself instead of having it signed by the Besu
-node, giving you greater control over the [privacy marker transaction].
+and submitting the
+[privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
+greater control over the [privacy marker transaction].
 
 !!! warning
 
@@ -101,7 +102,7 @@ node, giving you greater control over the [privacy marker transaction].
     }
     ```
 
-## Private transaction nonce
+## Private transaction nonces
 
 Besu maintains separate private states for each
 [privacy group](../../Concepts/Privacy/Privacy-Groups.md) so the nonce for an account is specific
@@ -112,8 +113,13 @@ nonce for account A for privacy group AB. Use
 the nonce for an account for the specified privacy group.
 
 !!! note
-    If sending more than 1 transaction for mining in the same block (that is, you are not waiting
+    If sending more than one transaction for mining in the same block (that is, you are not waiting
     for the transaction receipt), you must calculate the private transaction nonce outside Besu.
+
+Also, because
+[private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md) involves
+two transactions, one for the private transaction and one for the [privacy marker transaction],
+each of these transactions has its own nonce.
 
 ## EEA-compliant or Besu-extended Privacy
 

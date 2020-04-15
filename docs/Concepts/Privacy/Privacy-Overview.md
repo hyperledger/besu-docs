@@ -44,7 +44,7 @@ In v1.4, using private transactions in a network using a consensus mechanism whe
 (that is, PoW algorithms or Clique) is an early access feature. For example, using private
 transactions on Ropsten.
 
-Do not use private transctions in production environments using consensus mechanisms where forks
+Do not use private transactions in production environments using consensus mechanisms where forks
 occur.
 
 <!-- Links -->

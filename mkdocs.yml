@@ -202,16 +202,19 @@ markdown_extensions:
     - abbr
     - pymdownx.arithmatex
     - pymdownx.betterem:
-          smart_enable: all
+        smart_enable: all
     - pymdownx.keys
     - pymdownx.details
     - pymdownx.emoji
     - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
+    # pymdownx.superfences is deprecated.
+    # It must be replaced with pymdownx.tabbed but it requires new CSS
+    # TODO with material 5 update
     - pymdownx.superfences
     - pymdownx.tasklist:
-          custom_checkbox: true
+        custom_checkbox: true
     - pymdownx.tilde
     - meta
     - smarty

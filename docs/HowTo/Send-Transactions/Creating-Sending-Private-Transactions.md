@@ -31,15 +31,14 @@ transaction is not attempted and you must resubmit the transaction.
 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
 private transaction to the participating nodes, and signs and submits the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md), as
-described in
+[privacy marker transaction], as described in
 [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
 
 ## priv_distributeRawTransaction
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 distributes the private transaction to the participating nodes but does not sign and submit the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).That is,
+[privacy marker transaction]. That is,
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 performs steps 1 to 5 of
 [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
@@ -56,15 +55,13 @@ in the `data` field of a call to
 By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
 and submitting the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) yourself
-instead of having it signed by the Besu node, giving you greater control over the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md).
+[privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
+greater control over the [privacy marker transaction].
 
 !!! warning
 
-    If the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md)
-    is not sent after distributing the private transaction, the distributed private transaction is
-    not executed and the private states are not updated.
+    If the [privacy marker transaction] is not sent after distributing the private transaction, the
+    distributed private transaction is not executed and the private states are not updated.
 
 !!! example
 
@@ -121,8 +118,7 @@ the nonce for an account for the specified privacy group.
 
 Also, because
 [private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md) involves
-two transactions, one for the [private transaction](../../Concepts/Privacy/Privacy-Overview.md) and
-one for the [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md),
+two transactions, one for the private transaction and one for the [privacy marker transaction],
 each of these transactions has its own nonce.
 
 ## EEA-compliant or Besu-extended Privacy
@@ -181,5 +177,6 @@ private transactions to create a contract.
 
 <!-- links ---->
 
+[privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
 [EEA-compliant private transaction]: ../../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
 [Besu-extended private transaction]: ../../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy

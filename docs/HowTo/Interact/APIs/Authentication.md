@@ -5,16 +5,16 @@ description: Hyperledger Besu authentication and Authorization for JSON-RPC
 # Authentication and authorization for JSON-RPC
 
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC
-methods. Hyperledger Besu verifies users using a [JWT token](https://jwt.io/introduction/).JWT
-tokens are also used in [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md) to verify
-tenant data access.
+methods. Hyperledger Besu verifies users using
+[JSON Web Tokens (JWTs)](https://jwt.io/introduction/). JWTs are also used in
+[multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 
 * [Username and password](#username-and-password-authentication)
 * [JWT public key](#jwt-public-key-authentication).
 
-Besu creates JWT tokens internally with
+Besu creates JWTs internally with
 [username and password authentication](#username-and-password-authentication), and externally with
 [JWT public key authentication](#jwt-public-key-authentication).
 
@@ -27,8 +27,8 @@ Besu creates JWT tokens internally with
 ## Username and password authentication
 
 Enable authentication from the command line. Supply the credentials file and send a request to the
-`/login` endpoint using the username and password. The `/login` endpoint creates a JWT token for
-making permitted JSON RPC requests.
+`/login` endpoint using the username and password. The `/login` endpoint creates a JWT for making
+permitted JSON RPC requests.
 
 Using [public key authentication](#jwt-public-key-authentication) disables the `/login` endpoint.
 
@@ -112,12 +112,17 @@ expires, you need to generate a new token.
 
 ## JWT public key authentication
 
-Enable authentication from the command line and supply the public key of the external JWT token.
+Enable authentication from the command line and supply the external JWT provider's public key.
 
 JWT public authentication disables the Besu `/login` endpoint, meaning
 [username and password authentication](#username-and-password-authentication) will not work.
 
-### 1. generate a private and public key pair
+### 1. Generate a private and public key pair
+
+!!!note
+
+    This step is for demonstration or testing purposes only. In a production environment the
+    external JWT provider supplies the public key file.
 
 The private and accompanying public key files must be in `.pem` format.
 
@@ -130,25 +135,25 @@ The key must use an RSA private key of at least 2048 bits.
     openssl rsa -pubout -in privateKey.pem -pubout -out publicKey.pem
     ```
 
-### 2. create the JWT token
+### 2. Create the JWT
 
-Create the JWT token using an external tool.
+Create the JWT using an external tool.
 
 !!! important
 
-    The JWT token must use the `RS256` algorithm
+    The JWT must use the `RS256` algorithm
 
-Each payload for the JWT token contains:
+Each payload for the JWT contains:
 
 * [JSON-RPC permissions](#json-rpc-permissions)
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
 * Optionally, the tenant's Orion public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
-The following example uses the [JWT.io](https://jwt.io/) website to create a JWT token for
-testing purposes.
+The following example uses the [JWT.io](https://jwt.io/) website to create a JWT for testing
+purposes.
 
-![Create a JWT token](../../../images/JWT.png)
+![Create a JSON Web Token](../../../images/JWT.png)
 
 ### 3. Enable authentication
 
@@ -157,9 +162,9 @@ To require authentication for the JSON-RPC API, use the
 or [`--rpc-ws-authentication-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
 options.
 
-To specify the public key to use with the externally created JWT token, use the
+To specify the JWT provider's public key file to use with the externally created JWT, use the
 [`--rpc-http-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
-and [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file)
+or [`--rpc-ws-authentication-jwt-public-key-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file)
 options.
 
 ## JSON-RPC permissions

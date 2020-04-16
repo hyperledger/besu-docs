@@ -341,6 +341,11 @@ A comma-separated list of hostnames to allow
 [access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-whitelist). By
 default, Besu accepts access from `localhost` and `127.0.0.1`.
 
+!!!note
+
+    If using [Prometheus](https://prometheus.io/) to pull metrics from a node, you must specify all
+    the other nodes you want to pull metrics from in the whitelist of hostnames.
+
 !!!tip
 
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production

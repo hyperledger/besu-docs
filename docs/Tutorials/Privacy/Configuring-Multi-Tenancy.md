@@ -34,8 +34,9 @@ IBFT-Network/
 
 ## 1. Generate a private and public key pair
 
-In the `Node-1` directory [create the `.pem` formatted key pair]. The key pair belongs to the
-operator who uses the key pair to authenticate the [tenant JWTs](#7-generate-tenant-jwts).
+In the `Node-1` directory [generate the private and public key pair]. The key pair, which must be
+in `.pem` format, belongs to the operator who uses the key pair to authenticate the
+[tenant JWTs](#7-generate-tenant-jwts).
 
 !!! note
 
@@ -127,5 +128,5 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 <!-- Links -->
 [JSON Web Token (JWT) public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
 [username and password authentication]: ../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication
-[create the `.pem` formatted key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
+[generate the private and public key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests

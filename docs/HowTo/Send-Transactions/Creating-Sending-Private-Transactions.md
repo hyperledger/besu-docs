@@ -56,7 +56,8 @@ By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
 and submitting the
 [privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
-greater control over the [privacy marker transaction].
+greater control over the [privacy marker transaction]. For example, when sending
+[concurrent private transactions](#concurrent_private_transactions).
 
 !!! warning
 
@@ -174,6 +175,26 @@ private transactions to create a contract.
     The `example` directory in the
     [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) contains examples of
     signing and encoding private transactions.
+
+## Concurrent private transactions
+
+As outlined in [Private transaction nonces](#private-transaction-nonces), private transaction
+processing involves two transactions, the private transaction and the [privacy marker transaction],
+with each transaction having its own nonce.
+
+!!! warning
+
+    If you use [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) to
+    send concurrent private transactions, situations can occur where the nonce for some or all of
+    the privacy marker transactions are incorrect, causing some or all of the private transactions
+    to fail.
+
+As a workaround for this issue, use
+[`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
+and [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to send
+concurrent private transactions. For an example in the
+[web3js-eea library](https://github.com/PegaSysEng/web3js-eea), see
+[`concurrentPrivateTransactions.js`](https://github.com/PegaSysEng/web3js-eea/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js).
 
 <!-- links ---->
 

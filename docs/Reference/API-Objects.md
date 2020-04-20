@@ -35,9 +35,9 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 
 ## Filter options object
 
-Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter) and
-[`eth_getLogs`](API-Methods.md#eth_getlogs). Used to
-[`filter logs`](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md).
+Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter), 
+[`eth_getLogs`](API-Methods.md#eth_getlogs), and [`priv_getLogs`](API-Methods.md#priv_getlogs). 
+Used to [`filter logs`](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md).
 
 | Key           | Type                              | Required/Optional | Value                                                                                                                                                              |
 |---------------|:---------------------------------:|:-----------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +46,8 @@ Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter) and
 | **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Concepts/Events-and-Logs.md) originate.                                                                |
 | **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Concepts/Events-and-Logs.md#topic-filters).                                                                           |
 
-[`eth_getLogs`](API-Methods.md#eth_getlogs) has an extra key.
+[`eth_getLogs`](API-Methods.md#eth_getlogs) and [`priv_getLogs`](API-Methods.md#priv_getlogs) have an 
+extra key.
 
 | Key           | Type               | Required/Optional | Value  |
 |---------------|:------------------:|:-----------------:|--------|
@@ -54,8 +55,8 @@ Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter) and
 
 ## Log object
 
-Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and
-[`transaction receipt objects`](#transaction-receipt-object) can contain an array of log objects.
+Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`priv_getLogs`](API-Methods.md#priv_getlogs).
+[`Transaction receipt objects`](#transaction-receipt-object) can contain an array of log objects.
 
 | Key                  | Type                              | Value                                                                                                                                                                                                               |
 |----------------------|-:- :------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

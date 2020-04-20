@@ -34,7 +34,7 @@ IBFT-Network/
 
 ## 1. Generate a private and public key pair
 
-In the `Node-1` directory [generate the private and public key pair]. The key pair, which must be
+In the `Node-1` directory, [generate the private and public key pair]. The key pair, which must be
 in `.pem` format, belongs to the operator who uses the key pair to authenticate the
 [tenant JWTs](#7-generate-tenant-jwts).
 

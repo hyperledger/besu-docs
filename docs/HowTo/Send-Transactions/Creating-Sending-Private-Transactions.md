@@ -194,7 +194,7 @@ As a workaround for this issue, use
 and [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to send
 concurrent private transactions. For an example in the
 [web3js-eea library](https://github.com/PegaSysEng/web3js-eea), see
-[`concurrentPrivateTransactions.js`](https://github.com/PegaSysEng/web3js-eea/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js).
+[`concurrentPrivateTransactions.js`](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js).
 
 <!-- links ---->
 

@@ -25,8 +25,8 @@ IBFT-Network/
 
 !!! note
 
-    This tutorial uses [JWT public key authentication] to create the tenant's JWT tokens, but you
-    can also use [username and password authentication].
+    This tutorial uses [JSON Web Token (JWT) public key authentication] to create the tenant's JWT,
+    but you can also use [username and password authentication].
 
 ## Prerequisites
 
@@ -34,14 +34,14 @@ IBFT-Network/
 
 ## 1. Generate a private and public key pair
 
-In the `Node-1` directory [create the `.pem` formatted key pair]. The key pair belongs to the
-operator who uses the key pair to authenticate the
-[tenant JWT tokens](#7-generate-tenant-jwt-tokens).
+In the `Node-1` directory, [generate the private and public key pair]. The key pair, which must be
+in `.pem` format, belongs to the operator who uses the key pair to authenticate the
+[tenant JWTs](#7-generate-tenant-jwts).
 
 !!! note
 
     This step is not required when using [username and password authentication] to create the
-    required JWT tokens.
+    required JWTs.
 
 ## 2. Generate Orion keys
 
@@ -91,7 +91,7 @@ The command line specifies privacy options:
   enables authentication for JSON-RPC APIs.
 * [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
-  authenticate the [tenant JWT tokens](#7-generate-tenant-jwt-tokens).
+  authenticate the [tenant JWTs](#7-generate-tenant-jwts).
 * [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy.
 * [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Orion node URL
   (`clienturl` in `orion.conf`)
@@ -108,11 +108,11 @@ The command line specifies privacy options:
 
 [Start the remaining Besu nodes](Configuring-Privacy.md#7-start-besu-node-2).
 
-## 7. Generate the tenant JWT tokens
+## 7. Generate the tenant JWTs
 
-[Generate the JWT token](../../HowTo/Interact/APIs/Authentication.md#2-create-the-jwt-token) for
-each tenant and specify the [tenant's Orion public key](#2-generate-orion-keys) in the
-`privacyPublicKey` field.
+[Generate the JWT](../../HowTo/Interact/APIs/Authentication.md#2-create-the-jwt) for each tenant
+and specify the [tenant's Orion public key](#2-generate-orion-keys) in the `privacyPublicKey`
+field.
 
 Ensure you apply the appropriate
 [JSON-RPC API permissions](../../HowTo/Interact/APIs/Authentication.md#json-rpc-permissions) to the
@@ -121,12 +121,12 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 !!! note
 
     This step is not required when using [username and password authentication] to create the
-    required JWT tokens.
+    required JWTs.
 
 [Use the authentication token to make requests].
 
 <!-- Links -->
-[JWT public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
+[JSON Web Token (JWT) public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
 [username and password authentication]: ../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication
-[create the `.pem` formatted key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
+[generate the private and public key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests

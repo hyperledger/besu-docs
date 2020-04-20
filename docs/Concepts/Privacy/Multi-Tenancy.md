@@ -31,7 +31,7 @@ a _tenant_, and the operator is the _owner_ of the Besu and Orion node.
 
 Multi-tenancy validates that tenants have permission to use the specified HTTP or Websocket
 JSON-RPC requests, and the tenant has access to the requested privacy data. There is segregation of
-private data, and each tenant uses a JWT token for authentication.
+private data, and each tenant uses a JSON Web Token (JWT) for authentication.
 
-You can create the JWT token either
-[externally or internally](../../HowTo/Interact/APIs/Authentication.md).
+You can
+[create the JWT either externally or internally](../../HowTo/Interact/APIs/Authentication.md).

@@ -55,6 +55,9 @@ Enables or disables automatic log bloom caching. APIs such as
 [`eth_getFilterLogs`](../API-Methods.md#eth_getfilterlogs) use the cache for improved performance.
 The default is `true`.
 
+If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu
+performs an uncached query for logs not yet written to the cache.
+
 Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms
 for a large number of blocks, you might want to disable automatic log bloom caching.
 
@@ -1704,9 +1707,7 @@ BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
 rpc-http-authentication-jwt-public-key-file="publicKey.pem"
 ```
 
-The
-[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication)
-for JSON-RPC HTTP authentication when authenticating with an external JWT token.
+The [JWT provider's public key file] used for JSON-RPC HTTP authentication with an external JWT.
 
 ### rpc-http-cors-origins
 
@@ -2051,9 +2052,8 @@ BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
 rpc-http-authentication-jwt-public-key-file="publicKey.pem"
 ```
 
-The
-[JWT public key file](../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication)
-for JSON-RPC websocket authentication when authenticating with an external JWT token.
+The [JWT provider's public key file] used for JSON-RPC websocket authentication with an external
+JWT.
 
 ### rpc-ws-enabled
 
@@ -2263,3 +2263,4 @@ Print version information and exit.
 [nodes permissions configuration file]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
 [account permissioning]: ../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning
 [TLS on communication with the Private Transaction Manager]: ../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager
+[JWT provider's public key file]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication

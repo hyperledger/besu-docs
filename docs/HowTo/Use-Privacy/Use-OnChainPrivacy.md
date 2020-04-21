@@ -10,7 +10,7 @@ membership of [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGro
 !!! important
     [Onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md) are an early access
     feature in v1.4. Do not use in production networks.
-    
+
     Onchain privacy groups are not supported with [multi-tenancy](../../Tutorials/Privacy/Configuring-Multi-Tenancy.md).
 
     The onchain privacy group interfaces may change between v1.4 and v1.5. There may not be an

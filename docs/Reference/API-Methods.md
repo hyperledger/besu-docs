@@ -5007,7 +5007,7 @@ specified group of sender and recipients.
 Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
 
 For private contracts, `priv_getLogs` is the same as [`eth_getLogs`](#eth_getlogs) for public contracts
-except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) 
+except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 for private contracts.
 
 #### Parameters

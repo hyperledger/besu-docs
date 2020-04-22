@@ -35,8 +35,8 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 
 ## Filter options object
 
-Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter), 
-[`eth_getLogs`](API-Methods.md#eth_getlogs), and [`priv_getLogs`](API-Methods.md#priv_getlogs). 
+Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter),
+[`eth_getLogs`](API-Methods.md#eth_getlogs), and [`priv_getLogs`](API-Methods.md#priv_getlogs).
 Used to [`filter logs`](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md).
 
 | Key           | Type                              | Required/Optional | Value                                                                                                                                                              |

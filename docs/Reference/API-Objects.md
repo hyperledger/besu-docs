@@ -46,7 +46,7 @@ Used to [`filter logs`](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.
 | **address**   | Data &#124; Array                 | Optional          | Contract address or array of addresses from which [logs](../Concepts/Events-and-Logs.md) originate.                                                                |
 | **topics**    | Array of Data, 32&nbsp;bytes each | Optional          | Array of topics by which to [filter logs](../Concepts/Events-and-Logs.md#topic-filters).                                                                           |
 
-[`eth_getLogs`](API-Methods.md#eth_getlogs) and [`priv_getLogs`](API-Methods.md#priv_getlogs) have an 
+[`eth_getLogs`](API-Methods.md#eth_getlogs) and [`priv_getLogs`](API-Methods.md#priv_getlogs) have an
 extra key.
 
 | Key           | Type               | Required/Optional | Value  |

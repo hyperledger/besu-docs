@@ -2740,8 +2740,6 @@ minutes.
 
 !!! example
 
-    The following request deletes the block filter with an ID of 0x4:
-
     ```bash tab="curl HTTP request"
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545
     ```
@@ -5003,7 +5001,8 @@ specified group of sender and recipients.
     ```
 ### priv_getFilterChanges
 
-Polls the specified filter and returns an array of changes that have occurred since the last poll.
+Polls the specified filter for a private contract and returns an array of changes that have occurred 
+since the last poll.
 
 Privacy groups do not have blocks and private transactions cannot be pending so unlike 
 [`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array 
@@ -5023,20 +5022,40 @@ empty list.
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    
+    {"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
     ```
 
     ```json tab="JSON result"
-    
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": [
+            {
+                "logIndex": "0x0",
+                "removed": false,
+                "blockNumber": "0x4d0",
+                "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
+                "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
+                "transactionIndex": "0x0",
+                "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                "data": "0x",
+                "topics": [
+                    "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                    "0x0000000000000000000000000000000000000000000000000000000000000002"
+                ]
+            }
+        ]
+    }
     ```
 
 ### priv_getFilterLogs
 
-Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter.
+Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private 
+contract.
 
 For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`](#eth_getfilterlogs)
 for public contracts except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
@@ -5044,8 +5063,8 @@ for private contracts.
 
 !!! note
 
-    `priv_getFilterLogs` is only used for filters created with `priv_newFilter`. To specify a filter
-    object and get logs without creating a filter, use `priv_getLogs` .
+    `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter). 
+    To specify a filter object and get logs without creating a filter, use `priv_getLogs`.
 
 #### Parameters
 
@@ -5060,55 +5079,47 @@ for private contracts.
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
- 
-    ```
-
-    ```json tab="JSON result"
- 
-    ```
-    
-### priv_newFilter
-
-Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
-created filter, use [priv_getFilterChanges](#priv_getfilterchanges).
-
-For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
-for public contracts. 
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`Object` - [Filter options object](API-Objects.md#filter-options-object).
-
-!!! note
-
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
-    using `priv_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
-
-#### Returns
-
-`data` - Filter ID hash.
-
-!!! example
-
-    ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
-    ```
-
-    ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}
+    {"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
     ```
 
     ```json tab="JSON result"
     {
         "jsonrpc": "2.0",
         "id": 1,
-        "result": "0x1ddf0c00989044e9b41cc0ae40272df3"
+        "result": [
+            {
+                "logIndex": "0x0",
+                "removed": false,
+                "blockNumber": "0x493",
+                "blockHash": "0xd9cb3a852e1e02c95f035a2e32d57f82c10cab61faa3e8f5c010adf979bb4786",
+                "transactionHash": "0x78866dc51fdf189d8cca74f6a8fe54f172348fbd2163bbe80fa8b106cfc7deb4",
+                "transactionIndex": "0x0",
+                "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                "data": "0x",
+                "topics": [
+                    "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                    "0x0000000000000000000000000000000000000000000000000000000000000001"
+                ]
+            },
+            {
+                "logIndex": "0x0",
+                "removed": false,
+                "blockNumber": "0x4d0",
+                "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
+                "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
+                "transactionIndex": "0x0",
+                "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                "data": "0x",
+                "topics": [
+                    "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                    "0x0000000000000000000000000000000000000000000000000000000000000002"
+                ]
+            }
+        ]
     }
     ```
 
@@ -5384,6 +5395,86 @@ or `null` if no receipt found.
             "status": "0x1",
             "logs": []
         }
+    }
+    ```
+
+### priv_newFilter
+
+Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
+created filter, use [priv_getFilterChanges](#priv_getfilterchanges).
+
+For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
+for public contracts. 
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`Object` - [Filter options object](API-Objects.md#filter-options-object).
+
+!!! note
+
+    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
+    using [`priv_getFilterLogs`](#priv_getfilterlogs), set `fromBlock` and `toBlock` appropriately.
+
+#### Returns
+
+`data` - Filter ID hash.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x4a35b92809d73f4f53a2355d62125442"
+    }
+    ```
+
+### priv_uninstallFilter
+
+Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required, 
+call this method.
+
+Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) for 10
+minutes.
+
+For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)
+for public contracts. 
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`data` - Filter ID hash.
+
+#### Returns
+
+`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": true
     }
     ```
 

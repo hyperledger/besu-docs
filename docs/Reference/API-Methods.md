@@ -4856,7 +4856,7 @@ transaction data using `eea_sendRawTransaction`.
 
 Invokes a private contract function locally and does not change the privacy group state.
 
-For private contracts, `priv_call` is the same as [`eth_call`](#eth_call).
+For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for public contracts.
 
 #### Parameters
 
@@ -4999,6 +4999,71 @@ specified group of sender and recipients.
       "jsonrpc": "2.0",
       "id": 1,
       "result": "0x1"
+    }
+    ```
+
+### priv_getLogs
+
+Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
+
+For private contracts, `priv_getLogs` is the same as [`eth_getLogs`](#eth_getlogs) for public contracts
+except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`Object` - [Filter options object](API-Objects.md#filter-options-object).
+
+#### Returns
+
+`array` - [Log objects](API-Objects.md#log-object).
+
+!!! example
+
+    ```bash tab="curl HTTP"
+    curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS"
+    {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": [
+            {
+                "logIndex": "0x0",
+                "removed": false,
+                "blockNumber": "0x342",
+                "blockHash": "0xf5954f068fa2f2f7741281e8c753a8e92047e27ab3c4971836d2c89fab86d92b",
+                "transactionHash": "0xa9ba5cffde9d4ad8997c5c4352d5d49eeea0e9def8a4ea69991b8837c49d4e4f",
+                "transactionIndex": "0x0",
+                "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
+                "data": "0x",
+                "topics": [
+                    "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                    "0x0000000000000000000000000000000000000000000000000000000000000001"
+                ]
+            },
+            {
+                "logIndex": "0x0",
+                "removed": false,
+                "blockNumber": "0x383",
+                "blockHash": "0x91b73a47d53e3a88d62ed091a89a4be7557ad91b552e7ff7d86bf78977d5d45d",
+                "transactionHash": "0xc2a185faf00e87434e55b7f70cc4c38be354c2128b4b96b5f5def0b54a2173ec",
+                "transactionIndex": "0x0",
+                "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
+                "data": "0x",
+                "topics": [
+                    "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                    "0x0000000000000000000000000000000000000000000000000000000000000002"
+                ]
+            }
+        ]
     }
     ```
 

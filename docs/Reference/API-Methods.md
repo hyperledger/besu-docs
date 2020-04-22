@@ -5001,6 +5001,116 @@ specified group of sender and recipients.
       "result": "0x1"
     }
     ```
+### priv_getFilterChanges
+
+Polls the specified filter and returns an array of changes that have occurred since the last poll.
+
+Privacy groups do not have blocks and private transactions cannot be pending so unlike 
+[`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array 
+of log objects or an empty list. 
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`data` - Filter ID hash
+
+#### Returns
+
+`array` - [Log objects](API-Objects.md#log-object). If nothing has changed since the last poll, an
+empty list. 
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    
+    ```
+
+    ```json tab="JSON result"
+    
+    ```
+
+### priv_getFilterLogs
+
+Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter.
+
+For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`](#eth_getfilterlogs)
+for public contracts except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
+
+!!! note
+
+    `priv_getFilterLogs` is only used for filters created with `priv_newFilter`. To specify a filter
+    object and get logs without creating a filter, use `priv_getLogs` .
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`data` - Filter ID hash.
+
+#### Returns
+
+`array` - [Log objects](API-Objects.md#log-object).
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+ 
+    ```
+
+    ```json tab="JSON result"
+ 
+    ```
+    
+### priv_newFilter
+
+Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
+created filter, use [priv_getFilterChanges](#priv_getfilterchanges).
+
+For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
+for public contracts. 
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`Object` - [Filter options object](API-Objects.md#filter-options-object).
+
+!!! note
+
+    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
+    using `priv_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
+
+#### Returns
+
+`data` - Filter ID hash.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x1ddf0c00989044e9b41cc0ae40272df3"
+    }
+    ```
 
 ### priv_getPrivacyPrecompileAddress
 

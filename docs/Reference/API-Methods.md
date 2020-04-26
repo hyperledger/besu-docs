@@ -2629,7 +2629,7 @@ there is no receipt.
 
 Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
 created filter, use [eth_getFilterChanges](#eth_getfilterchanges). To get all logs associated with
-the filter, use [eth_getFilterLogs](#eth_getfilterlogs). 
+the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
 
 #### Parameters
 
@@ -5002,12 +5002,12 @@ specified group of sender and recipients.
     ```
 ### priv_getFilterChanges
 
-Polls the specified filter for a private contract and returns an array of changes that have occurred 
+Polls the specified filter for a private contract and returns an array of changes that have occurred
 since the last poll.
 
-Privacy groups do not have blocks and private transactions cannot be pending so unlike 
-[`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array 
-of log objects or an empty list. 
+Privacy groups do not have blocks and private transactions cannot be pending so unlike
+[`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array
+of log objects or an empty list.
 
 #### Parameters
 
@@ -5018,7 +5018,7 @@ of log objects or an empty list.
 #### Returns
 
 `array` - [Log objects](API-Objects.md#log-object). If nothing has changed since the last poll, an
-empty list. 
+empty list.
 
 !!! example
 
@@ -5055,7 +5055,7 @@ empty list.
 
 ### priv_getFilterLogs
 
-Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private 
+Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private
 contract.
 
 For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`](#eth_getfilterlogs)
@@ -5064,7 +5064,7 @@ for private contracts.
 
 !!! note
 
-    `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter). 
+    `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter).
     To specify a filter object and get logs without creating a filter, use `priv_getLogs`.
 
 #### Parameters
@@ -5402,11 +5402,11 @@ or `null` if no receipt found.
 ### priv_newFilter
 
 Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
-created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with 
-the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs). 
+created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
+the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs).
 
 For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
-for public contracts. 
+for public contracts.
 
 #### Parameters
 
@@ -5443,14 +5443,14 @@ for public contracts.
 
 ### priv_uninstallFilter
 
-Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required, 
+Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
 call this method.
 
 Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) for 10
 minutes.
 
 For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)
-for public contracts. 
+for public contracts.
 
 #### Parameters
 

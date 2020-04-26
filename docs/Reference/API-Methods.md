@@ -4781,13 +4781,16 @@ one object per call, in the order called by the transaction.
 
 Distributes the
 [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
-generates the [Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+generates the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
 and submits it to the transaction pool, and returns the transaction hash of the
-[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 The signed transaction passed as an input parameter includes the `privateFrom`,
 [`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
+
+The `gas` and `gasPrice` are used by the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+not the private transaction itself.
 
 To avoid exposing your private key, create signed transactions offline and send the signed
 transaction data using `eea_sendRawTransaction`.

@@ -9,7 +9,7 @@ Private transactions have extra attributes to public Ethereum transactions:
 * `privateFrom` - The Orion public key of the transaction sender
 * `privateFor` - The Orion public keys of the transaction recipients, or
 * `privacyGroupId` - [The privacy group to receive the transaction](Privacy-Groups.md)
-* `restriction` - Whether the private transaction is `restricted` or `unrestricted`. In:
+* `restriction` - Whether the private transaction is `restricted` or `unrestricted`:
     * `restricted` private transactions, only the nodes participating in the transaction receive
       and store the payload of the private transaction.
     * `unrestricted` private transactions, all nodes in the network receive the payload of the
@@ -19,6 +19,9 @@ Private transactions have extra attributes to public Ethereum transactions:
     !!! important
 
         Besu implements `restricted` private transactions only.
+
+The `gas` and `gasPrice` are used by the [privacy marker transaction] not the private 
+transaction itself.
 
 For more information about creating and sending private transactions, see the
 [How To documentation](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).

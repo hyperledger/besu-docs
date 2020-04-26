@@ -35,28 +35,28 @@ keys of the Orion nodes sending and receiving the transaction.
 
     The mapping of Besu node addresses to Orion node public keys is off-chain. That is, the sender
     of a private transaction must know the Orion node public key of the recipient.
-    
-## Nonces 
+
+## Nonces
 
 [Private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md) involves
-two transactions, the private transaction distributed to involved participants and the 
-[privacy marker transaction] included on the public blockchain. Each each of these transactions has 
+two transactions, the private transaction distributed to involved participants and the
+[privacy marker transaction] included on the public blockchain. Each each of these transactions has
 its own nonce.
 
 ### Private transaction nonce
 
 Besu maintains separate private states for each
-[privacy group](../../Concepts/Privacy/Privacy-Groups.md). The private transaction nonce for an 
-account is specific to the privacy group. That is, the nonce for account A for privacy group ABC is 
-different to the nonce for account A for privacy group AB. 
+[privacy group](../../Concepts/Privacy/Privacy-Groups.md). The private transaction nonce for an
+account is specific to the privacy group. That is, the nonce for account A for privacy group ABC is
+different to the nonce for account A for privacy group AB.
 
 !!! note
     If sending more than one transaction for mining in the same block (that is, you are not waiting
     for the transaction receipt), you must calculate the private transaction nonce outside Besu.
 
-### Privacy marker transaction nonce 
+### Privacy marker transaction nonce
 
-The nonce for the [privacy marker transaction] is the public nonce for the account. 
+The nonce for the [privacy marker transaction] is the public nonce for the account.
 
 <!-- links ---->
 

@@ -31,11 +31,11 @@ private transaction to the participating nodes, and signs and submits the
 !!! note
     If sending more than one transaction for mining in the same block (that is, you are not waiting
     for the transaction receipt), you must calculate the private transaction nonce outside Besu.
-    
+
     Use
     [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
     [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
-    the nonce for an account for the specified privacy group or participants. 
+    the nonce for an account for the specified privacy group or participants.
 
 ## priv_distributeRawTransaction
 
@@ -59,7 +59,7 @@ By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
 and submitting the
 [privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
-greater control over the [privacy marker transaction]. 
+greater control over the [privacy marker transaction].
 
 Use [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 to send [concurrent private transactions](Concurrent-Private-Transactions.md).

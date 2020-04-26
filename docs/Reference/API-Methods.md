@@ -2637,7 +2637,7 @@ the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
 
 !!! note
 
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. 
+    `fromBlock` and `toBlock` in the filter options object default to `latest`.
 
 #### Returns
 
@@ -5481,7 +5481,7 @@ for public contracts.
 
 !!! note
 
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. 
+    `fromBlock` and `toBlock` in the filter options object default to `latest`.
 
 #### Returns
 

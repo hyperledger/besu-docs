@@ -2628,7 +2628,8 @@ there is no receipt.
 ### eth_newFilter
 
 Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
-created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
+created filter, use [eth_getFilterChanges](#eth_getfilterchanges). To get all logs associated with
+the filter, use [eth_getFilterLogs](#eth_getfilterlogs). 
 
 #### Parameters
 
@@ -2641,7 +2642,7 @@ created filter, use [eth_getFilterChanges](#eth_getfilterchanges).
 
 #### Returns
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 !!! example
 
@@ -2672,7 +2673,7 @@ None
 
 #### Returns
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 !!! example
 
@@ -2703,7 +2704,7 @@ None
 
 #### Returns
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 !!! example
 
@@ -2732,7 +2733,7 @@ minutes.
 
 #### Parameters
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 #### Returns
 
@@ -2762,7 +2763,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 
 #### Parameters
 
-`data` - Filter ID hash
+`data` - Filter ID.
 
 #### Returns
 
@@ -2856,7 +2857,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
 #### Parameters
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 #### Returns
 
@@ -5012,7 +5013,7 @@ of log objects or an empty list.
 
 `data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`data` - Filter ID hash
+`data` - Filter ID.
 
 #### Returns
 
@@ -5070,7 +5071,7 @@ for private contracts.
 
 `data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 #### Returns
 
@@ -5401,7 +5402,8 @@ or `null` if no receipt found.
 ### priv_newFilter
 
 Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
-created filter, use [priv_getFilterChanges](#priv_getfilterchanges).
+created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with 
+the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs). 
 
 For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
 for public contracts. 
@@ -5419,7 +5421,7 @@ for public contracts.
 
 #### Returns
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 !!! example
 
@@ -5454,7 +5456,7 @@ for public contracts.
 
 `data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`data` - Filter ID hash.
+`data` - Filter ID.
 
 #### Returns
 

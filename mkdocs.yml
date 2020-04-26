@@ -213,7 +213,8 @@ markdown_extensions:
     # pymdownx.superfences is deprecated.
     # It must be replaced with pymdownx.tabbed but it requires new CSS
     # TODO with material 5 update
-    - pymdownx.superfences
+    - pymdownx.superfences:
+        legacy_tab_classes: true
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.tilde
@@ -226,7 +227,8 @@ plugins:
     - exclude:
         glob:
           - global/*
-    - git-revision-date
+    - git-revision-date-localized:
+        locale: en
     - redirects:
         redirect_maps:
           # Configure redirects using key:value pairs:

@@ -11,6 +11,8 @@ and remove members to and from onchain privacy groups.
 
     Onchain privacy groups are an early access feature in v1.4. Do not use in production networks.
 
+    Onchain privacy groups are not supported with [multi-tenancy](Multi-Tenancy.md).
+
     The onchain privacy group interfaces might change between v1.4 and v1.5. There might not be an
     upgrade path from onchain privacy groups created using v1.4 to enable use of onchain privacy
     group functionality in future versions.

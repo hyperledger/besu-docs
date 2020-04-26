@@ -2637,8 +2637,7 @@ the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
 
 !!! note
 
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
-    using `eth_getFilterLogs`, set `fromBlock` and `toBlock` appropriately.
+    `fromBlock` and `toBlock` in the filter options object default to `latest`. 
 
 #### Returns
 
@@ -5066,7 +5065,7 @@ for private contracts.
 !!! note
 
     `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter).
-    To specify a filter object and get logs without creating a filter, use `priv_getLogs`.
+    To specify a filter object and get logs without creating a filter, use [`priv_getLogs`](#priv_getlogs).
 
 #### Parameters
 
@@ -5482,8 +5481,7 @@ for public contracts.
 
 !!! note
 
-    `fromBlock` and `toBlock` in the filter options object default to `latest`. To obtain logs
-    using [`priv_getFilterLogs`](#priv_getfilterlogs), set `fromBlock` and `toBlock` appropriately.
+    `fromBlock` and `toBlock` in the filter options object default to `latest`. 
 
 #### Returns
 

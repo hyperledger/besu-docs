@@ -5152,7 +5152,7 @@ for private contracts.
     ```bash tab="wscat WS"
     {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
     ```
-    
+
     ```json tab="JSON result"
     {
         "jsonrpc": "2.0",

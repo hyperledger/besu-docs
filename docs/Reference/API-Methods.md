@@ -5000,6 +5000,7 @@ specified group of sender and recipients.
       "result": "0x1"
     }
     ```
+
 ### priv_getFilterChanges
 
 Polls the specified filter for a private contract and returns an array of changes that have occurred

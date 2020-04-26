@@ -21,18 +21,21 @@ transaction is not attempted and you must resubmit the transaction.
     Private transactions either deploy contracts or call contract functions. Ether transfer
     transactions cannot be private.
 
-!!! tip
-
-    [`priv_call`](../../Reference/API-Methods.md#priv_call) returns the same information for private
-    contracts as [`eth_call`](../../Reference/API-Methods.md#eth_call) does for non-private
-    contracts.
-
 ## eea_sendRawTransaction
 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
 private transaction to the participating nodes, and signs and submits the
 [privacy marker transaction], as described in
 [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
+
+!!! note
+    If sending more than one transaction for mining in the same block (that is, you are not waiting
+    for the transaction receipt), you must calculate the private transaction nonce outside Besu.
+    
+    Use
+    [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
+    [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
+    the nonce for an account for the specified privacy group or participants. 
 
 ## priv_distributeRawTransaction
 
@@ -56,8 +59,10 @@ By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
 and submitting the
 [privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
-greater control over the [privacy marker transaction]. For example, when sending
-[concurrent private transactions](#concurrent_private_transactions).
+greater control over the [privacy marker transaction]. 
+
+Use [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
+to send [concurrent private transactions](Concurrent-Private-Transactions.md).
 
 !!! warning
 
@@ -102,25 +107,6 @@ greater control over the [privacy marker transaction]. For example, when sending
       "id":1
     }
     ```
-
-## Private transaction nonces
-
-Besu maintains separate private states for each
-[privacy group](../../Concepts/Privacy/Privacy-Groups.md) so the nonce for an account is specific
-to the privacy group. That is, the nonce for account A for privacy group ABC is different to the
-nonce for account A for privacy group AB. Use
-[`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
-[`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
-the nonce for an account for the specified privacy group.
-
-!!! note
-    If sending more than one transaction for mining in the same block (that is, you are not waiting
-    for the transaction receipt), you must calculate the private transaction nonce outside Besu.
-
-Also, because
-[private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md) involves
-two transactions, one for the private transaction and one for the [privacy marker transaction],
-each of these transactions has its own nonce.
 
 ## EEA-compliant or Besu-extended Privacy
 
@@ -175,26 +161,6 @@ private transactions to create a contract.
     The `example` directory in the
     [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) contains examples of
     signing and encoding private transactions.
-
-## Concurrent private transactions
-
-As outlined in [Private transaction nonces](#private-transaction-nonces), private transaction
-processing involves two transactions, the private transaction and the [privacy marker transaction],
-with each transaction having its own nonce.
-
-!!! warning
-
-    If you use [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) to
-    send concurrent private transactions, situations can occur where the nonce for some or all of
-    the privacy marker transactions are incorrect, causing some or all of the private transactions
-    to fail.
-
-As a workaround for this issue, use
-[`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
-and [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to send
-concurrent private transactions. For an example in the
-[web3js-eea library](https://github.com/PegaSysEng/web3js-eea), see
-[`concurrentPrivateTransactions.js`](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js).
 
 <!-- links ---->
 

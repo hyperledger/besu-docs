@@ -1609,7 +1609,7 @@ rejects that peer.
 ```
 
 ```bash tab="Environment Variable"
-REVERT_REASON_ENABLED=true
+BESU_REVERT_REASON_ENABLED=true
 ```
 
 ```bash tab="Configuration File"

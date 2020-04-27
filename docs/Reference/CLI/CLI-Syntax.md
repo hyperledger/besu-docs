@@ -937,7 +937,7 @@ BESU_P2P_ENABLED=false
 p2p-enabled=false
 ```
 
-Enables or disables all p2p communication.
+Enables or disables all P2P communication.
 The default is true.
 
 ### p2p-host

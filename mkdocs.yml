@@ -129,6 +129,7 @@ nav:
           - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
           - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
         - Troubleshoot:
+          - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
           - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:

@@ -20,7 +20,7 @@ Private transactions have extra attributes to public Ethereum transactions:
 
         Besu implements `restricted` private transactions only.
 
-The `gas` and `gasPrice` are used by the [privacy marker transaction] not the private 
+The `gas` and `gasPrice` are used by the [privacy marker transaction] not the private
 transaction itself.
 
 For more information about creating and sending private transactions, see the

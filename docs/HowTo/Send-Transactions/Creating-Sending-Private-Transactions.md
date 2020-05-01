@@ -16,8 +16,8 @@ All private transaction participants must be online for a private transaction to
 distributed. If any participants are offline when submitting the private transaction, the
 transaction is not attempted and you must resubmit the transaction.
 
-The `gas` and `gasPrice` specified when sending a private transaction are used by the 
-[privacy marker transaction] not the private transaction itself. 
+The `gas` and `gasPrice` specified when sending a private transaction are used by the
+[privacy marker transaction] not the private transaction itself.
 
 !!! note
 

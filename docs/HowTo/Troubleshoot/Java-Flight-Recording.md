@@ -19,14 +19,14 @@ settings=profile,path-to-gc-roots=true
 ```
 
 !!! tip
-    
+
     When recording, cleanly exiting Besu results in better data. If not possible to cleanly exit,
     the file may be missing some information not flushed to disk.
 
 Inspect the file is written to `/tmp/recording.jfr` with tools such as [Mission Control](https://docs.oracle.com/javacomponents/jmc-5-5/jmc-user-guide/intro.htm#JMCCI109).
 
 !!! important
-    
+
     If providing the output file to [PegaSys support](https://pegasys.zendesk.com/hc/en-us/restricted?return_to=https%3A%2F%2Fpegasys.zendesk.com%2Fhc%2Fen-us),
     be aware that while JFR files do not contain secrets such as private keys, some details about the
     user configuration can be inferred from the JFR output.

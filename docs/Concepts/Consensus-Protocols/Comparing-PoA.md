@@ -43,6 +43,12 @@ To be Byzantine fault tolerant, IBFT 2.0 requires a minimum of four validators.
 Clique can operate with a single validator but operating with a single validator offers no
 redundancy if the validator fails.
 
+!!! tip
+
+    Byzantine fault tolerant is the ability to function correctly and reach consensus despite nodes
+    failing or propagating incorrect information to peers.
+
+
 ### Liveness
 
 Clique is more fault tolerant than IBFT 2.0. Clique tolerates up to half of the validators failing.
@@ -65,6 +71,3 @@ Reaching consensus and adding blocks is faster in Clique networks. For Clique, t
 fork increases number as the of validators increases.
 
 For IBFT 2.0, the time to add new blocks increases as the number of validators increases.
-
-*[Byzantine fault tolerant]: The ability to function correctly and reach consensus despite nodes
-failing or propagating incorrect information to peers.

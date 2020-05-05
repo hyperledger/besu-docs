@@ -48,7 +48,6 @@ redundancy if the validator fails.
     Byzantine fault tolerant is the ability to function correctly and reach consensus despite nodes
     failing or propagating incorrect information to peers.
 
-
 ### Liveness
 
 Clique is more fault tolerant than IBFT 2.0. Clique tolerates up to half of the validators failing.

@@ -29,30 +29,30 @@ A high level overview of the deployed network is:
 To deploy the private network example on Azure:
 
 1. Create a Resource Group in the [Azure Portal](https://portal.azure.com).
- 
-2. Search for _Besu Quickstart_ or enter the URL `https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.hyperledger-besu-quickstart`
+
+1. Search for _Besu Quickstart_ or enter the URL `https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.hyperledger-besu-quickstart`
 directly in your browser.
 
     The Hyperledger Besu Quickstart landing page is displayed.
 
     ![Image landing](../../images/mp_0_landing.png)
 
-3. Click the _Create_ button. The _Basics_ is displayed.
+1. Click the _Create_ button. The _Basics_ is displayed.
 
     ![Image basics](../../images/mp_1_basics.png)
 
-4. Enter:
+1. Enter:
 
     * Details of the Resource Group you created earlier
     * Basic user credentials to start a VM
     * Prefix for your new VM and any other resources created
     * Region to which you wish to deploy the VM.
  
-5. Select the size of the VM you want to use.
+1. Select the size of the VM you want to use.
 
     ![Image size](../../images/mp_2_size.png)
 
-6. To start the deployment, click the _Review + Create_ at the bottom left of the page.
+1. To start the deployment, click the _Review + Create_ at the bottom left of the page.
 
     ![Image dep](../../images/mp_4_deployment.png)
 
@@ -63,11 +63,11 @@ directly in your browser.
 
      ![Image dep_complete](../../images/mp_5_deployment_complete.png)
 
-7. Click on the _Go to Resouce_ button. Everything created in the deployment is displayed.
+1. Click on the _Go to Resouce_ button. Everything created in the deployment is displayed.
 
     ![Image res](../../images/mp_6_resource.png)
 
-8. Click on the VM name. The VM details such as the IP and DNS name are displayed. Use the IP and
+1. Click on the VM name. The VM details such as the IP and DNS name are displayed. Use the IP and
 DNS name displayed to connect to the VM, either in browser or via RPC calls.
 
     ![Image vm](../../images/mp_7_vm.png)

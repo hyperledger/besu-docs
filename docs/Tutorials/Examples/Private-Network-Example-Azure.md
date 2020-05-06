@@ -47,7 +47,7 @@ directly in your browser.
     * Basic user credentials to start a VM
     * Prefix for your new VM and any other resources created
     * Region to which you wish to deploy the VM.
- 
+
 1. Select the size of the VM you want to use.
 
     ![Image size](../../images/mp_2_size.png)
@@ -86,7 +86,7 @@ To display the dashboard:
 1. Open a new tab and enter the IP or DNS name appended with _/grafana_.
 For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
-2. Click on home and select the Besu dashboard.
+1. Click on home and select the Besu dashboard.
 
     ![Image grafana](../../images/mp_9_grafana.png)
 

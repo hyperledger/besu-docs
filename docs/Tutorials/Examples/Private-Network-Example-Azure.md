@@ -31,7 +31,7 @@ To deploy the private network example on Azure:
 1. Create a Resource Group in the [Azure Portal](https://portal.azure.com).
 
 1. Search for _Besu Quickstart_ or enter the URL `https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.hyperledger-besu-quickstart`
-directly in your browser.
+   directly in your browser.
 
     The Hyperledger Besu Quickstart landing page is displayed.
 
@@ -68,7 +68,7 @@ directly in your browser.
     ![Image res](../../images/mp_6_resource.png)
 
 1. Click on the VM name. The VM details such as the IP and DNS name are displayed. Use the IP and
-DNS name displayed to connect to the VM, either in browser or via RPC calls.
+   DNS name displayed to connect to the VM, either in browser or via RPC calls.
 
     ![Image vm](../../images/mp_7_vm.png)
 
@@ -84,7 +84,7 @@ The deployment includes Prometheus metrics and Grafana with a custom _Besu Dashb
 To display the dashboard:
 
 1. Open a new tab and enter the IP or DNS name appended with _/grafana_.
-For example: `http://<DNS_NAME_OF_VM>/grafana`.
+   For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
 1. Click on home and select the Besu dashboard.
 

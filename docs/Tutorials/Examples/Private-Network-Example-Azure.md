@@ -67,8 +67,8 @@ directly in your browser.
 
     ![Image res](../../images/mp_6_resource.png)
 
-8. Click on the VM name. The VM details such as the IP and FQDN are displayed. Use the IP and FQDN 
-displayed to connect to the VM, either in browser or via RPC calls. 
+8. Click on the VM name. The VM details such as the IP and DNS name are displayed. Use the IP and
+DNS name displayed to connect to the VM, either in browser or via RPC calls. 
 
     ![Image vm](../../images/mp_7_vm.png)
 
@@ -81,10 +81,14 @@ To display the block explorer, open a new tab and enter either the IP of the VM,
 ## Metrics 
 
 The deployment includes Prometheus metrics and Grafana with a custom _Besu Dashboard_ installed.
-To display the dashboard, open a new tab and enter the IP or DNS name appended with _/grafana_.
+To display the dashboard: 
+
+1. Open a new tab and enter the IP or DNS name appended with _/grafana_.
 For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
-![Image grafana](../../images/mp_9_grafana.png)
+2. Click on home and select the Besu dashboard.
+
+    ![Image grafana](../../images/mp_9_grafana.png)
 
 The dashboard provides a visual way to monitor your network and nodes as the chain progresses.
 Alerting can also be configured.

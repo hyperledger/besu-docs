@@ -2121,6 +2121,34 @@ rpc-ws-port="6174"
 The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### security-module
+
+```bash tab="Syntax"
+--security-module=<NAME>
+```
+
+```bash tab="Command Line"
+--security-module=hsm_plugin
+```
+
+```bash tab="Environment Variable"
+BESU_SECURITY_MODULE=hsm_plugin
+```
+
+```bash tab="Configuration File"
+security-module="hsm_plugin"
+```
+
+Name of the security module to use.
+
+Defaults to using the local private key file, and cannot be used with the
+[`--node-private-key-file`](#node-private-key-file) command line option.
+
+!!! important
+    Only specify this option if you use a [plugin] that uses a security
+    module supplier. For example, to store the node's private key in a hardware security
+    module (HSM).
+
 ### sync-mode
 
 ```bash tab="Syntax"
@@ -2269,3 +2297,4 @@ Print version information and exit.
 [account permissioning]: ../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning
 [TLS on communication with the Private Transaction Manager]: ../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager
 [JWT provider's public key file]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
+[plugin]: ../Plugin-API-Interfaces.md

@@ -79,7 +79,7 @@ Create the following environment variables and set to the specified values:
 * `BESU_NODE_PERM_ENDPOINT` - required only if your node is not using the default JSON-RPC host and
   port (`http://127.0.0.1:8545`). Set to JSON-RPC host and port. When bootstrapping the network,
   Besu uses the specified node to deploy the contracts and is the first node in the network.
-* `REACT_APP_NETWORK_ID` ID of the network. The chainID from the genesis file.
+* `REACT_APP_CHAIN_ID` The chainID from the genesis file.
 
 !!! important
 

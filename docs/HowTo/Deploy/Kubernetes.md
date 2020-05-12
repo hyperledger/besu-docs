@@ -15,4 +15,4 @@ private networks using Kubernetes(K8s). Reference implementations are available 
 Familiarize yourself with the reference implementations and customize them for your requirements.
 
 <!-- Links -->
-[Helmfile]: https://github.com/PegaSysEng/besu-kubernetes/tree/master/helmfile/private-network-ibft-automated
+[Helmfile]: https://github.com/PegaSysEng/besu-kubernetes/tree/master/helmfile/ibft2

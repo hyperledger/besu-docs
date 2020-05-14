@@ -215,8 +215,8 @@ markdown_extensions:
     # pymdownx.superfences is deprecated.
     # It must be replaced with pymdownx.tabbed but it requires new CSS
     # TODO with material 5 update
-    - pymdownx.superfences
-        #legacy_tab_classes: true
+    - pymdownx.superfences:
+        legacy_tab_classes: true
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.tilde

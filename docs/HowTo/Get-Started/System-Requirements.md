@@ -63,12 +63,15 @@ How you synchronize with the Ethereum MainNet and whether you
 [Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which disables
 [pruning](../../Concepts/Pruning.md) by default, requires approximately 3TB.
 
-## AWS requirements 
+## AWS requirements
 
-For mainnet nodes on AWS: 
+For mainnet nodes on AWS:
 
 * The minimum box size is t3.large.
-* The recommended box size is t3.xlarge. 
+* The recommended box size is t3.xlarge.
+
+The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the 
+sync is completed, the box size can be reduced to t3.large.
 
 ## VM requirements
 

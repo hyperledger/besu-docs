@@ -70,7 +70,7 @@ For mainnet nodes on AWS:
 * The minimum box size is t3.large.
 * The recommended box size is t3.xlarge.
 
-The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the 
+The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the
 sync is completed, the box size can be reduced to t3.large.
 
 ## VM requirements

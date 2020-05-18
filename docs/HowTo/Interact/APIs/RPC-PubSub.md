@@ -9,8 +9,8 @@ description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
 Subscribe to events by using either RPC Pub/Sub over WebSockets or
 [filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, a Dapp
-can subscribe to logs and receive notification when a specific event occurs.
+Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, Dapps
+subscribe to logs and receive notifications when a specific event occurs.
 
 Methods specific to RPC Pub/Sub are:
 
@@ -74,7 +74,7 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 * [Dropped transactions](#dropped-transactions)
 * [Synchronizng](#synchronizing)
 
-Use `priv_subscribe` to create subscriptions for logs on [private contracts](../../../Concepts/Privacy/Privacy-Overview.md). 
+Use `priv_subscribe` to [create subscriptions for logs on private contracts](#logs). 
 
 !!! tip
     
@@ -190,8 +190,8 @@ Logs subscriptions have an filter object parameter with the following fields:
   [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
 
 For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
-logs for for a private contract subscription. That is, you can create subscriptions for privacy groups
-you are not a member of but do not receive any notifications. 
+logs for for a private contract subscription. You can create a subscription for a privacy group
+you are not a member of but the subscription will not receive any notifications. 
 
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old
 chain with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object)
@@ -237,13 +237,13 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
 
 !!!example "Private logs"
 
-   ```json tab="All logs for privacy group"
-   {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
-   ```
+    ```json tab="All logs for privacy group"
+    {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
+    ```
    
-   ```json tab="Specific address and topic" 
+    ```json tab="Specific address and topic" 
     {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
-   ```
+    ```
    
     ```json tab="Result"
     {"jsonrpc":"2.0","id":1,"result":"0x1"}

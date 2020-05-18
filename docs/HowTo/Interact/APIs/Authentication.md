@@ -18,7 +18,7 @@ Besu creates JWTs internally with
 [username and password authentication](#username-and-password-authentication), and externally with
 [JWT public key authentication](#jwt-public-key-authentication).
 
-Using JSON-RPC authentication and authorization with [MetaMask](https://metamask.io/) is not supported. 
+Using JSON-RPC authentication and authorization with [MetaMask](https://metamask.io/) is not supported.
 
 !!! important
 

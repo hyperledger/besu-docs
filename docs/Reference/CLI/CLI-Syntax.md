@@ -919,6 +919,9 @@ existing key file specifies the node private key.
 
     The private key is not encrypted.
 
+This option is ignored if [`--security-module`](#security-module) is set to 
+a non-default value.
+
 ### p2p-enabled
 
 ```bash tab="Syntax"
@@ -2128,26 +2131,22 @@ The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 ```
 
 ```bash tab="Command Line"
---security-module=hsm_plugin
+--security-module=security_module
 ```
 
 ```bash tab="Environment Variable"
-BESU_SECURITY_MODULE=hsm_plugin
+BESU_SECURITY_MODULE=security_module
 ```
 
 ```bash tab="Configuration File"
-security-module="hsm_plugin"
+security-module="security_module"
 ```
 
-Name of the security module to use.
+Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
+plugin
 
-Defaults to using the local private key file, and cannot be used with the
-[`--node-private-key-file`](#node-private-key-file) command line option.
-
-!!! important
-    Only specify this option if you use a [plugin] that uses a security
-    module supplier. For example, to store the node's private key in a hardware security
-    module (HSM).
+Defaults to using the nodes's local private key file specified using
+[`--node-private-key-file`](#node-private-key-file).
 
 ### sync-mode
 

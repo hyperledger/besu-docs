@@ -11,6 +11,10 @@ In IBFT 2.0 networks, approved accounts, known as validators, validate transacti
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
 
+!!! tip
+    You can use a plugin to securely store a validator's key using the
+    [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option. 
+
 Existing validators propose and vote to
 [add or remove validators](#adding-and-removing-validators). Adding or removing a validator
 requires a majority vote (greater than 50%) of validators.

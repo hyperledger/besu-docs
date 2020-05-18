@@ -919,6 +919,9 @@ existing key file specifies the node private key.
 
     The private key is not encrypted.
 
+This option is ignored if [`--security-module`](#security-module) is set to
+a non-default value.
+
 ### p2p-enabled
 
 ```bash tab="Syntax"
@@ -2121,6 +2124,30 @@ rpc-ws-port="6174"
 The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### security-module
+
+```bash tab="Syntax"
+--security-module=<NAME>
+```
+
+```bash tab="Command Line"
+--security-module=security_module
+```
+
+```bash tab="Environment Variable"
+BESU_SECURITY_MODULE=security_module
+```
+
+```bash tab="Configuration File"
+security-module="security_module"
+```
+
+Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
+plugin
+
+Defaults to using the nodes's local private key file specified using
+[`--node-private-key-file`](#node-private-key-file).
+
 ### sync-mode
 
 ```bash tab="Syntax"
@@ -2269,3 +2296,4 @@ Print version information and exit.
 [account permissioning]: ../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning
 [TLS on communication with the Private Transaction Manager]: ../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager
 [JWT provider's public key file]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
+[plugin]: ../Plugin-API-Interfaces.md

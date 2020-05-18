@@ -17,6 +17,10 @@ Use [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) to create
 using [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) and
 [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)).
 
+Access logs for [private contracts](../../../Concepts/Privacy/Privacy-Overview.md) using the equivalent 
+[`priv_*` methods and specifying the privacy group ID](#filters-for-private-contracts). For example,
+[`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs).  
+
 !!! note
 
     The sample contract included in [Events and Logs](../../../Concepts/Events-and-Logs.md) created
@@ -150,10 +154,24 @@ When a filter is no longer required, use
 [`eth_uninstallFilter`](../../../Reference/API-Methods.md#eth_uninstallfilter) to remove the
 filter.
 
+## Filters for private contracts 
+
+Filters for private contracts are created, accessed, and uninstalled using: 
+
+* [`priv_getFilterChanges`](../../../Reference/API-Methods.md#priv_getfilterchanges)
+* [`priv_getFilterLogs`](../../../Reference/API-Methods.md#priv_getfilterlogs)
+* [`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs)
+* [`priv_newFilter`](../../../Reference/API-Methods.md#priv_newfilter)
+* [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter).  
+  
+The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as a parameter
+for the `priv` methods. 
+  
 ## Getting logs using a filter options object
 
 To get all logs for a filter options object, use
-[`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).
+[`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs) or [`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs)
+for a private contract.
 
 !!! example
 

@@ -13,7 +13,7 @@ super-majority (greater than 66%) of validators must first sign the block.
 
 !!! tip
     You can use a plugin to securely store a validator's key using the
-    [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option. 
+    [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
 
 Existing validators propose and vote to
 [add or remove validators](#adding-and-removing-validators). Adding or removing a validator

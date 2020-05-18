@@ -14,8 +14,8 @@ can subscribe to logs and receive notification when a specific event occurs.
 
 Methods specific to RPC Pub/Sub are:
 
-* `eth_subscribe` - create a subscription for specific events
-* `eth_unsubscribe` - cancel a subscription.
+* `eth_subscribe` and `eth_unsubscribe` - create or cancel a subscription for specific events.  
+* `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../../Concepts/Privacy/Privacy-Overview.md).
 
 !!!important
 
@@ -28,20 +28,16 @@ Methods specific to RPC Pub/Sub are:
 
 [WebSockets](Using-JSON-RPC-API.md#http-and-websocket-requests) supports the RPC Pub/Sub API.
 
-To create subscriptions, use `eth_subscribe`. Once subscribed, the API publishes notifications
-using `eth_subscription`.
+To create subscriptions, use `eth_subscribe` or `priv_subscribe`. Once subscribed, the API publishes
+notifications using `eth_subscription` or `priv_subscription`.
 
-!!!note
-
-    `eth_subscription` publishes notifications; you do not need to call `eth_subscription`.
-
-Subscriptions couple with connections. If a connection is closes, this removes all subscriptions
-created over the connection.
+Subscriptions couple with connections. If a connection is closed, all subscriptions
+created over the connection are removed.
 
 ### Subscription ID
 
-`eth_subscribe` returns a subscription ID for each subscription created. Notifications include the
-subscription ID.
+`eth_subscribe` and `priv_subscribe` return a subscription ID for each subscription created.
+Notifications include the subscription ID.
 
 !!!example
 
@@ -77,6 +73,13 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 * [Pending transactions](#pending-transactions)
 * [Dropped transactions](#dropped-transactions)
 * [Synchronizng](#synchronizing)
+
+Use `priv_subscribe` to create subscriptions for logs on [private contracts](../../../Concepts/Privacy/Privacy-Overview.md). 
+
+!!! tip
+    
+    Only logs subscriptions are relevant for private transactions because private transactions are
+    anchored to the public chain rather than having their own private blockchain. 
 
 ### New headers
 
@@ -176,8 +179,8 @@ notifications include transaction hashes.
 ### Logs
 
 To notify you about [logs](../../../Concepts/Events-and-Logs.md) included in new blocks, use the
-`logs` parameter with `eth_subscribe`. You can specify a filter object to receive notifications
-only for logs matching your filter.
+`logs` parameter with `eth_subscribe` or `priv_subscribe`. Specify a filter object to receive
+notifications only for logs matching your filter.
 
 Logs subscriptions have an filter object parameter with the following fields:
 
@@ -186,6 +189,10 @@ Logs subscriptions have an filter object parameter with the following fields:
 * `topics` - (optional) Returns only logs that match the
   [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
 
+For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
+logs for for a private contract subscription. That is, you can create subscriptions for privacy groups
+you are not a member of but do not receive any notifications. 
+
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old
 chain with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object)
 set to `true`. This means the subscription can publish notifications for multiple logs for the same
@@ -193,29 +200,21 @@ transaction.
 
 The logs subscription returns [log objects](../../../Reference/API-Objects.md#log-object).
 
-!!!example
+!!!example "Public logs"
 
-    To subscribe to all logs notifications:
-
-    ```json
+    ```json tab="All logs"
      {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
     ```
 
-    To subscribe to logs for a specific address and topic:
-
-    ```json
+    ```json tab="Specific address and topic" 
     {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
 
-    Example result:
-
-    ```json
+    ```json tab="Result"
     {"jsonrpc":"2.0","id":1,"result":"0x2"}
     ```
 
-    Example notification:
-
-    ```json
+    ```json tab="Notification"
     {
       "jsonrpc":"2.0",
       "method":"eth_subscription",
@@ -233,6 +232,42 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
           "topics":["0x199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca072787","0x0000000000000000000000000000000000000000000000000000000000000005"]
          }
        }
+    }
+    ```
+
+!!!example "Private logs"
+
+   ```json tab="All logs for privacy group"
+   {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
+   ```
+   
+   ```json tab="Specific address and topic" 
+    {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
+   ```
+   
+    ```json tab="Result"
+    {"jsonrpc":"2.0","id":1,"result":"0x1"}
+    ```
+   
+    ```json tab="Notification"
+    {
+      "jsonrpc":"2.0",
+      "method":"priv_subscription",
+      "params":{
+        "subscription":"0x1",
+        "privacyGroupId":"4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=",
+        "result":{
+          "logIndex":"0x0",
+          "removed":false,
+          "blockNumber":"0x285",
+          "blockHash":"0x98490766b16de2a4d044c04d92599d71e626bc96e42f0c74274ef4e03fafd579",
+          "transactionHash":"0x40034ef14e3a22946693dd2a11efddf3a8850ddcad46b408198df6c176c53ffb",
+          "transactionIndex":"0x0",
+          "address":"0x61f96a7ed09877197d4fff0c29b8e523913651a9",
+          "data":"0x",
+          "topics":["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410","0x0000000000000000000000000000000000000000000000000000000000000002"]
+        }
+      }
     }
     ```
 
@@ -407,11 +442,13 @@ synchronization progress. When fully synchronized, returns `false`.
 
 ## Unsubscribing
 
-To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_unsubscribe`. Only
-the connection that created a subscription can unsubscribe from it.
+To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_unsubscribe` or
+`priv_unsubscribe`. Only the connection that created a subscription can unsubscribe from it.
 
-`eth_unsubscribe` returns `true` if subscription succuessfully unsubscribed; otherwise, returns an
-error.
+When cancelling a subscription for private logs, the privacy group ID must be specified. 
+
+`eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription succuessfully unsubscribed; 
+otherwise, returns an error.
 
 !!!example
 
@@ -419,6 +456,12 @@ error.
 
     ```json
     {"id": 1, "method": "eth_unsubscribe", "params": ["0x1"]}
+    ```
+    
+    To unsubscribe from private logs subscription: 
+    
+    ```json
+    {"id": 1, "method": "priv_unsubscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=","0x2"]}
     ```
 
     Example result:

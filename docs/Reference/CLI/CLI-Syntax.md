@@ -919,7 +919,7 @@ existing key file specifies the node private key.
 
     The private key is not encrypted.
 
-This option is ignored if [`--security-module`](#security-module) is set to 
+This option is ignored if [`--security-module`](#security-module) is set to
 a non-default value.
 
 ### p2p-enabled

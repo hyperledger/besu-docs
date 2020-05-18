@@ -47,11 +47,11 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 
 !!! caution
 
-    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
+    Do not use pruning in Hyperledger Besu v1.4 Pruning has a
     [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
 
     If using fast synchronization
-    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly
+    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4, explicitly
     disable pruning using
     [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
@@ -63,12 +63,19 @@ How you synchronize with the Ethereum MainNet and whether you
 [Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which disables
 [pruning](../../Concepts/Pruning.md) by default, requires approximately 3TB.
 
+## AWS requirements
+
+For mainnet nodes on AWS:
+
+* The minimum box size is t3.large.
+* The recommended box size is t3.xlarge.
+
+The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the
+sync is completed, the box size can be reduced to t3.large.
+
 ## VM requirements
 
-You can run Besu on a virtual machine (VM) on a cloud service, such as AWS or Azure, or locally
-using a VM manager, such as [VirtualBox](https://www.virtualbox.org/).
-
-If you set up your own VM locally using a VM manager, there are a few considerations:
+If you set up your own VM locally using a VM manager such as [VirtualBox](https://www.virtualbox.org/):
 
 * Ensure you enable Intel Virtualization Technology (VTx) and Virtualization Technology for
   Directed I/O (VT-d) in the BIOS settings.

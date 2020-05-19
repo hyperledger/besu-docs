@@ -5,7 +5,8 @@ description: Configuring NAT with Hyperledger Besu
 # Configuring NAT
 
 Use the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) option to specify the NAT
-method. Options are: `UPNP`, `MANUAL`, `DOCKER`, `AUTO`, and `NONE`.
+method. Options are: [`UPNP`](#upnp), [`MANUAL`](#manual), [`KUBERNETES`](#kubernetes), [`DOCKER`](#docker),
+[`AUTO`](#auto), and [`NONE`](#none).
 
 The [enode](../../Concepts/Node-Keys.md#enode-url) advertised to other nodes during discovery is
 the external IP address and port. The

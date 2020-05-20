@@ -17,9 +17,9 @@ Use [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) to create
 using [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) and
 [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs)).
 
-Access logs for [private contracts](../../../Concepts/Privacy/Privacy-Overview.md) using the equivalent 
+Access logs for [private contracts](../../../Concepts/Privacy/Privacy-Overview.md) using the equivalent
 [`priv_*` methods and specifying the privacy group ID](#filters-for-private-contracts). For example,
-[`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs).  
+[`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs).
 
 !!! note
 
@@ -154,20 +154,20 @@ When a filter is no longer required, use
 [`eth_uninstallFilter`](../../../Reference/API-Methods.md#eth_uninstallfilter) to remove the
 filter.
 
-## Filters for private contracts 
+## Filters for private contracts
 
-Filters for private contracts are created, accessed, and uninstalled using: 
+Filters for private contracts are created, accessed, and uninstalled using:
 
 * [`priv_getFilterChanges`](../../../Reference/API-Methods.md#priv_getfilterchanges)
 * [`priv_getFilterLogs`](../../../Reference/API-Methods.md#priv_getfilterlogs)
 * [`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs)
 * [`priv_newFilter`](../../../Reference/API-Methods.md#priv_newfilter)
-* [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter).  
-  
-The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
-for the `priv` methods. 
+* [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter). 
 
-!!! example 
+The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
+for the `priv` methods.
+
+!!! example
 
     ```
     {
@@ -185,7 +185,7 @@ for the `priv` methods.
         "id": 1
     }
     ```
-  
+
 ## Getting logs using a filter options object
 
 To get all logs for a filter options object, use

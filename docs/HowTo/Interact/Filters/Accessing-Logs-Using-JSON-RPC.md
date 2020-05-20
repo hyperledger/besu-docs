@@ -162,7 +162,7 @@ Filters for private contracts are created, accessed, and uninstalled using:
 * [`priv_getFilterLogs`](../../../Reference/API-Methods.md#priv_getfilterlogs)
 * [`priv_getLogs`](../../../Reference/API-Methods.md#priv_getlogs)
 * [`priv_newFilter`](../../../Reference/API-Methods.md#priv_newfilter)
-* [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter). 
+* [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter).
 
 The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
 for the `priv` methods.

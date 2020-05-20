@@ -58,7 +58,7 @@ Create a filter using [`eth_newFilter`](../../../Reference/API-Methods.md#eth_ne
 [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) returns a filter ID hash (for
 example, `0x1ddf0c00989044e9b41cc0ae40272df3`).
 
-### Polling a Filter for changes
+### Polling a filter for changes
 
 To poll the filter for changes since the last poll, use
 [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) with the filter ID
@@ -164,8 +164,27 @@ Filters for private contracts are created, accessed, and uninstalled using:
 * [`priv_newFilter`](../../../Reference/API-Methods.md#priv_newfilter)
 * [`priv_uninstallFilter`](../../../Reference/API-Methods.md#priv_uninstallfilter).  
   
-The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as a parameter
+The [privacy group ID](../../../Concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
 for the `priv` methods. 
+
+!!! example 
+
+    ```
+    {
+        "jsonrpc": "2.0",
+        "method": "priv_newFilter",
+        "params": [
+            "4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",
+            {
+             "fromBlock": "earliest",
+             "toBlock": "latest",
+             "addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],
+             "topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]
+            }
+        ],
+        "id": 1
+    }
+    ```
   
 ## Getting logs using a filter options object
 

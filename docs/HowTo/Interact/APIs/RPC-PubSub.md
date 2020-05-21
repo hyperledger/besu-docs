@@ -14,7 +14,7 @@ subscribe to logs and receive notifications when a specific event occurs.
 
 Methods specific to RPC Pub/Sub are:
 
-* `eth_subscribe` and `eth_unsubscribe` - create or cancel a subscription for specific events.  
+* `eth_subscribe` and `eth_unsubscribe` - create or cancel a subscription for specific events.
 * `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../../Concepts/Privacy/Privacy-Overview.md).
 
 !!!important
@@ -74,12 +74,12 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 * [Dropped transactions](#dropped-transactions)
 * [Synchronizng](#synchronizing)
 
-Use `priv_subscribe` to [create subscriptions for logs on private contracts](#logs). 
+Use `priv_subscribe` to [create subscriptions for logs on private contracts](#logs).
 
 !!! tip
-    
+
     Only logs subscriptions are relevant for private transactions because private transactions are
-    anchored to the public chain rather than having their own private blockchain. 
+    anchored to the public chain rather than having their own private blockchain.
 
 ### New headers
 
@@ -190,7 +190,7 @@ Logs subscriptions have an filter object parameter with the following fields:
   [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
 
 For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
-logs for for a private contract subscription. If you create a subscription for a privacy group you are
+logs for a private contract subscription. If you create a subscription for a privacy group you are
 not a member of, you will not receive any notifications.
 
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old
@@ -206,7 +206,7 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
      {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
     ```
 
-    ```json tab="Specific address and topic" 
+    ```json tab="Specific address and topic"
     {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
 
@@ -445,7 +445,7 @@ synchronization progress. When fully synchronized, returns `false`.
 To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_unsubscribe` or
 `priv_unsubscribe`. Only the connection that created a subscription can unsubscribe from it.
 
-When cancelling a subscription for private logs, the privacy group ID must be specified. 
+When cancelling a subscription for private logs, the privacy group ID must be specified.
 
 `eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription succuessfully unsubscribed; 
 otherwise, returns an error.

@@ -12,7 +12,8 @@ This repository only contains the sources for
 ## Useful links
 
 * [Besu user documentation][Besu User Documentation]
-* [Besu Jira](https://jira.hyperledger.org/projects/BESU/issues)
+* [Besu Issues](https://github.com/hyperledger/besu/issues)
+* [Besu Docs Issues](https://github.com/hyperledger/besu-docs/issues)
 * [Besu Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
 * [How to contribute to the documentation](CONTRIBUTING.md)
 * How to contribute to the
@@ -22,10 +23,12 @@ This repository only contains the sources for
 
 Having the following accounts is necessary for contributing code/issues to Besu:
 
-* If you want to contribute code, create a [Linux Foundation (LF) account].
-* If you want to raise an issue, login to your [Atlassian account](https://id.atlassian.com/).
-* Our Rocket Chat also requires a [Linux Foundation (LF) account].
+* If you want to contribute code, create a [Linux Foundation (LF) account] and a [GitHub account].
+* If you want to raise an issue, login to your [GitHub account].
+* [Chat] also requires a [Linux Foundation (LF) account].
 
 <!-- Links -->
 [Besu User Documentation]: https://besu.hyperledger.org
-[Linux Foundation (LF) account]: https://identity.linuxfoundation.org/
+[Linux Foundation (LF) account]: https://wiki.hyperledger.org/display/CA/Setting+up+an+LFID
+[GitHub account]: https://www.github.com/
+[Chat]: https://chat.hyperledger.org/

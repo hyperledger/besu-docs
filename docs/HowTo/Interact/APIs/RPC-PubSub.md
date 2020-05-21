@@ -191,7 +191,7 @@ Logs subscriptions have an filter object parameter with the following fields:
 
 For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
 logs for for a private contract subscription. If you create a subscription for a privacy group you are
-not a member of, you will not receive any notifications. 
+not a member of, you will not receive any notifications.
 
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old
 chain with the `removed` property in the [log object](../../../Reference/API-Objects.md#log-object)

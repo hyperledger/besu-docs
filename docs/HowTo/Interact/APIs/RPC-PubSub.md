@@ -240,15 +240,15 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
     ```json tab="All logs for privacy group"
     {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
     ```
-   
+
     ```json tab="Specific address and topic" 
     {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
-   
+
     ```json tab="Result"
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
-   
+
     ```json tab="Notification"
     {
       "jsonrpc":"2.0",
@@ -375,7 +375,6 @@ receive multiple dropped transaction notifications for the same transaction.
     {"jsonrpc":"2.0","id":1,"result":"0x1"}
     ```
 
-
     Example notification:
 
     ```json
@@ -457,9 +456,9 @@ otherwise, returns an error.
     ```json
     {"id": 1, "method": "eth_unsubscribe", "params": ["0x1"]}
     ```
-    
+
     To unsubscribe from private logs subscription: 
-    
+
     ```json
     {"id": 1, "method": "priv_unsubscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=","0x2"]}
     ```

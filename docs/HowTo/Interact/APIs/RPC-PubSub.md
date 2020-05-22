@@ -394,7 +394,7 @@ receive multiple dropped transaction notifications for the same transaction.
 To notify you about synchronization progress, use the `syncing` parameter with `eth_subscribe`.
 
 When behind the chain head, the synchronizing subscription returns an object indicating the
-synchronization progress. When fully synchronized, returns `false`.
+synchronization progress. When fully synchronized, returns `false`. 
 
 !!!example
 

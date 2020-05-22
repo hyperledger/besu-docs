@@ -29,7 +29,7 @@ extra:
     chat: https://chat.hyperledger.org/channel/besu
     email: besu@lists.hyperledger.org
     website: https://www.hyperledger.org/projects/besu
-    issues: https://jira.hyperledger.org/projects/BESU/issues
+    issues: https://github.com/hyperledger/besu/issues
   google:
     site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'

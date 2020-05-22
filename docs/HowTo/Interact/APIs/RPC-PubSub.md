@@ -241,7 +241,7 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
     {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
     ```
 
-    ```json tab="Specific address and topic" 
+    ```json tab="Specific address and topic"
     {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
     ```
 
@@ -393,7 +393,7 @@ receive multiple dropped transaction notifications for the same transaction.
 To notify you about synchronization progress, use the `syncing` parameter with `eth_subscribe`.
 
 When behind the chain head, the synchronizing subscription returns an object indicating the
-synchronization progress. When fully synchronized, returns `false`. 
+synchronization progress. When fully synchronized, returns `false`.
 
 !!!example
 
@@ -446,7 +446,7 @@ To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_
 
 When cancelling a subscription for private logs, the privacy group ID must be specified.
 
-`eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription succuessfully unsubscribed; 
+`eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription succuessfully unsubscribed;
 otherwise, returns an error.
 
 !!!example
@@ -457,7 +457,7 @@ otherwise, returns an error.
     {"id": 1, "method": "eth_unsubscribe", "params": ["0x1"]}
     ```
 
-    To unsubscribe from private logs subscription: 
+    To unsubscribe from private logs subscription:
 
     ```json
     {"id": 1, "method": "priv_unsubscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=","0x2"]}

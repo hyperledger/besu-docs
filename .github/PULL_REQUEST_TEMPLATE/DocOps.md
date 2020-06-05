@@ -22,10 +22,10 @@ If you want to suggest a change to the content, create a content pull request.
 
 ## Issue fixed
 
-<!-- Except for a very minor change (a typo) it's required to have a Github issue linked to your
+<!-- Except for minor changes (typos, commas) it's required to have a Github issue linked to your
 pull request.
 
-To make Github close the issue automatically when this pull request is merged, use:
+Use the following to make Github close the issue automatically when merging the PR:
 
 fixes #{your issue number}
 
@@ -38,11 +38,11 @@ see #{your issue number} -->
 <!-- Indicate what parts are impacted by your changes (insert X instead of space between [ ]): -->
 
 - [ ] CircleCI workflow
-- [ ] Build and QA tools (lint, vale,...)
+- [ ] Build and QA tools (lint, vale,…)
 - [ ] MkDocs templates
 - [ ] MkDocs configuration
 - [ ] Python dependencies
-- [ ] Node dependencies and javascripts
+- [ ] Node dependencies and JavaScript
 - [ ] ReadTheDocs configuration
 - [ ] Github integration
 

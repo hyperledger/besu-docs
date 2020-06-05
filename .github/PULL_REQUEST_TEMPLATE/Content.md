@@ -20,10 +20,10 @@ If you want to suggest a change to the tools, CI and build process, create a Doc
 
 ## Issue fixed
 
-<!-- Except for a very minor change (a typo) it's required to have a Github issue linked to your
+<!-- Except for minor changes (typos, commas) it's required to have a Github issue linked to your
 pull request.
 
-To make Github close the issue automatically when this pull request is merged, use:
+Use the following to make Github close the issue automatically when merging the PR:
 
 fixes #{your issue number}
 

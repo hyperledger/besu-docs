@@ -10,8 +10,8 @@ assignees: 'NicolasMassart'
 <!--
 **IMPORTANT: this is only for reporting documentation content issues.**
 
-- Besu software issues must be reported on https://github.com/hyperledger/besu repos.
-- Doc tool issues must be reported using the "Doc tool bug report" template.
+- Report Besu software issus on https://github.com/hyperledger/besu repos.
+- Report doc tool issues using the "Doc tool bug report" template.
 
 **Before filling a bug**, did you try to search in this doc search field? -->
 
@@ -27,19 +27,19 @@ Check the issue type in the following list (insert X instead of space between [ 
 - [ ] Confusing or misleading content
 - [ ] Other
 
-## Indicate the place where the issue happens
+## The broken page
 
 [Paste the doc site page link here.]
 
 ## Change suggestion
 
-<!-- If you know how the content should be changed, don't hesitate to indicate it. -->
+<!-- If you know how to change the content, don't hesitate to write a suggestion. -->
 
 ## Screenshots
 
 <!-- If applicable, don't hesitate to link an annotated screenshot
 or a small demo video to help understanding the issue. -->
 
-## Additional context
+## More context
 
 <!-- Add any other context about the problem here. -->

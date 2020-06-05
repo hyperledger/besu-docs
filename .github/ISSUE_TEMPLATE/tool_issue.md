@@ -45,6 +45,6 @@ Steps to reproduce the behavior:
 <!-- If applicable, don't hesitate to link an annotated screenshot
 or a small demo video to help understanding the issue. -->
 
-## Additional context
+## More context
 
 <!-- Add any other context about the problem here. -->

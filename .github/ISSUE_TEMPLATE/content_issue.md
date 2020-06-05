@@ -2,8 +2,6 @@
 name: Doc content issue report
 about: Create a report to help us improve our content.
 title: ''
-labels: bug
-assignees: 'NicolasMassart'
 
 ---
 

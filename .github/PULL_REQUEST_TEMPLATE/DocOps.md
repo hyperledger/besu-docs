@@ -3,7 +3,6 @@ name: DocOps pull request
 about: Propose a change on this documentation tools.
 title: ''
 labels: DocOps
-assignees: 'NicolasMassart'
 
 ---
 

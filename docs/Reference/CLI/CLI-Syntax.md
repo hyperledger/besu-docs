@@ -2260,6 +2260,26 @@ tx-pool-hashes-max-size="2000"
 
 The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
+### tx-pool-price-bump
+
+```bash tab="Syntax"
+--tx-pool-price-bump=<INTEGER>
+```
+
+```bash tab="Command Line"
+--tx-pool-price-bump=25
+```
+
+```bash tab="Environment Variable"
+BESU_TX_POOL_PRICE_BUMP=25
+```
+
+```bash tab="Configuration File"
+tx-pool-price-bump="25"
+```
+
+The price bump percentage to replace an existing transaction. The default is 10.
+
 ### tx-pool-retention-hours
 
 ```bash tab="Syntax"

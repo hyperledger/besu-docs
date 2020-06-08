@@ -72,7 +72,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
 
     When running in a Docker container, [`--nat-method`](../Find-and-Connect/Specifying-NAT.md)
     must be set to `DOCKER` or `AUTO` (default). Do not set
-    [`--nat-method`](../Find-and-Connect/Specifying-NAT.md) to `NONE`, `UPNP`, or `MANUAL`.
+    [`--nat-method`](../Find-and-Connect/Specifying-NAT.md) to `NONE` or `UPNP`.
 
 You can specify
 [Besu environment variables](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables) with the

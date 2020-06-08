@@ -806,7 +806,6 @@ Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/
 The options are:
 
 * [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
-* [`MANUAL`](../../HowTo/Find-and-Connect/Specifying-NAT.md#manual)
 * [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
 * [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
 * [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)

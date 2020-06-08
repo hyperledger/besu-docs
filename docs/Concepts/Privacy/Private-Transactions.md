@@ -61,6 +61,24 @@ different to the nonce for account A for privacy group AB.
 
 The nonce for the [privacy marker transaction] is the public nonce for the account.
 
+### Nonce validation 
+
+Unlike public transactions, private transactions are not submitted to the transaction pool. The private
+transaction is distributed directly to the participants in the transaction and the privacy marker
+transaction is submitted to the [transaction pool](../Transactions/Transaction-Pool.md). 
+
+Unlike [public transaction nonces](../Transactions/Transaction-Validation.md), private transaction
+nonces are not validated when the private transaction is submitted. Private transactions are directly
+distributed. If a private transaction has an incorrect nonce, the privacy marker transaction is still
+valid and will be added to a block.  The private transaction execution fails when [processing the privacy marker
+transaction](../Privacy/Private-Transaction-Processing.md) for the private transaction with the incorrect nonce. 
+
+!!! tip 
+
+    The [web3js-eea library includes an example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    of nonce management when sending multiple private transactions. The example calculates the
+    correct nonces for the private transactions and privacy marker transactions outside of Besu.  
+ 
 <!-- links ---->
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md

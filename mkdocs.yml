@@ -137,6 +137,7 @@ nav:
         - Private Network Example: Tutorials/Examples/Private-Network-Example.md
         - Deploy on Microsoft Azure: Tutorials/Examples/Private-Network-Example-Azure.md
         - Private Network Example for Private Transactions: Tutorials/Examples/Privacy-Example.md
+        - Configure the Nat Manager for Kubernetes : Tutorials/Examples/Nat-Manager-Kubernetes.md
       - Create a Private Network:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md

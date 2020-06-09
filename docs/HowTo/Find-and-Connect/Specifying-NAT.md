@@ -19,6 +19,25 @@ While Hyperledger Besu is running, the following are not supported:
 * Changing NAT methods. To change the NAT method, restart the node with the
   [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) option set.
 
+## Auto
+
+`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Kubernetes cluster or
+a Docker container. If running inside:
+
+* A Kubernetes cluster, `AUTO` acts as if you specified [`KUBERNETES`](#kubernetes).
+* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
+* Neither a Kubernetes cluster nor a Docker container, `AUTO` acts as if you specified
+  [`NONE`](#none).
+
+This following logs means that the automatic detection has failed. In this cas if you prefer to define the IP and ports yourself this will act as if you specified [`NONE`](#none)
+
+```
+INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
+DEBUG | KubernetesNatManager | Trying to update information using Kubernetes client SDK.
+DEBUG | NatService | Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used
+INFO  | NetworkRunner | Starting Network.
+```
+
 ## UPnP
 
 Specify `UPNP` to quickly allow inbound peer connections without manual router configuration. Use
@@ -50,8 +69,9 @@ By specifying `MANUAL`:
 
 Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
 Besu automatically detects if it's running inside of a Kubernetes cluster and interacts with
-Kubernetes APIs as required to determine external IP addresses and exposed ports. Besue stores the
-configuration in `/opt/besu/shared/kube-config`.
+Kubernetes APIs as required to determine external IP addresses and exposed ports.
+
+A tutorial is available [Configure the Nat Manager for Kubernetes](../../Tutorials/Examples/Nat-Manager-Kubernetes.md)
 
 ## Docker
 
@@ -64,15 +84,6 @@ If not specified in the `docker run` command, the advertised host defaults to th
 [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 
-## Auto
-
-`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Kubernetes cluster or
-a Docker container. If running inside:
-
-* A Kubernetes cluster, `AUTO` acts as if you specified [`KUBERNETES`](#kubernetes).
-* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
-* Neither a Kubernetes cluster nor a Docker container, `AUTO` acts as if you specified
-  [`NONE`](#none).
 
 ## None
 

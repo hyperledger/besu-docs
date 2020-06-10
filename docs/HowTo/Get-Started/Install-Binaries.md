@@ -56,7 +56,7 @@ besu --help
 !!!attention
 
     Besu requires Java 11+ to compile; earlier versions are not supported.
-    
+
 !!! note "Linux Open File Limit"
 
     If synchronizing to MainNet on Linux or other chains with large data requirements, increase the

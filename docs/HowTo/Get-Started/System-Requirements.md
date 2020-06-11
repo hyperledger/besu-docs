@@ -58,10 +58,9 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 How you synchronize with the Ethereum MainNet and whether you
 [enable or disable pruning](../../Concepts/Pruning.md)) determines your disk space requirement.
 
-[Fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which enables
-[pruning](../../Concepts/Pruning.md) by default, requires approximately 750GB of disk space.
-[Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode), which disables
-[pruning](../../Concepts/Pruning.md) by default, requires approximately 3TB.
+[Fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) with
+[pruning](../../Concepts/Pruning.md) enabled requires approximately 750GB of disk space.
+[Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) requires approximately 3TB.
 
 ## AWS requirements
 

@@ -9,10 +9,11 @@ assignees: 'NicolasMassart'
 
 <!-- **IMPORTANT: this is only for reporting documentation tools bugs.**
 
-- Report Besu software issus on https://github.com/hyperledger/besu repos.
+- Report Besu software issues at https://github.com/hyperledger/besu/issues.
 - Report doc content issues using the "Doc content issue report" template.
 
-**Before filling a bug**, did you try to refresh your browser cache for our site? -->
+**Before creating a bug**, did you try refreshing your browser cache for our site?
+-->
 
 ## Describe the bug
 

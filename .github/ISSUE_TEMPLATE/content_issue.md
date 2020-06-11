@@ -8,10 +8,12 @@ title: ''
 <!--
 **IMPORTANT: this is only for reporting documentation content issues.**
 
-- Report Besu software issus on https://github.com/hyperledger/besu repos.
+- Report Besu software issues at https://github.com/hyperledger/besu/issues.
 - Report doc tool issues using the "Doc tool bug report" template.
 
-**Before filling a bug**, did you try to search in this doc search field? -->
+**Before creating a bug**, have you tried using the search field in the documentation
+to find what you're looking for?
+-->
 
 ## Describe the bug
 
@@ -31,7 +33,7 @@ Check the issue type in the following list (insert X instead of space between [ 
 
 ## Change suggestion
 
-<!-- If you know how to change the content, don't hesitate to write a suggestion. -->
+<!-- If you know how to fix the content, don't hesitate to provide a suggestion. -->
 
 ## Screenshots
 

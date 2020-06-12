@@ -95,6 +95,7 @@ nav:
           - Use Metrics: HowTo/Monitor/Metrics.md
           - Configure Logging: HowTo/Monitor/Logging.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
+          - Use Splunk Enterprise: HowTo/Monitor/Splunk-Enterprise.md
         - Send Transactions:
            - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md

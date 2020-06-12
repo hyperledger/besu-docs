@@ -21,22 +21,29 @@ While Hyperledger Besu is running, the following are not supported:
 
 ## Auto
 
-`AUTO` is the default NAT method. `AUTO` detects if Besu is running inside a Kubernetes cluster or
-a Docker container. If running inside:
+`AUTO` detects if Besu is running inside a Kubernetes cluster or
+a Docker container.
 
-* A Kubernetes cluster, `AUTO` acts as if you specified [`KUBERNETES`](#kubernetes).
-* A Docker container, `AUTO` acts as if you specified [`DOCKER`](#docker).
-* Neither a Kubernetes cluster nor a Docker container, `AUTO` acts as if you specified
-  [`NONE`](#none).
+* If Besu is running in a Kubernetes cluster, `AUTO` sets to [`KUBERNETES`](#kubernetes).
+* If Besu is running in a Docker container, `AUTO` sets to [`DOCKER`](#docker).
+* If Besu is not running in Kubernetes or Docker container, `AUTO` sets to [`NONE`](#none).
 
-This following logs means that the automatic detection has failed. In this cas if you prefer to define the IP and ports yourself this will act as if you specified [`NONE`](#none)
+`AUTO` is the default NAT method.
 
-```
-INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
-DEBUG | KubernetesNatManager | Trying to update information using Kubernetes client SDK.
-DEBUG | NatService | Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used
-INFO  | NetworkRunner | Starting Network.
-```
+The following log shows an automatic detection failure.
+
+!!! example
+    The following log shows an automatic detection failure.
+
+    ```
+    INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
+    DEBUG | KubernetesNatManager | Trying to update information using Kubernetes client SDK.
+    DEBUG | NatService | Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used
+    INFO  | NetworkRunner | Starting Network.
+    ```
+
+!!!tip
+    If automatic detection fails, set the IP and ports in [`MANUAL`](#manual) mode.
 
 ## UPnP
 
@@ -83,7 +90,6 @@ The host IP address is the advertised host specified in the
 If not specified in the `docker run` command, the advertised host defaults to the values for
 [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
-
 
 ## None
 

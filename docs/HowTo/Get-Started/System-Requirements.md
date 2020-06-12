@@ -31,7 +31,7 @@ Depending on your environment and network setup, Besu has the following minimum 
 Machine (JVM) memory requiements. For:
 
 * Private networks, 4GB
-* MainNet and testnets, such as Ropten, 8GB.
+* Mainnet and testnets, such as Ropten, 8GB.
 
 Two JVM parameters can be set to suit your memory requirements:
 
@@ -64,13 +64,7 @@ How you synchronize with the Ethereum MainNet and whether you
 
 ## AWS requirements
 
-For mainnet nodes on AWS:
-
-* The minimum box size is t3.large.
-* The recommended box size is t3.xlarge.
-
-The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the
-sync is completed, the box size can be reduced to t3.large.
+For mainnet nodes on AWS, the minimum box size is t3.xlarge.
 
 ## VM requirements
 

@@ -54,8 +54,8 @@ theme:
 nav:
     - How To:
         - Get Started with Besu:
-            - System Requirements Private Networks: HowTo/Get-Started/System-Requirements-Private.md
-            - System Requirements Public Networks: HowTo/Get-Started/System-Requirements-Public.md
+            - Private Network System Requirements: HowTo/Get-Started/System-Requirements-Private.md
+            - Public Network System Requirements: HowTo/Get-Started/System-Requirements-Public.md
             - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
             - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md

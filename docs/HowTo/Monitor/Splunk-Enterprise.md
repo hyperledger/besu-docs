@@ -6,8 +6,14 @@ description: Send Hyperledger Besu logs to Splunk
 
 A Splunk server can receive Besu logs and enable complex search, visualisation and analysis.
 
-It will help you aggregate multiple node logs in one place and run complex queries without the need
-to connect to the node machine to read the standard output. 
+Splunk will help you aggregate multiple node logs in one place and run complex queries without the need
+to connect to the node machine to read the standard output.
+
+There's 3 ways to run Splunk and Besu:
+
+- [_Splunk connect for Ethereum_ Docker Compose demo](#_splunk-connect-for-ethereum_-docker-compose-demo)
+- Splunk Enterprise Docker container
+- Standalone Splunk Enterprise
 
 ## _Splunk connect for Ethereum_ Docker Compose demo
 
@@ -21,7 +27,7 @@ The following tools are required to use the Splunk connect for Ethereum Docker C
 - [Git](https://git-scm.com/)
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/).
 
-### Clone the _Splunk connect for Ethereum_ repository.
+### Clone the _Splunk connect for Ethereum_ repository
 
     Open a terminal window and run the following commands:
 
@@ -37,9 +43,9 @@ Follow instructions at [Besu example running ethlogger using docker-compose](htt
 !!!note
 
     Splunk enterprise takes some time to start.
-    
+
     Run the `docker ps` command and wait for the 3 container status to be `Up [number] seconds (healthy)`.
-    
+
     ```
     CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                    PORTS                                                                            NAMES
     127600dd1173        splunkdlt/ethlogger:latest   "ethlogger"              53 seconds ago      Up 51 seconds (healthy)                                                                                    ethlogger

@@ -3887,7 +3887,7 @@ Discards a proposal to [add or remove a validator] with the specified address.
 ### ibft_getPendingVotes
 
 Returns [votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
-cast in the current epoch.
+cast in the current [epoch](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
 
 #### Parameters
 

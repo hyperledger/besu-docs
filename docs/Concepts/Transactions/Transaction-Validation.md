@@ -13,11 +13,11 @@ Besu repeats the set of transaction pool validations after propagating the trans
 repeats the same set of validations when importing the block that includes the transaction, except
 the nonce must be exactly right when importing the block.
 
-!!! important 
-    
+!!! important
+
     Private transactions are not added to the transaction pool. The privacy marker transaction is
-    submitted to the transaction pool but the private transaction itself is directly distributed 
-    to the transaction participants. 
+    submitted to the transaction pool but the private transaction itself is directly distributed
+    to the transaction participants.
 
 When adding the transaction to a block, Besu performs an additional validation to check that the
 transaction gas limit is less than the remaining block gas limit. After creating a block, the node

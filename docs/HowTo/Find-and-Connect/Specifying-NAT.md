@@ -78,6 +78,9 @@ Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a 
 Besu automatically detects if it's running inside of a Kubernetes cluster and interacts with
 Kubernetes APIs as required to determine external IP addresses and exposed ports.
 
+In Kubernetes, the Ingress IP of the load balancer will be used as the external IP for Besu.
+A load balancer service can map any incoming port to a target port. These mapping rules will be the one retrieved by Besu.
+
 A tutorial is available [Configure the Nat Manager for Kubernetes](../../Tutorials/Examples/Nat-Manager-Kubernetes.md)
 
 ## Docker

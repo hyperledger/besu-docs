@@ -36,11 +36,11 @@ specific to IBFT 2.0.
       {
         "config": {
           "chainId": 1981,
-          "constantinoplefixblock": 0,
+          "muirglacierblock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
-            "requesttimeoutseconds": 10
+            "requesttimeoutseconds": 4
           }
         },
         "nonce": "0x0",
@@ -122,8 +122,8 @@ blocks every `blockperiodseconds`.
 
     An internal PegaSys IBFT 2.0 testnet has four geographically dispersed validators in Sweden,
     Sydney, and two in North Virginia. With a `blockperiodseconds`of 5 and a
-    `requesttimeoutseconds` of 10, the testnet consistently creates blocks with a five second
-    blocktime.
+    `requesttimeoutseconds` of 10 (`blockperiodseconds` x 2), the testnet consistently creates
+    blocks with a five second blocktime.
 
 ### Optional configuration options
 
@@ -249,9 +249,9 @@ To add or remove validators without voting:
           "config": {
              ...
              "ibft2": {
-               "blockperiodseconds": 15,
+               "blockperiodseconds": 2,
                "epochlength": 30000,
-               "requesttimeoutseconds": 10
+               "requesttimeoutseconds": 4
              },
              "transitions": {
                "ibft2": [
@@ -275,9 +275,9 @@ To add or remove validators without voting:
           "config": {
             ...
             "ibft2": {
-              "blockperiodseconds": 15,
+              "blockperiodseconds": 2,
               "epochlength": 30000,
-              "requesttimeoutseconds": 10
+              "requesttimeoutseconds": 4
             },
             "transitions": {
                "ibft2": [

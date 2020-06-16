@@ -47,7 +47,7 @@ To display Besu command line help:
 besu --help
 ```
 
-## Linux / Unix / Windows
+## Linux / Unix
 
 ### Prerequisites
 
@@ -56,8 +56,6 @@ besu --help
 !!!attention
 
     Besu requires Java 11+ to compile; earlier versions are not supported.
-    Besu is currently supported only on 64-bit versions of Windows, and requires a 64-bit version
-    of JDK/JRE. We recommend that you also remove any 32-bit JDK/JRE installations.
 
 !!! note "Linux Open File Limit"
 
@@ -75,8 +73,4 @@ Display Besu command line help to confirm installation:
 
 ```bash tab="Linux/macOS"
 bin/besu --help
-```
-
-```bat tab="Windows"
-bin\besu --help
 ```

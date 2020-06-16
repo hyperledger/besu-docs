@@ -29,7 +29,7 @@ the required ports.
 
 Check that the [enode URLs](../../Concepts/Node-Keys.md#enode-url) specified for
 [bootnodes](../Find-and-Connect/Bootnodes.md) or
-[static nodes](../Find-and-Connect/Static-Nodes.md) match the enode URLs displayed when staring the
+[static nodes](../Find-and-Connect/Static-Nodes.md) match the enode URLs displayed when starting the
 remote nodes.
 
 ## Mining
@@ -101,11 +101,6 @@ set BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
 Characters such as smart quotes and long (em) hyphens do not work in Besu command line options.
 Ensure quotes are not automatically converted to smart quotes, or double hyphens combined into em
 hyphens.
-
-## New line characters at the end of files
-
-Ensure there is no new line character (`\n`) at the end of password files. New line characters
-might not display in all editors.
 
 ## Logging
 

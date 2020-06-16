@@ -15,7 +15,7 @@ Options and methods for configuring and monitoring the transaction pool include:
 * [`--tx-pool-hashes-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-hashes-max-size) command
   line option to specify the maximum number of transaction hashes in the transaction pool. Should
   be greater than or equal to the value specified for `--tx-pool-max-size`.
-* [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) command line 
+* [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) command line
   option to specify the price bump percentage to replace an existing transaction.
 * [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command
   line option to specify the maximum number of hours to keep pending transactions in the transaction
@@ -35,7 +35,7 @@ transactions.
 ## Replacing transactions with the same sender and nonce
 
 For transactions received with the same sender and nonce as a pending transaction but a gas
-price higher than the existing gas price by the percentage specified by [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump), 
+price higher than the existing gas price by the percentage specified by [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump),
 Besu replaces the pending transaction with the new one with the higher gas price. The default value for
 [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) is 10%.
 

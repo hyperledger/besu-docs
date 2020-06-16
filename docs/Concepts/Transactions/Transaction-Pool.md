@@ -36,8 +36,8 @@ transactions.
 
 For transactions received with the same sender and nonce as a pending transaction but a gas
 price higher than the existing gas price by the percentage specified by [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump), 
-Besu replaces the pending transaction with the new one with the higher gas price. The default value for 
-[`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) is 10%. 
+Besu replaces the pending transaction with the new one with the higher gas price. The default value for
+[`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) is 10%.
 
 ## Size of the transaction pool
 

@@ -2275,7 +2275,7 @@ BESU_TX_POOL_PRICE_BUMP=25
 ```
 
 ```bash tab="Configuration File"
-tx-pool-price-bump="25"
+tx-pool-price-bump=25
 ```
 
 The price bump percentage to replace an existing transaction. The default is 10.
@@ -2295,7 +2295,7 @@ BESU_TX_POOL_RETENTION_HOURS=5
 ```
 
 ```bash tab="Configuration File"
-tx-pool-retention-hours="5"
+tx-pool-retention-hours=5
 ```
 
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is

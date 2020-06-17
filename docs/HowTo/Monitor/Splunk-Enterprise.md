@@ -9,7 +9,7 @@ A Splunk server can receive Besu logs and enable complex search, visualisation a
 Splunk will help you aggregate multiple node logs in one place and run complex queries without the need
 to connect to the machine running the Besu node to read the standard output.
 
-There are 3 ways to run Splunk and Besu:
+This doc presents 3 ways to run Splunk and Besu:
 
 - [_Splunk connect for Ethereum_ Docker Compose demo](#_splunk-connect-for-ethereum_-docker-compose-demo)
 - [Splunk Enterprise Docker container](#try-splunk-enterprise-as-docker-container) _(comes with a trial license)_
@@ -17,7 +17,7 @@ There are 3 ways to run Splunk and Besu:
 
 ## Try _Splunk connect for Ethereum_ Docker Compose demo
 
-The _Splunk connect for Ethereum_ demo Docker Compose environment provided by Splunk will help 
+The _Splunk connect for Ethereum_ demo Docker Compose environment provided by Splunk will help
 you to run a development Besu node and connect it to Splunk Enterprise.
 
 !!!important
@@ -37,7 +37,7 @@ The following tools are required to use the _Splunk connect for Ethereum_ Docker
    ```bash
     git clone https://github.com/splunk/splunk-connect-for-ethereum.git
     cd splunk-connect-for-ethereum
-   ``` 
+   ```
 
 ### Try the demo environment
 
@@ -82,6 +82,7 @@ The following tools are required to try Splunk as a Docker container alongside B
 ### Run Splunk Enterprise trial container
 
 Run the following command to start Splunk Enterprise container:
+
 ```bash
 docker run \
 -e SPLUNK_START_ARGS=--accept-license \
@@ -94,7 +95,7 @@ docker run \
 splunk/splunk:latest
 ```
 
-Wait for the service to be fully started, once it's ready, connect on http://localhost:8080/ 
+Wait for the service to be fully started, once it's ready, connect on <http://localhost:8080/>
 and login as `admin` with `changeme` for password.
 
 ### Create the `besu` index
@@ -121,7 +122,7 @@ besu \
 
 Notice the environment variables used to setup Besu to send its logs to Splunk.
 
-Only `LOGGER`, `SPLUNK_URL`, `SPLUNK_TOKEN` and `SPLUNK_SKIPTLSVERIFY` are 
+Only `LOGGER`, `SPLUNK_URL`, `SPLUNK_TOKEN` and `SPLUNK_SKIPTLSVERIFY` are
 required in our example but find the complete list of options in the [Splunk options reference table](#splunk-options-reference).
 
 ### Display the logs

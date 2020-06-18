@@ -177,10 +177,10 @@ and navigate to the settings to:
 
 [Run Besu the same way as when using Splunk on Docker](#run-besu).
 
-Make sure to set the `SPLUNK_URL` value to march the HTTP Event Collector address and port. 
+Make sure to set the `SPLUNK_URL` value to march the HTTP Event Collector address and port.
 
 Congratulations! You can now [display logs and use the search engine](#display-the-logs).
- 
+
 ## Splunk options reference
 
 | Name                    | Description                                                                                                                                           | Required |

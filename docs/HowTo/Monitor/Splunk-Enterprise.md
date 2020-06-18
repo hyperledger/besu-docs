@@ -13,7 +13,7 @@ This doc presents 3 ways to run Splunk and Besu:
 
 - [_Splunk connect for Ethereum_ Docker Compose demo](#_splunk-connect-for-ethereum_-docker-compose-demo)
 - [Splunk Enterprise Docker container](#try-splunk-enterprise-as-docker-container) _(comes with a trial license)_
-- Standalone Splunk Enterprise (will not be explained here as it requires to install a Splunk license)
+- Standalone Splunk Enterprise
 
 ## Try _Splunk connect for Ethereum_ Docker Compose demo
 
@@ -98,10 +98,17 @@ splunk/splunk:latest
 Wait for the service to be fully started, once it's ready, connect on <http://localhost:8080/>
 and login as `admin` with `changeme` for password.
 
+!!!tip
+    Follow the logs of this Splunk container with the Docker logs command:
+
+    ```bash
+    docker logs -f splunk-demo
+    ```
+
 ### Create the `besu` index
 
 1. In the Splunk web interface, navigate to [the index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
-1. Create a new index with `besu` for Index Name.
+1. [Create a new event index] with `besu` for Index Name.
 1. Leave other fields with defaults and save this new `besu` index.
 
 ### Run Besu
@@ -140,7 +147,41 @@ Congratulations! You can now play with the search and other Splunk features to e
 1. Shutdown Besu (using ctrl+C)
 1. top Splunk container using `docker stop splunk-demo`
 
-### Splunk options reference
+## Run a Splunk Enterprise instance
+
+### Requirements
+
+!!!important
+    You will need a Splunk license to use Splunk Enterprise.
+
+    See [Splunk website](https://www.splunk.com/) for more detail.
+
+The following tools are required to use Splunk Enterprise with Besu.
+
+- Splunk Enterprise valid license.
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
+
+### Download, install and run Splunk Enterprise
+
+Follow the steps explained in [the Splunk Enterprise documentation](https://docs.splunk.com/Documentation/Splunk/8.0.4/Installation).
+
+### Configure Splunk Enterprise
+
+Once the Splunk Enterprise instance is ready, login to the Splunk Enterprise web interface
+and navigate to the settings to:
+
+- [Create a new HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
+- [Create a new event index] named `besu`.
+
+### Run Besu and display logs
+
+[Run Besu the same way as when using Splunk on Docker](#run-besu).
+
+Make sure to set the `SPLUNK_URL` value to march the HTTP Event Collector address and port. 
+
+Congratulations! You can now [display logs and use the search engine](#display-the-logs).
+ 
+## Splunk options reference
 
 | Name                    | Description                                                                                                                                           | Required |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -155,3 +196,5 @@ Congratulations! You can now play with the search and other Splunk features to e
 | SPLUNK_BATCH_SIZE_COUNT | Size of a log batch in number of events. Defaults to `1000`                                                                                               | No       |
 | SPLUNK_BATCH_INTERVAL   | Interval at which to send log batches. Defaults to `500`                                                                                                  | No       |
 | SPLUNK_SKIPTLSVERIFY    | Whether to check the Splunk instance TLS certificate when sending data. Defaults to `false`                                                               | No       |
+
+[Create a new event index]: https://docs.splunk.com/Documentation/Splunk/8.0.4/Indexer/Setupmultipleindexes#Create_events_indexes

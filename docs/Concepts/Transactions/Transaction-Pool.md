@@ -24,6 +24,11 @@ Options and methods for configuring and monitoring the transaction pool include:
   [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
   RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
 
+!!! important
+    When submitting [private transactions](../Privacy/Private-Transactions.md#nonce-validation), the
+    [privacy marker transaction](../Privacy/Private-Transaction-Processing.md) is submitted to the
+    transaction pool, not the private transaction itself.
+
 ## Dropping transactions when the transaction pool is full
 
 When the transaction pool is full, it accepts and retains local transactions in preference to

@@ -4,50 +4,48 @@ description: Send Hyperledger Besu logs to Splunk
 
 # Configure Besu for Splunk Enterprise
 
-A Splunk server can receive Besu logs and enable complex search, visualisation and analysis.
+A Splunk server can receive Besu logs and enable complex search, visualization, and analysis.
 
-Splunk will help you aggregate multiple node logs in one place and run complex queries without the need
-to connect to the machine running the Besu node to read the standard output.
+Splunk can aggregate multiple logs in one place and run complex queries without being
+connected to the machine running Besu to read the standard output.
 
-This doc presents 3 ways to run Splunk and Besu:
+Options for running Splunk and Besu are:
 
-- [_Splunk connect for Ethereum_ Docker Compose demo](#_splunk-connect-for-ethereum_-docker-compose-demo)
-- [Splunk Enterprise Docker container](#try-splunk-enterprise-as-docker-container) _(comes with a trial license)_
-- Standalone Splunk Enterprise
+- [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose)
+- [Splunk Enterprise Docker container](#use-splunk-enterprise-as-a-docker-container) with a trial license
+- [Splunk Enterprise](#run-a-splunk-enterprise-instance)
 
-## Try _Splunk connect for Ethereum_ Docker Compose demo
+## Splunk connect for Ethereum Docker Compose
 
-The _Splunk connect for Ethereum_ demo Docker Compose environment provided by Splunk will help
-you to run a development Besu node and connect it to Splunk Enterprise.
-
-!!!important
-    You don't need to get a Splunk license to try the _Splunk connect for Ethereum_ demo.
+To run a development Besu node and connect it to Splunk Enterprise, use the Splunk connect for
+Ethereum demonstration Docker Compose environment provided by Splunk.
 
 ### Requirements
-
-The following tools are required to use the _Splunk connect for Ethereum_ Docker Compose environment.
 
 - [Git](https://git-scm.com/)
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/).
 
-### Clone the _Splunk connect for Ethereum_ repository
+!!!important
+    A Splunk license is not required to use the Splunk connect for Ethereum demonstration.
 
-    Open a terminal window and run the following commands:
+### Clone the Splunk connect for Ethereum repository
 
-   ```bash
-    git clone https://github.com/splunk/splunk-connect-for-ethereum.git
-    cd splunk-connect-for-ethereum
-   ```
+Open a terminal window and run:
 
-### Try the demo environment
+```bash
+git clone https://github.com/splunk/splunk-connect-for-ethereum.git
+cd splunk-connect-for-ethereum
+```
 
-Follow instructions at [Besu example running ethlogger using docker-compose](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
+### Start the demonstration environment
+
+Follow the Splunk connect for Ethereum repository [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
 
 !!!note
 
     Splunk enterprise takes some time to start.
 
-    Run the `docker ps` command and wait for the 3 container status to be `Up [number] seconds (healthy)`.
+    Run `docker ps` and wait for the `STATUS` of the 3 containers to be `Up [number] seconds (healthy)`.
 
     ```
     CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                    PORTS                                                                            NAMES
@@ -56,32 +54,25 @@ Follow instructions at [Besu example running ethlogger using docker-compose](htt
     111b0c6d6072        hyperledger/besu:1.4.4       "besu"                   53 seconds ago      Up 52 seconds (healthy)   8545-8547/tcp, 30303/tcp                                                         besu
     ```
 
-## Try Splunk Enterprise as Docker container
+## Use Splunk Enterprise as a Docker container
 
 ### Requirements
-
-!!!important
-    You don't need to get a Splunk license to try Splunk Docker image as it includes a trial one.
-
-    However, this image is not suitable to be used in production and comes with restrictions
-    on daily log volume.
-
-    See [Splunk website](https://www.splunk.com/) for more detail.
-
-The following tools are required to try Splunk as a Docker container alongside Besu.
 
 - [Docker](https://docs.docker.com/compose/install/).
 - [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
 
+!!!important
+    A Splunk license is not required to use the trial version of the Splunk Docker image. The  image
+    is not suitable for production use and has [restrictions on daily log volume](https://www.splunk.com/).
+
 !!!note
-    You can also [use Besu as a Docker container](../Get-Started/Run-Docker-Image.md)
-    but then it may be better to directly start testing
-    the [_Splunk connect for Ethereum_ Docker Compose setup](#run-_splunk-connect-for-ethereum_-docker-compose-demo)
-    or [use Kubernetes](../Deploy/Kubernetes.md).
+    If running [Besu as a Docker container](../Get-Started/Run-Docker-Image.md), consider using
+    [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose)
+    or [Kubernetes](../Deploy/Kubernetes.md) instead of the Splunk Enterprise trial container.
 
 ### Run Splunk Enterprise trial container
 
-Run the following command to start Splunk Enterprise container:
+To start the Splunk Enterprise container:
 
 ```bash
 docker run \
@@ -95,25 +86,26 @@ docker run \
 splunk/splunk:latest
 ```
 
-Wait for the service to be fully started, once it's ready, connect on <http://localhost:8080/>
-and login as `admin` with `changeme` for password.
+Once the service is started, connect on <http://localhost:8080/> and login as the `admin` user 
+with a password of `changeme`.
 
 !!!tip
-    Follow the logs of this Splunk container with the Docker logs command:
+    To follow the logs of the Splunk container:
 
     ```bash
     docker logs -f splunk-demo
     ```
 
-### Create the `besu` index
+### Create the Besu index
 
-1. In the Splunk web interface, navigate to [the index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
-1. [Create a new event index] with `besu` for Index Name.
-1. Leave other fields with defaults and save this new `besu` index.
+1. In the Splunk web interface, navigate to the [index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
+1. [Create an event index] with an Index Name of `besu`.
+1. Leave other fields with the default values.
+1. Save the `besu` index.
 
 ### Run Besu
 
-Run the following command to start a local development Besu network:
+To start a Besu node running in development mode:
 
 ```bash
 LOGGER=Splunk \
@@ -127,16 +119,16 @@ besu \
 --logging=trace
 ```
 
-Notice the environment variables used to setup Besu to send its logs to Splunk.
+The environment variables specified send the Besu logs to Splunk.
 
 Only `LOGGER`, `SPLUNK_URL`, `SPLUNK_TOKEN` and `SPLUNK_SKIPTLSVERIFY` are
-required in our example but find the complete list of options in the [Splunk options reference table](#splunk-options-reference).
+required in our example. The complete list of options is in the [Splunk options reference table](#splunk-options-reference).
 
 ### Display the logs
 
-Navigate in the Splunk web interface to [the search page](http://localhost:8080/en-US/app/search/search).
+In the Splunk web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
 
-type `index="besu"` in the search field and log events sent by Besu will be displayed.
+Type `index="besu"` in the search field. Log events sent by Besu are displayed.
 
 Congratulations! You can now play with the search and other Splunk features to explore your Besu logs.
 
@@ -144,40 +136,38 @@ Congratulations! You can now play with the search and other Splunk features to e
 
 ### Stop the demo
 
-1. Shutdown Besu (using ctrl+C)
-1. top Splunk container using `docker stop splunk-demo`
+1. To stop Besu, use Ctrl+C.
+1. To stop the Splunk container, use `docker stop splunk-demo`.  
 
 ## Run a Splunk Enterprise instance
 
 ### Requirements
 
-!!!important
-    You will need a Splunk license to use Splunk Enterprise.
-
-    See [Splunk website](https://www.splunk.com/) for more detail.
-
-The following tools are required to use Splunk Enterprise with Besu.
-
-- Splunk Enterprise valid license.
+- Splunk Enterprise license.
 - [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
 
-### Download, install and run Splunk Enterprise
+!!!important
+    A [Splunk license](https://www.splunk.com/) is required to use Splunk Enterprise.
 
-Follow the steps explained in [the Splunk Enterprise documentation](https://docs.splunk.com/Documentation/Splunk/8.0.4/Installation).
+### Download, install, and run Splunk Enterprise
+
+Follow the steps in the [Splunk Enterprise documentation](https://docs.splunk.com/Documentation/Splunk/8.0.4/Installation).
 
 ### Configure Splunk Enterprise
 
-Once the Splunk Enterprise instance is ready, login to the Splunk Enterprise web interface
-and navigate to the settings to:
+Once the Splunk Enterprise instance is ready: 
 
-- [Create a new HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
-- [Create a new event index] named `besu`.
+1. Log into the Splunk Enterprise web interface. 
+1. Navigate to the settings to: 
+   
+    - [Create a HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
+    - [Create an event index] named `besu`.
 
 ### Run Besu and display logs
 
 [Run Besu the same way as when using Splunk on Docker](#run-besu).
 
-Make sure to set the `SPLUNK_URL` value to march the HTTP Event Collector address and port.
+Ensure you set the `SPLUNK_URL` value to match the HTTP Event Collector address and port.
 
 Congratulations! You can now [display logs and use the search engine](#display-the-logs).
 
@@ -186,8 +176,8 @@ Congratulations! You can now [display logs and use the search engine](#display-t
 | Name                    | Description                                                                                                                                           | Required |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | LOGGER                  | Set to `Splunk` to activate sending logs to Splunk.                                                                                                    | Yes      |
-| HOST                    | Current host. If in a Docker environment, the default value is the docker container ID. Otherwise the default value is `localhost`.                   | No       |
-| SPLUNK_URL              | URL of the Splunk HTTP Event Collector, for example, use `https://localhost:8088`                                                                                        | Yes      |
+| HOST                    | Current host. If in a Docker environment, the default value is the docker container ID. Otherwise, the default value is `localhost`.                   | No       |
+| SPLUNK_URL              | URL of the Splunk HTTP Event Collector. For example, use `https://localhost:8088`                                                                                        | Yes      |
 | SPLUNK_TOKEN            | Authentication token, usually of the form `11111111-1111-1111-1111-111111111111`                                                                        | Yes      |
 | SPLUNK_INDEX            | [Index](https://docs.splunk.com/Splexicon:Index) to store logs. Defaults to `besu`                                                     | No       |
 | SPLUNK_SOURCE           | [Source of the logs](https://docs.splunk.com/Splexicon:Source). Defaults to `besu`         | No       |
@@ -197,4 +187,4 @@ Congratulations! You can now [display logs and use the search engine](#display-t
 | SPLUNK_BATCH_INTERVAL   | Interval at which to send log batches. Defaults to `500`                                                                                                  | No       |
 | SPLUNK_SKIPTLSVERIFY    | Whether to check the Splunk instance TLS certificate when sending data. Defaults to `false`                                                               | No       |
 
-[Create a new event index]: https://docs.splunk.com/Documentation/Splunk/8.0.4/Indexer/Setupmultipleindexes#Create_events_indexes
+[Create an event index]: https://docs.splunk.com/Documentation/Splunk/8.0.4/Indexer/Setupmultipleindexes#Create_events_indexes

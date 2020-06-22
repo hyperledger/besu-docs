@@ -39,8 +39,9 @@ which starts from the genesis block and reprocesses all transactions, fast synch
 transaction receipts, and verifies the chain of block headers from the genesis block.
 
 !!!important
-    Fast synchronization is the default setting for named networks selected when starting Besu with
-    the [`--network` CLI option](../Reference/CLI/CLI-Syntax.md#network), except for `dev` development network..
+    Fast synchronization is the default setting for named networks specified with
+    the [`--network` CLI option](../Reference/CLI/CLI-Syntax.md#network), except for the `dev` development
+    network.
 
 ## Pruning
 

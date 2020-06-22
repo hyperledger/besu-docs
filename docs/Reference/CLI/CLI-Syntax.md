@@ -2143,7 +2143,7 @@ The synchronization mode. The options are `FAST` and `FULL`.
 
 * The default is `FULL` when not using the [`--network`](#network) option.
 * The default is `FAST` when using the [`--network`](#network) option
-    with named networks, except for `dev` development network.
+  with named networks, except for the `dev` development network.
 
 !!! note
 

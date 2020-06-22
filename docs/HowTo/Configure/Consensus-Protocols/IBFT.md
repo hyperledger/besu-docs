@@ -120,8 +120,8 @@ small (usually around one second) even in networks with geographically dispersed
 
 Tune the `blockperiodseconds` and `requesttimeoutseconds` to fit your network and needs:
 
-- Set `blockperiodseconds` to your desired block time, the waiting duration between blocks.
-- Set `requesttimeoutseconds` depending on your network and the number of IBFT2 validator nodes.
+* Set `blockperiodseconds` to your desired block time, the waiting duration between blocks.
+* Set `requesttimeoutseconds` depending on your network and the number of IBFT2 validator nodes.
     This value requires tuning for your specific environment, but you can calculate a decent initial value
     to obtain blocks every `blockperiodseconds` with the following formula:
 
@@ -129,10 +129,10 @@ Tune the `blockperiodseconds` and `requesttimeoutseconds` to fit your network an
 
 !!! example
     Your IBFT 2.0 network has four geographically dispersed validators in Sweden,
-    Sydney, and two in North Virginia. You want it to consistently creates blocks with a 
+    Sydney, and two in North Virginia. You want it to consistently creates blocks with a
     two seconds block time and tests showed that a block takes approximately one second to generate
     and add to the chain.
-    
+
     - Set `blockperiodseconds` to 2 seconds.
     - Set `requesttimeoutseconds` to 2 + (4 nodes * 1s) = 6 seconds.
 

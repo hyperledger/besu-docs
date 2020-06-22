@@ -18,7 +18,7 @@ The genesis file specifies the [network-wide settings](../../Reference/Config-It
 those for a [free gas network](FreeGas.md), so all nodes in a network must use the same genesis
 file.
 
-!!! example 
+!!!example
 
     Example for a 4 nodes IBFT2 network.
 

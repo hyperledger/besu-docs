@@ -86,7 +86,7 @@ docker run \
 splunk/splunk:latest
 ```
 
-Once the service is started, connect on <http://localhost:8080/> and login as the `admin` user 
+Once the service is started, connect on <http://localhost:8080/> and login as the `admin` user
 with a password of `changeme`.
 
 !!!tip
@@ -137,7 +137,7 @@ Congratulations! You can now play with the search and other Splunk features to e
 ### Stop the demo
 
 1. To stop Besu, use Ctrl+C.
-1. To stop the Splunk container, use `docker stop splunk-demo`.  
+1. To stop the Splunk container, use `docker stop splunk-demo`.
 
 ## Run a Splunk Enterprise instance
 
@@ -155,11 +155,11 @@ Follow the steps in the [Splunk Enterprise documentation](https://docs.splunk.co
 
 ### Configure Splunk Enterprise
 
-Once the Splunk Enterprise instance is ready: 
+Once the Splunk Enterprise instance is ready:
 
-1. Log into the Splunk Enterprise web interface. 
-1. Navigate to the settings to: 
-   
+1. Log into the Splunk Enterprise web interface.
+1. Navigate to the settings to:
+
     - [Create a HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
     - [Create an event index] named `besu`.
 

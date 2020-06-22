@@ -25,7 +25,7 @@ Options and methods for configuring and monitoring the transaction pool include:
 !!! important
     When submitting [private transactions](../Privacy/Private-Transactions.md#nonce-validation), the
     [privacy marker transaction](../Privacy/Private-Transaction-Processing.md) is submitted to the
-    transaction pool not the private transaction itself.
+    transaction pool, not the private transaction itself.
 
 ## Dropping transactions when the transaction pool is full
 

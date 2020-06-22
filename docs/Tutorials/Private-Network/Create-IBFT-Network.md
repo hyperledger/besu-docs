@@ -67,7 +67,7 @@ in the `IBFT-Network` directory:
       "ibft2": {
         "blockperiodseconds": 2,
         "epochlength": 30000,
-        "requesttimeoutseconds": 4
+        "requesttimeoutseconds": 6
       }
     },
     "nonce": "0x0",

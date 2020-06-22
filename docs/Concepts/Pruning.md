@@ -38,6 +38,10 @@ which starts from the genesis block and reprocesses all transactions, fast synch
 ([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) downloads the block headers and
 transaction receipts, and verifies the chain of block headers from the genesis block.
 
+!!!important
+    Fast synchronization is the default setting for named networks selected when starting Besu with
+    the [`--network` CLI option](../Reference/CLI/CLI-Syntax.md#network), except for `dev` development network..
+
 ## Pruning
 
 In Besu, pruning reduces the storage required by removing state trie nodes that are unreachable

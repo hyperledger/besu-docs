@@ -850,16 +850,16 @@ The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain | Type        | Description                                                         |
-|-----------|-------|-------------|---------------------------------------------------------------------|
-| `mainnet` | ETH   | Production  | The main network                                                    |
-| `ropsten` | ETH   | Test        | A PoW network similar to the current main Ethereum network          |
-| `rinkeby` | ETH   | Test        | A PoA network using Clique                                          |
-| `goerli`  | ETH   | Test        | A PoA network using Clique                                          |
-| `dev`     | ETH   | Development | A PoW network with a low difficulty to enable local CPU mining      |
-| `classic` | ETC   | Production  | The main Ethereum Classic network                                   |
-| `mordor ` | ETC   | Test        | A PoW network                                                       |
-| `kotti`   | ETC   | Test        | A PoA network using Clique                                          |
+| Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
+|-----------|-------|-------------|--------------------|----------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
+| `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoW network similar to the current main Ethereum network     |
+| `rinkeby` | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
+| `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
+| `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
+| `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 
 !!!tip
 
@@ -2139,12 +2139,16 @@ BESU_SYNC_MODE=FAST
 sync-mode="FAST"
 ```
 
-The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
+The synchronization mode. The options are `FAST` and `FULL`.
+
+* The default is `FULL` when not using the [`--network`](#network) option.
+* The default is `FAST` when using the [`--network`](#network) option 
+with named networks, except for `dev` development network.
 
 !!! note
 
-    When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
-    issue causes fast sync to fail occassionally. The following error is displayed repeatedly:
+    When running Besu on some cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
+    issue causes fast sync to fail occasionally. The following error is displayed repeatedly:
 
     ```
     ...

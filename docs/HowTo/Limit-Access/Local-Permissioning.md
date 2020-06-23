@@ -4,11 +4,11 @@ description: Hyperledger Besu local permissioning
 
 # Local permissioning
 
-Local permissioning supports node and account whitelisting.
+Local permissioning supports limiting access to specific nodes and accounts.
 
-## Node whitelisting
+## Configure node access
 
-You can specify nodes in the nodes whitelist in the
+You can specify nodes to allow access in the
 [permissions configuration file](#permissions-configuration-file) file. With node whitelisting
 enabled, communication is only between nodes in the whitelist.
 

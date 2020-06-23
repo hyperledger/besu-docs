@@ -10,7 +10,7 @@ method.
 
 Signed transactions can be simple value transfers, contract creation, or contract invocation.
 
-[Use Web3.js](../Develop-Dapps/Web3js.md) to create and send a signed raw transaction to transfer
+[Use client libraries](../Develop-Dapps/Client-Libraries.md) to create and send a signed raw transaction to transfer
 Ether and create a smart contract.
 
 !!! warning "Private keys"

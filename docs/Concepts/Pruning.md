@@ -38,22 +38,7 @@ which starts from the genesis block and reprocesses all transactions, fast synch
 ([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) downloads the block headers and
 transaction receipts, and verifies the chain of block headers from the genesis block.
 
-!!! note
-
-    Fast synchronization enables pruning by default, but you can explicitly disable pruning
-    using [`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled). Full
-    synchronization disables pruning by default.
-
 ## Pruning
-
-!!! caution
-
-    Do not use pruning in Hyperledger Besu v1.4.0. Pruning has a
-    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
-
-    If using fast synchronization
-    ([`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4.0, explicitly disable
-    pruning using [`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled).
 
 In Besu, pruning reduces the storage required by removing state trie nodes that are unreachable
 from [recent blocks](../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained).

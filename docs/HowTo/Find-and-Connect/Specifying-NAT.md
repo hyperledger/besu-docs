@@ -5,7 +5,7 @@ description: Configuring NAT with Hyperledger Besu
 # Configuring NAT
 
 Use the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) option to specify the NAT
-method. Options are: [`UPNP`](#upnp), [`MANUAL`](#manual), [`KUBERNETES`](#kubernetes), [`DOCKER`](#docker),
+method. Options are: [`UPNP`](#upnp), [`KUBERNETES`](#kubernetes), [`DOCKER`](#docker),
 [`AUTO`](#auto), and [`NONE`](#none).
 
 The [enode](../../Concepts/Node-Keys.md#enode-url) advertised to other nodes during discovery is
@@ -59,19 +59,6 @@ device.
     UPnP support is often disabled by default in networking firmware. If disabled by default, you
     must explicitly enable UPnP support.
 
-## Manual
-
-Specify `MANUAL` to explicitly configure the external IP address and ports advertised.
-
-By specifying `MANUAL`:
-
-* [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
-  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) define the advertised host and port
-  for the P2P service.
-* [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and
-  [`rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) define the advertised host and
-  port for the JSON-RPC service.
-
 ## Kubernetes
 
 Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
@@ -96,9 +83,9 @@ If not specified in the `docker run` command, the advertised host defaults to th
 
 ## None
 
-Specify `NONE` to explicitly specify Besu does not use NAT. If the NAT method is `NONE`, Besu
-ignores any values specified in the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host),
-[`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port),
-[`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host), and
-[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) options. Besu advertises the
-default values instead.
+Specify `NONE` to explicitly configure the external IP address and ports advertised using:
+
+* [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
+  for the P2P service.
+* [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
+  for the JSON-RPC HTTP service.

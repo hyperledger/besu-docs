@@ -18,17 +18,19 @@ The genesis file specifies the [network-wide settings](../../Reference/Config-It
 those for a [free gas network](FreeGas.md), so all nodes in a network must use the same genesis
 file.
 
-!!! example
+!!!example
+
+    Example for a 4 nodes IBFT2 network.
 
     ```json
     {
       "config": {
         "chainId": 2018,
-        "constantinoplefixblock": 0,
+        "muirglacierblock": 0,
         "ibft2": {
-          "blockperiodseconds": 5,
+          "blockperiodseconds": 2,
           "epochlength": 30000,
-          "requesttimeoutseconds": 10
+          "requesttimeoutseconds": 4
         }
       },
       "nonce": "0x0",

@@ -42,7 +42,7 @@ specific to IBFT 2.0.
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
-            "requesttimeoutseconds": 6
+            "requesttimeoutseconds": 4
           }
         },
         "nonce": "0x0",
@@ -61,6 +61,12 @@ The properties specific to IBFT 2.0 are:
 * `epochlength` - The number of blocks after which to reset all votes.
 * `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+
+!!!caution
+    The `blockperiodseconds` property cannot be updated once your network is started. 
+     
+    We do not recommend changing `epochlength` in a running network. Changing the `epochlength` 
+    after genesis can result in illegal blocks.  
 
 The properties with specific values in the IBFT 2.0 genesis files are:
 
@@ -118,30 +124,19 @@ expires, the protocol proposes the next new block.
 Once `blockperiodseconds` is over, the time from proposing a block to adding the block is
 small (usually around one second) even in networks with geographically dispersed validators.
 
-Tune the `blockperiodseconds` and `requesttimeoutseconds` to fit your network and needs:
-
-* Set `blockperiodseconds` to your desired block time, the waiting duration between blocks.
-* Set `requesttimeoutseconds` depending on your network and the number of IBFT2 validator nodes.
-    This value requires tuning for your specific environment, but you can calculate a decent initial value
-    to obtain blocks every `blockperiodseconds` with the following formula:
-
-    `requesttimeoutseconds = blockperiodseconds + (validators count * network delay)`
-
 !!! example
-    Your IBFT 2.0 network has four geographically dispersed validators in Sweden,
-    Sydney, and two in North Virginia. You want it to consistently creates blocks with a
-    two seconds block time and tests showed that a block takes approximately one second to generate
-    and add to the chain.
+    An internal IBFT 2.0 network run by PegaSys had four geographically dispersed validators in Sweden,
+    Sydney, and two in North Virginia. With a `blockperiodseconds` of 5 and a `requesttimeoutseconds`
+    of 10, the testnet consistently created blocks with a five second blocktime.
 
-    - Set `blockperiodseconds` to 2 seconds.
-    - Set `requesttimeoutseconds` to 2 + (4 nodes * 1s) = 6 seconds.
+#### Tuning block timeout 
 
-!!!tip
-    Set `blockperiodseconds` carefully in your genesis file as you can't modify if the first
-    block is generated.
+To tune the block timeout for your network deployment: 
 
-    However, `requesttimeoutseconds` can be adjusted at any time in the genesis configuration.
-    Restart Besu and the new `requesttimeoutseconds` value will take effect.
+1. Start by setting `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times 
+`blockperiodseconds`. 
+1. Reduce `requesttimeoutseconds` until you start to see round changes occurring. 
+1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring. 
 
 ### Optional configuration options
 

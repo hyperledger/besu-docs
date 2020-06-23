@@ -128,8 +128,8 @@ nav:
           - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md
           - Upgrade Protocol: HowTo/Upgrade/Upgrade-Protocol.md
         - Develop Dapps on Besu:
-          - Use Truffle with Besu: HowTo/Develop-Dapps/Truffle.md
-          - Use Web3.js to Sign Transactions: HowTo/Develop-Dapps/Use-web3js.md
+          - Use Truffle: HowTo/Develop-Dapps/Truffle.md
+          - Use Client Libraries: HowTo/Develop-Dapps/Client-Libraries.md
         - Troubleshoot:
           - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
           - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
@@ -156,7 +156,6 @@ nav:
         - Consensus Protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
-        - Client Libraries: Concepts/Client-Libraries.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
@@ -245,3 +244,5 @@ plugins:
           HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
           HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md
           Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md
+          HowTo/Develop-Dapps/Use-web3js.md: HowTo/Develop-Dapps/Client-Libraries.md
+          Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md

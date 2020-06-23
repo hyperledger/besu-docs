@@ -3,9 +3,9 @@ title: Hyperledger Besu System Requirements
 description: System requirements to sync and run Besu
 ---
 
-# System requirements
+# System requirements for private networks
 
-The system requirements for Hyperledger Besu depend on different factors, including the:
+The system requirements for private networks depend on different factors, including the:
 
 * Size of the world state for the network.
 * Number of transactions submitted to the network.
@@ -20,57 +20,13 @@ To determine system requirements, check CPU and disk space requirements using
 [Prometheus](../Monitor/Metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
 [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
-!!! tip
-
-    CPU requirements are highest when syncing to the network and typically reduce after the node is
-    synchronized to the chain head.
-
 ## Java Virtual Machine size
 
-Depending on your environment and network setup, Besu has the following minimum Java Virtual
-Machine (JVM) memory requiements. For:
-
-* Private networks, 4GB
-* MainNet and testnets, such as Ropten, 8GB.
-
-Two JVM parameters can be set to suit your memory requirements:
-
-* `-Xms<size>`, which specifies the initial Java heap size.
-* `-Xmx<size>`, which specifies the maximum Java heap size.
-
-[Set the JVM options](../Configure/Passing-JVM-Options.md) in the `BESU_OPTS` environment variable.
+Depending on your environment and network setup, the minimum Java Virtual
+Machine (JVM) memory requirement for private networks is 4GB.
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
 to the chain head. Monitor your system to determine your actual JVM memory needs.
-
-## Disk space
-
-!!! caution
-
-    Do not use pruning in Hyperledger Besu v1.4 Pruning has a
-    [known bug](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#known-issues).
-
-    If using fast synchronization
-    ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)) in v1.4, explicitly
-    disable pruning using
-    [`--pruning-enabled=false`](../../Reference/CLI/CLI-Syntax.md#pruning-enabled).
-
-How you synchronize with the Ethereum MainNet and whether you
-[enable or disable pruning](../../Concepts/Pruning.md)) determines your disk space requirement.
-
-[Fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) with
-[pruning](../../Concepts/Pruning.md) enabled requires approximately 750GB of disk space.
-[Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) requires approximately 3TB.
-
-## AWS requirements
-
-For mainnet nodes on AWS:
-
-* The minimum box size is t3.large.
-* The recommended box size is t3.xlarge.
-
-The t3.xlarge recommendation is to speed up the sync process by giving it more resources. When the
-sync is completed, the box size can be reduced to t3.large.
 
 ## VM requirements
 

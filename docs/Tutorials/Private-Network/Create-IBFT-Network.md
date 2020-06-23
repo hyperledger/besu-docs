@@ -63,11 +63,11 @@ in the `IBFT-Network` directory:
  "genesis": {
    "config": {
       "chainId": 2018,
-      "constantinoplefixblock": 0,
+      "muirglacierblock": 0,
       "ibft2": {
         "blockperiodseconds": 2,
         "epochlength": 30000,
-        "requesttimeoutseconds": 10
+        "requesttimeoutseconds": 4
       }
     },
     "nonce": "0x0",

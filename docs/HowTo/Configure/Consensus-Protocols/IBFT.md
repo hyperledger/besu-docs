@@ -32,15 +32,17 @@ specific to IBFT 2.0.
 
 !!! example "Sample IBFT 2.0 Genesis File"
 
+    Example genesis file for a 4 nodes IBFT2 network.
+
     ```json
       {
         "config": {
           "chainId": 1981,
-          "constantinoplefixblock": 0,
+          "muirglacierblock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
-            "requesttimeoutseconds": 10
+            "requesttimeoutseconds": 4
           }
         },
         "nonce": "0x0",
@@ -59,6 +61,12 @@ The properties specific to IBFT 2.0 are:
 * `epochlength` - The number of blocks after which to reset all votes.
 * `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+
+!!!caution
+    The `blockperiodseconds` property cannot be updated once your network is started.
+
+    We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
+    after genesis can result in illegal blocks.
 
 The properties with specific values in the IBFT 2.0 genesis files are:
 
@@ -113,17 +121,22 @@ Usually, the protocol adds the proposed block before reaching `requesttimeoutsec
 then starts, resetting the block time and round timeout timers. When `blockperiodseconds`
 expires, the protocol proposes the next new block.
 
-The time from proposing a block to adding the block is small (approximately one second) even in
-networks with geographically dispersed validators. Setting `blockperiodseconds` to your desired
-block time and `requesttimeoutseconds` to two times `blockperiodseconds` usually results in adding
-blocks every `blockperiodseconds`.
+Once `blockperiodseconds` is over, the time from proposing a block to adding the block is
+small (usually around one second) even in networks with geographically dispersed validators.
 
 !!! example
+    An internal IBFT 2.0 network run by PegaSys had four geographically dispersed validators in Sweden,
+    Sydney, and two in North Virginia. With a `blockperiodseconds` of 5 and a `requesttimeoutseconds`
+    of 10, the testnet consistently created blocks with a five second blocktime.
 
-    An internal PegaSys IBFT 2.0 testnet has four geographically dispersed validators in Sweden,
-    Sydney, and two in North Virginia. With a `blockperiodseconds`of 5 and a
-    `requesttimeoutseconds` of 10, the testnet consistently creates blocks with a five second
-    blocktime.
+#### Tuning block timeout
+
+To tune the block timeout for your network deployment:
+
+1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times
+   `blockperiodseconds`.
+1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
+1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
 
 ### Optional configuration options
 
@@ -249,9 +262,9 @@ To add or remove validators without voting:
           "config": {
              ...
              "ibft2": {
-               "blockperiodseconds": 15,
+               "blockperiodseconds": 2,
                "epochlength": 30000,
-               "requesttimeoutseconds": 10
+               "requesttimeoutseconds": 4
              },
              "transitions": {
                "ibft2": [
@@ -275,9 +288,9 @@ To add or remove validators without voting:
           "config": {
             ...
             "ibft2": {
-              "blockperiodseconds": 15,
+              "blockperiodseconds": 2,
               "epochlength": 30000,
-              "requesttimeoutseconds": 10
+              "requesttimeoutseconds": 4
             },
             "transitions": {
                "ibft2": [

@@ -2144,7 +2144,7 @@ The synchronization mode. The options are `FAST` and `FULL`.
   option and specifying the [`--genesis-file`](#genesis-file) option.
 * The default is `FAST` when using the [`--network`](#network) option
   with named networks, except for the `dev` development network. `FAST` is also the default if Ethereum mainnet
-  is being connected to by not specifying the [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
+  is being connected to by not specifying the [`--network`](#network) and [`--genesis-file`](#genesis-file)
   options.
 
 !!! note

@@ -68,4 +68,4 @@ Specify `NONE` to explicitly configure the external IP address and ports adverti
 * [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) 
 for the P2P service.
 * [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
-for the JSON-RPC HTTP service.
+for the JSON-RPC HTTP service. 

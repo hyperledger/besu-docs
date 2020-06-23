@@ -42,10 +42,10 @@ transaction receipts, and verifies the chain of block headers from the genesis b
     Fast synchronization is the default for named networks specified with
     the [`--network` option](../Reference/CLI/CLI-Syntax.md#network), except for the `dev` development
     network.
-    
+
     Fast synchronization is also the default if Ethereum mainnet is being connected to by not specifying
     the [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
-    options. 
+    options.
 
 ## Pruning
 

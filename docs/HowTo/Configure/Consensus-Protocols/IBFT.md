@@ -135,7 +135,9 @@ To tune the block timeout for your network deployment:
 
 1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times
 `blockperiodseconds`.
+
 1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
+
 1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
 
 ### Optional configuration options

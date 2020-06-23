@@ -63,10 +63,10 @@ The properties specific to IBFT 2.0 are:
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
 
 !!!caution
-    The `blockperiodseconds` property cannot be updated once your network is started. 
-     
+    The `blockperiodseconds` property cannot be updated once your network is started.
+
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength` 
-    after genesis can result in illegal blocks.  
+    after genesis can result in illegal blocks.
 
 The properties with specific values in the IBFT 2.0 genesis files are:
 
@@ -129,13 +129,13 @@ small (usually around one second) even in networks with geographically dispersed
     Sydney, and two in North Virginia. With a `blockperiodseconds` of 5 and a `requesttimeoutseconds`
     of 10, the testnet consistently created blocks with a five second blocktime.
 
-#### Tuning block timeout 
+#### Tuning block timeout
 
-To tune the block timeout for your network deployment: 
+To tune the block timeout for your network deployment:
 
 1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times 
-`blockperiodseconds`. 
-1. Reduce `requesttimeoutseconds` until you start to see round changes occurring. 
+`blockperiodseconds`.
+1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
 1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring. 
 
 ### Optional configuration options

@@ -8,8 +8,8 @@ Configuring a network that supports private transactions requires starting an Or
 Hyperledger Besu node. Besu command line options associate the Besu node with the Orion node.
 
 This tutorial assumes you have completed setting up an IBFT 2.0 network to the point where you have
-[created the genesis file](../Private-Network/Create-IBFT-Network.md#5-create-genesis-file). If
-not, complete steps 1 to 5 of the
+[created the genesis file and copied the private keys](../Private-Network/Create-IBFT-Network.md#5-copy-the-node-private-keys-to-the-node-directories).
+If not, complete steps 1 to 5 of the
 [Create an IBFT 2.0](../Private-Network/Create-IBFT-Network.md) tutorial before continuing.
 
 !!! important

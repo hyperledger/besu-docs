@@ -8,19 +8,19 @@ Local permissioning supports limiting access to specific nodes and accounts.
 
 ## Configure node access
 
-You can specify nodes to allow access in the
-[permissions configuration file](#permissions-configuration-file) file. With node whitelisting
-enabled, communication is only between nodes in the whitelist.
+You can allow access to specified nodes in the
+[permissions configuration file](#permissions-configuration-file). When limiting node access,
+communication is only between nodes listed in the file.
 
-!!! example "Nodes Whitelist in Permissions Configuration File"
+!!! example "Allow nodes access in the permissions configuration file"
 
-    `nodes-whitelist=["enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.168.0.9:4567","enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.169.0.9:4568"]`
+    `nodes-allowlist=["enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.168.0.9:4567","enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.169.0.9:4568"]`
 
-Node whitelisting is at the node level. That is, each node in the network has a
+Specify node access at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) file in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
-To update the nodes whitelist when the node is running, use the JSON-RPC API methods:
+To update the list of allowed nodes while the node is running, use the JSON-RPC API methods:
 
 * [perm_addNodesToWhitelist](../../Reference/API-Methods.md#perm_addnodestowhitelist)
 * [perm_removeNodesFromWhitelist](../../Reference/API-Methods.md#perm_removenodesfromwhitelist).

@@ -209,7 +209,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 !!!tip
 
     To restart the private network in the future, start from
-    [3. Start First Node as Bootnode](#3-start-first-node-as-bootnode).
+    [3. Start the First Node as Bootnode](#3-start-the-first-node-as-a-bootnode).
 
 <!-- Links -->
 [private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask

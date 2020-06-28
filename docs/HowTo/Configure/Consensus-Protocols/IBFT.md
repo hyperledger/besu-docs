@@ -63,7 +63,7 @@ The properties specific to IBFT 2.0 are:
 * `epochlength` - The number of blocks after which to reset all votes.
 * `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
 * `blockreward` - Optional reward amount in Wei to reward the beneficiary. Defaults to zero (0).
-    Can be specified as a hexidecimal or decimal string value.
+    Can be specified as a hexidecimal (with 0x prefix) or decimal string value.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block.
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.

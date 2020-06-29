@@ -66,4 +66,4 @@ transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
 ## web3js-eea methods
 
 For more information about the web3js-eea methods, see the
-[web3js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).
+[web3js-eea reference documentation](https://pegasyseng.github.io/web3js-eea/latest/).

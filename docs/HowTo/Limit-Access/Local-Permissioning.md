@@ -42,8 +42,7 @@ To view the nodes whitelist, use the
     network that are not on the whitelist of other nodes in the network. We recommend each node in
     the network has the same nodes whitelist.
 
-    On-chain permissioning is under development. On-chain permissioning will use one on-chain
-    nodes whitelist.
+    [Onchain permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md) uses one onchain nodes whitelist.
 
 !!! example "An Example of Different Node Whitelists"
 

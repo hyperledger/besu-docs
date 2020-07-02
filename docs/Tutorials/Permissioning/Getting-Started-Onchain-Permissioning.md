@@ -14,7 +14,7 @@ node and a development server to run the Permissioning Management Dapp.
 To start a network with onchain permissioning:
 
 1. [Install the prerequisites](#prerequisites)
-1. [Add the ingress contracts to the genesis file](#add-the-ingress-contracts-to-genesis-file)
+1. [Add the ingress contracts to the genesis file](#add-the-ingress-contracts-to-the-genesis-file)
 1. [Set the environment variables](#set-the-environment-variables)
 1. [Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]
 1. [Clone the permissioning contracts repository and install dependencies]

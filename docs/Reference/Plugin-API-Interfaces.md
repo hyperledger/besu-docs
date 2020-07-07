@@ -38,3 +38,15 @@ The following table lists interfaces providing services you can retrieve.
 To use the interfaces in your plugin, ensure the
 [Gradle build file](https://github.com/PegaSysEng/PluginsAPIDemo/blob/master/build.gradle) contains
 the `https://hyperledger-org.bintray.com/besu-repo` repository and the `plugin-api` dependency.
+
+!!! warning "Known issue"
+
+    As indicated in [issue #406](https://github.com/hyperledger/besu-docs/issues/406),
+    plugins may need to access the parsed command line during registration, but the command line is not yet
+    initialized at this stage.
+
+    It's in our roadmap to improve lifecycle steps and provide additional visibility for some data.
+    A workaround is to create a supplier during the `register` step and store it in memory.
+
+    The `start` step can be ignored and your plugin module will be instanciated when
+    the command line interface is parsed and available.

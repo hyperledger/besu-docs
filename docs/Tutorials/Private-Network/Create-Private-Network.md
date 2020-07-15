@@ -92,11 +92,11 @@ the `Private-Network` directory:
 Start Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-whitelist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
 The command line enables:
@@ -107,7 +107,7 @@ The command line enables:
 * JSON-RPC API using the [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled)
   option.
 * All-host access to the HTTP JSON-RPC API using the
-  [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option.
+  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option.
 * All-domain access to the node through the HTTP JSON-RPC API using the
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
 

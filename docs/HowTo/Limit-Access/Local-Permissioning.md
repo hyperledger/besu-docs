@@ -6,7 +6,7 @@ description: Hyperledger Besu local permissioning
 
 Local permissioning supports limiting access to specific nodes and accounts.
 
-## Configure node access
+## Node permissioning
 
 You can allow access to specified nodes in the
 [permissions configuration file](#permissions-configuration-file). When limiting node access,
@@ -22,41 +22,41 @@ Specify node access at the node level. That is, each node in the network has a
 
 To update the list of allowed nodes while the node is running, use the JSON-RPC API methods:
 
-* [perm_addNodesToWhitelist](../../Reference/API-Methods.md#perm_addnodestowhitelist)
-* [perm_removeNodesFromWhitelist](../../Reference/API-Methods.md#perm_removenodesfromwhitelist).
+* [perm_addNodesToAllowlist](../../Reference/API-Methods.md#perm_addnodestoallowlist)
+* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist).
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
-and then update the whitelists using the
+and then update the permissions list using the
 [`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
 method.
 
 Updates to the permissions configuration file persist across node restarts.
 
-To view the nodes whitelist, use the
-[perm_getNodesWhitelist](../../Reference/API-Methods.md#perm_getnodeswhitelist) method.
+To view the allowed nodes, use the
+[perm_getNodesAllowlist](../../Reference/API-Methods.md#perm_getnodesallowlist) method.
 
 !!! note
 
     Each node has a [permissions configuration file](#permissions-configuration-file), which means
-    nodes can have different nodes whitelists. This means nodes might be participating in the
-    network that are not on the whitelist of other nodes in the network. We recommend each node in
-    the network has the same nodes whitelist.
+    nodes can have different permission lists. This means nodes might be participating in the
+    network that are not on the permissions list of other nodes in the network. We recommend each node in
+    the network has the same permissions list.
 
     On-chain permissioning is under development. On-chain permissioning will use one on-chain
-    nodes whitelist.
+    nodes  permission list.
 
-!!! example "An Example of Different Node Whitelists"
+!!! example "An example of different node permission lists"
 
-    Node 1 Whitelist = [Node 2, Node 3]
+    Node 1 Allowlist = [Node 2, Node 3]
 
-    Node 2 Whitelist = [Node 3, Node 5]
+    Node 2 Allowlist = [Node 3, Node 5]
 
     Node 5 is participating in the same network as Node 1 even though Node 1 does not have Node 5
-    on their whitelist.
+    on their permissions list.
 
 ### Bootnodes
 
-The nodes whitelist must include the bootnodes or Hyperledger Besu does not start
+The nodes permissions list must include the bootnodes or Hyperledger Besu does not start
 with node permissions enabled.
 
 !!! example
@@ -67,12 +67,12 @@ with node permissions enabled.
      --bootnodes="enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304","enode://7b61d5ee4b44335873e6912cb5dd3e3877c860ba21417c9b9ef1f7e500a82213737d4b269046d0669fb2299a234ca03443f25fe5f706b693b3669e5c92478ade@127.0.0.1:30305"
      ```
 
-    The `nodes-whitelist` in the [permissions configuration file](#permissions-configuration-file)
+    The `nodes-allowlist` in the [permissions configuration file](#permissions-configuration-file)
     must contain the specified bootnodes.
 
-### Enabling node whitelisting
+### Enabling node permissioning
 
-To enable node whitelisting, specify the
+To enable node permissioning, specify the
 [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
 option when starting Besu.
 
@@ -80,17 +80,17 @@ The `PERM` API methods are not enabled by default. To enable the `PERM` API meth
 [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-## Account whitelisting
+## Account permissioning
 
-You can specify accounts in the accounts whitelist in the
+You can specify accounts in the accounts permissions list in the
 [permissions configuration file](#permissions-configuration-file). A node with account
-permissioning accepts transactions only from accounts in the accounts whitelist.
+permissioning accepts transactions only from accounts in the accounts permission list.
 
-!!! example "Accounts Whitelist in Permissions Configuration File"
+!!! example "Accounts Permissions Configuration File"
 
-    `accounts-whitelist=["0x0000000000000000000000000000000000000009"]`
+    `accounts-allowlist=["0x0000000000000000000000000000000000000009"]`
 
-Account whitelisting is at the node level. That is, each node in the network has a
+Account permissioning is at the node level. That is, each node in the network has a
 [permisssions configuration file](#permissions-configuration-file) in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
@@ -102,65 +102,65 @@ Account whitelisting is at the node level. That is, each node in the network has
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key included in the accounts whitelist.
+    command line option and the signing key included in the accounts permission list.
 
-Transaction validation against the accounts whitelist occurs at the following points:
+Transaction validation against the accounts permission list occurs at the following points:
 
 * Submitted by JSON-RPC API method
   [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction)
 * Received via propagation from another node
 * Added to a block by a mining node.
 
-After adding transactions to a block, the transactions are not validated against the whitelist when
-received by another node. That is, a node can synchronise and add blocks containing transactions
-from accounts that are not on the accounts whitelist of that node.
+After adding transactions to a block, the transactions are not validated against the permissions
+list when received by another node. That is, a node can synchronise and add blocks containing
+transactions from accounts that are not on the accounts permission list of that node.
 
 The following diagram illustrates applying local and onchain permissioning rules.
 
 ![Permissioning Flow](../../images/PermissioningFlow.png)
 
-!!! example "An Example of Different Account Whitelists"
+!!! example "An Example of Different Account Permission lists"
 
-    Node 1 Whitelist = [Account A, Account B]
+    Node 1 Allowlist = [Account A, Account B]
 
-    Node 2 Whitelist = [Account B, Account C]
+    Node 2 Allowlist = [Account B, Account C]
 
-    Mining Node Whitelist = [Account A, Account B]
+    Mining Node Allowlist = [Account A, Account B]
 
     Account A submits a transaction on Node 1. Node 1 validates and propagates the transaction. The
     Mining Node receives the transaction, validates it is from an account in the Mining Node
-    accounts whitelist, and includes the transaction in the block. Node 2 receives and adds the
-    block created by the Mining Node.
+    accounts permission list, and includes the transaction in the block. Node 2 receives and adds
+    the block created by the Mining Node.
 
     Node 2 now has a transaction in the blockchain from Account A, which is not on the accounts
-    whitelist for Node 2.
+    permission list for Node 2.
 
 !!! note
 
     Each node has a [permissions configuration file](#permissions-configuration-file) which means
-    nodes in the network can have different accounts whitelists. This means a transaction can be
-    successfully submitted by Node A from an account in the Node A whitelist but rejected by Node B
-    to which it's propagated if the account is not in the Node B whitelist. We recommend each node
-    in the network has the same accounts whitelist.
+    nodes in the network can have different accounts permission lists. This means a transaction can
+    be successfully submitted by Node A from an account in the Node A permission list but rejected
+    by Node B to which it's propagated if the account is not in the Node B permission list. We
+    recommend each node in the network has the same accounts permission list.
 
-To update the accounts whitelist when the node is running, use the JSON-RPC API methods:
+To update the accounts permission list when the node is running, use the JSON-RPC API methods:
 
-* [`perm_addAccountsToWhitelist`](../../Reference/API-Methods.md#perm_addaccountstowhitelist)
-* [`perm_removeAccountsFromWhitelist`](../../Reference/API-Methods.md#perm_removeaccountsfromwhitelist).
+* [`perm_addAccountsToAllowlist`](../../Reference/API-Methods.md#perm_addaccountstoallowlist)
+* [`perm_removeAccountsFromAllowlist`](../../Reference/API-Methods.md#perm_removeaccountsfromallowlist).
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
 and use the
 [`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
-method to update the whitelists.
+method to update the permission lists.
 
 Updates to the permissions configuration file persist across node restarts.
 
-To view the accounts whitelist, use the
-[`perm_getAccountsWhitelist`](../../Reference/API-Methods.md#perm_getaccountswhitelist) method.
+To view the accounts permission list, use the
+[`perm_getAccountsAllowlist`](../../Reference/API-Methods.md#perm_getaccountsallowlist) method.
 
-### Enabling account whitelisting
+### Enabling account permissioning
 
-To enable account whitelisting, specify the
+To enable account permissioning, specify the
 [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled)
 option when starting Besu.
 
@@ -170,21 +170,21 @@ The `PERM` API methods are not enabled by default. To enable the `PERM` API meth
 
 ## Permissions configuration file
 
-The permissions configuration file contains the nodes and accounts whitelists. If the
+The permissions configuration file contains the nodes and accounts permission lists. If the
 [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
-and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+and [`--permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
 options are not specified, the name of the permissions configuration file must be
 [`permissions_config.toml`](#permissions-configuration-file) and must be in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
-You can specify the accounts and nodes whitelists in the same file or in separate files for
+You can specify the accounts and nodes permissions in the same file or in separate files for
 accounts and nodes.
 
 To specify a permissions configuration file (or separate files for accounts and nodes) in any
 location, use the
 [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
 and
-[`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+[`--permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
 options.
 
 !!!note
@@ -198,9 +198,9 @@ options.
 !!! example "Sample Permissions Configuration File"
 
     ```toml
-    accounts-whitelist=["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]
+    accounts-allowlist=["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]
 
-    nodes-whitelist=["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304","enode://7b61d5ee4b44335873e6912cb5dd3e3877c860ba21417c9b9ef1f7e500a82213737d4b269046d0669fb2299a234ca03443f25fe5f706b693b3669e5c92478ade@127.0.0.1:30305"]
+    nodes-allowlist=["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304","enode://7b61d5ee4b44335873e6912cb5dd3e3877c860ba21417c9b9ef1f7e500a82213737d4b269046d0669fb2299a234ca03443f25fe5f706b693b3669e5c92478ade@127.0.0.1:30305"]
     ```
 
 <!-- Links -->

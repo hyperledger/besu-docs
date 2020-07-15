@@ -77,7 +77,7 @@ confirm the node is running.
 To run a node that mines blocks at a rate suitable for testing purposes:
 
 ```bash
-besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
+besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
 You can also use the following [configuration file](../Configure/Using-Configuration-File.md)
@@ -88,7 +88,7 @@ network="dev"
 miner-enabled=true
 miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 rpc-http-cors-origins=["all"]
-host-whitelist=["*"]
+host-allowlist=["*"]
 rpc-ws-enabled=true
 rpc-http-enabled=true
 data-path="/tmp/tmpdata-path"
@@ -102,7 +102,7 @@ data-path="/tmp/tmpdata-path"
       ([`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled)) and setting
       [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) to 0.0.0.0 exposes the
       RPC connection on your node to any remote connection.
-    * Setting [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) to `"*"`
+    * Setting [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) to `"*"`
       allows JSON-RPC API access from any host.
     * Setting
       [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) to

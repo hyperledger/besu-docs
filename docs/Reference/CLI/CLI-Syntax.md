@@ -849,16 +849,16 @@ The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain | Type        | Description                                                         |
-|-----------|-------|-------------|---------------------------------------------------------------------|
-| `mainnet` | ETH   | Production  | The main network                                                    |
-| `ropsten` | ETH   | Test        | A PoW network similar to the current main Ethereum network          |
-| `rinkeby` | ETH   | Test        | A PoA network using Clique                                          |
-| `goerli`  | ETH   | Test        | A PoA network using Clique                                          |
-| `dev`     | ETH   | Development | A PoW network with a low difficulty to enable local CPU mining      |
-| `classic` | ETC   | Production  | The main Ethereum Classic network                                   |
-| `mordor ` | ETC   | Test        | A PoW network                                                       |
-| `kotti`   | ETC   | Test        | A PoA network using Clique                                          |
+| Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
+|-----------|-------|-------------|--------------------|----------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
+| `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoW network similar to the current main Ethereum network     |
+| `rinkeby` | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
+| `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
+| `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
+| `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 
 !!!tip
 
@@ -1956,8 +1956,8 @@ BESU_RPC_WS_API=ETH,NET,WEB3
 rpc-ws-api=["ETH","NET","WEB3"]
 ```
 
-A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
-you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
+A comma-separated list of APIs to enable on the WebSockets channel. When you use this option
+you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`,
 `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
 `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
@@ -2138,12 +2138,19 @@ BESU_SYNC_MODE=FAST
 sync-mode="FAST"
 ```
 
-The synchronization mode. The options are `FAST` and `FULL`. The default is `FULL`.
+The synchronization mode. The options are `FAST` and `FULL`.
+
+* The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
+  option and specifying the [`--genesis-file`](#genesis-file) option.
+* The default is `FAST` when using the [`--network`](#network) option
+  with named networks, except for the `dev` development network. `FAST` is also the default if Ethereum mainnet
+  is being connected to by not specifying the [`--network`](#network) and [`--genesis-file`](#genesis-file)
+  options.
 
 !!! note
 
-    When running Besu on certian cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
-    issue causes fast sync to fail occassionally. The following error is displayed repeatedly:
+    When running Besu on some cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
+    issue causes fast sync to fail occasionally. The following error is displayed repeatedly:
 
     ```
     ...

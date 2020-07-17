@@ -833,7 +833,8 @@ None
 
 Returns the number of hashes per second with which the node is mining.
 
-Not supported for GPU mining.
+When the stratum server is enabled, this method returns the cumulative hashrate of all sealers
+reporting their hashrate.
 
 #### Parameters
 
@@ -3047,6 +3048,39 @@ None
           "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
           "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
         ]
+    }
+    ```
+
+### eth_submitHashrate
+
+Submits the mining hashrate.
+
+Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+
+#### Parameters
+
+* DATA, 32 Bytes - Hexadecimal string representation of the hash rate.
+* DATA, 32 Bytes - Random hexadecimal ID identifying the client.
+
+#### Returns
+
+`result: Boolean`, `true` if submission is successful, otherwise `false`.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc":"2.0",
+      "id":1,
+      "result": true
     }
     ```
 

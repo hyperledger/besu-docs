@@ -126,7 +126,7 @@ To display the list of endpoints again, run:
 
 ## Block explorer
 
-This tutorial uses the [Alethio Ethereum Lite Explorer](https://lite-explorer.aleth.io/).
+This tutorial uses the Alethio Ethereum Lite Explorer.
 
 ### Run the block explorer
 

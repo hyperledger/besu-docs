@@ -122,6 +122,7 @@ nav:
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
+          - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
         - Upgrade:
           - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md

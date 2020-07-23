@@ -85,13 +85,13 @@ Create the following environment variables and set to the specified values:
 
     A simple way to set multiple environment variables is to create a file called `.env` with the required settings
 
-```env
-NODE_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000009999
-ACCOUNT_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000008888
-BESU_NODE_PERM_ACCOUNT=627306090abaB3A6e1400e9345bC60c78a8BEf57
-BESU_NODE_PERM_KEY=c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
-CHAIN_ID=2018
-```
+    ```env
+    NODE_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000009999
+    ACCOUNT_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000008888
+    BESU_NODE_PERM_ACCOUNT=627306090abaB3A6e1400e9345bC60c78a8BEf57
+    BESU_NODE_PERM_KEY=c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
+    CHAIN_ID=2018
+    ```
 
 ## Onchain permissioning command line options
 
@@ -99,7 +99,7 @@ CHAIN_ID=2018
 
     The specified node must be producing blocks, that is, be a miner (PoW networks) or validator (PoA networks).
 
-    To allow MetaMask to connect, the node must have JSON-RPC HTTP enabled and have rpc-http-cors-origins set to allow MetaMask.
+    To allow MetaMask to connect, the node must have JSON-RPC HTTP enabled, and have `--rpc-http-cors-origins` set to allow MetaMask.
 
     If your network is not a [free gas network](../../HowTo/Configure/FreeGas.md), the account used
     to interact with the permissioning contracts must have a balance.

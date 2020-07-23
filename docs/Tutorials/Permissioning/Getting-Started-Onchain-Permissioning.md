@@ -97,13 +97,12 @@ CHAIN_ID=2018
 
 !!! important
 
-    The specified node must be a miner (PoW networks) or validator (PoA networks).
+    The specified node must be producing blocks, that is, be a miner (PoW networks) or validator (PoA networks).
+
+    To allow MetaMask to connect, the node must have JSON-RPC HTTP enabled and have rpc-http-cors-origins set to allow MetaMask.
 
     If your network is not a [free gas network](../../HowTo/Configure/FreeGas.md), the account used
     to interact with the permissioning contracts must have a balance.
-
-For permissioning to work, your node needs to be producing blocks, have JSON-RPC HTTP enabled, and have permissioning enabled.
-For MetaMask to work, you must have rpc-http-cors-origins set to allow MetaMask to connect to your Besu node.
 
 To enable account and/or node permissioning, all nodes participating in a permissioned network must
 include the command line options:
@@ -122,7 +121,9 @@ include the command line options:
   `BESU_NODE_PERM_ENDPOINT`.
 
 example command line: 
-`besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73`
+```cmd
+besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+```
 
 ## Clone the contracts and install dependencies
 

@@ -4390,6 +4390,109 @@ None
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
+### txpool_besuPendingTransactions
+
+Lists pending transactions that match the supplied filter conditions.
+
+
+#### Parameters
+
+* `QUANTITY` - Integer representing the maximum number of results to return.
+* Object containing the filter conditions. Filter pending transactions based on the following fields
+    and supported operators:
+
+| Field        | Type                  | Value                                     | Supported operators |
+|--------------|:---------------------:|-------------------------------------------|---------------------|
+| **from**     | *Data*, 20&nbsp;bytes | Address of the sender.                    | `eq`                |
+| **to**       | *Data*, 20&nbsp;bytes | Address of the receiver, or `"contract_creation"`.| `eq`, `action`|
+| **gas**      | *Quantity*            | Gas provided by the sender.               | `eq`, `gt`, `lt`    |
+| **gasPrice** | *Quantity*            | Gas price, in wei, provided by the sender.| `eq`, `gt`, `lt`    |
+| **value**    | *Quantity*            | Value transferred, in wei.                | `eq`, `gt`, `lt`    |
+| **nonce**    | *Quantity*            | Number of transactions made by the sender.| `eq`, `gt`, `lt`    |
+
+Supported operators:
+
+* `eq` (Equal to)
+* `lt` (Less than)
+* `gt` (Greater than)
+* `action`
+     
+!!! note
+    The only supported `action` is `"contract_creation"`.
+       
+#### Returns
+
+`result` - Array of objects with [details of the pending transaction](API-Objects.md#pending-transaction-object).
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": [
+        {
+          "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+          "gas": "0x5208",
+          "gasPrice": "0xab5d04c00",
+          "hash": "0xb7b2f4306c1c228ec94043da73b582594007091a7dfe024b1f8d6d772284e54b",
+          "input": "0x",
+          "nonce": "0x2",
+          "to": "0xf8be4ebda7f62d79a665294ec1263bfdb59aabf2",
+          "value": "0x0",
+          "v": "0xfe8",
+          "r": "0x5beb711e652c6cf0a589d3cea904eefc4f45ce4372652288701d08cc4412086d",
+          "s": "0x3af14a56e63aa5fb7dcb444a89708363a9d2c1eba1f777c67690288415080ded"
+        }
+      ]
+    }
+    ```
+
+
 ### txpool_besuStatistics
 
 Lists statistics about the node transaction pool.

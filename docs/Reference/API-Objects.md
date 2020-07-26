@@ -70,6 +70,25 @@ Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`
 | **data**             | Data                              | Non-indexed arguments of the log.                                                                                                                                                                                       |
 | **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Concepts/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Concepts/Events-and-Logs.md#event-parameters).  |
 
+
+## Pending transaction object
+
+Returned by [`txpool_besuPendingTransactions`](API-Methods.md#txpool_besupendingtransactions).
+
+| Key                  | Type                | Value                                                                                      |
+|----------------------|:-------------------:|--------------------------------------------------------------------------------------------|
+| **from**             | Data, 20&nbsp;bytes | Address of the sender.                                                                     |
+| **gas**              | Quantity            | Gas provided by the sender.                                                                |
+| **gasPrice**         | Quantity            | Gas price, in wei, provided by the sender.                                                 |
+| **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
+| **input**            | Data                | Data sent with the transaction to create or invoke a contract.                             |
+| **nonce**            | Quantity            | Number of transactions made by the sender before this one.                                 |
+| **to**               | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                        |
+| **value**            | Quantity            | Value transferred, in wei.                                                                 |
+| **v**                | Quantity            | ECDSA Recovery ID.                                                                         |
+| **r**                | Data, 32&nbsp;bytes | ECDSA signature r.                                                                         |
+| **s**                | Data, 32&nbsp;bytes | ECDSA signature s.                                                                         |
+
 ## Private transaction object
 
 Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransaction).

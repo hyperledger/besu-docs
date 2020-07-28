@@ -23,7 +23,7 @@ repository are:
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
   the permissioning logic to the Node Rules and Account Rules contracts. The Ingress contracts deploy
   to static addresses.
-* Node Rules - stores the node allowlist and node sllowlist operations (for example, add and
+* Node Rules - stores the node allowlist and node allowlist operations (for example, add and
   remove).
 * Account Rules - stores the accounts allowlist and account allowlist operations (for example, add
   and remove).
@@ -41,7 +41,7 @@ The [Permissioning Management Dapp] provides view and maintain access to the all
 
 ### Allowlists
 
-PPermissioning implements three allowlists:
+Permissioning implements three allowlists:
 
 * Accounts, which can submit transactions to the network.
 * Nodes, which can join the network.

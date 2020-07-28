@@ -141,8 +141,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 
 !!! important
 
-    The account that deploys the contracts is automatically an
-    [admin account](#update-accounts-or-admin-accounts-allowlists).
+    The account that deploys the contracts is automatically an [admin account].
 
 ## Start the webserver for the Permissioning Management Dapp
 
@@ -171,8 +170,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 
 !!! note
 
-    Only [admin accounts](#update-accounts-or-admin-accounts-allowlists) can add or remove nodes
-    from the permission list.
+    Only [admin accounts] can add or remove nodes from the permission list.
 
 ## Add the first node to the allowlist
 

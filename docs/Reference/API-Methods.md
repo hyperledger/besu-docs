@@ -4398,17 +4398,24 @@ Lists pending transactions that match the supplied filter conditions.
 #### Parameters
 
 * `QUANTITY` - Integer representing the maximum number of results to return.
-* Object containing the filter conditions. Filter pending transactions based on the following fields
-    and supported operators:
+* Object of fields used to create the filter condition.
 
-| Field        | Type                  | Value                                     | Supported operators |
-|--------------|:---------------------:|-------------------------------------------|---------------------|
-| **from**     | *Data*, 20&nbsp;bytes | Address of the sender.                    | `eq`                |
-| **to**       | *Data*, 20&nbsp;bytes | Address of the receiver, or `"contract_creation"`.| `eq`, `action`|
-| **gas**      | *Quantity*            | Gas provided by the sender.               | `eq`, `gt`, `lt`    |
-| **gasPrice** | *Quantity*            | Gas price, in wei, provided by the sender.| `eq`, `gt`, `lt`    |
-| **value**    | *Quantity*            | Value transferred, in wei.                | `eq`, `gt`, `lt`    |
-| **nonce**    | *Quantity*            | Number of transactions made by the sender.| `eq`, `gt`, `lt`    |
+Each field in the object corresponds to a field name containing an operator, and a value for the
+operator. The same field name can be specified multiple times, but can only contain one operator.
+For example, you cannot ask for transactions with a gas price between 8 and 9 Gwei by using both the
+`gt` and `lt` operator in the same field name instance.
+
+All filters must be satisfied for a transaction to be returned.
+
+| Field name   | Value                                     | Value type            | Supported operators |
+|--------------|-------------------------------------------|:---------------------:|---------------------|
+| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
+| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
+| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
+| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
+| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+|
 
 Supported operators:
 

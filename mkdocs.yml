@@ -122,8 +122,6 @@ nav:
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
-          - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
-          - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
         - Upgrade:
           - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md
@@ -180,7 +178,6 @@ nav:
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
         - Mining: Concepts/Mining.md
-        - Alethio: Concepts/AlethioOverview.md
     - Reference:
         - Besu Command Line:
           - Options: Reference/CLI/CLI-Syntax.md

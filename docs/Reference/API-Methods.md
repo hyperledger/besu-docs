@@ -4119,7 +4119,7 @@ Adds accounts (participants) to the
 #### Returns
 
 `result` - `Success` or `error`. Errors include attempting to add accounts already on the
-permissions list or including invalid account addresses.
+allowlist or including invalid account addresses.
 
 !!! example
 
@@ -4150,7 +4150,7 @@ None
 
 #### Returns
 
-`result: list` - Accounts (participants) in the accounts permissions list.
+`result: list` - Accounts (participants) in the accounts allowlist.
 
 !!! example
 
@@ -4189,8 +4189,8 @@ Removes accounts (participants) from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove accounts not on the permissions
-list or including invalid account addresses.
+`result` - `Success` or `error`. Errors include attempting to remove accounts not on the allowlist
+or including invalid account addresses.
 
 !!! example
 
@@ -4213,7 +4213,7 @@ list or including invalid account addresses.
 ### perm_addNodesToAllowlist
 
 Adds nodes to the
-[nodes permissions list](../HowTo/Limit-Access/Local-Permissioning.md#node-permissioning).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4226,8 +4226,8 @@ Adds nodes to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add nodes already on the permissions
-list or including invalid enode URLs.
+`result` - `Success` or `error`. Errors include attempting to add nodes already on the allowlist or
+including invalid enode URLs.
 
 !!! example
 
@@ -4250,7 +4250,7 @@ list or including invalid enode URLs.
 ### perm_getNodesAllowlist
 
 Lists nodes in the
-[nodes permissions list](../HowTo/Limit-Access/Local-Permissioning.md#node-permissioning).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4258,8 +4258,7 @@ None
 
 #### Returns
 
-`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes permissions
-list.
+`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes allowlist.
 
 !!! example
 
@@ -4285,7 +4284,7 @@ list.
 ### perm_removeNodesFromAllowlist
 
 Removes nodes from the
-[nodes permissions list](../HowTo/Limit-Access/Local-Permissioning.md#node-permissioning).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4298,8 +4297,8 @@ Removes nodes from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove nodes not on the permissions
-list or including invalid enode URLs.
+`result` - `Success` or `error`. Errors include attempting to remove nodes not on the allowlist
+or including invalid enode URLs.
 
 !!! example
 
@@ -4321,7 +4320,7 @@ list or including invalid enode URLs.
 
 ### perm_reloadPermissionsFromFile
 
-Reloads the accounts and nodes permission lists from the [permissions configuration file].
+Reloads the accounts and nodes allowlists from the [permissions configuration file].
 
 #### Parameters
 

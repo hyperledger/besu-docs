@@ -23,7 +23,7 @@ command line option when starting Besu.
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key included in the accounts permission list.
+    command line option and the signing key included in the accounts allowlist.
 
 !!! note
 

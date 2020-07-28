@@ -131,7 +131,7 @@ In `extraData`, replace `<Node 1 Address>` with the
 
 ### 4. Create the permissions configuration file
 
-The permissions configuration file defines the nodes and accounts permission lists.
+The permissions configuration file defines the nodes and accounts whitelists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a
 copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
@@ -154,7 +154,7 @@ Use the JSON-RPC API to add permissioned nodes after starting the nodes.
     data directory for each node.
 
     On-chain permissioning is under development. On-chain permissioning will use one on-chain nodes
-    and accounts permission lists.
+    whitelist and accounts allowlist.
 
 ### 5. Start Node-1
 
@@ -321,7 +321,7 @@ Node-3):
 }
 ```
 
-#### Send a transaction from an account in the permissions list
+#### Send a transaction from an account in the allowlist
 
 Import the first account from the genesis file into MetaMask and send transactions, as described in
 [Private network example tutorial]:
@@ -337,7 +337,7 @@ Import the first account from the genesis file into MetaMask and send transactio
     Besu does not support
     [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
-### Try sending a transaction from an account not in the accounts permission list
+### Try sending a transaction from an account not in the accounts allowlist
 
 Import the last account from the genesis file into MetaMask and try to send a transactions, as
 described in [Private Network Example Tutorial]:
@@ -348,7 +348,7 @@ described in [Private Network Example Tutorial]:
     * Private key : `0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f`
     * Initial balance : `0x90000000000000000000000` (2785365088392105618523029504 in decimal)
 
-### Start a node not on the nodes permission list
+### Start a node not on the nodes allowlist
 
 In your `Permissioned-Network` directory, create a `Node-4` directory and `data` directory inside
 it.

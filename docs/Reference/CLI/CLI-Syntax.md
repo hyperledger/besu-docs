@@ -1240,7 +1240,7 @@ you do not specify this option, Besu signs each transaction with a different ran
 key.
 
 If using [account permissioning] and privacy, you must specify a private key file and the signing
-key included in the list of allowed accounts.
+key included in the accounts allowlist.
 
 ### privacy-multi-tenancy-enabled
 

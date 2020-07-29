@@ -319,32 +319,32 @@ The GraphQL HTTP listening port (TCP). The default is 8547. Ports must be
 
 Show the help message and exit.
 
-### host-whitelist
+### host-allowlist
 
 ```bash tab="Syntax"
---host-whitelist=<hostname>[,<hostname>...]... or "*"
+--host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
 ```bash tab="Command Line"
---host-whitelist=medomain.com,meotherdomain.com
+--host-allowlist=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Environment Variable"
-BESU_HOST_WHITELIST=medomain.com,meotherdomain.com
+BESU_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Configuration File"
-host-whitelist=["medomain.com", "meotherdomain.com"]
+host-allowlist=["medomain.com", "meotherdomain.com"]
 ```
 
 A comma-separated list of hostnames to allow
-[access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-whitelist). By
+[access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-allowlist). By
 default, Besu accepts access from `localhost` and `127.0.0.1`.
 
 !!!note
 
     If using [Prometheus](https://prometheus.io/) to pull metrics from a node, you must specify all
-    the other nodes you want to pull metrics from in the whitelist of hostnames.
+    the other nodes you want to pull metrics from in the list of allowed hostnames.
 
 !!!tip
 
@@ -507,7 +507,7 @@ metrics-host="127.0.0.1"
 
 The host on which [Prometheus](https://prometheus.io/) accesses
 [Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
-metrics server respects the [`--host-whitelist` option](#host-whitelist).
+metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 The default is `127.0.0.1`.
 
@@ -576,7 +576,7 @@ metrics-push-host="127.0.0.1"
 ```
 
 The host of the [Prometheus Push Gateway](https://github.com/prometheus/pushgateway). The default
-is `127.0.0.1`. The metrics server respects the [`--host-whitelist` option](#host-whitelist).
+is `127.0.0.1`. The metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 !!! note
 
@@ -1240,7 +1240,7 @@ you do not specify this option, Besu signs each transaction with a different ran
 key.
 
 If using [account permissioning] and privacy, you must specify a private key file and the signing
-key included in the accounts whitelist.
+key included in the accounts allowlist.
 
 ### privacy-multi-tenancy-enabled
 
@@ -1697,7 +1697,7 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 
 ```bash tab="Command Line"
 
-$# You can whitelist one or more domains with a comma-separated list.
+$# You can allow one or more domains with a comma-separated list.
 
 --rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
@@ -1721,9 +1721,9 @@ A list of domain URLs for CORS validation. You must enclose the URLs in double q
 them with commas.
 
 Listed domains can access the node using JSON-RPC. If your client interacts with Besu using a
-browser app (such as Remix or a block explorer), you must whitelist the client domains.
+browser app (such as Remix or a block explorer), add the client domain to the list.
 
-The default value is `"none"`. If you do not whitelist any domains, browser apps cannot interact
+The default value is `"none"`. If you do not list any domains, browser apps cannot interact
 with your Besu node.
 
 !!!note

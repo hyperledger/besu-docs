@@ -229,15 +229,15 @@ server.
 The command accepts the following command line options:
 
 * [\--data-path](./CLI-Syntax.md#data-path)
-* [\--host-whitelist](./CLI-Syntax.md#host-whitelist)
+* [\--host-allowlist](./CLI-Syntax.md#host-allowlist)
 * [\--rpc-http-host](./CLI-Syntax.md#rpc-http-host)
 * [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
 * [\--logging](./CLI-Syntax.md#logging)
 
 ```bash tab="Syntax"
-besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-whitelist=<hostname>[,<hostname>…]… or * or all]
+besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-allowlist=<hostname>[,<hostname>…]… or * or all]
 ```
 
 ```bash tab="Example"
-besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-whitelist=*
+besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-allowlist=*
 ```

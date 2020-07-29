@@ -50,11 +50,11 @@ The default ports are:
 
 Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#port-configuration).
 
-## Host whitelist
+## Host allowlist
 
 To prevent DNS rebinding, Besu accepts incoming HTTP requests, WebSockets connections, and GraphQL
 requests only from hostnames specified using the
-[`--host-whitelist`](../../../Reference/CLI/CLI-Syntax.md#host-whitelist) option. Besu accepts
+[`--host-allowlist`](../../../Reference/CLI/CLI-Syntax.md#host-allowlist) option. Besu accepts
 incoming requests and connections from `localhost` and `127.0.0.1` by default.
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.
@@ -62,14 +62,14 @@ If your application publishes RPC ports, specify the hostnames when starting Bes
 !!! example
 
     ```bash
-    besu --host-whitelist=example.com
+    besu --host-allowlist=example.com
     ```
 
-Specify "*" for `--host-whitelist` to effectively disable host protection.
+Specify "*" for `--host-allowlist` to effectively disable host protection.
 
 !!! caution
 
-    Specifying "*" for `--host-whitelist` is not recommended for production code.
+    Specifying "*" for `--host-allowlist` is not recommended for production code.
 
 ## Not supported by Besu
 

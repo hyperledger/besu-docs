@@ -56,8 +56,8 @@ To view the nodes allowlist, use the
 
 ### Bootnodes
 
-The nodes permissions list must include the bootnodes or Hyperledger Besu does not start
-with node permissions enabled.
+The nodes permissions list must include the bootnodes or Hyperledger Besu does not start with
+node permissions enabled.
 
 !!! example
 

@@ -1959,6 +1959,8 @@ rpc-tx-feecap=1200000000000000000
 Sets the maximum transaction fee (in Wei) accepted for transactions submitted through the
 [`eth_sendRawTransaction`](../API-Methods.md#eth_sendrawtransaction) RPC. Defaults to 1000000000000000000 (1 ether).
 
+If set to 0, then this option is ignored and no cap is applied.
+
 ### rpc-ws-api
 
 ```bash tab="Syntax"

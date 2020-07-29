@@ -1938,6 +1938,27 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
     You must enable client authentication using the
     [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
+### rpc-tx-feecap
+
+```bash tab="Syntax"
+--rpc-tx-feecap=<MAX_FEE>
+```
+
+```bash tab="Command Line"
+--rpc-tx-feecap=1200000000000000000
+```
+
+```bash tab="Environment Variable"
+BESU_RPC_TX_FEE=1200000000000000000
+```
+
+```bash tab="Configuration File"
+rpc-tx-feecap=1200000000000000000
+```
+
+Sets the maximum transaction fee (in Wei) accepted for transactions submitted through the
+[`eth_sendRawTransaction`](../API-Methods.md#eth_sendrawtransaction) RPC. Defaults to 1000000000000000000 (1 ether).
+
 ### rpc-ws-api
 
 ```bash tab="Syntax"

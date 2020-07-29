@@ -3023,11 +3023,12 @@ None
 
 #### Returns
 
-`result` : `Array of DATA` with the following fields:
+`result` : Array with the following fields:
 
-* DATA, 32 Bytes - Hash of the current block header (pow-hash).
-* DATA, 32 Bytes - The seed hash used for the DAG.
-* DATA, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
+* `DATA`, 32 Bytes - The seed hash used for the DAG.
+* `DATA`, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `QUANTITY` - Hexadecimal integer representing the current block number.
 
 !!! example
 
@@ -3041,13 +3042,14 @@ None
 
     ```json tab="JSON result"
     {
-      "id":1,
-      "jsonrpc":"2.0",
+      "jsonrpc": "2.0",
+      "id": 1,
       "result": [
-          "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-          "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
-          "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
-        ]
+        "0xce5e32ca59cb86799a1879e90150b2c3b882852173e59865e9e79abb67a9d636",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x00a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3",
+        "0x42"
+      ]
     }
     ```
 

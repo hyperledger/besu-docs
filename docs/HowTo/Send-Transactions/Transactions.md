@@ -8,8 +8,8 @@ You can send signed transactions using Hyperledger Besu the
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) JSON-RPC API
 method.
 
-Signed transactions can be simple value transfers, contract creation, or contract invocation.
-Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap)
+Signed transactions can be simple value transfers, contract creation, or contract invocation. Set
+the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap)
 CLI option.
 
 [Use client libraries](../Develop-Dapps/Client-Libraries.md) to create and send a signed raw transaction to transfer

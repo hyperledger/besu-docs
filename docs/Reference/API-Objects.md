@@ -70,7 +70,6 @@ Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`
 | **data**             | Data                              | Non-indexed arguments of the log.                                                                                                                                                                                       |
 | **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Concepts/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Concepts/Events-and-Logs.md#event-parameters).  |
 
-
 ## Pending transaction object
 
 Returned by [`txpool_besuPendingTransactions`](API-Methods.md#txpool_besupendingtransactions).

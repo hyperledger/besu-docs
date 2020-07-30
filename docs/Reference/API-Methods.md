@@ -4394,7 +4394,6 @@ None
 
 Lists pending transactions that match the supplied filter conditions.
 
-
 #### Parameters
 
 * `QUANTITY` - Integer representing the maximum number of results to return.
@@ -4498,7 +4497,6 @@ Supported operators:
       ]
     }
     ```
-
 
 ### txpool_besuStatistics
 

@@ -1778,7 +1778,9 @@ Returns the code of the private smart contract at the specified address. Compile
 ### eth_sendRawTransaction
 
 Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
-ether, deploy a contract, or interact with a contract.
+ether, deploy a contract, or interact with a contract. Set the maximum
+transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI
+option.
 
 You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
@@ -4391,6 +4393,114 @@ None
     The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### txpool_besuPendingTransactions
+
+Lists pending transactions that match the supplied filter conditions.
+
+#### Parameters
+
+* `QUANTITY` - Integer representing the maximum number of results to return.
+* Object of fields used to create the filter condition.
+
+Each field in the object corresponds to a field name containing an operator, and a value for the
+operator. A field name can only be specified once, and can only contain one operator.
+For example, you cannot ask for transactions with a gas price between 8 and 9 Gwei by using both the
+`gt` and `lt` operator in the same field name instance.
+
+All filters must be satisfied for a transaction to be returned.
+
+| Field name   | Value                                     | Value type            | Supported operators |
+|--------------|-------------------------------------------|:---------------------:|---------------------|
+| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
+| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
+| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
+| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
+| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+|
+
+Supported operators:
+
+* `eq` (Equal to)
+* `lt` (Less than)
+* `gt` (Greater than)
+* `action`
+
+!!! note
+    The only supported `action` is `"contract_creation"`.
+
+#### Returns
+
+`result` - Array of objects with [details of the pending transaction](API-Objects.md#pending-transaction-object).
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": [
+        {
+          "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+          "gas": "0x5208",
+          "gasPrice": "0xab5d04c00",
+          "hash": "0xb7b2f4306c1c228ec94043da73b582594007091a7dfe024b1f8d6d772284e54b",
+          "input": "0x",
+          "nonce": "0x2",
+          "to": "0xf8be4ebda7f62d79a665294ec1263bfdb59aabf2",
+          "value": "0x0",
+          "v": "0xfe8",
+          "r": "0x5beb711e652c6cf0a589d3cea904eefc4f45ce4372652288701d08cc4412086d",
+          "s": "0x3af14a56e63aa5fb7dcb444a89708363a9d2c1eba1f777c67690288415080ded"
+        }
+      ]
+    }
+    ```
 
 ### txpool_besuStatistics
 

@@ -54,7 +54,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 ## Adding and removing members
 
 To add and remove members from an [onchain privacy group](../../Concepts/Privacy/Onchain-PrivacyGroups.md),
-use the `addToPrivacyGroup` and `removeFromPrivayGroup` methods in the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea)
+use the `addToPrivacyGroup` and `removeFromPrivacyGroup` methods in the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea)
 client library.
 
 !!! note

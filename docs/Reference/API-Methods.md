@@ -1778,7 +1778,9 @@ Returns the code of the private smart contract at the specified address. Compile
 ### eth_sendRawTransaction
 
 Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
-ether, deploy a contract, or interact with a contract.
+ether, deploy a contract, or interact with a contract. Set the maximum
+transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI
+option.
 
 You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
@@ -3023,11 +3025,12 @@ None
 
 #### Returns
 
-`result` : `Array of DATA` with the following fields:
+`result` : Array with the following fields:
 
-* DATA, 32 Bytes - Hash of the current block header (pow-hash).
-* DATA, 32 Bytes - The seed hash used for the DAG.
-* DATA, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
+* `DATA`, 32 Bytes - The seed hash used for the DAG.
+* `DATA`, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `QUANTITY` - Hexadecimal integer representing the current block number.
 
 !!! example
 
@@ -3041,13 +3044,14 @@ None
 
     ```json tab="JSON result"
     {
-      "id":1,
-      "jsonrpc":"2.0",
+      "jsonrpc": "2.0",
+      "id": 1,
       "result": [
-          "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-          "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
-          "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
-        ]
+        "0xce5e32ca59cb86799a1879e90150b2c3b882852173e59865e9e79abb67a9d636",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x00a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3",
+        "0x42"
+      ]
     }
     ```
 
@@ -4136,10 +4140,10 @@ permissioning only.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options.
 
-### perm_addAccountsToWhitelist
+### perm_addAccountsToAllowlist
 
 Adds accounts (participants) to the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permission list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4152,17 +4156,17 @@ Adds accounts (participants) to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add accounts already on the whitelist
-or including invalid account addresses.
+`result` - `Success` or `error`. Errors include attempting to add accounts already on the
+allowlist or including invalid account addresses.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_addAccountsToWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4173,10 +4177,10 @@ or including invalid account addresses.
     }
     ```
 
-### perm_getAccountsWhitelist
+### perm_getAccountsAllowlist
 
 Lists accounts (participants) in the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4184,16 +4188,16 @@ None
 
 #### Returns
 
-`result: list` - Accounts (participants) in the accounts whitelist.
+`result: list` - Accounts (participants) in the accounts allowlist.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsWhitelist","params":[], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_getAccountsWhitelist","params":[], "id":1}
+    {"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4207,10 +4211,10 @@ None
     }
     ```
 
-### perm_removeAccountsFromWhitelist
+### perm_removeAccountsFromAllowlist
 
 Removes accounts (participants) from the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4223,17 +4227,17 @@ Removes accounts (participants) from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove accounts not on the whitelist
+`result` - `Success` or `error`. Errors include attempting to remove accounts not on the allowlist
 or including invalid account addresses.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_removeAccountsFromWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4244,10 +4248,10 @@ or including invalid account addresses.
     }
     ```
 
-### perm_addNodesToWhitelist
+### perm_addNodesToAllowlist
 
 Adds nodes to the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4260,17 +4264,17 @@ Adds nodes to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add nodes already on the whitelist or
+`result` - `Success` or `error`. Errors include attempting to add nodes already on the allowlist or
 including invalid enode URLs.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4281,10 +4285,10 @@ including invalid enode URLs.
     }
     ```
 
-### perm_getNodesWhitelist
+### perm_getNodesAllowlist
 
 Lists nodes in the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4292,16 +4296,16 @@ None
 
 #### Returns
 
-`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes whitelist.
+`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes allowlist.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesWhitelist","params":[], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_getNodesWhitelist","params":[], "id":1}
+    {"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4315,10 +4319,10 @@ None
     }
     ```
 
-### perm_removeNodesFromWhitelist
+### perm_removeNodesFromAllowlist
 
 Removes nodes from the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4331,17 +4335,17 @@ Removes nodes from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove nodes not on the whitelist or
-including invalid enode URLs.
+`result` - `Success` or `error`. Errors include attempting to remove nodes not on the allowlist
+or including invalid enode URLs.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_removeNodesFromWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4354,7 +4358,7 @@ including invalid enode URLs.
 
 ### perm_reloadPermissionsFromFile
 
-Reloads the accounts and nodes whitelists from the [permissions configuration file].
+Reloads the accounts and nodes allowlists from the [permissions configuration file].
 
 #### Parameters
 

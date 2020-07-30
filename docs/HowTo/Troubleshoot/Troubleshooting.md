@@ -16,7 +16,7 @@ directory.
 ## Host not authorized
 
 If a `Host not authorized` error occurs when attempting to access the JSON-RPC API, ensure
-[`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) includes the host you are
+[`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) includes the host you are
 sending the RPC from, or `*`.
 
 ## Peers fail to connect

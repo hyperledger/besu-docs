@@ -5497,7 +5497,7 @@ Privacy groups containing only the specified members. Privacy groups are
 or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups.
-* `BESU` for Besu-extended groups.
+* `PANTHEON` for Besu-extended groups.
 
 !!! example
 

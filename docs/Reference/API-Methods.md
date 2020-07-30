@@ -4401,7 +4401,7 @@ Lists pending transactions that match the supplied filter conditions.
 * Object of fields used to create the filter condition.
 
 Each field in the object corresponds to a field name containing an operator, and a value for the
-operator. The same field name can be specified multiple times, but can only contain one operator.
+operator. A field name can only be specified once, and can only contain one operator.
 For example, you cannot ask for transactions with a gas price between 8 and 9 Gwei by using both the
 `gt` and `lt` operator in the same field name instance.
 
@@ -4423,10 +4423,10 @@ Supported operators:
 * `lt` (Less than)
 * `gt` (Greater than)
 * `action`
-     
+
 !!! note
     The only supported `action` is `"contract_creation"`.
-       
+
 #### Returns
 
 `result` - Array of objects with [details of the pending transaction](API-Objects.md#pending-transaction-object).

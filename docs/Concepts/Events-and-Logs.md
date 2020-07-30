@@ -139,7 +139,7 @@ for event 2 is `keccak('Event2(uint256)')`. The hashes are:
 !!! tip
 
     You can use a library keccak (sha3) hash function, such as provided in
-    [Web3.js](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3sha3), or an an online tool,
+    [Web3.js](https://web3js.readthedocs.io/en/v1.2.11/web3-utils.html?highlight=sha3#sha3), or an online tool,
     such as https://emn178.github.io/online-tools/keccak_256.html, to generate event signature
     hashes.
 

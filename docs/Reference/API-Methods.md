@@ -174,16 +174,16 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 
 ### admin_logsRepairCache
 
-Repairs the cached logs by fixing all segments starting with the specified block number.
+Repairs cached logs by fixing all segments starting with the specified block number.
 
 #### Parameters
 
-`quantity` - Decimal index of the starting block to fix the cache. If left empty, the head block
+`quantity` - Decimal index of the starting block to fix. If left empty, the head block
 is used as the starting point.
 
 #### Returns
 
-`result` -  Status of the repair request.
+`result` -  Status of the repair request; either `Started`, or `Already running`.
 
 !!! example
 

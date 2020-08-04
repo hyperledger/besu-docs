@@ -106,7 +106,7 @@ nav:
            - Include Revert Reason in Transaction Receipts: HowTo/Send-Transactions/Revert-Reason.md
         - Limit Access to Node:
           - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
-          - Update Onchain Permissioning Whitelists: HowTo/Limit-Access/Updating-Whitelists.md
+          - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
         - Use Privacy Features:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
           - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md
@@ -122,6 +122,8 @@ nav:
           - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure Validators: HowTo/Deploy/Validators.md
           - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
+          - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
+          - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
         - Backup and Restore: HowTo/Backup/Backup.md
         - Upgrade:
           - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md

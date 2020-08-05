@@ -172,6 +172,39 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
     }
     ```
 
+### admin_logsRepairCache
+
+Repairs cached logs by fixing all segments starting with the specified block number.
+
+#### Parameters
+
+`quantity` - Decimal index of the starting block to fix. If left empty, the head block
+is used as the starting point.
+
+#### Returns
+
+`result` -  Status of the repair request; either `Started`, or `Already running`.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "Status": "Started"
+      }
+    }
+    ```
+
 ### admin_nodeInfo
 
 Returns networking information about the node. The information includes general information about

@@ -71,6 +71,7 @@ privatekeys = ["nodeKey.key", "nodeKey2.key", "nodeKey3.key"]
 passwords = "passwordFile"
 tls = "off"
 ```
+
 ## 5. Start Orion
 
 In the `Node-1/Orion` directory, [start Orion](Configuring-Privacy.md#5-start-the-orion-nodes) and specify

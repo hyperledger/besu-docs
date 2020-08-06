@@ -5490,6 +5490,10 @@ Deletes the specified privacy group.
 
 `data` - Privacy group ID
 
+#### Returns
+
+Privacy group ID that was deleted.
+
 !!! example
 
     ```bash tab="curl HTTP request"
@@ -5545,7 +5549,7 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
          "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
          "name": "Group B",
          "description": "Description of Group B",
-         "type": "BESU",
+         "type": "PANTHEON",
          "members": [
            "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
            "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
@@ -5646,7 +5650,7 @@ Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. T
 created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
 the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs).
 
-For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
+For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_newfilter)
 for public contracts.
 
 #### Parameters

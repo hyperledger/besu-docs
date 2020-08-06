@@ -1332,19 +1332,19 @@ false.
 ### privacy-tls-keystore-file
 
 ```bash tab="Syntax"
---privacy-tls-keystore-password-file=<FILE>
+--privacy-tls-keystore-file=<FILE>
 ```
 
 ```bash tab="Command Line"
---privacy--keystore-password-file=/home/me/me_node/password
+--privacy--keystore-file=/home/me/me_node/key
 ```
 
 ```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+BESU_PRIVACY_TLS_KEYSTORE_FILE=/home/me/me_node/key
 ```
 
 ```bash tab="Configuration File"
-privacy-tls-keystore-password-file="/home/me/me_node/password"
+privacy-tls-keystore-file="/home/me/me_node/key"
 ```
 
 The keystore file (in PKCS #12 format) containing the private key and the certificate presented

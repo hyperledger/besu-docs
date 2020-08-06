@@ -1278,19 +1278,10 @@ BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-privacy-multi-tenancy-enabled=true
+privacy-onchain-groups-enabled=true
 ```
 
 Set to enable onchain privacy groups. Default is `false`.
-
-### privacy-precompiled-address
-
-```bash tab="Syntax"
---privacy-precompiled-address=<privacyPrecompiledAddress>
-```
-
-The [predefined contract address](../../Concepts/Privacy/Private-Transaction-Processing.md). The
-default is 126.
 
 ### privacy-public-key-file
 

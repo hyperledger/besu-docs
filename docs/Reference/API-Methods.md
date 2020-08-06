@@ -5374,9 +5374,9 @@ for private contracts.
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the
-[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). Specify the
-address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
-command line option.
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). This address 
+is derived, based on the value of the [`privacy-onchain-groups-enabled`](CLI/CLI-Syntax.md#privacy-onchain-groups-enabled) 
+option.
 
 #### Parameters
 

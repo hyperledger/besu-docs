@@ -4,7 +4,7 @@ description: Setting up and using Hyperledger Besu onchain Permissioning
 
 # Get started with onchain permissioning
 
-The following steps describe bootstrapping a local permissioned network using a Hyperledger Besu
+The following steps describe bootstrapping a permissioned network using a Hyperledger Besu
 node and a development server to run the Permissioning Management Dapp.
 
 !!! note
@@ -35,7 +35,7 @@ For the development server to run the dapp:
 
 !!! tip
 
-    If the network is using only account or nodes permissioning, add only the relevant ingress
+    If the network is using only account or node permissioning, add only the relevant ingress
     contract to the genesis file.
 
 Add the Ingress contracts to the genesis file for your network by copying them from

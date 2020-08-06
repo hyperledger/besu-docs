@@ -63,7 +63,7 @@ When a node joins the network, the node connects to the bootnodes until it synch
 the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
 Rules smart contracts apply the permissioning rules.
 
-If a sychronized node loses all peer connections (that is, it has zero peers), it reconnects to the
+If a synchronized node loses all peer connections (that is, it has zero peers), it reconnects to the
 bootnodes to rediscover peers.
 
 !!! important

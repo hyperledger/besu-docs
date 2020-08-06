@@ -4,7 +4,7 @@ description: Hyperledger Besu create a permissioned network
 
 # Create a permissioned network
 
-The following steps set up a permissioned network with node and account permissions. The network
+The following steps set up a permissioned network with local node and account permissions. The network
 uses the [Clique Proof of Authority consensus protocol].
 
 !!!important
@@ -131,7 +131,7 @@ In `extraData`, replace `<Node 1 Address>` with the
 
 ### 4. Create the permissions configuration file
 
-The permissions configuration file defines the nodes and accounts whitelists.
+The permissions configuration file defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a
 copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
@@ -152,9 +152,6 @@ Use the JSON-RPC API to add permissioned nodes after starting the nodes.
 
     You specify permissions at the node level. Save the [`permissions_config.toml`] file in the
     data directory for each node.
-
-    On-chain permissioning is under development. On-chain permissioning will use one on-chain nodes
-    whitelist and accounts allowlist.
 
 ### 5. Start Node-1
 

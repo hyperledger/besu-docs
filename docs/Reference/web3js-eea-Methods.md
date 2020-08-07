@@ -14,7 +14,7 @@ The Options parameter has the following properties:
 * `privateKey`: Ethereum private key with which to sign the transaction.
 * `privateFrom` : Orion public key of the sender.
 * [`privateFor` : Orion public keys of recipients or `privacyGroupId`: Privacy group to receive the transaction](../Concepts/Privacy/Privacy-Groups.md)
-* `nonce` : Optional. If not provided, calculated using [`priv_getEeaTransactionCount`](API-Methods#priv_geteeatransactioncount).
+* `nonce` : Optional. If not provided, calculated using [`priv_getEeaTransactionCount`](API-Methods.md#priv_geteeatransactioncount).
 * `to` : Optional. Contract address to send the transaction to. Do not specify for contract
   deployment transactions.
 * `data` : Transaction data.

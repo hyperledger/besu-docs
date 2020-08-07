@@ -5573,7 +5573,7 @@ Returns the private transaction count for specified account and privacy group.
 
     If sending more than one transaction to be mined in the same block (that is, you are not
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu.
+    Besu instead of using `priv_getTransactionCount`.
 
 #### Parameters
 

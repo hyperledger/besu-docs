@@ -4827,7 +4827,7 @@ one object per call, in transaction execution order.
 
 ### trace_transaction
 
-Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transction.
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transaction.
 
 !!! important
 
@@ -5411,7 +5411,7 @@ Returns the private transaction if you are a participant; otherwise, `null`.
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 

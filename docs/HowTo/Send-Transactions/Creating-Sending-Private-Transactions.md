@@ -95,7 +95,7 @@ to send [concurrent private transactions](Concurrent-Private-Transactions.md).
     }
     ```
 
-    Send the enclave key in the `data` field of `eth_sendTransaction`:
+    Send the enclave key in the `data` field, and the privacy precompile address in the `to` field of `eth_sendTransaction`:
 
     ```json
     {
@@ -103,6 +103,7 @@ to send [concurrent private transactions](Concurrent-Private-Transactions.md).
       "method":"eth_sendTransaction",
       "params":[{
         "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+        "to": "0x000000000000000000000000000000000000007e",
         "data": "0xfd0d90ab824574abc19c0776ca0210e764561d0ef6d621f2bbbea316eccfe56b",
         "gas": "0x2E1800",
         "gasPrice": "0x9184e72a000"

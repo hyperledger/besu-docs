@@ -5149,7 +5149,7 @@ Returns the private transaction count for the specified account and
 
     If sending more than one transaction to be mined in the same block (that is, you are not
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu.
+    Besu instead of using `priv_getEeaTransactionCount`.
 
 #### Parameters
 
@@ -5187,8 +5187,8 @@ specified group of sender and recipients.
 Polls the specified filter for a private contract and returns an array of changes that have occurred
 since the last poll.
 
-Privacy groups do not have blocks and private transactions cannot be pending so unlike
-[`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array
+Filters for private contracts can only be created by [`priv_newFilter`](#priv_newfilter) so unlike
+[`eth_getFilterChanges`](#eth_getfilterchanges), `priv_getFilterChanges` always returns an array
 of log objects or an empty list.
 
 #### Parameters
@@ -5573,7 +5573,7 @@ Returns the private transaction count for specified account and privacy group.
 
     If sending more than one transaction to be mined in the same block (that is, you are not
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu.
+    Besu instead of using `priv_getTransactionCount`.
 
 #### Parameters
 
@@ -5803,6 +5803,7 @@ Enabled APIs.
             "net": "1.0"
         }
     }
+    ```
 
 <!-- Links -->
 [schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls

@@ -95,7 +95,7 @@ to send [concurrent private transactions](Concurrent-Private-Transactions.md).
     }
     ```
 
-    Send the enclave key in the `data` field, and the privacy precompile address in the `to` field of `eth_sendTransaction`:
+    Send the enclave key in the `data` field, and the [privacy precompile address](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendTransaction`:
 
     ```json
     {

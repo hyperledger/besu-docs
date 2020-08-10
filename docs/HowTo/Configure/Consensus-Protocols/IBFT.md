@@ -251,7 +251,7 @@ file.
 
 Network conditions might not allow voting to change validators. For example, if a majority
 of the current validators are no longer participating in the network, so a vote to add or remove
-valiators will never be successful. You can bypass voting and specify new validators in the genesis
+validators will never be successful. You can bypass voting and specify new validators in the genesis
 file.
 
 To add or remove validators without voting:

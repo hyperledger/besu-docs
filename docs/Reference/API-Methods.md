@@ -81,11 +81,11 @@ This example changes the debug level for specified classes to `DEBUG`.
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
+    {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4827,7 +4827,7 @@ one object per call, in transaction execution order.
 
 ### trace_transaction
 
-Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transction.
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transaction.
 
 !!! important
 
@@ -5374,9 +5374,9 @@ for private contracts.
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the
-[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). Specify the
-address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
-command line option.
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
+is derived and based on the value of the [`privacy-onchain-groups-enabled`](CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+option.
 
 #### Parameters
 
@@ -5411,7 +5411,7 @@ Returns the private transaction if you are a participant; otherwise, `null`.
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 

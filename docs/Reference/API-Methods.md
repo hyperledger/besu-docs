@@ -2889,6 +2889,10 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified 
 Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
+!!! attention
+
+    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from its genesis block, can cause Besu to hang and possibly never return a response. We recommend splitting one large query into multiple ones for better performance.
+
 #### Parameters
 
 `Object` - [Filter options object](API-Objects.md#filter-options-object).

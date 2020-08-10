@@ -21,7 +21,7 @@ includes an example of how to send concurrent private transactions.
     [The example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     uses [offchain privacy groups](../../../Concepts/Privacy/Privacy-Groups/).
     Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
-    to get the precompile address to specify in the `to` field when creating the [privacy marker transaction]. 
+    to get the precompile address to specify in the `to` field when creating the [privacy marker transaction].
 
 <!-- links ---->
 

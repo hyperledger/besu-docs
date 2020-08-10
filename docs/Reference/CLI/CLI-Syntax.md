@@ -1278,19 +1278,10 @@ BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-privacy-multi-tenancy-enabled=true
+privacy-onchain-groups-enabled=true
 ```
 
 Set to enable onchain privacy groups. Default is `false`.
-
-### privacy-precompiled-address
-
-```bash tab="Syntax"
---privacy-precompiled-address=<privacyPrecompiledAddress>
-```
-
-The [predefined contract address](../../Concepts/Privacy/Private-Transaction-Processing.md). The
-default is 126.
 
 ### privacy-public-key-file
 
@@ -1341,19 +1332,19 @@ false.
 ### privacy-tls-keystore-file
 
 ```bash tab="Syntax"
---privacy-tls-keystore-password-file=<FILE>
+--privacy-tls-keystore-file=<FILE>
 ```
 
 ```bash tab="Command Line"
---privacy--keystore-password-file=/home/me/me_node/password
+--privacy--keystore-file=/home/me/me_node/key
 ```
 
 ```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+BESU_PRIVACY_TLS_KEYSTORE_FILE=/home/me/me_node/key
 ```
 
 ```bash tab="Configuration File"
-privacy-tls-keystore-password-file="/home/me/me_node/password"
+privacy-tls-keystore-file="/home/me/me_node/key"
 ```
 
 The keystore file (in PKCS #12 format) containing the private key and the certificate presented

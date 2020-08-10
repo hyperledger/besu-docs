@@ -169,7 +169,7 @@ for the `priv` methods.
 
 !!! example
 
-    ```
+    ```json
     {
         "jsonrpc": "2.0",
         "method": "priv_newFilter",
@@ -195,7 +195,7 @@ for a private contract.
 !!! example
 
     The following request for `eth_getLogs` returns all the logs where the example contract has
-    been deployed to 0x42699a7612a82f1d9c36148af9c77354759b210b and executed with `valueIndexed`
+    been deployed to `0x42699a7612a82f1d9c36148af9c77354759b210b` and executed with `valueIndexed`
     set to 5.
 
     ```json
@@ -217,6 +217,6 @@ for a private contract.
     }
     ```
 
-    The above example returns the same result as calling [eth_newFilter](#creating-a-fitler)
+    The above example returns the same result as calling [eth_newFilter](#creating-a-filter)
     followed by [eth_getFilterLogs](#getting-all-logs-for-a-filter).
 

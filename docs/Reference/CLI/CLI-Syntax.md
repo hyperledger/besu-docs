@@ -665,7 +665,7 @@ BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
 
 The account you pay mining rewards to. You must specify a valid coinbase when you enable mining
 using the [`--miner-enabled`](#miner-enabled) option or the
-[`miner_start`](../API-Methods.md#miner_start) JSON RPC-API method.
+[`miner_start`](../API-Methods.md#miner_start) JSON-RPC API method.
 
 !!!note
 

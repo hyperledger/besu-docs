@@ -189,7 +189,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 ### Postman
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the
-token (generated either [externally](#2-create-the-jwt-token) or by the
+token (generated either [externally](#2-create-the-jwt) or by the
 [`login` request](#3-generate-an-authentication-token)).
 
 ### cURL

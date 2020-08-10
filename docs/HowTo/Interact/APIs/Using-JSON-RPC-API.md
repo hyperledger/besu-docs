@@ -99,7 +99,7 @@ curl -v 'http://localhost:8545/readiness'
 curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
 ```
 
-The liveness check requires the JSON RPC server to be up.
+The liveness check requires the JSON-RPC server to be up.
 
 ```bash tab="Liveness Endpoint"
 http://<JSON-RPC-HTTP-endpoint:port>/liveness

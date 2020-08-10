@@ -81,11 +81,11 @@ This example changes the debug level for specified classes to `DEBUG`.
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.pantheon.ethereum.eth.manager","tech.pegasys.pantheon.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
+    {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -168,6 +168,39 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
         "currentBlock": "0x0",
         "indexing": true,
         "requestAccepted": true
+      }
+    }
+    ```
+
+### admin_logsRepairCache
+
+Repairs cached logs by fixing all segments starting with the specified block number.
+
+#### Parameters
+
+`quantity` - Decimal index of the starting block to fix. If left empty, the head block
+is used as the starting point.
+
+#### Returns
+
+`result` -  Status of the repair request; either `Started`, or `Already running`.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "Status": "Started"
       }
     }
     ```
@@ -833,7 +866,8 @@ None
 
 Returns the number of hashes per second with which the node is mining.
 
-Not supported for GPU mining.
+When the stratum server is enabled, this method returns the cumulative hashrate of all sealers
+reporting their hashrate.
 
 #### Parameters
 
@@ -1777,7 +1811,9 @@ Returns the code of the private smart contract at the specified address. Compile
 ### eth_sendRawTransaction
 
 Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
-ether, deploy a contract, or interact with a contract.
+ether, deploy a contract, or interact with a contract. Set the maximum
+transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI
+option.
 
 You can interact with contracts using [eth_sendRawTransaction or eth_call].
 
@@ -3022,11 +3058,12 @@ None
 
 #### Returns
 
-`result` : `Array of DATA` with the following fields:
+`result` : Array with the following fields:
 
-* DATA, 32 Bytes - Hash of the current block header (pow-hash).
-* DATA, 32 Bytes - The seed hash used for the DAG.
-* DATA, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
+* `DATA`, 32 Bytes - The seed hash used for the DAG.
+* `DATA`, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `QUANTITY` - Hexadecimal integer representing the current block number.
 
 !!! example
 
@@ -3040,13 +3077,47 @@ None
 
     ```json tab="JSON result"
     {
-      "id":1,
-      "jsonrpc":"2.0",
+      "jsonrpc": "2.0",
+      "id": 1,
       "result": [
-          "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-          "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
-          "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
-        ]
+        "0xce5e32ca59cb86799a1879e90150b2c3b882852173e59865e9e79abb67a9d636",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x00a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3d70a3",
+        "0x42"
+      ]
+    }
+    ```
+
+### eth_submitHashrate
+
+Submits the mining hashrate.
+
+Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+
+#### Parameters
+
+* DATA, 32 Bytes - Hexadecimal string representation of the hash rate.
+* DATA, 32 Bytes - Random hexadecimal ID identifying the client.
+
+#### Returns
+
+`result: Boolean`, `true` if submission is successful, otherwise `false`.
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc":"2.0",
+      "id":1,
+      "result": true
     }
     ```
 
@@ -4102,10 +4173,10 @@ permissioning only.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options.
 
-### perm_addAccountsToWhitelist
+### perm_addAccountsToAllowlist
 
 Adds accounts (participants) to the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permission list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4118,17 +4189,17 @@ Adds accounts (participants) to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add accounts already on the whitelist
-or including invalid account addresses.
+`result` - `Success` or `error`. Errors include attempting to add accounts already on the
+allowlist or including invalid account addresses.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_addAccountsToWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4139,10 +4210,10 @@ or including invalid account addresses.
     }
     ```
 
-### perm_getAccountsWhitelist
+### perm_getAccountsAllowlist
 
 Lists accounts (participants) in the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4150,16 +4221,16 @@ None
 
 #### Returns
 
-`result: list` - Accounts (participants) in the accounts whitelist.
+`result: list` - Accounts (participants) in the accounts allowlist.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsWhitelist","params":[], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_getAccountsWhitelist","params":[], "id":1}
+    {"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4173,10 +4244,10 @@ None
     }
     ```
 
-### perm_removeAccountsFromWhitelist
+### perm_removeAccountsFromAllowlist
 
 Removes accounts (participants) from the
-[accounts whitelist](../HowTo/Limit-Access/Local-Permissioning.md#account-whitelisting).
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -4189,17 +4260,17 @@ Removes accounts (participants) from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove accounts not on the whitelist
+`result` - `Success` or `error`. Errors include attempting to remove accounts not on the allowlist
 or including invalid account addresses.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_removeAccountsFromWhitelist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4210,10 +4281,10 @@ or including invalid account addresses.
     }
     ```
 
-### perm_addNodesToWhitelist
+### perm_addNodesToAllowlist
 
 Adds nodes to the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4226,17 +4297,17 @@ Adds nodes to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add nodes already on the whitelist or
+`result` - `Success` or `error`. Errors include attempting to add nodes already on the allowlist or
 including invalid enode URLs.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4247,10 +4318,10 @@ including invalid enode URLs.
     }
     ```
 
-### perm_getNodesWhitelist
+### perm_getNodesAllowlist
 
 Lists nodes in the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4258,16 +4329,16 @@ None
 
 #### Returns
 
-`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes whitelist.
+`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes allowlist.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesWhitelist","params":[], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_getNodesWhitelist","params":[], "id":1}
+    {"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4281,10 +4352,10 @@ None
     }
     ```
 
-### perm_removeNodesFromWhitelist
+### perm_removeNodesFromAllowlist
 
 Removes nodes from the
-[nodes whitelist](../HowTo/Limit-Access/Local-Permissioning.md#node-whitelisting).
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -4297,17 +4368,17 @@ Removes nodes from the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to remove nodes not on the whitelist or
-including invalid enode URLs.
+`result` - `Success` or `error`. Errors include attempting to remove nodes not on the allowlist
+or including invalid enode URLs.
 
 !!! example
 
     ```bash tab="curl HTTP request"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
     ```
 
     ```bash tab="wscat WS request"
-    {"jsonrpc":"2.0","method":"perm_removeNodesFromWhitelist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+    {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
     ```
 
     ```json tab="JSON result"
@@ -4320,7 +4391,7 @@ including invalid enode URLs.
 
 ### perm_reloadPermissionsFromFile
 
-Reloads the accounts and nodes whitelists from the [permissions configuration file].
+Reloads the accounts and nodes allowlists from the [permissions configuration file].
 
 #### Parameters
 
@@ -4355,6 +4426,114 @@ None
     The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### txpool_besuPendingTransactions
+
+Lists pending transactions that match the supplied filter conditions.
+
+#### Parameters
+
+* `QUANTITY` - Integer representing the maximum number of results to return.
+* Object of fields used to create the filter condition.
+
+Each field in the object corresponds to a field name containing an operator, and a value for the
+operator. A field name can only be specified once, and can only contain one operator.
+For example, you cannot ask for transactions with a gas price between 8 and 9 Gwei by using both the
+`gt` and `lt` operator in the same field name instance.
+
+All filters must be satisfied for a transaction to be returned.
+
+| Field name   | Value                                     | Value type            | Supported operators |
+|--------------|-------------------------------------------|:---------------------:|---------------------|
+| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
+| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
+| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
+| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
+| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+|
+
+Supported operators:
+
+* `eq` (Equal to)
+* `lt` (Less than)
+* `gt` (Greater than)
+* `action`
+
+!!! note
+    The only supported `action` is `"contract_creation"`.
+
+#### Returns
+
+`result` - Array of objects with [details of the pending transaction](API-Objects.md#pending-transaction-object).
+
+!!! example
+
+    ```bash tab="curl HTTP request"
+    curl -X POST --data '{
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS request"
+    {
+       "jsonrpc":"2.0",
+       "method":"txpool_besuPendingTransactions",
+       "params":[
+          2,
+          {
+             "from":{
+                "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+             },
+             "gas":{
+                "lt":"0x5209"
+             },
+             "nonce":{
+                "gt":"0x1"
+             }
+          }
+       ],
+       "id":1
+    }
+    ```
+
+    ```json tab="JSON result"
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": [
+        {
+          "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+          "gas": "0x5208",
+          "gasPrice": "0xab5d04c00",
+          "hash": "0xb7b2f4306c1c228ec94043da73b582594007091a7dfe024b1f8d6d772284e54b",
+          "input": "0x",
+          "nonce": "0x2",
+          "to": "0xf8be4ebda7f62d79a665294ec1263bfdb59aabf2",
+          "value": "0x0",
+          "v": "0xfe8",
+          "r": "0x5beb711e652c6cf0a589d3cea904eefc4f45ce4372652288701d08cc4412086d",
+          "s": "0x3af14a56e63aa5fb7dcb444a89708363a9d2c1eba1f777c67690288415080ded"
+        }
+      ]
+    }
+    ```
 
 ### txpool_besuStatistics
 
@@ -4648,7 +4827,7 @@ one object per call, in transaction execution order.
 
 ### trace_transaction
 
-Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transction.
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transaction.
 
 !!! important
 
@@ -4970,7 +5149,7 @@ Returns the private transaction count for the specified account and
 
     If sending more than one transaction to be mined in the same block (that is, you are not
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu.
+    Besu instead of using `priv_getEeaTransactionCount`.
 
 #### Parameters
 
@@ -5008,8 +5187,8 @@ specified group of sender and recipients.
 Polls the specified filter for a private contract and returns an array of changes that have occurred
 since the last poll.
 
-Privacy groups do not have blocks and private transactions cannot be pending so unlike
-[`eth_getFilterChanges`](#eth_getfilterlogs), `priv_getFilterChanges` always returns an array
+Filters for private contracts can only be created by [`priv_newFilter`](#priv_newfilter) so unlike
+[`eth_getFilterChanges`](#eth_getfilterchanges), `priv_getFilterChanges` always returns an array
 of log objects or an empty list.
 
 #### Parameters
@@ -5195,9 +5374,9 @@ for private contracts.
 ### priv_getPrivacyPrecompileAddress
 
 Returns the address of the
-[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). Specify the
-address using the [`--privacy-precompiled-address`](CLI/CLI-Syntax.md#privacy-precompiled-address)
-command line option.
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
+is derived and based on the value of the [`privacy-onchain-groups-enabled`](CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+option.
 
 #### Parameters
 
@@ -5232,7 +5411,7 @@ Returns the private transaction if you are a participant; otherwise, `null`.
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 
@@ -5317,6 +5496,10 @@ Deletes the specified privacy group.
 
 `data` - Privacy group ID
 
+#### Returns
+
+Privacy group ID that was deleted.
+
 !!! example
 
     ```bash tab="curl HTTP request"
@@ -5351,7 +5534,7 @@ Privacy groups containing only the specified members. Privacy groups are
 or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups.
-* `BESU` for Besu-extended groups.
+* `PANTHEON` for Besu-extended groups.
 
 !!! example
 
@@ -5372,7 +5555,7 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
          "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
          "name": "Group B",
          "description": "Description of Group B",
-         "type": "BESU",
+         "type": "PANTHEON",
          "members": [
            "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
            "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
@@ -5390,7 +5573,7 @@ Returns the private transaction count for specified account and privacy group.
 
     If sending more than one transaction to be mined in the same block (that is, you are not
     waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu.
+    Besu instead of using `priv_getTransactionCount`.
 
 #### Parameters
 
@@ -5473,7 +5656,7 @@ Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. T
 created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
 the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs).
 
-For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_getfilterlogs)
+For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_newfilter)
 for public contracts.
 
 #### Parameters
@@ -5620,6 +5803,7 @@ Enabled APIs.
             "net": "1.0"
         }
     }
+    ```
 
 <!-- Links -->
 [schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls

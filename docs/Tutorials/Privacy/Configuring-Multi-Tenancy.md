@@ -36,7 +36,7 @@ IBFT-Network/
 
 In the `Node-1` directory, [generate the private and public key pair]. The key pair, which must be
 in `.pem` format, belongs to the operator who uses the key pair to authenticate the
-[tenant JWTs](#7-generate-tenant-jwts).
+[tenant JWTs](#7-generate-the-tenant-jwts).
 
 !!! note
 
@@ -72,9 +72,9 @@ passwords = "passwordFile"
 tls = "off"
 ```
 
-## 5. Start the Orion nodes
+## 5. Start Orion
 
-In each `Orion` directory, [start Orion](Configuring-Privacy.md#5-start-orion-nodes) and specify
+In the `Node-1/Orion` directory, [start Orion](Configuring-Privacy.md#5-start-the-orion-nodes) and specify
 the configuration file.
 
 ## 6. Start Besu Node-1
@@ -82,7 +82,7 @@ the configuration file.
 In the `Node-1` directory, start Besu Node-1:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-authentication-enabled --rpc-http-authentication-jwt-public-key-file=publicKey.pem --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-whitelist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-multi-tenancy-enabled --min-gas-price=0
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-authentication-enabled --rpc-http-authentication-jwt-public-key-file=publicKey.pem --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-multi-tenancy-enabled --min-gas-price=0
 ```
 
 The command line specifies privacy options:
@@ -91,7 +91,7 @@ The command line specifies privacy options:
   enables authentication for JSON-RPC APIs.
 * [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
-  authenticate the [tenant JWTs](#7-generate-tenant-jwts).
+  authenticate the [tenant JWTs](#7-generate-the-tenant-jwts).
 * [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy.
 * [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Orion node URL
   (`clienturl` in `orion.conf`)

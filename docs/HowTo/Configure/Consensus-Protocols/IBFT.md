@@ -42,7 +42,9 @@ specific to IBFT 2.0.
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
-            "requesttimeoutseconds": 4
+            "requesttimeoutseconds": 4,
+            "blockreward": "5000000000000000",
+            "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
           }
         },
         "nonce": "0x0",
@@ -60,10 +62,16 @@ The properties specific to IBFT 2.0 are:
 * `blockperiodseconds` - The minimum block time, in seconds.
 * `epochlength` - The number of blocks after which to reset all votes.
 * `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
+* `blockreward` - Optional reward amount in Wei to reward the beneficiary. Defaults to zero (0).
+    Can be specified as a hexidecimal (with 0x prefix) or decimal string value. If set, then all
+    nodes on the network must use the identical value.
+* `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
+    that proposes the block. If set, then all nodes on the network must use the same beneficiary.
 * `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
 
 !!!caution
-    The `blockperiodseconds` property cannot be updated once your network is started.
+    The `blockperiodseconds`, `blockreward`, and  `miningbeneficiary` properties
+    cannot be updated once your network is started.
 
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
@@ -243,7 +251,7 @@ file.
 
 Network conditions might not allow voting to change validators. For example, if a majority
 of the current validators are no longer participating in the network, so a vote to add or remove
-valiators will never be successful. You can bypass voting and specify new validators in the genesis
+validators will never be successful. You can bypass voting and specify new validators in the genesis
 file.
 
 To add or remove validators without voting:

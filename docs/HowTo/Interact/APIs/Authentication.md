@@ -30,7 +30,7 @@ Using JSON-RPC authentication and authorization with [MetaMask](https://metamask
 
 Enable authentication from the command line. Supply the credentials file and send a request to the
 `/login` endpoint using the username and password. The `/login` endpoint creates a JWT for making
-permitted JSON RPC requests.
+permitted JSON-RPC requests.
 
 Using [public key authentication](#jwt-public-key-authentication) disables the `/login` endpoint.
 
@@ -189,7 +189,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 ### Postman
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the
-token (generated either [externally](#2-create-the-jwt-token) or by the
+token (generated either [externally](#2-create-the-jwt) or by the
 [`login` request](#3-generate-an-authentication-token)).
 
 ### cURL

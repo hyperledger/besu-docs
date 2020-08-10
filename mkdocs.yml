@@ -57,6 +57,7 @@ nav:
             - Private Network System Requirements: HowTo/Get-Started/System-Requirements-Private.md
             - Public Network System Requirements: HowTo/Get-Started/System-Requirements-Public.md
             - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
+            - Build from Source: HowTo/Get-Started/Build-from-source.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
             - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
             - Migrate from pre v1.2 Docker Image: HowTo/Get-Started/Migration-Docker.md
@@ -105,7 +106,7 @@ nav:
            - Include Revert Reason in Transaction Receipts: HowTo/Send-Transactions/Revert-Reason.md
         - Limit Access to Node:
           - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
-          - Update Onchain Permissioning Whitelists: HowTo/Limit-Access/Updating-Whitelists.md
+          - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
         - Use Privacy Features:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
           - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md
@@ -179,7 +180,6 @@ nav:
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
         - Mining: Concepts/Mining.md
-        - Alethio: Concepts/AlethioOverview.md
     - Reference:
         - Besu Command Line:
           - Options: Reference/CLI/CLI-Syntax.md

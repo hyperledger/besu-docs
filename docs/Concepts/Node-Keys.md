@@ -40,7 +40,7 @@ You can export the node address, either to standard output or to a specified fil
 ## Enode URL
 
 The enode URL identifies a node. For example, the `--bootnodes` option and the
-`perm_addNodesToWhitelist` method specify nodes by enode URL.
+`perm_addNodesToAllowlist` method specify nodes by enode URL.
 
 The enode URL format is `enode://<id>@<host:port>` where:
 

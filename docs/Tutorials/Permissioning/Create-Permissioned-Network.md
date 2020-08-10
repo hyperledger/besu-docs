@@ -4,7 +4,7 @@ description: Hyperledger Besu create a permissioned network
 
 # Create a permissioned network
 
-The following steps set up a permissioned network with node and account permissions. The network
+The following steps set up a permissioned network with local node and account permissions. The network
 uses the [Clique Proof of Authority consensus protocol].
 
 !!!important
@@ -131,7 +131,7 @@ In `extraData`, replace `<Node 1 Address>` with the
 
 ### 4. Create the permissions configuration file
 
-The permissions configuration file defines the nodes and accounts whitelists.
+The permissions configuration file defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a
 copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
@@ -139,9 +139,9 @@ copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
 !!! example "permissions_config.toml"
 
     ```toml
-    accounts-whitelist=["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "0x627306090abaB3A6e1400e9345bC60c78a8BEf57"]
+    accounts-allowlist=["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "0x627306090abaB3A6e1400e9345bC60c78a8BEf57"]
 
-    nodes-whitelist=[]
+    nodes-allowlist=[]
     ```
 
 The permissions configuration file includes the first two accounts from the genesis file.
@@ -153,19 +153,16 @@ Use the JSON-RPC API to add permissioned nodes after starting the nodes.
     You specify permissions at the node level. Save the [`permissions_config.toml`] file in the
     data directory for each node.
 
-    On-chain permissioning is under development. On-chain permissioning will use one on-chain nodes
-    whitelist and accounts whitelist.
-
 ### 5. Start Node-1
 
 Use the following command:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*"
+besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*"
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
 ```
 
 The command line allows you to enable:
@@ -177,7 +174,7 @@ The command line allows you to enable:
 * The ADMIN, ETH, NET, PERM, and CLIQUE APIs using the
   [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
 * All-host access to the HTTP JSON-RPC API using the
-  [`--host-whitelist`](../../Reference/CLI/CLI-Syntax.md#host-whitelist) option
+  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option
 * All-domain access to the node through the HTTP JSON-RPC API using the
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
 
@@ -192,11 +189,11 @@ following steps.
 Start another terminal, change to the `Node-2` directory, and start Node-2:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
 ```
 
 The command line specifies:
@@ -217,11 +214,11 @@ the enode URL to update the permissions configuration file in the following step
 Start another terminal, change to the `Node-3` directory, and start Node-3:
 
 ```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
 ```
 
 The command line specifies:
@@ -240,7 +237,7 @@ the enode URL to update the permissions configuration file in the following step
 ### 8. Add enode URLs for nodes to permissions configuration file
 
 Start another terminal and use the
-[`perm_addNodesToWhitelist`](../../Reference/API-Methods.md#perm_addnodestowhitelist) JSON-RPC API
+[`perm_addNodesToAllowlist`](../../Reference/API-Methods.md#perm_addnodestoallowlist) JSON-RPC API
 method to add the nodes to the permissions configuration file for each node.
 
 Replace `<EnodeNode1>`, `<EnodeNode2>`, and `<EnodeNode3>` with the enode URL displayed when
@@ -249,19 +246,19 @@ starting each node.
 Node-1:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8545
 ```
 
 Node-2:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8546
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8546
 ```
 
 Node 3:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToWhitelist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8547
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8547
 ```
 
 !!! tip
@@ -321,7 +318,7 @@ Node-3):
 }
 ```
 
-#### Send a transaction from an account in the whitelist
+#### Send a transaction from an account in the allowlist
 
 Import the first account from the genesis file into MetaMask and send transactions, as described in
 [Private network example tutorial]:
@@ -337,7 +334,7 @@ Import the first account from the genesis file into MetaMask and send transactio
     Besu does not support
     [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
-### Try sending a transaction from an account not in the accounts whitelist
+### Try sending a transaction from an account not in the accounts allowlist
 
 Import the last account from the genesis file into MetaMask and try to send a transactions, as
 described in [Private Network Example Tutorial]:
@@ -348,7 +345,7 @@ described in [Private Network Example Tutorial]:
     * Private key : `0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f`
     * Initial balance : `0x90000000000000000000000` (2785365088392105618523029504 in decimal)
 
-### Start a node not on the nodes whitelist
+### Start a node not on the nodes allowlist
 
 In your `Permissioned-Network` directory, create a `Node-4` directory and `data` directory inside
 it.
@@ -356,11 +353,11 @@ it.
 Change to the `Node-4` directory and start Node-4 specifying the Node-1 enode URL as the bootnode:
 
 ```bash tab="MacOS"
-besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
 ```
 
 ```bash tab="Windows"
-besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-whitelist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
 ```
 
 Start another terminal and use cURL to call the JSON-RPC API

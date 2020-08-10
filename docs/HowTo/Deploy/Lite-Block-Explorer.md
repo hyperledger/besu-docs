@@ -4,8 +4,8 @@ description: Ethereum Lite Explorer
 
 # Alethio Ethereum Lite Explorer
 
-Use the [Alethio Ethereum Lite Explorer](https://lite-explorer.aleth.io/) to explore blockchain
-data at the block, transaction, and account level.
+Use the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer) to
+explore blockchain data at the block, transaction, and account level.
 
 The Alethio Ethereum Lite Explorer is a web application that connects to any Ethereum
 JSON-RPC-enabled node. The Explorer does not require an online server, hosting, or trusting third
@@ -32,7 +32,7 @@ To run the Ethereum Lite Explorer using the Docker image:
         To run Besu in development mode:
 
         ```bash
-        besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-http-enabled --data-path=/tmp/tmpDatdir
+        besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-http-enabled --data-path=/tmp/tmpDatdir
         ```
 
 1. Run the `alethio/ethereum-lite-explorer` Docker image specifying the JSON-RPC HTTP URL
@@ -92,7 +92,7 @@ To run the Ethereum Lite Explorer using the Docker image:
         To run Besu in development mode:
 
         ```bash
-        besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-http-enabled --data-path=/tmp/tmpDatdir
+        besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-http-enabled --data-path=/tmp/tmpDatdir
         ```
 
 1. In the `ethereum-lite-explorer` directory, run the Lite Explorer in development mode:
@@ -103,8 +103,3 @@ To run the Ethereum Lite Explorer using the Docker image:
     ```
 
 A browser window displays the Ethereum Lite Explorer (http://localhost:3000/).
-
-## Lite Block Explorer documentation
-
-For more information about Ethereum Lite Explorer, including details on how to deploy it, see the
-[GitHub repository](https://github.com/Alethio/ethereum-lite-explorer).

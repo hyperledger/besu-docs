@@ -1754,60 +1754,6 @@ contract code as a hexadecimal value.
     }
     ```
 
-### priv_getCode
-
-Returns the code of the private smart contract at the specified address. Compiled smart contract code is stored as a hexadecimal value.
-
-#### Parameters
-
-`DATA` - 20-byte contract address.
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *DATA* - Code stored at the specified address.
-
-!!! example
-
-    ```bash tab="curl HTTP"
-    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
-    ```
-
-    ```bash tab="wscat WS"
-    {"jsonrpc":"2.0","method":"priv_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
-    ```
-
-    ```json tab="JSON result"
-    {
-        "jsonrpc": "2.0",
-        "id": 53,
-        "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
-    }
-    ```
-
-    ```bash tab="curl GraphQL"
-    curl -X POST -H "Content-Type: application/json" --data '{"query": "{account(address: \"0xa50a51c09a5c451c52bb714527e1974b686d8e77\"){ code }}"}' http://localhost:8547/graphql
-    ```
-
-    ```bash tab="GraphQL"
-    {
-      account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
-        code
-      }
-    }
-    ```
-
-    ```bash tab="GraphQL result"
-    {
-      "data" : {
-        "account" : {
-          "code" : "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
-        }
-      }
-    }
-    ```
-
 ### eth_sendRawTransaction
 
 Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
@@ -5562,6 +5508,42 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
          ]
        }
     ]
+    }
+    ```
+
+### priv_getCode
+
+Returns the code of the private smart contract at the specified address. Compiled smart contract code
+is stored as a hexadecimal value.
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`data` - 20-byte contract address.
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`,
+or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result` : `data` - Code stored at the specified address.
+
+!!! example
+
+    ```bash tab="curl HTTP"
+    curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}' http://127.0.0.1:8545
+    ```
+
+    ```bash tab="wscat WS"
+    {"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}
+    ```
+
+    ```json tab="JSON result"
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
     }
     ```
 

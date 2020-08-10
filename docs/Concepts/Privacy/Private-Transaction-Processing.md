@@ -18,7 +18,7 @@ Processing private transactions involves the following:
 
 Private transaction processing is illustrated and described in the following diagram.
 
-![Processing Private Transctions](../../images/PrivateTransactionProcessing.png)
+![Processing Private Transactions](../../images/PrivateTransactionProcessing.png)
 
 1. Submit a private transaction using
   [eea_sendRawTransaction](../../Reference/API-Methods.md#eea_sendrawtransaction). The signed

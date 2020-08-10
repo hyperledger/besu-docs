@@ -7,13 +7,16 @@
             "pattern": "^http(s)?://127.0.0.1"
         },
         {
-            "pattern": "^http(s)?://ropsten.etherscan.io/txs\\?block="
+            "pattern": "^http(s)?://.+.etherscan.io/txs\\?block="
         },
         {
-            "pattern": "^http(s)?://ropsten.etherscan.io/tx/0x"
+            "pattern": "^http(s)?://.+.etherscan.io/tx/0x"
         },
         {
-            "pattern": "/postman/e8934bc8b98d8c036254.json"
+            "pattern": "^http(s)?://.+.etherscan.io/address/0x"
+        },
+        {
+            "pattern": "/postman/.+.json"
         }
     ]
 }

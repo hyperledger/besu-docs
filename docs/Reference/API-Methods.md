@@ -2709,7 +2709,7 @@ None
 
 Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
 
-Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchanges) for 10
+Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or [`eth_getFilterLogs`](#eth_getfilterlogs) for 10
 minutes.
 
 #### Parameters
@@ -4581,7 +4581,7 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4688,7 +4688,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4781,8 +4781,8 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-    requested transaction must be contained in a blocked within
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested transaction must be contained in a block within
     [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
 
 #### Parameters
@@ -5682,7 +5682,7 @@ for public contracts.
 Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
 call this method.
 
-Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) for 10
+Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) or [`priv_getFilterLogs`](#priv_getfilterlogs) for 10
 minutes.
 
 For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)

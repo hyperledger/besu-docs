@@ -189,7 +189,7 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **gas**      | Quantity, Integer   | Optional          | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
 | **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas.        |
 | **value**    | Quantity, Integer   | Optional          | Value sent with this transaction.    |
-| **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI). |
+| **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 
 ## Transaction receipt object
 
@@ -227,9 +227,9 @@ Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktr
 | Key                                  | Type                         | Value                                                                                       |
 |--------------------------------------|:----------------------------:|---------------------------------------------------------------------------------------------|
 | **output**                           | Boolean                      | Transaction result. 1 for success and 0 for failure.                                        |
-| **stateDiff**                        | Object                       | [State changes in the requested block.](Trace-Types.md#statediff). |
-| **trace**                            | Array                        | [Ordered list of calls to other contracts.](Trace-Types.md#trace). |
-| **vmTrace**                          | Object                       | [Ordered list of EVM actions.](Trace-Types.md#vmtrace).            |
+| **stateDiff**                        | Object                       | [State changes in the requested block](Trace-Types.md#statediff). |
+| **trace**                            | Array                        | [Ordered list of calls to other contracts](Trace-Types.md#trace). |
+| **vmTrace**                          | Object                       | [Ordered list of EVM actions](Trace-Types.md#vmtrace).            |
 | **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the replayed transaction.                                                           |
 
 ## Private transaction receipt object

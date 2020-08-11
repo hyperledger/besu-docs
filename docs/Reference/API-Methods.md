@@ -74,7 +74,7 @@ You can specify only one log level per RPC call.
 
 #### Returns
 
-`result` : `Success` if the log level has changed; otherwise `error`.
+`result` : `Success` if the log level has changed, otherwise `error`.
 
 This example changes the debug level for specified classes to `DEBUG`.
 
@@ -842,7 +842,7 @@ None
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks; otherwise `false`.
+`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks, otherwise `false`.
 
 !!! example
 
@@ -2718,7 +2718,7 @@ minutes.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 
@@ -5352,7 +5352,7 @@ None
 
 ### priv_getPrivateTransaction
 
-Returns the private transaction if you are a participant; otherwise, `null`.
+Returns the private transaction if you are a participant, otherwise, `null`.
 
 #### Parameters
 
@@ -5692,7 +5692,7 @@ for public contracts.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 

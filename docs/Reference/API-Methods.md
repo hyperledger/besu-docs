@@ -74,7 +74,7 @@ You can specify only one log level per RPC call.
 
 #### Returns
 
-`result` : `Success` if the log level has changed; otherwise `error`.
+`result` : `Success` if the log level has changed, otherwise `error`.
 
 This example changes the debug level for specified classes to `DEBUG`.
 
@@ -183,7 +183,7 @@ is used as the starting point.
 
 #### Returns
 
-`result` -  Status of the repair request; either `Started`, or `Already running`.
+`result` -  Status of the repair request. Either `Started`, or `Already running`.
 
 !!! example
 
@@ -842,7 +842,7 @@ None
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks; otherwise `false`.
+`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks, otherwise `false`.
 
 !!! example
 
@@ -1957,7 +1957,7 @@ The following example returns an estimate of 21000 wei (`0x5208`) for the transa
 
 The following example request estimates the cost of deploying a simple storage smart contract to
 the network. The data field contains the hash of the compiled contract you want to deploy. (You can
-get the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
+get the compiled contract hash from your IDE, for example, **Remix > Compile tab > details >
 WEB3DEPLOY**.) The result is 113355 wei.
 
 #### Returns
@@ -2718,7 +2718,7 @@ minutes.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 
@@ -3012,7 +3012,7 @@ None
 
 * `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
 * `DATA`, 32 Bytes - The seed hash used for the DAG.
-* `DATA`, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `DATA`, 32 Bytes - The required target boundary condition: 2^256 / difficulty.
 * `QUANTITY` - Hexadecimal integer representing the current block number.
 
 !!! example
@@ -5356,7 +5356,7 @@ None
 
 ### priv_getPrivateTransaction
 
-Returns the private transaction if you are a participant; otherwise, `null`.
+Returns the private transaction if you are a participant, otherwise, `null`.
 
 #### Parameters
 
@@ -5696,7 +5696,7 @@ for public contracts.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 

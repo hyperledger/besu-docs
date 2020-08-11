@@ -2891,7 +2891,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
 !!! attention
 
-    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from its genesis block, can cause Besu to hang and possibly never return a response. We recommend splitting one large query into multiple ones for better performance.
+    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from its genesis block, can cause Besu to hang and never return a response. We recommend splitting one large query into multiple ones for better performance.
 
 #### Parameters
 

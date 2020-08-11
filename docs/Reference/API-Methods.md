@@ -4577,7 +4577,7 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4684,7 +4684,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4777,8 +4777,8 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-    requested transaction must be contained in a blocked within
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested transaction must be contained in a block within
     [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
 
 #### Parameters

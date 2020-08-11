@@ -911,7 +911,7 @@ node-private-key-file="/home/me/me_node/myPrivateKey"
 ```
 
 The private key file for the node. The default is the key file in the [data directory](#data-path).
-If no key file exists, Besu creates a key file containing the generated private key; otherwise, the
+If no key file exists, Besu creates a key file containing the generated private key, otherwise, the
 existing key file specifies the node private key.
 
 !!!attention

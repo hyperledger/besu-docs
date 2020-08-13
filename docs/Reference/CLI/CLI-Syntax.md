@@ -1044,7 +1044,7 @@ The minimum price a transaction offers to include it in a mined block. To retrie
 price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000
 Wei.
 
-In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero. 
+In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
 
 ### nat-method
 

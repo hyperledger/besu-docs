@@ -268,56 +268,60 @@ To add or remove validators without voting:
 
     !!! example "Transitions object in the genesis file"
 
-        ```bash tab="Syntax"
-        {
-          "config": {
-             ...
-             "ibft2": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "ibft2": [
-               {
-                 "block": <BlockNumber>,
-                 "validators": [
-                    <ValidatorAddressX>,
-                    ...
-                    <ValidatorAddressZ>
-                 ]
-               }
-               ]
-             }
-          },
-          ...
-        }
-        ```
+        === "Syntax"
 
-        ```bash tab="Example"
-        {
-          "config": {
-            ...
-            "ibft2": {
-              "blockperiodseconds": 2,
-              "epochlength": 30000,
-              "requesttimeoutseconds": 4
-            },
-            "transitions": {
-               "ibft2": [
-               {
-                "block": 25,
-                "validators": [
-                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
-                  ]
-                }
-               ]
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <BlockNumber>,
+                     "validators": [
+                        <ValidatorAddressX>,
+                        ...
+                        <ValidatorAddressZ>
+                     ]
+                   }
+                   ]
+                 }
+              },
+              ...
             }
-          },
-          ...
-        }
-        ```
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                   "ibft2": [
+                   {
+                    "block": 25,
+                    "validators": [
+                      "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                      "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                      ]
+                    }
+                   ]
+                }
+              },
+              ...
+            }
+            ```
 
 1. Restart all nodes in the network using the updated genesis file.
 1. To verify the changes after the transition block, call

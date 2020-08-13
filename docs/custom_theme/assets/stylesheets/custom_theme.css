@@ -53,3 +53,7 @@
   font-size: small;
   content: " \f360";
 }
+
+#header-logo{
+  width: auto;
+}

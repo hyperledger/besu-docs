@@ -71,6 +71,6 @@ Unpack the downloaded files and change into the `besu-<release>` directory.
 
 Display Besu command line help to confirm installation:
 
-```bash tab="Linux/macOS"
+```bash
 bin/besu --help
 ```

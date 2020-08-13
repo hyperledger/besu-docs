@@ -33,9 +33,6 @@ extra:
   google:
     site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'
-  search:
-    language: 'en'
-    tokenizer: '[\s]+'
   logo_regular: logo.svg
   logo_reversed: &logo_reversed logo-reversed.svg
 
@@ -49,7 +46,7 @@ theme:
     palette:
         primary: blue-grey
         accent: teal
-    favicon: favicon.ico
+    favicon: favicon.svg
     logo: *logo_reversed
 nav:
     - How To:
@@ -199,6 +196,8 @@ markdown_extensions:
         permalink: 
         toc_depth: 3
     - codehilite
+    - pymdownx.tabbed
+    - pymdownx.superfences
     - markdown_include.include:
         base_path: docs
     - admonition
@@ -214,11 +213,6 @@ markdown_extensions:
     - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
-    # pymdownx.superfences is deprecated.
-    # It must be replaced with pymdownx.tabbed but it requires new CSS
-    # TODO with material 5 update
-    - pymdownx.superfences:
-        legacy_tab_classes: true
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.tilde
@@ -226,7 +220,9 @@ markdown_extensions:
     - smarty
 
 plugins:
-    - search
+    - search:
+        lang: 'en'
+        separator: '[\s]+'
     - markdownextradata
     - exclude:
         glob:

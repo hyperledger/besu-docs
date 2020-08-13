@@ -22,57 +22,43 @@
 
 <!-- Application header -->
 <header class="md-header" data-md-component="header">
-
-  <!-- Top-level navigation -->
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-
-      <!-- Link to home -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
-            title="{{ config.site_name }}"
-            class="md-header-nav__button md-logo">
-          {% if config.theme.logo.icon %}
-            <i class="md-icon">{{ config.theme.logo.icon }}</i>
-          {% else %}
-            <img src="{{ config.theme.logo | url }}" height="24" />
-          {% endif %}
-        </a>
+  <nav class="md-header-nav md-grid" aria-label="{{ lang.t('header.title') }}">
+    <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}" title="{{ config.site_name }}" class="md-header-nav__button md-logo" aria-label="{{ config.site_name }}">
+      {% include "partials/logo.html" %}
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      {% include ".icons/material/menu" ~ ".svg" %}
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      {% if config.site_name == page.title %}
+      <div class="md-header-nav__ellipsis md-ellipsis">
+        {% if not config.extra.logo_is_text %}{{ config.site_name }}{% endif %}
       </div>
-
-      <!-- Button to toggle drawer -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button"
-            for="__drawer"></label>
-      </div>
-
-      <!-- Header title -->
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title"
-             data-md-component="title">
-          {{ page.title }}
-        </div>
-      </div>
-
-      <!-- Button to open search dialogue -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        {% if "search" in config["plugins"] %}
-          <label class="md-icon md-icon--search md-header-nav__button"
-              for="__search"></label>
-
-          <!-- Search interface -->
-          {% include "partials/search.html" %}
+      {% else %}
+      <div class="md-header-nav__ellipsis">
+        {% if config.site_name == page.title %}
+        {% if not config.extra.logo_is_text %}{{ config.site_name }}{% endif %}
+        {% else %}
+        <span class="md-header-nav__topic md-ellipsis">
+              {% if not config.extra.logo_is_text %}{{ config.site_name }}{% endif %}
+            </span>
+        <span class="md-header-nav__topic md-ellipsis">
+              {{ page.title }}
+            </span>
         {% endif %}
       </div>
-
-      <!-- Repository containing source -->
-      {% if config.repo_url %}
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            {% include "partials/source.html" %}
-          </div>
-        </div>
       {% endif %}
     </div>
+    {% if "search" in config["plugins"] %}
+    <label class="md-header-nav__button md-icon" for="__search">
+      {% include ".icons/material/magnify.svg" %}
+    </label>
+    {% include "partials/search.html" %}
+    {% endif %}
+    {% if config.repo_url %}
+    <div class="md-header-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+    {% endif %}
   </nav>
 </header>

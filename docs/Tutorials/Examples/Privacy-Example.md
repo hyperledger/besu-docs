@@ -40,9 +40,11 @@ To run this tutorial, you must have the following installed:
 
 Clone the repository from the `besu-` repository.
 
-```bash tab="Linux/MacOS"
-git clone https://github.com/PegaSysEng/besu-sample-networks.git
-```
+=== "Linux/MacOS"
+
+    ```bash
+    git clone https://github.com/PegaSysEng/besu-sample-networks.git
+    ```
 
 !!!note
 
@@ -142,13 +144,17 @@ Call [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransac
 * `<TransactionHash>` is the transaction hash displayed in the Event Emitter logs.
 * `<JSON-RPC Endpoint>` is the JSON-RPC HTTP service endpoint displayed when starting the network.
 
-```bash tab="curl HTTP request"
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' <JSON-RPC Endpoint>
-```
+=== "curl HTTP request"
 
-```bash tab="Example"
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' <JSON-RPC Endpoint>
+    ```
+
+=== "Example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
+    ```
 
 The transaction receipt for the
 [privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) displays

@@ -88,13 +88,17 @@ WARNING: All illegal access operations will be denied in a future release
 
 To stop the message displaying, add the following to the environment:
 
-```bash tab="Linux / Mac OS"
-export BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
-```
+=== "Linux / Mac OS"
 
-```bash tab="Windows"
-set BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
-```
+    ```bash
+    export BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
+    ```
+
+=== "Windows"
+
+    ```bash
+    set BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
+    ```
 
 ## Command line options
 

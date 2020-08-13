@@ -79,6 +79,8 @@ JSON data package at each prompt:
 Besu provides readiness and liveness endpoints to confirm the Besu node status. Both return a
 `200 OK` status when ready or live and a `503 Service Unavailable` status if not ready or live.
 
+### Readiness
+
 By default, the readiness check requires a connected peer and the node to be within two blocks of
 the best known block. If you have
 [disabled p2p communication](../../../Reference/CLI/CLI-Syntax.md#p2p-enabled), you do not need
@@ -87,27 +89,39 @@ peers. A live node with p2p disabled is always ready.
 Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required
 and the number of blocks tolerance.
 
-```bash tab="Readiness Endpoint"
-http://<JSON-RPC-HTTP-endpoint:port>/readiness
-```
+=== "Readiness Endpoint"
+    
+    ```bash
+    http://<JSON-RPC-HTTP-endpoint:port>/readiness
+    ```
+    
+=== "curl Request Example"
+    
+    ```bash
+    curl -v 'http://localhost:8545/readiness'
+    ```
+    
+=== "Query Parameters Example"
+    
+    ```bash
+    curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
+    ```
 
-```bash tab="curl Request Example"
-curl -v 'http://localhost:8545/readiness'
-```
-
-```bash tab="Query Parameters Example"
-curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
-```
+### Liveness
 
 The liveness check requires the JSON-RPC server to be up.
 
-```bash tab="Liveness Endpoint"
-http://<JSON-RPC-HTTP-endpoint:port>/liveness
-```
-
-```bash tab="curl Request Example"
-curl -v 'http://localhost:8545/liveness'
-```
+=== "Liveness Endpoint"
+    
+    ```bash
+    http://<JSON-RPC-HTTP-endpoint:port>/liveness
+    ```
+    
+=== "curl Request Example"
+    
+    ```bash
+    curl -v 'http://localhost:8545/liveness'
+    ```
 
 ## API methods enabled by default
 

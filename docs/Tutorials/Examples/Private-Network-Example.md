@@ -33,9 +33,11 @@ To run this tutorial, you must have the following installed:
 
 Clone the repository from the `besu-sample-networks` repository:
 
-```bash tab="Linux/MacOS"
-git clone https://github.com/PegaSysEng/besu-sample-networks.git
-```
+=== "Linux/MacOS"
+
+    ```bash
+    git clone https://github.com/PegaSysEng/besu-sample-networks.git
+    ```
 
 !!!note
 
@@ -51,9 +53,11 @@ This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assembl
 run the private network. To build the docker images and run the containers, go to the
 `besu-sample-networks` directory and run:
 
-```bash tab="Linux/MacOS"
-./run.sh
-```
+=== "Linux/MacOS"
+
+    ```bash
+    ./run.sh
+    ```
 
 The script builds the images, and runs the containers. It also scales the regular node container to
 four containers to simulate a network with enough peers to synchronize.
@@ -120,9 +124,11 @@ Followed by a list of the endpoints:
 
 To display the list of endpoints again, run:
 
-```bash tab="Linux/MacOS"
-./list.sh
-```
+=== "Linux/MacOS"
+
+    ```bash
+    ./list.sh
+    ```
 
 ## Block explorer
 
@@ -356,82 +362,86 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
 
 !!! example
 
-     ```bash tab="Linux/MacOS command"
-     ./run-dapp.sh
-     ```
-
-    ```log tab="DApp result"
-    Compiling your contracts...
-    ===========================
-    > Compiling ./contracts/Adoption.sol
-    > Compiling ./contracts/Migrations.sol
-
-    Starting migrations...
-    ======================
-    > Network name:    'quickstartWallet'
-    > Network id:      2018
-    > Block gas limit: 0xf7b760
-
-    1_initial_migration.js
-    ======================
-
-       Replacing 'Migrations'
-       ----------------------
-       > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
-       > Blocks: 0            Seconds: 0
-       > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
-       > block number:        64
-       > block timestamp:     1579833316
-       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-       > balance:             89999.99472518
-       > gas used:            263741
-       > gas price:           20 gwei
-       > value sent:          0 ETH
-       > total cost:          0.00527482 ETH
-
-       > Saving migration to chain.
-       > Saving artifacts
-       -------------------------------------
-       > Total cost:          0.00527482 ETH
-
-    2_deploy_contracts.js
-    =====================
-
-       Replacing 'Adoption'
-       --------------------
-       > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
-       > Blocks: 0            Seconds: 0
-       > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
-       > block number:        66
-       > block timestamp:     1579833320
-       > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-       > balance:             89999.9890877
-       > gas used:            239851
-       > gas price:           20 gwei
-       > value sent:          0 ETH
-       > total cost:          0.00479702 ETH
-
-       > Saving migration to chain.
-       > Saving artifacts
-       -------------------------------------
-       > Total cost:          0.00479702 ETH
-
-    Summary
-    =======
-    > Total deployments:   2
-    > Final cost:          0.01007184 ETH
-
-    Compiling your contracts...
-    ===========================
-    > Compiling ./test/TestAdoption.sol
-
-      TestAdoption
-        ✓ testUserCanAdoptPet (2071ms)
-        ✓ testGetAdopterAddressByPetId (6070ms)
-        ✓ testGetAdopterAddressByPetIdInArray (6077ms)
-
-      3 passing (37s)
-    ```
+    === "Linux/MacOS command"
+    
+         ```bash
+         ./run-dapp.sh
+         ```
+    
+    === "DApp result"
+    
+        ```log
+        Compiling your contracts...
+        ===========================
+        > Compiling ./contracts/Adoption.sol
+        > Compiling ./contracts/Migrations.sol
+    
+        Starting migrations...
+        ======================
+        > Network name:    'quickstartWallet'
+        > Network id:      2018
+        > Block gas limit: 0xf7b760
+    
+        1_initial_migration.js
+        ======================
+    
+           Replacing 'Migrations'
+           ----------------------
+           > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
+           > Blocks: 0            Seconds: 0
+           > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
+           > block number:        64
+           > block timestamp:     1579833316
+           > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+           > balance:             89999.99472518
+           > gas used:            263741
+           > gas price:           20 gwei
+           > value sent:          0 ETH
+           > total cost:          0.00527482 ETH
+    
+           > Saving migration to chain.
+           > Saving artifacts
+           -------------------------------------
+           > Total cost:          0.00527482 ETH
+    
+        2_deploy_contracts.js
+        =====================
+    
+           Replacing 'Adoption'
+           --------------------
+           > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
+           > Blocks: 0            Seconds: 0
+           > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
+           > block number:        66
+           > block timestamp:     1579833320
+           > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+           > balance:             89999.9890877
+           > gas used:            239851
+           > gas price:           20 gwei
+           > value sent:          0 ETH
+           > total cost:          0.00479702 ETH
+    
+           > Saving migration to chain.
+           > Saving artifacts
+           -------------------------------------
+           > Total cost:          0.00479702 ETH
+    
+        Summary
+        =======
+        > Total deployments:   2
+        > Final cost:          0.01007184 ETH
+    
+        Compiling your contracts...
+        ===========================
+        > Compiling ./test/TestAdoption.sol
+    
+          TestAdoption
+            ✓ testUserCanAdoptPet (2071ms)
+            ✓ testGetAdopterAddressByPetId (6070ms)
+            ✓ testGetAdopterAddressByPetIdInArray (6077ms)
+    
+          3 passing (37s)
+        ```
 
 After these tests are successful, it builds a container for the Pet Shop DApp and deployes it,
 binding it to port 3001 on your system.
@@ -457,27 +467,33 @@ The Metmask UI also keeps a record of the transaction.
 
 To shut down the private network without deleting the containers:
 
-```bash tab="Linux/MacOS"
-./stop.sh
-```
+=== "Linux/MacOS"
+
+    ```bash
+    ./stop.sh
+    ```
 
 This command stops the containers related to the services specified in the `docker-compose.yml`
 file.
 
 To restart the private network:
 
-```bash tab="Linux/MacOS"
-./resume.sh
-```
+=== "Linux/MacOS"
+
+    ```bash
+    ./resume.sh
+    ```
 
 ## Stop the private network and remove containers
 
 To shut down the private network and delete all containers and images created from running the
 sample network:
 
-```bash tab="Linux/MacOS"
-./remove.sh
-```
+=== "Linux/MacOS"
+
+    ```bash
+    ./remove.sh
+    ```
 
 <!-- Links -->
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-

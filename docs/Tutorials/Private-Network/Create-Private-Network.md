@@ -91,13 +91,17 @@ the `Private-Network` directory:
 
 Start Node-1:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
-```
+    ```bash
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+    ```
 
 The command line enables:
 
@@ -125,13 +129,17 @@ enode URL to specify Node-1 as the bootnode in the following steps.
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1
 enode URL copied when starting Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
-```
+    ```bash
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+    ```
 
 The command line specifies:
 
@@ -148,13 +156,17 @@ The command line specifies:
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1
 enode URL copied when starting Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
-```
+    ```bash
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+    ```
 
 The command line specifies:
 

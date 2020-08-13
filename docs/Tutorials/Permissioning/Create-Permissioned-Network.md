@@ -50,13 +50,17 @@ To retrieve the address for Node-1, in the `Node-1` directory, use the
 [`public-key export-address`](../../Reference/CLI/CLI-Syntax.md#public-key) subcommand to write the
 node address to the specified file (`nodeAddress1` in this example).
 
-```bash tab="MacOS"
-besu --data-path=data public-key export-address --to=data/nodeAddress1
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data public-key export-address --to=data\nodeAddress1
-```
+    ```bash
+    besu --data-path=data public-key export-address --to=data/nodeAddress1
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data public-key export-address --to=data\nodeAddress1
+    ```
 
 ### 3. Create the genesis file
 
@@ -157,13 +161,17 @@ Use the JSON-RPC API to add permissioned nodes after starting the nodes.
 
 Use the following command:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
+    ```
 
 The command line allows you to enable:
 
@@ -188,13 +196,17 @@ following steps.
 
 Start another terminal, change to the `Node-2` directory, and start Node-2:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+    ```
 
 The command line specifies:
 
@@ -213,13 +225,17 @@ the enode URL to update the permissions configuration file in the following step
 
 Start another terminal, change to the `Node-3` directory, and start Node-3:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+    ```
 
 The command line specifies:
 
@@ -352,13 +368,17 @@ it.
 
 Change to the `Node-4` directory and start Node-4 specifying the Node-1 enode URL as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
-```
+    ```bash
+    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+    ```
 
 Start another terminal and use cURL to call the JSON-RPC API
 [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method:

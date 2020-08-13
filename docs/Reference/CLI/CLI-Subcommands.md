@@ -10,25 +10,33 @@ Provides blocks related actions.
 
 ### import
 
-```bash tab="Syntax"
-besu blocks import --from=<block-file>
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu blocks import --from=/home/me/me_project/mainnet.blocks
-```
+    ```bash
+    besu blocks import --from=<block-file>
+    ```
+
+=== "Example"
+
+    ```bash
+    besu blocks import --from=/home/me/me_project/mainnet.blocks
+    ```
 
 Imports blocks from the specified file into the blockchain database.
 
 ### export
 
-```bash tab="Syntax"
-besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
-```
+    ```bash
+    besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
+    ```
+
+=== "Example"
+
+    ```bash
+    besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+    ```
 
 Exports a block, or list of blocks from storage to a file in RLP format.
 
@@ -52,33 +60,45 @@ This command provides node public key related actions.
 
 ### export
 
-```bash tab="Syntax"
-besu public-key export [--to=<key-file>]
-```
+=== "Syntax"
 
-```bash tab="Example (to standard output)"
-besu --data-path=<node data path> public-key export
-```
+    ```bash
+    besu public-key export [--to=<key-file>]
+    ```
 
-```bash tab="Example (to file)"
-besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
-```
+=== "Example (to standard output)"
+
+    ```bash
+    besu --data-path=<node data path> public-key export
+    ```
+
+=== "Example (to file)"
+
+    ```bash
+    besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
+    ```
 
 Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
 
 ### export-address
 
-```bash tab="Syntax"
-besu public-key export-address [--to=<address-file>]
-```
+=== "Syntax"
 
-```bash tab="Example (to standard output)"
-besu --data-path=<node data path> public-key export-address
-```
+    ```bash
+    besu public-key export-address [--to=<address-file>]
+    ```
 
-```bash tab="Example (to file)"
-besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
-```
+=== "Example (to standard output)"
+
+    ```bash
+    besu --data-path=<node data path> public-key export-address
+    ```
+
+=== "Example (to file)"
+
+    ```bash
+    besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
+    ```
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
 
@@ -92,13 +112,17 @@ This command generates the hash of a given password. Include the hash in the
 [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
 [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
-```bash tab="Syntax"
-besu password hash --password=<my-password>
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu password hash --password=myPassword123
-```
+    ```bash
+    besu password hash --password=<my-password>
+    ```
+
+=== "Example"
+
+    ```bash
+    besu password hash --password=myPassword123
+    ```
 
 ## operator
 
@@ -109,13 +133,17 @@ Provides operator actions.
 This command generates
 [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
 
-```bash tab="Syntax"
-besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
-```
+    ```bash
+    besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
+    ```
+
+=== "Example"
+
+    ```bash
+    besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
+    ```
 
 The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining the
 [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for
@@ -141,13 +169,17 @@ performance.
 To generate cached log bloom indexes while the node is running, use the
 [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API.
 
-```bash tab="Syntax"
-besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
-```
+    ```bash
+    besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
+    ```
+
+=== "Example"
+
+    ```bash
+    besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
+    ```
 
 ## rlp
 
@@ -158,17 +190,23 @@ Provides RLP related actions.
 This command encodes a typed JSON value from a file or from the standard input into an RLP
 hexadecimal string.
 
-```bash tab="Syntax"
-besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
-```
+=== "Syntax"
 
-```bash tab="File Example"
-besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
-```
+    ```bash
+    besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+    ```
 
-```bash tab="Standart Input/Output Example"
-cat extra_data.json | besu rlp encode > rlp.txt
-```
+=== "File Example"
+
+    ```bash
+    besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
+    ```
+
+=== "Standard Input/Output Example"
+
+    ```bash
+    cat extra_data.json | besu rlp encode > rlp.txt
+    ```
 
 The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding. The
 [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
@@ -209,16 +247,20 @@ the `IBFT_EXTRA_DATA` type.
 
     !!!example "Example IBFT_EXTRA_DATA encoding"
 
-        ```json tab="JSON Input"
-        [
-          "be068f726a13c8d46c44be6ce9d275600e1735a4",
-          "5ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193"
-        ]
-        ```
-
-        ``` tab="RLP Output"
-        0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
-        ```
+        === "JSON Input"
+        
+            ```json
+            [
+              "be068f726a13c8d46c44be6ce9d275600e1735a4",
+              "5ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193"
+            ]
+            ```
+        
+        === "RLP Output"
+        
+            ```
+            0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
+            ```
 
 ## retesteth
 
@@ -234,10 +276,14 @@ The command accepts the following command line options:
 * [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
 * [\--logging](./CLI-Syntax.md#logging)
 
-```bash tab="Syntax"
-besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-allowlist=<hostname>[,<hostname>…]… or * or all]
-```
+=== "Syntax"
 
-```bash tab="Example"
-besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-allowlist=*
-```
+    ```bash
+    besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-allowlist=<hostname>[,<hostname>…]… or * or all]
+    ```
+
+=== "Example"
+
+    ```bash
+    besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-allowlist=*
+    ```

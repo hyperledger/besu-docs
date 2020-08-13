@@ -52,39 +52,47 @@ the [Besu GraphQL schema] from within the app.
 
 !!! example
 
-    ```bash tab="Pending Transaction Count"
-    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
-    ```
+    === "Pending Transaction Count"
 
-    ```bash tab="Result"
-    {
-      "data" : {
-        "pending" : {
-          "transactionCount" : 2
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
+        ```
+
+    === "Result"
+
+        ```bash
+        {
+          "data" : {
+            "pending" : {
+              "transactionCount" : 2
+            }
+          }
         }
-      }
-    }
-    ```
+        ```
 
 !!! example
 
-    ```bash tab="Pending Transactions"
-    curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql
-    ```
+    === "Pending Transactions"
 
-    ```bash tab="Result"
-    {
-      "data" : {
-        "pending" : {
-          "transactions" : [ {
-            "hash" : "0xbb3ab8e2113a4afdde9753782cb0680408c0d5b982572dda117a4c72fafbf3fa"
-          }, {
-            "hash" : "0xf6bd6b1bccf765024bd482a71c6855428e2903895982090ab5dbb0feda717af6"
-          } ]
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql
+        ```
+
+    === "Result"
+
+        ```bash
+        {
+          "data" : {
+            "pending" : {
+              "transactions" : [ {
+                "hash" : "0xbb3ab8e2113a4afdde9753782cb0680408c0d5b982572dda117a4c72fafbf3fa"
+              }, {
+                "hash" : "0xf6bd6b1bccf765024bd482a71c6855428e2903895982090ab5dbb0feda717af6"
+              } ]
+            }
+          }
         }
-      }
-    }
-    ```
+        ```
 
 <!-- Links -->
 [Besu GraphQL schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls

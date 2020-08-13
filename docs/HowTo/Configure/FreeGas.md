@@ -77,13 +77,17 @@ size (in bytes).
 When starting nodes, set the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price)
 to zero.
 
-```bash tab="Command Line"
---min-gas-price=0
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-min-gas-price=0
-```
+    ```bash
+    --min-gas-price=0
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    min-gas-price=0
+    ```
 
 ## Configuring free gas in Truffle
 

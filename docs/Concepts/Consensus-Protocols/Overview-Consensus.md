@@ -11,53 +11,62 @@ Besu implements the following consensus protocols:
 * [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (Proof of Authority)
 * [Quorum IBFT 1.0](../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.md) (Proof of Authority).
 
-The `config` property in the genesis file specifies the consensus protocol for a chain. For
-example:
+The `config` property in the genesis file specifies the consensus protocol for a chain.
 
-```json tab="Ethash"
-{
-   "config": {
-    ...
-     "ethash": {
-      ...
-   }
-  },
-  ...
-}
-```
+!!! example
 
-```json tab="Clique"
-{
-  "config": {
-   ...
-    "clique": {
-     ...
-   }
-  },
-  ...
-}
-```
+    === "Ethash"
 
-```json tab="IBFT 2.0"
-{
-  "config": {
-   ...
-    "ibft2": {
-     ...
-   }
-  },
-  ...
-}
-```
+        ```json
+        {
+          "config": {
+           ...
+            "ethash": {
+             ...
+           }
+          },
+          ...
+        }
+        ```
 
-```json tab="IBFT 1.0"
-{
-  "config": {
-   ...
-    "ibft": {
-     ...
-   }
-  },
-  ...
-}
-```
+    === "Clique"
+
+        ```json
+        {
+          "config": {
+           ...
+            "clique": {
+             ...
+           }
+          },
+          ...
+        }
+        ```
+
+    === "IBFT 2.0"
+
+        ```json
+        {
+          "config": {
+           ...
+            "ibft2": {
+             ...
+           }
+          },
+          ...
+        }
+        ```
+
+    === "IBFT 1.0"
+
+        ```json
+        {
+          "config": {
+           ...
+            "ibft": {
+             ...
+           }
+          },
+          ...
+        }
+        ```

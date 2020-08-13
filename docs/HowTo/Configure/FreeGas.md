@@ -89,6 +89,10 @@ to zero.
     min-gas-price=0
     ```
 
+!!! important
+    In a free gas network, ensure the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price)
+    is set to zero for every node.
+
 ## Configuring free gas in Truffle
 
 If using Truffle to develop on your free gas network, you also need to configure free gas in

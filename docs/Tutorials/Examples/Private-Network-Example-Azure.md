@@ -1,5 +1,5 @@
 ---
-description: Hyperledger Besu private network example on Azure 
+description: Hyperledger Besu private network example on Azure
 ---
 
 # Deploy private network example on Azure

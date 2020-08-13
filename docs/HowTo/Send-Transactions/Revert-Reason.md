@@ -46,15 +46,15 @@ the revert reason as an ABI-encoded string.
 
 !!! important
 
-    The revert reason is not included in the transactions receipts root hash. Not including the
-    revert reason in the transactions receipts root hash means the revert reason is only available
+    The revert reason is not included in the transactions receipt's root hash. Not including the
+    revert reason in the transactions receipt's root hash means the revert reason is only available
     to nodes that execute the transaction when importing the block. That is, the revert reason is
     not available if using fast synchronization
     ([`--sync-mode=FAST`](../../Reference/CLI/CLI-Syntax.md#sync-mode)).
 
 !!! example
 
-    ```
+    ```json
     {
       "jsonrpc": "2.0",
       "id": 1,
@@ -88,9 +88,9 @@ an ABI-encoded string consisting of:
 0x4e6f7420656e6f7567682045746865722070726f76696465642e000000000000 // String data
 ```
 
-!!! example
+!!! example "Example of revert reason string for \"Not enough Ether provided.\""
 
-    ```bash tab="Revert reason string for Not enough Ether provided."
+    ```bash
     "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
     ```
 

@@ -19,7 +19,7 @@ To retrieve the [`trace` type](../../Reference/Trace-Types.md#trace) for a speci
 * Block, use [`trace_block`](../../Reference/API-Methods.md#trace_block).
 * Transaction, use [`trace_transaction`](../../Reference/API-Methods.md#trace_transaction).
 
-Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
 requested block or transaction must be within the [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
 (by default, 1024).
 

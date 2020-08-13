@@ -192,6 +192,9 @@ The JSON-RPC methods to add or remove validators are:
 To view validator metrics for a specified block range, use
 [`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
 
+!!! tip
+    `ibft_getSignerMetrics` can be used to identify validators that are not active. The validator's `lastProposedBlockNumber` will be `0x0`
+
 #### Adding a validator
 
 To propose adding a validator, call

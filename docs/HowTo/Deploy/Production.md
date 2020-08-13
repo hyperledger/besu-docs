@@ -13,13 +13,16 @@ To deploy the Permissioning Management Dapp for production:
 1. In the root of the unpack directory, add a file called `config.json` replacing the placeholders
    shown below.
 
-     ```json tab="config.json"
-     {
-       "accountIngressAddress":  "<Address of the account ingress contract>",
-       "nodeIngressAddress": "<Address of the node ingress contract>",
-       "networkId": "<ID of your Ethereum network>"
-     }
-     ```
+    !!!example "config.json"
+
+         ```json
+
+         {
+           "accountIngressAddress":  "<Address of the account ingress contract>",
+           "nodeIngressAddress": "<Address of the node ingress contract>",
+           "networkId": "<ID of your Ethereum network>"
+         }
+         ```
 
 1. On your webserver, host the contents of the directory as static files and direct root requests
    to `index.html`.

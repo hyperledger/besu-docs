@@ -8,7 +8,7 @@ $(window).on('hashchange', function(){
 });
 
 function displayLatestWarning(){
-  $( ".latest-warning" ).css( "display", $(location).attr('href').includes(latestWarningTrigger)?"inherit":"none" );
+  $( ".latest-warning" ).css( "display", $(location).attr('href').includes(latestWarningTrigger)?"block":"none" );
 }
 
 function makeImagesZoomable(){

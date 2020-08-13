@@ -38,17 +38,23 @@ besu [OPTIONS] [COMMAND]
 
 ### auto-log-bloom-caching-enabled
 
-```bash tab="Syntax"
---auto-log-bloom-caching-enabled=false
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_AUTO_LOG_BLOOM_CACHING_ENABLED=false
-```
+    ```bash
+    --auto-log-bloom-caching-enabled=false
+    ```
 
-```bash tab="Example Configuration File"
-auto-log-bloom-caching-enabled=false
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_AUTO_LOG_BLOOM_CACHING_ENABLED=false
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    auto-log-bloom-caching-enabled=false
+    ```
 
 Enables or disables automatic log bloom caching. APIs such as
 [`eth_getLogs`](../API-Methods.md#eth_getlogs) and
@@ -63,21 +69,29 @@ for a large number of blocks, you might want to disable automatic log bloom cach
 
 ### banned-node-ids
 
-```bash tab="Syntax"
---banned-node-ids=<bannedNodeId>[,<bannedNodeId>...]...
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---banned-nodeids=0xc35c3...d615f,0xf42c13...fc456
-```
+    ```bash
+    --banned-node-ids=<bannedNodeId>[,<bannedNodeId>...]...
+    ```
 
-```bash tab="Environment Variable"
-BESU_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-banned-nodeids=["0xc35c3...d615f","0xf42c13...fc456"]
-```
+    ```bash
+    --banned-nodeids=0xc35c3...d615f,0xf42c13...fc456
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    banned-nodeids=["0xc35c3...d615f","0xf42c13...fc456"]
+    ```
 
 A list of node IDs with which this node will not peer. The node ID is the public key of the node.
 You can specify the banned node IDs with or without the `0x` prefix.
@@ -89,21 +103,29 @@ You can specify the banned node IDs with or without the `0x` prefix.
 
 ### bootnodes
 
-```bash tab="Syntax"
---bootnodes[=<enode://id@host:port>[,<enode://id@host:port>...]...]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---bootnodes=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
-```
+    ```bash
+    --bootnodes[=<enode://id@host:port>[,<enode://id@host:port>...]...]
+    ```
 
-```bash tab="Environment Variable"
-BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
-```
+=== "Command Line"
 
-```bash tab="Example Configuration File"
-bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5:30303"]
-```
+    ```bash
+    --bootnodes=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_BOOTNODES=enode://c35c3...d615f@1.2.3.4:30303,enode://f42c13...fc456@1.2.3.5:30303
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5:30303"]
+    ```
 
 A list of comma-separated [enode URLs](../../Concepts/Node-Keys.md#enode-url) for
 [P2P discovery bootstrap](../../HowTo/Find-and-Connect/Bootnodes.md).
@@ -115,76 +137,104 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 
 ### config-file
 
-```bash tab="Syntax"
---config-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---config-file=/home/me/me_node/config.toml
-```
+    ```bash
+    --config-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_CONFIG_FILE=/home/me/me_node/config.toml
-```
+=== "Command Line"
+
+    ```bash
+    --config-file=/home/me/me_node/config.toml
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_CONFIG_FILE=/home/me/me_node/config.toml
+    ```
 
 The path to the [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 The default is `none`.
 
 ### data-path
 
-```bash tab="Syntax"
---data-path=<PATH>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---data-path=/home/me/me_node
-```
+    ```bash
+    --data-path=<PATH>
+    ```
 
-```bash tab="Environment Variable"
-BESU_DATA_PATH=/home/me/me_node
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-data-path="/home/me/me_node"
-```
+    ```bash
+    --data-path=/home/me/me_node
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_DATA_PATH=/home/me/me_node
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    data-path="/home/me/me_node"
+    ```
 
 The path to the Besu data directory. The default is the directory you installed Besu in, or
 `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
 
 ### discovery-enabled
 
-```bash tab="Syntax"
---discovery-enabled=false
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_DISCOVERY_ENABLED=false
-```
+    ```bash
+    --discovery-enabled=false
+    ```
 
-```bash tab="Example Configuration File"
-discovery-enabled=false
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_DISCOVERY_ENABLED=false
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    discovery-enabled=false
+    ```
 
 Enables or disables P2P peer discovery.
 The default is `true`.
 
 ### fast-sync-min-peers
 
-```bash tab="Syntax"
---fast-sync-min-peers=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---fast-sync-min-peers=2
-```
+    ```bash
+    --fast-sync-min-peers=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_FAST_SYNC_MIN_PEERS=2
-```
+=== "Command Line"
 
-```bash tab="Example Configuration File"
-fast-sync-min-peers=2
-```
+    ```bash
+    --fast-sync-min-peers=2
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_FAST_SYNC_MIN_PEERS=2
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    fast-sync-min-peers=2
+    ```
 
 The minimum number of peers required before starting fast sync. The default is 5.
 
@@ -202,21 +252,29 @@ Use the genesis file to create a custom network.
     To use a public Ethereum network such as Rinkeby, use the [`--network`](#network) option. The
     network option defines the genesis file for public networks.
 
-```bash tab="Syntax"
---genesis-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---genesis-file=/home/me/me_node/customGenesisFile.json
-```
+    ```bash
+    --genesis-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_GENESIS_FILE=/home/me/me_node/customGenesisFile.json
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-genesis-file="/home/me/me_node/customGenesisFile.json"
-```
+    ```bash
+    --genesis-file=/home/me/me_node/customGenesisFile.json
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_GENESIS_FILE=/home/me/me_node/customGenesisFile.json
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    genesis-file="/home/me/me_node/customGenesisFile.json"
+    ```
 
 The path to the genesis file.
 
@@ -227,37 +285,51 @@ The path to the genesis file.
 
 ### graphql-http-cors-origins
 
-```bash tab="Syntax"
---graphql-http-cors-origins=<graphQLHttpCorsAllowedOrigins>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---graphql-http-cors-origins="http://medomain.com","https://meotherdomain.com"
-```
+    ```bash
+    --graphql-http-cors-origins=<graphQLHttpCorsAllowedOrigins>
+    ```
 
-```bash tab="Environment Variable"
-BESU_GRAPHQL_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-graphql-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
-```
+    ```bash
+    --graphql-http-cors-origins="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_GRAPHQL_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    graphql-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
+    ```
 
 A list of comma-separated origin domain URLs for CORS validation. The default is none.
 
 ### graphql-http-enabled
 
-```bash tab="Syntax"
---graphql-http-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_GRAPHQL_HTTP_ENABLED=true
-```
+    ```bash
+    --graphql-http-enabled
+    ```
 
-```bash tab="Configuration File"
-graphql-http-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_GRAPHQL_HTTP_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    graphql-http-enabled=true
+    ```
 
 Enables the GraphQL HTTP service. The default is `false`.
 
@@ -265,23 +337,31 @@ The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if 
 
 ### graphql-http-host
 
-```bash tab="Syntax"
---graphql-http-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on all interfaces
---graphql-http-host=0.0.0.0
-```
+    ```bash
+    --graphql-http-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-# to listen on all interfaces
-BESU_GRAPHQL_HTTP_HOST=0.0.0.0
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-graphql-http-host="0.0.0.0"
-```
+    ```bash
+    # to listen on all interfaces
+    --graphql-http-host=0.0.0.0
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    # to listen on all interfaces
+    BESU_GRAPHQL_HTTP_HOST=0.0.0.0
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    graphql-http-host="0.0.0.0"
+    ```
 
 Host for GraphQL HTTP to listen on.
 The default is 127.0.0.1.
@@ -290,52 +370,70 @@ To allow remote connections, set to `0.0.0.0`
 
 ### graphql-http-port
 
-```bash tab="Syntax"
---graphql-http-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on port 6175
---graphql-http-port=6175
-```
+    ```bash
+    --graphql-http-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-# to listen on port 6175
-BESU_GRAPHQL_HTTP_PORT=6175
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-graphql-http-port="6175"
-```
+    ```bash
+    # to listen on port 6175
+    --graphql-http-port=6175
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    # to listen on port 6175
+    BESU_GRAPHQL_HTTP_PORT=6175
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    graphql-http-port="6175"
+    ```
 
 The GraphQL HTTP listening port (TCP). The default is 8547. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### help
 
-```bash tab="Syntax"
--h, --help
-```
+=== "Syntax"
+
+    ```bash
+    -h, --help
+    ```
 
 Show the help message and exit.
 
 ### host-allowlist
 
-```bash tab="Syntax"
---host-allowlist=<hostname>[,<hostname>...]... or "*"
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---host-allowlist=medomain.com,meotherdomain.com
-```
+    ```bash
+    --host-allowlist=<hostname>[,<hostname>...]... or "*"
+    ```
 
-```bash tab="Environment Variable"
-BESU_HOST_ALLOWLIST=medomain.com,meotherdomain.com
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-host-allowlist=["medomain.com", "meotherdomain.com"]
-```
+    ```bash
+    --host-allowlist=medomain.com,meotherdomain.com
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_HOST_ALLOWLIST=medomain.com,meotherdomain.com
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    host-allowlist=["medomain.com", "meotherdomain.com"]
+    ```
 
 A comma-separated list of hostnames to allow
 [access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-allowlist). By
@@ -353,21 +451,29 @@ default, Besu accepts access from `localhost` and `127.0.0.1`.
 
 ### identity
 
-```bash tab="Syntax"
---identity=<String>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---identity=MyNode
-```
+    ```bash
+    --identity=<String>
+    ```
 
-```bash tab="Environment Variable"
-BESU_IDENTITY=MyNode
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-identity="MyNode"
-```
+    ```bash
+    --identity=MyNode
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_IDENTITY=MyNode
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    identity="MyNode"
+    ```
 
 The name for the node. If specified, it's the second section of the client ID provided by some
 Ethereum network explorers. For example, in the client ID
@@ -378,83 +484,115 @@ If a name is not specified, the name section is not included in the client ID. F
 
 ### key-value-storage
 
-```bash tab="Syntax"
---key-value-storage=<keyValueStorageName>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---key-value-storage=rocksdb
-```
+    ```bash
+    --key-value-storage=<keyValueStorageName>
+    ```
 
-```bash tab="Environment Variable"
-BESU_KEY_VALUE_STORAGE=rocksdb
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-key-value-storage="rocksdb"
-```
+    ```bash
+    --key-value-storage=rocksdb
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_KEY_VALUE_STORAGE=rocksdb
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    key-value-storage="rocksdb"
+    ```
 
 The key-value storage to use. Use this option only if using a storage system provided with a
 plugin. The default is `rocksdb`.
 
 ### logging
 
-```bash tab="Syntax"
--l, --logging=<LEVEL>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---logging=DEBUG
-```
+    ```bash
+    -l, --logging=<LEVEL>
+    ```
 
-```bash tab="Environment Variable"
-BESU_LOGGING=DEBUG
-```
+=== "Command Line"
 
-```bash tab="Example Configration File"
-logging="DEBUG"
-```
+    ```bash
+    --logging=DEBUG
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_LOGGING=DEBUG
+    ```
+
+=== "Example Configration File"
+
+    ```bash
+    logging="DEBUG"
+    ```
 
 Sets logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`,
 `ALL`. The default is `INFO`.
 
 ### max-peers
 
-```bash tab="Syntax"
---max-peers=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---max-peers=42
-```
+    ```bash
+    --max-peers=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MAX_PEERS=42
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-max-peers=42
-```
+    ```bash
+    --max-peers=42
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MAX_PEERS=42
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    max-peers=42
+    ```
 
 The maximum number of P2P connections you can establish. The default is 25.
 
 ### metrics-category
 
-```bash tab="Syntax"
---metrics-category=<metrics-category>[,metrics-category...]...
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-category=BLOCKCHAIN,PEERS,PROCESS
-```
+    ```bash
+    --metrics-category=<metrics-category>[,metrics-category...]...
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
-```
+    ```bash
+    --metrics-category=BLOCKCHAIN,PEERS,PROCESS
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_CATEGORY=BLOCKCHAIN,PEERS,PROCESS
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
+    ```
 
 A comma-separated list of categories for which to track metrics. The defaults are `BLOCKCHAIN`,
 `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`,
@@ -468,17 +606,23 @@ Categories containing `PRIVATE` track metrics when you enable
 
 ### metrics-enabled
 
-```bash tab="Syntax"
---metrics-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_METRICS_ENABLED=true
-```
+    ```bash
+    --metrics-enabled
+    ```
 
-```bash tab="Configuration File"
-metrics-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-enabled=true
+    ```
 
 Enables the
 [metrics exporter](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
@@ -489,21 +633,29 @@ either Prometheus polling or Prometheus push gateway support, but not both at on
 
 ### metrics-host
 
-```bash tab="Syntax"
---metrics-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-host=127.0.0.1
-```
+    ```bash
+    --metrics-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_HOST=127.0.0.1
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-host="127.0.0.1"
-```
+    ```bash
+    --metrics-host=127.0.0.1
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_HOST=127.0.0.1
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-host="127.0.0.1"
+    ```
 
 The host on which [Prometheus](https://prometheus.io/) accesses
 [Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
@@ -513,21 +665,29 @@ The default is `127.0.0.1`.
 
 ### metrics-port
 
-```bash tab="Syntax"
---metrics-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-port=6174
-```
+    ```bash
+    --metrics-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PORT=6174
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-port="6174"
-```
+    ```bash
+    --metrics-port=6174
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PORT=6174
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-port="6174"
+    ```
 
 The port (TCP) on which [Prometheus](https://prometheus.io/) accesses
 [Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
@@ -536,21 +696,29 @@ default is `9545`. Ports must be
 
 ### metrics-push-enabled
 
-```bash tab="Syntax"
---metrics-push-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-push-enabled
-```
+    ```bash
+    --metrics-push-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PUSH_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-push-enabled="true"
-```
+    ```bash
+    --metrics-push-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PUSH_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-push-enabled="true"
+    ```
 
 Enables or disables [push gateway integration].
 
@@ -559,21 +727,29 @@ either Prometheus polling or Prometheus push gateway support, but not both at on
 
 ### metrics-push-host
 
-```bash tab="Syntax"
---metrics-push-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-push-host=127.0.0.1
-```
+    ```bash
+    --metrics-push-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PUSH_HOST=127.0.0.1
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-push-host="127.0.0.1"
-```
+    ```bash
+    --metrics-push-host=127.0.0.1
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PUSH_HOST=127.0.0.1
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-push-host="127.0.0.1"
+    ```
 
 The host of the [Prometheus Push Gateway](https://github.com/prometheus/pushgateway). The default
 is `127.0.0.1`. The metrics server respects the [`--host-allowlist` option](#host-allowlist).
@@ -585,41 +761,57 @@ is `127.0.0.1`. The metrics server respects the [`--host-allowlist` option](#hos
 
 ### metrics-push-interval
 
-```bash tab="Syntax"
---metrics-push-interval=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-push-interval=30
-```
+    ```bash
+    --metrics-push-interval=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PUSH_INTERVAL=30
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-push-interval=30
-```
+    ```bash
+    --metrics-push-interval=30
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PUSH_INTERVAL=30
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-push-interval=30
+    ```
 
 The interval, in seconds, to push metrics when in `push` mode. The default is 15.
 
 ### metrics-push-port
 
-```bash tab="Syntax"
---metrics-push-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-push-port=6174
-```
+    ```bash
+    --metrics-push-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PUSH_PORT=6174
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-push-port="6174"
-```
+    ```bash
+    --metrics-push-port=6174
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PUSH_PORT=6174
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-push-port="6174"
+    ```
 
 The port (TCP) of the [Prometheus Push Gateway](https://github.com/prometheus/pushgateway). The
 default is `9001`. Ports must be
@@ -627,41 +819,57 @@ default is `9001`. Ports must be
 
 ### metrics-push-prometheus-job
 
-```bash tab="Syntax"
---metrics-prometheus-job=<metricsPrometheusJob>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---metrics-prometheus-job="my-custom-job"
-```
+    ```bash
+    --metrics-prometheus-job=<metricsPrometheusJob>
+    ```
 
-```bash tab="Environment Variable"
-BESU_METRICS_PROMETHEUS_JOB="my-custom-job"
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-metrics-prometheus-job="my-custom-job"
-```
+    ```bash
+    --metrics-prometheus-job="my-custom-job"
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PROMETHEUS_JOB="my-custom-job"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-prometheus-job="my-custom-job"
+    ```
 
 The job name when in `push` mode. The default is `besu-client`.
 
 ### miner-coinbase
 
-```bash tab="Syntax"
---miner-coinbase=<Ethereum account address>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
+    ```bash
+    --miner-coinbase=<Ethereum account address>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
---miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-```
+    ```bash
+    --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    ```
 
 The account you pay mining rewards to. You must specify a valid coinbase when you enable mining
 using the [`--miner-enabled`](#miner-enabled) option or the
@@ -675,132 +883,182 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 
 ### miner-enabled
 
-```bash tab="Syntax"
---miner-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_MINER_ENABLED=true
-```
+    ```bash
+    --miner-enabled
+    ```
 
-```bash tab="Configuration File"
-miner-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    miner-enabled=true
+    ```
 
 Enables mining when you start the node.
 The default is `false`.
 
 ### miner-extra-data
 
-```bash tab="Syntax"
---miner-extra-data=<Extra data>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---miner-extra-data=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
-```
+    ```bash
+    --miner-extra-data=<Extra data>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MINER_EXTRA_DATA=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021"
-```
+    ```bash
+    --miner-extra-data=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_EXTRA_DATA=0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C2021"
+    ```
 
 A hex string representing the 32 bytes included in the extra data field of a mined block. The
 default is 0x.
 
 ### miner-stratum-enabled
 
-```bash tab="Syntax"
---miner-stratum-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_MINER_STRATUM_ENABLED=true
-```
+    ```bash
+    --miner-stratum-enabled
+    ```
 
-```bash tab="Configuration File"
-miner-stratum-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_STRATUM_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    miner-stratum-enabled=true
+    ```
 
 Enables a node to perform stratum mining.
 The default is `false`.
 
 ### miner-stratum-host
 
-```bash tab="Syntax"
---miner-stratum-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---miner-stratum-host=192.168.1.132
-```
+    ```bash
+    --miner-stratum-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MINER_STRATUM_HOST=192.168.1.132
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-miner-stratum-host="192.168.1.132"
-```
+    ```bash
+    --miner-stratum-host=192.168.1.132
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_STRATUM_HOST=192.168.1.132
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    miner-stratum-host="192.168.1.132"
+    ```
 
 The host of the stratum mining service.
 The default is `0.0.0.0`.
 
 ### miner-stratum-port
 
-```bash tab="Syntax"
---miner-stratum-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---miner-stratum-port=8010
-```
+    ```bash
+    --miner-stratum-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MINER_STRATUM_PORT=8010
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-miner-stratum-port="8010"
-```
+    ```bash
+    --miner-stratum-port=8010
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MINER_STRATUM_PORT=8010
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    miner-stratum-port="8010"
+    ```
 
 The port of the stratum mining service. The default is `8008`. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### min-gas-price
 
-```bash tab="Syntax"
---min-gas-price=<minTransactionGasPrice>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---min-gas-price=1337
-```
+    ```bash
+    --min-gas-price=<minTransactionGasPrice>
+    ```
 
-```bash tab="Environment Variable"
-BESU_MIN_GAS_PRICE=1337
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-min-gas-price=1337
-```
+    ```bash
+    --min-gas-price=1337
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MIN_GAS_PRICE=1337
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    min-gas-price=1337
+    ```
 
 The minimum price a transaction offers to include it in a mined block. To retrieve the minimum
 price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000
 Wei.
 
+In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
+
 ### nat-method
 
-```bash tab="Syntax"
---nat-method=UPNP
-```
+=== "Syntax"
 
-```bash tab="Example Configuration File"
-nat-method="UPNP"
-```
+    ```bash
+    --nat-method=UPNP
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    nat-method="UPNP"
+    ```
 
 Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
 The options are:
@@ -828,21 +1086,29 @@ The default is `AUTO`. `NONE` disables NAT functionality.
 
 ### network
 
-```bash tab="Syntax"
---network=<NETWORK>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---network=rinkeby
-```
+    ```bash
+    --network=<NETWORK>
+    ```
 
-```bash tab="Environment Variable"
-BESU_NETWORK=rinkeby
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-network="rinkeby"
-```
+    ```bash
+    --network=rinkeby
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_NETWORK=rinkeby
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    network="rinkeby"
+    ```
 
 The predefined network configuration.
 The default is `mainnet`.
@@ -871,21 +1137,29 @@ Possible values are:
 
 ### network-id
 
-```bash tab="Syntax"
---network-id=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---network-id=8675309
-```
+    ```bash
+    --network-id=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_NETWORK_ID=8675309
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-network-id="8675309"
-```
+    ```bash
+    --network-id=8675309
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_NETWORK_ID=8675309
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    network-id="8675309"
+    ```
 
 The [P2P network identifier](../../Concepts/NetworkID-And-ChainID.md).
 
@@ -894,21 +1168,29 @@ defined in the genesis file.
 
 ### node-private-key-file
 
-```bash tab="Syntax"
---node-private-key-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---node-private-key-file=/home/me/me_node/myPrivateKey
-```
+    ```bash
+    --node-private-key-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_NODE_PRIVATE_KEY_FILE=/home/me/me_node/myPrivateKey
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-node-private-key-file="/home/me/me_node/myPrivateKey"
-```
+    ```bash
+    --node-private-key-file=/home/me/me_node/myPrivateKey
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_NODE_PRIVATE_KEY_FILE=/home/me/me_node/myPrivateKey
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    node-private-key-file="/home/me/me_node/myPrivateKey"
+    ```
 
 The private key file for the node. The default is the key file in the [data directory](#data-path).
 If no key file exists, Besu creates a key file containing the generated private key, otherwise, the
@@ -923,65 +1205,89 @@ a non-default value.
 
 ### p2p-enabled
 
-```bash tab="Syntax"
---p2p-enabled=<true|false>
-```
+=== "Syntax"
 
-```bash tab="Command line"
---p2p-enabled=false
-```
+    ```bash
+    --p2p-enabled=<true|false>
+    ```
 
-```bash tab="Environment Variable"
-BESU_P2P_ENABLED=false
-```
+=== "Command line"
 
-```bash tab="Configuration File"
-p2p-enabled=false
-```
+    ```bash
+    --p2p-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_P2P_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-enabled=false
+    ```
 
 Enables or disables all P2P communication.
 The default is true.
 
 ### p2p-host
 
-```bash tab="Syntax"
---p2p-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on all interfaces
---p2p-host=0.0.0.0
-```
+    ```bash
+    --p2p-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-# to listen on all interfaces
-BESU_P2P_HOST=0.0.0.0
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-p2p-host="0.0.0.0"
-```
+    ```bash
+    # to listen on all interfaces
+    --p2p-host=0.0.0.0
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    # to listen on all interfaces
+    BESU_P2P_HOST=0.0.0.0
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-host="0.0.0.0"
+    ```
 
 The host on which P2P listens.
 The default is 127.0.0.1.
 
 ### p2p-interface
 
-```bash tab="Syntax"
---p2p-interface=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---p2p-interface=192.168.1.132
-```
+    ```bash
+    --p2p-interface=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_P2P_INTERFACE=192.168.1.132
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-p2p-interface="192.168.1.132"
-```
+    ```bash
+    --p2p-interface=192.168.1.132
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_P2P_INTERFACE=192.168.1.132
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-interface="192.168.1.132"
+    ```
 
 The network interface on which the node listens for
 [P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking). Use the
@@ -990,44 +1296,60 @@ multiple network interfaces. The default is 0.0.0.0 (all interfaces).
 
 ### p2p-port
 
-```bash tab="Syntax"
---p2p-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on port 1789
---p2p-port=1789
-```
+    ```bash
+    --p2p-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-# to listen on port 1789
-BESU_P2P_PORT=1789
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-p2p-port="1789"
-```
+    ```bash
+    # to listen on port 1789
+    --p2p-port=1789
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    # to listen on port 1789
+    BESU_P2P_PORT=1789
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-port="1789"
+    ```
 
 The P2P listening ports (UDP and TCP). The default is 30303. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### permissions-accounts-config-file
 
-```bash tab="Syntax"
---permissions-accounts-config-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-accounts-config-file=/home/me/me_configFiles/myPermissionsFile
-```
+    ```bash
+    --permissions-accounts-config-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-accounts-config-file="/home/me/me_configFiles/myPermissionsFile"
-```
+    ```bash
+    --permissions-accounts-config-file=/home/me/me_configFiles/myPermissionsFile
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-accounts-config-file="/home/me/me_configFiles/myPermissionsFile"
+    ```
 
 The [accounts permissions configuration file]. The default is the `permissions_config.toml` file in
 the [data directory](#data-path).
@@ -1039,62 +1361,86 @@ the [data directory](#data-path).
 
 ### permissions-accounts-config-file-enabled
 
-```bash tab="Syntax"
---permissions-accounts-config-file-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-accounts-config-file-enabled
-```
+    ```bash
+    --permissions-accounts-config-file-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-accounts-config-file-enabled=true
-```
+    ```bash
+    --permissions-accounts-config-file-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-accounts-config-file-enabled=true
+    ```
 
 Enables or disables file-based account level permissions. The default is `false`.
 
 ### permissions-accounts-contract-address
 
-```bash tab="Syntax"
---permissions-accounts-contract-address=<ContractAddress>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-accounts-contract-address=xyz
-```
+    ```bash
+    --permissions-accounts-contract-address=<ContractAddress>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ADDRESS=xyz
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-accounts-contract-address=xyz
-```
+    ```bash
+    --permissions-accounts-contract-address=xyz
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ADDRESS=xyz
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-accounts-contract-address=xyz
+    ```
 
 The contract address for
 [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md).
 
 ### permissions-accounts-contract-enabled
 
-```bash tab="Syntax"
---permissions-accounts-contract-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-accounts-contract-enabled
-```
+    ```bash
+    --permissions-accounts-contract-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-accounts-contract-enabled=true
-```
+    ```bash
+    --permissions-accounts-contract-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-accounts-contract-enabled=true
+    ```
 
 Enables or disables contract-based
 [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default
@@ -1102,21 +1448,29 @@ is `false`.
 
 ### permissions-nodes-config-file
 
-```bash tab="Syntax"
---permissions-nodes-config-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-nodes-config-file=/home/me/me_configFiles/myPermissionsFile
-```
+    ```bash
+    --permissions-nodes-config-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-nodes-config-file="/home/me/me_configFiles/myPermissionsFile"
-```
+    ```bash
+    --permissions-nodes-config-file=/home/me/me_configFiles/myPermissionsFile
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_NODES_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-nodes-config-file="/home/me/me_configFiles/myPermissionsFile"
+    ```
 
 The [nodes permissions configuration file]. The default is the `permissions_config.toml` file in
 the [data directory](#data-path).
@@ -1129,62 +1483,86 @@ the [data directory](#data-path).
 
 ### permissions-nodes-config-file-enabled
 
-```bash tab="Syntax"
---permissions-nodes-config-file-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-nodes-config-file-enabled
-```
+    ```bash
+    --permissions-nodes-config-file-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-nodes-config-file-enabled=true
-```
+    ```bash
+    --permissions-nodes-config-file-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-nodes-config-file-enabled=true
+    ```
 
 Enables or disables file-based node level permissions. The default is `false`.
 
 ### permissions-nodes-contract-address
 
-```bash tab="Syntax"
---permissions-nodes-contract-address=<ContractAddress>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-nodes-contract-address=xyz
-```
+    ```bash
+    --permissions-nodes-contract-address=<ContractAddress>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONTRACT_ADDRESS=xyz
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-nodes-contract-address=xyz
-```
+    ```bash
+    --permissions-nodes-contract-address=xyz
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_NODES_CONTRACT_ADDRESS=xyz
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-nodes-contract-address=xyz
+    ```
 
 The contract address for
 [onchain node permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md).
 
 ### permissions-nodes-contract-enabled
 
-```bash tab="Syntax"
---permissions-nodes-contract-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---permissions-nodes-contract-enabled
-```
+    ```bash
+    --permissions-nodes-contract-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PERMISSIONS_NODES_CONTRACT_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-permissions-nodes-contract-enabled=true
-```
+    ```bash
+    --permissions-nodes-contract-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_NODES_CONTRACT_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-nodes-contract-enabled=true
+    ```
 
 Enables or disables contract-based
 [onchain node permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default is
@@ -1192,21 +1570,29 @@ Enables or disables contract-based
 
 ### privacy-enabled
 
-```bash tab="Syntax"
---privacy-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-enabled=false
-```
+    ```bash
+    --privacy-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_ENABLED=false
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-enabled=false
-```
+    ```bash
+    --privacy-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-enabled=false
+    ```
 
 Enables or disables [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default
 is false.
@@ -1218,21 +1604,29 @@ is false.
 
 ### privacy-marker-transaction-signing-key-file
 
-```bash tab="Syntax"
---privacy-marker-transaction-signing-key-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-marker-transaction-signing-key-file=/home/me/me_node/myPrivateKey
-```
+    ```bash
+    --privacy-marker-transaction-signing-key-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-PANTHEON_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
-```
+    ```bash
+    --privacy-marker-transaction-signing-key-file=/home/me/me_node/myPrivateKey
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    PANTHEON_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
+    ```
 
 `<FILE>` is the name of the private key file used to
 [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If
@@ -1244,62 +1638,86 @@ key included in the accounts allowlist.
 
 ### privacy-multi-tenancy-enabled
 
-```bash tab="Syntax"
---privacy-multi-tenancy-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-multi-tenancy-enabled=false
-```
+    ```bash
+    --privacy-multi-tenancy-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_MULTI_TENANCY_ENABLED=false
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-multi-tenancy-enabled=false
-```
+    ```bash
+    --privacy-multi-tenancy-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_MULTI_TENANCY_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-multi-tenancy-enabled=false
+    ```
 
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
 
 ### privacy-onchain-groups-enabled
 
-```bash tab="Syntax"
---privacy-onchain-groups-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-onchain-groups-enabled=true
-```
+    ```bash
+    --privacy-onchain-groups-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-onchain-groups-enabled=true
-```
+    ```bash
+    --privacy-onchain-groups-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-onchain-groups-enabled=true
+    ```
 
 Set to enable onchain privacy groups. Default is `false`.
 
 ### privacy-public-key-file
 
-```bash tab="Syntax"
---privacy-public-key-file=<privacyPublicKeyFile>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-public-key-file=Orion/nodeKey.pub
-```
+    ```bash
+    --privacy-public-key-file=<privacyPublicKeyFile>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-public-key-file="Orion/nodeKey.pub"
-```
+    ```bash
+    --privacy-public-key-file=Orion/nodeKey.pub
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-public-key-file="Orion/nodeKey.pub"
+    ```
 
 The [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).
 
@@ -1310,42 +1728,58 @@ The [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#be
 
 ### privacy-tls-enabled
 
-```bash tab="Syntax"
---privacy-tls-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-tls-enabled=false
-```
+    ```bash
+    --privacy-tls-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_ENABLED=false
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-tls-enabled=false
-```
+    ```bash
+    --privacy-tls-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_TLS_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-tls-enabled=false
+    ```
 
 Enables or disables [TLS on communication with the Private Transaction Manager]. The default is
 false.
 
 ### privacy-tls-keystore-file
 
-```bash tab="Syntax"
---privacy-tls-keystore-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy--keystore-file=/home/me/me_node/key
-```
+    ```bash
+    --privacy-tls-keystore-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_KEYSTORE_FILE=/home/me/me_node/key
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-tls-keystore-file="/home/me/me_node/key"
-```
+    ```bash
+    --privacy--keystore-file=/home/me/me_node/key
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_TLS_KEYSTORE_FILE=/home/me/me_node/key
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-tls-keystore-file="/home/me/me_node/key"
+    ```
 
 The keystore file (in PKCS #12 format) containing the private key and the certificate presented
 during authentication.
@@ -1355,62 +1789,86 @@ You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#priva
 
 ### privacy-tls-keystore-password-file
 
-```bash tab="Syntax"
---privacy-tls-keystore-password-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-tls-keystore-password-file=/home/me/me_node/password
-```
+    ```bash
+    --privacy-tls-keystore-password-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-tls-keystore-password-file="/home/me/me_node/password"
-```
+    ```bash
+    --privacy-tls-keystore-password-file=/home/me/me_node/password
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-tls-keystore-password-file="/home/me/me_node/password"
+    ```
 
 The path to the file containing the password to decrypt the keystore.
 
 ### privacy-tls-known-enclave-file
 
-```bash tab="Syntax"
---privacy-tls-known-enclave-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-tls-known-enclave-file=/home/me/me_node/knownEnclave
-```
+    ```bash
+    --privacy-tls-known-enclave-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
-```
+    ```bash
+    --privacy-tls-known-enclave-file=/home/me/me_node/knownEnclave
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
+    ```
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
 [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
 
 ### privacy-url
 
-```bash tab="Syntax"
---privacy-url=<privacyUrl>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---privacy-url=http://127.0.0.1:8888
-```
+    ```bash
+    --privacy-url=<privacyUrl>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRIVACY_URL=http://127.0.0.1:8888
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-privacy-url="http://127.0.0.1:8888"
-```
+    ```bash
+    --privacy-url=http://127.0.0.1:8888
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRIVACY_URL=http://127.0.0.1:8888
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    privacy-url="http://127.0.0.1:8888"
+    ```
 
 The URL on which the
 [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
@@ -1418,21 +1876,29 @@ running.
 
 ### pruning-block-confirmations
 
-```bash tab="Syntax"
---pruning-block-confirmations=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---pruning-block-confirmations=5
-```
+    ```bash
+    --pruning-block-confirmations=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRUNING_BLOCK_CONFIRMATIONS=5
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-pruning-block-confirmations=5
-```
+    ```bash
+    --pruning-block-confirmations=5
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRUNING_BLOCK_CONFIRMATIONS=5
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    pruning-block-confirmations=5
+    ```
 
 The minimum number of confirmations on a block before marking of newly-stored or in-use state trie
 nodes that cannot be pruned. The default is 10.
@@ -1443,21 +1909,29 @@ nodes that cannot be pruned. The default is 10.
 
 ### pruning-blocks-retained
 
-```bash tab="Syntax"
---pruning-blocks-retained=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---pruning-blocks-retained=10000
-```
+    ```bash
+    --pruning-blocks-retained=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRUNING_BLOCKS_RETAINED=10000
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-pruning-blocks-retained=10000
-```
+    ```bash
+    --pruning-blocks-retained=10000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRUNING_BLOCKS_RETAINED=10000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    pruning-blocks-retained=10000
+    ```
 
 The minimum number of recent blocks to keep the entire world state for. The default is 1024.
 
@@ -1467,21 +1941,29 @@ The minimum number of recent blocks to keep the entire world state for. The defa
 
 ### pruning-enabled
 
-```bash tab="Syntax"
---pruning-enabled
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---pruning-enabled=true
-```
+    ```bash
+    --pruning-enabled
+    ```
 
-```bash tab="Environment Variable"
-BESU_PRUNING_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-pruning-enabled=true
-```
+    ```bash
+    --pruning-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PRUNING_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    pruning-enabled=true
+    ```
 
 Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
 
@@ -1492,21 +1974,29 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
 
 ### remote-connections-limit-enabled
 
-```bash tab="Syntax"
---remote-connections-limit-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---remote-connections-limit-enabled=false
-```
+    ```bash
+    --remote-connections-limit-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-remote-connections-limit-enabled=false
-```
+    ```bash
+    --remote-connections-limit-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REMOTE_CONNECTIONS_LIMIT_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    remote-connections-limit-enabled=false
+    ```
 
 Enables or disables limiting the percentage of remote P2P connections initiated by peers. The
 default is true.
@@ -1524,63 +2014,87 @@ default is true.
 
 ### remote-connections-max-percentage
 
-```bash tab="Syntax"
---remote-connections-max-percentage=<DOUBLE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---remote-connections-max-percentage=25
-```
+    ```bash
+    --remote-connections-max-percentage=<DOUBLE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-remote-connections-max-percentage=25
-```
+    ```bash
+    --remote-connections-max-percentage=25
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REMOTE_CONNECTIONS_MAX_PERCENTAGE=25
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    remote-connections-max-percentage=25
+    ```
 
 The percentage of remote P2P connections you can establish with the node. Must be between 0 and
 100, inclusive. The default is 60.
 
 ### required-block
 
-```bash tab="Syntax"
---required-block, --required-blocks[=BLOCK=HASH[,BLOCK=HASH...]...]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-```
+    ```bash
+    --required-block, --required-blocks[=BLOCK=HASH[,BLOCK=HASH...]...]
+    ```
 
-```bash tab="Environment Variable"
-BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
-```
+    ```bash
+    --required-block=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REQUIRED_BLOCK=6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+    ```
 
 Requires a peer with the specified block number to have the specified hash when connecting, or Besu
 rejects that peer.
 
 ### revert-reason-enabled
 
-```bash tab="Syntax"
---revert-reason-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---revert-reason-enabled=true
-```
+    ```bash
+    --revert-reason-enabled[=<true|false>]
+    ```
 
-```bash tab="Environment Variable"
-BESU_REVERT_REASON_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-revert-reason-enabled=true
-```
+    ```bash
+    --revert-reason-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REVERT_REASON_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    revert-reason-enabled=true
+    ```
 
 Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
 transaction receipt. The default is `false`.
@@ -1592,21 +2106,29 @@ transaction receipt. The default is `false`.
 
 ### rpc-http-api
 
-```bash tab="Syntax"
---rpc-http-api=<api name>[,<api name>...]...
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-api=ETH,NET,WEB3
-```
+    ```bash
+    --rpc-http-api=<api name>[,<api name>...]...
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_API=ETH,NET,WEB3
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-api=["ETH","NET","WEB3"]
-```
+    ```bash
+    --rpc-http-api=ETH,NET,WEB3
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_API=ETH,NET,WEB3
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-api=["ETH","NET","WEB3"]
+    ```
 
 A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
 you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
@@ -1620,93 +2142,127 @@ you must also specify the `--rpc-http-enabled` option. The available API options
 
 ### rpc-http-authentication-credentials-file
 
-```bash tab="Syntax"
---rpc-http-authentication-credentials-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-authentication-credentials-file=/home/me/me_node/auth.toml
-```
+    ```bash
+    --rpc-http-authentication-credentials-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
-```
+    ```bash
+    --rpc-http-authentication-credentials-file=/home/me/me_node/auth.toml
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
+    ```
 
 The [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC
 API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ### rpc-http-authentication-enabled
 
-```bash tab="Syntax"
---rpc-http-authentication-enabled
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-authentication-enabled
-```
+    ```bash
+    --rpc-http-authentication-enabled
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_AUTHENTICATION_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-authentication-enabled=true
-```
+    ```bash
+    --rpc-http-authentication-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_AUTHENTICATION_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-authentication-enabled=true
+    ```
 
 Enables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC
 service.
 
 ### rpc-http-authentication-jwt-public-key-file
 
-```bash tab="Syntax"
---rpc-http-authentication-jwt-public-key-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-authentication-jwt-public-key-file=publicKey.pem
-```
+    ```bash
+    --rpc-http-authentication-jwt-public-key-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-authentication-jwt-public-key-file="publicKey.pem"
-```
+    ```bash
+    --rpc-http-authentication-jwt-public-key-file=publicKey.pem
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+    ```
 
 The [JWT provider's public key file] used for JSON-RPC HTTP authentication with an external JWT.
 
 ### rpc-http-cors-origins
 
-```bash tab="Syntax"
---rpc-http-cors-origins=<url>[,<url>...]... or all or "*"
-```
+=== "Syntax"
 
-```bash tab="Command Line"
+    ```bash
+    --rpc-http-cors-origins=<url>[,<url>...]... or all or "*"
+    ```
 
-$# You can allow one or more domains with a comma-separated list.
+=== "Command Line"
 
---rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
-```
+    ```bash
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
-```
+    $# You can allow one or more domains with a comma-separated list.
 
-```bash tab="Configuration File"
-rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
-```
+    --rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
+    ```
 
-```bash tab="Remix Example"
+=== "Environment Variable"
 
-$# The following allows Remix to interact with your Besu node.
+    ```bash
+    BESU_RPC_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    ```
 
---rpc-http-cors-origins="http://remix.ethereum.org"
-```
+=== "Configuration File"
+
+    ```bash
+    rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
+    ```
+
+=== "Remix Example"
+
+    ```bash
+
+    $# The following allows Remix to interact with your Besu node.
+
+    --rpc-http-cors-origins="http://remix.ethereum.org"
+    ```
 
 A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate
 them with commas.
@@ -1730,39 +2286,53 @@ with your Besu node.
 
 ### rpc-http-enabled
 
-```bash tab="Syntax"
---rpc-http-enabled
-```
+=== "Syntax"
 
-```bash tab="Environement Variable"
-BESU_RPC_HTTP_ENABLED=true
-```
+    ```bash
+    --rpc-http-enabled
+    ```
 
-```bash tab="Configuration File"
-rpc-http-enabled=true
-```
+=== "Environement Variable"
+
+    ```bash
+    BESU_RPC_HTTP_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-enabled=true
+    ```
 
 Enables the HTTP JSON-RPC service.
 The default is `false`.
 
 ### rpc-http-host
 
-```bash tab="Syntax"
---rpc-http-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on all interfaces
---rpc-http-host=0.0.0.0
-```
+    ```bash
+    --rpc-http-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_HOST=0.0.0.0
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-host="0.0.0.0"
-```
+    ```bash
+    # to listen on all interfaces
+    --rpc-http-host=0.0.0.0
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_HOST=0.0.0.0
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-host="0.0.0.0"
+    ```
 
 Specifies the host on which HTTP JSON-RPC listens. The default is 127.0.0.1.
 
@@ -1776,39 +2346,53 @@ To allow remote connections, set to `0.0.0.0`
 
 ### rpc-http-port
 
-```bash tab="Syntax"
---rpc-http-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on port 3435
---rpc-http-port=3435
-```
+    ```bash
+    --rpc-http-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_PORT=3435
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-port="3435"
-```
+    ```bash
+    # to listen on port 3435
+    --rpc-http-port=3435
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_PORT=3435
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-port="3435"
+    ```
 
 The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### rpc-http-tls-ca-clients-enabled
 
-```bash tab="Syntax"
---rpc-http-tls-ca-clients-enabled[=<true|false>]
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
-```
+    ```bash
+    --rpc-http-tls-ca-clients-enabled[=<true|false>]
+    ```
 
-```bash tab="Configuration File"
-rpc-http-tls-ca-clients-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_CA_CLIENTS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-ca-clients-enabled=true
+    ```
 
 Enables clients with trusted CA certificates to connect. The default is `false`.
 
@@ -1819,17 +2403,23 @@ Enables clients with trusted CA certificates to connect. The default is `false`.
 
 ### rpc-http-tls-client-auth-enabled
 
-```bash tab="Syntax"
---rpc-http-tls-client-auth-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_CLIENT_AUTH_ENABLED=true
-```
+    ```bash
+    --rpc-http-tls-client-auth-enabled
+    ```
 
-```bash tab="Configuration File"
-rpc-http-tls-client-auth-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_CLIENT_AUTH_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-client-auth-enabled=true
+    ```
 
 Enables TLS client authentication for the JSON-RPC HTTP service. The default is `false`.
 
@@ -1840,17 +2430,23 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
 
 ### rpc-http-tls-enabled
 
-```bash tab="Syntax"
---rpc-http-tls-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_ENABLED=true
-```
+    ```bash
+    --rpc-http-tls-enabled
+    ```
 
-```bash tab="Configuration File"
-rpc-http-tls-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-enabled=true
+    ```
 
 Enables TLS for the JSON-RPC HTTP service. The default is `false`.
 
@@ -1860,62 +2456,86 @@ Enables TLS for the JSON-RPC HTTP service. The default is `false`.
 
 ### rpc-http-tls-keystore-file
 
-```bash tab="Syntax"
---rpc-http-tls-keystore-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-tls-keystore-file=/home/me/me_node/keystore.pfx
-```
+    ```bash
+    --rpc-http-tls-keystore-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
-```
+    ```bash
+    --rpc-http-tls-keystore-file=/home/me/me_node/keystore.pfx
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
+    ```
 
 The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to
 the client during authentication.
 
 ### rpc-http-tls-keystore-password-file
 
-```bash tab="Syntax"
---rpc-http-tls-keystore-password-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-tls-keystore-password-file=/home/me/me_node/password
-```
+    ```bash
+    --rpc-http-tls-keystore-password-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-tls-keystore-password-file="/home/me/me_node/password"
-```
+    ```bash
+    --rpc-http-tls-keystore-password-file=/home/me/me_node/password
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-keystore-password-file="/home/me/me_node/password"
+    ```
 
 The path to the file containing the password to decrypt the keystore.
 
 ### rpc-http-tls-known-clients-file
 
-```bash tab="Syntax"
---rpc-http-tls-known-clients-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-tls-known-clients-file=/home/me/me_node/knownClients
-```
+    ```bash
+    --rpc-http-tls-known-clients-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
-```
+    ```bash
+    --rpc-http-tls-known-clients-file=/home/me/me_node/knownClients
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_KNOWN_CLIENTS_FILE=/home/me/me_node/knownClients
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
+    ```
 
 The path to the file used to
 [authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) using
@@ -1931,21 +2551,29 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
 
 ### rpc-tx-feecap
 
-```bash tab="Syntax"
---rpc-tx-feecap=<MAX_FEE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-tx-feecap=1200000000000000000
-```
+    ```bash
+    --rpc-tx-feecap=<MAX_FEE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_TX_FEE=1200000000000000000
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-tx-feecap=1200000000000000000
-```
+    ```bash
+    --rpc-tx-feecap=1200000000000000000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_TX_FEE=1200000000000000000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-tx-feecap=1200000000000000000
+    ```
 
 Sets the maximum transaction fee (in Wei) accepted for transactions submitted through the
 [`eth_sendRawTransaction`](../API-Methods.md#eth_sendrawtransaction) RPC. Defaults to 1000000000000000000 (1 ether).
@@ -1954,21 +2582,29 @@ If set to 0, then this option is ignored and no cap is applied.
 
 ### rpc-ws-api
 
-```bash tab="Syntax"
---rpc-ws-api=<api name>[,<api name>...]...
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-ws-api=ETH,NET,WEB3
-```
+    ```bash
+    --rpc-ws-api=<api name>[,<api name>...]...
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_API=ETH,NET,WEB3
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-ws-api=["ETH","NET","WEB3"]
-```
+    ```bash
+    --rpc-ws-api=ETH,NET,WEB3
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_API=ETH,NET,WEB3
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-api=["ETH","NET","WEB3"]
+    ```
 
 A comma-separated list of APIs to enable on the WebSockets channel. When you use this option
 you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`,
@@ -1982,42 +2618,58 @@ you must also specify the `--rpc-ws-enabled` option. The available API options a
 
 ### rpc-ws-authentication-credentials-file
 
-```bash tab="Syntax"
---rpc-ws-authentication-credentials-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-ws-authentication-credentials-file=/home/me/me_node/auth.toml
-```
+    ```bash
+    --rpc-ws-authentication-credentials-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
-```
+    ```bash
+    --rpc-ws-authentication-credentials-file=/home/me/me_node/auth.toml
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
+    ```
 
 The path to the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
 for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
 ### rpc-ws-authentication-enabled
 
-```bash tab="Syntax"
---rpc-ws-authentication-enabled
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-ws-authentication-enabled
-```
+    ```bash
+    --rpc-ws-authentication-enabled
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_AUTHENTICATION_ENABLED=true
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-ws-authentication-enabled=true
-```
+    ```bash
+    --rpc-ws-authentication-enabled
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_AUTHENTICATION_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-authentication-enabled=true
+    ```
 
 Enables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the WebSockets JSON-RPC
 service.
@@ -2030,59 +2682,81 @@ service.
 
 ### rpc-ws-authentication-jwt-public-key-file
 
-```bash tab="Syntax"
---rpc-http-authentication-jwt-public-key-file=<FILE>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---rpc-http-authentication-jwt-public-key-file=publicKey.pem
-```
+    ```bash
+    --rpc-http-authentication-jwt-public-key-file=<FILE>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-http-authentication-jwt-public-key-file="publicKey.pem"
-```
+    ```bash
+    --rpc-http-authentication-jwt-public-key-file=publicKey.pem
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+    ```
 
 The [JWT provider's public key file] used for JSON-RPC websocket authentication with an external
 JWT.
 
 ### rpc-ws-enabled
 
-```bash tab="Syntax"
---rpc-ws-enabled
-```
+=== "Syntax"
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_ENABLED=true
-```
+    ```bash
+    --rpc-ws-enabled
+    ```
 
-```bash tab="Configuration File"
-rpc-ws-enabled=true
-```
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-enabled=true
+    ```
 
 Enables the WebSockets JSON-RPC service. The default is `false`.
 
 ### rpc-ws-host
 
-```bash tab="Syntax"
---rpc-ws-host=<HOST>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on all interfaces
---rpc-ws-host=0.0.0.0
-```
+    ```bash
+    --rpc-ws-host=<HOST>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_HOST=0.0.0.0
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-ws-host="0.0.0.0"
-```
+    ```bash
+    # to listen on all interfaces
+    --rpc-ws-host=0.0.0.0
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_HOST=0.0.0.0
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-host="0.0.0.0"
+    ```
 
 The host for Websocket WS-RPC to listen on. The default is 127.0.0.1.
 
@@ -2090,43 +2764,59 @@ To allow remote connections, set to `0.0.0.0`
 
 ### rpc-ws-port
 
-```bash tab="Syntax"
---rpc-ws-port=<PORT>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
-# to listen on port 6174
---rpc-ws-port=6174
-```
+    ```bash
+    --rpc-ws-port=<PORT>
+    ```
 
-```bash tab="Environment Variable"
-BESU_RPC_WS_PORT=6174
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-rpc-ws-port="6174"
-```
+    ```bash
+    # to listen on port 6174
+    --rpc-ws-port=6174
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_PORT=6174
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-ws-port="6174"
+    ```
 
 The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### security-module
 
-```bash tab="Syntax"
---security-module=<NAME>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---security-module=security_module
-```
+    ```bash
+    --security-module=<NAME>
+    ```
 
-```bash tab="Environment Variable"
-BESU_SECURITY_MODULE=security_module
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-security-module="security_module"
-```
+    ```bash
+    --security-module=security_module
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_SECURITY_MODULE=security_module
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    security-module="security_module"
+    ```
 
 Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
 plugin
@@ -2136,21 +2826,29 @@ Defaults to using the nodes's local private key file specified using
 
 ### sync-mode
 
-```bash tab="Syntax"
---sync-mode=FAST
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---sync-mode=FAST
-```
+    ```bash
+    --sync-mode=FAST
+    ```
 
-```bash tab="Environment Variable"
-BESU_SYNC_MODE=FAST
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-sync-mode="FAST"
-```
+    ```bash
+    --sync-mode=FAST
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_SYNC_MODE=FAST
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    sync-mode="FAST"
+    ```
 
 The synchronization mode. The options are `FAST` and `FULL`.
 
@@ -2184,21 +2882,29 @@ The synchronization mode. The options are `FAST` and `FULL`.
 
 ### target-gas-limit
 
-```bash tab="Syntax"
---target-gas-limit=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---target-gas-limit=8000000
-```
+    ```bash
+    --target-gas-limit=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_TARGET_GAS_LIMIT=8000000
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-target-gas-limit="8000000"
-```
+    ```bash
+    --target-gas-limit=8000000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_TARGET_GAS_LIMIT=8000000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    target-gas-limit="8000000"
+    ```
 
 The gas limit toward which Besu will gradually move on an existing network, if enough miners are in
 agreement. To change the block gas limit set in the genesis file without creating a new network,
@@ -2212,90 +2918,124 @@ specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
 ### tx-pool-max-size
 
-```bash tab="Syntax"
---tx-pool-max-size=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---tx-pool-max-size=2000
-```
+    ```bash
+    --tx-pool-max-size=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_TX_POOL_MAX_SIZE=2000
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-tx-pool-max-size="2000"
-```
+    ```bash
+    --tx-pool-max-size=2000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_TX_POOL_MAX_SIZE=2000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    tx-pool-max-size="2000"
+    ```
 
 The maximum number of transactions kept in the transaction pool. The default is 4096.
 
 ### tx-pool-hashes-max-size
 
-```bash tab="Syntax"
---tx-pool-hashes-max-size=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---tx-pool-hashes-max-size=2000
-```
+    ```bash
+    --tx-pool-hashes-max-size=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_TX_POOL_HASHES_MAX_SIZE=2000
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-tx-pool-hashes-max-size="2000"
-```
+    ```bash
+    --tx-pool-hashes-max-size=2000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_TX_POOL_HASHES_MAX_SIZE=2000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    tx-pool-hashes-max-size="2000"
+    ```
 
 The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
 ### tx-pool-price-bump
 
-```bash tab="Syntax"
---tx-pool-price-bump=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---tx-pool-price-bump=25
-```
+    ```bash
+    --tx-pool-price-bump=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_TX_POOL_PRICE_BUMP=25
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-tx-pool-price-bump=25
-```
+    ```bash
+    --tx-pool-price-bump=25
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_TX_POOL_PRICE_BUMP=25
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    tx-pool-price-bump=25
+    ```
 
 The price bump percentage to replace an existing transaction. The default is 10.
 
 ### tx-pool-retention-hours
 
-```bash tab="Syntax"
---tx-pool-retention-hours=<INTEGER>
-```
+=== "Syntax"
 
-```bash tab="Command Line"
---tx-pool-retention-hours=5
-```
+    ```bash
+    --tx-pool-retention-hours=<INTEGER>
+    ```
 
-```bash tab="Environment Variable"
-BESU_TX_POOL_RETENTION_HOURS=5
-```
+=== "Command Line"
 
-```bash tab="Configuration File"
-tx-pool-retention-hours=5
-```
+    ```bash
+    --tx-pool-retention-hours=5
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_TX_POOL_RETENTION_HOURS=5
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    tx-pool-retention-hours=5
+    ```
 
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
 
 ### version
 
-```bash tab="Syntax"
-  -V, --version
-```
+=== "Syntax"
+
+    ```bash
+    -V, --version
+    ```
 
 Print version information and exit.
 

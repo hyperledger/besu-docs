@@ -15,28 +15,30 @@ retrieve only the [`trace`](#trace) option.
 
 An ordered list of calls to other contracts, excluding precompiled contracts.
 
-```json tab="trace Example"
-"trace":[
-  {
-    "action":{
-      "callType":"call",
-      "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-      "gas":"0xffadea",
-      "input":"0x",
-      "to":"0x0100000000000000000000000000000000000000",
-      "value":"0x0"
-    },
-    "result":{
-      "gasUsed":"0x1e",
-      "output":"0x"
-    },
-    "subtraces":0,
-    "traceAddress":[
-    ],
-    "type":"call"
-  }
-]
-```
+!!!example "trace Example"
+
+    ```json
+    "trace":[
+      {
+        "action":{
+          "callType":"call",
+          "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+          "gas":"0xffadea",
+          "input":"0x",
+          "to":"0x0100000000000000000000000000000000000000",
+          "value":"0x0"
+        },
+        "result":{
+          "gasUsed":"0x1e",
+          "output":"0x"
+        },
+        "subtraces":0,
+        "traceAddress":[
+        ],
+        "type":"call"
+      }
+    ]
+    ```
 
 | Key            | Value                                                                          |
 |----------------| -------------------------------------------------------------------------------|
@@ -71,27 +73,29 @@ For out of gas operations, `vmTrace` reports the operation that caused the out o
 including the calculated gas cost. `vmTrace` does not report `ex` values because the operation is
 not executed.
 
-```json tab="vmTrace Example"
-"vmTrace":{
-  "code":"0x7f3940be4289e4c3587d88c1856cc95352461992db0a584c281226faefe560b3016000527f14c4d2c102bdeb2354bfc3dc96a95e4512cf3a8461e0560e2272dbf884ef3905601052600851",
-  "ops":[
-    {
-    "cost":3,
-    "ex":{
-      "mem":null,
-      "push":[
-        "0x8"
-      ],
-      "store":null,
-      "used":16756175
-    },
-    "pc":72,
-    "sub":null
-    },
-    ...
-  ]
-}
-```
+!!!example "vmTrace Example"
+
+    ```json
+    "vmTrace":{
+      "code":"0x7f3940be4289e4c3587d88c1856cc95352461992db0a584c281226faefe560b3016000527f14c4d2c102bdeb2354bfc3dc96a95e4512cf3a8461e0560e2272dbf884ef3905601052600851",
+      "ops":[
+        {
+        "cost":3,
+        "ex":{
+          "mem":null,
+          "push":[
+            "0x8"
+          ],
+          "store":null,
+          "used":16756175
+        },
+        "pc":72,
+        "sub":null
+        },
+        ...
+      ]
+    }
+    ```
 
 | Key       | Value                                                                               |
 |-----------| ------------------------------------------------------------------------------------|
@@ -118,27 +122,29 @@ transaction to after the transaction. For the `key:value` pairs:
 
 An absent value is distinct from zero when creating accounts or clearing storage.
 
-```json tab="stateDiff Example"
-"stateDiff":{
-  "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{
-    "balance":{
-      "*":{
-        "from":"0xffffffffffffffffffffffffffffffffc3e12a20b",
-        "to":"0xffffffffffffffffffffffffffffffffc3dc5f091"
+!!!example "stateDiff Example"
+
+    ```json
+    "stateDiff":{
+      "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73":{
+        "balance":{
+          "*":{
+            "from":"0xffffffffffffffffffffffffffffffffc3e12a20b",
+            "to":"0xffffffffffffffffffffffffffffffffc3dc5f091"
+          }
+        },
+        "code":"=",
+        "nonce":{
+          "*":{
+            "from":"0x14",
+            "to":"0x15"
+          }
+        },
+        "storage":{
+        }
       }
-    },
-    "code":"=",
-    "nonce":{
-      "*":{
-        "from":"0x14",
-        "to":"0x15"
-      }
-    },
-    "storage":{
     }
-  }
-}
-```
+    ```
 
 | Key            | Value                                                                          |
 |-----------     | -------------------------------------------------------------------------------|

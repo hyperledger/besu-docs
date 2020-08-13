@@ -105,6 +105,9 @@ The JSON-RPC methods to add or remove signers are:
 To view signer metrics for a specified block range, call
 [`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
 
+!!! tip
+    `clique_getSignerMetrics` can be used to identify validators that are not active. The validator's `lastProposedBlockNumber` will be `0x0`
+
 ### Adding a signer
 
 To propose adding a signer, call

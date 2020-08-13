@@ -3350,7 +3350,7 @@ remove a signer.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-    The DEBUG API is an more verbose alternative to the [TRACE API](#trace-methods) whose main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). We recommend using the [TRACE API](#trace-methods) for production use over the DEBUG API. 
+    The DEBUG API is a more verbose alternative to the [TRACE API](#trace-methods) whose main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). We recommend using the [TRACE API](#trace-methods) for production use over the DEBUG API. 
 
 ### debug_accountRange
 

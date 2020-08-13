@@ -74,7 +74,7 @@ You can specify only one log level per RPC call.
 
 #### Returns
 
-`result` : `Success` if the log level has changed; otherwise `error`.
+`result` : `Success` if the log level has changed, otherwise `error`.
 
 This example changes the debug level for specified classes to `DEBUG`.
 
@@ -183,7 +183,7 @@ is used as the starting point.
 
 #### Returns
 
-`result` -  Status of the repair request; either `Started`, or `Already running`.
+`result` -  Status of the repair request. Either `Started`, or `Already running`.
 
 !!! example
 
@@ -842,7 +842,7 @@ None
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks; otherwise `false`.
+`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks, otherwise `false`.
 
 !!! example
 
@@ -1957,7 +1957,7 @@ The following example returns an estimate of 21000 wei (`0x5208`) for the transa
 
 The following example request estimates the cost of deploying a simple storage smart contract to
 the network. The data field contains the hash of the compiled contract you want to deploy. (You can
-get the compiled contract hash from your IDE; for example, **Remix > Compile tab > details >
+get the compiled contract hash from your IDE, for example, **Remix > Compile tab > details >
 WEB3DEPLOY**.) The result is 113355 wei.
 
 #### Returns
@@ -2709,7 +2709,7 @@ None
 
 Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
 
-Filters time out when not requested by [eth_getFilterChanges](#eth_getfilterchanges) for 10
+Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or [`eth_getFilterLogs`](#eth_getfilterlogs) for 10
 minutes.
 
 #### Parameters
@@ -2718,7 +2718,7 @@ minutes.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 
@@ -2889,6 +2889,10 @@ Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified 
 Leave the [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
+!!! attention
+
+    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from its genesis block, can cause Besu to hang and never return a response. We recommend splitting one large query into multiple ones for better performance.
+
 #### Parameters
 
 `Object` - [Filter options object](API-Objects.md#filter-options-object).
@@ -3008,7 +3012,7 @@ None
 
 * `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
 * `DATA`, 32 Bytes - The seed hash used for the DAG.
-* `DATA`, 32 Bytes - The required target boundary condition; 2^256 / difficulty.
+* `DATA`, 32 Bytes - The required target boundary condition: 2^256 / difficulty.
 * `QUANTITY` - Hexadecimal integer representing the current block number.
 
 !!! example
@@ -4577,7 +4581,7 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4684,7 +4688,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
@@ -4777,8 +4781,8 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 !!! important
 
-    Your node must be an archive node (that is, synchronised without pruning or fast sync) or the
-    requested transaction must be contained in a blocked within
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested transaction must be contained in a block within
     [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
 
 #### Parameters
@@ -5352,7 +5356,7 @@ None
 
 ### priv_getPrivateTransaction
 
-Returns the private transaction if you are a participant; otherwise, `null`.
+Returns the private transaction if you are a participant, otherwise, `null`.
 
 #### Parameters
 
@@ -5678,7 +5682,7 @@ for public contracts.
 Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
 call this method.
 
-Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) for 10
+Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) or [`priv_getFilterLogs`](#priv_getfilterlogs) for 10
 minutes.
 
 For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)
@@ -5692,7 +5696,7 @@ for public contracts.
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled; otherwise `false`.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 !!! example
 

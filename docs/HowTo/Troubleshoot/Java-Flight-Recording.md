@@ -1,5 +1,5 @@
 ---
-description: Using Java Flight Recorder with Hyperledger Besu 
+description: Using Java Flight Recorder with Hyperledger Besu
 ---
 
 # Java Flight Recorder

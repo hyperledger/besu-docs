@@ -44,19 +44,19 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -85,21 +85,21 @@ You can specify only one log level per RPC call.
 !!! example
 
     The following example changes the debug level for specified classes to `DEBUG`.
-    
+
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
          "jsonrpc": "2.0",
@@ -111,19 +111,19 @@ You can specify only one log level per RPC call.
     The following example changes the debug level of all logs to `WARN`.
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
          "jsonrpc": "2.0",
@@ -167,19 +167,19 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -210,19 +210,19 @@ is used as the starting point.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -265,19 +265,19 @@ Properties of the node object are:
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -345,19 +345,19 @@ Properties of the remote node object are:
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -401,19 +401,19 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -439,19 +439,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -476,19 +476,19 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -525,19 +525,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"net_version","params":[],"id":53}
         ```
-    
+
     === "JSON result for Mainnet"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -545,9 +545,9 @@ None
           "result" : "1"
         }
         ```
-    
+
     === "JSON result for Ropsten"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -572,19 +572,19 @@ otherwise `false`.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -608,19 +608,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -644,19 +644,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -680,19 +680,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"net_services","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -752,19 +752,19 @@ synchronizing:
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -778,15 +778,15 @@ synchronizing:
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           syncing {
@@ -798,9 +798,9 @@ synchronizing:
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```json
         {
           "data" : {
@@ -830,19 +830,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -866,19 +866,19 @@ None
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -886,23 +886,23 @@ None
           "result": "0x3f"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{protocolVersion}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           protocolVersion
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```json
         {
           "data" : {
@@ -936,19 +936,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -973,19 +973,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1012,19 +1012,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}
         ```
 
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -1050,19 +1050,19 @@ None
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1072,13 +1072,13 @@ None
         ```
 
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           gasPrice
@@ -1086,7 +1086,7 @@ None
         ```
 
     === "GraphQL result"
-    
+
         ```json
         {
           "data" : {
@@ -1119,19 +1119,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1156,19 +1156,19 @@ number of the current chain head.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1176,15 +1176,15 @@ number of the current chain head.
           "result" : "0x2377"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{number}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block {
@@ -1192,9 +1192,9 @@ number of the current chain head.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1224,19 +1224,19 @@ Returns the account balance of the specified address.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1244,15 +1244,15 @@ Returns the account balance of the specified address.
           "result" : "0x1cfe56f3795885980000"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account ( address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") { balance } }"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
@@ -1260,9 +1260,9 @@ Returns the account balance of the specified address.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data": {
@@ -1307,21 +1307,21 @@ from untrusted sources, by using a trusted block hash.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
         "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method": "eth_getProof","params": [
         "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -1376,19 +1376,19 @@ Returns the value of a storage position at a specified address.
     Calculating the correct position depends on the storage you want to retrieve.
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1396,15 +1396,15 @@ Returns the value of a storage position at a specified address.
           "result" : "0x0000000000000000000000000000000000000000000000000000000000000000"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{account(address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") {storage(slot: \"0x04\")}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
@@ -1412,9 +1412,9 @@ Returns the value of a storage position at a specified address.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1446,19 +1446,19 @@ address.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1466,15 +1466,15 @@ address.
           "result" : "0x1"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account (address:\"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\"){transactionCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
@@ -1482,9 +1482,9 @@ address.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1510,19 +1510,19 @@ Returns the number of transactions in the block matching the given block hash.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1530,15 +1530,15 @@ Returns the number of transactions in the block matching the given block hash.
           "result" : null
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097\"){transactionCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(hash: "0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097") {
@@ -1546,9 +1546,9 @@ Returns the number of transactions in the block matching the given block hash.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1576,19 +1576,19 @@ Returns the number of transactions in a block matching the specified block numbe
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1596,15 +1596,15 @@ Returns the number of transactions in a block matching the specified block numbe
           "result" : "0x8"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:232){transactionCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(number: 232) {
@@ -1612,9 +1612,9 @@ Returns the number of transactions in a block matching the specified block numbe
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1646,19 +1646,19 @@ Returns uncle specified by block hash and index.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc":"2.0",
@@ -1686,15 +1686,15 @@ Returns uncle specified by block hash and index.
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7\"){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(hash: "0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7") {
@@ -1717,9 +1717,9 @@ Returns uncle specified by block hash and index.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data": {
@@ -1765,19 +1765,19 @@ as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#b
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc":"2.0",
@@ -1805,15 +1805,15 @@ as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#b
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
          ```bash
          curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:2587){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
          ```
-    
+
     === "GraphQL"
-    
+
          ```bash
          {
            block(number: 2587) {
@@ -1836,9 +1836,9 @@ as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#b
            }
          }
          ```
-    
+
     === "GraphQL result"
-    
+
          ```bash
          {
            "data" : {
@@ -1864,19 +1864,19 @@ Returns the number of uncles in a block from a block matching the given block ha
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1884,15 +1884,15 @@ Returns the number of uncles in a block from a block matching the given block ha
           "result" : 0x0
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426\"){ommerCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(hash: "0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426") {
@@ -1900,9 +1900,9 @@ Returns the number of uncles in a block from a block matching the given block ha
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1930,19 +1930,19 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -1950,15 +1950,15 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
           "result" : "0x1"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:\"0x59fd\"){ommerCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(number: "0x59fd") {
@@ -1966,9 +1966,9 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -1999,19 +1999,19 @@ contract code as a hexadecimal value.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -2019,15 +2019,15 @@ contract code as a hexadecimal value.
             "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{account(address: \"0xa50a51c09a5c451c52bb714527e1974b686d8e77\"){ code }}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
@@ -2035,9 +2035,9 @@ contract code as a hexadecimal value.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2086,19 +2086,19 @@ transaction data using `eth_sendRawTransaction`.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "id":1,
@@ -2106,23 +2106,23 @@ transaction data using `eth_sendRawTransaction`.
           "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
          ```bash
          curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation {sendRawTransaction(data: \"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\")}"}' http://localhost:8547/graphql
          ```
-    
+
     === "GraphQL"
-    
+
          ```bash
          mutation {
            sendRawTransaction(data: "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833")
          }
          ```
-    
+
     === "GraphQL result"
-    
+
          ```json
          {
            "data" : {
@@ -2152,19 +2152,19 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","value":"0x1"}, "latest"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","value":"0x1"}, "latest"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -2172,15 +2172,15 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
             "result": "0x"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block {
@@ -2192,9 +2192,9 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```json
         {
           "data" : {
@@ -2234,21 +2234,21 @@ process (unlike transactions, in which gas limits apply).
 !!! example "Example of cost estimate of a value transaction"
 
     The following example returns an estimate of 21000 wei (`0x5208`) for the transaction.
-    
+
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73","to":"0x44Aa93095D6749A706051658B970b941c72c1D53","value":"0x1"}],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73","to":"0x44Aa93095D6749A706051658B970b941c72c1D53","value":"0x1"}],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2256,15 +2256,15 @@ process (unlike transactions, in which gas limits apply).
           "result" : "0x5208"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{estimateGas (data: {from :\"0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\", to :\"0x8888f1f195afa192cfee860698584c030f4c9db1\"})}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block {
@@ -2272,9 +2272,9 @@ process (unlike transactions, in which gas limits apply).
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2293,7 +2293,7 @@ process (unlike transactions, in which gas limits apply).
     WEB3DEPLOY**.) The result is 113355 wei.
 
     === "curl HTTP request"
-    
+
         ```bash
          curl -X POST \
             http://127.0.0.1:8545 \
@@ -2310,7 +2310,7 @@ process (unlike transactions, in which gas limits apply).
         ```
 
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -2338,19 +2338,19 @@ block.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x16b69965a5949262642cfb5e86368ddbbe57ab9f17d999174a65fd0e66580d8f", false],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x16b69965a5949262642cfb5e86368ddbbe57ab9f17d999174a65fd0e66580d8f", false],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2378,15 +2378,15 @@ block.
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (hash : \"0xb0efed1fc9326fee967cb2d845d4ebe57c5350a0670c8e86f8052dea6f219f92\") {number transactions{hash} timestamp difficulty totalDifficulty gasUsed gasLimit hash nonce ommerCount logsBloom mixHash ommerHash extraData stateRoot receiptsRoot transactionCount transactionsRoot}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(hash: "0xb0efed1fc9326fee967cb2d845d4ebe57c5350a0670c8e86f8052dea6f219f92") {
@@ -2413,9 +2413,9 @@ block.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2464,19 +2464,19 @@ block.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x64", true],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x64", true],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2504,15 +2504,15 @@ block.
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (number : 100) {transactions{hash} timestamp difficulty totalDifficulty gasUsed gasLimit hash nonce ommerCount logsBloom mixHash ommerHash extraData stateRoot receiptsRoot transactionCount transactionsRoot ommers{hash} ommerAt(index : 1){hash} miner{address} account(address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\"){balance} parent{hash} }}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(number: 100) {
@@ -2553,9 +2553,9 @@ block.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2609,19 +2609,19 @@ transaction.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2644,15 +2644,15 @@ transaction.
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash : \"0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d\") { block{hash} gas gasPrice hash nonce value from {address} to {address} status}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           transaction(hash: "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d") {
@@ -2674,9 +2674,9 @@ transaction.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2719,19 +2719,19 @@ transaction.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2754,15 +2754,15 @@ transaction.
           }
          }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{ block(hash: \"0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69\") { transactionAt(index: 0) {block{hash}  hash } } }"}' http://localhost:8547/graphql
         ```
 
     === "GraphQL"
-    
+
         ```bash
         {
           block(hash: "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69") {
@@ -2775,9 +2775,9 @@ transaction.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2817,19 +2817,19 @@ transaction.
     Etherscan.
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -2852,15 +2852,15 @@ transaction.
           }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{block(number:20303) {transactionAt(index: 0) {block{hash} hash}}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block(number: 20303) {
@@ -2873,9 +2873,9 @@ transaction.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -2911,19 +2911,19 @@ there is no receipt.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -2944,15 +2944,15 @@ there is no receipt.
             }
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash: \"0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86\") {block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
@@ -2980,9 +2980,9 @@ there is no receipt.
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data" : {
@@ -3030,19 +3030,19 @@ the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3067,19 +3067,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3104,19 +3104,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3143,19 +3143,19 @@ minutes.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3183,21 +3183,21 @@ Polls the specified filter and returns an array of changes that have occurred si
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xf8bf5598d9e04fbe84523d42640b9b0e"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xf8bf5598d9e04fbe84523d42640b9b0e"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
-    
+
         Example result from a filter created with `eth_newBlockFilter`:
         {
             "jsonrpc": "2.0",
@@ -3208,7 +3208,7 @@ Polls the specified filter and returns an array of changes that have occurred si
                 "0x4d4c731fe129ff32b425e6060d433d3fde278b565bbd1fd624d5a804a34f8786"
             ]
         }
-    
+
         Example result from a filter created with `eth_newPendingTransactionFilter`:
         {
             "jsonrpc": "2.0",
@@ -3218,9 +3218,9 @@ Polls the specified filter and returns an array of changes that have occurred si
                 "0xa3abc4b9a4e497fd58dc59cdff52e9bb5609136bcd499e760798aa92802769be"
             ]
         }
-    
+
         Example result from a filter created with `eth_newFilter`:
-    
+
         {
             "jsonrpc": "2.0",
             "id": 1,
@@ -3253,7 +3253,7 @@ Polls the specified filter and returns an array of changes that have occurred si
                 }
             ]
         }
-    
+
         ```
 
 ### eth_getFilterLogs
@@ -3279,19 +3279,19 @@ command line option at the default value of `true` to improve log retrieval perf
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x5ace5de3985749b6a1b2b0d3f3e1fb69"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x5ace5de3985749b6a1b2b0d3f3e1fb69"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3342,19 +3342,19 @@ command line option at the default value of `true` to improve log retrieval perf
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3382,15 +3382,15 @@ command line option at the default value of `true` to improve log retrieval perf
           } ]
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter:{fromBlock: 1486000, toBlock: 1486010, addresses: [\"0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d\"], topics: [[\"0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d\"]]}) {index topics data account{address} transaction{hash} }}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           logs(filter: {fromBlock: 1486000, toBlock: 1486010, addresses: ["0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"], topics: [["0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d"]]}) {
@@ -3406,9 +3406,9 @@ command line option at the default value of `true` to improve log retrieval perf
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```bash
         {
           "data": {
@@ -3468,19 +3468,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -3512,19 +3512,19 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc":"2.0",
@@ -3552,19 +3552,19 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "id":1,
@@ -3596,19 +3596,19 @@ Discards a proposal to [add or remove a signer with the specified address].
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3634,19 +3634,19 @@ Lists [signers for the specified block].
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3691,19 +3691,19 @@ If you specify:
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3743,19 +3743,19 @@ Lists signers for the specified block.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -3781,19 +3781,19 @@ Propose to [add or remove a signer with the specified address].
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
          "jsonrpc" : "2.0",
@@ -3822,19 +3822,19 @@ remove a signer.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3884,19 +3884,19 @@ Returns the accounts for a specified block.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -3940,19 +3940,19 @@ Returns the contract storage for the specified range.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -3993,19 +3993,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4129,19 +4129,19 @@ Reruns the transaction with the same state as when the transaction executed.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -4185,19 +4185,19 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -4241,19 +4241,19 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4304,19 +4304,19 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4368,19 +4368,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4404,19 +4404,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4448,19 +4448,19 @@ Discards a proposal to [add or remove a validator] with the specified address.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc" : "2.0",
@@ -4489,19 +4489,19 @@ remove a validator.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4528,19 +4528,19 @@ Lists the validators defined in the specified block.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4570,19 +4570,19 @@ Lists the validators defined in the specified block.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4612,19 +4612,19 @@ Propose to [add or remove a validator] with the specified address.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
          "jsonrpc" : "2.0",
@@ -4669,19 +4669,19 @@ If you specify:
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":["1", "100"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4739,19 +4739,19 @@ allowlist or including invalid account addresses.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4776,19 +4776,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4822,19 +4822,19 @@ or including invalid account addresses.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4865,19 +4865,19 @@ including invalid enode URLs.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4902,19 +4902,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4948,19 +4948,19 @@ or including invalid enode URLs.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -4984,19 +4984,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5056,7 +5056,7 @@ Supported operators:
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{
            "jsonrpc":"2.0",
@@ -5078,9 +5078,9 @@ Supported operators:
            "id":1
         }' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {
            "jsonrpc":"2.0",
@@ -5102,9 +5102,9 @@ Supported operators:
            "id":1
         }
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -5147,19 +5147,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5187,19 +5187,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5257,19 +5257,19 @@ one object per transaction, in transaction execution order.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5366,19 +5366,19 @@ one object per call, in transaction execution order.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5463,19 +5463,19 @@ one object per call, in the order called by the transaction.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5631,19 +5631,19 @@ transaction data using `eea_sendRawTransaction`.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "id":1,
@@ -5683,19 +5683,19 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5703,15 +5703,15 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
             "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
         }
         ```
-    
+
     === "curl GraphQL"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "GraphQL"
-    
+
         ```bash
         {
           block {
@@ -5723,9 +5723,9 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
           }
         }
         ```
-    
+
     === "GraphQL result"
-    
+
         ```json
         {
           "data" : {
@@ -5765,19 +5765,19 @@ Distributes a signed, RLP encoded
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -5813,19 +5813,19 @@ specified group of sender and recipients.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -5857,19 +5857,19 @@ empty list.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5920,19 +5920,19 @@ for private contracts.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -5991,19 +5991,19 @@ for private contracts.
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6059,19 +6059,19 @@ None
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6097,19 +6097,19 @@ a participant in the private transaction.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6155,19 +6155,19 @@ Privacy group ID
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -6191,19 +6191,19 @@ Privacy group ID that was deleted.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -6233,19 +6233,19 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
          "jsonrpc": "2.0",
@@ -6286,19 +6286,19 @@ or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSO
 !!! example
 
     === "curl HTTP"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6331,19 +6331,19 @@ specified privacy group.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -6369,19 +6369,19 @@ or `null` if no receipt found.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6430,19 +6430,19 @@ for public contracts.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6475,19 +6475,19 @@ for public contracts.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",
@@ -6519,19 +6519,19 @@ Reloads specified plugin configuration.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
           "jsonrpc": "2.0",
@@ -6558,19 +6558,19 @@ Enabled APIs.
 !!! example
 
     === "curl HTTP request"
-    
+
         ```bash
         curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' http://127.0.0.1:8545
         ```
-    
+
     === "wscat WS request"
-    
+
         ```bash
         {"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}
         ```
-    
+
     === "JSON result"
-    
+
         ```json
         {
             "jsonrpc": "2.0",

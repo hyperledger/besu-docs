@@ -16,7 +16,7 @@ The `config` property in the genesis file specifies the consensus protocol for a
 !!! example
 
     === "Ethash"
-    
+
         ```json
         {
           "config": {
@@ -28,9 +28,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
           ...
         }
         ```
-    
+
     === "Clique"
-    
+
         ```json
         {
           "config": {
@@ -42,9 +42,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
           ...
         }
         ```
-        
+
     === "IBFT 2.0"
-    
+
         ```json
         {
           "config": {
@@ -56,9 +56,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
           ...
         }
         ```
-    
+
     === "IBFT 1.0"
-    
+
         ```json
         {
           "config": {

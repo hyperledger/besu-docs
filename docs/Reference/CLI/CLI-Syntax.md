@@ -2235,9 +2235,9 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 === "Command Line"
 
     ```bash
-    
+
     $# You can allow one or more domains with a comma-separated list.
-    
+
     --rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
     ```
 
@@ -2256,9 +2256,9 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 === "Remix Example"
 
     ```bash
-    
+
     $# The following allows Remix to interact with your Besu node.
-    
+
     --rpc-http-cors-origins="http://remix.ethereum.org"
     ```
 

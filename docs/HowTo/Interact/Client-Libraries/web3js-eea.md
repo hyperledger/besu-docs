@@ -33,14 +33,14 @@ Initialize your EEA client where:
 !!! example
 
     === "Syntax"
-    
+
         ```js
         const EEAClient = require("web3-eea");
         const web3 = new EEAClient(new Web3("<JSON-RPC HTTP endpoint>"), <chain_id>);
         ```
-    
+
     === "Example"
-    
+
         ```js
         const EEAClient = require("web3-eea");
         const web3 = new EEAClient(new Web3("http://localhost:8545"), 2018);

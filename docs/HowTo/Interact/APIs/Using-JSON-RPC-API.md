@@ -90,19 +90,19 @@ Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number o
 and the number of blocks tolerance.
 
 === "Readiness Endpoint"
-    
+
     ```bash
     http://<JSON-RPC-HTTP-endpoint:port>/readiness
     ```
-    
+
 === "curl Request Example"
-    
+
     ```bash
     curl -v 'http://localhost:8545/readiness'
     ```
-    
+
 === "Query Parameters Example"
-    
+
     ```bash
     curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
     ```
@@ -112,13 +112,13 @@ and the number of blocks tolerance.
 The liveness check requires the JSON-RPC server to be up.
 
 === "Liveness Endpoint"
-    
+
     ```bash
     http://<JSON-RPC-HTTP-endpoint:port>/liveness
     ```
-    
+
 === "curl Request Example"
-    
+
     ```bash
     curl -v 'http://localhost:8545/liveness'
     ```

@@ -53,13 +53,13 @@ the [Besu GraphQL schema] from within the app.
 !!! example
 
     === "Pending Transaction Count"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "Result"
-    
+
         ```bash
         {
           "data" : {
@@ -73,13 +73,13 @@ the [Besu GraphQL schema] from within the app.
 !!! example
 
     === "Pending Transactions"
-    
+
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql
         ```
-    
+
     === "Result"
-    
+
         ```bash
         {
           "data" : {

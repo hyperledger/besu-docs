@@ -203,25 +203,25 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
 !!!example "Public logs"
 
     === "All logs"
-    
+
         ```json
          {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
         ```
-    
+
     === "Specific address and topic"
-    
+
         ```json
         {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
         ```
-    
+
     === "Result"
-    
+
         ```json
         {"jsonrpc":"2.0","id":1,"result":"0x2"}
         ```
-    
+
     === "Notification"
-    
+
         ```json
         {
           "jsonrpc":"2.0",
@@ -246,25 +246,25 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
 !!!example "Private logs"
 
     === "All logs for privacy group"
-    
+
         ```json
         {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
         ```
-    
+
     === "Specific address and topic"
-    
+
         ```json
         {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
         ```
-    
+
     === "Result"
-    
+
         ```json
         {"jsonrpc":"2.0","id":1,"result":"0x1"}
         ```
-    
+
     === "Notification"
-    
+
         ```json
         {
           "jsonrpc":"2.0",

@@ -363,28 +363,28 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
 !!! example
 
     === "Linux/MacOS command"
-    
+
          ```bash
          ./run-dapp.sh
          ```
-    
+
     === "DApp result"
-    
+
         ```log
         Compiling your contracts...
         ===========================
         > Compiling ./contracts/Adoption.sol
         > Compiling ./contracts/Migrations.sol
-    
+
         Starting migrations...
         ======================
         > Network name:    'quickstartWallet'
         > Network id:      2018
         > Block gas limit: 0xf7b760
-    
+
         1_initial_migration.js
         ======================
-    
+
            Replacing 'Migrations'
            ----------------------
            > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
@@ -398,15 +398,15 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
            > gas price:           20 gwei
            > value sent:          0 ETH
            > total cost:          0.00527482 ETH
-    
+
            > Saving migration to chain.
            > Saving artifacts
            -------------------------------------
            > Total cost:          0.00527482 ETH
-    
+
         2_deploy_contracts.js
         =====================
-    
+
            Replacing 'Adoption'
            --------------------
            > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
@@ -420,26 +420,26 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
            > gas price:           20 gwei
            > value sent:          0 ETH
            > total cost:          0.00479702 ETH
-    
+
            > Saving migration to chain.
            > Saving artifacts
            -------------------------------------
            > Total cost:          0.00479702 ETH
-    
+
         Summary
         =======
         > Total deployments:   2
         > Final cost:          0.01007184 ETH
-    
+
         Compiling your contracts...
         ===========================
         > Compiling ./test/TestAdoption.sol
-    
+
           TestAdoption
             ✓ testUserCanAdoptPet (2071ms)
             ✓ testGetAdopterAddressByPetId (6070ms)
             ✓ testGetAdopterAddressByPetIdInArray (6077ms)
-    
+
           3 passing (37s)
         ```
 

@@ -90,7 +90,7 @@ In private networks, the milestone block defines the protocol version for the ne
 
 ## Fixed difficulty
 
-Use `fixeddifficulty` to specify a fixed difficulty in private networks using Ethash. This will keep the network's difficulty constant and override the `difficulty` parameter from the genesis file. 
+Use `fixeddifficulty` to specify a fixed difficulty in private networks using Ethash. This will keep the network's difficulty constant and override the `difficulty` parameter from the genesis file.
 
 !!! example
 
@@ -108,4 +108,4 @@ Use `fixeddifficulty` to specify a fixed difficulty in private networks using Et
     ```
 
 !!! tip
-    Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments. For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead. Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targetted frequency. 
+    Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments. For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead. Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targetted frequency.

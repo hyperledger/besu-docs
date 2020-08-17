@@ -46,7 +46,8 @@ docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool option
   container.
 
 !!! note
-  The `latest` tag will be the latest released version of Besu, starting with 1.5.3.  The `develop` tag will be the current main branch code that will be going into a future release version of Besu.
+
+    The `latest` tag will be the latest released version of Besu, starting with 1.5.3.  The `develop` tag will be the current main branch code that will be going into a future release version of Besu.
 
 ## EVM Tool Run Options
 
@@ -54,29 +55,29 @@ The first mode of the EVM tool is runs arbitrary EVM and is invoked without an e
 
 ### code
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --code=<code as hex string>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --code=5B600080808060045AFA50600056
     ```
 
-The code to be exceuted, in compiled hex code form.  There is no default value, execution will fail if this is not set.
+The code to be executed, in compiled hex code form.  There is no default value, execution will fail if this is not set.
 
 ### gas
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --gas=<gas as a decimal integer>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --gas=100000000
@@ -86,13 +87,13 @@ Amount of gas to make available to the EVM.  Default value is 10 Billion, an inc
 
 ### price
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --price=<gas price in GWei as a decimal integer>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --price=10
@@ -102,13 +103,13 @@ Price of gas in GWei.  Default is zero.  If set to a non-zero value the sender a
 
 ### sender
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --sender=<address>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --sender=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
@@ -118,13 +119,13 @@ The account the invocation will be sent from.  This account needs to exist in th
 
 ### receiver
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --receiver=<address>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --receiver=0x588108d3eab34e94484d7cda5a1d31804ca96fe7
@@ -134,13 +135,13 @@ The account the invocation will be sent from.  This account does not need to exi
 
 ### input
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --input=<hex binary>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --input=9064129300000000000000000000000000000000000000000000000000000000
@@ -150,29 +151,29 @@ The data passed into the call.  Corresponds to the `data` field of the transacti
 
 ### value
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --value=<Wei in decimal>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --value=1000000000000000000
     ```
 
-The value of "ether" attached to this transaciton.  For operations that query the value or transfer it to other accounts this is the amount that will be available.  This amount is not reduced to cover intrinsic cost and gas fees.
+The value of "ether" attached to this transaction.  For operations that query the value or transfer it to other accounts this is the amount that will be available.  This amount is not reduced to cover intrinsic cost and gas fees.
 
 ### json
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --json=<boolean>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --json=true
@@ -182,13 +183,13 @@ Provide an operation by operation trace of the command in json when set to true.
 
 ### nomemory
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --nomemory=<boolean>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --nomemory=true
@@ -198,13 +199,13 @@ When tracing operations the memory will be traced for each operation.  For memor
 
 ### genesis
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --genesis=<path>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --genesis=/opt/besu/genesis.json
@@ -216,13 +217,13 @@ The Besu Genesis file to use when evaluating the EVM.  Most useful are the `allo
 
 ### chain
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --chain=<mainnet|ropsten|rinkeby|goerli|classic|mordor|kotti|dev>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --chain=goerli
@@ -232,13 +233,13 @@ The well-known network genesis file to use when evaluating the EVM.  These value
 
 ### repeat
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --repeat=<integer>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --repeat=1000
@@ -248,13 +249,13 @@ Number of times to repeat the contract before gathering timing information.  Thi
 
 ### revert-reason-enabled
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --revert-reason-enabled=<boolean>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --revert-reason-enabled=true
@@ -264,13 +265,13 @@ Should the EVM execution track revert reasons?  If enabled the json tracing will
 
 ### key-value-storage
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --key-value-storage=<memory|rocksdb>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --key-value-storage=rocksdb
@@ -282,13 +283,13 @@ Occasionally it may be useful to execute isolated EVM calls in context of an act
 
 ### data-path
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --data-path=<path>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --data-path=/opt/besu/data
@@ -297,13 +298,13 @@ When using `rocksdb` `key-value-storage` this is the location of the database on
 
 ### block-number
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --block-number=<integer>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --block-number=10000000
@@ -319,13 +320,13 @@ EVM Tool has a `stat-test` sub command that allows Ethereum State Tests to be ev
 
 #### json
 
-=== Syntax
+=== "Syntax"
 
     ```bash
     --json=<boolean>
     ```
 
-=== Example
+=== "Example"
 
     ```bash
     --json=true
@@ -338,13 +339,13 @@ Provide an operation by operation trace of the command in json when set to true.
 
 If you use command arguments you can list one or more state tests.  All of the state tests will be evaluated in the order they are specified.
 
-=== Docker Example
+=== "Docker Example"
 
     ```bash
     docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop --json state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
     ```
 
-=== CLI Example
+=== "CLI Example"
 
     ```bash
     evm --json state-test stExample/add11.json
@@ -354,13 +355,13 @@ If you use command arguments you can list one or more state tests.  All of the s
 
 If no reference tests are passed in via the command line the EvmTool will load one complete json object from standard input and execute that state test.
 
-=== Docker Example
+=== "Docker Example"
 
     ```bash
     docker run --rm  -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
     ```
 
-=== CLI Example
+=== "CLI Example"
 
     ```bash
     evm --json state-test < stExample/add11.json

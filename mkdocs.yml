@@ -188,6 +188,7 @@ nav:
         - web3js-eaa Reference: https://pegasyseng.github.io/web3js-eea/latest/
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
+        - EVM Tool: Reference/Evm-Tool.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 

@@ -42,7 +42,7 @@ repo_url: https://github.com/hyperledger/besu/
 
 theme:
     name: material
-    custom_dir: docs/custom_theme
+    custom_dir: custom_theme
     palette:
         primary: blue-grey
         accent: teal

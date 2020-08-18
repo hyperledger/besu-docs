@@ -68,7 +68,7 @@ The JSON-RPC API methods for mining are:
 
 ## Hyperledger Besu Mined Blocks
 
-Hyperledger Besu has successfully mined blocks on the Ropsten testnet, ETC mainnet (uncle block only) and Mordor ETC testnet. 
+Hyperledger Besu has successfully mined blocks on the Ropsten testnet, ETC mainnet (uncle block only) and Mordor ETC testnet.
 Blocks mined by the Hyperledger Besu team contain the version number used in the block's `extraData` field. The following accounts
 have been used to mine on public networks with Hyperledger Besu:
 

@@ -314,7 +314,7 @@ The block number to evaluate the code against.  This is useful to ensure that th
 
 ## EVM Tool State Test Options
 
-EVM Tool has a `stat-test` sub command that allows Ethereum State Tests to be evaluated.  Most of the options from EVM execution do not apply.
+EVM Tool has a `state-test` sub command that allows Ethereum State Tests to be evaluated.  Most of the options from EVM execution do not apply.
 
 ### Applicable Options
 

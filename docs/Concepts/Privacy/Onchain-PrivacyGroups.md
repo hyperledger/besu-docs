@@ -30,8 +30,9 @@ create a privacy group, the contract bytecode is part of the genesis state of th
     All members of an onchain privacy group must be using the same version of Hyperledger Besu. If
     using different versions, the private state within the privacy group may become inconsistent.
 
-The provided group management contracts do not enforce any permissioning on group members. That is,
-any member of a group can make transactions in the group, and add or remove group members.
+In the provided group management contract the owner of the privacy group management contract is the signer
+of the private transaction that created the privacy group. In the default group management contract
+implementation, only the owner can add and remove participants, and upgrade the management contract.
 
 ## Onchain Privacy Group IDs
 

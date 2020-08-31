@@ -129,6 +129,7 @@ nav:
           - Use Truffle: HowTo/Develop-Dapps/Truffle.md
           - Use Client Libraries: HowTo/Develop-Dapps/Client-Libraries.md
         - Troubleshoot:
+          - Use EVM tool: HowTo/Troubleshoot/Use-EVM-Tool.md
           - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
           - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md

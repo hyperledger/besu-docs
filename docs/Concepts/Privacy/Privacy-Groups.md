@@ -16,7 +16,7 @@ state.
     The privacy group implementations described below are offchain privacy groups and cannot have
     their group membership updated.
 
-    [Onchain privacy groups are an early access feature in v1.4](Onchain-PrivacyGroups.md).
+    [Onchain privacy groups are an early access feature](Onchain-PrivacyGroups.md).
 
 ## Privacy types
 

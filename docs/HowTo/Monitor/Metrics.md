@@ -26,7 +26,7 @@ To use Prometheus with Besu, install the
 [Prometheus main component](https://prometheus.io/download/). On MacOS, install with
 [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
- ```bash
+```bash
  brew install prometheus
 ```
 
@@ -49,16 +49,38 @@ To configure Prometheus and run with Besu:
 
 !!!example
 
-    ```yml
-      job_name: besu-dev
-      scrape_interval: 15s
-      scrape_timeout: 10s
-      metrics_path: /metrics
-      scheme: http
-      static_configs:
-      - targets:
-        - localhost:9545
-    ```
+    === "Fragment to insert in prometheus.yml"
+
+        ```yml
+          - job_name: besu
+            scrape_interval: 15s
+            scrape_timeout: 10s
+            metrics_path: /metrics
+            scheme: http
+            static_configs:
+            - targets:
+              - localhost:9545
+        ```
+
+    === "Full prometheus.yml example"
+
+        ```yml
+        global:
+          scrape_interval: 15s
+
+        scrape_configs:
+          - job_name: "prometheus"
+            static_configs:
+            - targets: ["localhost:9090"]
+          - job_name: besu
+            scrape_interval: 15s
+            scrape_timeout: 10s
+            metrics_path: /metrics
+            scheme: http
+            static_configs:
+            - targets:
+              - localhost:9545
+        ```
 
     Prometheus requires 3 MB of space per node per hour for metrics, with a `scrape_interval` of 15
     seconds.
@@ -150,7 +172,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 ## View Prometheus graphical interface
 
-1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
+1. Open a web browser to http://localhost:9090 to view the Prometheus graphical interface.
 
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 

@@ -1,8 +1,9 @@
-**Before pushing any commit in your pull request, make sure that you:**
+**Before pushing any commit in your pull request, make sure that:**
 
-- [ ] read the [contribution guidelines](https://wiki.hyperledger.org/display/BESU/Contributing+to+documentation).
-- [ ] [signed all commits of for the DCO](https://wiki.hyperledger.org/display/BESU/DCO).
-- [ ] have [tested your changes locally](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewTheDocumentation) before submitting them to the community for review. -->
+- [ ] you read the [contribution guidelines](https://wiki.hyperledger.org/display/BESU/Contributing+to+documentation).
+- [ ] [all commits in this PR are signed of for the DCO](https://wiki.hyperledger.org/display/BESU/DCO).
+- [ ] you have [tested your changes locally](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewTheDocumentation) before submitting them to the community for review.
+- [ ] you verified the rendering on [ReadTheDocs.org PR preview](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewwithReadTheDocs) (see [Testing](#testing))
 
 ## Describe the change
 
@@ -40,7 +41,11 @@ see #{your issue number} -->
 
 ## Testing
 
-<!-- Steps to follow to review and test your changes. -->
+<!-- Steps to follow to review and test your changes.
+Add links to preview the pages changes here.
+Link format is https://hyperledger-besu--{your PR number}.org.readthedocs.build/en/{your PR number}/
+Where {your PR number} must be replaced by the number of this PR, for instance 123
+-->
 
 ## Screenshots / recording
 

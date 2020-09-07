@@ -1,7 +1,7 @@
 **Before pushing any commit in your pull request, make sure that:**
 
 - [ ] you read the [contribution guidelines](https://wiki.hyperledger.org/display/BESU/Contributing+to+documentation).
-- [ ] [all commits in this PR are signed of for the DCO](https://wiki.hyperledger.org/display/BESU/DCO).
+- [ ] [all commits in this PR are signed off for the DCO](https://wiki.hyperledger.org/display/BESU/DCO).
 - [ ] you have [tested your changes locally](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewTheDocumentation) before submitting them to the community for review.
 - [ ] you verified the rendering on [ReadTheDocs.org PR preview](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewwithReadTheDocs) (see [Testing](#testing))
 

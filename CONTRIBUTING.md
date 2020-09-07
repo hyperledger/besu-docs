@@ -17,7 +17,6 @@ to propose changes to this document in a pull request.
 * [Reporting bugs in the documentation]
 * [Submitting a documentation enhancement suggestion]
 * [Documentation style guide]
-* [Pull request labels](https://wiki.hyperledger.org/display/BESU/Pull+Request+Labels)
 * [Security](SECURITY.md)
 
 ### Other important information

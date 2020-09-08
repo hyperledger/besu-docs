@@ -2,7 +2,7 @@
 description: Hyperledger Besu EVM Tool Reference
 ---
 
-## EVM Tool Run Options
+# EVM Tool Run Options
 
 The first mode of the EVM tool runs arbitrary EVM and is invoked without an extra command. Command Line
 Options specify the code and other contextual information.
@@ -263,6 +263,7 @@ for a transaction.  Useful when evaluating consensus failures.
     ```bash
     --data-path=/opt/besu/data
     ```
+
 When using `rocksdb` for `key-value-storage`, specifies the location of the database on disk.
 
 ### block-number

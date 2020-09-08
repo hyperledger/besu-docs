@@ -16,7 +16,7 @@ build from the source repository or use a pre-published docker image.
 
 To build from source, run the following from the root of the Besu repository:
 
-```
+```bash
 ./gradlew :ethereum:evmTool:installDist
 ```
 
@@ -58,4 +58,4 @@ Line Options](../../Reference/Evm-Tool.md) specify the code and other contextual
 The EVM Tool also has a [`state-test` sub command](../../Reference/Evm-Tool.md#evm-tool-state-test-options)
 that allows the Ethereum State Tests to be evaluated. Most of the options from EVM execution do not apply.
 
-The [EVM Tool reference](../../Reference/Evm-Tool.md) provides more information on both modes. 
+The [EVM Tool reference](../../Reference/Evm-Tool.md) provides more information on both modes.

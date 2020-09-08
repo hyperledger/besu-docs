@@ -2,9 +2,9 @@
 description: Hyperledger Besu EVM Tool Reference
 ---
 
-# EVM Tool Reference 
+# EVM Tool Reference
 
-Options for running: 
+Options for running:
 
 * [Arbitrary EVM programs](#run-options)
 * [Ethereum State Tests](#state-test-options).

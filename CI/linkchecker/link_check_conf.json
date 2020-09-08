@@ -16,6 +16,9 @@
             "pattern": "^http(s)?://.+.etherscan.io/address/0x"
         },
         {
+            "pattern": "^http(s)?://.+.blockscout.com/"
+        },
+        {
             "pattern": "/postman/.+.json"
         }
     ]

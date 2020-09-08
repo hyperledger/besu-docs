@@ -20,6 +20,9 @@
         },
         {
             "pattern": "/postman/.+.json"
+        },
+        {
+            "pattern": "https://remix.ethereum.org/"
         }
     ]
 }

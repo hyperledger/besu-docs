@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test:links:check": "find . -name \\*.md ! -path \"./node_modules/*\" -exec ./node_modules/markdown-link-check/markdown-link-check -q -c CI/linkchecker/link_check_conf.json {} \\; 2>&1 | tee linkchecker.out",
+    "test:links:check": "find . -name \\*.md ! -path \"./node_modules/*\" -exec ./node_modules/markdown-link-check/markdown-link-check -v -c CI/linkchecker/link_check_conf.json {} \\; 2>&1 | tee linkchecker.out",
     "test:links:display": "cat linkchecker.out",
     "test:links:verify": "! grep -n '[✖]\\|ERROR' ./linkchecker.out",
     "test:links": "npm run test:links:check && npm run test:links:display && npm run test:links:verify",

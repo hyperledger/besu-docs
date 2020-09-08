@@ -2,9 +2,16 @@
 description: Hyperledger Besu EVM Tool Reference
 ---
 
-# EVM Tool Run Options
+# EVM Tool Reference 
 
-The first mode of the EVM tool runs arbitrary EVM and is invoked without an extra command. Command Line
+Options for running: 
+
+* [Arbitrary EVM programs](#run-options)
+* [Ethereum State Tests](#state-test-options).
+
+## Run Options
+
+The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command Line
 Options specify the code and other contextual information.
 
 ### code
@@ -283,7 +290,7 @@ When using `rocksdb` for `key-value-storage`, specifies the location of the data
 The block number to evaluate the code against.  Used to ensure that the EVM is evaluating the
 code against the correct fork, or to specify the specific world state when running with `rocksdb` for `key-value-storage`.
 
-## EVM Tool State Test Options
+## State Test Options
 
 The `state-test` sub command allows the Ethereum State Tests to be evaluated.  Most of the options
 from EVM execution do not apply.

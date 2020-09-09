@@ -26,7 +26,7 @@ To use Prometheus with Besu, install the
 [Prometheus main component](https://prometheus.io/download/). On MacOS, install with
 [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
- ```bash
+```bash
  brew install prometheus
 ```
 
@@ -47,16 +47,40 @@ To configure Prometheus and run with Besu:
 1. Configure Prometheus to poll Besu. For example, add the following yaml fragment to the
    `scrape_configs` block of the `prometheus.yml` file:
 
-    ```yml tab="Example"
-      job_name: besu-dev
-      scrape_interval: 15s
-      scrape_timeout: 10s
-      metrics_path: /metrics
-      scheme: http
-      static_configs:
-      - targets:
-        - localhost:9545
-    ```
+!!!example
+
+    === "Fragment to insert in prometheus.yml"
+
+        ```yml
+          - job_name: besu
+            scrape_interval: 15s
+            scrape_timeout: 10s
+            metrics_path: /metrics
+            scheme: http
+            static_configs:
+            - targets:
+              - localhost:9545
+        ```
+
+    === "Full prometheus.yml example"
+
+        ```yml
+        global:
+          scrape_interval: 15s
+
+        scrape_configs:
+          - job_name: "prometheus"
+            static_configs:
+            - targets: ["localhost:9090"]
+          - job_name: besu
+            scrape_interval: 15s
+            scrape_timeout: 10s
+            metrics_path: /metrics
+            scheme: http
+            static_configs:
+            - targets:
+              - localhost:9545
+        ```
 
     Prometheus requires 3 MB of space per node per hour for metrics, with a `scrape_interval` of 15
     seconds.
@@ -65,9 +89,17 @@ To configure Prometheus and run with Besu:
    [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option. To start a
    single node for testing with metrics enabled:
 
-    ```bash tab="Example"
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
-    ```
+    === "Command syntax"
+
+        ```bash
+        besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+        ```
+
+    === "Example"
+
+        ```bash
+        besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+        ```
 
     To specify the host and port on which Prometheus accesses Besu, use the
     [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host) and
@@ -76,7 +108,7 @@ To configure Prometheus and run with Besu:
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
-    ```bash tab="Example"
+    ```bash
     prometheus --config.file=prometheus.yml
     ```
 
@@ -100,7 +132,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 1. Configure Prometheus to read from a push gateway. For example, add the following yaml fragment
    to the `scrape_configs` block of the `prometheus.yml` file:
 
-       ```yml tab="Example"
+       ```yml
         - job_name: push-gateway
           metrics_path: /metrics
           scheme: http
@@ -111,20 +143,28 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 1. Start the push gateway. You can deploy the push gateway using the Docker image:
 
-    ```bash tab="Example"
+    ```bash
     docker pull prom/pushgateway
     docker run -d -p 9091:9091 prom/pushgateway
     ```
 
 1. Start Besu specifying the `--metrics-push-enabled` option and port of the push gateway:
 
-    ```bash tab="Example"
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
-    ```
+    === "Command syntax"
+
+        ```bash
+        besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+        ```
+
+    === "Example"
+
+        ```bash
+        besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+        ```
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
-    ```bash tab="Example"
+    ```bash
     prometheus --config.file=prometheus.yml
     ```
 
@@ -132,7 +172,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 ## View Prometheus graphical interface
 
-1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
+1. Open a web browser to http://localhost:9090 to view the Prometheus graphical interface.
 
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 

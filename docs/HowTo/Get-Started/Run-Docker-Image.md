@@ -22,7 +22,7 @@ Use this Docker image to run a single Besu node without installing Besu.
 
 To run a Besu node in a container connected to the Ethereum MainNet:
 
-```bash tab="latest"
+```bash
 docker run hyperledger/besu:latest
 ```
 

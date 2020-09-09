@@ -32,15 +32,19 @@ Initialize your EEA client where:
 
 !!! example
 
-    ```js tab="Syntax"
-    const EEAClient = require("web3-eea");
-    const web3 = new EEAClient(new Web3("<JSON-RPC HTTP endpoint>"), <chain_id>);
-    ```
+    === "Syntax"
 
-    ```js tab="Example"
-    const EEAClient = require("web3-eea");
-    const web3 = new EEAClient(new Web3("http://localhost:8545"), 2018);
-    ```
+        ```js
+        const EEAClient = require("web3-eea");
+        const web3 = new EEAClient(new Web3("<JSON-RPC HTTP endpoint>"), <chain_id>);
+        ```
+
+    === "Example"
+
+        ```js
+        const EEAClient = require("web3-eea");
+        const web3 = new EEAClient(new Web3("http://localhost:8545"), 2018);
+        ```
 
 ## Deploying a contract with sendRawTransaction
 
@@ -66,4 +70,4 @@ transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
 ## web3js-eea methods
 
 For more information about the web3js-eea methods, see the
-[web3js-eea reference documentation](../../../Reference/web3js-eea-Methods.md).
+[web3js-eea reference documentation](https://pegasyseng.github.io/web3js-eea/latest/).

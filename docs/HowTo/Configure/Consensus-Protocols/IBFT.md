@@ -192,6 +192,9 @@ The JSON-RPC methods to add or remove validators are:
 To view validator metrics for a specified block range, use
 [`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
 
+!!! tip
+    `ibft_getSignerMetrics` can be used to identify validators that are not active. The validator's `lastProposedBlockNumber` will be `0x0`
+
 #### Adding a validator
 
 To propose adding a validator, call
@@ -251,7 +254,7 @@ file.
 
 Network conditions might not allow voting to change validators. For example, if a majority
 of the current validators are no longer participating in the network, so a vote to add or remove
-valiators will never be successful. You can bypass voting and specify new validators in the genesis
+validators will never be successful. You can bypass voting and specify new validators in the genesis
 file.
 
 To add or remove validators without voting:
@@ -265,56 +268,60 @@ To add or remove validators without voting:
 
     !!! example "Transitions object in the genesis file"
 
-        ```bash tab="Syntax"
-        {
-          "config": {
-             ...
-             "ibft2": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "ibft2": [
-               {
-                 "block": <BlockNumber>,
-                 "validators": [
-                    <ValidatorAddressX>,
-                    ...
-                    <ValidatorAddressZ>
-                 ]
-               }
-               ]
-             }
-          },
-          ...
-        }
-        ```
+        === "Syntax"
 
-        ```bash tab="Example"
-        {
-          "config": {
-            ...
-            "ibft2": {
-              "blockperiodseconds": 2,
-              "epochlength": 30000,
-              "requesttimeoutseconds": 4
-            },
-            "transitions": {
-               "ibft2": [
-               {
-                "block": 25,
-                "validators": [
-                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
-                  ]
-                }
-               ]
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <BlockNumber>,
+                     "validators": [
+                        <ValidatorAddressX>,
+                        ...
+                        <ValidatorAddressZ>
+                     ]
+                   }
+                   ]
+                 }
+              },
+              ...
             }
-          },
-          ...
-        }
-        ```
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                   "ibft2": [
+                   {
+                    "block": 25,
+                    "validators": [
+                      "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                      "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                      ]
+                    }
+                   ]
+                }
+              },
+              ...
+            }
+            ```
 
 1. Restart all nodes in the network using the updated genesis file.
 1. To verify the changes after the transition block, call

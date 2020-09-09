@@ -30,7 +30,7 @@ Using JSON-RPC authentication and authorization with [MetaMask](https://metamask
 
 Enable authentication from the command line. Supply the credentials file and send a request to the
 `/login` endpoint using the username and password. The `/login` endpoint creates a JWT for making
-permitted JSON RPC requests.
+permitted JSON-RPC requests.
 
 Using [public key authentication](#jwt-public-key-authentication) disables the `/login` endpoint.
 
@@ -89,25 +89,35 @@ respectively. HTTP and WS requires a different token.
 
 !!! example
 
-    ```bash tab="Generate a token for HTTP"
-    curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-http-hostname:http-port>/login
-    ```
+    === "Generate a token for HTTP"
 
-    ```bash tab="Example for HTTP"
-    curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8545/login
-    ```
+        ```bash
+        curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-http-hostname:http-port>/login
+        ```
 
-    ```bash tab="Generate a token for WS"
-    curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-ws-hostname:ws-port>/login
-    ```
+    === "Example for HTTP"
 
-    ```bash tab="Example for WS"
-    curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8546/login
-    ```
+        ```bash
+        curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8545/login
+        ```
 
-    ```json tab="JSON result"
-    {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MDYwNCwiZXhwIjoxNTUwNDYwOTA0fQ.l2Ycqzl_AyvReXBeUSayOlOMS_E8-DCuz3q0Db0DKD7mqyl6q-giWoEtfdWzUEvZbRRi2_ecKO3N6JkXq7zMKQAJbVAEzobfbaaXWcQEpHOjtnK4_Yz-UPyKiXtu7HGdcdl5Tfx3dKoksbqkBl3U3vFWxzmFnuu3dAISfVJYUNA"}
-    ```
+    === "Generate a token for WS"
+
+        ```bash
+        curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-ws-hostname:ws-port>/login
+        ```
+
+    === "Example for WS"
+
+        ```bash
+        curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8546/login
+        ```
+
+    === "JSON result"
+
+        ```json
+        {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MDYwNCwiZXhwIjoxNTUwNDYwOTA0fQ.l2Ycqzl_AyvReXBeUSayOlOMS_E8-DCuz3q0Db0DKD7mqyl6q-giWoEtfdWzUEvZbRRi2_ecKO3N6JkXq7zMKQAJbVAEzobfbaaXWcQEpHOjtnK4_Yz-UPyKiXtu7HGdcdl5Tfx3dKoksbqkBl3U3vFWxzmFnuu3dAISfVJYUNA"}
+        ```
 
 Authentication tokens expire five minutes after generation. If you require access after the token
 expires, you need to generate a new token.
@@ -189,7 +199,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 ### Postman
 
 In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the
-token (generated either [externally](#2-create-the-jwt-token) or by the
+token (generated either [externally](#2-create-the-jwt) or by the
 [`login` request](#3-generate-an-authentication-token)).
 
 ### cURL
@@ -198,10 +208,14 @@ Specify the `Bearer` in the header.
 
 !!! example
 
-    ```bash tab="cURL Request with Authentication Placeholders"
-    curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
-    ```
+    === "cURL Request with Authentication Placeholders"
 
-    ```bash tab="cURL Request with Authentication"
-    curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
-    ```
+        ```bash
+        curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
+        ```
+
+    === "cURL Request with Authentication"
+
+        ```bash
+        curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
+        ```

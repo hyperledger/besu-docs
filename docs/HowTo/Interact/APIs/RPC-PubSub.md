@@ -188,6 +188,8 @@ Logs subscriptions have an filter object parameter with the following fields:
   these addresses.
 * `topics` - (optional) Returns only logs that match the
   [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
+* `fromBlock` - (optional) The earliest block from which to return logs.
+* `toBlock` - (optional) The last block from which to return logs.
 
 For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
 logs for a private contract subscription. If you create a subscription for a privacy group you are
@@ -202,74 +204,90 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
 
 !!!example "Public logs"
 
-    ```json tab="All logs"
-     {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
-    ```
+    === "All logs"
 
-    ```json tab="Specific address and topic"
-    {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
-    ```
+        ```json
+         {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
+        ```
 
-    ```json tab="Result"
-    {"jsonrpc":"2.0","id":1,"result":"0x2"}
-    ```
+    === "Specific address, topic, fromBlock and toBlock"
 
-    ```json tab="Notification"
-    {
-      "jsonrpc":"2.0",
-      "method":"eth_subscription",
-      "params":{
-        "subscription":"0x2",
-        "result":{
-          "logIndex":"0x0",
-          "removed":false,
-          "blockNumber":"0x2174",
-          "blockHash":"0x7bc83837534aa13df55ff7db77784b1d1ba666d4c4bdd223cae9fe09c7c37eba",
-          "transactionHash":"0x942179373e413824c6bc7045e92295aff91b679215446549b4aeb084da46495b",
-          "transactionIndex":"0x0",
-          "address":"0x9b8397f1b0fecd3a1a40cdd5e8221fa461898517",
-          "data":"0x",
-          "topics":["0x199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca072787","0x0000000000000000000000000000000000000000000000000000000000000005"]
-         }
-       }
-    }
-    ```
+        ```json
+        {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"], "fromBlock":"0x0","toBlock":"latest"}]}
+        ```
+
+    === "Result"
+
+        ```json
+        {"jsonrpc":"2.0","id":1,"result":"0x2"}
+        ```
+
+    === "Notification"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "method":"eth_subscription",
+          "params":{
+            "subscription":"0x2",
+            "result":{
+              "logIndex":"0x0",
+              "removed":false,
+              "blockNumber":"0x2174",
+              "blockHash":"0x7bc83837534aa13df55ff7db77784b1d1ba666d4c4bdd223cae9fe09c7c37eba",
+              "transactionHash":"0x942179373e413824c6bc7045e92295aff91b679215446549b4aeb084da46495b",
+              "transactionIndex":"0x0",
+              "address":"0x9b8397f1b0fecd3a1a40cdd5e8221fa461898517",
+              "data":"0x",
+              "topics":["0x199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca072787","0x0000000000000000000000000000000000000000000000000000000000000005"]
+             }
+           }
+        }
+        ```
 
 !!!example "Private logs"
 
-    ```json tab="All logs for privacy group"
-    {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
-    ```
+    === "All logs for privacy group"
 
-    ```json tab="Specific address and topic"
-    {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
-    ```
+        ```json
+        {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs",{}]}
+        ```
 
-    ```json tab="Result"
-    {"jsonrpc":"2.0","id":1,"result":"0x1"}
-    ```
+    === "Specific address and topic"
 
-    ```json tab="Notification"
-    {
-      "jsonrpc":"2.0",
-      "method":"priv_subscription",
-      "params":{
-        "subscription":"0x1",
-        "privacyGroupId":"4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=",
-        "result":{
-          "logIndex":"0x0",
-          "removed":false,
-          "blockNumber":"0x285",
-          "blockHash":"0x98490766b16de2a4d044c04d92599d71e626bc96e42f0c74274ef4e03fafd579",
-          "transactionHash":"0x40034ef14e3a22946693dd2a11efddf3a8850ddcad46b408198df6c176c53ffb",
-          "transactionIndex":"0x0",
-          "address":"0x61f96a7ed09877197d4fff0c29b8e523913651a9",
-          "data":"0x",
-          "topics":["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410","0x0000000000000000000000000000000000000000000000000000000000000002"]
+        ```json
+        {"id": 1, "method": "priv_subscribe", "params": ["4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=", "logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
+        ```
+
+    === "Result"
+
+        ```json
+        {"jsonrpc":"2.0","id":1,"result":"0x1"}
+        ```
+
+    === "Notification"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "method":"priv_subscription",
+          "params":{
+            "subscription":"0x1",
+            "privacyGroupId":"4sSv8eqB6/0lV9I0tBGUhPjjHtLEf3z0eeMc8Lokkyo=",
+            "result":{
+              "logIndex":"0x0",
+              "removed":false,
+              "blockNumber":"0x285",
+              "blockHash":"0x98490766b16de2a4d044c04d92599d71e626bc96e42f0c74274ef4e03fafd579",
+              "transactionHash":"0x40034ef14e3a22946693dd2a11efddf3a8850ddcad46b408198df6c176c53ffb",
+              "transactionIndex":"0x0",
+              "address":"0x61f96a7ed09877197d4fff0c29b8e523913651a9",
+              "data":"0x",
+              "topics":["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410","0x0000000000000000000000000000000000000000000000000000000000000002"]
+            }
+          }
         }
-      }
-    }
-    ```
+        ```
 
 ### Pending transactions
 

@@ -90,29 +90,33 @@ In the `Node-2/Orion` and `Node-3/Orion` directories, create `orion.conf` files 
 * The Node-1 Orion node as the bootnode (specified by
   [`othernodes`](https://docs.orion.pegasys.tech/en/latest/Reference/Configuration-File/)).
 
-```bash tab="Node-2"
-nodeurl = "http://127.0.0.1:8081/"
-nodeport = 8081
-clienturl = "http://127.0.0.1:8889/"
-clientport = 8889
-publickeys = ["nodeKey.pub"]
-privatekeys = ["nodeKey.key"]
-passwords = "passwordFile"
-othernodes = ["http://127.0.0.1:8080/"]
-tls = "off"
-```
+=== "Node-2"
 
-```bash tab="Node-3"
-nodeurl = "http://127.0.0.1:8082/"
-nodeport = 8082
-clienturl = "http://127.0.0.1:8890/"
-clientport = 8890
-publickeys = ["nodeKey.pub"]
-privatekeys = ["nodeKey.key"]
-passwords = "passwordFile"
-othernodes = ["http://127.0.0.1:8080/"]
-tls = "off"
-```
+    ```bash
+    nodeurl = "http://127.0.0.1:8081/"
+    nodeport = 8081
+    clienturl = "http://127.0.0.1:8889/"
+    clientport = 8889
+    publickeys = ["nodeKey.pub"]
+    privatekeys = ["nodeKey.key"]
+    passwords = "passwordFile"
+    othernodes = ["http://127.0.0.1:8080/"]
+    tls = "off"
+    ```
+
+=== "Node-3"
+
+    ```bash
+    nodeurl = "http://127.0.0.1:8082/"
+    nodeport = 8082
+    clienturl = "http://127.0.0.1:8890/"
+    clientport = 8890
+    publickeys = ["nodeKey.pub"]
+    privatekeys = ["nodeKey.key"]
+    passwords = "passwordFile"
+    othernodes = ["http://127.0.0.1:8080/"]
+    tls = "off"
+    ```
 
 ## 5. Start the Orion nodes
 
@@ -127,13 +131,17 @@ orion orion.conf
 
 In the `Node-1` directory, start Besu Node-1:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
-```
+    ```bash
+    besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:8888 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
+    ```
 
 The command line specifies privacy options:
 
@@ -166,13 +174,17 @@ enode URL to specify Node-1 as the bootnode in the following steps.
 In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL copied when starting
 Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
-```
+    ```bash
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:8889 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
+    ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
 The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for
@@ -188,13 +200,17 @@ Node-1.
 In the `Node-3` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting
 Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
-```
+    ```bash
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion/nodeKey.pub --min-gas-price=0
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:8890 --privacy-public-key-file=Orion\nodeKey.pub --min-gas-price=0
+    ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
 The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for

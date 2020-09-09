@@ -15,7 +15,7 @@ site_url: https://besu.hyperledger.org/
 site_description: Hyperledger Besu Java Ethereum client documentation.
 site_author: Hyperledger Besu community
 copyright: Hyperledger Besu and its documentation are licensed under Apache 2.0 license /
-  This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://pegasys.tech/">Hyperledger Besu community</a>.
+  This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://wiki.hyperledger.org/display/besu">Hyperledger Besu community</a>.
 
 #extra project info and template customisation
 extra:
@@ -30,12 +30,10 @@ extra:
     email: besu@lists.hyperledger.org
     website: https://www.hyperledger.org/projects/besu
     issues: https://github.com/hyperledger/besu/issues
+    doc_issues: https://github.com/hyperledger/besu-docs/issues/new/choose
   google:
     site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'
-  search:
-    language: 'en'
-    tokenizer: '[\s]+'
   logo_regular: logo.svg
   logo_reversed: &logo_reversed logo-reversed.svg
 
@@ -45,11 +43,11 @@ repo_url: https://github.com/hyperledger/besu/
 
 theme:
     name: material
-    custom_dir: docs/custom_theme
+    custom_dir: custom_theme
     palette:
         primary: blue-grey
         accent: teal
-    favicon: favicon.ico
+    favicon: favicon.svg
     logo: *logo_reversed
 nav:
     - How To:
@@ -132,6 +130,7 @@ nav:
           - Use Truffle: HowTo/Develop-Dapps/Truffle.md
           - Use Client Libraries: HowTo/Develop-Dapps/Client-Libraries.md
         - Troubleshoot:
+          - Use EVM tool: HowTo/Troubleshoot/Use-EVM-Tool.md
           - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
           - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
@@ -188,9 +187,10 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Transaction Trace Types: Reference/Trace-Types.md
         - Genesis File Items: Reference/Config-Items.md
-        - web3js-eaa Methods: Reference/web3js-eea-Methods.md
+        - web3js-eaa Reference: https://pegasyseng.github.io/web3js-eea/latest/
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
+        - EVM Tool: Reference/Evm-Tool.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 
@@ -199,6 +199,8 @@ markdown_extensions:
         permalink: 
         toc_depth: 3
     - codehilite
+    - pymdownx.tabbed
+    - pymdownx.superfences
     - markdown_include.include:
         base_path: docs
     - admonition
@@ -214,11 +216,6 @@ markdown_extensions:
     - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
-    # pymdownx.superfences is deprecated.
-    # It must be replaced with pymdownx.tabbed but it requires new CSS
-    # TODO with material 5 update
-    - pymdownx.superfences:
-        legacy_tab_classes: true
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.tilde
@@ -226,7 +223,9 @@ markdown_extensions:
     - smarty
 
 plugins:
-    - search
+    - search:
+        lang: 'en'
+        separator: '[\s]+'
     - markdownextradata
     - exclude:
         glob:

@@ -32,7 +32,7 @@ You can export the node public key, either to standard output or to a specified 
 ## Node address
 
 Besu generates the node address by creating a hash of the node public key and using the last 20
-bytes of the hash as the node address.
+bytes of the hash as the node address. It is also displayed in the logs after starting Besu.
 
 You can export the node address, either to standard output or to a specified file, using the
 [`public-key export-address`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.

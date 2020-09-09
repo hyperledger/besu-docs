@@ -49,13 +49,17 @@ To get the address for Node-1, in the `Node-1` directory, use the
 [`public-key export-address`](../../Reference/CLI/CLI-Subcommands.md#export-address) subcommand to
 write the node address to the specified file (`node1Address` in this example).
 
-```bash tab="MacOS"
-besu --data-path=data public-key export-address --to=data/node1Address
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data public-key export-address --to=data\node1Address
-```
+    ```bash
+    besu --data-path=data public-key export-address --to=data/node1Address
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data public-key export-address --to=data\node1Address
+    ```
 
 ### 3. Create the genesis file
 
@@ -132,13 +136,17 @@ In `extraData`, replace `<Node 1 Address>` with the
 
 Start Node-1:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
+    ```
 
 The command line enables:
 
@@ -161,13 +169,17 @@ Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1
 enode URL copied when starting Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+    ```
 
 The command line specifies:
 
@@ -186,13 +198,17 @@ The command line specifies:
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1
 enode URL copied when starting Node-1 as the bootnode:
 
-```bash tab="MacOS"
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
-```
+=== "MacOS"
 
-```bash tab="Windows"
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
-```
+    ```bash
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+    ```
 
 The command line specifies:
 

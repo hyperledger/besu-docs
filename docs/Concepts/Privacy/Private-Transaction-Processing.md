@@ -11,14 +11,14 @@ Processing private transactions involves the following:
 
 * **Privacy Marker Transaction**: A public Ethereum transaction with a payload of the enclave key.
   The enclave key is a pointer to the private transaction in Orion. The `to` attribute of the Privacy
-  Marker Transaction is the address of the privacy precompiled contract.
+  Marker Transaction is the [address of the privacy precompiled contract](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress).
 
   The Privacy Marker Transaction is
   [signed with a random key or the key specified on the command line].
 
 Private transaction processing is illustrated and described in the following diagram.
 
-![Processing Private Transctions](../../images/PrivateTransactionProcessing.png)
+![Processing Private Transactions](../../images/PrivateTransactionProcessing.png)
 
 1. Submit a private transaction using
   [eea_sendRawTransaction](../../Reference/API-Methods.md#eea_sendrawtransaction). The signed
@@ -54,8 +54,8 @@ Private transaction processing is illustrated and described in the following dia
   distributed to all Ethereum nodes in the network.
 
 1. The Mainnet Transaction Processor processes the Privacy Marker Transaction in the same way as
-  any other public transaction. On nodes containing the privacy precompile contract specified in the
-  `to` attribute of the Privacy Marker Transaction, the Mainnet Transaction Processor passes the
+  any other public transaction. On nodes containing the [privacy precompile contract](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
+  specified in the `to` attribute of the Privacy Marker Transaction, the Mainnet Transaction Processor passes the
   Privacy Marker Transaction to the privacy precompile contract.
 
     !!! note

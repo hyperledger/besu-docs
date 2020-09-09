@@ -17,6 +17,12 @@ handling the privacy marker transaction.
 The [web3js-eea library](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
 includes an example of how to send concurrent private transactions.
 
+!!! tip
+    [The example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    uses [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
+    Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
+    to get the precompile address to specify in the `to` field when creating the [privacy marker transaction].
+
 <!-- links ---->
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md

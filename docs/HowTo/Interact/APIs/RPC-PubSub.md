@@ -188,6 +188,8 @@ Logs subscriptions have an filter object parameter with the following fields:
   these addresses.
 * `topics` - (optional) Returns only logs that match the
   [specified topics](../../../Concepts/Events-and-Logs.md#topic-filters).
+* `fromBlock` - (optional) The earliest block from which to return logs.
+* `toBlock` - (optional) The last block from which to return logs.
 
 For private contracts, the privacy group ID must be specified. Only members of a privacy group receive
 logs for a private contract subscription. If you create a subscription for a privacy group you are
@@ -208,10 +210,10 @@ The logs subscription returns [log objects](../../../Reference/API-Objects.md#lo
          {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
         ```
 
-    === "Specific address and topic"
+    === "Specific address, topic, fromBlock and toBlock"
 
         ```json
-        {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}
+        {"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"], "fromBlock":"0x0","toBlock":"latest"}]}
         ```
 
     === "Result"

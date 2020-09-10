@@ -3029,6 +3029,79 @@ The price bump percentage to replace an existing transaction. The default is 10.
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
 
+### Xdns-enabled
+
+=== "Syntax"
+
+    ```bash
+    --Xdns-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --Xdns-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_XDNS_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    Xdns-enabled=false
+    ```
+
+Enables DNS support. The default is `false`.
+
+!!! important
+
+    Use DNS in private networks only because public networks require using IP addresses.
+
+    This is an early access feature. Some functionality may be updated before the feature is fully
+    released.
+
+You can use DNS when using Kubernetes in a private permissioned network to ensure you can reconnect
+to containers if they restart with a new IP address.
+
+### Xdns-update-enabled
+
+=== "Syntax"
+
+    ```bash
+    --Xdns-update-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --Xdns-update-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_XDNS_UPDATE_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    Xdns-update-enabled=false
+    ```
+
+Allow Besu to continuously query the DNS to ensure updates to IP addresses are automatically
+detected. The default is `false`.
+
+[`Xdns-enabled`](#Xdns-enabled) must be set to `true`.
+
+!!! important
+
+    This is an early access feature. Some functionality may be updated before the feature is fully released.
+
 ### version
 
 === "Syntax"

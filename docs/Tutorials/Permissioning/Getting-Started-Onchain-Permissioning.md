@@ -186,7 +186,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 1. Click the _Connect_ button.
 
     The Dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
-    variable in the _Whitelisted Accounts_ and _Admin Accounts_ tabs.
+    variable in the _Accounts_ and _Admins_ tabs.
 
 !!! note
 

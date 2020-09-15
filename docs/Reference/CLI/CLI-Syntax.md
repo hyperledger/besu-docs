@@ -3034,32 +3034,32 @@ The maximum period, in hours, to hold pending transactions in the transaction po
 === "Syntax"
 
     ```bash
-    --Xdns-enabled[=<true|false>]
+    --Xdns-enabled=[<true|false>]
     ```
 
 === "Command Line"
 
     ```bash
-    --Xdns-enabled=false
+    --Xdns-enabled=true
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_XDNS_ENABLED=false
+    BESU_XDNS_ENABLED=true
     ```
 
 === "Configuration File"
 
     ```bash
-    Xdns-enabled=false
+    Xdns-enabled=true
     ```
 
 Enables DNS support. The default is `false`.
 
 !!! important
 
-    Use DNS in private networks only because public networks require using IP addresses.
+    Use domain names in private networks only because public networks require using IP addresses.
 
     This is an early access feature. Some functionality may be updated before the feature is fully
     released.
@@ -3072,25 +3072,25 @@ to containers if they restart with a new IP address.
 === "Syntax"
 
     ```bash
-    --Xdns-update-enabled[=<true|false>]
+    --Xdns-update-enabled=[<true|false>]
     ```
 
 === "Command Line"
 
     ```bash
-    --Xdns-update-enabled=false
+    --Xdns-update-enabled=true
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_XDNS_UPDATE_ENABLED=false
+    BESU_XDNS_UPDATE_ENABLED=true
     ```
 
 === "Configuration File"
 
     ```bash
-    Xdns-update-enabled=false
+    Xdns-update-enabled=true
     ```
 
 Allow Besu to continuously query the DNS to ensure updates to IP addresses are automatically

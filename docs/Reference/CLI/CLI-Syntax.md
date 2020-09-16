@@ -3060,12 +3060,11 @@ Enables DNS support. The default is `false`.
 !!! important
 
     Use domain names in private networks only because public networks require using IP addresses.
-
     This is an early access feature. Some functionality may be updated before the feature is fully
     released.
 
-You can use DNS when using Kubernetes in a private permissioned network to ensure you can reconnect
-to containers if they restart with a new IP address.
+Use DNS with a trusted DNS provider in private networks because of limitations where IP addresses
+can change. For example, when using Kubernetes pods.
 
 ### Xdns-update-enabled
 

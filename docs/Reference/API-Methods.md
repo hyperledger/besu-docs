@@ -501,7 +501,7 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
 
 ### net_version
 
-Returns the current chain ID.
+Returns the [network ID](../Concepts/NetworkID-And-ChainID.md).
 
 #### Parameters
 
@@ -509,18 +509,18 @@ None
 
 #### Returns
 
-`result` : *string* - Current chain ID.
+`result` : *string* - Current network ID.
 
-| Chain ID | Chain | Network | Description
-|----------|-------|---------|-------------------------------|
-| `1`      | ETH   | MainNet | Main Ethereum network         |
-| `3`      | ETH   | Ropsten | PoW test network              |
-| `4`      | ETH   | Rinkeby | PoA test network using Clique |
-| `5`      | ETH   | Goerli  | PoA test network using Clique |
-| `6`      | ETC   | Kotti   | PoA test network using Clique |
-| `61`     | ETC   | Classic | Main Ethereum Classic network |
-| `63`     | ETC   | Mordor  | PoW test network              |
-| `2018`   | ETH   | Dev     | PoW development network       |
+| Network ID | Chain | Network | Description
+|------------|-------|---------|-------------------------------|
+| `1`        | ETH   | MainNet | Main Ethereum network         |
+| `3`        | ETH   | Ropsten | PoW test network              |
+| `4`        | ETH   | Rinkeby | PoA test network using Clique |
+| `5`        | ETH   | Goerli  | PoA test network using Clique |
+| `2018`     | ETH   | Dev     | PoW development network       |
+| `1`        | ETC   | Classic | Main Ethereum Classic network |
+| `6`        | ETC   | Kotti   | PoA test network using Clique |
+| `7`        | ETC   | Mordor  | PoW test network              |
 
 !!! example
 

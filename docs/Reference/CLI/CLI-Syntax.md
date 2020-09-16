@@ -717,7 +717,7 @@ default is `9545`. Ports must be
 === "Configuration File"
 
     ```bash
-    metrics-push-enabled="true"
+    metrics-push-enabled=true
     ```
 
 Enables or disables [push gateway integration].

@@ -44,10 +44,11 @@ The enode URL identifies a node. For example, the `--bootnodes` option and the
 
 !!! tip
 
-    If deploying Besu using Kubernetes in private permissioned network, use the
-    [`--Xdns-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-enabled) option to use domain names
-    instead of IP addresses. This ensures that Besu can connect to a container even if the IP
-    address changes after being restarted.
+    If deploying Besu using Kubernetes in private permissioned networks, use the
+    [`--Xdns-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-enabled) and 
+    [`--Xdns-update-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
+    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
+    the IP address changes after being restarted.
 
 The enode URL format is `enode://<id>@<host:port>` where:
 

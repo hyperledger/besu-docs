@@ -522,6 +522,13 @@ None
 | `6`        | ETC   | Kotti   | PoA test network using Clique |
 | `7`        | ETC   | Mordor  | PoW test network              |
 
+!!! note
+
+    For almost all networks network ID and chain ID are the same. 
+    
+    The only networks in the table above with different network and chain IDs are
+    Classic with a chain ID of `61` and Mordor with a chain ID of `63`. 
+
 !!! example
 
     === "curl HTTP request"

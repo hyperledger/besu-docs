@@ -1,0 +1,1324 @@
+Docker image digest: sha256:e6ae53e12613f991e32b51604e0636defa672bb4d02c297e4482a4b4208116a3
+[36m====>> Spin up Environment[0m
+Build-agent version 1.0.12644-dad79a7c (2019-08-08T11:59:58+0000)
+Docker Engine Version: 19.03.12
+Kernel Version: Linux d2e3bcce72b5 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 Linux
+Starting container circleci/python:3.7.4
+  using image circleci/python@sha256:f932106b0f48604cb562f79d9ca01384805c331f5b8055780ddb386a93c56592
+
+Using build environment variables
+  BASH_ENV=/tmp/.bash_env-localbuild-1600862915
+  CI=true
+  CIRCLECI=true
+  CIRCLE_BRANCH=258-update-markdown-lint-and-linkchecker
+  CIRCLE_BUILD_NUM=
+  CIRCLE_JOB=vale
+  CIRCLE_NODE_INDEX=0
+  CIRCLE_NODE_TOTAL=1
+  CIRCLE_REPOSITORY_URL=https://github.com/NicolasMassart/besu-docs.git
+  CIRCLE_SHA1=a5461b01f3675ae62a8c83715c23dc6065a9657b
+  CIRCLE_SHELL_ENV=/tmp/.bash_env-localbuild-1600862915
+  CIRCLE_WORKING_DIRECTORY=~/project
+
+[36m====>> Checkout code[0m
+[37m  #!/bin/bash -eo pipefail
+mkdir -p /home/circleci/project && cd /tmp/_circleci_local_build_repo && git ls-files | tar -T - -c | tar -x -C /home/circleci/project && cp -a /tmp/_circleci_local_build_repo/.git /home/circleci/project[0m
+[36m====>> Install dependencies[0m
+[37m  #!/bin/bash -eo pipefail
+curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v1.7.1
+[0m
+ValeLint/vale info checking GitHub for tag 'v1.7.1'
+ValeLint/vale info found version: 1.7.1 for v1.7.1/Linux/64-bit
+ValeLint/vale info installed ./bin/vale
+[36m====>> Run Vale[0m
+[37m  #!/bin/bash -eo pipefail
+./bin/vale --config ./CI/vale_styles/.vale.ini --glob='*.{md}' . | tee ./vale.out
+[0m
+
+ .github/pull_request_template.md
+ 4:31  warning  'are signed' may be passive     write-good.Passive  
+                voice. Use active voice if you                      
+                can.                                                
+ 24:4  warning  'Impacted' is too wordy         write-good.TooWordy 
+
+
+ SECURITY.md
+ 18:74  warning  'is documented' may be passive  write-good.Passive 
+                 voice. Use active voice if you                     
+                 can.                                               
+
+
+ docs/Concepts/Consensus-Protocols/Overview-Consensus.md
+ 16:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Mining.md
+ 13:14  warning  'been used' may be passive      write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 16:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/Concepts/Consensus-Protocols/Comparing-PoA.md
+ 15:56  warning  Avoid using 'pool'      Joblint.Benefits    
+ 16:10  warning  Avoid using 'pool'      Joblint.Benefits    
+ 18:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 27:3   warning  'Minimum' is too wordy  write-good.TooWordy 
+ 39:5   warning  'Minimum' is too wordy  write-good.TooWordy 
+ 41:53  warning  'minimum' is too wordy  write-good.TooWordy 
+ 46:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 63:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/Concepts/Events-and-Logs.md
+ 27:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 58:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 79:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 108:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 139:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 146:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 197:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/NetworkID-And-ChainID.md
+ 13:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 22:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Node-Keys.md
+ 20:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 35:40  warning  'It is' is too wordy  write-good.TooWordy 
+ 45:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 61:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 87:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Plugins.md
+ 26:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 38:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 49:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Permissioning/Onchain-Permissioning.md
+ 11:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 37:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 50:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 69:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Privacy/Multi-Tenancy.md
+ 9:22  warning  'multiple' is too wordy  write-good.TooWordy 
+ 12:1  warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 20:1  warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+
+
+ docs/Concepts/Permissioning/Permissioning-Overview.md
+ 10:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 61:66  warning  'minimum' is too wordy  write-good.TooWordy 
+
+
+ CODE_OF_CONDUCT.md
+ 3:65    warning  'It is' is too wordy            write-good.TooWordy 
+ 6:69    warning  'be resolved' may be passive    write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 7:8     warning  'however' is too wordy          write-good.TooWordy 
+ 15:74   warning  Consider removing 'Note that'   vale.Editorializing 
+ 16:63   warning  'pertaining to' is too wordy    write-good.TooWordy 
+ 21:13   warning  'is committed' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 36:28   warning  'objective' is too wordy        write-good.TooWordy 
+ 41:4    warning  'With respect to' is too wordy  write-good.TooWordy 
+ 46:37   warning  'are observed' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 111:61  warning  'be treated' may be passive     write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 122:30  warning  'is made' may be passive        write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 124:63  warning  'is used' may be passive        write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 146:27  warning  'be taken' may be passive       write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 147:49  warning  'In order to' is too wordy      write-good.TooWordy 
+ 149:81  warning  'equitable' is too wordy        write-good.TooWordy 
+ 154:11  warning  'is based' may be passive       write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+
+
+ docs/Concepts/Privacy/Onchain-PrivacyGroups.md
+ 10:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 28:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 37:11  warning  'is identified' may be passive  write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 38:31  warning  'be signed' may be passive      write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 48:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/Concepts/Privacy/Privacy-Overview.md
+ 10:1   warning  '!!!' is hyperbolic.      proselint.Hyperbole 
+ 23:86  warning  'implement' is too wordy  write-good.TooWordy 
+ 37:1   warning  '!!!' is hyperbolic.      proselint.Hyperbole 
+
+
+ docs/Concepts/Privacy/Privacy-Groups.md
+ 7:80  warning  'Orion' is repeated!  write-good.Illusions 
+ 14:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+ 34:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+ 56:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+ 83:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+
+
+ docs/Concepts/Protocol-Upgrades.md
+ 25:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Concepts/Pruning.md
+ 14:20  warning  'all of' is too wordy           write-good.TooWordy 
+ 18:44  warning  Consider removing               vale.Editorializing 
+                 'significantly'                                     
+ 21:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 41:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 55:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/Concepts/Transactions/Transaction-Validation.md
+ 12:37  warning  Avoid using 'pool'         Joblint.Benefits    
+ 16:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 22:58  warning  'additional' is too wordy  write-good.TooWordy 
+ 24:52  warning  Avoid using 'pool'         Joblint.Benefits    
+ 26:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+
+
+ docs/Concepts/Privacy/Private-Transaction-Processing.md
+ 19:32  warning  'is illustrated' may be         write-good.Passive  
+                 passive voice. Use active                           
+                 voice if you can.                                   
+ 47:5   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 61:5   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 74:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/Concepts/Privacy/Private-Transactions.md
+ 19:5   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 23:26  warning  'are used' may be passive       write-good.Passive   
+                 voice. Use active voice if you                       
+                 can.                                                 
+ 37:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 46:65  warning  'each' is repeated!             write-good.Illusions 
+ 56:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 66:87  warning  Avoid using 'pool'              Joblint.Benefits     
+ 67:13  warning  'is distributed' may be         write-good.Passive   
+                 passive voice. Use active                            
+                 voice if you can.                                    
+ 68:13  warning  'is submitted' may be passive   write-good.Passive   
+                 voice. Use active voice if you                       
+                 can.                                                 
+ 68:46  warning  Avoid using 'pool'              Joblint.Benefits     
+ 71:55  warning  'is submitted' may be passive   write-good.Passive   
+                 voice. Use active voice if you                       
+                 can.                                                 
+ 72:68  warning  'is added' may be passive       write-good.Passive   
+                 voice. Use active voice if you                       
+                 can.                                                 
+ 76:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+
+
+ docs/HowTo/Backup/Backup.md
+ 55:52  warning  'Upgrade' is repeated!  write-good.Illusions 
+
+
+ docs/HowTo/Configure/Configure-HA/Sample-Configuration.md
+ 17:13  warning  'multiple' is too wordy  write-good.TooWordy 
+ 22:31  warning  'multiple' is too wordy  write-good.TooWordy 
+ 40:16  warning  'multiple' is too wordy  write-good.TooWordy 
+ 43:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 74:21  warning  'multiple' is too wordy  write-good.TooWordy 
+ 76:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 76:14  warning  'Multiple' is too wordy  write-good.TooWordy 
+
+
+ docs/Concepts/Transactions/Transaction-Pool.md
+ 5:15   warning  Avoid using 'pool'              Joblint.Benefits    
+ 7:34   warning  Avoid using 'pool'              Joblint.Benefits    
+ 9:68   warning  Avoid using 'pool'              Joblint.Benefits    
+ 12:50  warning  Avoid using 'pool'              Joblint.Benefits    
+ 14:15  warning  'maximum' is too wordy          write-good.TooWordy 
+ 14:65  warning  Avoid using 'pool'              Joblint.Benefits    
+ 16:30  warning  'maximum' is too wordy          write-good.TooWordy 
+ 16:86  warning  Avoid using 'pool'              Joblint.Benefits    
+ 21:30  warning  'maximum' is too wordy          write-good.TooWordy 
+ 22:3   warning  Avoid using 'pool'              Joblint.Benefits    
+ 25:89  warning  Avoid using 'pool'              Joblint.Benefits    
+ 27:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 29:80  warning  'is submitted' may be passive   write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 30:17  warning  Avoid using 'pool'              Joblint.Benefits    
+ 32:47  warning  Avoid using 'pool'              Joblint.Benefits    
+ 34:22  warning  Avoid using 'pool'              Joblint.Benefits    
+ 35:41  warning  Avoid using 'pool'              Joblint.Benefits    
+ 36:55  warning  Avoid using 'pool'              Joblint.Benefits    
+ 47:28  warning  Avoid using 'pool'              Joblint.Benefits    
+ 49:16  warning  'maximum' is too wordy          write-good.TooWordy 
+ 49:48  warning  Avoid using 'pool'              Joblint.Benefits    
+ 50:76  warning  Avoid using 'pool'              Joblint.Benefits    
+ 51:44  warning  Avoid using 'pool'              Joblint.Benefits    
+
+
+ docs/HowTo/Configure/Configure-Mining.md
+ 42:1  warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 73:6  warning  'been used' may be passive      write-good.Passive  
+                voice. Use active voice if you                      
+                can.                                                
+
+
+ docs/HowTo/Configure/Configure-HA/High-Availability.md
+ 15:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 25:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 35:14  warning  Avoid using 'pool'    Joblint.Benefits    
+ 42:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 76:67  warning  Avoid using 'pool'    Joblint.Benefits    
+ 104:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 113:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Contracts-in-Genesis.md
+ 9:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Genesis-File.md
+ 21:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Passing-JVM-Options.md
+ 16:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Configure-TLS.md
+ 39:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 50:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 78:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 101:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 108:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Deploy/Ansible.md
+ 14:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/FreeGas.md
+ 16:55   warning  'allocate' is too wordy         write-good.TooWordy 
+ 19:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 24:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 36:70   warning  'maximum' is too wordy          write-good.TooWordy 
+ 41:79   warning  'maximum' is too wordy          write-good.TooWordy 
+ 61:81   warning  'maximum' is too wordy          write-good.TooWordy 
+ 75:26   warning  'minimum' is too wordy          write-good.TooWordy 
+ 77:31   warning  'minimum' is too wordy          write-good.TooWordy 
+ 92:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 93:40   warning  'minimum' is too wordy          write-good.TooWordy 
+ 94:5    warning  'is set' may be passive voice.  write-good.Passive  
+                  Use active voice if you can.                        
+ 101:54  warning  'maximum' is too wordy          write-good.TooWordy 
+ 102:29  warning  'maximum' is too wordy          write-good.TooWordy 
+ 104:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Using-Configuration-File.md
+ 29:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 34:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 61:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Deploy/Bootnodes.md
+ 33:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 42:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Consensus-Protocols/Clique.md
+ 12:58   warning  'validate' is too wordy         write-good.TooWordy 
+ 24:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 67:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 71:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 99:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 108:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 109:35  warning  'be used' may be passive        write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 117:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 132:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 142:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Deploy/Production.md
+ 16:5  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Deploy/Lite-Block-Explorer.md
+ 18:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 30:5  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 49:5  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 90:5  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Develop-Dapps/Client-Libraries.md
+ 22:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Deploy/Validators.md
+ 30:53  warning  Avoid using 'pool'  Joblint.Benefits 
+ 41:45  warning  Avoid using 'pool'  Joblint.Benefits 
+
+
+ docs/HowTo/Develop-Dapps/Truffle.md
+ 8:16  warning  'Truffle' is repeated!  write-good.Illusions 
+ 19:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+
+
+ docs/HowTo/Deploy/Lite-Network-Monitor.md
+ 5:34   warning  'monitor' is too wordy  write-good.TooWordy 
+ 16:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 52:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 64:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 101:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 139:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 177:5  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/HowTo/Find-and-Connect/Bootnodes.md
+ 10:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 37:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Find-and-Connect/Configuring-Ports.md
+ 15:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 36:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Find-and-Connect/Static-Nodes.md
+ 8:2   warning  'maximum' is too wordy  write-good.TooWordy 
+ 14:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 41:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 49:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 62:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 71:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/HowTo/Find-and-Connect/Managing-Peers.md
+ 12:15  warning  'maximum' is too wordy  write-good.TooWordy 
+ 27:25  warning  'monitor' is too wordy  write-good.TooWordy 
+ 45:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/HowTo/Configure/Consensus-Protocols/IBFT.md
+ 10:63   warning  'validate' is too wordy         write-good.TooWordy 
+ 14:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 22:4    warning  'Minimum' is too wordy          write-good.TooWordy 
+ 33:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 62:30   warning  'minimum' is too wordy          write-good.TooWordy 
+ 66:9    warning  'be specified' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 72:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 74:12   warning  'be updated' may be passive     write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 74:41   warning  'is started' may be passive     write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 96:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 107:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 135:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 161:37  warning  'maximum' is too wordy          write-good.TooWordy 
+ 186:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 195:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 196:33  warning  'be used' may be passive        write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 205:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 213:41  warning  'subsequent' is too wordy       write-good.TooWordy 
+ 217:46  warning  Avoid using 'pool'              Joblint.Benefits    
+ 222:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 232:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 269:5   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 331:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Get-Started/Install-Binaries.md
+ 14:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 56:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 60:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Get-Started/Migration-Docker.md
+ 47:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 55:54  warning  'previously' is too wordy  write-good.TooWordy 
+ 57:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+
+
+ docs/HowTo/Find-and-Connect/Specifying-NAT.md
+ 35:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 45:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 57:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 68:57  warning  'be used' may be passive        write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+
+
+ docs/HowTo/Get-Started/Run-Docker-Image.md
+ 17:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 29:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 54:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 64:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 81:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Get-Started/System-Requirements-Private.md
+ 25:54  warning  'minimum' is too wordy          write-good.TooWordy 
+ 26:22  warning  'requirement' is too wordy      write-good.TooWordy 
+ 28:82  warning  'is synchronized' may be        write-good.Passive  
+                 passive voice. Use active                           
+                 voice if you can.                                   
+ 29:20  warning  'Monitor' is too wordy          write-good.TooWordy 
+
+
+ docs/HowTo/Get-Started/System-Requirements-Public.md
+ 12:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 19:31  warning  'minimum' is too wordy          write-good.TooWordy 
+ 19:73  warning  'requirement' is too wordy      write-good.TooWordy 
+ 21:82  warning  'is synchronized' may be        write-good.Passive  
+                 passive voice. Use active                           
+                 voice if you can.                                   
+ 22:20  warning  'Monitor' is too wordy          write-good.TooWordy 
+ 37:6   warning  'is completed' may be passive   write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 37:37  warning  'be reduced' may be passive     write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 39:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Get-Started/Starting-node.md
+ 16:53  warning  'previously' is too wordy  write-good.TooWordy 
+ 47:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 97:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+
+
+ docs/HowTo/Interact/APIs/GraphQL.md
+ 13:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 24:84  warning  'equivalent' is too wordy  write-good.TooWordy 
+ 27:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 48:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 53:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+ 73:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole 
+
+
+ docs/HowTo/Interact/APIs/API.md
+ 13:55  warning  'RPC' is repeated!    write-good.Illusions 
+ 32:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+ 62:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+ 70:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole  
+
+
+ docs/HowTo/Interact/Client-Libraries/web3js-eea.md
+ 11:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 33:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 55:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Interact/APIs/Using-JSON-RPC-API.md
+ 15:35  warning  'Evaluate' is too wordy  write-good.TooWordy 
+ 33:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 71:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 151:1  warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+
+
+ docs/HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
+ 20:94   warning  'equivalent' is too wordy       write-good.TooWordy 
+ 24:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 33:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 67:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 102:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 144:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 159:31  warning  'are created' may be passive    write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 167:76  warning  'be specified' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 170:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 195:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Limit-Access/Updating-Permission-Lists.md
+ 22:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Monitor/Elastic-Stack.md
+ 20:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Interact/APIs/Authentication.md
+ 23:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 41:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 66:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 90:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 134:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 143:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 154:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 161:11  warning  'Expiration' is too wordy  write-good.TooWordy  
+ 165:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 165:5   warning  'Example' is repeated!     write-good.Illusions 
+ 219:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+
+
+ docs/HowTo/Interact/APIs/RPC-PubSub.md
+ 20:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 34:56   warning  'is closed' may be passive      write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 35:29   warning  'are removed' may be passive    write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 42:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 79:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 90:66   warning  'multiple' is too wordy         write-good.TooWordy 
+ 99:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 194:50  warning  'be specified' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 200:74  warning  'multiple' is too wordy         write-good.TooWordy 
+ 205:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 248:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 294:67  warning  Avoid using 'pool'              Joblint.Benefits    
+ 305:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 332:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 373:63  warning  Avoid using 'pool'              Joblint.Benefits    
+ 378:57  warning  Avoid using 'pool'              Joblint.Benefits    
+ 379:22  warning  'previously' is too wordy       write-good.TooWordy 
+ 380:9   warning  'multiple' is too wordy         write-good.TooWordy 
+ 382:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 416:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 465:76  warning  'be specified' may be passive   write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 470:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Limit-Access/Local-Permissioning.md
+ 9:1    warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 23:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 46:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 56:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 70:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 97:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 105:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 130:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 146:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 198:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 206:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Send-Transactions/Account-Management.md
+ 23:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Monitor/Logging.md
+ 27:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 38:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 69:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Send-Transactions/Concurrent-Private-Transactions.md
+ 11:24  warning  'be mined' may be passive       write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 20:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Send-Transactions/Revert-Reason.md
+ 12:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+ 36:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+ 47:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+ 55:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+ 91:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole  
+ 91:5  warning  'Example' is repeated!  write-good.Illusions 
+
+
+ docs/HowTo/Troubleshoot/Java-Flight-Recording.md
+ 21:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 28:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Send-Transactions/Transactions.md
+ 12:5  warning  'maximum' is too wordy  write-good.TooWordy 
+ 18:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 32:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/HowTo/Troubleshoot/Trace-Transactions.md
+ 26:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Monitor/Metrics.md
+ 5:18    warning  'monitor' is too wordy     write-good.TooWordy  
+ 15:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 33:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 50:1    warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 107:22  warning  '0' is repeated!           write-good.Illusions 
+ 117:1   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+ 186:50  warning  'Equivalent' is too wordy  write-good.TooWordy  
+ 191:39  warning  'Maximum' is too wordy     write-good.TooWordy  
+ 191:96  warning  'equivalent' is too wordy  write-good.TooWordy  
+ 193:5   warning  '!!!' is hyperbolic.       proselint.Hyperbole  
+
+
+ docs/HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
+ 19:71   warning  'are used' may be passive       write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 22:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 34:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 70:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 75:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 131:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 147:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 163:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 173:53  warning  'Privacy' is repeated!          write-good.Illusions 
+
+
+ docs/HowTo/Upgrade/Upgrade-Protocol.md
+ 22:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Troubleshoot/Use-EVM-Tool.md
+ 23:30  warning  'is created' may be passive     write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 40:19  warning  'is stored' may be passive      write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 48:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 55:58  warning  'is invoked' may be passive     write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 59:41  warning  'be evaluated' may be passive   write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+
+
+ docs/HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
+ 14:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Use-Privacy/Access-Private-Transactions.md
+ 25:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Use-Privacy/EEA-Compliant.md
+ 25:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Troubleshoot/Troubleshooting.md
+ 37:53  warning  'indicate' is too wordy  write-good.TooWordy 
+ 44:35  warning  'indicate' is too wordy  write-good.TooWordy 
+ 61:14  warning  Avoid using 'pool'       Joblint.Benefits    
+
+
+ docs/HowTo/Use-Privacy/Privacy.md
+ 29:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
+ 20:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 28:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/HowTo/Monitor/Splunk-Enterprise.md
+ 9:12    warning  'aggregate' is too wordy        write-good.TooWordy  
+ 9:22    warning  'multiple' is too wordy         write-good.TooWordy  
+ 9:81    warning  'being connected' may be        write-good.Passive   
+                  passive voice. Use active                            
+                  voice if you can.                                    
+ 28:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 44:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 62:11   warning  '4' is repeated!                write-good.Illusions 
+ 64:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 68:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 89:18   warning  'is started' may be passive     write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 92:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 124:72  warning  'are required' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 131:66  warning  'are displayed' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 147:11  warning  '4' is repeated!                write-good.Illusions 
+ 149:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 150:49  warning  'is required' may be passive    write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+
+
+ docs/HowTo/Use-Privacy/Use-OnChainPrivacy.md
+ 10:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 27:29  warning  'are enabled' may be passive    write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 30:69  warning  'are disabled' may be passive   write-good.Passive  
+                 voice. Use active voice if you                      
+                 can.                                                
+ 48:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 60:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/HowTo/Use-Privacy/Run-Orion-With-Besu.md
+ 24:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Reference/Config-Items.md
+ 23:25   warning  'Maximum' is too wordy  write-good.TooWordy 
+ 23:151  warning  'maximum' is too wordy  write-good.TooWordy 
+ 24:25   warning  'Maximum' is too wordy  write-good.TooWordy 
+ 24:69   warning  'maximum' is too wordy  write-good.TooWordy 
+ 51:1    warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 74:1    warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 86:1    warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 95:1    warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 110:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/Reference/CLI/CLI-Subcommands.md
+ 53:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 155:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 164:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 215:1  warning  '???' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Reference/Plugin-API-Interfaces.md
+ 42:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Reference/Evm-Tool.md
+ 14:58   warning  'is invoked' may be passive     write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 14:86   warning  'Command' is repeated!          write-good.Illusions 
+ 31:13   warning  'be executed' may be passive    write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 49:13   warning  'be seen' may be passive        write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 82:28   warning  'is sent' may be passive        write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 99:28   warning  'is sent' may be passive        write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 115:88  warning  'is returned' may be passive    write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 166:48  warning  'is traced' may be passive      write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 257:63  warning  'be used' may be passive        write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 290:21  warning  'evaluate' is too wordy         write-good.TooWordy  
+ 295:65  warning  'be evaluated' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 315:11  warning  'Whether or not' is too wordy   write-good.TooWordy  
+ 315:33  warning  'is set' may be passive voice.  write-good.Passive   
+                  Use active voice if you can.                         
+ 315:63  warning  'is printed' may be passive     write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 320:70  warning  'All of' is too wordy           write-good.TooWordy  
+ 320:93  warning  'are evaluated' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 321:19  warning  'are specified' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 337:23  warning  'are passed' may be passive     write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+
+
+ docs/Reference/Trace-Types.md
+ 18:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 76:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 125:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Examples/Nat-Manager-Kubernetes.md
+ 18:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 41:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 77:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 98:20   warning  'are completed' may be passive  write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 100:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 152:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 169:22  warning  'modify' is too wordy           write-good.TooWordy 
+ 171:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 189:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 198:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+ 199:51  warning  'be fixed' may be passive       write-good.Passive  
+                  voice. Use active voice if you                      
+                  can.                                                
+ 212:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole 
+
+
+ docs/Tutorials/Examples/Privacy-Example.md
+ 18:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 29:5   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 49:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 69:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 113:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Reference/API-Objects.md
+ 30:50    warning  'Maximum' is too wordy    write-good.TooWordy 
+ 133:144  warning  'terminate' is too wordy  write-good.TooWordy 
+ 181:1    warning  '!!!' is hyperbolic.      proselint.Hyperbole 
+ 214:1    warning  '!!!' is hyperbolic.      proselint.Hyperbole 
+
+
+ docs/Tutorials/Examples/Private-Network-Example-Azure.md
+ 16:11   warning  'is deployed' may be passive    write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 36:50   warning  'is displayed' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 40:44   warning  'is displayed' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 59:21   warning  'is started' may be passive     write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 59:72   warning  'the' is repeated!              write-good.Illusions 
+ 60:17   warning  'is displayed' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 62:61   warning  'are displayed' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 66:78   warning  'is displayed' may be passive   write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 70:69   warning  'are displayed' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 93:40   warning  'monitor' is too wordy          write-good.TooWordy  
+ 94:19   warning  'be configured' may be passive  write-good.Passive   
+                  voice. Use active voice if you                       
+                  can.                                                 
+ 103:47  warning  'is set' may be passive voice.  write-good.Passive   
+                  Use active voice if you can.                         
+
+
+ docs/Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+ 10:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 36:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 65:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 84:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 98:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 162:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 168:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 191:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Permissioning/Create-Permissioned-Network.md
+ 10:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 121:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 131:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 143:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 155:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 280:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 303:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 342:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 348:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 358:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 405:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Examples/Private-Network-Example.md
+ 10:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 21:5   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 42:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 48:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 67:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 96:1   warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 160:4  warning  'Monitor' is too wordy  write-good.TooWordy 
+ 268:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 272:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 292:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 309:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 351:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+ 363:1  warning  '!!!' is hyperbolic.    proselint.Hyperbole 
+
+
+ docs/Tutorials/Privacy/Configuring-Multi-Tenancy.md
+ 8:2    warning  'multiple' is too wordy  write-good.TooWordy 
+ 26:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 41:1   warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 103:1  warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+ 123:1  warning  '!!!' is hyperbolic.     proselint.Hyperbole 
+
+
+ docs/Tutorials/Privacy/web3js-eea-Multinode-example.md
+ 57:5   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 103:5  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Privacy/Configuring-Privacy.md
+ 15:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 81:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 159:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 193:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Private-Network/Create-IBFT-Network.md
+ 10:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 106:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 320:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 332:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 341:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/global/test_accounts.md
+ 1:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 6:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 12:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 18:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Private-Network/Create-Private-Clique-Network.md
+ 10:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 120:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 130:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 251:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 259:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 268:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Tutorials/Private-Network/Create-Private-Network.md
+ 13:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 85:1   warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 118:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 204:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+ 221:1  warning  '!!!' is hyperbolic.  proselint.Hyperbole 
+
+
+ docs/Reference/CLI/CLI-Syntax.md
+ 23:35    warning  'equivalent' is too wordy       write-good.TooWordy  
+ 64:32    warning  'is enabled' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 99:1     warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 239:5    warning  'minimum' is too wordy          write-good.TooWordy  
+ 241:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 250:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 281:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 367:20   warning  '0' is repeated!                write-good.Illusions 
+ 442:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 447:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 511:26   warning  'Use' is repeated!              write-good.Illusions 
+ 569:5    warning  'maximum' is too wordy          write-good.TooWordy  
+ 757:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 878:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1043:5   warning  'minimum' is too wordy          write-good.TooWordy  
+ 1043:88  warning  'minimum' is too wordy          write-good.TooWordy  
+ 1074:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1079:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1121:72  warning  'similar to' is too wordy       write-good.TooWordy  
+ 1129:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1133:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1199:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1203:13  warning  'is ignored' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 1203:67  warning  'is set' may be passive voice.  write-good.Passive   
+                   Use active voice if you can.                         
+ 1264:20  warning  '0' is repeated!                write-good.Illusions 
+ 1295:1   warning  'multiple' is too wordy         write-good.TooWordy  
+ 1295:45  warning  '0' is repeated!                write-good.Illusions 
+ 1295:49  warning  '0' is repeated!                write-good.Illusions 
+ 1357:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1478:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1600:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1724:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1858:30  warning  '0' is repeated!                write-good.Illusions 
+ 1903:5   warning  'minimum' is too wordy          write-good.TooWordy  
+ 1904:19  warning  'be pruned' may be passive      write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 1906:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1936:5   warning  'minimum' is too wordy          write-good.TooWordy  
+ 1938:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1970:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2004:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2009:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2102:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2138:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2276:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2282:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2337:71  warning  '0' is repeated!                write-good.Illusions 
+ 2341:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2399:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2426:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2453:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2547:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2578:10  warning  'maximum' is too wordy          write-good.TooWordy  
+ 2581:31  warning  'is ignored' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 2581:53  warning  'is applied' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 2614:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2677:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2761:64  warning  '0' is repeated!                write-good.Illusions 
+ 2859:6   warning  'being connected' may be        write-good.Passive   
+                   passive voice. Use active                            
+                   voice if you can.                                    
+ 2862:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2877:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2919:8   warning  Avoid using 'pool'              Joblint.Benefits     
+ 2945:5   warning  'maximum' is too wordy          write-good.TooWordy  
+ 2945:60  warning  Avoid using 'pool'              Joblint.Benefits     
+ 2947:8   warning  Avoid using 'pool'              Joblint.Benefits     
+ 2973:5   warning  'maximum' is too wordy          write-good.TooWordy  
+ 2973:66  warning  Avoid using 'pool'              Joblint.Benefits     
+ 2975:8   warning  Avoid using 'pool'              Joblint.Benefits     
+ 3003:8   warning  Avoid using 'pool'              Joblint.Benefits     
+ 3029:5   warning  'maximum' is too wordy          write-good.TooWordy  
+ 3029:79  warning  Avoid using 'pool'              Joblint.Benefits     
+ 3060:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3098:38  warning  'be set' may be passive voice.  write-good.Passive   
+                   Use active voice if you can.                         
+ 3100:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+
+
+ docs/Reference/API-Methods.md
+ 7:1      warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 20:1     warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 30:1     warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 44:1     warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 85:1     warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 137:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 146:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 167:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 204:1    warning  'is used' may be passive        write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 210:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 259:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 265:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 345:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 401:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 439:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 476:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 525:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 572:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 608:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 644:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 680:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 719:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 752:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 830:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 866:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 922:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 936:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 973:1    warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1001:25  warning  'is enabled' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 1012:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1038:66  warning  'equivalent' is too wordy       write-good.TooWordy  
+ 1040:25  warning  'minimum' is too wordy          write-good.TooWordy  
+ 1050:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1102:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1119:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1156:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1224:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1307:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1374:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1446:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1510:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1576:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1642:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1646:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1761:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1765:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1864:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1930:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 1999:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2054:64  warning  'maximum' is too wordy          write-good.TooWordy  
+ 2063:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2076:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2086:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2152:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2234:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2234:5   warning  'Example' is repeated!          write-good.Illusions 
+ 2288:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2288:5   warning  'Example' is repeated!          write-good.Illusions 
+ 2338:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2465:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2611:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2721:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2815:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 2913:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3024:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3032:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3069:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3106:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3145:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3185:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3268:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3281:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3332:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3344:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3470:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3514:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3554:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3580:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3598:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3636:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3689:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3693:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3745:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3783:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3824:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3853:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3864:25  warning  'implement' is too wordy        write-good.TooWordy  
+ 3876:23  warning  'Maximum' is too wordy          write-good.TooWordy  
+ 3886:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3921:69  warning  'implement' is too wordy        write-good.TooWordy  
+ 3942:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 3995:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4112:71  warning  'implement' is too wordy        write-good.TooWordy  
+ 4131:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4187:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4243:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4306:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4351:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4370:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4406:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4432:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4450:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4491:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4530:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4572:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4614:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4667:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4671:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4716:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4731:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4741:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4778:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4814:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4824:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4857:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4867:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4904:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4940:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4950:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 4986:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5012:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5024:41  warning  'maximum' is too wordy          write-good.TooWordy  
+ 5028:33  warning  'be specified' may be passive   write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 5032:18  warning  'be satisfied' may be passive   write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 5032:52  warning  'be returned' may be passive    write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 5051:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5058:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5134:45  warning  Avoid using 'pool'              Joblint.Benefits     
+ 5142:24  warning  Avoid using 'pool'              Joblint.Benefits     
+ 5144:15  warning  'Maximum' is too wordy          write-good.TooWordy  
+ 5144:70  warning  Avoid using 'pool'              Joblint.Benefits     
+ 5145:86  warning  'maximum' is too wordy          write-good.TooWordy  
+ 5149:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5179:44  warning  Avoid using 'pool'              Joblint.Benefits     
+ 5189:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5226:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5238:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5259:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5351:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5368:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5450:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5465:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5577:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5588:35  warning  Avoid using 'pool'              Joblint.Benefits     
+ 5595:26  warning  'are used' may be passive       write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 5601:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5628:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5633:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5659:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5685:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5750:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5767:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5796:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5815:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5844:40  warning  'be created' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 5859:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5907:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5922:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 5993:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6050:1   warning  'is derived' may be passive     write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 6061:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6099:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6157:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6191:23  warning  'was deleted' may be passive    write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 6193:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6235:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6273:1   warning  'is stored' may be passive      write-good.Passive   
+                   voice. Use active voice if you                       
+                   can.                                                 
+ 6288:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6316:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6333:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6371:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6424:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6432:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6477:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6503:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6521:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+ 6560:1   warning  '!!!' is hyperbolic.            proselint.Hyperbole  
+
+✖ 0 errors, 784 warnings and 0 suggestions in 126 files.
+[36m====>> Uploading artifacts[0m
+Uploading /home/circleci/project/vale.out to ./vale.out
+Uploading /home/circleci/project/vale.out (72 kB): [31mError: FAILED with error not supported
+[0m
+[32mSuccess![0m

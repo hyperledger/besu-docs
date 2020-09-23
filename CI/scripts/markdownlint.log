@@ -1,0 +1,67 @@
+Docker image digest: sha256:e6ae53e12613f991e32b51604e0636defa672bb4d02c297e4482a4b4208116a3
+[36m====>> Spin up Environment[0m
+Build-agent version 1.0.12644-dad79a7c (2019-08-08T11:59:58+0000)
+Docker Engine Version: 19.03.12
+Kernel Version: Linux 44e9cf8600f0 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 Linux
+Starting container circleci/ruby:2-stretch
+  using image circleci/ruby@sha256:1eebad785ca105830232fd00b9797d1b84329d58143790c31196e95e52e99f1d
+
+Using build environment variables
+  BASH_ENV=/tmp/.bash_env-localbuild-1600862915
+  CI=true
+  CIRCLECI=true
+  CIRCLE_BRANCH=258-update-markdown-lint-and-linkchecker
+  CIRCLE_BUILD_NUM=
+  CIRCLE_JOB=markdownlint
+  CIRCLE_NODE_INDEX=0
+  CIRCLE_NODE_TOTAL=1
+  CIRCLE_REPOSITORY_URL=https://github.com/NicolasMassart/besu-docs.git
+  CIRCLE_SHA1=a5461b01f3675ae62a8c83715c23dc6065a9657b
+  CIRCLE_SHELL_ENV=/tmp/.bash_env-localbuild-1600862915
+  CIRCLE_WORKING_DIRECTORY=~/project
+
+[36m====>> Checkout code[0m
+[37m  #!/bin/bash -eo pipefail
+mkdir -p /home/circleci/project && cd /tmp/_circleci_local_build_repo && git ls-files | tar -T - -c | tar -x -C /home/circleci/project && cp -a /tmp/_circleci_local_build_repo/.git /home/circleci/project[0m
+[36m====>> Install dependencies[0m
+[37m  #!/bin/bash -eo pipefail
+gem install mdl
+[0m
+Fetching kramdown-2.3.0.gem
+Fetching mdl-0.11.0.gem
+Fetching mixlib-cli-2.1.8.gem
+Fetching tomlrb-1.3.0.gem
+Fetching mixlib-config-3.0.9.gem
+Fetching chef-utils-16.5.64.gem
+Fetching mixlib-shellout-3.1.6.gem
+Fetching kramdown-parser-gfm-1.1.0.gem
+Successfully installed kramdown-2.3.0
+Successfully installed kramdown-parser-gfm-1.1.0
+Successfully installed mixlib-cli-2.1.8
+Successfully installed tomlrb-1.3.0
+Successfully installed mixlib-config-3.0.9
+Successfully installed chef-utils-16.5.64
+Successfully installed mixlib-shellout-3.1.6
+Successfully installed mdl-0.11.0
+8 gems installed
+[36m====>> Run Markdownlint info checks[0m
+[37m  #!/bin/bash
+mdl --ignore-front-matter --style ./CI/markdownlint/info_style.rb . | tee ./markdownlint_info.out
+[0m
+Style './CI/markdownlint/info_style.rb' does not exist.
+[36m====>> Run Markdownlint[0m
+[37m  #!/bin/bash -eo pipefail
+mdl --ignore-front-matter --style ./CI/markdownlint/style.rb . | tee ./markdownlint.out
+[0m
+Style './CI/markdownlint/style.rb' does not exist.
+[31mError: Exited with code 1[0m
+[31mStep failed[0m
+[36m====>> Uploading artifacts[0m
+Uploading /home/circleci/project/markdownlint.out to ./markdownlint.out
+Uploading /home/circleci/project/markdownlint.out: SKIPPED, file is empty
+[36m====>> Uploading artifacts[0m
+Uploading /home/circleci/project/markdownlint_info.out to ./markdownlint_info.out
+Uploading /home/circleci/project/markdownlint_info.out: SKIPPED, file is empty
+Error: runner failed (exited with 101)
+[31mTask failed[0m
+Error: task failed

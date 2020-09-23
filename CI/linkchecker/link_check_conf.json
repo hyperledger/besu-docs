@@ -5,6 +5,12 @@
         },
         {
             "pattern": "^http(s)?://127.0.0.1"
+        },
+        {
+            "pattern": "^http(s)?://.+.etherscan.io/"
+        },
+        {
+            "pattern": "/postman/.+.json"
         }
     ],
     "aliveStatusCodes":[200, 206],

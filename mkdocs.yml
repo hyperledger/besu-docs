@@ -112,7 +112,7 @@ nav:
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
           - Run Orion with Besu: HowTo/Use-Privacy/Run-Orion-With-Besu.md
-          - Use Onchain Privacy: HowTo/Use-Privacy/Use-OnChainPrivacy.md
+          - Use Flexible Privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
@@ -162,7 +162,7 @@ nav:
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
-          - Onchain Privacy Groups: Concepts/Privacy/Onchain-PrivacyGroups.md
+          - Flexible Privacy Groups: Concepts/Privacy/Flexible-PrivacyGroups.md
           - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
@@ -245,3 +245,5 @@ plugins:
           Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md
           HowTo/Develop-Dapps/Use-web3js.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
+          Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
+          HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md

@@ -1,23 +1,28 @@
 ---
-description: Onchain Privacy Groups
+description: Flexible Privacy Groups
 ---
 
-# Onchain Privacy Groups
+# Flexible Privacy Groups
 
-Onchain privacy groups use smart contracts to store and maintain the group membership. You can add
-and remove members to and from onchain privacy groups.
+Flexible privacy groups use smart contracts to store and maintain the group membership. You can add
+and remove members to and from flexible privacy groups.
+
+!!! tip
+    
+    Because group membership for flexible privacy groups is stored in a smart contract, flexible 
+    privacy groups are also known as onchain privacy groups. 
 
 !!! important
 
-    Onchain privacy groups are an early access feature. Do not use in production networks.
+    Flexible privacy groups are an early access feature. Do not use in production networks.
 
-    Onchain privacy groups are not supported with [multi-tenancy](Multi-Tenancy.md).
+    Flexible privacy groups are not supported with [multi-tenancy](Multi-Tenancy.md).
 
-    The onchain privacy group interfaces might change between releases. There might not be an
-    upgrade path from onchain privacy groups created using v1.4 to enable use of onchain privacy
+    The flexible privacy group interfaces might change between releases. There might not be an
+    upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
 
-    It's not recommended to create onchain privacy groups in a chain with existing
+    It's not recommended to create flexible privacy groups in a chain with existing
     [offchain privacy groups](Privacy-Groups.md).
 
 ## Group Management Contracts
@@ -27,7 +32,7 @@ create a privacy group, the contract bytecode is part of the genesis state of th
 
 !!! caution
 
-    All members of an onchain privacy group must be using the same version of Hyperledger Besu. If
+    All members of a flexible privacy group must be using the same version of Hyperledger Besu. If
     using different versions, the private state within the privacy group may become inconsistent.
 
 In the default implementation of the group management contract, the signer of the private transaction
@@ -37,12 +42,12 @@ and upgrade the management contract.
 The owner is identified by the signing key.  Transactions to add and remove participants, or upgrade
 the management contract, must be signed by the same key that signed the group creation transaction.
 
-## Onchain Privacy Group IDs
+## Flexible Privacy Group IDs
 
-When creating an onchain privacy group, generate the privacy group ID for the group outside of Besu
+When creating a flexible privacy group, generate the privacy group ID for the group outside of Besu
 and pass the ID as a parameter.
 
-The [web3js-eea library](../../HowTo/Use-Privacy/Use-OnChainPrivacy.md) generates a unique privacy
+The [web3js-eea library](../../HowTo/Use-Privacy/Use-FlexiblePrivacy.md) generates a unique privacy
 group ID and passes the ID to Besu when creating a privacy group.
 
 !!! caution

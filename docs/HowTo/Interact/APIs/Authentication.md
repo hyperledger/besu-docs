@@ -162,15 +162,15 @@ Each payload for the JWT contains:
 * Optionally, the tenant's Orion public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
-Example payload:
+!!! example "Example payload"
 
-```json
-{
-  "permissions": ["*:*"],
-  "privacyPublicKey": "2UKH3VJThkOoKskrLFpwoxCnnRARyobV1bEdgseFHTs=",
-  "exp": 1600899999002
-}
-```
+    ```json
+    {
+      "permissions": ["*:*"],
+      "privacyPublicKey": "2UKH3VJThkOoKskrLFpwoxCnnRARyobV1bEdgseFHTs=",
+      "exp": 1600899999002
+    }
+    ```
 
 The following example uses the [JWT.io](https://jwt.io/) website to create a JWT for testing
 purposes.

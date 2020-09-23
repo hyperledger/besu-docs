@@ -12,4 +12,3 @@ logging enables:
 
 For an overview of monitoring Hyperledger Besu, view
 [this recording](https://www.youtube.com/watch?v=7BuutRe0I28&feature=youtu.be).
-

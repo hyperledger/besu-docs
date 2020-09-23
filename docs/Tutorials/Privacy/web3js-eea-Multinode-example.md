@@ -35,7 +35,7 @@ To use the examples provided in the web3js-eea library with
 
     A private transaction receipt returns.
 
-    ```
+    ```bash
     Transaction Hash  0x23b57ddc3ecf9c9a548e4401a411420ffc0002fd259a86d5656add7c6108beeb
     Waiting for transaction to be mined ...
     Private Transaction Receipt

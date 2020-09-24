@@ -43,7 +43,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 
 1. Run:
 
-    ```
+    ```bash
     node simpleExample.js
     ```
 

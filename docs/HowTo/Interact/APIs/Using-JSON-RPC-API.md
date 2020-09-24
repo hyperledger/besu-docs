@@ -153,4 +153,3 @@ The block parameter can have the following values:
     If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most
     historical world state data is unavailable. Any methods attempting to access unavailable world
     state data return `null`.
-

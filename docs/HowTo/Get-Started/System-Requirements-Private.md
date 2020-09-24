@@ -47,4 +47,3 @@ We recommend you create a VM with the following attributes:
 
 <!-- Links -->
 [Oracle VirtualBox documentation]: https://www.virtualbox.org/manual/UserManual.html#sharedfolders
-

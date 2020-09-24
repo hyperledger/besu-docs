@@ -51,4 +51,3 @@ the firewalls.
 In private networks with a level of trust between peers, enabling the
 [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
 is unnecessary and disabling might increase the speed at which nodes can join the network.
-

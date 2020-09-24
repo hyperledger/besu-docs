@@ -42,4 +42,3 @@ type when returned by
         ]
     }
     ```
-

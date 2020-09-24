@@ -82,4 +82,3 @@ for the private transaction with the incorrect nonce.
 <!-- links ---->
 
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
-

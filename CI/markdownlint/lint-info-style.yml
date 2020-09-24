@@ -1,0 +1,20 @@
+line-length:
+  line_length: 100
+  code_blocks: false
+  tables: false
+
+no-bare-urls: false
+
+  # excluded rule for error as kramdown has a bug.
+  # see https://github.com/markdownlint/markdownlint/issues/294#issuecomment-600600407
+  # these are now in this info style.
+  # to be put back in error style once bug fixed.
+single-h1: true
+no-space-in-code: true
+no-duplicate-header:
+  allow_different_nesting: true
+first-line-h1: true
+
+  # Because I hate HTML but sometimes a table is hard to format in MD
+no-inline-html: true
+

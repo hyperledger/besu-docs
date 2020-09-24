@@ -25,4 +25,3 @@ In Besu, you can use the JSON-RPC methods:
     [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) implements
     [`eth_sendTransaction`](http://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eth_sendtransaction)
     and [`eea_sendTransaction`](http://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
-

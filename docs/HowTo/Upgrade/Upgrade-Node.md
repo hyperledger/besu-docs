@@ -34,5 +34,3 @@ Before the node restarted, connected peers saved the node details in their peer 
 can reconnect to the restarted node.  The restarted node uses these peers, as well as the
 bootnodes, to discover more peers. To ensure that the restarted node successfully rejoins the
 network, ensure you specify at least one operational bootnode.
-
-

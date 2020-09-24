@@ -8,8 +8,8 @@ Use the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea) to creat
 membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
 
 !!! tip
-    
-    Because group membership for flexible privacy groups is stored in a smart contract, flexible 
+
+    Because group membership for flexible privacy groups is stored in a smart contract, flexible
     privacy groups are also known as onchain privacy groups.
 
 !!! important

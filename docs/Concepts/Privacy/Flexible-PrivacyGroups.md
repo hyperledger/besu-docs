@@ -8,9 +8,9 @@ Flexible privacy groups use smart contracts to store and maintain the group memb
 and remove members to and from flexible privacy groups.
 
 !!! tip
-    
+
     Because group membership for flexible privacy groups is stored in a smart contract, flexible 
-    privacy groups are also known as onchain privacy groups. 
+    privacy groups are also known as onchain privacy groups.
 
 !!! important
 

@@ -219,4 +219,3 @@ for a private contract.
 
     The above example returns the same result as calling [eth_newFilter](#creating-a-filter)
     followed by [eth_getFilterLogs](#getting-all-logs-for-a-filter).
-

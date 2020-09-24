@@ -17,7 +17,7 @@ Go to the besu-doc project root directory and run one of the following scripts:
 * `CI/scripts/test_links.sh` tests the internal and external links in the doc. If a link is
   incorrect or the targeted web page is unavailable (for external sites), the test will fail and
   display the faulty link.
-* `CI/scripts/test_lint.sh` tests the Markdown syntax for issues. Sometimes they are not visible
+* `CI/scripts/test_markdown_syntax.sh` tests the Markdown syntax for issues. Sometimes they are not visible
   but making sure the markdown is correct helps to make it readable and bug free.
 * `CI/scripts/test_all.sh` runs all the tests in one pass.
 

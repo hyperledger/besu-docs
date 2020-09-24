@@ -44,7 +44,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 1. Run:
 
     ```
-    node simpleOnChainPrivacy.js
+    node simpleExample.js
     ```
 
     This script creates the flexible privacy group with two members. `findPrivacyGroup` finds and

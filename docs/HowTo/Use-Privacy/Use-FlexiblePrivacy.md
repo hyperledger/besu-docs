@@ -1,37 +1,42 @@
 ---
-description: Use Onchain Privacy
+description: Use flexible privacy groups 
 ---
 
-# Using onchain privacy groups
+# Using flexible privacy groups
 
 Use the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea) to create and update
-membership of [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md).
+membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
+
+!!! tip
+
+    Because group membership for flexible privacy groups is stored in a smart contract, flexible
+    privacy groups are also known as onchain privacy groups.
 
 !!! important
-    [Onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md) are an early access
+    [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
     feature. Do not use in production networks.
 
-    Onchain privacy groups are not supported with [multi-tenancy](../../Tutorials/Privacy/Configuring-Multi-Tenancy.md).
+    Flexible privacy groups are not supported with [multi-tenancy](../../Tutorials/Privacy/Configuring-Multi-Tenancy.md).
 
-    The onchain privacy group interfaces may change between releases. There may not be an
-    upgrade path from onchain privacy groups created using v1.4 to enable use of onchain privacy
+    The flexible privacy group interfaces may change between releases. There may not be an
+    upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
 
-    We do not recommend creating onchain privacy groups in a chain with existing
+    We do not recommend creating flexible privacy groups in a chain with existing
     [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
 
-## Enabling onchain privacy groups
+## Enabling flexible privacy groups
 
 Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
-command line option to enable [onchain privacy groups](../../Concepts/Privacy/Onchain-PrivacyGroups.md).
-When onchain privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
+command line option to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
+When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
 and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
 [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
-## Simple onchain privacy group example
+## Simple flexible privacy group example
 
-To create and find an [onchain privacy group](../../Concepts/Privacy/Onchain-PrivacyGroups.md) using
+To create and find a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md) using
 the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 
 1. Update the `example/keys.js` file to match your network configuration.
@@ -39,10 +44,10 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 1. Run:
 
     ```bash
-    node simpleOnChainPrivacy.js
+    node simpleExample.js
     ```
 
-    This script creates the onchain privacy group with two members. `findPrivacyGroup` finds and
+    This script creates the flexible privacy group with two members. `findPrivacyGroup` finds and
     displays the created privacy group.
 
 !!! tip
@@ -53,7 +58,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 
 ## Adding and removing members
 
-To add and remove members from an [onchain privacy group](../../Concepts/Privacy/Onchain-PrivacyGroups.md),
+To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
 use the `addToPrivacyGroup` and `removeFromPrivacyGroup` methods in the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea)
 client library.
 

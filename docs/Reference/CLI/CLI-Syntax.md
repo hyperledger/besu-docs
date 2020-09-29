@@ -1691,7 +1691,7 @@ transactions. The default is `false`.
     privacy-onchain-groups-enabled=true
     ```
 
-Set to enable onchain privacy groups. Default is `false`.
+Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
 
 ### privacy-public-key-file
 

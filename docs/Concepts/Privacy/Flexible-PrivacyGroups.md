@@ -16,8 +16,6 @@ and remove members to and from flexible privacy groups.
 
     Flexible privacy groups are an early access feature. Do not use in production networks.
 
-    Flexible privacy groups are not supported with [multi-tenancy](Multi-Tenancy.md).
-
     The flexible privacy group interfaces might change between releases. There might not be an
     upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.

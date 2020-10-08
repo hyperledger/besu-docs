@@ -40,7 +40,7 @@ Deploy a `LoadBalancer` service for Besu to recover IP address and ports.
 
 !!!example
 
-    Here is an example that you can customise with your own ports and routing rules.
+    Here is an example that you can customize with your own ports and routing rules.
 
     ```yaml
     ---

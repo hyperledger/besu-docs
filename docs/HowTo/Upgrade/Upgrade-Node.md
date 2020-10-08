@@ -13,7 +13,7 @@ We recommend:
 ## Ansible
 
 You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/hyperledger_besu)
-directly or customise it to suit your needs.
+directly or customize it to suit your needs.
 
 Upgrade the Besu version on nodes by running the play with the new version. For more information,
 see the [Galaxy Readme](https://galaxy.ansible.com/pegasyseng/hyperledger_besu). The play:

@@ -16,8 +16,6 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
     [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
     feature. Do not use in production networks.
 
-    Flexible privacy groups are not supported with [multi-tenancy](../../Tutorials/Privacy/Configuring-Multi-Tenancy.md).
-
     The flexible privacy group interfaces may change between releases. There may not be an
     upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
@@ -52,7 +50,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 
 !!! tip
 
-    The Orion logs for Orion 1 and Orion 2 displays `PrivacyGroupNotFound` errors. This is expected
+    The Orion logs for Orion 1 and Orion 2 display `PrivacyGroupNotFound` errors. This is expected
     behavior because private transactions check offchain and onchain to find the privacy group for
     a private transaction.
 

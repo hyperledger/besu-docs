@@ -25,7 +25,7 @@ IBFT-Network/
 
 !!! note
 
-    This tutorial uses [JSON Web Token (JWT) public key authentication] to create the tenant's JWT,
+    This tutorial uses [JWT public key authentication] to create the tenant's JWT,
     but you can also use [username and password authentication].
 
 ## Prerequisites
@@ -103,7 +103,7 @@ The command line specifies privacy options:
 !!! note
 
     [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
-    is only required when using [JSON Web Token (JWT) public key authentication]. If using
+    is only required when using [JWT public key authentication]. If using
     [username and password authentication], use
     [`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
     instead.
@@ -128,7 +128,10 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 [Use the authentication token to make requests].
 
 <!-- Links -->
-[JSON Web Token (JWT) public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
+[JWT public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
 [username and password authentication]: ../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication
 [generate the private and public key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests
+
+<!-- Abbreviations -->
+*[JWT]: JSON Web Token

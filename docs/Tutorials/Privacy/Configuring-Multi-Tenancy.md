@@ -103,7 +103,7 @@ The command line specifies privacy options:
 !!! note
 
     [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
-    is only required when using [JWT public key authentication]. If using
+    is only required when using [JSON Web Token (JWT) public key authentication]. If using
     [username and password authentication], use
     [`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
     instead.

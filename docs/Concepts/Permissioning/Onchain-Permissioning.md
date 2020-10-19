@@ -56,6 +56,15 @@ Permissioning implements three allowlists:
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`] command line option and the signing key
     included in the accounts allowlist.
+    
+!!! tip 
+  
+    If nodes are not connecting as expected, set the [log level to `TRACE`](../../Reference/CLI/CLI-Syntax.md#logging)
+    to identify the issue. 
+    
+    Ensure the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) command line option has been
+    correctly configured for all nodes with the 
+    externally accessible address.  If not specified, nodes advertise `0.0.0.0`. 
 
 ## Bootnodes
 

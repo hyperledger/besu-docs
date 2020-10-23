@@ -13,7 +13,7 @@ We recommend:
 ## Ansible
 
 You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/hyperledger_besu)
-directly or customise it to suit your needs.
+directly or customize it to suit your needs.
 
 Upgrade the Besu version on nodes by running the play with the new version. For more information,
 see the [Galaxy Readme](https://galaxy.ansible.com/pegasyseng/hyperledger_besu). The play:
@@ -34,5 +34,3 @@ Before the node restarted, connected peers saved the node details in their peer 
 can reconnect to the restarted node.  The restarted node uses these peers, as well as the
 bootnodes, to discover more peers. To ensure that the restarted node successfully rejoins the
 network, ensure you specify at least one operational bootnode.
-
-

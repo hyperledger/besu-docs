@@ -717,7 +717,7 @@ default is `9545`. Ports must be
 === "Configuration File"
 
     ```bash
-    metrics-push-enabled="true"
+    metrics-push-enabled=true
     ```
 
 Enables or disables [push gateway integration].
@@ -1691,7 +1691,7 @@ transactions. The default is `false`.
     privacy-onchain-groups-enabled=true
     ```
 
-Set to enable onchain privacy groups. Default is `false`.
+Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
 
 ### privacy-public-key-file
 
@@ -3028,6 +3028,78 @@ The price bump percentage to replace an existing transaction. The default is 10.
 
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
+
+### Xdns-enabled
+
+=== "Syntax"
+
+    ```bash
+    --Xdns-enabled=[<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --Xdns-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_XDNS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    Xdns-enabled=true
+    ```
+
+Enables DNS support. The default is `false`.
+
+!!! important
+
+    Use domain names in private networks only because public networks require using IP addresses.
+    This is an early access feature. Some functionality may be updated before the feature is fully
+    released.
+
+Use DNS with a trusted DNS provider in private networks because of limitations where IP addresses
+can change. For example, when using Kubernetes pods.
+
+### Xdns-update-enabled
+
+=== "Syntax"
+
+    ```bash
+    --Xdns-update-enabled=[<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --Xdns-update-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_XDNS_UPDATE_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    Xdns-update-enabled=true
+    ```
+
+Allow Besu to continuously query the DNS to ensure updates to IP addresses are automatically
+detected. The default is `false`.
+
+[`Xdns-enabled`](#Xdns-enabled) must be set to `true`.
+
+!!! important
+
+    This is an early access feature. Some functionality may be updated before the feature is fully released.
 
 ### version
 

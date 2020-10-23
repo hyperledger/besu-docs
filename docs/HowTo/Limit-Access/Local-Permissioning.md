@@ -6,6 +6,14 @@ description: Hyperledger Besu local permissioning
 
 Local permissioning supports node and account allowlisting.
 
+!!! tip
+
+    If deploying Besu using Kubernetes in private permissioned networks, use the
+    [`--Xdns-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
+    [`--Xdns-update-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
+    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
+    the IP address changes after being restarted.
+
 ## Node allowlisting
 
 You can allow access to specified nodes in the
@@ -112,7 +120,7 @@ Transaction validation against the accounts allowlist occurs at the following po
 * Added to a block by a mining node.
 
 After adding transactions to a block, the transactions are not validated against the allowlist
-when received by another node. That is, a node can synchronise and add blocks containing
+when received by another node. That is, a node can synchronize and add blocks containing
 transactions from accounts that are not on the accounts allowlist of that node.
 
 The following diagram illustrates applying local and onchain permissioning rules.

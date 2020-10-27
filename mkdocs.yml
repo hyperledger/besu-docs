@@ -151,6 +151,7 @@ nav:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
         - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3js-eea Multinode Example: Tutorials/Privacy/web3js-eea-Multinode-example.md
+      - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus Protocols:

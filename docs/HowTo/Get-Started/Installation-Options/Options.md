@@ -12,6 +12,6 @@ Use the quickstart to rapidly generate local blockchain networks.
 
 ## Installation options
 
-* [Docker image](Run-Docker-Image.md) 
+* [Docker image](Run-Docker-Image.md)
 * [Binaries](Install-Binaries.md)
 * [Build from source](Build-from-source.md)

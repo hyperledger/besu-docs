@@ -30,7 +30,7 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 * Smart contract development
 * Decentralized application (Dapp) development.
 
-## New to Enterprise Ethereum? 
+## New to Enterprise Ethereum?
 
 Get started with the [Developer Quickstart](Tutorials/Developer-Quickstart.md). Use the quickstart
 to rapidly generate local blockchain networks.

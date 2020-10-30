@@ -13,6 +13,9 @@
             "pattern": "^http(s)?://.+.tokenview.com"
         },
         {
+            "pattern": "^http(s)?://.+.metamask.zendesk.com/"
+        },
+        {
             "pattern": "/postman/.+.json"
         }
     ],

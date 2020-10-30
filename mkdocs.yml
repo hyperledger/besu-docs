@@ -55,7 +55,8 @@ nav:
             - System Requirements:
                 - Private Network: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
                 - Public Network: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
-            - Installation options:
+            - Insall Besu:
+                - Options: HowTo/Get-Started/Installation-Options/Options.md
                 - Run Besu from Docker Image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
                 - Install Binary Distribution: HowTo/Get-Started/Installation-Options/Install-Binaries.md
                 - Build from Source: HowTo/Get-Started/Installation-Options/Build-from-source.md

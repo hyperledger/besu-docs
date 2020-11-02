@@ -75,7 +75,7 @@ for the private transaction with the incorrect nonce.
 
 !!! tip
 
-    The [web3js-eea library includes an example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    The [web3js-eea library includes an example](https://github.com/ConsenSys/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     of nonce management when sending multiple private transactions. The example calculates the
     correct nonces for the private transactions and privacy marker transactions outside of Besu.
 

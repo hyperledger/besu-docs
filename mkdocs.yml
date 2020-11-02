@@ -151,6 +151,7 @@ nav:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
         - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3js-eea Multinode Example: Tutorials/Privacy/web3js-eea-Multinode-example.md
+      - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus Protocols:
@@ -187,7 +188,7 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Transaction Trace Types: Reference/Trace-Types.md
         - Genesis File Items: Reference/Config-Items.md
-        - web3js-eaa Reference: https://pegasyseng.github.io/web3js-eea/latest/
+        - web3js-eaa Reference: https://consensys.github.io/web3js-eea/latest/
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md

@@ -1,10 +1,10 @@
 ---
-description: Hyperledger Besu private network example tutorial
+description: Quorum dev quickstart tutorial
 ---
 
-# Private network example tutorial
+# Quorum Developer Quickstart tutorial
 
-The private network example uses the Hyperledger Besu Docker image to run a private network of Besu
+The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private network of Besu
 nodes managed by Docker Compose.
 
 !!! important
@@ -14,44 +14,38 @@ nodes managed by Docker Compose.
 
 ## Prerequisites
 
-To run this tutorial, you must have the following installed:
-
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
+* [Nodejs](https://nodejs.org/en/download/)
+* On Windows:
+    - Windows Subsystem for Linux 2
+    - Docker desktop configured to use the WSL2-based engine.
 
-    !!! important
-
-        If using [MacOS](https://docs.docker.com/docker-for-mac/) or
-        [Windows](https://docs.docker.com/docker-for-windows/), set Docker to use up to 6GB of
-        memory on the _Advanced_ tab in _Preferences_.
+!!! important
+    Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
+    Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
+    [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
 * [Git command line](https://git-scm.com/)
 * [Curl command line](https://curl.haxx.se/download.html)
 * A web browser that supports [Metamask](https://metamask.io/) (currently Chrome, Firefox, Opera,
   and Brave), and has the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
-## Clone Besu sample networks source code
+## Create Docker-compose file
 
-Clone the repository from the `besu-sample-networks` repository:
+## Usage
 
-=== "Linux/MacOS"
+To create the docker-compose file and artifacts, run:
 
-    ```bash
-    git clone https://github.com/PegaSysEng/besu-sample-networks.git
-    ```
+```bash
+npx quorum-dev-quickstart
+```
 
-!!!note
-
-    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
+Follow the prompts displayed to run Hyperledger Besu. Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/)
+and [private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
 
 ## Start the network
 
-!!!important
-
-    If running in Windows, run commands from the GitBash shell.
-
-This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
-run the private network. To build the docker images and run the containers, go to the
-`besu-sample-networks` directory and run:
+To start the network, go to the installation directory and run:
 
 === "Linux/MacOS"
 

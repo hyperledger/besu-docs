@@ -57,9 +57,9 @@ Permissioning implements three allowlists:
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
     command line option and the signing key
     included in the accounts allowlist.
-    
-!!! tip 
-  
+
+!!! tip
+
     If nodes are not connecting as expected, set the [log level to `TRACE`](../../Reference/CLI/CLI-Syntax.md#logging)
     and search for messages containing `Node permissioning` to identify the issue. 
     

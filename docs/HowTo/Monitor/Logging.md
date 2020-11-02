@@ -11,7 +11,7 @@ Hyperledger Besu uses Log4J2 for logging. There are two methods to configure log
 * [Basic](#basic-log-level-setting) - changes the log level.
 * [Advanced](#advanced-custom-logging) - configures the output and format of the logs.
 
-[Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) provides an
+[Besu Sample Networks](https://github.com/ConsenSys/besu-sample-networks/tree/1.3.1) provides an
 [example implementation using Elastic Stack](Elastic-Stack.md) (also known as ELK) for log
 management.
 
@@ -76,9 +76,8 @@ setting it before starting Besu.
 
 ### Log rotation
 
-[Besu Sample Networks](https://github.com/PegaSysEng/besu-sample-networks) logging configuration
-defines a [log rotation to restrict the size of the log files].
+[Besu Sample Networks](https://github.com/ConsenSys/besu-sample-networks/tree/1.3.1) logging configuration
+defines a log rotation to restrict the size of the log files.
 
 <!-- Links -->
 [default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml
-[log rotation to restrict the size of the log files]: https://github.com/PegaSysEng/besu-sample-networks/blob/master/config/besu/log-config.xml

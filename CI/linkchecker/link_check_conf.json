@@ -14,6 +14,9 @@
         },
         {
             "pattern": "/postman/.+.json"
+        },
+        {
+            "pattern": "^http(s)?://.+.zendesk.com"
         }
     ],
     "aliveStatusCodes":[200, 206],

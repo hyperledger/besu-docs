@@ -65,7 +65,7 @@ besu --help
 
 ### Install from packaged binaries
 
-Download the Besu [packaged binaries](https://pegasys.tech/solutions/hyperledger-besu/).
+Download the Besu [packaged binaries](https://github.com/hyperledger/besu/releases).
 
 Unpack the downloaded files and change into the `besu-<release>` directory.
 

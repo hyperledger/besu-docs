@@ -59,14 +59,14 @@ Follow the Splunk connect for Ethereum repository [README](https://github.com/sp
 ### Requirements
 
 - [Docker](https://docs.docker.com/compose/install/).
-- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Installation-Options/Install-Binaries.md).
 
 !!!important
     A Splunk license is not required to use the trial version of the Splunk Docker image. The  image
     is not suitable for production use and has [restrictions on daily log volume](https://www.splunk.com/).
 
 !!!note
-    If running [Besu as a Docker container](../Get-Started/Run-Docker-Image.md), consider using
+    If running [Besu as a Docker container](../Get-Started/Installation-Options/Run-Docker-Image.md), consider using
     [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose)
     or [Kubernetes](../Deploy/Kubernetes.md) instead of the Splunk Enterprise trial container.
 
@@ -144,7 +144,7 @@ Congratulations! You can now play with the search and other Splunk features to e
 ### Requirements
 
 - Splunk Enterprise license.
-- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Installation-Options/Install-Binaries.md).
 
 !!!important
     A [Splunk license](https://www.splunk.com/) is required to use Splunk Enterprise.

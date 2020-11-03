@@ -241,6 +241,11 @@ plugins:
           # old_path.md: new_path.md
           # you can't use an already redirected path as an old_path.
           # new_path can be a file inside the docs/ folder or any URL (http://...)
+          HowTo/Get-Started/System-Requirements-Private.md: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
+          HowTo/Get-Started/System-Requirements-Public.md: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
+          HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+          HowTo/Get-Started/Build-from-source.md: HowTo/Get-Started/Installation-Options/Build-from-source.md
+          HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
           HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
           HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
           HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md

@@ -11,6 +11,7 @@ Hyperledger Besu uses Log4J2 for logging. There are two methods to configure log
 * [Basic](#basic-log-level-setting) - changes the log level.
 * [Advanced](#advanced-custom-logging) - configures the output and format of the logs.
 
+
 [Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) provides an
 [example implementation using Elastic Stack](Elastic-Stack.md) (also known as ELK) for log
 management.
@@ -82,3 +83,4 @@ defines a [log rotation to restrict the size of the log files].
 <!-- Links -->
 [default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml
 [log rotation to restrict the size of the log files]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/config/besu/log-config.xml
+[default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml

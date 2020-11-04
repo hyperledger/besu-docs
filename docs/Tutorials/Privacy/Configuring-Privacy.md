@@ -192,8 +192,8 @@ Node-1.
 
 !!!note
 
-    When running Besu from the [Docker image](../../HowTo/Get-Started/Run-Docker-Image.md),
-    [expose ports](../../HowTo/Get-Started/Run-Docker-Image.md#exposing-ports).
+    When running Besu from the [Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md),
+    [expose ports](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md#exposing-ports).
 
 ## 8. Start Besu Node-3
 

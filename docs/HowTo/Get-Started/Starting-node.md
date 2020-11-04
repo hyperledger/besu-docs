@@ -9,7 +9,7 @@ can connect to the Ethereum MainNet, public testnets such as Ropsten, or private
 
 ## Prerequisites
 
-[Besu Installed](Install-Binaries.md)
+[Besu Installed](Installation-Options/Install-Binaries.md)
 
 ## Local block data
 

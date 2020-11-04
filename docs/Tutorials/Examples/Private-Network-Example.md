@@ -322,7 +322,7 @@ In the block explorer, search for the new account by clicking on the magnifying 
 the account address into the search box. The account displays with a zero balance.
 
 [Send Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-)
-from the first account (containing ether) to the new account (which has a zero balance).
+from the first account (containing Ether) to the new account (which has a zero balance).
 
 Refresh the browser page displaying the new account. The updated balance displays and reflects the
 transaction completed using MetaMask.

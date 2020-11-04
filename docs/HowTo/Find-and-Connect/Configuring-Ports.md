@@ -9,8 +9,8 @@ an example port configuration for a Besu node on AWS.
 
 ![Port Configuration](../../images/PortConfiguration.png)
 
-When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md),
-[expose ports](../Get-Started/Run-Docker-Image.md#exposing-ports).
+When running Besu from the [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md),
+[expose ports](../Get-Started/Installation-Options/Run-Docker-Image.md#exposing-ports).
 
 !!! tip
 

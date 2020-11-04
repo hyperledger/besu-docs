@@ -5,7 +5,7 @@ description: Plugin interfaces
 # Plugin API interfaces
 
 API interfaces in Hyperledger Besu allow users to [build plugins](../Concepts/Plugins.md) to
-extend Besu functionality.
+extend Besu functionality, such as the [Quorum Besu plugins](https://doc.quorumplugins.consensys.net/en/latest/Concepts/Besu-Plugins/Event-Streams/).
 
 For more information about the available interfaces, see the
 [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).

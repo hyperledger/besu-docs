@@ -26,7 +26,7 @@ any new log fields.
 To see the Besu Sample Networks logs in Kibana:
 
 1. [Start the Quorum Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md),
-   adding the `-e` parameter to the `run.sh` command.
+   and select the appropriate options.
 1. Open the [`Kibana logs address`](http://localhost:5601/app/kibana#/discover) listed by the
    sample networks `list.sh` script. The logs display in Kibana.
 

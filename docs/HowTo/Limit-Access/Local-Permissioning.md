@@ -200,7 +200,7 @@ options.
     The [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
     and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
     options are not used when running Besu from the
-    [Docker image](../Get-Started/Run-Docker-Image.md). Use a bind mount to
+    [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md). Use a bind mount to
     [specify a permissions configuration file with Docker].
 
 !!! example "Sample Permissions Configuration File"
@@ -212,4 +212,4 @@ options.
     ```
 
 <!-- Links -->
-[specify a permissions configuration file with Docker]: ../Get-Started/Run-Docker-Image.md#permissions-configuration-file
+[specify a permissions configuration file with Docker]: ../Get-Started/Installation-Options/Run-Docker-Image.md#permissions-configuration-file

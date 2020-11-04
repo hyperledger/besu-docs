@@ -185,7 +185,7 @@ The default is `none`.
     ```
 
 The path to the Besu data directory. The default is the directory you installed Besu in, or
-`/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+`/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
 ### discovery-enabled
 
@@ -1082,7 +1082,7 @@ The default is `AUTO`. `NONE` disables NAT functionality.
     UPnP gateway device.
 
     You must specify `DOCKER` when using the
-    [Besu Docker image](../../HowTo/Get-Started/Run-Docker-Image.md).
+    [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
 ### network
 

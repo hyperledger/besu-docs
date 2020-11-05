@@ -178,7 +178,7 @@ with a `contractAddress` of `null`.
   }
 }
 ```
-
+ 
 ## Stop the network
 
 Do one of the following to stop the network:
@@ -194,6 +194,6 @@ Do one of the following to stop the network:
     ```bash
     ./remove.sh
     ```
-
+ 
 <!-- Links -->
 [create transactions using Metamask]: Private-Network-Example.md#create-a-transaction-using-metamask

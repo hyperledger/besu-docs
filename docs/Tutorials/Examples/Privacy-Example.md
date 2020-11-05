@@ -47,7 +47,7 @@ npx quorum-dev-quickstart
 ```
 
 Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
-Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/). 
+Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
 ## Clone web3js-eea libraries
 
@@ -80,7 +80,7 @@ first time. The network details display.
 
 ```bash
 *************************************
-Quorum Dev Quickstart 
+Quorum Dev Quickstart
 *************************************
 Setting up the index patterns in kibana .................
 ----------------------------------
@@ -178,7 +178,7 @@ with a `contractAddress` of `null`.
   }
 }
 ```
- 
+
 ## Stop the network
 
 Do one of the following to stop the network:
@@ -194,6 +194,6 @@ Do one of the following to stop the network:
     ```bash
     ./remove.sh
     ```
- 
+
 <!-- Links -->
 [create transactions using Metamask]: Private-Network-Example.md#create-a-transaction-using-metamask

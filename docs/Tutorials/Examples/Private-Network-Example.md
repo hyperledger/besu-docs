@@ -17,8 +17,8 @@ nodes managed by Docker Compose.
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 * [Nodejs](https://nodejs.org/en/download/)
 * On Windows:
-    - Windows Subsystem for Linux 2
-    - Docker desktop configured to use the WSL2-based engine.
+    * Windows Subsystem for Linux 2
+    * Docker desktop configured to use the WSL2-based engine.
 
 !!! important
     Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
@@ -42,7 +42,7 @@ npx quorum-dev-quickstart
 
 Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and
-[private transactions](../../Concepts/Privacy/Privacy-Overview.md). 
+[private transactions](../../Concepts/Privacy/Privacy-Overview.md).
 
 ## Start the network
 
@@ -92,6 +92,7 @@ When the process ends, it lists the running services:
     For more information on the endpoints and services, refer to README.md in the installation directory.
     ****************************************************************
     ```
+
 * Use the **JSON-RPC HTTP service endpoint** to access the RPC node service from your Dapp or from
   cryptocurrency wallets such as Metamask.
 * Use the **JSON-RPC WebSocket service endpoint** to access the web socket node service from your

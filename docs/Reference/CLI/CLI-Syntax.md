@@ -1568,6 +1568,35 @@ Enables or disables contract-based
 [onchain node permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default is
 `false`.
 
+### permissions-nodes-contract-version
+
+=== "Syntax"
+
+    ```bash
+    --permissions-nodes-contract-version=<ContractVersion>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --permissions-nodes-contract-version=2
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_PERMISSIONS_NODES_CONTRACT_VERSION=2
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    permissions-nodes-contract-version=2
+    ```
+
+Version of the EEA [node permissioning interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
+The default is 1.
+
 ### privacy-enabled
 
 === "Syntax"

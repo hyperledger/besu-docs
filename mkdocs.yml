@@ -107,6 +107,7 @@ nav:
         - Limit Access to Node:
           - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
           - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
+          - Specify Interface Version: HowTo/Limit-Access/Specify-Perm-Version.md
         - Use Privacy Features:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
           - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md

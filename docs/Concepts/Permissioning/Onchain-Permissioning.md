@@ -11,13 +11,13 @@ source, the blockchain.
 !!! note
 
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to
-    Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
+    Hyperledger Besu, located in the [ConsenSys/permissioning-smart-contracts] repository.
 
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts
 
-The permissioning smart contracts provided in the [PegaSysEng/permissioning-smart-contracts]
+The permissioning smart contracts provided in the [ConsenSys/permissioning-smart-contracts]
 repository are:
 
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
@@ -81,6 +81,6 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[PegaSysEng/permissioning-smart-contracts]: https://github.com/PegaSysEng/permissioning-smart-contracts
+[ConsenSys/permissioning-smart-contracts]: https://github.com/ConsenSys/permissioning-smart-contracts
 [Permissioning Management Dapp]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
 [`--privacy-marker-transaction-signing-key-file`]: ../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file

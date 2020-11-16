@@ -524,10 +524,10 @@ None
 
 !!! note
 
-    For almost all networks network ID and chain ID are the same. 
-    
+    For almost all networks network ID and chain ID are the same.
+
     The only networks in the table above with different network and chain IDs are
-    Classic with a chain ID of `61` and Mordor with a chain ID of `63`. 
+    Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
 
 !!! example
 
@@ -1282,7 +1282,7 @@ Returns the account balance of the specified address.
 
 ### eth_getMinerDataByBlockHash
 
-Returns miner data for the specified block. 
+Returns miner data for the specified block.
 
 #### Parameters
 
@@ -1290,7 +1290,7 @@ Returns miner data for the specified block.
 
 #### Returns
 
-`result`: `object` - [Miner data](API-Objects.md#miner-data-object). 
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
 
 !!! example
 
@@ -1333,7 +1333,7 @@ Returns miner data for the specified block.
 
 ### eth_getMinerDataByBlockNumber
 
-Returns miner data for the specified block. 
+Returns miner data for the specified block.
 
 #### Parameters
 
@@ -1343,7 +1343,7 @@ Returns miner data for the specified block.
 
 #### Returns
 
-`result`: `object` - [Miner data](API-Objects.md#miner-data-object). 
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
 
 !!! example
 
@@ -1383,7 +1383,6 @@ Returns miner data for the specified block.
           }
         }
         ```
-
 
 ### eth_getProof
 

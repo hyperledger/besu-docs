@@ -70,9 +70,9 @@ Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`
 | **data**             | Data                              | Non-indexed arguments of the log.                                                                                                                                                                                       |
 | **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Concepts/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Concepts/Events-and-Logs.md#event-parameters).  |
 
-## Miner data object 
+## Miner data object
 
-Returned by [`eth_getMinerDataByBlockHash`](API-Methods.md#eth_getminerdatabyblockhash) and 
+Returned by [`eth_getMinerDataByBlockHash`](API-Methods.md#eth_getminerdatabyblockhash) and
 [`eth_getMinerDataByBlockNumber`](API-Methods.md#eth_getminerdatabyblocknumber).
 
 | Key                      | Type                 | Value                                                                                                                                                                                                               |

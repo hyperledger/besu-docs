@@ -524,10 +524,10 @@ None
 
 !!! note
 
-    For almost all networks network ID and chain ID are the same. 
-    
+    For almost all networks network ID and chain ID are the same.
+
     The only networks in the table above with different network and chain IDs are
-    Classic with a chain ID of `61` and Mordor with a chain ID of `63`. 
+    Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
 
 !!! example
 
@@ -1276,6 +1276,110 @@ Returns the account balance of the specified address.
             "account": {
               "balance": "0x1ce96a1ffe7620d00000"
             }
+          }
+        }
+        ```
+
+### eth_getMinerDataByBlockHash
+
+Returns miner data for the specified block.
+
+#### Parameters
+
+`data` - 32 byte block hash.
+
+#### Returns
+
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
+          }
+        }
+        ```
+
+### eth_getMinerDataByBlockNumber
+
+Returns miner data for the specified block.
+
+#### Parameters
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
           }
         }
         ```

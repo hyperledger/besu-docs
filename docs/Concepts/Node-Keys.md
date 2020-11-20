@@ -53,7 +53,7 @@ The enode URL identifies a node. For example, the `--bootnodes` option and the
 The enode URL format is `enode://<id>@<host:port>` where:
 
 * `<id>` is the node public key, excluding the initial 0x.
-* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery. Specify
+* `<host:port>` is the host and port the bootnode is listening on for P2P discovery. Specify
   the host and port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
   [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
   and the default port is `30303`.

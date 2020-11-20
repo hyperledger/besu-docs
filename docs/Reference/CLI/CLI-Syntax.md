@@ -207,7 +207,7 @@ The path to the Besu data directory. The default is the directory you installed 
     discovery-enabled=false
     ```
 
-Enables or disables P2P peer discovery.
+Enables or disables P2P discovery.
 The default is `true`.
 
 ### fast-sync-min-peers

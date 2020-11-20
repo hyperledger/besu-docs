@@ -143,7 +143,7 @@ enode URL copied when starting Node-1 as the bootnode:
 
 The command line specifies:
 
-* A different port to Node-1 for P2P peer discovery using the
+* A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * The enode URL for Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
@@ -170,7 +170,7 @@ enode URL copied when starting Node-1 as the bootnode:
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P peer discovery.
+* A different port to Node-1 and Node-2 for P2P discovery.
 * A data directory for Node-3 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * A bootnode and genesis file as for Node-2.

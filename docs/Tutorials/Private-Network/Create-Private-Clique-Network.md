@@ -183,7 +183,7 @@ enode URL copied when starting Node-1 as the bootnode:
 
 The command line specifies:
 
-* A Different port to Node-1 for P2P peer discovery using the
+* A Different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A Different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
@@ -212,7 +212,7 @@ enode URL copied when starting Node-1 as the bootnode:
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P peer discovery using the
+* A different port to Node-1 and Node-2 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.

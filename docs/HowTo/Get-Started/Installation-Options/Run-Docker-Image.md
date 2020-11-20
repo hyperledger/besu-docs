@@ -36,7 +36,7 @@ docker run hyperledger/besu:latest
 
 ## Exposing ports
 
-Expose ports for P2P peer discovery, GraphQL, metrics, and HTTP and WebSockets JSON-RPC. You need
+Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSockets JSON-RPC. You need
 to expose the ports to use the default ports or the ports specified using
 [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port),
 [`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port),

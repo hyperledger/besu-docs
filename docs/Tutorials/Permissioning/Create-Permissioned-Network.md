@@ -210,7 +210,7 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 
 The command line specifies:
 
-* A different port to Node-1 for P2P peer discovery using the
+* A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option
 * A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option
@@ -239,7 +239,7 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P peer discovery using the
+* A different port to Node-1 and Node-2 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option

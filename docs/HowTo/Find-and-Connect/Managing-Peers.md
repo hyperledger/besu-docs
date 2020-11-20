@@ -14,7 +14,7 @@ To reduce the maximum number of peers, use the
 
 ## No discovery
 
-To disable P2P peer discovery, use the
+To disable P2P discovery, use the
 [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) option.
 
 With discovery disabled, peers that have already discovered or are otherwise configured to connect

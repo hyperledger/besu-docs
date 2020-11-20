@@ -227,7 +227,7 @@ The command line specifies:
 
 * The data directory for Node-2 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1 for P2P peer discovery using the
+* A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
@@ -256,7 +256,7 @@ The command line specifies:
 
 * The data directory for Node-3 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1 and Node-2 for P2P peer discovery using the
+* A different port to Node-1 and Node-2 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
@@ -284,7 +284,7 @@ The command line specifies:
 
 * The data directory for Node-4 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the
+* A different port to Node-1, Node-2, and Node-3 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.

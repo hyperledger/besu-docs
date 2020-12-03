@@ -214,13 +214,13 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8556
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8556
     ```
 
 The command line specifies:
@@ -243,13 +243,13 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8557
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8557
     ```
 
 The command line specifies:
@@ -271,7 +271,7 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8558
     ```
 
 === "Windows"
@@ -313,7 +313,7 @@ The result confirms Node-1 has three peers (Node-2, Node-3, and Node-4):
 
 ## Next steps
 
-Look at the logs displayed to confirm Besu is producing blocks.
+Look at the logs displayed to confirm Besu is producing blocks. If this doesn't happen in 15-20 seconds this means you did something wrong. Double check the [enodes](https://ethereum.stackexchange.com/questions/1177/what-is-an-enode-id-in-ethereum) are correct.
 
 Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or add validators.
 
@@ -349,3 +349,15 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.
+
+## Next steps
+
+You can continue by installing:
+
+- [Alethio Ethereum Lite Explorer](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Block-Explorer/)
+
+- [Alethio EthStats Lite (network monitor)](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Network-Monitor/)
+
+- [Grafana Monitoring](https://besu.hyperledger.org/en/stable/HowTo/Monitor/Metrics/)
+
+or try another tutorial from here

@@ -51,7 +51,7 @@ extra key.
 
 | Key           | Type               | Required/Optional | Value  |
 |---------------|:------------------:|:-----------------:|--------|
-| **blockhash** |Data, 32&nbsp;bytes | Optional.         | Hash of block for which to return logs. If you specify `blockhash`, you cannot specify `fromBlock` and `toBlock`. |
+| **blockHash** |Data, 32&nbsp;bytes | Optional.         | Hash of block for which to return logs. If you specify `blockHash`, you cannot specify `fromBlock` and `toBlock`. |
 
 ## Log object
 

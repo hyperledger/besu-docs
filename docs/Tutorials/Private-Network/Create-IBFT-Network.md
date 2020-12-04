@@ -354,10 +354,10 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 You can continue by installing:
 
-- [Alethio Ethereum Lite Explorer](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Block-Explorer/)
+* [Alethio Ethereum Lite Explorer](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Block-Explorer/)
 
-- [Alethio EthStats Lite (network monitor)](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Network-Monitor/)
+* [Alethio EthStats Lite (network monitor)](https://besu.hyperledger.org/en/stable/HowTo/Deploy/Lite-Network-Monitor/)
 
-- [Grafana Monitoring](https://besu.hyperledger.org/en/stable/HowTo/Monitor/Metrics/)
+* [Grafana Monitoring](https://besu.hyperledger.org/en/stable/HowTo/Monitor/Metrics/)
 
 or try another tutorial from here

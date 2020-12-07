@@ -17,6 +17,8 @@ public testnets.
 
 ## Prerequisites
 
+{!global/bug_1665.md!}
+
 * [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
 * [Curl (or similar web service client)](https://curl.haxx.se/download.html).
 

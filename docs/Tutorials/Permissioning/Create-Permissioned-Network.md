@@ -16,6 +16,8 @@ uses the [Clique Proof of Authority consensus protocol].
 
 [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
 
+{!global/bug_1665.md!}
+
 [Curl (or similar web service client)](https://curl.haxx.se/download.html)
 
 ## Steps

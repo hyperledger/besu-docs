@@ -17,6 +17,8 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
+{!global/bug_1665.md!}
+
 * [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
 * [Curl (or similar web service client)](https://curl.haxx.se/download.html).
 

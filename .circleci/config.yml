@@ -88,7 +88,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.6.5
+            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.6.6
       - run:
           name: Run Vale
           command: |

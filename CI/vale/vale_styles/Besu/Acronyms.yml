@@ -31,6 +31,7 @@ exceptions:
   - JDK
   - JRE
   - JSON
+  - JVM
   - P2P
   - PATH
   - PIP
@@ -53,6 +54,7 @@ exceptions:
   - TOML
   - URI
   - URL
+  - VM
   - WAR
   - WEI
   - XML

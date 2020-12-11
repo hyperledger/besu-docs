@@ -44,8 +44,8 @@ To use Prometheus with Besu, install the
 
 To configure Prometheus and run with Besu:
 
-1. Configure Prometheus to poll Besu. For example, add the following yaml fragment to the
-   `scrape_configs` block of the `prometheus.yml` file:
+1. Configure Prometheus to poll Besu.
+   For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
 !!!example
 
@@ -129,8 +129,8 @@ inside Docker containers with varying IP addresses). To enable Besu to push metr
 
 To configure Prometheus and run with Besu pushing to a push gateway:
 
-1. Configure Prometheus to read from a push gateway. For example, add the following yaml fragment
-   to the `scrape_configs` block of the `prometheus.yml` file:
+1. Configure Prometheus to read from a push gateway.
+   For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
        ```yml
         - job_name: push-gateway
@@ -172,7 +172,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 ## View Prometheus graphical interface
 
-1. Open a web browser to http://localhost:9090 to view the Prometheus graphical interface.
+1. Open a Web browser to [`http://localhost:9090`](http://localhost:9090) to view the Prometheus graphical interface.
 
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 

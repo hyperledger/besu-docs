@@ -24,7 +24,7 @@ The `gas` and `gasPrice` specified when sending a private transaction are used b
     Private transactions either deploy contracts or call contract functions. Ether transfer
     transactions cannot be private.
 
-## eea_sendRawTransaction
+## `eea_sendRawTransaction`
 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
 private transaction to the participating nodes, and signs and submits the
@@ -40,7 +40,7 @@ private transaction to the participating nodes, and signs and submits the
     [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
     the nonce for an account for the specified privacy group or participants.
 
-## priv_distributeRawTransaction
+## `priv_distributeRawTransaction`
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 distributes the private transaction to the participating nodes but does not sign and submit the

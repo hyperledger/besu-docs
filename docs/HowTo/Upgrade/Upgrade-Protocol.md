@@ -4,7 +4,7 @@ description: Upgrading protocol versions
 
 # Upgrading your protocol in a private network
 
-To [upgrade the protocol](../../Concepts/Protocol-Upgrades.md) (also known as a hardfork) in a
+To [upgrade the protocol](../../Concepts/Protocol-Upgrades.md) (also known as a "hard fork") in a
 private network:
 
 1. Review included EIPs for breaking changes. A [meta EIP](https://eips.ethereum.org/meta) for each

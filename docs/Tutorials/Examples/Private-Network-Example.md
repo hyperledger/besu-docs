@@ -27,7 +27,7 @@ nodes managed by Docker Compose.
 
 * [Git command line](https://git-scm.com/)
 * [Curl command line](https://curl.haxx.se/download.html)
-* A web browser that supports [Metamask](https://metamask.io/) (currently Chrome, Firefox, Opera,
+* A Web browser that supports [MetaMask](https://metamask.io/) (currently Chrome, Firefox, Opera,
   and Brave), and has the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
 ## Create Docker-compose file
@@ -63,7 +63,7 @@ When the process ends, it lists the running services:
 
     ```log
     *************************************
-    Quorum Dev Quickstart 
+    Quorum Dev Quickstart
     *************************************
     Setting up the index patterns in kibana............
     {"type":"index-pattern","id":"metricbeat","attributes":{"title":"metricbeat-*","timeFieldName":"@timestamp"},
@@ -79,7 +79,7 @@ When the process ends, it lists the running services:
     "tessera","attributes":{"title":"tessera-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":
     {"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:40.053Z","version":"WzE5LDFd","namespaces":
     ["default"]}
-    
+
     List endpoints and services
     ----------------------------------
     JSON-RPC HTTP service endpoint      : http://localhost:8545
@@ -88,17 +88,17 @@ When the process ends, it lists the running services:
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
-    
+
     For more information on the endpoints and services, refer to README.md in the installation directory.
     ****************************************************************
     ```
 
 * Use the **JSON-RPC HTTP service endpoint** to access the RPC node service from your Dapp or from
-  cryptocurrency wallets such as Metamask.
-* Use the **JSON-RPC WebSocket service endpoint** to access the web socket node service from your
+  cryptocurrency wallets such as MetaMask.
+* Use the **JSON-RPC WebSocket service endpoint** to access the Web socket node service from your
   Dapp.
-* Use the **Web block explorer address** to display the block explorer web application. View the
-  block explorer by entering the URL in your web browser.
+* Use the **Web block explorer address** to display the block explorer Web application. View the
+  block explorer by entering the URL in your Web browser.
 * Use the **Prometheus address** to access the
   [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
 * Use the **Grafana address** to access the
@@ -143,9 +143,9 @@ node health and usage. You can directly access these tools from your browser at 
 displayed in the endpoint list.
 
 For more details on how to configure and use these tools for your own nodes, see our
-[performances monitoring documentation](../../HowTo/Monitor/Metrics.md), as well as
-[Prometheus documentation](https://prometheus.io/docs/introduction/overview/) and
-[Grafana documentation](https://grafana.com/docs/).
+[performances monitoring documentation](../../HowTo/Monitor/Metrics.md),
+the [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
+and [Grafana documentation](https://grafana.com/docs/).
 
 ![Grafana](../../images/grafana.png)
 
@@ -278,8 +278,10 @@ modifications, so we use the private network in this tutorial as the blockchain 
 
 ### Prerequisites
 
+<!-- vale off -->
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/) (comes with Node)
-* Import an account into Metamask using the private key
+<!-- vale on -->
+* Import an account into MetaMask using the private key
   `0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3`. The following steps use
   this account.
 
@@ -296,7 +298,7 @@ npm install -g truffle
     `npm` requires `sudo` on Linux.
 
 The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain
-running and Metamask connected to it via the browser, run the command below to start the DApp.
+running and MetaMask connected to it via the browser, run the command below to start the DApp.
 
 The script first compiles the contract, then performs a migration to the blockchain network and
 then runs some tests. You can then search for the deployed contracts and transactions in the Web
@@ -386,23 +388,23 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
           3 passing (37s)
         ```
 
-After these tests are successful, it builds a container for the Pet Shop DApp and deployes it,
+After these tests are successful, it builds a container for the Pet Shop DApp and deploys it,
 binding it to port 3001 on your system.
 
-In the browser that you have metamask enabled and the account loaded, open a new tab and navigate
-to `http://localhost:3001` which should have the Pet Shop running, and you can adopt pets from the
-app. When you click on 'Adopt', a Metamask window should pop up and ask for permissions to continue
+In the browser that you have MetaMask enabled and the account loaded, open a new tab and navigate
+to [`http://localhost:3001`](http://localhost:3001) which should have the Pet Shop running, and you can adopt pets from the
+app. When you click on 'Adopt', a MetaMask window should pop up and request your permissions to continue
 with the transaction. After the transaction is complete and successful, the status of the pet you
 adopted will show 'Success'.
 
 ![Dapp UI](../../images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the Block Explorer UI at
-http://localhost:25000/.
+[`http://localhost:25000/`](http://localhost:25000/).
 
 ![Dapp UI](../../images/dapp-explorer-tx.png)
 
-The Metmask UI also keeps a record of the transaction.
+The MetMask UI also keeps a record of the transaction.
 
 ![Dapp UI](../../images/dapp-metamask-tx.png)
 

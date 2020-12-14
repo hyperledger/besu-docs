@@ -53,7 +53,7 @@ To update the list of static peers at run time, use the
     [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, and the
     node is listening for TCP connections on the endpoint.
 
-### static-nodes.json file
+### `static-nodes.json` file
 
 The `static-nodes.json` file must be in the data directory (specified by
 [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path)) and contain a JSON array of

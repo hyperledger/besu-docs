@@ -1,10 +1,10 @@
 ---
-description: Use flexible privacy groups 
+description: Use flexible privacy groups
 ---
 
 # Using flexible privacy groups
 
-Use the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea) to create and update
+Use the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea) to create and update
 membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
 
 !!! tip
@@ -30,12 +30,12 @@ command line option to enable [flexible privacy groups](../../Concepts/Privacy/F
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
 and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
-[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
+[off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple flexible privacy group example
 
 To create and find a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md) using
-the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
+the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea):
 
 1. Update the `example/keys.js` file to match your network configuration.
 
@@ -57,7 +57,7 @@ the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea):
 ## Adding and removing members
 
 To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
-use the `addToPrivacyGroup` and `removeFromPrivacyGroup` methods in the [web3.js-eea library](https://github.com/PegaSysEng/web3js-eea)
+use the `addToPrivacyGroup` and `removeFromPrivacyGroup` methods in the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea)
 client library.
 
 !!! note

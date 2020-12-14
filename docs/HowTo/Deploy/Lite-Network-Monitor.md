@@ -128,11 +128,11 @@ Where:
 * `--register` specifies automatic registration of the Besu node with the specified `<email>` and
   `<node_name>`. Registering the node is only required when starting the client for the first time
   for the node.
-* `--client-url` specifies the WebSockets URL for the Besu node.
+* `--client-url` specifies the WebSockets URL of the Besu node.
 
 ### 4. Dashboard
 
-To display the EthStats Lite dashboard, open [http://localhost](http://localhost) in your browser.
+To display the EthStats Lite dashboard, open [`http://localhost`](http://localhost) in your browser.
 
 ![Alethio EthStats Lite Dashboard](../../images/ethstats.png)
 

@@ -51,7 +51,7 @@ Up to three event parameters can have the `indexed` attribute. Logs store these 
 as `topics`. Indexed parameters are searchable and filterable.
 
 Topics are 32 bytes. If an indexed argument is an array (including `string` and `byte` datatypes),
-the log stores the keccak-256 hash of the paramater as a topic.
+the log stores the keccak-256 hash of the parameter as a topic.
 
 Log `data` includes non-indexed parameters but is difficult to search or filter.
 

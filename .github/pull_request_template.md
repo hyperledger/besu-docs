@@ -37,7 +37,7 @@ see #{your issue number} -->
 - [ ] Python dependencies
 - [ ] Node dependencies and JavaScript
 - [ ] ReadTheDocs configuration
-- [ ] Github integration
+- [ ] GitHub integration
 
 ## Testing
 

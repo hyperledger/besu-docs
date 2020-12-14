@@ -1,5 +1,5 @@
 ---
-description: Specify the permissioning interface version 
+description: Specify the permissioning interface version
 ---
 
 # Specify the permissioning contract interface version
@@ -9,7 +9,7 @@ command line option to specify the version of the [permissioning contract interf
 The default is 1.
 
 Specify the contract interface version that maps to the version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/)
-the contract interface implements.  
+the contract interface implements.
 
 |         | EEA Client Specification | Contract interface |
 |---------|--------------------------|--------------------|

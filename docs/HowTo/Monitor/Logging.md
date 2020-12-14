@@ -6,7 +6,7 @@ source: log4j2.xml
 
 # Logging
 
-Hyperledger Besu uses Log4J2 for logging. There are two methods to configure logging behavior:
+Hyperledger Besu uses Log4J2 for logging and provides two methods to configure logging behavior:
 
 * [Basic](#basic-log-level-setting) - changes the log level.
 * [Advanced](#advanced-custom-logging) - configures the output and format of the logs.

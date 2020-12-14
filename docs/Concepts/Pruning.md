@@ -13,7 +13,7 @@ balances, sign and send transactions, and look at current Dapp data.
 
 Archive nodes have all of this and they also store the intermediary state of every account and
 contract for every block since the genesis block.
-With an archive node you can do everything you do with a full node and also access historical state data.
+An archive node can do everything a full node does, and it can access historical state data.
 
 For Besu on MainNet, Archive nodes require significantly more disk space (approximately 3TB) than
 full nodes (approximately 750GB).

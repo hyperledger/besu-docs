@@ -25,8 +25,8 @@ The default data location is the Besu installation directory, or `/opt/besu/data
 [Besu Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md).
 
 Having some data reduces the time to synchronize a new node. You can perform periodic backups of
-the data directory and send the data to your preferred backup mechanism. For example, cron job and
-rsync, archives to the cloud such as s3, or `tar.gz` archives.
+the data directory and send the data to your preferred backup mechanism. For example, `cron` job and
+`rsync`, archives to the cloud such as s3, or `tar.gz` archives.
 
 ## Data restores
 

@@ -86,7 +86,7 @@ docker run \
 splunk/splunk:latest
 ```
 
-Once the service is started, connect on <http://localhost:8080/> and login as the `admin` user
+Once the service is started, connect on [`http://localhost:8080/`](http://localhost:8080/) and login as the `admin` user
 with a password of `changeme`.
 
 !!!tip
@@ -98,7 +98,7 @@ with a password of `changeme`.
 
 ### Create the Besu index
 
-1. In the Splunk web interface, navigate to the [index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
+1. In the Splunk Web interface, navigate to the [index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
 1. [Create an event index] with an Index Name of `besu`.
 1. Leave other fields with the default values.
 1. Save the `besu` index.
@@ -126,7 +126,7 @@ required in our example. The complete list of options is in the [Splunk options 
 
 ### Display the logs
 
-In the Splunk web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
+In the Splunk Web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
 
 Type `index="besu"` in the search field. Log events sent by Besu are displayed.
 
@@ -136,7 +136,7 @@ Congratulations! You can now play with the search and other Splunk features to e
 
 ### Stop the demo
 
-1. To stop Besu, use Ctrl+C.
+1. To stop Besu, use ++ctrl+c++.
 1. To stop the Splunk container, use `docker stop splunk-demo`.
 
 ## Run a Splunk Enterprise instance
@@ -157,7 +157,7 @@ Follow the steps in the [Splunk Enterprise documentation](https://docs.splunk.co
 
 Once the Splunk Enterprise instance is ready:
 
-1. Log into the Splunk Enterprise web interface.
+1. Log into the Splunk Enterprise Web interface.
 1. Navigate to the settings to:
 
     - [Create a HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
@@ -181,7 +181,7 @@ Congratulations! You can now [display logs and use the search engine](#display-t
 | SPLUNK_TOKEN            | Authentication token, usually of the form `11111111-1111-1111-1111-111111111111`                                                                        | Yes      |
 | SPLUNK_INDEX            | [Index](https://docs.splunk.com/Splexicon:Index) to store logs. Defaults to `besu`                                                     | No       |
 | SPLUNK_SOURCE           | [Source of the logs](https://docs.splunk.com/Splexicon:Source). Defaults to `besu`         | No       |
-| SPLUNK_SOURCETYPE       | [Sourcetype of the logs](https://docs.splunk.com/Splexicon:Sourcetype). Defaults to `besu` | No       |
+| SPLUNK_SOURCETYPE       | [Source type of the logs](https://docs.splunk.com/Splexicon:Sourcetype). Defaults to `besu` | No       |
 | SPLUNK_BATCH_SIZE_BYTES | Size of a log batch in bytes. Defaults to `65536`                                                                                                         | No       |
 | SPLUNK_BATCH_SIZE_COUNT | Size of a log batch in number of events. Defaults to `1000`                                                                                               | No       |
 | SPLUNK_BATCH_INTERVAL   | Interval at which to send log batches. Defaults to `500`                                                                                                  | No       |

@@ -30,13 +30,13 @@ To remove a node from the nodes allowlist:
     required because peer discovery is run on node startup.
 
 !!! tip
-  
+
     If nodes are not connecting as expected, set the [log level to `TRACE`](../../Reference/CLI/CLI-Syntax.md#logging)
-    and search for messages containing `Node permissioning` to identify the issue. 
+    and search for messages containing `Node permissioning` to identify the issue.
 
     Ensure the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) command line option has been
-    correctly configured for all nodes with the 
-    externally accessible address.  
+    correctly configured for all nodes with the
+    externally accessible address.
 
 ## Update accounts allowlist
 

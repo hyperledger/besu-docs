@@ -12,7 +12,7 @@ when starting Hyperledger Besu.
 In networks where you pay gas, you must specify a key and the associated account must contain
 adequate funds.
 
-In [free gas networks](../../HowTo/Configure/FreeGas.md), to provide further anonimity by signing
+In [free gas networks](../../HowTo/Configure/FreeGas.md), to provide further anonymity by signing
 each privacy marker transaction with a different random key, exclude the
 [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
 command line option when starting Besu.

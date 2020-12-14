@@ -10,12 +10,12 @@ work to the GitHub repositories.
 
 ## Running the scripts
 
-Go to the besu-doc project root directory and run one of the following scripts:
+Go to the `besu-doc` project root directory and run one of the following scripts:
 
 * `CI/scripts/test_build.sh` runs the doc build with MkDocs.
 * `CI/scripts/test_guidelines.sh` tests the doc with Vale and our custom rules.
 * `CI/scripts/test_links.sh` tests the internal and external links in the doc. If a link is
-  incorrect or the targeted web page is unavailable (for external sites), the test will fail and
+  incorrect or the targeted Web page is unavailable (for external sites), the test will fail and
   display the faulty link.
 * `CI/scripts/test_markdown_syntax.sh` tests the Markdown syntax for issues. Sometimes they are not visible
   but making sure the markdown is correct helps to make it readable and bug free.

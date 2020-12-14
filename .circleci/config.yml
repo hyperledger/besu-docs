@@ -11,6 +11,29 @@ executors:
     docker:
       - image: circleci/buildpack-deps:buster-scm
 
+commands:
+  install_node:
+    description: "Install Node dependencies"
+    steps:
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "package-lock.json" }}
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: Install dependencies
+          command: |
+            npm ci
+
+  save_node_cache:
+    description: "Save Node dependencies"
+    steps:
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: deps-{{ checksum "package-lock.json" }}
+
 jobs:
   dco:
     executor: shell_executor
@@ -65,11 +88,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v1.7.1
+            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.6.6
       - run:
           name: Run Vale
           command: |
-            ./bin/vale --config ./CI/vale_styles/.vale.ini --glob='*.{md}' . | tee ./vale.out
+            ./bin/vale --config ./CI/vale/.vale.ini --glob='*.{md}' . | tee ./vale.out
       - store_artifacts:
           path: ./vale.out
           destination: ./vale.out
@@ -78,24 +101,12 @@ jobs:
     executor: node_executor
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-          keys:
-            - deps-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install dependencies
-          command: |
-            npm ci
+      - install_node
       - run:
           name: Run markdown link checker
           command: |
             npm run test:links
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: deps-{{ checksum "package-lock.json" }}
+      - save_node_cache
       - store_artifacts:
           path: ./linkchecker.out
           destination: linkchecker.out
@@ -104,13 +115,7 @@ jobs:
     executor: node_executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - deps-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install dependencies
-          command: |
-            npm ci
+      - install_node
       - run:
           shell: /bin/bash #this is a non breaking command so it will always return success
           name: Run Markdownlint info checks
@@ -120,10 +125,7 @@ jobs:
           name: Run Markdownlint
           command: |
             npm run test:markdown
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: deps-{{ checksum "package-lock.json" }}
+      - save_node_cache
       - store_artifacts:
           path: ./markdownlint.out
           destination: ./markdownlint.out

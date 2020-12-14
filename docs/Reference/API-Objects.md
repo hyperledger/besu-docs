@@ -133,7 +133,7 @@ Returned by [`debug_storageRangeAt`](API-Methods.md#debug_storagerangeat).
 
 | Key             | Type    | Value                                                                   |
 |-----------------|:-------:|-------------------------------------------------------------------------|
-| **storage**     | Object  | Key hash and value. Preimage key is null if it falls outside the cache. |
+| **storage**     | Object  | Key hash and value. Pre-image key is `null` if it falls outside the cache. |
 | **nextKey**     | Hash    | Hash of next key if further storage in range. Otherwise, not included.  |
 
 ### Structured log object
@@ -235,7 +235,7 @@ Returned by [`eth_getTransactionReceipt`](API-Methods.md#eth_gettransactionrecei
 
 | Key      | Type               | Value                     |
 |----------|:------------------:|---------------------------|
-| **root** | Data, 32&nbsp;bytes| Post-transaction stateroot|
+| **root** | Data, 32&nbsp;bytes| Post-transaction state root|
 
 ## Transaction trace object
 

@@ -28,7 +28,7 @@ repository are:
 * Account Rules - stores the accounts allowlist and account allowlist operations (for example, add
   and remove).
 * Admin - stores the list of admin accounts and admin list operations (for example, add and
-  remove). There is one list of admin accounts for node and accounts.
+  remove). Admin accounts are stored in a single list for both nodes and accounts.
 
 ## Permissioning management Dapp
 
@@ -61,11 +61,11 @@ Permissioning implements three allowlists:
 !!! tip
 
     If nodes are not connecting as expected, set the [log level to `TRACE`](../../Reference/CLI/CLI-Syntax.md#logging)
-    and search for messages containing `Node permissioning` to identify the issue. 
-    
+    and search for messages containing `Node permissioning` to identify the issue.
+
     Ensure the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) command line option has been
-    correctly configured for all nodes with the 
-    externally accessible address.   
+    correctly configured for all nodes with the
+    externally accessible address.
 
 ## Bootnodes
 

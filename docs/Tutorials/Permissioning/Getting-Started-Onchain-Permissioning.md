@@ -20,14 +20,16 @@ To start a network with onchain permissioning:
 1. [Clone the permissioning contracts repository and install dependencies]
 1. [Build the project](#build-the-project)
 1. [Deploy the permissioning contracts](#deploy-the-contracts)
-1. [Start the webserver for the Permissioning Management Dapp]
+1. [Start the Web server for the Permissioning Management Dapp]
 1. [Add the first node to the nodes allowlist](#add-the-first-node-to-the-allowlist).
 
 ## Prerequisites
 
 For the development server to run the dapp:
 
-* [NodeJS](https://nodejs.org/en/) v10.16.0 or later
+<!-- vale off -->
+* [Node.js](https://nodejs.org/en/) v10.16.0 or later
+<!-- vale on -->
 * [Yarn](https://yarnpkg.com/en/) v1.15 or later
 * Browser with [MetaMask installed](https://metamask.io/).
 
@@ -104,7 +106,7 @@ Create the following environment variables and set to the specified values:
     If your network is not a [free gas network](../../HowTo/Configure/FreeGas.md), the account used
     to interact with the permissioning contracts must have a balance.
 
-To enable account and/or node permissioning, all nodes participating in a permissioned network must
+To enable account and node permissioning, all nodes participating in a permissioned network must
 include the command line options:
 
 * [`--permissions-accounts-contract-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-enabled)
@@ -163,11 +165,11 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     The account that deploys the contracts is automatically an [admin account].
 
-## Start the webserver for the Permissioning Management Dapp
+## Start the Web server for the Permissioning Management Dapp
 
 !!! note
 
-    Production environments require a webserver to
+    Production environments require a Web server to
     [host the Permissioning Management Dapp](../../HowTo/Deploy/Production.md).
 
 1. In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
@@ -176,9 +178,9 @@ The migration logs the addresses of the Admin and Rules contracts.
     yarn start
     ```
 
-    The Dapp displays at [http://localhost:3000](http://localhost:3000).
+    The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
-1. Ensure MetaMask connects to your local node (by default `http://localhost:8545`).
+1. Ensure MetaMask connects to your local node (by default [`http://localhost:8545`](http://localhost:8545)).
 
     A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
     account.

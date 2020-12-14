@@ -15,7 +15,7 @@ A private network provides a configurable network for testing. This private netw
 ## Prerequisites
 
 * [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
-* [Curl (or similar web service client)](https://curl.haxx.se/download.html).
+* [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
 
@@ -187,7 +187,7 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A Different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The enode URL for Node-1 using the
+* The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * The data directory for Node-2 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.

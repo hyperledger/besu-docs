@@ -25,7 +25,7 @@ For finer grain control, use the Application Load Balancer:
 ### HTTPS redirection
 
 With either AWS load balancer, you can add certificates using ACM (Amazon Certificate Manager),
-add them to the load balancers, and redirect all http calls to https.
+add them to the load balancers, and redirect all HTTP calls to HTTPS.
 
 ## Elastic Kubernetes Service
 
@@ -37,7 +37,7 @@ when running nodes in Kubernetes. Use labels to specify nodes for the load balan
 Where applicable, we strongly recommend using service discovery. That is, pair your load balancer
 configuration with something that dynamically detects new nodes and removed failed nodes.
 
-For nginx, use multiple upstreams (one for each port). Pair each upstream with a separate server
+For Nginx, use multiple upstreams (one for each port). Pair each upstream with a separate server
 block.
 
 !!! example "Upstreams paired with server blocks"
@@ -106,6 +106,6 @@ For HAProxy, create multiple backend and frontend sets.
 
 ### HTTPS redirection
 
-To add https capability, update the above server blocks to include the certificates and specific
-ciphers. If you require an http to https redirection, add separate blocks to return a 301 code with
+To add HTTPS capability, update the above server blocks to include the certificates and specific
+ciphers. If you require an HTTP to HTTPS redirection, add separate blocks to return a 301 code with
 the new URI.

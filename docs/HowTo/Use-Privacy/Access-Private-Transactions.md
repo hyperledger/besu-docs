@@ -6,7 +6,7 @@ description: Methods for accessing and managing private transactions and privacy
 # Accessing private and privacy marker transactions
 
 A Hyperledger Besu private transaction creates a
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) as well as
+[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) and
 the private transaction itself.
 
 ## Transaction receipts

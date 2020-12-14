@@ -36,7 +36,7 @@ To start a Besu node run:
 besu [OPTIONS] [COMMAND]
 ```
 
-### auto-log-bloom-caching-enabled
+### `auto-log-bloom-caching-enabled`
 
 === "Syntax"
 
@@ -67,7 +67,7 @@ performs an uncached query for logs not yet written to the cache.
 Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms
 for a large number of blocks, you might want to disable automatic log bloom caching.
 
-### banned-node-ids
+### `banned-node-ids`
 
 === "Syntax"
 
@@ -101,7 +101,7 @@ You can specify the banned node IDs with or without the `0x` prefix.
     The singular `--banned-node-id` and plural `--banned-node-ids` are available and are two names
     for the same option.
 
-### bootnodes
+### `bootnodes`
 
 === "Syntax"
 
@@ -135,7 +135,7 @@ When connecting to MainNet or public testnets, the default is a predefined list 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using
 [`--network=dev`](#network), the default is an empty list of bootnodes.
 
-### config-file
+### `config-file`
 
 === "Syntax"
 
@@ -158,7 +158,7 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 The path to the [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 The default is `none`.
 
-### data-path
+### `data-path`
 
 === "Syntax"
 
@@ -187,7 +187,7 @@ The default is `none`.
 The path to the Besu data directory. The default is the directory you installed Besu in, or
 `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
-### discovery-enabled
+### `discovery-enabled`
 
 === "Syntax"
 
@@ -210,7 +210,7 @@ The path to the Besu data directory. The default is the directory you installed 
 Enables or disables P2P discovery.
 The default is `true`.
 
-### fast-sync-min-peers
+### `fast-sync-min-peers`
 
 === "Syntax"
 
@@ -243,7 +243,7 @@ The minimum number of peers required before starting fast sync. The default is 5
     If synchronizing in FAST mode, most historical world state data is unavailable. Any methods
     attempting to access unavailable world state data return `null`.
 
-### genesis-file
+### `genesis-file`
 
 Use the genesis file to create a custom network.
 
@@ -283,7 +283,7 @@ The path to the genesis file.
     You cannot use the [`--genesis-file`](#genesis-file) and [`--network`](#network) options at the
     same time.
 
-### graphql-http-cors-origins
+### `graphql-http-cors-origins`
 
 === "Syntax"
 
@@ -311,7 +311,7 @@ The path to the genesis file.
 
 A list of comma-separated origin domain URLs for CORS validation. The default is none.
 
-### graphql-http-enabled
+### `graphql-http-enabled`
 
 === "Syntax"
 
@@ -335,7 +335,7 @@ Enables the GraphQL HTTP service. The default is `false`.
 
 The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
-### graphql-http-host
+### `graphql-http-host`
 
 === "Syntax"
 
@@ -368,7 +368,7 @@ The default is 127.0.0.1.
 
 To allow remote connections, set to `0.0.0.0`
 
-### graphql-http-port
+### `graphql-http-port`
 
 === "Syntax"
 
@@ -399,7 +399,7 @@ To allow remote connections, set to `0.0.0.0`
 The GraphQL HTTP listening port (TCP). The default is 8547. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### help
+### `help`
 
 === "Syntax"
 
@@ -409,7 +409,7 @@ The GraphQL HTTP listening port (TCP). The default is 8547. Ports must be
 
 Show the help message and exit.
 
-### host-allowlist
+### `host-allowlist`
 
 === "Syntax"
 
@@ -449,7 +449,7 @@ default, Besu accepts access from `localhost` and `127.0.0.1`.
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
     environments.
 
-### identity
+### `identity`
 
 === "Syntax"
 
@@ -482,7 +482,7 @@ Ethereum network explorers. For example, in the client ID
 If a name is not specified, the name section is not included in the client ID. For example,
 `besu/v1.3.4/linux-x86_64/oracle_openjdk-java-11`.
 
-### key-value-storage
+### `key-value-storage`
 
 === "Syntax"
 
@@ -511,7 +511,7 @@ If a name is not specified, the name section is not included in the client ID. F
 The key-value storage to use. Use this option only if using a storage system provided with a
 plugin. The default is `rocksdb`.
 
-### logging
+### `logging`
 
 === "Syntax"
 
@@ -531,7 +531,7 @@ plugin. The default is `rocksdb`.
     BESU_LOGGING=DEBUG
     ```
 
-=== "Example Configration File"
+=== "Example Configuration File"
 
     ```bash
     logging="DEBUG"
@@ -540,7 +540,7 @@ plugin. The default is `rocksdb`.
 Sets logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`,
 `ALL`. The default is `INFO`.
 
-### max-peers
+### `max-peers`
 
 === "Syntax"
 
@@ -568,7 +568,7 @@ Sets logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, 
 
 The maximum number of P2P connections you can establish. The default is 25.
 
-### metrics-category
+### `metrics-category`
 
 === "Syntax"
 
@@ -604,7 +604,7 @@ Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCK
 Categories containing `PRIVATE` track metrics when you enable
 [private transactions](../../Concepts/Privacy/Privacy-Overview.md).
 
-### metrics-enabled
+### `metrics-enabled`
 
 === "Syntax"
 
@@ -631,7 +631,7 @@ default is `false`.
 You cannot specify `--metrics-enabled` with `--metrics-push-enabled`. That is, you can enable
 either Prometheus polling or Prometheus push gateway support, but not both at once.
 
-### metrics-host
+### `metrics-host`
 
 === "Syntax"
 
@@ -663,7 +663,7 @@ metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 The default is `127.0.0.1`.
 
-### metrics-port
+### `metrics-port`
 
 === "Syntax"
 
@@ -694,7 +694,7 @@ The port (TCP) on which [Prometheus](https://prometheus.io/) accesses
 default is `9545`. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### metrics-push-enabled
+### `metrics-push-enabled`
 
 === "Syntax"
 
@@ -725,7 +725,7 @@ Enables or disables [push gateway integration].
 You cannot specify `--metrics-push-enabled` with `--metrics-enabled`. That is, you can enable
 either Prometheus polling or Prometheus push gateway support, but not both at once.
 
-### metrics-push-host
+### `metrics-push-host`
 
 === "Syntax"
 
@@ -759,7 +759,7 @@ is `127.0.0.1`. The metrics server respects the [`--host-allowlist` option](#hos
     When pushing metrics, ensure you set `--metrics-push-host` to the machine on which the push
     gateway is. Generally, this is a different machine to the machine on which Besu is running.
 
-### metrics-push-interval
+### `metrics-push-interval`
 
 === "Syntax"
 
@@ -787,7 +787,7 @@ is `127.0.0.1`. The metrics server respects the [`--host-allowlist` option](#hos
 
 The interval, in seconds, to push metrics when in `push` mode. The default is 15.
 
-### metrics-push-port
+### `metrics-push-port`
 
 === "Syntax"
 
@@ -817,7 +817,7 @@ The port (TCP) of the [Prometheus Push Gateway](https://github.com/prometheus/pu
 default is `9001`. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### metrics-push-prometheus-job
+### `metrics-push-prometheus-job`
 
 === "Syntax"
 
@@ -845,7 +845,7 @@ default is `9001`. Ports must be
 
 The job name when in `push` mode. The default is `besu-client`.
 
-### miner-coinbase
+### `miner-coinbase`
 
 === "Syntax"
 
@@ -881,7 +881,7 @@ using the [`--miner-enabled`](#miner-enabled) option or the
     [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) or
     [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus protocols.
 
-### miner-enabled
+### `miner-enabled`
 
 === "Syntax"
 
@@ -904,7 +904,7 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 Enables mining when you start the node.
 The default is `false`.
 
-### miner-extra-data
+### `miner-extra-data`
 
 === "Syntax"
 
@@ -933,7 +933,7 @@ The default is `false`.
 A hex string representing the 32 bytes included in the extra data field of a mined block. The
 default is 0x.
 
-### miner-stratum-enabled
+### `miner-stratum-enabled`
 
 === "Syntax"
 
@@ -956,7 +956,7 @@ default is 0x.
 Enables a node to perform stratum mining.
 The default is `false`.
 
-### miner-stratum-host
+### `miner-stratum-host`
 
 === "Syntax"
 
@@ -985,7 +985,7 @@ The default is `false`.
 The host of the stratum mining service.
 The default is `0.0.0.0`.
 
-### miner-stratum-port
+### `miner-stratum-port`
 
 === "Syntax"
 
@@ -1014,7 +1014,7 @@ The default is `0.0.0.0`.
 The port of the stratum mining service. The default is `8008`. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### min-gas-price
+### `min-gas-price`
 
 === "Syntax"
 
@@ -1046,7 +1046,7 @@ Wei.
 
 In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
 
-### nat-method
+### `nat-method`
 
 === "Syntax"
 
@@ -1084,7 +1084,7 @@ The default is `AUTO`. `NONE` disables NAT functionality.
     You must specify `DOCKER` when using the
     [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
-### network
+### `network`
 
 === "Syntax"
 
@@ -1135,7 +1135,7 @@ Possible values are:
     You cannot use the [`--network`](#network) and [`--genesis-file`](#genesis-file) options at the
     same time.
 
-### network-id
+### `network-id`
 
 === "Syntax"
 
@@ -1166,7 +1166,7 @@ The [P2P network identifier](../../Concepts/NetworkID-And-ChainID.md).
 Use this option to override the default network ID. The default value is the same as the chain ID
 defined in the genesis file.
 
-### node-private-key-file
+### `node-private-key-file`
 
 === "Syntax"
 
@@ -1203,7 +1203,7 @@ existing key file specifies the node private key.
 This option is ignored if [`--security-module`](#security-module) is set to
 a non-default value.
 
-### p2p-enabled
+### `p2p-enabled`
 
 === "Syntax"
 
@@ -1232,7 +1232,7 @@ a non-default value.
 Enables or disables all P2P communication.
 The default is true.
 
-### p2p-host
+### `p2p-host`
 
 === "Syntax"
 
@@ -1263,7 +1263,7 @@ The default is true.
 The host on which P2P listens.
 The default is 127.0.0.1.
 
-### p2p-interface
+### `p2p-interface`
 
 === "Syntax"
 
@@ -1294,7 +1294,7 @@ The network interface on which the node listens for
 option to specify the required network interface when the device that Besu is running on has
 multiple network interfaces. The default is 0.0.0.0 (all interfaces).
 
-### p2p-port
+### `p2p-port`
 
 === "Syntax"
 
@@ -1325,7 +1325,7 @@ multiple network interfaces. The default is 0.0.0.0 (all interfaces).
 The P2P listening ports (UDP and TCP). The default is 30303. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### permissions-accounts-config-file
+### `permissions-accounts-config-file`
 
 === "Syntax"
 
@@ -1359,7 +1359,7 @@ the [data directory](#data-path).
     `--permissions-accounts-config-file` and
     [`--permissions-nodes-config-file`](#permissions-nodes-config-file) can use the same file.
 
-### permissions-accounts-config-file-enabled
+### `permissions-accounts-config-file-enabled`
 
 === "Syntax"
 
@@ -1387,7 +1387,7 @@ the [data directory](#data-path).
 
 Enables or disables file-based account level permissions. The default is `false`.
 
-### permissions-accounts-contract-address
+### `permissions-accounts-contract-address`
 
 === "Syntax"
 
@@ -1416,7 +1416,7 @@ Enables or disables file-based account level permissions. The default is `false`
 The contract address for
 [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md).
 
-### permissions-accounts-contract-enabled
+### `permissions-accounts-contract-enabled`
 
 === "Syntax"
 
@@ -1446,7 +1446,7 @@ Enables or disables contract-based
 [onchain account permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default
 is `false`.
 
-### permissions-nodes-config-file
+### `permissions-nodes-config-file`
 
 === "Syntax"
 
@@ -1481,7 +1481,7 @@ the [data directory](#data-path).
     [`--permissions-accounts-config-file`](#permissions-accounts-config-file) can use the same
     file.
 
-### permissions-nodes-config-file-enabled
+### `permissions-nodes-config-file-enabled`
 
 === "Syntax"
 
@@ -1509,7 +1509,7 @@ the [data directory](#data-path).
 
 Enables or disables file-based node level permissions. The default is `false`.
 
-### permissions-nodes-contract-address
+### `permissions-nodes-contract-address`
 
 === "Syntax"
 
@@ -1538,7 +1538,7 @@ Enables or disables file-based node level permissions. The default is `false`.
 The contract address for
 [onchain node permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md).
 
-### permissions-nodes-contract-enabled
+### `permissions-nodes-contract-enabled`
 
 === "Syntax"
 
@@ -1568,7 +1568,7 @@ Enables or disables contract-based
 [onchain node permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md). The default is
 `false`.
 
-### permissions-nodes-contract-version
+### `permissions-nodes-contract-version`
 
 === "Syntax"
 
@@ -1597,7 +1597,7 @@ Enables or disables contract-based
 Version of the EEA [node permissioning interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
 The default is 1.
 
-### privacy-enabled
+### `privacy-enabled`
 
 === "Syntax"
 
@@ -1631,7 +1631,7 @@ is false.
     Using private transactions with [pruning](../../Concepts/Pruning.md) and/or Fast Sync is not
     supported.
 
-### privacy-marker-transaction-signing-key-file
+### `privacy-marker-transaction-signing-key-file`
 
 === "Syntax"
 
@@ -1665,7 +1665,7 @@ key.
 If using [account permissioning] and privacy, you must specify a private key file and the signing
 key included in the accounts allowlist.
 
-### privacy-multi-tenancy-enabled
+### `privacy-multi-tenancy-enabled`
 
 === "Syntax"
 
@@ -1694,7 +1694,7 @@ key included in the accounts allowlist.
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
 
-### privacy-onchain-groups-enabled
+### `privacy-onchain-groups-enabled`
 
 === "Syntax"
 
@@ -1722,7 +1722,7 @@ transactions. The default is `false`.
 
 Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
 
-### privacy-public-key-file
+### `privacy-public-key-file`
 
 === "Syntax"
 
@@ -1755,7 +1755,7 @@ The [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#be
     You cannot specify `privacy-public-key-file` when
     [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true`
 
-### privacy-tls-enabled
+### `privacy-tls-enabled`
 
 === "Syntax"
 
@@ -1784,7 +1784,7 @@ The [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#be
 Enables or disables [TLS on communication with the Private Transaction Manager]. The default is
 false.
 
-### privacy-tls-keystore-file
+### `privacy-tls-keystore-file`
 
 === "Syntax"
 
@@ -1816,7 +1816,7 @@ during authentication.
 You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#privacy-tls-enabled) is
 `true`.
 
-### privacy-tls-keystore-password-file
+### `privacy-tls-keystore-password-file`
 
 === "Syntax"
 
@@ -1844,7 +1844,7 @@ You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#priva
 
 The path to the file containing the password to decrypt the keystore.
 
-### privacy-tls-known-enclave-file
+### `privacy-tls-known-enclave-file`
 
 === "Syntax"
 
@@ -1873,7 +1873,7 @@ The path to the file containing the password to decrypt the keystore.
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
 [authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
 
-### privacy-url
+### `privacy-url`
 
 === "Syntax"
 
@@ -1903,7 +1903,7 @@ The URL on which the
 [Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
 running.
 
-### pruning-block-confirmations
+### `pruning-block-confirmations`
 
 === "Syntax"
 
@@ -1936,7 +1936,7 @@ nodes that cannot be pruned. The default is 10.
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
-### pruning-blocks-retained
+### `pruning-blocks-retained`
 
 === "Syntax"
 
@@ -1968,7 +1968,7 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
-### pruning-enabled
+### `pruning-enabled`
 
 === "Syntax"
 
@@ -2001,7 +2001,7 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
-### remote-connections-limit-enabled
+### `remote-connections-limit-enabled`
 
 === "Syntax"
 
@@ -2041,7 +2041,7 @@ default is true.
     any public network, and especially when using [`--sync-mode`](#sync-mode) and
     [`--fast-sync-min-peers`](#fast-sync-min-peers).
 
-### remote-connections-max-percentage
+### `remote-connections-max-percentage`
 
 === "Syntax"
 
@@ -2070,7 +2070,7 @@ default is true.
 The percentage of remote P2P connections you can establish with the node. Must be between 0 and
 100, inclusive. The default is 60.
 
-### required-block
+### `required-block`
 
 === "Syntax"
 
@@ -2099,7 +2099,7 @@ The percentage of remote P2P connections you can establish with the node. Must b
 Requires a peer with the specified block number to have the specified hash when connecting, or Besu
 rejects that peer.
 
-### revert-reason-enabled
+### `revert-reason-enabled`
 
 === "Syntax"
 
@@ -2133,7 +2133,7 @@ transaction receipt. The default is `false`.
     Enabling revert reason may use a significant amount of memory. We do not recommend enabling
     revert reason when connected to public Ethereum networks.
 
-### rpc-http-api
+### `rpc-http-api`
 
 === "Syntax"
 
@@ -2169,7 +2169,7 @@ you must also specify the `--rpc-http-enabled` option. The available API options
     The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are two names for
     the same option.
 
-### rpc-http-authentication-credentials-file
+### `rpc-http-authentication-credentials-file`
 
 === "Syntax"
 
@@ -2198,7 +2198,7 @@ you must also specify the `--rpc-http-enabled` option. The available API options
 The [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC
 API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
-### rpc-http-authentication-enabled
+### `rpc-http-authentication-enabled`
 
 === "Syntax"
 
@@ -2227,7 +2227,7 @@ API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 Enables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC
 service.
 
-### rpc-http-authentication-jwt-public-key-file
+### `rpc-http-authentication-jwt-public-key-file`
 
 === "Syntax"
 
@@ -2255,7 +2255,7 @@ service.
 
 The [JWT provider's public key file] used for JSON-RPC HTTP authentication with an external JWT.
 
-### rpc-http-cors-origins
+### `rpc-http-cors-origins`
 
 === "Syntax"
 
@@ -2313,7 +2313,7 @@ with your Besu node.
     For testing and development purposes, use `"all"` or `"*"` to accept requests from any domain.
     We don't recommend accepting requests from any domain for production environments.
 
-### rpc-http-enabled
+### `rpc-http-enabled`
 
 === "Syntax"
 
@@ -2321,7 +2321,7 @@ with your Besu node.
     --rpc-http-enabled
     ```
 
-=== "Environement Variable"
+=== "Environment Variable"
 
     ```bash
     BESU_RPC_HTTP_ENABLED=true
@@ -2336,7 +2336,7 @@ with your Besu node.
 Enables the HTTP JSON-RPC service.
 The default is `false`.
 
-### rpc-http-host
+### `rpc-http-host`
 
 === "Syntax"
 
@@ -2373,7 +2373,7 @@ To allow remote connections, set to `0.0.0.0`
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.
 
-### rpc-http-port
+### `rpc-http-port`
 
 === "Syntax"
 
@@ -2403,7 +2403,7 @@ To allow remote connections, set to `0.0.0.0`
 The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### rpc-http-tls-ca-clients-enabled
+### `rpc-http-tls-ca-clients-enabled`
 
 === "Syntax"
 
@@ -2430,7 +2430,7 @@ Enables clients with trusted CA certificates to connect. The default is `false`.
     You must enable client authentication using the
     [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
-### rpc-http-tls-client-auth-enabled
+### `rpc-http-tls-client-auth-enabled`
 
 === "Syntax"
 
@@ -2457,7 +2457,7 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
     You must specify [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or
     [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file).
 
-### rpc-http-tls-enabled
+### `rpc-http-tls-enabled`
 
 === "Syntax"
 
@@ -2483,7 +2483,7 @@ Enables TLS for the JSON-RPC HTTP service. The default is `false`.
 
     [`--rpc-http-enabled`](#rpc-http-enabled) must be enabled.
 
-### rpc-http-tls-keystore-file
+### `rpc-http-tls-keystore-file`
 
 === "Syntax"
 
@@ -2512,7 +2512,7 @@ Enables TLS for the JSON-RPC HTTP service. The default is `false`.
 The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to
 the client during authentication.
 
-### rpc-http-tls-keystore-password-file
+### `rpc-http-tls-keystore-password-file`
 
 === "Syntax"
 
@@ -2540,7 +2540,7 @@ the client during authentication.
 
 The path to the file containing the password to decrypt the keystore.
 
-### rpc-http-tls-known-clients-file
+### `rpc-http-tls-known-clients-file`
 
 === "Syntax"
 
@@ -2578,7 +2578,7 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
     You must enable client authentication using the
     [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
-### rpc-tx-feecap
+### `rpc-tx-feecap`
 
 === "Syntax"
 
@@ -2609,7 +2609,7 @@ Sets the maximum transaction fee (in Wei) accepted for transactions submitted th
 
 If set to 0, then this option is ignored and no cap is applied.
 
-### rpc-ws-api
+### `rpc-ws-api`
 
 === "Syntax"
 
@@ -2645,7 +2645,7 @@ you must also specify the `--rpc-ws-enabled` option. The available API options a
     The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and are two names
     for the same option.
 
-### rpc-ws-authentication-credentials-file
+### `rpc-ws-authentication-credentials-file`
 
 === "Syntax"
 
@@ -2674,7 +2674,7 @@ you must also specify the `--rpc-ws-enabled` option. The available API options a
 The path to the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
 for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 
-### rpc-ws-authentication-enabled
+### `rpc-ws-authentication-enabled`
 
 === "Syntax"
 
@@ -2709,7 +2709,7 @@ service.
     requires you to pass an authentication token in the request header. To use authentication with
     WebSockets, you need an app that supports headers.
 
-### rpc-ws-authentication-jwt-public-key-file
+### `rpc-ws-authentication-jwt-public-key-file`
 
 === "Syntax"
 
@@ -2735,10 +2735,10 @@ service.
     rpc-http-authentication-jwt-public-key-file="publicKey.pem"
     ```
 
-The [JWT provider's public key file] used for JSON-RPC websocket authentication with an external
+The [JWT provider's public key file] used for JSON-RPC Websocket authentication with an external
 JWT.
 
-### rpc-ws-enabled
+### `rpc-ws-enabled`
 
 === "Syntax"
 
@@ -2760,7 +2760,7 @@ JWT.
 
 Enables the WebSockets JSON-RPC service. The default is `false`.
 
-### rpc-ws-host
+### `rpc-ws-host`
 
 === "Syntax"
 
@@ -2791,7 +2791,7 @@ The host for Websocket WS-RPC to listen on. The default is 127.0.0.1.
 
 To allow remote connections, set to `0.0.0.0`
 
-### rpc-ws-port
+### `rpc-ws-port`
 
 === "Syntax"
 
@@ -2821,7 +2821,7 @@ To allow remote connections, set to `0.0.0.0`
 The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
-### security-module
+### `security-module`
 
 === "Syntax"
 
@@ -2853,7 +2853,7 @@ plugin
 Defaults to using the nodes's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
 
-### sync-mode
+### `sync-mode`
 
 === "Syntax"
 
@@ -2909,7 +2909,7 @@ The synchronization mode. The options are `FAST` and `FULL`.
     [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets
     is not supported.
 
-### target-gas-limit
+### `target-gas-limit`
 
 === "Syntax"
 
@@ -2945,7 +2945,7 @@ within that constraint.
 If a value for `target-gas-limit` is not specified, the block gas limit remains at the value
 specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
-### tx-pool-max-size
+### `tx-pool-max-size`
 
 === "Syntax"
 
@@ -2973,7 +2973,7 @@ specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
 The maximum number of transactions kept in the transaction pool. The default is 4096.
 
-### tx-pool-hashes-max-size
+### `tx-pool-hashes-max-size`
 
 === "Syntax"
 
@@ -3001,7 +3001,7 @@ The maximum number of transactions kept in the transaction pool. The default is 
 
 The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
-### tx-pool-price-bump
+### `tx-pool-price-bump`
 
 === "Syntax"
 
@@ -3029,7 +3029,7 @@ The maximum number of transaction hashes kept in the transaction pool. The defau
 
 The price bump percentage to replace an existing transaction. The default is 10.
 
-### tx-pool-retention-hours
+### `tx-pool-retention-hours`
 
 === "Syntax"
 
@@ -3058,7 +3058,7 @@ The price bump percentage to replace an existing transaction. The default is 10.
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
 
-### Xdns-enabled
+### `Xdns-enabled`
 
 === "Syntax"
 
@@ -3095,7 +3095,7 @@ Enables DNS support. The default is `false`.
 Use DNS with a trusted DNS provider in private networks because of limitations where IP addresses
 can change. For example, when using Kubernetes pods.
 
-### Xdns-update-enabled
+### `Xdns-update-enabled`
 
 === "Syntax"
 
@@ -3130,7 +3130,7 @@ detected. The default is `false`.
 
     This is an early access feature. Some functionality may be updated before the feature is fully released.
 
-### version
+### `version`
 
 === "Syntax"
 

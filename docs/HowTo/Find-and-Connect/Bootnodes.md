@@ -19,7 +19,7 @@ discover other nodes.
 
 ## MainNet and public testnets
 
-For MainNet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu predefines a list of
+For MainNet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu has an internal list of
 enode URLs and uses this list automatically when you specify the
 [`--network`](../../Reference/CLI/CLI-Syntax.md#network) option.
 

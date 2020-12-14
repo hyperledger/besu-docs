@@ -1,8 +1,8 @@
 ---
-description: web3js-eea client library multinode example
+description: web3js-eea client library multi-node example
 ---
 
-# Use the multinode example in the web3js-eea client library
+# Use the multi-node example in the web3js-eea client library
 
 To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):

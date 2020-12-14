@@ -99,7 +99,7 @@ permissioning accepts transactions only from accounts in the accounts allowlist.
     `accounts-allowlist=["0x0000000000000000000000000000000000000009"]`
 
 Account allowlisting is at the node level. That is, each node in the network has a
-[permisssions configuration file](#permissions-configuration-file) in the
+[permissions configuration file](#permissions-configuration-file) in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
 !!! caution "Using account permissioning and privacy"

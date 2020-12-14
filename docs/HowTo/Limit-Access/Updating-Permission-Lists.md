@@ -9,7 +9,7 @@ description: Updating Hyperledger Besu onchain allowlists
 To add a node to the Hyperledger Besu nodes allowlist:
 
 1. On the _Nodes_ tab of the Permissioning Management Dapp, click the
-   _Add Nodes_ button. The Add Node window displays.
+   _Add Node_ button. The Add Node window displays.
 1. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and
    click the _Add Node_ button.
 

@@ -192,7 +192,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 
 !!! note
 
-    Only [admin accounts] can add or remove nodes from the permission list.
+    Only an [admin account] can add or remove nodes from the allowlist.
 
 ## Add the first node to the allowlist
 
@@ -202,5 +202,5 @@ The first node must [add itself to the allowlist] before adding other nodes.
 [Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]: #onchain-permissioning-command-line-options
 [Clone the permissioning contracts repository and install dependencies]: #clone-the-contracts-and-install-dependencies
 [Start the webserver for the Permissioning Management Dapp]: #start-the-webserver-for-the-permissioning-management-dapp
-[add itself to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-node-permission-lists
-[admin accounts]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-node-permission-lists
+[add itself to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[admin account]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist

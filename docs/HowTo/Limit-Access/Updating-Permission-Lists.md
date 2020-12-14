@@ -4,12 +4,12 @@ description: Updating Hyperledger Besu onchain allowlists
 
 # Updating nodes and accounts allowlists
 
-## Update nodes allowlists
+## Update nodes allowlist
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
 1. On the _Nodes_ tab of the Permissioning Management Dapp, click the
-   _Add Nodes_ button. The Add Node window displays.
+   _Add Node_ button. The Add Node window displays.
 1. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and
    click the _Add Node_ button.
 
@@ -22,7 +22,7 @@ To remove a node from the nodes allowlist:
 !!! tip
 
     If you add a running node, the node does not attempt to reconnect to the bootnode and
-    synchronize until peer discovery restarts. To add a allowlisted node as a peer without waiting
+    synchronize until peer discovery restarts. To add an allowlisted node as a peer without waiting
     for peer discovery to restart, use
     [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer).
 
@@ -38,7 +38,7 @@ To remove a node from the nodes allowlist:
     correctly configured for all nodes with the
     externally accessible address.
 
-## Update account allowlists
+## Update accounts allowlist
 
 To add an account to the accounts allowlist:
 

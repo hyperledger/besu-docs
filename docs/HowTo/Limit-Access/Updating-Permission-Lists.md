@@ -22,7 +22,7 @@ To remove a node from the nodes allowlist:
 !!! tip
 
     If you add a running node, the node does not attempt to reconnect to the bootnode and
-    synchronize until peer discovery restarts. To add a allowlisted node as a peer without waiting
+    synchronize until peer discovery restarts. To add an allowlisted node as a peer without waiting
     for peer discovery to restart, use
     [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer).
 

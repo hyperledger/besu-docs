@@ -49,6 +49,14 @@ theme:
         accent: teal
     favicon: favicon.svg
     logo: *logo_reversed
+
+extra_css:
+  - assets/stylesheets/custom_theme.css
+  - assets/stylesheets/zoomify.min.css
+extra_javascript:
+  - assets/javascripts/custom_theme.js
+  - assets/javascripts/zoomify.min.js
+
 nav:
     - How To:
         - Get Started with Besu:
@@ -229,7 +237,7 @@ markdown_extensions:
 plugins:
     - search:
         lang: 'en'
-        separator: '[\s]+'
+        separator: '[\s\-\.\_]+'
     - markdownextradata
     - exclude:
         glob:

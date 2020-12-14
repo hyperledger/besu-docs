@@ -4,7 +4,7 @@ description: Updating Hyperledger Besu onchain allowlists
 
 # Updating nodes and accounts allowlists
 
-## Update nodes allowlists
+## Update nodes allowlist
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
@@ -38,7 +38,7 @@ To remove a node from the nodes allowlist:
     correctly configured for all nodes with the 
     externally accessible address.  
 
-## Update account allowlists
+## Update accounts allowlist
 
 To add an account to the accounts allowlist:
 

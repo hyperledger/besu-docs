@@ -50,7 +50,7 @@ each Orion key pair.
 
 ## 3. Generate Orion keys
 
-In each `Orion` directory, generate a public/private keypair for the Orion node:
+In each `Orion` directory, generate a public/private key pair for the Orion node:
 
 ``` bash
 orion -g nodeKey
@@ -187,8 +187,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
-The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for
-Node-1.
+The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL of Node-1.
 
 !!!note
 
@@ -213,5 +212,4 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
-The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for
-Node-1.
+The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL of Node-1.

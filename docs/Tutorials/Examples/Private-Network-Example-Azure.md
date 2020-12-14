@@ -56,21 +56,21 @@ To deploy the private network example on Azure:
 
     ![Image dep](../../images/mp_4_deployment.png)
 
-     The deployment is started and typically takes around 3-5 minutes. The the progress of your
+     The deployment is started and typically takes around 3--5 minutes. The the progress of your
      deployment is displayed.
 
      When the deployment is complete, the resources created are displayed.
 
      ![Image dep_complete](../../images/mp_5_deployment_complete.png)
 
-1. Click on the _Go to Resouce_ button. Everything created in the deployment is displayed.
+1. Click on the _Go to Resource_ button. Everything created in the deployment is displayed.
 
     ![Image res](../../images/mp_6_resource.png)
 
 1. Click on the VM name. The VM details such as the IP and DNS name are displayed. Use the IP and
    DNS name displayed to connect to the VM, either in browser or via RPC calls.
 
-    ![Image vm](../../images/mp_7_vm.png)
+    ![Image VM](../../images/mp_7_vm.png)
 
 ## Block Explorer
 
@@ -83,12 +83,12 @@ To display the block explorer, open a new tab and enter either the IP of the VM,
 The deployment includes Prometheus metrics and Grafana with a custom _Besu Dashboard_ installed.
 To display the dashboard:
 
-1. Open a new tab and enter the IP or DNS name appended with _/grafana_.
+1. Open a new tab and enter the IP or DNS name appended with `/grafana`.
    For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
 1. Click on home and select the Besu dashboard.
 
-    ![Image grafana](../../images/mp_9_grafana.png)
+    ![Grafana screenshot](../../images/mp_9_grafana.png)
 
 The dashboard provides a visual way to monitor your network and nodes as the chain progresses.
 Alerting can also be configured.
@@ -96,7 +96,7 @@ Alerting can also be configured.
 ## Connecting to VM RPC Endpoint
 
 You can connect DApps or develop directly from the IDE using the VS Code and connect to the VM RPC
-endpoint. The endpoint is the DNS name appended with _/jsonrpc_: `http://<DNS_NAME_OF_VM>/jsonrpc`
+endpoint. The endpoint is the DNS name appended with `/jsonrpc`: `http://<DNS_NAME_OF_VM>/jsonrpc`
 
 ## SSH
 

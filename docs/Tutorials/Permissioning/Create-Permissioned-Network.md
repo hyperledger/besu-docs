@@ -18,11 +18,11 @@ uses the [Clique Proof of Authority consensus protocol].
 
 {!global/bug_1665.md!}
 
-[Curl (or similar web service client)](https://curl.haxx.se/download.html)
+[Curl (or similar webservice client)](https://curl.haxx.se/download.html)
 
 ## Steps
 
-Listed on the right-hand side of the page are the steps to create a permissoned network.
+Listed on the right-hand side of the page are the steps to create a permissioned network.
 
 ### 1. Create folders
 

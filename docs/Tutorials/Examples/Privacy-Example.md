@@ -10,7 +10,7 @@ nodes managed by Docker Compose. It's an expanded version of the
 
 You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
 [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
-[create transactions using Metamask] as described in the
+[create transactions using MetaMask] as described in the
 [Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how to use the
 examples provided in the web3js-eea library to
 [create and send private transactions](#send-private-transactions-and-read-values).
@@ -196,4 +196,4 @@ Do one of the following to stop the network:
     ```
 
 <!-- Links -->
-[create transactions using Metamask]: Private-Network-Example.md#create-a-transaction-using-metamask
+[create transactions using MetaMask]: Private-Network-Example.md#create-a-transaction-using-metamask

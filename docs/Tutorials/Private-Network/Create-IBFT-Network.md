@@ -20,7 +20,7 @@ A private network provides a configurable network for testing. This private netw
 {!global/bug_1665.md!}
 
 * [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
-* [Curl (or similar web service client)](https://curl.haxx.se/download.html).
+* [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
 
@@ -52,7 +52,7 @@ The configuration file defines the
 [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
 number of node key pairs to generate.
 
-The configuration file has two subnested JSON nodes. The first is the `genesis` property defining
+The configuration file has two nested JSON nodes. The first is the `genesis` property defining
 the IBFT 2.0 genesis file, except for the `extraData` string, which Besu generates automatically in
 the resulting genesis file. The second is the `blockchain` property defining the number of key
 pairs to generate.
@@ -233,7 +233,7 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The enode URL for Node-1 using the
+* The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
 

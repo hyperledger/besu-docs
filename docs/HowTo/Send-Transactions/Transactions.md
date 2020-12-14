@@ -35,13 +35,13 @@ Ether and create a smart contract.
     [ethereumj](https://github.com/ethereum/ethereumj) and tools such as
     [MyCrypto](https://mycrypto.com/) can also create signed transactions.
 
-## eth_call vs eth_sendRawTransaction
+## `eth_call` vs `eth_sendRawTransaction`
 
 You can interact with contracts using [`eth_call`](../../Reference/API-Methods.md#eth_call) or
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). The table below
 compares the characteristics of both calls.
 
-| eth_call                                                       | eth_sendRawTransaction                                                                                                        |
+| `eth_call`                                                     | `eth_sendRawTransaction`                                                                                                      |
 |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Read-only                                                      | Write                                                                                                                         |
 | Invokes contract function locally                              | Broadcasts to the network                                                                                                     |

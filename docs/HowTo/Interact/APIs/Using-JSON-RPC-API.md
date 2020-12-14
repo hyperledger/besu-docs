@@ -146,7 +146,7 @@ The block parameter can have the following values:
 * `earliest` : `tag` - The earliest (genesis) block.
 * `latest` : `tag` - The last block mined.
 * `pending` : `tag` - The last block mined plus pending transactions. Use only with
-  [eth_getTransactionCount](../../../Reference/API-Methods.md#eth_gettransactioncount).
+  [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount).
 
 !!! note
 

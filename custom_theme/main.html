@@ -22,7 +22,7 @@
 {% block config %}
   {% if config.plugins.search %}
     <script>
-      // Make the serach query replace _-. by spaces to extend the search to all RPC methods
+      // Make the search query replace _-. by spaces to extend the search to all RPC methods
       // see https://github.com/hyperledger/besu-docs/issues/448
       var search = {
         transform: function(query) {

@@ -32,7 +32,8 @@ extra:
     issues: https://github.com/hyperledger/besu/issues
     doc_issues: https://github.com/hyperledger/besu-docs/issues/new/choose
   google:
-    site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
+    site_verification:
+      - 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'
   logo_regular: logo.svg
   logo_reversed: &logo_reversed logo-reversed.svg

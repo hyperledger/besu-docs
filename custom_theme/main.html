@@ -104,3 +104,25 @@
             </style>
   {% endif %}
 {% endblock %}
+
+{% block site_nav %}
+  {% if nav %}
+    <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/nav.html" %}
+        </div>
+        <div id="readthedocs-ethical-ads" class="flat" data-ea-publisher="readthedocs" data-ea-type="image" data-ea-campaign-types="community|house"></div>
+      </div>
+    </div>
+  {% endif %}
+  {% if page.toc %}
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/toc.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

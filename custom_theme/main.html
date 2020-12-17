@@ -1,108 +1,52 @@
 {% extends "base.html" %}
 
-{% block extrahead %}
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom_theme.css' | url }}">
+{% block libs %}
+  <script>const latestWarningTrigger = "{{config.extra.latest_version_warning.url_contains}}";</script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <script src="{{ 'assets/javascripts/custom_theme.js' | url }}"></script>
-  {% if config.extra.google.site_verification %}
-    <!-- Google site verification for search console -->
-    <meta name="google-site-verification" content="{{config.extra.google.site_verification}}" />
-  {% endif %}
-
-  {% if config.extra.google.tag_manager %}
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','{{config.extra.google.tag_manager}}');</script>
-    <!-- End Google Tag Manager -->
-  {% endif %}
-
-  <script src="{{ 'assets/javascripts/zoomify.min.js' | url }}"></script>
-  <link href="{{ 'assets/stylesheets/zoomify.min.css' | url }}" rel="stylesheet">
-{% endblock %}
-
-{% block analytics %}
-  <!--Empty the footer analytics bloc as we need it the headers -->
 {% endblock %}
 
 {% block hero %}
   {# hero is not used, so use it for warning banner #}
-  <script>const latestWarningTrigger = "{{config.extra.latest_version_warning.url_contains}}";</script>
   <div class="latest-warning">{{config.extra.latest_version_warning.text}}</div>
 {% endblock %}
 
-<!-- Content -->
-{% block content %}
+{% block analytics %}
+  {% include "partials/integrations/analytics.html" %}
+{% endblock %}
 
-  <!-- Edit button, if URL was defined -->
-  <!--The button has to point to the doc site and as it's not designed to have doc outside of code
-  repos we have to replace the mkdocs generated link based on the code repos with the doc repos-->
-  {% if page.edit_url and config.extra.doc_site_edit_url %}
-  <a href="{{ page.edit_url | replace(config.repo_url, config.extra.doc_site_edit_url) }}"
-     title="{{ lang.t('edit.link.title') }}"
-     class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
+{% block config %}
+  {% if config.plugins.search %}
+    <script>
+      // Make the search query replace _-. by spaces to extend the search to all RPC methods
+      // see https://github.com/hyperledger/besu-docs/issues/448
+      var search = {
+        transform: function(query) {
+          var transformedQuery = query
+            .replace(/[\_\-\.]/g, " ")
+            .trim()
+          console.log(transformedQuery)
+          return transformedQuery
+        }
+      }
+    </script>
   {% endif %}
+{% endblock %}
 
-{% if page.meta.git_revision_date_localized %}
-<small><br><i>Updated on {{ page.meta.git_revision_date_localized }}</i></small>
-{% endif %}
-
-  <!--
-    Hack: check whether the content contains a h1 headline. If it
-    doesn't, the page title (or respectively site name) is used
-    as the main headline.
-  -->
+{% block content %}
+  {% if page and page.meta %}
+    {% if page.meta.git_revision_date_localized or page.meta.revision_date %}
+      {% include "partials/source-date.html" %}
+    {% endif %}
+  {% endif %}
   {% if not "\x3ch1" in page.content %}
     <h1>{{ page.title | default(config.site_name, true)}}</h1>
   {% endif %}
-
-  <!-- Content -->
   {{ page.content }}
-
-  <!-- Source files -->
-  {% block source %}
-    {% if page and page.meta and page.meta.source %}
-      <h2 id="__source">{{ lang.t("meta.source") }}</h2>
-      {% set repo = config.repo_url %}
-      {% if repo | last == "/" %}
-        {% set repo = repo[:-1] %}
-      {% endif %}
-      {% set path = page.meta.path | default([""]) %}
-      {% set file = page.meta.source %}
-        <a href="{{ [repo, path, file] | join('/') }}"
-           title="{{ file }}" class="md-source-file">
-          {{ file }}
-        </a>
-    {% endif %}
-  {% endblock %}
-{% endblock %}
-
-{% block fonts %}
-  <!-- Load fonts from Google -->
-  {% if font != false %}
-  <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family={{
-                  font.text | replace(' ', '+') + ':300,400,400i,700|' +
-                  font.code | replace(' ', '+')
-                }}&display=fallback" />
-  <style>
-              body, input {
-                font-family: "{{ font.text }}", "Helvetica Neue",
-                  Helvetica, Arial, sans-serif;
-              }
-              pre, code, kbd {
-                font-family: "{{ font.code }}", "Courier New",
-                  Courier, monospace;
-              }
-            </style>
-  {% endif %}
 {% endblock %}
 
 {% block site_nav %}

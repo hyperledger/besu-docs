@@ -311,7 +311,7 @@ The result displays the four validators:
 }
 ```
 
-Look at the logs to confirm Besu is producing blocks: 
+Look at the logs to confirm Besu is producing blocks:
 
 ```bash
 2020-12-21 07:22:17.883+10:00 | EthScheduler-Workers-0 | INFO  | PersistBlockTask | Imported #1 / 0 tx / 0 om / 0 (0.0%) gas / (0xde088192f27ca376eea969cb7a4a1de445bd923fde0444194c88e630f7705584) in 0.010s. Peers: 4
@@ -321,23 +321,23 @@ Look at the logs to confirm Besu is producing blocks:
 2020-12-21 07:22:25.060+10:00 | pool-8-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=5, Round=0}, hash=0x82b2069961d9185f7857cad1123de72d715729e122441335db486ea436834d6e
 ```
 
-!!! important 
+!!! important
 
     If the key files were not copied to the correct directory in [step 5](#5-copy-the-node-private-keys-to-the-node-directories),
-    the network will not start producing blocks. 
-    
-    The logs for each node should indicate the public key was loaded from the `data/key` directory: 
-    
+    the network will not start producing blocks.
+
+    The logs for each node should indicate the public key was loaded from the `data/key` directory:
+
     ```bash
     2020-12-21 07:16:18.360+10:00 | main | INFO  | KeyPairUtil | Loaded public key 0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc from <path to network>/IBFT-Network/Node-1/data/key
-    ``` 
-    
-    If the keys were not copied to the correct directory, Besu creates a key when starting up: 
+    ```
+
+    If the keys were not copied to the correct directory, Besu creates a key when starting up:
     
     ```bash
     2020-12-21 07:33:11.458+10:00 | main | INFO  | KeyPairUtil | Generated new public key 0x1a4a2ade5ebc0a85572e2492e0cdf3e96b8928c75fa55b4425de8849850cf9b3a8cad1e27d98a3d3afac326a5e8788dbe6cc40249715c92825aebb28abe3e346 and stored it to <path to network>/IBFT-Network/Node-1/data/key
     ```
-    
+
     If a new key was created, the validator key specified in the configuration does not match
     the created key and the node cannot participate in creating blocks.
 

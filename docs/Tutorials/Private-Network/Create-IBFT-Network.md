@@ -5,7 +5,7 @@ description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Autho
 # Create a private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[IBFT 2.0 (Proof of Authority) consensus protocol].
+[IBFT 2.0 (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
 
 !!!important
 
@@ -233,7 +233,7 @@ The command line specifies:
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 8. Start Node-3
 
@@ -260,8 +260,8 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The bootnode as for [Node-2](#6-start-node-2).
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* The bootnode as for [Node-2](#7-start-node-2).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 9. Start Node-4
 
@@ -288,8 +288,8 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The bootnode as for [Node-2](#6-start-node-2).
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* The bootnode as for [Node-2](#7-start-node-2).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 10. Confirm the private network is working
 
@@ -348,7 +348,7 @@ Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or 
 !!! note
 
     To add or remove nodes as validators you need the node address. The directory
-    [created for each node](#3-generate-node-keys-and-genesis-file) has the node address as the
+    [created for each node](#3-generate-node-keys-and-a-genesis-file) has the node address as the
     name.
 
     This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT

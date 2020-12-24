@@ -35,6 +35,8 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 Get started with the [Developer Quickstart](Tutorials/Developer-Quickstart.md). Use the quickstart
 to rapidly generate local blockchain networks.
 
+Learn more about [use cases for Enterprise Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).
+
 ## What does Besu support?
 
 The Besu client supports common smart contract and Dapp development, deployment, and operational

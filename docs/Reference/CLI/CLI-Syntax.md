@@ -135,6 +135,29 @@ When connecting to MainNet or public testnets, the default is a predefined list 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using
 [`--network=dev`](#network), the default is an empty list of bootnodes.
 
+### `color-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --color-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_COLOR_ENABLED=false
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    color-enabled=false
+    ```
+
+Enables or disables color output to console.
+The default is `true`.
+
 ### `config-file`
 
 === "Syntax"

@@ -1042,7 +1042,7 @@ None
 
 ### `eth_gasPrice`
 
-Returns a percentile gas unit price for the most recent blocks, in Wei. By default, 
+Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
 the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
 is returned.
 
@@ -1053,7 +1053,7 @@ and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 10
 
 Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
 , and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
-options to configure the `eth_gasPrice` default values. 
+options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 

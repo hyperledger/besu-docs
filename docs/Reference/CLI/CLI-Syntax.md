@@ -123,7 +123,7 @@ percentile value measured. The default is `500000000000` (500 GWei).
 Percentile value to measure for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
 The default is `50.0`.
 
-For [`eth_gasPrice`](../API-Methods.md#eth_gasprice), to return the: 
+For [`eth_gasPrice`](../API-Methods.md#eth_gasprice), to return the:
 
 * Highest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `100`.
 * Lowest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `0`.

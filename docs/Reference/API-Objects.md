@@ -204,9 +204,15 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **from**     | Data, 20&nbsp;bytes | Optional          | Address of the transaction sender.   |
 | **to**       | Data, 20&nbsp;bytes | Required          | Address of the transaction receiver. |
 | **gas**      | Quantity, Integer   | Optional          | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas.        |
+| **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas. The default is `0`.       |
 | **value**    | Quantity, Integer   | Optional          | Value sent with this transaction.    |
 | **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+
+[`eth_estimateGas`](API-Methods.md#eth_estimategas) has an extra key. 
+
+| Key          | Type                | Required/Optional | Value                                |
+|--------------|:-------------------:|:-----------------:|--------------------------------------|
+| **strict**   | Tag                 | Optional          | If `true`, the account balance is checked for value transfer and transaction fees. If `false`, the account balance is not checked for value transfer or transaction fees. The default is `false`.   |
 
 ## Transaction receipt object
 

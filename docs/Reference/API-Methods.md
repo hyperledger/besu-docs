@@ -2331,11 +2331,14 @@ The `eth_estimateGas` call does not send a transaction. You must call
 
 #### Parameters
 
-The transaction call object parameters are the same as those for [`eth_call`](#eth_call), except that
-in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
-process (unlike transactions, in which gas limits apply).
+The transaction call object parameters are the same as those for [`eth_call`](#eth_call) except for the
+[`strict` parameter](API-Objects.md#transaction-call-object). If `strict` is set to `true`, the sender
+account balance is checked for value transfer and transaction fees.  The default for `strict` is `false`.
 
-*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+For `eth_estimateGas`, all fields are optional because setting a gas limit
+is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+
+`object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
 #### Returns
 

@@ -135,6 +135,46 @@ When connecting to MainNet or public testnets, the default is a predefined list 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using
 [`--network=dev`](#network), the default is an empty list of bootnodes.
 
+### `compatibility-eth64-forkid-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --compatibility-eth64-forkid-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --compatibility-eth64-forkid-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_COMPATIBILITY_ETH64_FORKID_ENABLED=true
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    compatibility-eth64-forkid-enabled=true
+    ```
+
+Enables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes
+using Besu v20.10.1 or later, either: 
+
+* All nodes must be upgraded to v20.10.1 or later. 
+* All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`. 
+
+The default is `false`.
+
+!!! caution
+
+    If networks have Besu nodes using v1.4 or earlier and other Besu nodes using v20.10.1 or later,
+    the nodes on different versions cannot communicate unless `--compatibility-eth64-forkid-enabled`
+    is set to `true`. 
+
 ### `config-file`
 
 === "Syntax"

@@ -2070,6 +2070,34 @@ default is true.
 The percentage of remote P2P connections you can establish with the node. Must be between 0 and
 100, inclusive. The default is 60.
 
+### `reorg-logging-threshold`
+
+=== "Syntax"
+
+    ```bash
+    --reorg-logging-threshold=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --reorg-logging-threshold=3
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REORG_LOGGING_THRESHOLD=3
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    reorg-logging-threshold=3
+    ```
+
+Minimum depth of chain reorganizations to log. The default is 6.
+
 ### `required-block`
 
 === "Syntax"

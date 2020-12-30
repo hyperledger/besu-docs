@@ -162,10 +162,10 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
     ```
 
 Enables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes
-using Besu v20.10.1 or later, either: 
+using Besu v20.10.1 or later, either:
 
-* All nodes must be upgraded to v20.10.1 or later. 
-* All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`. 
+* All nodes must be upgraded to v20.10.1 or later.
+* All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`.
 
 The default is `false`.
 

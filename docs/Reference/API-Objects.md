@@ -208,7 +208,7 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **value**    | Quantity, Integer   | Optional          | Value sent with this transaction.    |
 | **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 
-[`eth_estimateGas`](API-Methods.md#eth_estimategas) has an extra key. 
+[`eth_estimateGas`](API-Methods.md#eth_estimategas) has an extra key.
 
 | Key          | Type                | Required/Optional | Value                                |
 |--------------|:-------------------:|:-----------------:|--------------------------------------|

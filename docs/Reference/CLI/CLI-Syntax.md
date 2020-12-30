@@ -2001,6 +2001,35 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
+### `random-peer-priority-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --random-peer-priority-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --random-peer-priority-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RANDOM_PEER_PRIORITY_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    random-peer-priority-enabled=true
+    ```
+
+Allows for incoming connections to be prioritized randomly. Enable in small, stable networks to prevent
+impenetrable peer groups forming. The default is `false`.
+
 ### `remote-connections-limit-enabled`
 
 === "Syntax"

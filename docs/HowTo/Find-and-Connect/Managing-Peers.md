@@ -30,6 +30,16 @@ JSON-RPC API methods to monitor peer connections include:
 * [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
 * [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics).
 
+Each peer entry returned by [`admin_peers`](../../Reference/API-Methods.md#admin_peers) includes a
+`protocols` section. Use the information in the `protocols` section to:
+
+* Determine health of peers.  For example, an external process could use [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
+and [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) to disconnect from peers that
+are stalled at a single difficulty for an extended period of time. 
+
+* Monitor node health. For example, if peers are reporting increasing difficulties but node
+is stuck at the same block number, the node may be on a different fork to most peers. 
+
 ## Node connections
 
 The default logging configuration does not list node connection and disconnection messages.

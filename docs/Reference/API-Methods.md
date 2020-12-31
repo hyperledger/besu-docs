@@ -341,7 +341,8 @@ Properties of the remote node object are:
 * `port` - Port on the remote node on which P2P discovery is listening.
 * `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode
   URL `enode://<id ex 0x>@<host>:<port>`.
-* `protocols` - Current state of peer including current 
+* `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
 
 !!! example
 

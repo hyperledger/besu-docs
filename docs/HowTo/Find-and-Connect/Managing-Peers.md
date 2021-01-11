@@ -40,6 +40,9 @@ are stalled at a single difficulty for an extended period of time.
 * Monitor node health. For example, if peers are reporting increasing difficulties but node
 is stuck at the same block number, the node may be on a different fork to most peers. 
 
+* Determine which protocol level peers are communicating with. For example, to see if `"version": 65`
+is being used to reduce transaction sharing traffic.
+
 ## Node connections
 
 The default logging configuration does not list node connection and disconnection messages.

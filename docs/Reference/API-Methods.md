@@ -376,8 +376,8 @@ including `difficulty` and `head`. `head` is the hash of the highest known block
                  "IBF/1"
                ],
                "network": {
-                 "localAddress": "127.0.0.1:63139",
-                 "remoteAddress": "127.0.0.1:30303"
+                 "localAddress": "192.168.1.229:50115",
+                 "remoteAddress": "168.61.153.255:40303"
                },
                "port": "0x765f",
                "id": "0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc",

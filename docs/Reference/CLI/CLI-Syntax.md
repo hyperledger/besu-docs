@@ -36,6 +36,98 @@ To start a Besu node run:
 besu [OPTIONS] [COMMAND]
 ```
 
+### `api-gas-price-blocks`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-blocks=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-blocks=50
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_BLOCKS=50
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-blocks=50
+    ```
+
+Number of blocks back from the head block to examine for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
+The default is `100`.
+
+### `api-gas-price-max`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-max=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-max=20000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_MAX=20000
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-max=20000
+    ```
+
+Maximum gas price to return for [`eth_gasPrice`](../API-Methods.md#eth_gasprice), regardless of the
+percentile value measured. The default is `500000000000` (500 GWei).
+
+### `api-gas-price-percentile`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-percentile=<DOUBLE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-percentile=75
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_PERCENTILE=75
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-percentile=75
+    ```
+
+Percentile value to measure for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
+The default is `50.0`.
+
+For [`eth_gasPrice`](../API-Methods.md#eth_gasprice), to return the:
+
+* Highest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `100`.
+* Lowest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `0`.
+
 ### `auto-log-bloom-caching-enabled`
 
 === "Syntax"
@@ -1063,8 +1155,8 @@ The port of the stratum mining service. The default is `8008`. You must
     min-gas-price=1337
     ```
 
-The minimum price a transaction offers to include it in a mined block. To retrieve the minimum
-price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000
+The minimum price a transaction offers to include it in a mined block. The minimum gas price is the
+lowest value [`eth_gasPrice`](../API-Methods.md#eth_gasprice) can return. The default is 1000
 Wei.
 
 In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.

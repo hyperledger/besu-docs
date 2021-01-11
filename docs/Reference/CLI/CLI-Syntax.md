@@ -36,6 +36,98 @@ To start a Besu node run:
 besu [OPTIONS] [COMMAND]
 ```
 
+### `api-gas-price-blocks`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-blocks=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-blocks=50
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_BLOCKS=50
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-blocks=50
+    ```
+
+Number of blocks back from the head block to examine for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
+The default is `100`.
+
+### `api-gas-price-max`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-max=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-max=20000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_MAX=20000
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-max=20000
+    ```
+
+Maximum gas price to return for [`eth_gasPrice`](../API-Methods.md#eth_gasprice), regardless of the
+percentile value measured. The default is `500000000000` (500 GWei).
+
+### `api-gas-price-percentile`
+
+=== "Syntax"
+
+    ```bash
+    --api-gas-price-percentile=<DOUBLE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --api-gas-price-percentile=75
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_API_GAS_PRICE_PERCENTILE=75
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    api-gas-price-percentile=75
+    ```
+
+Percentile value to measure for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
+The default is `50.0`.
+
+For [`eth_gasPrice`](../API-Methods.md#eth_gasprice), to return the:
+
+* Highest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `100`.
+* Lowest gas price in [`--api-gas-price-blocks`](#api-gas-price-blocks), set to `0`.
+
 ### `auto-log-bloom-caching-enabled`
 
 === "Syntax"
@@ -134,6 +226,29 @@ When connecting to MainNet or public testnets, the default is a predefined list 
 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using
 [`--network=dev`](#network), the default is an empty list of bootnodes.
+
+### `color-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --color-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_COLOR_ENABLED=false
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    color-enabled=false
+    ```
+
+Enables or disables color output to console.
+The default is `true`.
 
 ### `config-file`
 
@@ -1042,8 +1157,8 @@ The port of the stratum mining service. The default is `8008`. You must
     min-gas-price=1337
     ```
 
-The minimum price a transaction offers to include it in a mined block. To retrieve the minimum
-price in a running node, use [`eth_gasPrice`](../API-Methods.md#eth_gasprice). The default is 1000
+The minimum price a transaction offers to include it in a mined block. The minimum gas price is the
+lowest value [`eth_gasPrice`](../API-Methods.md#eth_gasprice) can return. The default is 1000
 Wei.
 
 In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
@@ -2003,6 +2118,35 @@ Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the 
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
+### `random-peer-priority-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --random-peer-priority-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --random-peer-priority-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RANDOM_PEER_PRIORITY_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    random-peer-priority-enabled=true
+    ```
+
+Allows for incoming connections to be prioritized randomly. Enable in small, stable networks to prevent
+impenetrable peer groups forming. The default is `false`.
+
 ### `remote-connections-limit-enabled`
 
 === "Syntax"
@@ -2071,6 +2215,34 @@ default is true.
 
 The percentage of remote P2P connections you can establish with the node. Must be between 0 and
 100, inclusive. The default is 60.
+
+### `reorg-logging-threshold`
+
+=== "Syntax"
+
+    ```bash
+    --reorg-logging-threshold=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --reorg-logging-threshold=3
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_REORG_LOGGING_THRESHOLD=3
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    reorg-logging-threshold=3
+    ```
+
+Minimum depth of chain reorganizations to log. The default is 6.
 
 ### `required-block`
 

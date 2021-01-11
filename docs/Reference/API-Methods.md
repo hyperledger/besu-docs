@@ -1050,9 +1050,18 @@ None
 
 ### `eth_gasPrice`
 
-Returns the current gas unit price, in wei. It's the hexadecimal equivalent of the price specified
-for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
-started, or the default minimum gas price.
+Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
+the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
+is returned.
+
+If there are no blocks, the value for [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) is returned.
+The value returned is restricted to values between [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price)
+and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 1000 Wei and
+500GWei.
+
+Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
+, and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
+options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 
@@ -1060,7 +1069,7 @@ None
 
 #### Returns
 
-`result` : *quantity* - Current gas unit price, in wei, as a hexadecimal value.
+`result` : `quantity` - Percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value.
 
 !!! example
 
@@ -2339,11 +2348,14 @@ The `eth_estimateGas` call does not send a transaction. You must call
 
 #### Parameters
 
-The transaction call object parameters are the same as those for [`eth_call`](#eth_call), except that
-in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
-process (unlike transactions, in which gas limits apply).
+The transaction call object parameters are the same as those for [`eth_call`](#eth_call) except for the
+[`strict` parameter](API-Objects.md#transaction-call-object). If `strict` is set to `true`, the sender
+account balance is checked for value transfer and transaction fees. The default for `strict` is `false`.
 
-*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+For `eth_estimateGas`, all fields are optional because setting a gas limit
+is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+
+`object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
 #### Returns
 

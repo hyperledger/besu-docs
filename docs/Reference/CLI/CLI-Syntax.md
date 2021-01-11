@@ -47,19 +47,19 @@ besu [OPTIONS] [COMMAND]
 === "Example"
 
     ```bash
-    --api-gas-price-blocks=1000
+    --api-gas-price-blocks=50
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_API_GAS_PRICE_BLOCKS=1000
+    BESU_API_GAS_PRICE_BLOCKS=50
     ```
 
 === "Example Configuration File"
 
     ```bash
-    api-gas-price-blocks=1000
+    api-gas-price-blocks=50
     ```
 
 Number of blocks back from the head block to examine for [`eth_gasPrice`](../API-Methods.md#eth_gasprice).

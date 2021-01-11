@@ -511,7 +511,7 @@ If a name is not specified, the name section is not included in the client ID. F
 The key-value storage to use. Use this option only if using a storage system provided with a
 plugin. The default is `rocksdb`.
 
-For ease of use when using a debugger, use the `memory` option.  
+For development use only, the `memory` option provides ephemeral storage for sync testing and debugging.
 
 ### `logging`
 

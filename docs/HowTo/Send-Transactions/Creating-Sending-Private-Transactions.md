@@ -8,7 +8,7 @@ Create and send [private transactions](../../Concepts/Privacy/Privacy-Overview.m
 
 * [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) or
   [web3j client library](https://github.com/web3j/web3j)
-* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/)
+* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/)
 * [`eea_sendRawTransaction`](#eea_sendrawtransaction)
 * [`priv_distributeRawTransaction`](#priv_distributerawtransaction).
 
@@ -54,7 +54,7 @@ If using
 instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction), use
 the value returned by
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
-which is the enclave key to the private transaction in [Orion](https://docs.orion.pegasys.tech/),
+which is the enclave key to the private transaction in [Orion](https://docs.orion.consensys.net/),
 in the `data` field of a call to
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction).
 

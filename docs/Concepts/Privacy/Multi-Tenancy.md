@@ -26,7 +26,7 @@ a _tenant_, and the operator is the _owner_ of the Besu and Orion node.
     including other Besu nodes, might be able to access tenant data.
 
     To secure access, you can [configure TLS between Besu and Orion](../TLS.md) with the
-    [`whitelist`](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/#clientconnectiontlsservertrust)
+    [`whitelist`](https://docs.orion.consensys.net/en/latest/Tutorials/TLS/#clientconnectiontlsservertrust)
     trust mode.
 
 Multi-tenancy validates that tenants have permission to use the specified HTTP or Websocket

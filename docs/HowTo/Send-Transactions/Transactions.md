@@ -25,9 +25,9 @@ Ether and create a smart contract.
     directory.
 
     In production environments avoid exposing your private keys by creating signed transactions
-    offline, or use [EthSigner](https://docs.ethsigner.pegasys.tech/) to isolate your private keys
+    offline, or use [EthSigner](https://docs.ethsigner.consensys.net/) to isolate your private keys
     and sign transactions with
-    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
 !!! tip
 

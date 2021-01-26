@@ -24,7 +24,7 @@ an Orion node.
 
 ## Prerequisites
 
-* [Orion](https://docs.orion.pegasys.tech/en/latest/HowTo/Install-Binaries/).
+* [Orion](https://docs.orion.consensys.net/en/latest/HowTo/Install-Binaries/).
 
 ## 1. Create Orion directories
 
@@ -81,14 +81,14 @@ tls = "off"
 !!! important
 
     In production environments, only specify
-    [`tls`](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/) is `off` if another
+    [`tls`](https://docs.orion.consensys.net/en/latest/Tutorials/TLS/) is `off` if another
     transport security mechanism, such as WireGuard, is in place.
 
 In the `Node-2/Orion` and `Node-3/Orion` directories, create `orion.conf` files specifying:
 
 * Different ports
 * The Node-1 Orion node as the bootnode (specified by
-  [`othernodes`](https://docs.orion.pegasys.tech/en/latest/Reference/Configuration-File/)).
+  [`othernodes`](https://docs.orion.consensys.net/en/latest/Reference/Configuration-File/)).
 
 === "Node-2"
 

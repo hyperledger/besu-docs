@@ -7,6 +7,10 @@ description: Starting Hyperledger Besu
 You can use Besu nodes for varying purposes, as described in the [Overview](../../index.md). Nodes
 can connect to the Ethereum MainNet, public testnets such as Ropsten, or private networks.
 
+Use the [`besu`](../../Reference/CLI/CLI-Syntax.md) command with the required command line options
+to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
+with the most common options.
+
 ## Prerequisites
 
 [Besu Installed](Installation-Options/Install-Binaries.md)
@@ -156,3 +160,38 @@ To run a node on MainNet with the HTTP JSON-RPC service enabled and available fo
 ```bash
 besu --rpc-http-enabled
 ```
+
+## Besu launcher
+
+Use the Besu launcher to interactively configure and start a node with the most common options. The
+launcher asks a series of questions and generates a [configuration file](../Configure/Using-Configuration-File.md).
+
+To run the Besu launcher:
+
+```bash
+besu --Xlauncher
+```
+
+Answer each of question, or press **Enter** to accept the default value.
+
+```bash
+? Which Ethereum network would you like to use ? rinkeby
+? Which synchronization mode? fast
+? Do you want to enable pruning? no
+? What is the data directory ? /Users/me/besu
+? Do you want to enable the JSON-RPC HTTP service ? yes
+? Do you want to configure the JSON-RPC options now ? yes
+? What is the JSON RPC HTTP host address ? 127.0.0.1
+? What is the JSON RPC HTTP port ? 8545
+? Select the list of APIs to enable on JSON-RPC HTTP service [eth, net, web3]
+? Do you want to enable the JSON-RPC Websocket service ? no
+? Do you want to enable GraphQL functionality ? no
+? Do you want to use Ethstats ? no
+? Do you want to enable NAT ? no
+? Do you want to enable mining ? no
+```
+
+If a configuration file is already present in the directory where the command is being executed,
+then the Besu will start, and use the values in the configuration file. To force the launcher to ask
+the questions during a restart, use the `--Xlauncher-force` option, or delete the configuration
+file.

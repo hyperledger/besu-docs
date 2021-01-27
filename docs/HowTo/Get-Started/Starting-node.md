@@ -192,6 +192,6 @@ Answer each of question, or press **Enter** to accept the default value.
 ```
 
 If a configuration file is already present in the directory where the command is executed,
-Besu will start and use the values in the configuration file. To force the launcher to ask
-the questions during a restart, use the `--Xlauncher-force` option, or delete the configuration
+Besu will start and use the values in the configuration file. To force the launcher to interact
+during a restart, use the `--Xlauncher-force` option, or delete the configuration
 file.

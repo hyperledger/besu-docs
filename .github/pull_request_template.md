@@ -1,9 +1,22 @@
-**Before pushing any commit in your pull request, make sure that:**
+## Pull request checklist
 
-- [ ] you read the [contribution guidelines](https://wiki.hyperledger.org/display/BESU/Contributing+to+documentation).
+Use the following list to make sure your PR fits the Besu doc quality standard.
+
+### Before creating the pull request
+
+Make sure that:
+
 - [ ] [all commits in this PR are signed off for the DCO](https://wiki.hyperledger.org/display/BESU/DCO).
+- [ ] you read the [contribution guidelines](https://wiki.hyperledger.org/display/BESU/Contributing+to+documentation).
 - [ ] you have [tested your changes locally](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewTheDocumentation) before submitting them to the community for review.
-- [ ] you verified the rendering on [ReadTheDocs.org PR preview](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewwithReadTheDocs) (see [Testing](#testing))
+
+### After creating your pull request and tests finished
+
+Make sure that:
+
+- [ ] you fixed all the issues raised by the tests, if any.
+- [ ] you verified the rendering of your changes on [ReadTheDocs.org PR preview](https://wiki.hyperledger.org/display/BESU/MkDocs+And+Markdown+Guide#MkDocsAndMarkdownGuide-PreviewwithReadTheDocs)
+  and updated the testing link (see [Testing](#testing)).
 
 ## Describe the change
 
@@ -37,7 +50,7 @@ see #{your issue number} -->
 - [ ] Python dependencies
 - [ ] Node dependencies and JavaScript
 - [ ] ReadTheDocs configuration
-- [ ] Github integration
+- [ ] GitHub integration
 
 ## Testing
 

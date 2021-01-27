@@ -19,7 +19,7 @@ We recommend storing validator configuration under source control.
 
 ## Number of validators required
 
-Ensure you confingure enough validators to allow for redundancy. IBFT 2.0 tolerates `f = (n-1)/3`
+Ensure you configure enough validators to allow for redundancy. IBFT 2.0 tolerates `f = (n-1)/3`
 faulty validators, where:
 
 * `f` is the number of faulty validators

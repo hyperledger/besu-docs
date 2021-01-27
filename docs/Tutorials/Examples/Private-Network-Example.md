@@ -1,10 +1,10 @@
 ---
-description: Hyperledger Besu private network example tutorial
+description: Quorum dev quickstart tutorial
 ---
 
-# Private network example tutorial
+# Quorum Developer Quickstart tutorial
 
-The private network example uses the Hyperledger Besu Docker image to run a private network of Besu
+The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private network of Besu
 nodes managed by Docker Compose.
 
 !!! important
@@ -14,44 +14,39 @@ nodes managed by Docker Compose.
 
 ## Prerequisites
 
-To run this tutorial, you must have the following installed:
-
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
+* [Nodejs](https://nodejs.org/en/download/)
+* On Windows:
+    * Windows Subsystem for Linux 2
+    * Docker desktop configured to use the WSL2-based engine.
 
-    !!! important
-
-        If using [MacOS](https://docs.docker.com/docker-for-mac/) or
-        [Windows](https://docs.docker.com/docker-for-windows/), set Docker to use up to 6GB of
-        memory on the _Advanced_ tab in _Preferences_.
+!!! important
+    Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
+    Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
+    [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
 * [Git command line](https://git-scm.com/)
 * [Curl command line](https://curl.haxx.se/download.html)
-* A web browser that supports [Metamask](https://metamask.io/) (currently Chrome, Firefox, Opera,
+* A Web browser that supports [MetaMask](https://metamask.io/) (currently Chrome, Firefox, Opera,
   and Brave), and has the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
 
-## Clone Besu sample networks source code
+## Create Docker-compose file
 
-Clone the repository from the `besu-sample-networks` repository:
+## Usage
 
-=== "Linux/MacOS"
+To create the docker-compose file and artifacts, run:
 
-    ```bash
-    git clone https://github.com/PegaSysEng/besu-sample-networks.git
-    ```
+```bash
+npx quorum-dev-quickstart
+```
 
-!!!note
-
-    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
+Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
+Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and
+[private transactions](../../Concepts/Privacy/Privacy-Overview.md).
 
 ## Start the network
 
-!!!important
-
-    If running in Windows, run commands from the GitBash shell.
-
-This tutorial uses [Docker Compose](https://docs.docker.com/compose/) to assemble the images and
-run the private network. To build the docker images and run the containers, go to the
-`besu-sample-networks` directory and run:
+To start the network, go to the installation directory and run:
 
 === "Linux/MacOS"
 
@@ -68,53 +63,42 @@ When the process ends, it lists the running services:
 
     ```log
     *************************************
-    Sample Network for Besu at latest
+    Quorum Dev Quickstart
     *************************************
+    Setting up the index patterns in kibana............
+    {"type":"index-pattern","id":"metricbeat","attributes":{"title":"metricbeat-*","timeFieldName":"@timestamp"},
+    "references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:34.252Z",
+    "version":"WzgsMV0=","namespaces":["default"]}{"success":true,"successCount":7}{"type":"index-pattern",
+    "id":"besu","attributes":{"title":"besu-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":
+    {"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:36.927Z","version":"WzE2LDFd","namespaces":
+    ["default"]}{"type":"index-pattern","id":"orion","attributes":{"title":"orion-*","timeFieldName":"@timestamp"},
+    "references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:37.982Z","version":
+    "WzE3LDFd","namespaces":["default"]}{"type":"index-pattern","id":"quorum","attributes":{"title":"quorum-*",
+    "timeFieldName":"@timestamp"},"references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":
+    "2020-11-04T10:43:39.003Z","version":"WzE4LDFd","namespaces":["default"]}{"type":"index-pattern","id":
+    "tessera","attributes":{"title":"tessera-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":
+    {"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:40.053Z","version":"WzE5LDFd","namespaces":
+    ["default"]}
+
     List endpoints and services
     ----------------------------------
-                 Name                            Command               State                                        Ports
-    -----------------------------------------------------------------------------------------------------------------------------------------------------------
-    besu-sample-network_bootnode_1        /opt/besu/bootnode_start.s ...   Up      0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, 8545/tcp, 8546/tcp, 8547/tcp
-    besu-sample-network_elasticsearch_1   /usr/local/bin/docker-entr ...   Up      9200/tcp, 9300/tcp
-    besu-sample-network_explorer_1        nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp
-    besu-sample-network_filebeat_1        /usr/local/bin/docker-entr ...   Up
-    besu-sample-network_grafana_1         /run.sh                          Up      0.0.0.0:3000->3000/tcp
-    besu-sample-network_kibana_1          /usr/local/bin/dumb-init - ...   Up      0.0.0.0:5601->5601/tcp
-    besu-sample-network_logstash_1        /usr/local/bin/docker-entr ...   Up      5044/tcp, 9600/tcp
-    besu-sample-network_minernode_1       /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp
-    besu-sample-network_node_1            /opt/besu/node_start.sh -- ...   Up      30303/tcp, 8545/tcp, 8546/tcp, 8547/tcp
-    besu-sample-network_prometheus_1      /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp
-    besu-sample-network_redis_1           docker-entrypoint.sh redis ...   Up      6379/tcp
-    besu-sample-network_rpcnode_1         /opt/besu/node_start.sh -- ...   Up      30303/tcp, 0.0.0.0:8545->8545/tcp, 8546/tcp, 8547/tcp
-    Setting up the besu index pattern in kibana
-    {"type":"index-pattern","id":"besu","attributes":{"title":"besu-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":{"index-pattern":"6.5.0"},"updated_at":"2019-12-27T04:41:07.665Z","version":"WzMsMV0="}
-    Orion not running, skipping the orion index pattern in kibana.
-    ```
-
-Followed by a list of the endpoints:
-
-!!! example "Endpoint list example"
-
-    ```log
-    ****************************************************************
     JSON-RPC HTTP service endpoint      : http://localhost:8545
     JSON-RPC WebSocket service endpoint : ws://localhost:8546
-    GraphQL HTTP service endpoint       : http://localhost:8547
     Web block explorer address          : http://localhost:25000/
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
+
+    For more information on the endpoints and services, refer to README.md in the installation directory.
     ****************************************************************
     ```
 
 * Use the **JSON-RPC HTTP service endpoint** to access the RPC node service from your Dapp or from
-  cryptocurrency wallets such as Metamask.
-* Use the **JSON-RPC WebSocket service endpoint** to access the web socket node service from your
+  cryptocurrency wallets such as MetaMask.
+* Use the **JSON-RPC WebSocket service endpoint** to access the Web socket node service from your
   Dapp.
-* Use the **GraphQL HTTP service endpoint** to access the
-  [HTTP GraphQL](../../HowTo/Interact/APIs/GraphQL.md) node service from your Dapp.
-* Use the **Web block explorer address** to display the block explorer web application. View the
-  block explorer by entering the URL in your web browser.
+* Use the **Web block explorer address** to display the block explorer Web application. View the
+  block explorer by entering the URL in your Web browser.
 * Use the **Prometheus address** to access the
   [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
 * Use the **Grafana address** to access the
@@ -139,12 +123,7 @@ This tutorial uses the Alethio Ethereum Lite Explorer.
 Access the explorer by copying and pasting the `Web block explorer address` displayed when starting
 the private network to your browser.
 
-The block explorer displays a summary of the private network:
-
-![Block Explorer](../../images/ExplorerSummary.png)
-
-See that the explorer indicates six peers: the four regular nodes, the mining node, and the
-bootnode.
+The block explorer displays a summary of the private network, indicating four peers.
 
 Click the block number to the right of **Best Block** to display the block details:
 
@@ -164,9 +143,9 @@ node health and usage. You can directly access these tools from your browser at 
 displayed in the endpoint list.
 
 For more details on how to configure and use these tools for your own nodes, see our
-[performances monitoring documentation](../../HowTo/Monitor/Metrics.md), as well as
-[Prometheus documentation](https://prometheus.io/docs/introduction/overview/) and
-[Grafana documentation](https://grafana.com/docs/).
+[performances monitoring documentation](../../HowTo/Monitor/Metrics.md),
+the [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
+and [Grafana documentation](https://grafana.com/docs/).
 
 ![Grafana](../../images/grafana.png)
 
@@ -187,7 +166,7 @@ time you run the network.
 Run the following command from the host shell:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' <http-rpc-endpoint>
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://localhost:8545
 ```
 
 The result specifies the client version:
@@ -213,28 +192,26 @@ Peers are the number of other nodes connected to the RPC node.
 Poll the peer count using `net_peerCount`:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' <http-rpc-endpoint>
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545
 ```
 
-The result indicates that there are six peers:
+The result indicates that there are four peers:
 
 ```json
 {
   "jsonrpc" : "2.0",
   "id" : 1,
-  "result" : "0x6"
+  "result" : "0x4"
 }
 ```
 
-### Request the most recently mined block number
+### Request the most recent block number
 
 Call `eth_blockNumber` to retrieve the number of the most recent block:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' <http-rpc-endpoint>
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545
 ```
-
-The result provides the most recently mined block:
 
 ```json
 {
@@ -244,41 +221,7 @@ The result provides the most recently mined block:
 }
 ```
 
-The hexadecimal value `0x8b8` translates to `2232` in decimal, the number of mined blocks so far.
-
-### Check the miner account balance
-
-Call `eth_getBalance` to retrieve the balance of the mining address (coinbase) defined in the miner
-node:
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","latest"],"id":1}' <http-rpc-endpoint>
-```
-
-The result specifies the miner account balance:
-
-```json
-{
-  "jsonrpc" : "2.0",
-  "id" : 1,
-  "result" : "0x79f905c6fd34e80000"
-}
-```
-
-!!!info
-
-    0x79f905c6fd34e80000 = 2250000000000000000000 Wei (2250 Ether).
-
-!!!tip
-
-    Use a [unit converter](https://www.etherchain.org/tools/unitConverter) to translate values from
-    Wei to Ether.
-
-Wait a few seconds until there are new mined blocks then call `eth_getBalance` again. The balance
-increases, meaning the miner address successfully received the mining reward.
-
-You can also view this information in the block explorer. It does exactly the same thing as this
-call, connecting to the RPC node using HTTP JSON-RPC, and displaying information on a web page.
+The hexadecimal value `0x8b8` translates to `2232` in decimal, the number of blocks so far.
 
 ## Create a transaction using MetaMask
 
@@ -322,7 +265,7 @@ In the block explorer, search for the new account by clicking on the magnifying 
 the account address into the search box. The account displays with a zero balance.
 
 [Send Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-)
-from the first account (containing ether) to the new account (which has a zero balance).
+from the first account (containing Ether) to the new account (which has a zero balance).
 
 Refresh the browser page displaying the new account. The updated balance displays and reflects the
 transaction completed using MetaMask.
@@ -335,8 +278,10 @@ modifications, so we use the private network in this tutorial as the blockchain 
 
 ### Prerequisites
 
+<!-- vale off -->
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/) (comes with Node)
-* Import an account into Metamask using the private key
+<!-- vale on -->
+* Import an account into MetaMask using the private key
   `0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3`. The following steps use
   this account.
 
@@ -353,7 +298,7 @@ npm install -g truffle
     `npm` requires `sudo` on Linux.
 
 The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain
-running and Metamask connected to it via the browser, run the command below to start the DApp.
+running and MetaMask connected to it via the browser, run the command below to start the DApp.
 
 The script first compiles the contract, then performs a migration to the blockchain network and
 then runs some tests. You can then search for the deployed contracts and transactions in the Web
@@ -443,23 +388,23 @@ Block Explorer using the addresses displayed in your output earlier `http://loca
           3 passing (37s)
         ```
 
-After these tests are successful, it builds a container for the Pet Shop DApp and deployes it,
+After these tests are successful, it builds a container for the Pet Shop DApp and deploys it,
 binding it to port 3001 on your system.
 
-In the browser that you have metamask enabled and the account loaded, open a new tab and navigate
-to `http://localhost:3001` which should have the Pet Shop running, and you can adopt pets from the
-app. When you click on 'Adopt', a Metamask window should pop up and ask for permissions to continue
+In the browser that you have MetaMask enabled and the account loaded, open a new tab and navigate
+to [`http://localhost:3001`](http://localhost:3001) which should have the Pet Shop running, and you can adopt pets from the
+app. When you click on 'Adopt', a MetaMask window should pop up and request your permissions to continue
 with the transaction. After the transaction is complete and successful, the status of the pet you
 adopted will show 'Success'.
 
 ![Dapp UI](../../images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the Block Explorer UI at
-http://localhost:25000/.
+[`http://localhost:25000/`](http://localhost:25000/).
 
 ![Dapp UI](../../images/dapp-explorer-tx.png)
 
-The Metmask UI also keeps a record of the transaction.
+The MetMask UI also keeps a record of the transaction.
 
 ![Dapp UI](../../images/dapp-metamask-tx.png)
 

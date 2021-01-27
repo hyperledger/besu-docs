@@ -20,7 +20,7 @@ participants. Other participants cannot access the transaction content or list o
 
 ## Private transaction manager
 
-Besu uses a private transaction manager, [Orion](http://docs.orion.pegasys.tech), to implement
+Besu uses a private transaction manager, [Orion](http://docs.orion.consensys.net), to implement
 privacy. Each Besu node sending or receiving private transactions requires an associated Orion
 node.
 

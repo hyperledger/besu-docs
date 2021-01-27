@@ -30,13 +30,20 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 * Smart contract development
 * Decentralized application (Dapp) development.
 
+## New to Enterprise Ethereum?
+
+Get started with the [Developer Quickstart](Tutorials/Developer-Quickstart.md). Use the quickstart
+to rapidly generate local blockchain networks.
+
+Learn more about [use cases for Enterprise Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).
+
 ## What does Besu support?
 
 The Besu client supports common smart contract and Dapp development, deployment, and operational
 use cases, using tools such as [Truffle](http://truffleframework.com/),
 [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports
-common JSON-RPC API methods such as eth, net, web3, debug, and miner.
+common JSON-RPC API methods such as `eth`, `net`, `web3`, `debug`, and `miner`.
 
 Besu doesn't support [key management](HowTo/Send-Transactions/Account-Management.md) inside the
-client. You can use [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu to access
+client. You can use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu to access
 your key store and sign transactions.

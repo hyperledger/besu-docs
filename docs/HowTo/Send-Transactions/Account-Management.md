@@ -6,7 +6,7 @@ description: Using third party wallets for account management with Hyperledger B
 
 Hyperledger Besu does not support key management inside the client. Use:
 
-* [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu to provide access to your
+* [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu to provide access to your
   key store and sign transactions.
 * Third-party tools (for example, [MetaMask](https://metamask.io/) and [web3j](https://web3j.io/))
   for creating accounts.
@@ -22,7 +22,6 @@ In Besu, you can use the JSON-RPC methods:
 
 !!! tip
 
-    [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) implements
-    [`eth_sendTransaction`](http://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eth_sendtransaction)
-    and [`eea_sendTransaction`](http://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
-
+    [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) implements
+    [`eth_sendTransaction`](http://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eth_sendtransaction)
+    and [`eea_sendTransaction`](http://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).

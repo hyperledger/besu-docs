@@ -51,7 +51,7 @@ extra key.
 
 | Key           | Type               | Required/Optional | Value  |
 |---------------|:------------------:|:-----------------:|--------|
-| **blockhash** |Data, 32&nbsp;bytes | Optional.         | Hash of block for which to return logs. If you specify `blockhash`, you cannot specify `fromBlock` and `toBlock`. |
+| **blockHash** |Data, 32&nbsp;bytes | Optional.         | Hash of block for which to return logs. If you specify `blockHash`, you cannot specify `fromBlock` and `toBlock`. |
 
 ## Log object
 
@@ -69,6 +69,23 @@ Returned by [`eth_getFilterChanges`](API-Methods.md#eth_getfilterchanges) and [`
 | **address**          | Data, 20&nbsp;bytes               | Address the log originated from.                                                                                                                                                                                  |
 | **data**             | Data                              | Non-indexed arguments of the log.                                                                                                                                                                                       |
 | **topics**           | Array of Data, 32&nbsp;bytes each | [Event signature hash](../Concepts/Events-and-Logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../Concepts/Events-and-Logs.md#event-parameters).  |
+
+## Miner data object
+
+Returned by [`eth_getMinerDataByBlockHash`](API-Methods.md#eth_getminerdatabyblockhash) and
+[`eth_getMinerDataByBlockNumber`](API-Methods.md#eth_getminerdatabyblocknumber).
+
+| Key                      | Type                 | Value                                                                                                                                                                                                               |
+|--------------------------|-:- :-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **netBlockReward**       | Quantity, Integer    | The net block reward, in Wei, is `staticBlockReward + transactionFee + uncleInclusionReward`.   |
+| **staticBlockReward**    | Quantity, Integer    | The static block reward, in Wei, is preset on a hard fork.                                 |
+| **transactionFee**       | Quantity, Integer    | The transaction fee, in Wei, is `sum of upfront cost - refund amount for all transactions`.     |
+| **uncleInclusionReward** | Quantity, Integer    | The uncle inclusion reward, in Wei, is `static block reward * number of ommers/32`.             |
+| **uncleRewards**         | Map                  | Map of uncle block hashes and uncle miner coinbase addresses.                                   |
+| **coinbase**             | Data, 20&nbsp;bytes  | Coinbase address.                                                                               |
+| **extraData**            | Data                 | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../Reference/CLI/CLI-Syntax.md#miner-extra-data) command line option. |
+| **difficulty**           | Quantity, Integer    | Difficulty of this block.                                                                                                                                                             |
+| **totalDifficulty**      | Quantity, Integer    | Total difficulty of the chain until this block.                                                                                                                                       |
 
 ## Pending transaction object
 
@@ -105,9 +122,9 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **v**                | Quantity                          | ECDSA Recovery ID.                                                              |
 | **r**                | Data, 32&nbsp;bytes               | ECDSA signature r.                                                              |
 | **s**                | Data, 32&nbsp;bytes               | ECDSA signature s.                                                              |
-| **privateFrom**      | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of the sender.   |
-| **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
-| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.pegasys.tech/en/stable/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
+| **privateFrom**      | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.   |
+| **privateFor**       | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.consensys.net/en/stable/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
+| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
 | **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Private-Transactions.md).            |
 
 ## Range object
@@ -116,7 +133,7 @@ Returned by [`debug_storageRangeAt`](API-Methods.md#debug_storagerangeat).
 
 | Key             | Type    | Value                                                                   |
 |-----------------|:-------:|-------------------------------------------------------------------------|
-| **storage**     | Object  | Key hash and value. Preimage key is null if it falls outside the cache. |
+| **storage**     | Object  | Key hash and value. Pre-image key is `null` if it falls outside the cache. |
 | **nextKey**     | Hash    | Hash of next key if further storage in range. Otherwise, not included.  |
 
 ### Structured log object
@@ -164,7 +181,7 @@ and
 | **gas**              | Quantity            | Gas provided by the sender.                                                                |
 | **gasPrice**         | Quantity            | Gas price, in wei, provided by the sender.                                                 |
 | **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
-| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Orion](https://docs.orion.pegasys.tech/en/stable/). |
+| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Orion](https://docs.orion.consensys.net/en/stable/). |
 | **nonce**            | Quantity            | Number of transactions made by the sender before this one.                                 |
 | **to**               | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                        |
 | **transactionIndex** | Quantity, Integer   | Index position of the transaction in the block. `null` when transaction is pending.        |
@@ -187,9 +204,15 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **from**     | Data, 20&nbsp;bytes | Optional          | Address of the transaction sender.   |
 | **to**       | Data, 20&nbsp;bytes | Required          | Address of the transaction receiver. |
 | **gas**      | Quantity, Integer   | Optional          | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas.        |
+| **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas. The default is `0`.       |
 | **value**    | Quantity, Integer   | Optional          | Value sent with this transaction.    |
 | **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+
+[`eth_estimateGas`](API-Methods.md#eth_estimategas) has an extra key.
+
+| Key          | Type                | Required/Optional | Value                                |
+|--------------|:-------------------:|:-----------------:|--------------------------------------|
+| **strict**   | Tag                 | Optional          | If `true`, the account balance is checked for value transfer and transaction fees. If `false`, the account balance is not checked for value transfer or transaction fees. The default is `false`.   |
 
 ## Transaction receipt object
 
@@ -218,7 +241,7 @@ Returned by [`eth_getTransactionReceipt`](API-Methods.md#eth_gettransactionrecei
 
 | Key      | Type               | Value                     |
 |----------|:------------------:|---------------------------|
-| **root** | Data, 32&nbsp;bytes| Post-transaction stateroot|
+| **root** | Data, 32&nbsp;bytes| Post-transaction state root|
 
 ## Transaction trace object
 
@@ -243,7 +266,7 @@ Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionRec
 | **output**                           | Data                         | RLP-encoded return value of a contract call if a value returns, otherwise, `null`.                |
 | **commitmentHash**                   | Data, 32&nbsp;bytes          | Hash of the privacy marker transaction.                                                                |
 | **transactionHash**                  | Data, 32&nbsp;bytes          | Hash of the private transaction.                                                                       |
-| **privateFrom**                      | Data, 32&nbsp;bytes          | [Orion](https://docs.orion.pegasys.tech/en/stable/) public key of the sender.                          |
-| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Orion](https://docs.orion.pegasys.tech/en/stable/) public keys or privacy group ID of the recipients. |
+| **privateFrom**                      | Data, 32&nbsp;bytes          | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.                          |
+| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Orion](https://docs.orion.consensys.net/en/stable/) public keys or privacy group ID of the recipients. |
 | **status**                           | Quantity                     | Either `0x1` (success) or `0x0` (failure).                                                             |
 | **logs**                             | Array                        | Array of [log objects](#log-object) generated by this private transaction.                             |

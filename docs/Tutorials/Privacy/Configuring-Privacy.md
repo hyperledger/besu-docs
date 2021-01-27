@@ -24,7 +24,7 @@ an Orion node.
 
 ## Prerequisites
 
-* [Orion](https://docs.orion.pegasys.tech/en/latest/HowTo/Install-Binaries/).
+* [Orion](https://docs.orion.consensys.net/en/latest/HowTo/Install-Binaries/).
 
 ## 1. Create Orion directories
 
@@ -50,7 +50,7 @@ each Orion key pair.
 
 ## 3. Generate Orion keys
 
-In each `Orion` directory, generate a public/private keypair for the Orion node:
+In each `Orion` directory, generate a public/private key pair for the Orion node:
 
 ``` bash
 orion -g nodeKey
@@ -81,14 +81,14 @@ tls = "off"
 !!! important
 
     In production environments, only specify
-    [`tls`](https://docs.orion.pegasys.tech/en/latest/Tutorials/TLS/) is `off` if another
+    [`tls`](https://docs.orion.consensys.net/en/latest/Tutorials/TLS/) is `off` if another
     transport security mechanism, such as WireGuard, is in place.
 
 In the `Node-2/Orion` and `Node-3/Orion` directories, create `orion.conf` files specifying:
 
 * Different ports
 * The Node-1 Orion node as the bootnode (specified by
-  [`othernodes`](https://docs.orion.pegasys.tech/en/latest/Reference/Configuration-File/)).
+  [`othernodes`](https://docs.orion.consensys.net/en/latest/Reference/Configuration-File/)).
 
 === "Node-2"
 
@@ -187,13 +187,12 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
-The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for
-Node-1.
+The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL of Node-1.
 
 !!!note
 
-    When running Besu from the [Docker image](../../HowTo/Get-Started/Run-Docker-Image.md),
-    [expose ports](../../HowTo/Get-Started/Run-Docker-Image.md#exposing-ports).
+    When running Besu from the [Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md),
+    [expose ports](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md#exposing-ports).
 
 ## 8. Start Besu Node-3
 
@@ -213,6 +212,4 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Orion node URL.
-The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL for
-Node-1.
-
+The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifies the enode URL of Node-1.

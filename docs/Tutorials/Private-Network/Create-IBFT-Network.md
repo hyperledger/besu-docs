@@ -5,7 +5,7 @@ description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Autho
 # Create a private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[IBFT 2.0 (Proof of Authority) consensus protocol].
+[IBFT 2.0 (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
 
 !!!important
 
@@ -17,8 +17,8 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../HowTo/Get-Started/Install-Binaries.md)
-* [Curl (or similar web service client)](https://curl.haxx.se/download.html).
+* [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+* [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
 
@@ -50,7 +50,7 @@ The configuration file defines the
 [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
 number of node key pairs to generate.
 
-The configuration file has two subnested JSON nodes. The first is the `genesis` property defining
+The configuration file has two nested JSON nodes. The first is the `genesis` property defining
 the IBFT 2.0 genesis file, except for the `extraData` string, which Besu generates automatically in
 the resulting genesis file. The second is the `blockchain` property defining the number of key
 pairs to generate.
@@ -227,13 +227,13 @@ The command line specifies:
 
 * The data directory for Node-2 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1 for P2P peer discovery using the
+* A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The enode URL for Node-1 using the
+* The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 8. Start Node-3
 
@@ -256,12 +256,12 @@ The command line specifies:
 
 * The data directory for Node-3 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1 and Node-2 for P2P peer discovery using the
+* A different port to Node-1 and Node-2 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The bootnode as for [Node-2](#6-start-node-2).
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* The bootnode as for [Node-2](#7-start-node-2).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 9. Start Node-4
 
@@ -284,43 +284,71 @@ The command line specifies:
 
 * The data directory for Node-4 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
-* A different port to Node-1, Node-2, and Node-3 for P2P peer discovery using the
+* A different port to Node-1, Node-2, and Node-3 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The bootnode as for [Node-2](#6-start-node-2).
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* The bootnode as for [Node-2](#7-start-node-2).
+* Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 10. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the nodes are
-functioning as peers:
+[`ibft_getvalidatorsbyblocknumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber)
+method and confirm the network has four validators:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545
 ```
 
-The result confirms Node-1 has three peers (Node-2, Node-3, and Node-4):
+The result displays the four validators:
 
 ```json
 {
   "jsonrpc" : "2.0",
   "id" : 1,
-  "result" : "0x3"
+  "result" : [ "0x1e326b6da177ede2d3eb6d7247bd9f6901d40234", "0x4aaac297fefe4466ebcb0b23ab90c5f466b11556", "0xa267ead2e91e1673e0943b925176b51d9cd4f6d2", "0xe3e680bc0ff485d1d415a384721f19e0db65fea7" ]
 }
 ```
 
-## Next steps
+Look at the logs to confirm Besu is producing blocks:
 
-Look at the logs displayed to confirm Besu is producing blocks.
+```bash
+2020-12-21 07:22:17.883+10:00 | EthScheduler-Workers-0 | INFO  | PersistBlockTask | Imported #1 / 0 tx / 0 om / 0 (0.0%) gas / (0xde088192f27ca376eea969cb7a4a1de445bd923fde0444194c88e630f7705584) in 0.010s. Peers: 4
+2020-12-21 07:22:19.057+10:00 | pool-8-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=2, Round=0}, hash=0x2ca2652fa79ae2b3b6aadcfb13d5d362ffd6207c3b5ae47971e04eb9d05deaa9
+2020-12-21 07:22:21.044+10:00 | pool-8-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=3, Round=0}, hash=0x5d9a06cd17127712cfae7d1c25f705f302e146f4b64a73de3c814e1b5a3f9a16
+2020-12-21 07:22:23.049+10:00 | pool-8-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=4, Round=0}, hash=0x843981375f4cb2bb0f33a09b647ac27da5df2c539d940d8344c907eede57829c
+2020-12-21 07:22:25.060+10:00 | pool-8-thread-1 | INFO  | IbftRound | Importing block to chain. round=ConsensusRoundIdentifier{Sequence=5, Round=0}, hash=0x82b2069961d9185f7857cad1123de72d715729e122441335db486ea436834d6e
+```
+
+!!! important
+
+    If the key files were not copied to the correct directory in [step 5](#5-copy-the-node-private-keys-to-the-node-directories),
+    the network will not start producing blocks.
+
+    The logs for each node should indicate the public key was loaded from the `data/key` directory:
+
+    ```bash
+    2020-12-21 07:16:18.360+10:00 | main | INFO  | KeyPairUtil | Loaded public key 0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc from <path to network>/IBFT-Network/Node-1/data/key
+    ```
+
+    If the keys were not copied to the correct directory, Besu creates a key when starting up:
+    
+    ```bash
+    2020-12-21 07:33:11.458+10:00 | main | INFO  | KeyPairUtil | Generated new public key 0x1a4a2ade5ebc0a85572e2492e0cdf3e96b8928c75fa55b4425de8849850cf9b3a8cad1e27d98a3d3afac326a5e8788dbe6cc40249715c92825aebb28abe3e346 and stored it to <path to network>/IBFT-Network/Node-1/data/key
+    ```
+
+    If a new key was created, the validator key specified in the configuration does not match
+    the created key and the node cannot participate in creating blocks.
+
+## Next steps
 
 Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or add validators.
 
 !!! note
 
     To add or remove nodes as validators you need the node address. The directory
-    [created for each node](#3-generate-node-keys-and-genesis-file) has the node address as the
+    [created for each node](#3-generate-node-keys-and-a-genesis-file) has the node address as the
     name.
 
     This tutorial configures a private network using IBFT 2.0 for educational purposes only. IBFT

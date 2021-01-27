@@ -15,7 +15,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 {!global/Postman.md!}
 
-## Admin methods
+## `ADMIN` methods
 
 !!! note
 
@@ -23,7 +23,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### admin_addPeer
+### `admin_addPeer`
 
 Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
@@ -65,7 +65,7 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
         }
         ```
 
-### admin_changeLogLevel
+### `admin_changeLogLevel`
 
 Changes the log level without restarting Besu. You can change the log level for all logs, or you
 can change the log level for specific packages or classes.
@@ -89,13 +89,13 @@ You can specify only one log level per RPC call.
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
+        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
         ```
 
     === "JSON result"
@@ -132,7 +132,7 @@ You can specify only one log level per RPC call.
         }
         ```
 
-### admin_generateLogBloomCache
+### `admin_generateLogBloomCache`
 
 !!! tip
 
@@ -194,7 +194,7 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
         }
         ```
 
-### admin_logsRepairCache
+### `admin_logsRepairCache`
 
 Repairs cached logs by fixing all segments starting with the specified block number.
 
@@ -233,7 +233,7 @@ is used as the starting point.
         }
         ```
 
-### admin_nodeInfo
+### `admin_nodeInfo`
 
 Returns networking information about the node. The information includes general information about
 the node and specific information from each running Ethereum sub-protocol (for example, `eth`).
@@ -248,7 +248,7 @@ None
 
 Properties of the node object are:
 
-* `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node.
+* `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the node.
 * `listenAddr` - Host and port for the node.
 * `name` - Client name.
 * `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key).
@@ -318,7 +318,7 @@ Properties of the node object are:
         }
         ```
 
-### admin_peers
+### `admin_peers`
 
 Returns networking information about connected remote nodes.
 
@@ -338,9 +338,11 @@ Properties of the remote node object are:
 * `network` - Local and remote addresses established at time of bonding with the peer. The remote
   address might not match the hex value for `port`. The remote address depends on which node
   initiated the connection.
-* `port` - Port on the remote node on which P2P peer discovery is listening.
+* `port` - Port on the remote node on which P2P discovery is listening.
 * `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode
   URL `enode://<id ex 0x>@<host>:<port>`.
+* `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
 
 !!! example
 
@@ -360,32 +362,38 @@ Properties of the remote node object are:
 
         ```json
         {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : [
-            {
-              "version": "0x5",
-              "name": "Parity-Ethereum/v2.3.0-nightly-1c2e121-20181116/x86_64-linux-gnu/rustc1.30.0",
-              "caps": [
+           "jsonrpc": "2.0",
+           "id": 1,
+           "result": [
+             {
+               "version": "0x5",
+               "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
+               "caps": [
                  "eth/62",
                  "eth/63",
-                 "par/1",
-                 "par/2",
-                 "par/3",
-                 "pip/1"
-              ],
+                 "eth/64",
+                 "eth/65",
+                 "IBF/1"
+               ],
                "network": {
-                  "localAddress": "192.168.1.229:50115",
-                  "remoteAddress": "168.61.153.255:40303"
+                 "localAddress": "192.168.1.229:50115",
+                 "remoteAddress": "168.61.153.255:40303"
                },
-               "port": "0x9d6f",
-               "id": "0xea26ccaf0867771ba1fec32b3589c0169910cb4917017dba940efbef1d2515ce864f93a9abc846696ebad40c81de7c74d7b2b46794a71de8f95a0d019f494ff3"
-            }
-          ]
+               "port": "0x765f",
+               "id": "0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc",
+               "protocols": {
+                 "eth": {
+                   "difficulty": "0x1ac",
+                   "head": "0x964090ae9277aef43f47f1b8c28411f162243d523118605f0b1231dbfdf3611a",
+                   "version": 65
+                 }
+               }
+             }
+           ]
         }
         ```
 
-### admin_removePeer
+### `admin_removePeer`
 
 Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
@@ -422,9 +430,9 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
         }
         ```
 
-## Web3 methods
+## `WEB3` methods
 
-### web3_clientVersion
+### `web3_clientVersion`
 
 Returns the current client version.
 
@@ -460,7 +468,7 @@ None
         }
         ```
 
-### web3_sha3
+### `web3_sha3`
 
 Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value
 is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
@@ -497,11 +505,11 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
         }
         ```
 
-## Net methods
+## `NET` methods
 
-### net_version
+### `net_version`
 
-Returns the current chain ID.
+Returns the [network ID](../Concepts/NetworkID-And-ChainID.md).
 
 #### Parameters
 
@@ -509,18 +517,25 @@ None
 
 #### Returns
 
-`result` : *string* - Current chain ID.
+`result` : *string* - Current network ID.
 
-| Chain ID | Chain | Network | Description
-|----------|-------|---------|-------------------------------|
-| `1`      | ETH   | MainNet | Main Ethereum network         |
-| `3`      | ETH   | Ropsten | PoW test network              |
-| `4`      | ETH   | Rinkeby | PoA test network using Clique |
-| `5`      | ETH   | Goerli  | PoA test network using Clique |
-| `6`      | ETC   | Kotti   | PoA test network using Clique |
-| `61`     | ETC   | Classic | Main Ethereum Classic network |
-| `63`     | ETC   | Mordor  | PoW test network              |
-| `2018`   | ETH   | Dev     | PoW development network       |
+| Network ID | Chain | Network | Description
+|------------|-------|---------|-------------------------------|
+| `1`        | ETH   | Mainnet | Main Ethereum network         |
+| `3`        | ETH   | Ropsten | PoW test network              |
+| `4`        | ETH   | Rinkeby | PoA test network using Clique |
+| `5`        | ETH   | Goerli  | PoA test network using Clique |
+| `2018`     | ETH   | Dev     | PoW development network       |
+| `1`        | ETC   | Classic | Main Ethereum Classic network |
+| `6`        | ETC   | Kotti   | PoA test network using Clique |
+| `7`        | ETC   | Mordor  | PoW test network              |
+
+!!! note
+
+    For almost all networks network ID and chain ID are the same.
+
+    The only networks in the table above with different network and chain IDs are
+    Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
 
 !!! example
 
@@ -556,7 +571,7 @@ None
         }
         ```
 
-### net_listening
+### `net_listening`
 
 Whether the client is actively listening for network connections.
 
@@ -593,7 +608,7 @@ otherwise `false`.
         }
         ```
 
-### net_peerCount
+### `net_peerCount`
 
 Returns the number of peers currently connected to the client.
 
@@ -629,7 +644,7 @@ None
         }
         ```
 
-### net_enode
+### `net_enode`
 
 Returns the [enode URL](../Concepts/Node-Keys.md#enode-url).
 
@@ -639,7 +654,7 @@ None
 
 #### Returns
 
-`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) for the node.
+`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the node.
 
 !!! example
 
@@ -665,7 +680,7 @@ None
         }
         ```
 
-### net_services
+### `net_services`
 
 Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
 
@@ -714,7 +729,7 @@ None
         }
         ```
 
-## Eth methods
+## `Eth` methods
 
 !!! note
 
@@ -722,7 +737,7 @@ None
     request and result in the method example. The parameter and result descriptions apply to the
     JSON-RPC requests. The GraphQL specification is defined in the [schema].
 
-### eth_syncing
+### `eth_syncing`
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
@@ -738,7 +753,7 @@ synchronizing:
 * `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
   synchronization starts.
 * `currentBlock` : *quantity* - Index of the latest block (also known as the best block) for the
-  current node. This is the same index that [eth_blockNumber](#eth_blocknumber) returns.
+  current node. This is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.
 * `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
   highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
   the current node has no peers.
@@ -815,7 +830,7 @@ synchronizing:
         }
         ```
 
-### eth_chainId
+### `eth_chainId`
 
 Returns the [chain ID](../Concepts/NetworkID-And-ChainID.md).
 
@@ -851,7 +866,7 @@ None
         }
         ```
 
-### eth_protocolVersion
+### `eth_protocolVersion`
 
 Returns current Ethereum protocol version.
 
@@ -911,7 +926,7 @@ None
         }
         ```
 
-### eth_coinbase
+### `eth_coinbase`
 
 Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
 
@@ -957,7 +972,7 @@ None
         }
         ```
 
-### eth_mining
+### `eth_mining`
 
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
 with the network regardless of command settings or methods called.
@@ -994,7 +1009,7 @@ None
         }
         ```
 
-### eth_hashrate
+### `eth_hashrate`
 
 Returns the number of hashes per second with which the node is mining.
 
@@ -1033,11 +1048,20 @@ None
         }
         ```
 
-### eth_gasPrice
+### `eth_gasPrice`
 
-Returns the current gas unit price, in wei. It's the hexadecimal equivalent of the price specified
-for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
-started, or the default minimum gas price.
+Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
+the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
+is returned.
+
+If there are no blocks, the value for [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) is returned.
+The value returned is restricted to values between [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price)
+and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 1000 Wei and
+500GWei.
+
+Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
+, and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
+options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 
@@ -1045,7 +1069,7 @@ None
 
 #### Returns
 
-`result` : *quantity* - Current gas unit price, in wei, as a hexadecimal value.
+`result` : `quantity` - Percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value.
 
 !!! example
 
@@ -1095,7 +1119,7 @@ None
         }
         ```
 
-### eth_accounts
+### `eth_accounts`
 
 Returns a list of account addresses a client owns.
 
@@ -1106,7 +1130,7 @@ Returns a list of account addresses a client owns.
     client.
 
     To provide access to your key store and and then sign transactions, use
-    [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu.
+    [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu.
 
 #### Parameters
 
@@ -1140,7 +1164,7 @@ None
         }
         ```
 
-### eth_blockNumber
+### `eth_blockNumber`
 
 Returns the index corresponding to the block number of the current chain head.
 
@@ -1205,7 +1229,7 @@ number of the current chain head.
         }
         ```
 
-### eth_getBalance
+### `eth_getBalance`
 
 Returns the account balance of the specified address.
 
@@ -1273,9 +1297,113 @@ Returns the account balance of the specified address.
         }
         ```
 
-### eth_getProof
+### `eth_getMinerDataByBlockHash`
 
-Returns the account and storage values of the specified account, including the merkle proof.
+Returns miner data for the specified block.
+
+#### Parameters
+
+`data` - 32 byte block hash.
+
+#### Returns
+
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
+          }
+        }
+        ```
+
+### `eth_getMinerDataByBlockNumber`
+
+Returns miner data for the specified block.
+
+#### Parameters
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
+          }
+        }
+        ```
+
+### `eth_getProof`
+
+Returns the account and storage values of the specified account, including the Merkle proof.
 
 The API allows IoT devices or mobile apps which are unable to run light clients to verify responses
 from untrusted sources, by using a trusted block hash.
@@ -1298,11 +1426,11 @@ from untrusted sources, by using a trusted block hash.
 * `codeHash`:`Data, 32-byte` - Hash of the account code.
 * `nonce`:`Quantity` - Number of transactions sent from the account.
 * `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
-* `accountProof`:`Array` - RLP-encoded merkle tree nodes, starting with the `stateRoot`.
+* `accountProof`:`Array` - RLP-encoded Merkle tree nodes, starting with the `stateRoot`.
 * `storageProof`:`Array`- Storage entries. Each entry is an object that displays:
     * `key`:`Quantity` - Storage key.
     * `value`:`Quantity` - Storage value.
-    * `proof`:`Array` - RLP-encoded merkle tree nodes, starting with the `storageHash`.
+    * `proof`:`Array` - RLP-encoded Merkle tree nodes, starting with the `storageHash`.
 
 !!! example
 
@@ -1353,7 +1481,7 @@ from untrusted sources, by using a trusted block hash.
         }
         ```
 
-### eth_getStorageAt
+### `eth_getStorageAt`
 
 Returns the value of a storage position at a specified address.
 
@@ -1425,7 +1553,7 @@ Returns the value of a storage position at a specified address.
         }
         ```
 
-### eth_getTransactionCount
+### `eth_getTransactionCount`
 
 Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
 next account nonce not used by any pending transactions.
@@ -1495,7 +1623,7 @@ address.
         }
         ```
 
-### eth_getBlockTransactionCountByHash
+### `eth_getBlockTransactionCountByHash`
 
 Returns the number of transactions in the block matching the given block hash.
 
@@ -1559,7 +1687,7 @@ Returns the number of transactions in the block matching the given block hash.
         }
         ```
 
-### eth_getBlockTransactionCountByNumber
+### `eth_getBlockTransactionCountByNumber`
 
 Returns the number of transactions in a block matching the specified block number.
 
@@ -1625,7 +1753,7 @@ Returns the number of transactions in a block matching the specified block numbe
         }
         ```
 
-### eth_getUncleByBlockHashAndIndex
+### `eth_getUncleByBlockHashAndIndex`
 
 Returns uncle specified by block hash and index.
 
@@ -1743,7 +1871,7 @@ Returns uncle specified by block hash and index.
         }
         ```
 
-### eth_getUncleByBlockNumberAndIndex
+### `eth_getUncleByBlockNumberAndIndex`
 
 Returns uncle specified by block number and index.
 
@@ -1849,7 +1977,7 @@ as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#b
          }
          ```
 
-### eth_getUncleCountByBlockHash
+### `eth_getUncleCountByBlockHash`
 
 Returns the number of uncles in a block from a block matching the given block hash.
 
@@ -1913,7 +2041,7 @@ Returns the number of uncles in a block from a block matching the given block ha
         }
         ```
 
-### eth_getUncleCountByBlockNumber
+### `eth_getUncleCountByBlockNumber`
 
 Returns the number of uncles in a block matching the specified block number.
 
@@ -1979,7 +2107,7 @@ of the string tags `latest`, `earliest`, or `pending`, as described in
         }
         ```
 
-### eth_getCode
+### `eth_getCode`
 
 Returns the code of the smart contract at the specified address. Besu stores compiled smart
 contract code as a hexadecimal value.
@@ -2048,24 +2176,23 @@ contract code as a hexadecimal value.
         }
         ```
 
-### eth_sendRawTransaction
+### `eth_sendRawTransaction`
 
-Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md). A transaction can send
-ether, deploy a contract, or interact with a contract. Set the maximum
-transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI
-option.
+Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
+A transaction can send ether, deploy a contract, or interact with a contract.
+Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call].
+You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
 
 To avoid exposing your private key, create signed transactions offline and send the signed
 transaction data using `eth_sendRawTransaction`.
 
 !!!important
 
-    Besu does not implement [eth_sendTransaction](../HowTo/Send-Transactions/Account-Management.md).
+    Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements
-    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
 #### Parameters
 
@@ -2131,11 +2258,11 @@ transaction data using `eth_sendRawTransaction`.
          }
          ```
 
-### eth_call
+### `eth_call`
 
 Invokes a contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [eth_sendRawTransaction or eth_call].
+You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
 
 #### Parameters
 
@@ -2209,7 +2336,7 @@ You can interact with contracts using [eth_sendRawTransaction or eth_call].
         }
         ```
 
-### eth_estimateGas
+### `eth_estimateGas`
 
 Returns an estimate of the gas required for a transaction to complete. The estimation process
 does not use gas and the transaction is not added to the blockchain. The resulting estimate can be
@@ -2217,15 +2344,18 @@ greater than the amount of gas the transaction ends up using, for reasons includ
 and node performance.
 
 The `eth_estimateGas` call does not send a transaction. You must call
-[eth_sendRawTransaction](#eth_sendrawtransaction) to execute the transaction.
+[`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
 #### Parameters
 
-The transaction call object parameters are the same as those for [eth_call](#eth_call), except that
-in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
-process (unlike transactions, in which gas limits apply).
+The transaction call object parameters are the same as those for [`eth_call`](#eth_call) except for the
+[`strict` parameter](API-Objects.md#transaction-call-object). If `strict` is set to `true`, the sender
+account balance is checked for value transfer and transaction fees. The default for `strict` is `false`.
 
-*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+For `eth_estimateGas`, all fields are optional because setting a gas limit
+is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+
+`object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
 #### Returns
 
@@ -2319,7 +2449,7 @@ process (unlike transactions, in which gas limits apply).
         }
         ```
 
-### eth_getBlockByHash
+### `eth_getBlockByHash`
 
 Returns information about the block by hash.
 
@@ -2444,7 +2574,7 @@ block.
         }
         ```
 
-### eth_getBlockByNumber
+### `eth_getBlockByNumber`
 
 Returns information about a block by block number.
 
@@ -2595,7 +2725,7 @@ block.
         }
         ```
 
-### eth_getTransactionByHash
+### `eth_getTransactionByHash`
 
 Returns transaction information for the specified transaction hash.
 
@@ -2703,7 +2833,7 @@ transaction.
         }
         ```
 
-### eth_getTransactionByBlockHashAndIndex
+### `eth_getTransactionByBlockHashAndIndex`
 
 Returns transaction information for the specified block hash and transaction index position.
 
@@ -2795,7 +2925,7 @@ transaction.
         }
         ```
 
-### eth_getTransactionByBlockNumberAndIndex
+### `eth_getTransactionByBlockNumberAndIndex`
 
 Returns transaction information for the specified block number and transaction index position.
 
@@ -2893,7 +3023,7 @@ transaction.
         }
         ```
 
-### eth_getTransactionReceipt
+### `eth_getTransactionReceipt`
 
 Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
 available.
@@ -3011,11 +3141,11 @@ there is no receipt.
         }
         ```
 
-### eth_newFilter
+### `eth_newFilter`
 
 Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
-created filter, use [eth_getFilterChanges](#eth_getfilterchanges). To get all logs associated with
-the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
+created filter, use [`eth_getFilterChanges`](#eth_getfilterchanges). To get all logs associated with
+the filter, use [`eth_getFilterLogs`](#eth_getfilterlogs).
 
 #### Parameters
 
@@ -3053,10 +3183,10 @@ the filter, use [eth_getFilterLogs](#eth_getfilterlogs).
         }
         ```
 
-### eth_newBlockFilter
+### `eth_newBlockFilter`
 
 Creates a filter to retrieve new block hashes. To poll for new blocks, use
-[eth_getFilterChanges](#eth_getfilterchanges).
+[`eth_getFilterChanges`](#eth_getfilterchanges).
 
 #### Parameters
 
@@ -3090,10 +3220,10 @@ None
         }
         ```
 
-### eth_newPendingTransactionFilter
+### `eth_newPendingTransactionFilter`
 
 Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions,
-use [eth_getFilterChanges](#eth_getfilterchanges).
+use [`eth_getFilterChanges`](#eth_getfilterchanges).
 
 #### Parameters
 
@@ -3127,7 +3257,7 @@ None
         }
         ```
 
-### eth_uninstallFilter
+### `eth_uninstallFilter`
 
 Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
 
@@ -3166,7 +3296,7 @@ minutes.
         }
         ```
 
-### eth_getFilterChanges
+### `eth_getFilterChanges`
 
 Polls the specified filter and returns an array of changes that have occurred since the last poll.
 
@@ -3258,7 +3388,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 
         ```
 
-### eth_getFilterLogs
+### `eth_getFilterLogs`
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter.
 
@@ -3322,7 +3452,7 @@ command line option at the default value of `true` to improve log retrieval perf
         }
         ```
 
-### eth_getLogs
+### `eth_getLogs`
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
 
@@ -3450,7 +3580,7 @@ command line option at the default value of `true` to improve log retrieval perf
         }
         ```
 
-### eth_getWork
+### `eth_getWork`
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
@@ -3496,7 +3626,7 @@ None
         }
         ```
 
-### eth_submitHashrate
+### `eth_submitHashrate`
 
 Submits the mining hashrate.
 
@@ -3535,7 +3665,7 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
         }
         ```
 
-### eth_submitWork
+### `eth_submitWork`
 
 Submits a Proof of Work (Ethash) solution.
 
@@ -3575,7 +3705,7 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
         }
         ```
 
-## Clique methods
+## `CLIQUE` methods
 
 !!! note
 
@@ -3583,7 +3713,7 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
     methods use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### clique_discard
+### `clique_discard`
 
 Discards a proposal to [add or remove a signer with the specified address].
 
@@ -3619,7 +3749,7 @@ Discards a proposal to [add or remove a signer with the specified address].
         }
         ```
 
-### clique_getSigners
+### `clique_getSigners`
 
 Lists [signers for the specified block].
 
@@ -3657,7 +3787,7 @@ Lists [signers for the specified block].
         }
         ```
 
-### clique_getSignerMetrics
+### `clique_getSignerMetrics`
 
 Provides validator metrics for the specified range:
 
@@ -3730,7 +3860,7 @@ If you specify:
         }
         ```
 
-### clique_getSignersAtHash
+### `clique_getSignersAtHash`
 
 Lists signers for the specified block.
 
@@ -3766,7 +3896,7 @@ Lists signers for the specified block.
         }
         ```
 
-### clique_propose
+### `clique_propose`
 
 Propose to [add or remove a signer with the specified address].
 
@@ -3804,7 +3934,7 @@ Propose to [add or remove a signer with the specified address].
         }
         ```
 
-### clique_proposals
+### `clique_proposals`
 
 Returns
 [current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
@@ -3848,7 +3978,7 @@ remove a signer.
         }
         ```
 
-## Debug methods
+## `DEBUG` methods
 
 !!! note
 
@@ -3858,7 +3988,7 @@ remove a signer.
 
     The DEBUG API is a more verbose alternative to the [TRACE API](#trace-methods) whose main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). We recommend using the [TRACE API](#trace-methods) for production use over the DEBUG API.
 
-### debug_accountRange
+### `debug_accountRange`
 
 [Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses
 `debug_accountRange` to implement debugging.
@@ -3916,7 +4046,7 @@ Returns the accounts for a specified block.
         }
         ```
 
-### debug_storageRangeAt
+### `debug_storageRangeAt`
 
 [Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the
 _Debugger_ tab in Remix instead of calling `debug_storageRangeAt` directly.
@@ -3971,7 +4101,7 @@ Returns the contract storage for the specified range.
         }
         ```
 
-### debug_metrics
+### `debug_metrics`
 
 Returns metrics providing information on the internal operation of Besu.
 
@@ -4107,7 +4237,7 @@ None
         }
         ```
 
-### debug_traceTransaction
+### `debug_traceTransaction`
 
 [Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the
 _Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
@@ -4166,7 +4296,7 @@ Reruns the transaction with the same state as when the transaction executed.
         }
         ```
 
-### debug_traceBlock
+### `debug_traceBlock`
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
@@ -4222,7 +4352,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
         }
         ```
 
-### debug_traceBlockByHash
+### `debug_traceBlockByHash`
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
@@ -4283,7 +4413,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
         }
         ```
 
-### debug_traceBlockByNumber
+### `debug_traceBlockByNumber`
 
 Returns full trace of all invoked opcodes of all transactions included in the block.
 
@@ -4346,7 +4476,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
         }
         ```
 
-## Miner methods
+## `MINER` methods
 
 !!! note
 
@@ -4354,7 +4484,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### miner_start
+### `miner_start`
 
 Starts the mining process. To start mining, you must first specify a miner coinbase using the
 [`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
@@ -4391,7 +4521,7 @@ None
         }
         ```
 
-### miner_stop
+### `miner_stop`
 
 Stops the mining process on the client.
 
@@ -4427,7 +4557,7 @@ None
         }
         ```
 
-## IBFT 2.0 methods
+## `IBFT` 2.0 methods
 
 !!! note
 
@@ -4435,7 +4565,7 @@ None
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### ibft_discardValidatorVote
+### `ibft_discardValidatorVote`
 
 Discards a proposal to [add or remove a validator] with the specified address.
 
@@ -4471,7 +4601,7 @@ Discards a proposal to [add or remove a validator] with the specified address.
         }
         ```
 
-### ibft_getPendingVotes
+### `ibft_getPendingVotes`
 
 Returns [votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
 cast in the current [epoch](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
@@ -4515,7 +4645,7 @@ remove a validator.
         }
         ```
 
-### ibft_getValidatorsByBlockHash
+### `ibft_getValidatorsByBlockHash`
 
 Lists the validators defined in the specified block.
 
@@ -4555,7 +4685,7 @@ Lists the validators defined in the specified block.
         }
         ```
 
-### ibft_getValidatorsByBlockNumber
+### `ibft_getValidatorsByBlockNumber`
 
 Lists the validators defined in the specified block.
 
@@ -4597,7 +4727,7 @@ Lists the validators defined in the specified block.
         }
         ```
 
-### ibft_proposeValidatorVote
+### `ibft_proposeValidatorVote`
 
 Propose to [add or remove a validator] with the specified address.
 
@@ -4635,7 +4765,7 @@ Propose to [add or remove a validator] with the specified address.
         }
         ```
 
-### ibft_getSignerMetrics
+### `ibft_getSignerMetrics`
 
 Provides validator metrics for the specified range:
 
@@ -4708,7 +4838,7 @@ If you specify:
         }
         ```
 
-## Permissioning methods
+## `PERM` (Permissioning) methods
 
 Use the permissioning API methods for [local](../HowTo/Limit-Access/Local-Permissioning.md)
 permissioning only.
@@ -4719,7 +4849,7 @@ permissioning only.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options.
 
-### perm_addAccountsToAllowlist
+### `perm_addAccountsToAllowlist`
 
 Adds accounts (participants) to the
 [accounts permission list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
@@ -4762,7 +4892,7 @@ allowlist or including invalid account addresses.
         }
         ```
 
-### perm_getAccountsAllowlist
+### `perm_getAccountsAllowlist`
 
 Lists accounts (participants) in the
 [accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
@@ -4802,7 +4932,7 @@ None
         }
         ```
 
-### perm_removeAccountsFromAllowlist
+### `perm_removeAccountsFromAllowlist`
 
 Removes accounts (participants) from the
 [accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
@@ -4845,7 +4975,7 @@ or including invalid account addresses.
         }
         ```
 
-### perm_addNodesToAllowlist
+### `perm_addNodesToAllowlist`
 
 Adds nodes to the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
@@ -4888,7 +5018,7 @@ including invalid enode URLs.
         }
         ```
 
-### perm_getNodesAllowlist
+### `perm_getNodesAllowlist`
 
 Lists nodes in the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
@@ -4928,7 +5058,7 @@ None
         }
         ```
 
-### perm_removeNodesFromAllowlist
+### `perm_removeNodesFromAllowlist`
 
 Removes nodes from the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
@@ -4971,7 +5101,7 @@ or including invalid enode URLs.
         }
         ```
 
-### perm_reloadPermissionsFromFile
+### `perm_reloadPermissionsFromFile`
 
 Reloads the accounts and nodes allowlists from the [permissions configuration file].
 
@@ -5007,7 +5137,7 @@ None
         }
         ```
 
-## Txpool methods
+## `TXPOOL` methods
 
 !!! note
 
@@ -5015,7 +5145,7 @@ None
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### txpool_besuPendingTransactions
+### `txpool_besuPendingTransactions`
 
 Lists pending transactions that match the supplied filter conditions.
 
@@ -5026,7 +5156,7 @@ Lists pending transactions that match the supplied filter conditions.
 
 Each field in the object corresponds to a field name containing an operator, and a value for the
 operator. A field name can only be specified once, and can only contain one operator.
-For example, you cannot ask for transactions with a gas price between 8 and 9 Gwei by using both the
+For example, you cannot query transactions with a gas price between 8 and 9 Gwei by using both the
 `gt` and `lt` operator in the same field name instance.
 
 All filters must be satisfied for a transaction to be returned.
@@ -5129,7 +5259,7 @@ Supported operators:
         }
         ```
 
-### txpool_besuStatistics
+### `txpool_besuStatistics`
 
 Lists statistics about the node transaction pool.
 
@@ -5174,7 +5304,7 @@ None
         }
         ```
 
-### txpool_besuTransactions
+### `txpool_besuTransactions`
 
 Lists transactions in the node transaction pool.
 
@@ -5221,7 +5351,7 @@ None
         }
         ```
 
-## Trace methods
+## `TRACE` methods
 
 !!! note
 
@@ -5231,7 +5361,7 @@ None
 
     The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
 
-### trace_replayBlockTransactions
+### `trace_replayBlockTransactions`
 
 Provides transaction processing tracing per block.
 
@@ -5344,7 +5474,7 @@ one object per transaction, in transaction execution order.
         }
         ```
 
-### trace_block
+### `trace_block`
 
 Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified block.
 
@@ -5443,7 +5573,7 @@ one object per call, in transaction execution order.
           }
         ```
 
-### trace_transaction
+### `trace_transaction`
 
 Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transaction.
 
@@ -5572,7 +5702,7 @@ one object per call, in the order called by the transaction.
         }
         ```
 
-## EEA methods
+## `EEA` methods
 
 !!! note
 
@@ -5580,7 +5710,7 @@ one object per call, in the order called by the transaction.
     use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### eea_sendRawTransaction
+### `eea_sendRawTransaction`
 
 Distributes the
 [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
@@ -5611,8 +5741,8 @@ transaction data using `eea_sendRawTransaction`.
     Besu does not implement
     [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and
-    implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
+    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Parameters
 
@@ -5654,7 +5784,7 @@ transaction data using `eea_sendRawTransaction`.
         }
         ```
 
-## Priv methods
+## `PRIV` methods
 
 !!! note
 
@@ -5662,7 +5792,7 @@ transaction data using `eea_sendRawTransaction`.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### priv_call
+### `priv_call`
 
 Invokes a private contract function locally and does not change the privacy group state.
 
@@ -5742,7 +5872,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
         }
         ```
 
-### priv_distributeRawTransaction
+### `priv_distributeRawTransaction`
 
 Distributes a signed, RLP encoded
 [private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
@@ -5762,7 +5892,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.pegasys.tech/).
+[Orion](https://docs.orion.consensys.net/).
 
 !!! example
 
@@ -5788,7 +5918,7 @@ Distributes a signed, RLP encoded
         }
         ```
 
-### priv_getEeaTransactionCount
+### `priv_getEeaTransactionCount`
 
 Returns the private transaction count for the specified account and
 [group of sender and recipients].
@@ -5836,7 +5966,7 @@ specified group of sender and recipients.
         }
         ```
 
-### priv_getFilterChanges
+### `priv_getFilterChanges`
 
 Polls the specified filter for a private contract and returns an array of changes that have occurred
 since the last poll.
@@ -5895,7 +6025,7 @@ empty list.
         }
         ```
 
-### priv_getFilterLogs
+### `priv_getFilterLogs`
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private
 contract.
@@ -5972,7 +6102,7 @@ for private contracts.
         }
         ```
 
-### priv_getLogs
+### `priv_getLogs`
 
 Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
 
@@ -6043,7 +6173,7 @@ for private contracts.
         }
         ```
 
-### priv_getPrivacyPrecompileAddress
+### `priv_getPrivacyPrecompileAddress`
 
 Returns the address of the
 [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
@@ -6082,14 +6212,14 @@ None
         }
         ```
 
-### priv_getPrivateTransaction
+### `priv_getPrivateTransaction`
 
 Returns the private transaction if you are a participant, otherwise, `null`.
 
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 
@@ -6137,16 +6267,16 @@ a participant in the private transaction.
         }
         ```
 
-### priv_createPrivacyGroup
+### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
+Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
 
 #### Parameters
 
 `Object` - Request options:
 
 * `addresses`: `array of data` - Array of nodes, specified by
-  [Orion](https://docs.orion.pegasys.tech/) public keys.
+  [Orion](https://docs.orion.consensys.net/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
@@ -6178,7 +6308,7 @@ Privacy group ID
         }
         ```
 
-### priv_deletePrivacyGroup
+### `priv_deletePrivacyGroup`
 
 Deletes the specified privacy group.
 
@@ -6214,14 +6344,14 @@ Privacy group ID that was deleted.
         }
         ```
 
-### priv_findPrivacyGroup
+### `priv_findPrivacyGroup`
 
 Returns a list of privacy groups containing only the listed members. For example, if the listed
 members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`array of data` - Members specified by [Orion](https://docs.orion.pegasys.tech/) public keys.
+`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.
 
 #### Returns
 
@@ -6267,7 +6397,7 @@ or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) 
         }
         ```
 
-### priv_getCode
+### `priv_getCode`
 
 Returns the code of the private smart contract at the specified address. Compiled smart contract code
 is stored as a hexadecimal value.
@@ -6309,7 +6439,7 @@ or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSO
         }
         ```
 
-### priv_getTransactionCount
+### `priv_getTransactionCount`
 
 Returns the private transaction count for specified account and privacy group.
 
@@ -6354,7 +6484,7 @@ specified privacy group.
         }
         ```
 
-### priv_getTransactionReceipt
+### `priv_getTransactionReceipt`
 
 Returns information about the private transaction after mining the transaction. Receipts for
 pending transactions are not available.
@@ -6406,7 +6536,7 @@ or `null` if no receipt found.
         }
         ```
 
-### priv_newFilter
+### `priv_newFilter`
 
 Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
 created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
@@ -6453,7 +6583,7 @@ for public contracts.
         }
         ```
 
-### priv_uninstallFilter
+### `priv_uninstallFilter`
 
 Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
 call this method.
@@ -6498,7 +6628,7 @@ for public contracts.
         }
         ```
 
-## Plugins methods
+## `PLUGINS` methods
 
 !!! note
 
@@ -6506,7 +6636,7 @@ for public contracts.
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### plugins_reloadPluginConfig
+### `plugins_reloadPluginConfig`
 
 Reloads specified plugin configuration.
 
@@ -6544,7 +6674,7 @@ Reloads specified plugin configuration.
 
 ## Miscellaneous methods
 
-### rpc_modules
+### `rpc_modules`
 
 Lists [enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
 and the version of each.
@@ -6594,3 +6724,5 @@ Enabled APIs.
 [add or remove a validator]: ../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators
 [permissions configuration file]: ../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
 [group of sender and recipients]: ../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
+
+*[EEA]: Enterprise Ethereum Alliance

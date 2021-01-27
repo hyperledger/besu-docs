@@ -32,7 +32,8 @@ extra:
     issues: https://github.com/hyperledger/besu/issues
     doc_issues: https://github.com/hyperledger/besu-docs/issues/new/choose
   google:
-    site_verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
+    site_verification:
+      - 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     tag_manager: 'GTM-TS3WLJM'
   logo_regular: logo.svg
   logo_reversed: &logo_reversed logo-reversed.svg
@@ -49,16 +50,26 @@ theme:
         accent: teal
     favicon: favicon.svg
     logo: *logo_reversed
+
+extra_css:
+  - assets/stylesheets/custom_theme.css
+  - assets/stylesheets/zoomify.min.css
+extra_javascript:
+  - assets/javascripts/custom_theme.js
+  - assets/javascripts/zoomify.min.js
+
 nav:
     - How To:
         - Get Started with Besu:
-            - Private Network System Requirements: HowTo/Get-Started/System-Requirements-Private.md
-            - Public Network System Requirements: HowTo/Get-Started/System-Requirements-Public.md
-            - Install Binary Distribution: HowTo/Get-Started/Install-Binaries.md
-            - Build from Source: HowTo/Get-Started/Build-from-source.md
+            - System Requirements:
+                - Private Network: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
+                - Public Network: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
+            - Install Besu:
+                - Options: HowTo/Get-Started/Installation-Options/Options.md
+                - Run Besu from Docker Image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
+                - Install Binary Distribution: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+                - Build from Source: HowTo/Get-Started/Installation-Options/Build-from-source.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
-            - Run Besu from Docker Image: HowTo/Get-Started/Run-Docker-Image.md
-            - Migrate from pre v1.2 Docker Image: HowTo/Get-Started/Migration-Docker.md
         - Configure Besu:
           - Consensus Protocols:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
@@ -105,6 +116,7 @@ nav:
         - Limit Access to Node:
           - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
           - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
+          - Specify Interface Version: HowTo/Limit-Access/Specify-Perm-Version.md
         - Use Privacy Features:
           - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
           - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md
@@ -112,7 +124,7 @@ nav:
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
           - Run Orion with Besu: HowTo/Use-Privacy/Run-Orion-With-Besu.md
-          - Use Onchain Privacy: HowTo/Use-Privacy/Use-OnChainPrivacy.md
+          - Use Flexible Privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
@@ -151,6 +163,7 @@ nav:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
         - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3js-eea Multinode Example: Tutorials/Privacy/web3js-eea-Multinode-example.md
+      - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus Protocols:
@@ -162,7 +175,7 @@ nav:
           - Private Transactions: Concepts/Privacy/Private-Transactions.md
           - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
-          - Onchain Privacy Groups: Concepts/Privacy/Onchain-PrivacyGroups.md
+          - Flexible Privacy Groups: Concepts/Privacy/Flexible-PrivacyGroups.md
           - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
@@ -187,7 +200,7 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Transaction Trace Types: Reference/Trace-Types.md
         - Genesis File Items: Reference/Config-Items.md
-        - web3js-eaa Reference: https://pegasyseng.github.io/web3js-eea/latest/
+        - web3js-eaa Reference: https://consensys.github.io/web3js-eea/latest/
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md
@@ -225,19 +238,29 @@ markdown_extensions:
 plugins:
     - search:
         lang: 'en'
-        separator: '[\s]+'
+        separator: '[\s\-\.\_]+'
     - markdownextradata
     - exclude:
         glob:
           - global/*
     - git-revision-date-localized:
         locale: en
+    - minify:
+        minify_html: true
+        minify_js: true
+        htmlmin_opts:
+          remove_comments: true
     - redirects:
         redirect_maps:
           # Configure redirects using key:value pairs:
           # old_path.md: new_path.md
           # you can't use an already redirected path as an old_path.
           # new_path can be a file inside the docs/ folder or any URL (http://...)
+          HowTo/Get-Started/System-Requirements-Private.md: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
+          HowTo/Get-Started/System-Requirements-Public.md: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
+          HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+          HowTo/Get-Started/Build-from-source.md: HowTo/Get-Started/Installation-Options/Build-from-source.md
+          HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
           HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
           HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
           HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
@@ -245,3 +268,5 @@ plugins:
           Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md
           HowTo/Develop-Dapps/Use-web3js.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
+          Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
+          HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md

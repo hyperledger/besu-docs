@@ -62,7 +62,7 @@ The `extraData` field consists of:
 * A concatenated list of initial signer addresses (at least one initial signer required). 20 bytes
   (40 hex characters) for each signer.
 * 65 bytes (130 hex characters) for the proposer signature. In the genesis block there is no
-  initial proproser so the proproser signature is all zeros.
+  initial proposer so the proposer signature is all zeros.
 
 !!! example "One Initial Signer"
 

@@ -2,16 +2,16 @@
 description: Hyperledger Besu privacy-enabled private network tutorial
 ---
 
-# Privacy-enabled private network example tutorial
+# Privacy-enabled Quorum Developer Quickstart tutorial
 
 The privacy-enabled private network example runs a private network of Hyperledger Besu and Orion
 nodes managed by Docker Compose. It's an expanded version of the
-[private network example](Private-Network-Example.md).
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md).
 
 You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
 [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
-[create transactions using Metamask] as described in the
-[private network example](Private-Network-Example.md). This tutorial describes how to use the
+[create transactions using MetaMask] as described in the
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how to use the
 examples provided in the web3js-eea library to
 [create and send private transactions](#send-private-transactions-and-read-values).
 
@@ -36,26 +36,25 @@ To run this tutorial, you must have the following installed:
 * [Git command line](https://git-scm.com/)
 * [Curl command line](https://curl.haxx.se/download.html).
 
-## Clone Besu sample networks source code
+## Create Docker-compose file
 
-Clone the repository from the `besu-` repository.
+## Usage
 
-=== "Linux/MacOS"
+To create the docker-compose file and artifacts, run:
 
-    ```bash
-    git clone https://github.com/PegaSysEng/besu-sample-networks.git
-    ```
+```bash
+npx quorum-dev-quickstart
+```
 
-!!!note
-
-    To use a specific version of Hyperledger Besu, set the `BESU_VERSION` environment variable.
+Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
+Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
 ## Clone web3js-eea libraries
 
-Clone the `PegaSysEng/web3js-eea` library:
+Clone the `ConsenSys/web3js-eea` library:
 
 ```bash
-git clone https://github.com/PegaSysEng/web3js-eea.git
+git clone https://github.com/ConsenSys/web3js-eea.git
 ```
 
 In the `web3js-eea` directory:
@@ -70,32 +69,31 @@ npm install
 
     If running in Windows, please run commands from the GitBash shell
 
-In the `besu-sample-networks` directory, start the network with privacy enabled:
+In the installation directory, start the network:
 
 ```bash
-./run-privacy.sh
+./run.sh
 ```
 
 The script pulls the Docker images starts the network. Pulling the images takes a few minutes the
 first time. The network details display.
 
 ```bash
-       Name                      Command               State                              Ports
---------------------------------------------------------------------------------------------------------------------------
-privacy_bootnode_1    /opt/besu/bootnode_sta ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-privacy_explorer_1    nginx -g daemon off;             Up      0.0.0.0:25000->80/tcp
-privacy_minernode_1   /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-privacy_node1_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20000->8545/tcp, 0.0.0.0:20001->8546/tcp
-privacy_node2_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20002->8545/tcp, 0.0.0.0:20003->8546/tcp
-privacy_node3_1       /opt/besu/node_start.s ...   Up      30303/tcp, 0.0.0.0:20004->8545/tcp, 0.0.0.0:20005->8546/tcp
-privacy_orion1_1      /orion/bin/orion data/data ...   Up
-privacy_orion2_1      /orion/bin/orion data/data ...   Up
-privacy_orion3_1      /orion/bin/orion data/data ...   Up
-privacy_rpcnode_1     /opt/besu/node_start.s ...   Up      30303/tcp, 8545/tcp, 8546/tcp
-****************************************************************
-JSON-RPC HTTP service endpoint      : http://localhost:8545   *
-JSON-RPC WebSocket service endpoint : ws://localhost:8546   *
-Web block explorer address          : http://localhost:25000   *
+*************************************
+Quorum Dev Quickstart
+*************************************
+Setting up the index patterns in kibana .................
+----------------------------------
+List endpoints and services
+----------------------------------
+JSON-RPC HTTP service endpoint      : http://localhost:8545
+JSON-RPC WebSocket service endpoint : ws://localhost:8546
+Web block explorer address          : http://localhost:25000/
+Prometheus address                  : http://localhost:9090/graph
+Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
+Collated logs using Kibana endpoint : http://localhost:5601/app/kibana#/discover
+
+For more information on the endpoints and services, refer to README.md in the installation directory.
 ****************************************************************
 ```
 
@@ -147,7 +145,7 @@ Call [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransac
 === "curl HTTP request"
 
     ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' <JSON-RPC Endpoint>
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' http://localhost:8545
     ```
 
 === "Example"
@@ -197,11 +195,5 @@ Do one of the following to stop the network:
     ./remove.sh
     ```
 
-* Stop the network and delete the Docker images:
-
-    ```bash
-    ./delete.sh
-    ```
-
 <!-- Links -->
-[create transactions using Metamask]: Private-Network-Example.md#create-a-transaction-using-metamask
+[create transactions using MetaMask]: Private-Network-Example.md#create-a-transaction-using-metamask

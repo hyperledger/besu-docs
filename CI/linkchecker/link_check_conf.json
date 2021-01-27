@@ -7,22 +7,18 @@
             "pattern": "^http(s)?://127.0.0.1"
         },
         {
-            "pattern": "^http(s)?://.+.etherscan.io/txs\\?block="
+            "pattern": "^http(s)?://.+.etherscan.io"
         },
         {
-            "pattern": "^http(s)?://.+.etherscan.io/tx/0x"
-        },
-        {
-            "pattern": "^http(s)?://.+.etherscan.io/address/0x"
-        },
-        {
-            "pattern": "^http(s)?://.+.blockscout.com/"
+            "pattern": "^http(s)?://.+.tokenview.com"
         },
         {
             "pattern": "/postman/.+.json"
         },
         {
-            "pattern": "https://remix.ethereum.org/"
+            "pattern": "^http(s)?://.+.zendesk.com"
         }
-    ]
+    ],
+    "aliveStatusCodes":[200, 206],
+    "retryOn429":true
 }

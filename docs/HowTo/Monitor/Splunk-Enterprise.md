@@ -59,14 +59,14 @@ Follow the Splunk connect for Ethereum repository [README](https://github.com/sp
 ### Requirements
 
 - [Docker](https://docs.docker.com/compose/install/).
-- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Installation-Options/Install-Binaries.md).
 
 !!!important
     A Splunk license is not required to use the trial version of the Splunk Docker image. The  image
     is not suitable for production use and has [restrictions on daily log volume](https://www.splunk.com/).
 
 !!!note
-    If running [Besu as a Docker container](../Get-Started/Run-Docker-Image.md), consider using
+    If running [Besu as a Docker container](../Get-Started/Installation-Options/Run-Docker-Image.md), consider using
     [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose)
     or [Kubernetes](../Deploy/Kubernetes.md) instead of the Splunk Enterprise trial container.
 
@@ -86,7 +86,7 @@ docker run \
 splunk/splunk:latest
 ```
 
-Once the service is started, connect on <http://localhost:8080/> and login as the `admin` user
+Once the service is started, connect on [`http://localhost:8080/`](http://localhost:8080/) and login as the `admin` user
 with a password of `changeme`.
 
 !!!tip
@@ -98,7 +98,7 @@ with a password of `changeme`.
 
 ### Create the Besu index
 
-1. In the Splunk web interface, navigate to the [index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
+1. In the Splunk Web interface, navigate to the [index list in the settings](http://localhost:8080/en-US/manager/search/data/indexes).
 1. [Create an event index] with an Index Name of `besu`.
 1. Leave other fields with the default values.
 1. Save the `besu` index.
@@ -126,7 +126,7 @@ required in our example. The complete list of options is in the [Splunk options 
 
 ### Display the logs
 
-In the Splunk web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
+In the Splunk Web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
 
 Type `index="besu"` in the search field. Log events sent by Besu are displayed.
 
@@ -136,7 +136,7 @@ Congratulations! You can now play with the search and other Splunk features to e
 
 ### Stop the demo
 
-1. To stop Besu, use Ctrl+C.
+1. To stop Besu, use ++ctrl+c++.
 1. To stop the Splunk container, use `docker stop splunk-demo`.
 
 ## Run a Splunk Enterprise instance
@@ -144,7 +144,7 @@ Congratulations! You can now play with the search and other Splunk features to e
 ### Requirements
 
 - Splunk Enterprise license.
-- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Install-Binaries.md).
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../Get-Started/Installation-Options/Install-Binaries.md).
 
 !!!important
     A [Splunk license](https://www.splunk.com/) is required to use Splunk Enterprise.
@@ -157,7 +157,7 @@ Follow the steps in the [Splunk Enterprise documentation](https://docs.splunk.co
 
 Once the Splunk Enterprise instance is ready:
 
-1. Log into the Splunk Enterprise web interface.
+1. Log into the Splunk Enterprise Web interface.
 1. Navigate to the settings to:
 
     - [Create a HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector).
@@ -181,7 +181,7 @@ Congratulations! You can now [display logs and use the search engine](#display-t
 | SPLUNK_TOKEN            | Authentication token, usually of the form `11111111-1111-1111-1111-111111111111`                                                                        | Yes      |
 | SPLUNK_INDEX            | [Index](https://docs.splunk.com/Splexicon:Index) to store logs. Defaults to `besu`                                                     | No       |
 | SPLUNK_SOURCE           | [Source of the logs](https://docs.splunk.com/Splexicon:Source). Defaults to `besu`         | No       |
-| SPLUNK_SOURCETYPE       | [Sourcetype of the logs](https://docs.splunk.com/Splexicon:Sourcetype). Defaults to `besu` | No       |
+| SPLUNK_SOURCETYPE       | [Source type of the logs](https://docs.splunk.com/Splexicon:Sourcetype). Defaults to `besu` | No       |
 | SPLUNK_BATCH_SIZE_BYTES | Size of a log batch in bytes. Defaults to `65536`                                                                                                         | No       |
 | SPLUNK_BATCH_SIZE_COUNT | Size of a log batch in number of events. Defaults to `1000`                                                                                               | No       |
 | SPLUNK_BATCH_INTERVAL   | Interval at which to send log batches. Defaults to `500`                                                                                                  | No       |

@@ -23,8 +23,8 @@ private key in the `key` file.
 
 ## Node public key
 
-The node public key displays in the log after starting Besu. Also refered to as the node ID, the
-node public key forms part of the enode URL for a node.
+The node public key displays in the log after starting Besu. Also referred to as the node ID, the
+node public key forms part of the enode URL of a node.
 
 You can export the node public key, either to standard output or to a specified file, using the
 [`public-key export`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.
@@ -42,10 +42,18 @@ You can export the node address, either to standard output or to a specified fil
 The enode URL identifies a node. For example, the `--bootnodes` option and the
 `perm_addNodesToAllowlist` method specify nodes by enode URL.
 
+!!! tip
+
+    If deploying Besu using Kubernetes in private permissioned networks, use the
+    [`--Xdns-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
+    [`--Xdns-update-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
+    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
+    the IP address changes after being restarted.
+
 The enode URL format is `enode://<id>@<host:port>` where:
 
 * `<id>` is the node public key, excluding the initial 0x.
-* `<host:port>` is the host and port the bootnode is listening on for P2P peer discovery. Specify
+* `<host:port>` is the host and port the bootnode is listening on for P2P discovery. Specify
   the host and port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
   [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
   and the default port is `30303`.
@@ -59,7 +67,7 @@ The enode URL format is `enode://<id>@<host:port>` where:
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303`
 
 The enode URL displays when starting a Besu node. Use the
-[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to get the enode URL for
+[`net_enode`](../Reference/API-Methods.md#net_enode) JSON-RPC API method to get the enode URL of
 the node.
 
 The enode advertised to other nodes during discovery is the external IP address and port, as

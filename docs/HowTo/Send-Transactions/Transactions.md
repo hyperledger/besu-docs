@@ -25,9 +25,9 @@ Ether and create a smart contract.
     directory.
 
     In production environments avoid exposing your private keys by creating signed transactions
-    offline, or use [EthSigner](https://docs.ethsigner.pegasys.tech/) to isolate your private keys
+    offline, or use [EthSigner](https://docs.ethsigner.consensys.net/) to isolate your private keys
     and sign transactions with
-    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
 !!! tip
 
@@ -35,13 +35,13 @@ Ether and create a smart contract.
     [ethereumj](https://github.com/ethereum/ethereumj) and tools such as
     [MyCrypto](https://mycrypto.com/) can also create signed transactions.
 
-## eth_call vs eth_sendRawTransaction
+## `eth_call` vs `eth_sendRawTransaction`
 
 You can interact with contracts using [`eth_call`](../../Reference/API-Methods.md#eth_call) or
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction). The table below
 compares the characteristics of both calls.
 
-| eth_call                                                       | eth_sendRawTransaction                                                                                                        |
+| `eth_call`                                                     | `eth_sendRawTransaction`                                                                                                      |
 |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Read-only                                                      | Write                                                                                                                         |
 | Invokes contract function locally                              | Broadcasts to the network                                                                                                     |

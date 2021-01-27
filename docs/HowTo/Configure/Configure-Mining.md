@@ -58,6 +58,9 @@ The JSON-RPC API methods for mining are:
 * [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining.
 * [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is
   actively mining new blocks.
+* [`eth_getMinerDataByBlockHash`](../../Reference/API-Methods.md#eth_getminerdatabyblockhash) and
+[`eth_getMinerDataByBlockNumber`](../../Reference/API-Methods.md#eth_getminerdatabyblocknumber) to
+get the miner data for a specified block.
 * [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per
   second with which the node is mining. Not supported for GPU mining.
 * [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block,

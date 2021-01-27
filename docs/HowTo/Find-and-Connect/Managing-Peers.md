@@ -14,7 +14,7 @@ To reduce the maximum number of peers, use the
 
 ## No discovery
 
-To disable P2P peer discovery, use the
+To disable P2P discovery, use the
 [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) option.
 
 With discovery disabled, peers that have already discovered or are otherwise configured to connect
@@ -29,6 +29,19 @@ JSON-RPC API methods to monitor peer connections include:
 * [`net_peerCount`](../../Reference/API-Methods.md#net_peercount)
 * [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
 * [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics).
+
+Each peer entry returned by [`admin_peers`](../../Reference/API-Methods.md#admin_peers) includes a
+`protocols` section. Use the information in the `protocols` section to:
+
+* Determine health of peers. For example, an external process could use [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
+and [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) to disconnect from peers that
+are stalled at a single difficulty for an extended period of time.
+
+* Monitor node health. For example, if peers are reporting increasing difficulties but node
+is stuck at the same block number, the node may be on a different fork to most peers.
+
+* Determine which protocol level peers are communicating with. For example, to see if `"version": 65`
+is being used to reduce transaction sharing traffic.
 
 ## Node connections
 
@@ -50,5 +63,4 @@ the firewalls.
 
 In private networks with a level of trust between peers, enabling the
 [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
-is unnecessary and disabling might increase the speed at which nodes can join the network.
-
+is unnecessary and might adversely affect the speed at which nodes can join the network.

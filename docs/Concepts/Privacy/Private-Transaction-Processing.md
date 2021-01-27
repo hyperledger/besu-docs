@@ -21,7 +21,7 @@ Private transaction processing is illustrated and described in the following dia
 ![Processing Private Transactions](../../images/PrivateTransactionProcessing.png)
 
 1. Submit a private transaction using
-  [eea_sendRawTransaction](../../Reference/API-Methods.md#eea_sendrawtransaction). The signed
+  [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction). The signed
   transaction includes transaction attributes specific to private transactions, including:
 
     * `privateFor` or `privacyGroupId` specifies the list of recipients

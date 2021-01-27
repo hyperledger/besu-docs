@@ -6,6 +6,14 @@ description: Hyperledger Besu local permissioning
 
 Local permissioning supports node and account allowlisting.
 
+!!! tip
+
+    If deploying Besu using Kubernetes in private permissioned networks, use the
+    [`--Xdns-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
+    [`--Xdns-update-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
+    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
+    the IP address changes after being restarted.
+
 ## Node allowlisting
 
 You can allow access to specified nodes in the
@@ -91,7 +99,7 @@ permissioning accepts transactions only from accounts in the accounts allowlist.
     `accounts-allowlist=["0x0000000000000000000000000000000000000009"]`
 
 Account allowlisting is at the node level. That is, each node in the network has a
-[permisssions configuration file](#permissions-configuration-file) in the
+[permissions configuration file](#permissions-configuration-file) in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
 !!! caution "Using account permissioning and privacy"
@@ -112,7 +120,7 @@ Transaction validation against the accounts allowlist occurs at the following po
 * Added to a block by a mining node.
 
 After adding transactions to a block, the transactions are not validated against the allowlist
-when received by another node. That is, a node can synchronise and add blocks containing
+when received by another node. That is, a node can synchronize and add blocks containing
 transactions from accounts that are not on the accounts allowlist of that node.
 
 The following diagram illustrates applying local and onchain permissioning rules.
@@ -192,7 +200,7 @@ options.
     The [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
     and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
     options are not used when running Besu from the
-    [Docker image](../Get-Started/Run-Docker-Image.md). Use a bind mount to
+    [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md). Use a bind mount to
     [specify a permissions configuration file with Docker].
 
 !!! example "Sample Permissions Configuration File"
@@ -204,4 +212,4 @@ options.
     ```
 
 <!-- Links -->
-[specify a permissions configuration file with Docker]: ../Get-Started/Run-Docker-Image.md#permissions-configuration-file
+[specify a permissions configuration file with Docker]: ../Get-Started/Installation-Options/Run-Docker-Image.md#permissions-configuration-file

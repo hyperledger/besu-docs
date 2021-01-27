@@ -1,0 +1,14 @@
+<!-- Google site verification for search console -->
+{% for site_verification in config.extra.google.site_verification %}
+  <meta name="google-site-verification" content="{{site_verification}}" />
+{% endfor %}
+
+{% if config.extra.google.tag_manager %}
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{config.extra.google.tag_manager}}');</script>
+  <!-- End Google Tag Manager -->
+{% endif %}

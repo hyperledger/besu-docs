@@ -89,13 +89,13 @@ You can specify only one log level per RPC call.
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
+        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
         ```
 
     === "JSON result"
@@ -341,6 +341,8 @@ Properties of the remote node object are:
 * `port` - Port on the remote node on which P2P discovery is listening.
 * `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode
   URL `enode://<id ex 0x>@<host>:<port>`.
+* `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
 
 !!! example
 
@@ -360,28 +362,34 @@ Properties of the remote node object are:
 
         ```json
         {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : [
-            {
-              "version": "0x5",
-              "name": "Parity-Ethereum/v2.3.0-nightly-1c2e121-20181116/x86_64-linux-gnu/rustc1.30.0",
-              "caps": [
+           "jsonrpc": "2.0",
+           "id": 1,
+           "result": [
+             {
+               "version": "0x5",
+               "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
+               "caps": [
                  "eth/62",
                  "eth/63",
-                 "par/1",
-                 "par/2",
-                 "par/3",
-                 "pip/1"
-              ],
+                 "eth/64",
+                 "eth/65",
+                 "IBF/1"
+               ],
                "network": {
-                  "localAddress": "192.168.1.229:50115",
-                  "remoteAddress": "168.61.153.255:40303"
+                 "localAddress": "192.168.1.229:50115",
+                 "remoteAddress": "168.61.153.255:40303"
                },
-               "port": "0x9d6f",
-               "id": "0xea26ccaf0867771ba1fec32b3589c0169910cb4917017dba940efbef1d2515ce864f93a9abc846696ebad40c81de7c74d7b2b46794a71de8f95a0d019f494ff3"
-            }
-          ]
+               "port": "0x765f",
+               "id": "0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc",
+               "protocols": {
+                 "eth": {
+                   "difficulty": "0x1ac",
+                   "head": "0x964090ae9277aef43f47f1b8c28411f162243d523118605f0b1231dbfdf3611a",
+                   "version": 65
+                 }
+               }
+             }
+           ]
         }
         ```
 
@@ -1042,9 +1050,18 @@ None
 
 ### `eth_gasPrice`
 
-Returns the current gas unit price, in wei. It's the hexadecimal equivalent of the price specified
-for the [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) command line option when the node
-started, or the default minimum gas price.
+Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
+the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
+is returned.
+
+If there are no blocks, the value for [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) is returned.
+The value returned is restricted to values between [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price)
+and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 1000 Wei and
+500GWei.
+
+Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
+, and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
+options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 
@@ -1052,7 +1069,7 @@ None
 
 #### Returns
 
-`result` : *quantity* - Current gas unit price, in wei, as a hexadecimal value.
+`result` : `quantity` - Percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value.
 
 !!! example
 
@@ -1113,7 +1130,7 @@ Returns a list of account addresses a client owns.
     client.
 
     To provide access to your key store and and then sign transactions, use
-    [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu.
+    [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu.
 
 #### Parameters
 
@@ -2174,8 +2191,8 @@ transaction data using `eth_sendRawTransaction`.
 
     Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements
-    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
 #### Parameters
 
@@ -2331,11 +2348,14 @@ The `eth_estimateGas` call does not send a transaction. You must call
 
 #### Parameters
 
-The transaction call object parameters are the same as those for [`eth_call`](#eth_call), except that
-in `eth_estimateGas`, all fields are optional. Setting a gas limit is irrelevant to the estimation
-process (unlike transactions, in which gas limits apply).
+The transaction call object parameters are the same as those for [`eth_call`](#eth_call) except for the
+[`strict` parameter](API-Objects.md#transaction-call-object). If `strict` is set to `true`, the sender
+account balance is checked for value transfer and transaction fees. The default for `strict` is `false`.
 
-*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+For `eth_estimateGas`, all fields are optional because setting a gas limit
+is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+
+`object` - [Transaction call object](API-Objects.md#transaction-call-object).
 
 #### Returns
 
@@ -5721,8 +5741,8 @@ transaction data using `eea_sendRawTransaction`.
     Besu does not implement
     [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and
-    implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
+    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Parameters
 
@@ -5872,7 +5892,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.pegasys.tech/).
+[Orion](https://docs.orion.consensys.net/).
 
 !!! example
 
@@ -6199,7 +6219,7 @@ Returns the private transaction if you are a participant, otherwise, `null`.
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 
@@ -6249,14 +6269,14 @@ a participant in the private transaction.
 
 ### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
+Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
 
 #### Parameters
 
 `Object` - Request options:
 
 * `addresses`: `array of data` - Array of nodes, specified by
-  [Orion](https://docs.orion.pegasys.tech/) public keys.
+  [Orion](https://docs.orion.consensys.net/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
@@ -6331,7 +6351,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`array of data` - Members specified by [Orion](https://docs.orion.pegasys.tech/) public keys.
+`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.
 
 #### Returns
 

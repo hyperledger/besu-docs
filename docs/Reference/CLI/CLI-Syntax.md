@@ -962,6 +962,36 @@ default is `9001`. Ports must be
 
 The job name when in `push` mode. The default is `besu-client`.
 
+### `min-block-occupancy-ratio`
+
+=== "Syntax"
+
+    ```bash
+    --min-block-occupancy-ratio=<minBlockOccupancyRatio>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --min-block-occupancy-ratio=0.5
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MIN_BLOCK_OCCUPANCY_RATIO=0.5
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    min-block-occupancy-ratio="0.5"
+    ```
+
+Minimum occupancy ratio for a mined block if the transaction pool is not empty. When filling a block
+during mining, the occupancy ratio indicates the threshold at which the node stops waiting for smaller transactions
+to fill the remaining space. The default is 0.8.
+
 ### `miner-coinbase`
 
 === "Syntax"
@@ -985,7 +1015,7 @@ The job name when in `push` mode. The default is `besu-client`.
 === "Configuration File"
 
     ```bash
-    --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
 
 The account you pay mining rewards to. You must specify a valid coinbase when you enable mining

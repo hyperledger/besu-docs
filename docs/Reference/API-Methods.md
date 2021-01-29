@@ -89,13 +89,13 @@ You can specify only one log level per RPC call.
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["tech.pegasys.besu.ethereum.eth.manager","tech.pegasys.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
+        {"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}
         ```
 
     === "JSON result"
@@ -1130,7 +1130,7 @@ Returns a list of account addresses a client owns.
     client.
 
     To provide access to your key store and and then sign transactions, use
-    [EthSigner](http://docs.ethsigner.pegasys.tech/en/latest/) with Besu.
+    [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu.
 
 #### Parameters
 
@@ -2191,8 +2191,8 @@ transaction data using `eth_sendRawTransaction`.
 
     Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/) provides transaction signing and implements
-    [`eth_sendTransaction`](https://docs.ethsigner.pegasys.tech/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
 
 #### Parameters
 
@@ -5741,8 +5741,8 @@ transaction data using `eea_sendRawTransaction`.
     Besu does not implement
     [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
 
-    [EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/) provides transaction signing and
-    implements [`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
+    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Parameters
 
@@ -5892,7 +5892,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.pegasys.tech/).
+[Orion](https://docs.orion.consensys.net/).
 
 !!! example
 
@@ -6219,7 +6219,7 @@ Returns the private transaction if you are a participant, otherwise, `null`.
 #### Parameters
 
 `data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransaction`](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
 
 #### Returns
 
@@ -6269,14 +6269,14 @@ a participant in the private transaction.
 
 ### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.pegasys.tech/) public key.
+Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
 
 #### Parameters
 
 `Object` - Request options:
 
 * `addresses`: `array of data` - Array of nodes, specified by
-  [Orion](https://docs.orion.pegasys.tech/) public keys.
+  [Orion](https://docs.orion.consensys.net/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
@@ -6351,7 +6351,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`array of data` - Members specified by [Orion](https://docs.orion.pegasys.tech/) public keys.
+`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.
 
 #### Returns
 

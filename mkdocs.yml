@@ -234,6 +234,7 @@ markdown_extensions:
     - pymdownx.tilde
     - meta
     - smarty
+    - attr_list
 
 plugins:
     - search:

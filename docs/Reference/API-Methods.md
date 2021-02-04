@@ -4484,6 +4484,43 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
+### miner_changeTargetGasLimit
+
+Updates the target gas limit set using the [`--target-gas-limit`](CLI/CLI-Syntax.md#target-gas-limit)
+command line option.
+
+#### Parameters
+
+`integer` : `quantity` - The target gas price in Wei.
+
+#### Returns
+
+`result` - `Success` or `error`.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+           "jsonrpc" : "2.0",
+           "id" : 1,
+           "result" : "Success"
+        }
+        ```
+
 ### `miner_start`
 
 Starts the mining process. To start mining, you must first specify a miner coinbase using the

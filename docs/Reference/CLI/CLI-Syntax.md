@@ -250,6 +250,46 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 Enables or disables color output to console.
 The default is `true`.
 
+### `compatibility-eth64-forkid-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --compatibility-eth64-forkid-enabled[=<true|false>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --compatibility-eth64-forkid-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_COMPATIBILITY_ETH64_FORKID_ENABLED=true
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    compatibility-eth64-forkid-enabled=true
+    ```
+
+Enables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes
+using Besu v20.10.1 or later, either:
+
+* All nodes must be upgraded to v20.10.1 or later.
+* All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`.
+
+The default is `false`.
+
+!!! caution
+
+    If networks have Besu nodes using v1.4 or earlier and other Besu nodes using v20.10.1 or later,
+    the nodes on different versions cannot communicate unless `--compatibility-eth64-forkid-enabled`
+    is set to `true`. 
+
 ### `config-file`
 
 === "Syntax"
@@ -626,6 +666,8 @@ If a name is not specified, the name section is not included in the client ID. F
 The key-value storage to use. Use this option only if using a storage system provided with a
 plugin. The default is `rocksdb`.
 
+For development use only, the `memory` option provides ephemeral storage for sync testing and debugging.
+
 ### `logging`
 
 === "Syntax"
@@ -960,6 +1002,36 @@ default is `9001`. Ports must be
 
 The job name when in `push` mode. The default is `besu-client`.
 
+### `min-block-occupancy-ratio`
+
+=== "Syntax"
+
+    ```bash
+    --min-block-occupancy-ratio=<minBlockOccupancyRatio>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --min-block-occupancy-ratio=0.5
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_MIN_BLOCK_OCCUPANCY_RATIO=0.5
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    min-block-occupancy-ratio="0.5"
+    ```
+
+Minimum occupancy ratio for a mined block if the transaction pool is not empty. When filling a block
+during mining, the occupancy ratio indicates the threshold at which the node stops waiting for smaller transactions
+to fill the remaining space. The default is 0.8.
+
 ### `miner-coinbase`
 
 === "Syntax"
@@ -983,7 +1055,7 @@ The job name when in `push` mode. The default is `besu-client`.
 === "Configuration File"
 
     ```bash
-    --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
 
 The account you pay mining rewards to. You must specify a valid coinbase when you enable mining

@@ -61,3 +61,7 @@
 .md-source-date {
   font-style: italic;
 }
+
+.md-sidebar__scrollwrap{
+  scroll-snap-type: none !important;
+}

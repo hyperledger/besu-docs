@@ -55,7 +55,7 @@ Download and install the
                 # Splunk HTTP Event Collector token.
                 token: "11111111-1111-1111-1111-1111111111113"
                 # URL to a Splunk instance to send data to.
-                endpoint: "https://splunk:8088/services/collector"
+                endpoint: "https://<SPLUNK INSTANCE>:8088/services/collector"
                 # Optional Splunk source: https://docs.splunk.com/Splexicon:Source
                 source: "besu:traces"
                 # Optional Splunk source type: https://docs.splunk.com/Splexicon:Sourcetype
@@ -75,7 +75,7 @@ Download and install the
                 # Splunk HTTP Event Collector token.
                 token: "11111111-1111-1111-1111-1111111111113"
                 # URL to a Splunk instance to send data to.
-                endpoint: "https://splunk:8088/services/collector"
+                endpoint: "https://<SPLUNK INSTANCE>:8088/services/collector"
                 # Optional Splunk source: https://docs.splunk.com/Splexicon:Source
                 source: "besu:metrics"
                 # Optional Splunk source type: https://docs.splunk.com/Splexicon:Sourcetype
@@ -121,6 +121,33 @@ Download and install the
                     processors: [batch]
         ```
 
+It is easiest to run the OpenTelemetry collector with Docker with the following:
+
+!!!example
+
+    === "Command syntax"
+
+        ```bash
+        docker run -d \
+          -v ./otel-collector-config.yml:/etc/otel/config.yaml \
+          -e SPLUNK_ACCESS_TOKEN=<access token> \
+          -e SPLUNK_REALM=<realm> \
+          -p 4317:4317 \
+          otel/opentelemetry-collector-contrib:latest
+        ```
+
+    === "Example"
+        ```bash
+        docker run -d \
+          -v ./otel-collector-config.yml:/etc/otel/config.yaml \
+          -e SPLUNK_ACCESS_TOKEN=abcdefg654 \
+          -e SPLUNK_REALM=us1 \
+          -p 4317:4317 \
+          otel/opentelemetry-collector-contrib:latest
+        ```
+
+You can also refer to a Docker-compose example [here](https://github.com/splunk/splunk-connect-for-ethereum/blob/master/examples/besu-sync/full-sync/docker-compose.yaml).
+
 1. Start Besu with the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
  and [`--metrics-protocol=opentelemetry`](../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
 
@@ -134,7 +161,7 @@ Download and install the
     | OTEL_EXPORTER_OTLP_ENDPOINT | OpenTelemetry Collector endpoint, of the form `https://host:port`. The default value is `https://localhost:4317`  | Yes      |
     | OTEL_EXPORTER_OTLP_INSECURE | Whether to allow insecure connections for OpenTelemetry data. False by default.                                   | No       |
 
-    To start a single node for testing with metrics enabled:
+!!!example "Example to start a single node for testing with OpenTelemetry metrics and traces enabled"
 
     === "Command syntax"
 
@@ -145,7 +172,7 @@ Download and install the
     === "Example"
 
         ```bash
-        OTEL_EXPORTER_OTLP_ENDPOINT=https://otelcollector:4317 besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
+        OTEL_EXPORTER_OTLP_ENDPOINT=https://localhost:4317 besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
         ```
 
 <!-- Links -->

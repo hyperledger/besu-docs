@@ -3,7 +3,7 @@ description: Collect Besu information with the OpenTelemetry Collector
 ---
 
 
-# Use metrics to monitor node performance
+# Use OpenTelemetry to gather node metrics and traces
 
 To enable the [Prometheus](https://prometheus.io/) monitoring and tracing service to access
 Hyperledger Besu, use the
@@ -22,7 +22,7 @@ collected data. See the sample [Besu Sync example](https://github.com/splunk/spl
 
 ## Install OpenTelemetry Collector
 
-To use the OpenTelemetry Collector with Besu, install the
+Download and install the
 [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases).
 
 !!! tip
@@ -35,8 +35,6 @@ To use the OpenTelemetry Collector with Besu, install the
       and may be deployed in Kubernetes environments as a daemonset.
 
 ## Setting up and running OpenTelemetry with Besu
-
-To configure OpenTelemetry and run with Besu:
 
 1. Configure OpenTelemetry to accept data from Besu.
    For example, use the following configuration for your `otel-collector-config.yml` file, and send data to Splunk and Splunk APM:
@@ -152,3 +150,7 @@ To configure OpenTelemetry and run with Besu:
 
 <!-- Links -->
 [Monitoring Besu synchronization to chain with Splunk]: https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync
+
+<!--- END of page meta data -->
+
+*[APM]: Application Performance Monitoring

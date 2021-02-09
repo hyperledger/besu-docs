@@ -4046,6 +4046,100 @@ Returns the accounts for a specified block.
         }
         ```
 
+### `debug_standardTraceBlockToFile`
+
+Generates files containing the block trace. A separate file is generated for each
+transaction in the block.
+
+You can also specify a trace file for a specific transaction in a block.
+
+Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to view the trace for
+an invalid block.
+
+#### Parameters
+
+`blockHash` : `data` - Block hash.
+
+`txHash` : `data` - The transaction hash. Optional. If ommitted, then a trace file is generated for each
+transaction in the block.
+
+`disableMemory` : `boolean` - Specify whether to capture EVM memory during the trace.
+Defaults to `true`. 
+
+#### Returns
+
+`result` : `data` - Location of the generated trace files.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
+        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
+        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+           "result": [
+             "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+           ]
+        }
+        ```
+
+### `debug_standardTraceBadBlockToFile`
+
+Generates files containing the block trace of invalid blocks. A separate file is generated for each
+transaction in the block.
+
+Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view the trace for a
+valid block.
+
+#### Parameters
+
+`blockHash` : `data` - Block hash.
+
+#### Returns
+
+`result` : `data` - Location of the generated trace files.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+           "result": [
+             "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+           ]
+        }
+        ```
+
 ### `debug_storageRangeAt`
 
 [Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the

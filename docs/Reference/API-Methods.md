@@ -4060,11 +4060,11 @@ an invalid block.
 
 `blockHash` : `data` - Block hash.
 
-`txHash` : `data` - The transaction hash. Optional. If ommitted, then a trace file is generated for each
+`txHash` : `data` - The transaction hash. Optional. If omitted, then a trace file is generated for each
 transaction in the block.
 
 `disableMemory` : `boolean` - Specify whether to capture EVM memory during the trace.
-Defaults to `true`. 
+Defaults to `true`.
 
 #### Returns
 

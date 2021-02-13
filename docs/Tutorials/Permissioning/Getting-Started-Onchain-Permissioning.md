@@ -125,7 +125,7 @@ include the command line options:
 example command line:
 
 ```cmd
-besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73 --permissions-nodes-contract-version=2
 ```
 
 ## Clone the contracts and install dependencies

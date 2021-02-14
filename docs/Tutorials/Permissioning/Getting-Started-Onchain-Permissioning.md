@@ -1,5 +1,5 @@
 ---
-description: Setting up and using Hyperledger Besu onchain Permissioning
+description: Setting up and using Hyperledger Besu onchain permissioning
 ---
 
 # Get started with onchain permissioning

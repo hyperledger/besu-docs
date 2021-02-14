@@ -68,6 +68,11 @@ in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEn
 
     To support the permissioning contracts, ensure your genesis file includes at least the
     `constantinopleFixBlock` milestone.
+    
+    The permissioning contract has multiple interfaces, and each interface maps to a specific
+    version of the Enterprise [Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
+    Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used when starting Besu.
 
 ## Set the environment variables
 
@@ -121,11 +126,14 @@ include the command line options:
   (`"0x0000000000000000000000000000000000009999"`). Start your first node with command line options
   to enable onchain permissioning and the JSON-RPC HTTP host and port matching environment variable
   `BESU_NODE_PERM_ENDPOINT`.
+* [`--permissions-nodes-contract-version=2`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
+    to set the version of the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used.
 
 example command line:
 
 ```cmd
-besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73 --permissions-nodes-contract-version=2
 ```
 
 ## Clone the contracts and install dependencies

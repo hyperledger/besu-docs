@@ -1,9 +1,10 @@
-!!! tip "Postman API documentation"
+!!! tip "Besu JSON-RPC APIs documentation in Postman format"
 
     ![Postman documentation](https://www.postman.com/assets/logos/pm-orange-logo-horiz.svg){style="height: 6em;"}
 
-    Navigate to [the Postman API documentation](https://api.besu.hyperledger.org/)
-    and get pieces of generated code in multiple languages with requests examples and run them in Postman.
+    View the [Besu JSON-RPC APIs documentation](https://api.besu.hyperledger.org/) in the Postman format
+    and obtain example requests in multiple coding languages.
+    You can also run requests directly in Postman.
     
     ### Run requests
 

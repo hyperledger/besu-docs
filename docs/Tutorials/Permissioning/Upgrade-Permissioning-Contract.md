@@ -2,13 +2,13 @@
 description: Upgrade the permissioning contract for onchain permissioning
 ---
 
-# Upgrade the permissioning contract
+# Upgrade the permissioning contracts
 
-The following tutorial describes the steps to upgrade the permissioning contract to the latest
+The following tutorial describes the steps to upgrade the permissioning contracts to the latest
 version when using onchain permissioning.
 
-The following instructions assume that the user is upgrading a contract that
-implements version 1 of the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
+The following instructions assume that the user is upgrading contracts that
+implement version 1 of the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
 
 ## Prerequisites
 
@@ -65,14 +65,15 @@ yarn run build
 1. If they exist, rename the following environment variables:
     * `PANTHEON_NODE_PERM_ACCOUNT` to `BESU_NODE_PERM_ACCOUNT`
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
-    * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_KEY`.
+    * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`.
 
 ### 4. Deploy the contract
 
 If using a `.env` file to configure [environment variables](#3-update-environment-variables), then
 copy the file to the `permissioning-smart-contracts` directory.
 
-In the `permissioning-smart-contracts` directory, deploy the Admin and Rules contracts:
+In the `permissioning-smart-contracts` directory, deploy the Admin, Rules, and ingress
+contracts:
 
 ```bash
 yarn truffle migrate --reset

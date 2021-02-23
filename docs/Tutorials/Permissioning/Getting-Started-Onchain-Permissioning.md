@@ -349,4 +349,4 @@ add [Node-1, Node-2, and Node-3 to the allowlist].
 [Start the webserver for the Permissioning Management Dapp]: #start-the-webserver-for-the-permissioning-management-dapp
 [Node-1, Node-2, and Node-3 to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
 [admin account]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
-[Clique Proof-of-Authority (PoA)]: ../../HowTo/Configure/Consensys-Protocols/Clique.md
+[Clique Proof-of-Authority (PoA)]: ../../HowTo/Configure/Consensus-Protocols/Clique.md

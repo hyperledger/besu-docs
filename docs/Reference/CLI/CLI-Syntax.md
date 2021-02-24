@@ -3189,6 +3189,10 @@ within that constraint.
 If a value for `target-gas-limit` is not specified, the block gas limit remains at the value
 specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
 
+Use the [`miner_changeTargetGasLimit`](../API-Methods.md#miner_changetargetgaslimit) API to update
+the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated
+`target-gas-limit` value.
+
 ### `tx-pool-max-size`
 
 === "Syntax"

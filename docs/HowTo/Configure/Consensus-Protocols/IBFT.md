@@ -7,6 +7,11 @@ description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protoc
 Besu implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. Private networks can use
 IBFT 2.0.
 
+!!! warning
+
+    Configure your network to ensure you never lose 1/3 or more of your validators. If more
+    than 1/3 of validators stop participating, new blocks are no longer be created.
+
 In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.

@@ -108,6 +108,7 @@ nav:
           - Configure Logging: HowTo/Monitor/Logging.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
           - Use Splunk Enterprise: HowTo/Monitor/Splunk-Enterprise.md
+          - Monitor with OpenTelemetry: HowTo/Monitor/OpenTelemetry-Collector.md
         - Send Transactions:
            - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
@@ -160,6 +161,7 @@ nav:
       - Permissioning:
         - Create a Permissioned Network: Tutorials/Permissioning/Create-Permissioned-Network.md
         - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+        - Upgrade the permissioning contract: Tutorials/Permissioning/Upgrade-Permissioning-Contract.md
       - Privacy:
         - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
         - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
@@ -235,6 +237,7 @@ markdown_extensions:
     - pymdownx.tilde
     - meta
     - smarty
+    - attr_list
 
 plugins:
     - search:
@@ -271,3 +274,6 @@ plugins:
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
+          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
+          HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
+          Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md

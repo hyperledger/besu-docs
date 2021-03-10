@@ -12,9 +12,9 @@ Specify the contract interface version that maps to the version of the [Enterpri
 the contract interface implements.
 
 |         | EEA Client Specification | Contract interface |
-|---------|--------------------------|--------------------|
+|:--------|:-------------------------|:-------------------|
 | Version | 5                        | 1                  |
 | Version | 6                        | 2                  |
 
 The permissioning contracts in the [`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts)
-repository implement the version 1 contract interface.
+repository implement the version 2 contract interface.

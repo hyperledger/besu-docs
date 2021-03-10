@@ -30,6 +30,13 @@ repository are:
 * Admin - stores the list of admin accounts and admin list operations (for example, add and
   remove). Admin accounts are stored in a single list for both nodes and accounts.
 
+!!! important
+
+    The permissioning contract has multiple interfaces, and each interface maps to a specific
+    version of the Enterprise [Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
+    Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used when starting Besu.
+
 ## Permissioning management Dapp
 
 The [Permissioning Management Dapp] provides view and maintain access to the allowlists.

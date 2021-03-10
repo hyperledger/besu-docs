@@ -1,5 +1,5 @@
 ---
-description: Setting up and using Hyperledger Besu onchain Permissioning
+description: Setting up and using Hyperledger Besu onchain permissioning
 ---
 
 # Get started with onchain permissioning
@@ -7,21 +7,11 @@ description: Setting up and using Hyperledger Besu onchain Permissioning
 The following steps describe bootstrapping a permissioned network using a Hyperledger Besu
 node and a development server to run the Permissioning Management Dapp.
 
+This tutorial configures permissioning on a [Clique Proof-of-Authority (PoA)] network.
+
 !!! note
 
     Production environments require a webserver to [host the Permissioning Management Dapp](../../HowTo/Deploy/Production.md).
-
-To start a network with onchain permissioning:
-
-1. [Install the prerequisites](#prerequisites)
-1. [Add the ingress contracts to the genesis file](#add-the-ingress-contracts-to-the-genesis-file)
-1. [Set the environment variables](#set-the-environment-variables)
-1. [Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]
-1. [Clone the permissioning contracts repository and install dependencies]
-1. [Build the project](#build-the-project)
-1. [Deploy the permissioning contracts](#deploy-the-contracts)
-1. [Start the Web server for the Permissioning Management Dapp]
-1. [Add the first node to the nodes allowlist](#add-the-first-node-to-the-allowlist).
 
 ## Prerequisites
 
@@ -33,7 +23,104 @@ For the development server to run the dapp:
 * [Yarn](https://yarnpkg.com/en/) v1.15 or later
 * Browser with [MetaMask installed](https://metamask.io/).
 
-## Add the ingress contracts to the genesis file
+## Steps
+
+Listed on the right-hand side of the page are the steps to create a permissioned network.
+
+### 1. Create folders
+
+Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
+[node key](../../Concepts/Node-Keys.md) in this directory.
+
+Create directories for your permissioned network, each of the three nodes, and a data directory for
+each node:
+
+```bash
+Permissioned-Network/
+├── Node-1
+│   ├── data
+├── Node-2
+│   ├── data
+└── Node-3
+    ├── data
+```
+
+### 2. Get the address of Node-1
+
+In networks using Clique, you must include the address of at least one initial signer in the
+genesis file. For this network, we'll use Node-1 as the initial signer. This requires obtaining the
+address for Node-1.
+
+To retrieve the address for Node-1, in the `Node-1` directory, use the
+[`public-key export-address`](../../Reference/CLI/CLI-Syntax.md#public-key) subcommand to write the
+node address to the specified file (`nodeAddress1` in this example).
+
+=== "MacOS"
+
+    ```bash
+    besu --data-path=data public-key export-address --to=data/nodeAddress1
+    ```
+
+=== "Windows"
+
+    ```bash
+    besu --data-path=data public-key export-address --to=data\nodeAddress1
+    ```
+
+### 3. Create the genesis file
+
+The genesis file defines the genesis block of the blockchain (that is, the start of the
+blockchain). The
+[Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes
+the address of Node-1 as the initial signer in the `extraData` field.
+
+All nodes in a network must use the same genesis file.
+
+Copy the following genesis definition to a file called `cliqueGenesis.json` and save it in the
+`Permissioned-Network` directory:
+
+```json
+{
+  "config":{
+    "chainId":1981,
+    "constantinoplefixblock": 0,
+    "clique":{
+      "blockperiodseconds":15,
+      "epochlength":30000
+    }
+  },
+  "coinbase":"0x0000000000000000000000000000000000000000",
+  "difficulty":"0x1",
+
+"extraData":"0x0000000000000000000000000000000000000000000000000000000000000000<Node 1 Address>0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "gasLimit":"0xa00000",
+  "mixHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+  "nonce":"0x0",
+  "timestamp":"0x5c51a607",
+  "alloc": {
+      "fe3b557e8fb62b89f4916b721be55ceb828dbd73": {
+        "privateKey": "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "0xad78ebc5ac6200000"
+      },
+      "627306090abaB3A6e1400e9345bC60c78a8BEf57": {
+        "privateKey": "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "90000000000000000000000"
+      },
+      "f17f52151EbEF6C7334FAD080c5704D77216b732": {
+        "privateKey": "ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "90000000000000000000000"
+      }
+   },
+  "number":"0x0",
+  "gasUsed":"0x0",
+  "parentHash":"0x0000000000000000000000000000000000000000000000000000000000000000"
+}
+```
+
+### 4. Add the ingress contracts to the genesis file
 
 !!! tip
 
@@ -42,7 +129,8 @@ For the development server to run the dapp:
 
 Add the Ingress contracts to the genesis file for your network by copying them from
 [`genesis.json`](https://github.com/PegaSysEng/permissioning-smart-contracts/blob/master/genesis.json)
-in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEng/permissioning-smart-contracts):
+in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEng/permissioning-smart-contracts) to
+the `alloc` section of the contract:
 
 ```json
 "0x0000000000000000000000000000000000008888": {
@@ -69,7 +157,12 @@ in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEn
     To support the permissioning contracts, ensure your genesis file includes at least the
     `constantinopleFixBlock` milestone.
 
-## Set the environment variables
+    The permissioning contract has multiple interfaces, and each interface maps to a specific
+    version of the Enterprise [Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
+    Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used when starting Besu.
+
+### 5. Set the environment variables
 
 Create the following environment variables and set to the specified values:
 
@@ -95,7 +188,7 @@ Create the following environment variables and set to the specified values:
     CHAIN_ID=2018
     ```
 
-## Onchain permissioning command line options
+### 6. Start Node-1
 
 !!! important
 
@@ -106,34 +199,46 @@ Create the following environment variables and set to the specified values:
     If your network is not a [free gas network](../../HowTo/Configure/FreeGas.md), the account used
     to interact with the permissioning contracts must have a balance.
 
-To enable account and node permissioning, all nodes participating in a permissioned network must
-include the command line options:
-
-* [`--permissions-accounts-contract-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-enabled)
-  to enable onchain accounts permissioning
-* [`--permissions-accounts-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-address)
-  set to the address of the Account Ingress contract in the genesis file
-  (`"0x0000000000000000000000000000000000008888"`)
-* [`--permissions-nodes-contract-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-enabled)
-  to enable onchain nodes permissioning
-* [`--permissions-nodes-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
-  set to the address of the Node Ingress contract in the genesis file
-  (`"0x0000000000000000000000000000000000009999"`). Start your first node with command line options
-  to enable onchain permissioning and the JSON-RPC HTTP host and port matching environment variable
-  `BESU_NODE_PERM_ENDPOINT`.
-
-example command line:
+Start the first node with command line options to enable onchain permissioning and the location of
+the **data** folder and genesis file:
 
 ```cmd
-besu --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --genesis-file=genesis.json --rpc-http-enabled --rpc-http-cors-origins="*" --miner-enabled --miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
+besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*"
 ```
 
-## Clone the contracts and install dependencies
+In the command line:
+
+* Enable onchain accounts permissioning using the
+    [`--permissions-accounts-contract-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-enabled)
+    option
+* Set the address of the Account Ingress contract in the genesis file using
+    [`--permissions-accounts-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-address)
+* Enable onchain nodes permissioning using the
+    [`--permissions-nodes-contract-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-enabled)
+    option
+* Set the address of the Node Ingress contract in the genesis file using
+    [`--permissions-nodes-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
+* Set the version of the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used with the [`--permissions-nodes-contract-version`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
+    option
+* Enable the JSON-RPC API using the
+    [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+* Enable the ADMIN, ETH, NET, PERM, and CLIQUE APIs using the
+    [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+* Allow all-host access to the HTTP JSON-RPC API using the
+    [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option
+* Allow all-domain access to the node through the HTTP JSON-RPC API using the
+    [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
+
+When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
+enode URL because it's required when starting Node-2 and Node-3.
+
+### 7. Clone the contracts and install dependencies
 
 1. Clone the `permissioning-smart-contracts` repository:
 
     ```bash
-    git clone https://github.com/PegaSysEng/permissioning-smart-contracts.git
+    git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
     ```
 
 1. Change into the `permissioning-smart-contracts` directory and run:
@@ -142,7 +247,7 @@ besu --permissions-accounts-contract-enabled --permissions-accounts-contract-add
     yarn install
     ```
 
-## Build the project
+### 8. Build the project
 
 In the `permissioning-smart-contracts` directory, build the project:
 
@@ -150,7 +255,10 @@ In the `permissioning-smart-contracts` directory, build the project:
 yarn run build
 ```
 
-## Deploy the contracts
+### 9. Deploy the contracts
+
+If using a `.env` file to configure [environment variables](#5-set-the-environment-variables), then
+copy the file to the `permissioning-smart-contracts` directory.
 
 In the `permissioning-smart-contracts` directory, deploy the Admin and Rules contracts:
 
@@ -165,7 +273,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     The account that deploys the contracts is automatically an [admin account].
 
-## Start the Web server for the Permissioning Management Dapp
+### 9. Start the Permissioning Management Dapp
 
 !!! note
 
@@ -194,13 +302,51 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     Only an [admin account] can add or remove nodes from the allowlist.
 
-## Add the first node to the allowlist
+### 10. Start Node-2
 
-The first node must [add itself to the allowlist] before adding other nodes.
+Use the following command to start Node-2:
+
+```cmd
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --p2p-port=30304 --rpc-http-port=8546
+```
+
+The command line specifies:
+
+* A Different port to Node-1 for P2P discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A Different port to Node-1 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The enode URL of Node-1 using the
+  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* Other options as for [Node-1](#6-start-node-1)
+
+### 11. Start Node-3
+
+Use the following command to start Node-3:
+
+```cmd
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --p2p-port=30305 --rpc-http-port=8547
+```
+
+The command line specifies:
+
+* A Different port to Node-1 and Node-2 for P2P discovery using the
+  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A Different port to Node-1 and Node-2 for HTTP JSON-RPC using the
+  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
+* The enode URL of Node-1 using the
+  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* Other options as for [Node-1](#6-start-node-1)
+
+### 12. Add nodes to the allowlist
+
+In the [Permissioning Management Dapp started earlier](#9-start-the-permissioning-management-dapp)
+add [Node-1, Node-2, and Node-3 to the allowlist].
 
 <!-- Links -->
 [Start first node with onchain permissioning and the JSON-RPC HTTP service enabled]: #onchain-permissioning-command-line-options
 [Clone the permissioning contracts repository and install dependencies]: #clone-the-contracts-and-install-dependencies
 [Start the webserver for the Permissioning Management Dapp]: #start-the-webserver-for-the-permissioning-management-dapp
-[add itself to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[Node-1, Node-2, and Node-3 to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
 [admin account]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[Clique Proof-of-Authority (PoA)]: ../../HowTo/Configure/Consensus-Protocols/Clique.md

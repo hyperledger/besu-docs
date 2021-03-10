@@ -273,3 +273,6 @@ plugins:
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
+          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
+          HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
+          Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md

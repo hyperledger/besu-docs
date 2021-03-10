@@ -2839,7 +2839,7 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
 === "Environment Variable"
 
     ```bash
-    BESU_RPC_TX_FEE=1200000000000000000
+    BESU_RPC_TX_FEECAP=1200000000000000000
     ```
 
 === "Configuration File"

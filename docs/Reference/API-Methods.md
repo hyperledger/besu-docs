@@ -4046,6 +4046,69 @@ Returns the accounts for a specified block.
         }
         ```
 
+### `debug_batchSendRawTransaction`
+
+Sends a list of [signed transactions](../HowTo/Send-Transactions/Transactions.md).
+This is used to quickly load a network with a lot of transactions.
+This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
+
+#### Parameters
+
+`data` -  The signed transaction data array.
+
+#### Returns
+
+`result` : *array* of *objects* - Object returned for each transaction.
+
+Properties of the transaction result object are:
+
+* `index` - The index of the transaction in the request parameters array.
+* `success` - A boolean indicating whether or not the transaction has been added to the transaction pool.
+* `errorMessage` - An optional error message.
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "index": 0,
+              "success": true
+            },
+            {
+              "index": 1,
+              "success": false,
+              "errorMessage": "Invalid raw transaction hex"
+            },
+            {
+              "index": 2,
+              "success": true
+            },
+            {
+              "index": 3,
+              "success": false,
+              "errorMessage": "TRANSACTION_REPLACEMENT_UNDERPRICED"
+            }
+          ]
+        }
+        ```
+
 ### `debug_standardTraceBlockToFile`
 
 Generates files containing the block trace. A separate file is generated for each

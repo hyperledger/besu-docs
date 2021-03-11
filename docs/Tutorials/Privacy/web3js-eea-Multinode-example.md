@@ -7,10 +7,10 @@ description: web3js-eea client library multi-node example
 To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):
 
-1. Clone the **PegaSysEng/web3js-eea** repository:
+1. Clone the **ConsenSys/web3js-eea** repository:
 
     ```bash
-    git clone https://github.com/PegaSysEng/web3js-eea
+    git clone https://github.com/ConsenSys/web3js-eea
     ```
 
 1. In the `web3js-eea` directory:

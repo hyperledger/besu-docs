@@ -104,6 +104,7 @@ nav:
           - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
+          - Use Quorum Hibernate: HowTo/Monitor/Quorum-Hibernate.md
           - Configure Logging: HowTo/Monitor/Logging.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
           - Use Splunk Enterprise: HowTo/Monitor/Splunk-Enterprise.md

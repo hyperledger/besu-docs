@@ -2265,6 +2265,7 @@ Invokes a contract function locally and does not change the state of the blockch
 You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
 
 #### Parameters
+
 When using `eth_call`, by default, the transaction will not fail if there is an insufficient balance in the sender account.
 If you want to enforce balance rules, set the [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object to `true`.
 

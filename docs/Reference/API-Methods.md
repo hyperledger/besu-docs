@@ -2266,14 +2266,16 @@ You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
 
 #### Parameters
 
-When using `eth_call`, by default, the transaction will not fail if there is an insufficient balance in the sender account.
-If you want to enforce balance rules, set the [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object to `true`.
-
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
 
 *QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+!!! note
+
+    When using `eth_call`, by default, the transaction will not fail if there is an insufficient balance in the sender account. This is done by setting the balance of the account to a very large amount of ether. If you want to enforce balance rules, a new [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object can be set to `true`.
+
 
 #### Returns
 
@@ -2350,9 +2352,6 @@ The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
 #### Parameters
-
-If you set the [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object to `true`, the sender
-account balance is checked for value transfer and transaction fees. The default for `strict` is `false`.
 
 For `eth_estimateGas`, all fields are optional because setting a gas limit
 is irrelevant to the estimation process (unlike transactions, in which gas limits apply).

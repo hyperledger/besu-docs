@@ -2182,7 +2182,7 @@ Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
 A transaction can send ether, deploy a contract, or interact with a contract.
 Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
 
-You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
+You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#eth_call).
 
 To avoid exposing your private key, create signed transactions offline and send the signed
 transaction data using `eth_sendRawTransaction`.

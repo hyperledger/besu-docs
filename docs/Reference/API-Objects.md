@@ -207,7 +207,7 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **gasPrice** | Quantity, Integer   | Optional          | Price used for each paid gas. The default is `0`.       |
 | **value**    | Quantity, Integer   | Optional          | Value sent with this transaction.    |
 | **data**     | Data                | Optional          | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
-| **strict**   | Tag                 | Optional          | If `true`, the `from` account's ether balance is checked to be at least equal to the value to be sent and the transaction fees. If `false`, this balance is not checked. The default is `false`.   |
+| **strict**   | Tag                 | Optional          | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
 
 ## Transaction receipt object
 

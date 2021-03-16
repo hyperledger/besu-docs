@@ -7,6 +7,10 @@ description: web3js-eea client library multi-node example
 To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):
 
+!!! note
+
+    This example uses 3 of the 4 nodes configured in the [privacy tutorial](Configuring-Privacy.md).
+
 1. Clone the **ConsenSys/web3js-eea** repository:
 
     ```bash
@@ -20,9 +24,9 @@ To use the examples provided in the web3js-eea library with
     ```
 
 1. In the `example` directory, update the `keys.js` file to include:
-    * Orion node public keys
+    * Tessera node public keys
     * Hyperledger Besu node RPC URLs
-    * Hyperledger Besu node private keys.
+    * [Hyperledger Besu node private keys](../../Concepts/Node-Keys.md#node-private-key).
 
 1. If the `chainID` specified in the genesis file for your network is not `2018`, update
    `deployContract.js`, `storeValueFromNode1.js`, and `storeValueFromNode2.js` to specify your
@@ -102,5 +106,5 @@ To use the examples provided in the web3js-eea library with
 
     !!! note
 
-        As expected, log messages indicate that Node 3 Orion cannot find payloads because Node 3
+        As expected, log messages indicate that Node 3 Tessera cannot find payloads because Node 3
         does not have access to the private transactions between Node 1 and Node 2.

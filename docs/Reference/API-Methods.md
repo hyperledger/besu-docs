@@ -2182,7 +2182,7 @@ Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
 A transaction can send ether, deploy a contract, or interact with a contract.
 Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
 
-You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
+You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#eth_call).
 
 To avoid exposing your private key, create signed transactions offline and send the signed
 transaction data using `eth_sendRawTransaction`.
@@ -2262,7 +2262,7 @@ transaction data using `eth_sendRawTransaction`.
 
 Invokes a contract function locally and does not change the state of the blockchain.
 
-You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
+You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
 #### Parameters
 
@@ -2271,6 +2271,10 @@ You can interact with contracts using [`eth_sendRawTransaction` or `eth_call`].
 *QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+!!! note
+
+    By default, `eth_call` does not fail if the sender account has an insufficient balance. This is done by setting the balance of the account to a large amount of ether. To enforce balance rules, set the [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object to `true`.
 
 #### Returns
 
@@ -2347,10 +2351,6 @@ The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
 #### Parameters
-
-The transaction call object parameters are the same as those for [`eth_call`](#eth_call) except for the
-[`strict` parameter](API-Objects.md#transaction-call-object). If `strict` is set to `true`, the sender
-account balance is checked for value transfer and transaction fees. The default for `strict` is `false`.
 
 For `eth_estimateGas`, all fields are optional because setting a gas limit
 is irrelevant to the estimation process (unlike transactions, in which gas limits apply).

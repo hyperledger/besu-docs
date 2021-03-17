@@ -13,16 +13,22 @@ Provides blocks related actions.
 === "Syntax"
 
     ```bash
-    besu blocks import --from=<block-file>
+    besu blocks import [--skip-pow-validation-enabled] --from=<block-file>
     ```
 
 === "Example"
 
     ```bash
-    besu blocks import --from=/home/me/me_project/mainnet.blocks
+    besu blocks import --skip-pow-validation-enabled --from=/home/me/me_project/mainnet.blocks
     ```
 
 Imports blocks from the specified file into the blockchain database.
+
+Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
+
+!!! note
+
+    Use `--skip-pow-validation-enabled` when performing [Ethereum Foundation hive testing](https://github.com/ethereum/hive).
 
 ### `export`
 

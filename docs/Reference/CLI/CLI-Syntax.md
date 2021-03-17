@@ -2639,7 +2639,7 @@ To allow remote connections, set to `0.0.0.0`
 
 === "Configuration File"
 
-    ```bash
+    ```toml
     rpc-http-max-active-connections=100
     ```
 

@@ -15,6 +15,7 @@
     "test:markdown:verify": "! grep -nE 'MD[0-9]+/.+' ./markdownlint.out",
     "test:markdown": "npm run test:markdown:error && npm run test:markdown:verify",
     "fix:markdown": "node ./node_modules/markdownlint-cli/markdownlint.js --fix --config CI/markdownlint/lint-base-style.yml '**/*.md'",
+    "lint:repo": "node_modules/repolinter/bin/repolinter.js --rulesetUrl https://github.com/hyperledger-labs/hyperledger-community-management-tools/raw/main/repo_structure/repolint.json",
     "test": "npm run test:links && npm run test:markdown"
   },
   "repository": {
@@ -30,6 +31,7 @@
   "devDependencies": {
     "markdown-link-check": "github:tcort/markdown-link-check",
     "markdownlint-cli": "0.23.2",
-    "markdownlint": "0.21.0"
+    "markdownlint": "0.21.0",
+    "repolinter": "^0.10.0"
   }
 }

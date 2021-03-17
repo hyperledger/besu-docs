@@ -24,11 +24,11 @@ Provides blocks related actions.
 
 Imports blocks from the specified file into the blockchain database.
 
-Including `--skip-pow-validation-enabled` enables skipping the validation of the `mixHash` when importing blocks.
+Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
 
 !!! note
 
-    `--skip-pow-validation-enabled` is used for [Ethereum Foundation hive testing](https://github.com/ethereum/hive/blob/ee7ed0ca2d97/docs/overview.md).
+    Use `--skip-pow-validation-enabled` when performing [Ethereum Foundation hive testing](https://github.com/ethereum/hive/blob/ee7ed0ca2d97/docs/overview.md).
 
 ### `export`
 

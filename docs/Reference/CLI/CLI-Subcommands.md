@@ -28,7 +28,7 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
 
 !!! note
 
-    Use `--skip-pow-validation-enabled` when performing [Ethereum Foundation hive testing](https://github.com/ethereum/hive/blob/ee7ed0ca2d97/docs/overview.md).
+    Use `--skip-pow-validation-enabled` when performing [Ethereum Foundation hive testing](https://github.com/ethereum/hive).
 
 ### `export`
 

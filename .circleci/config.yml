@@ -133,6 +133,18 @@ jobs:
           path: ./markdownlint_info.out
           destination: ./markdownlint_info.out
 
+  repolint:
+    executor: node_executor
+    steps:
+      - checkout
+      - install_node
+      - run:
+          shell: /bin/bash #this is a non breaking command so it will always return success
+          name: Run repolinter
+          command: |
+            npm run lint:repo
+      - save_node_cache
+
 workflows:
   version: 2
   default:
@@ -142,6 +154,8 @@ workflows:
       - vale
       - markdownlint
       - linkchecker
+      - repolint
+
   nightly:
     triggers:
       - schedule: # GMT
@@ -152,3 +166,14 @@ workflows:
                 - master
     jobs:
       - linkchecker
+
+  weekly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 0"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - repolint

@@ -2640,10 +2640,10 @@ To allow remote connections, set to `0.0.0.0`
 === "Configuration File"
 
     ```bash
-    rpc-http-max-active-connections=100
+    rpc-http-max-active-connections="100"
     ```
 
-The maximum number of connections allowed for JSON-RPC HTTP. Once this limit is reached, incoming connections will be rejected. The default is 80.
+The maximum number of HTTP connections allowed for JSON-RPC. Once this limit is reached, incoming connections will be rejected. The default is 80.
 
 ### `rpc-http-port`
 

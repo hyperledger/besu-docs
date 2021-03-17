@@ -2617,6 +2617,34 @@ To allow remote connections, set to `0.0.0.0`
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.
 
+### `rpc-http-max-active-connections`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-http-max-active-connections=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rpc-http-max-active-connections=100
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_MAX_ACTIVE_CONNECTIONS=100
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rpc-http-max-active-connections=100
+    ```
+
+The maximum number of connections allowed for JSON-RPC HTTP. Once this limit is reached, incoming connections will be rejected. The default is 80.
+
 ### `rpc-http-port`
 
 === "Syntax"

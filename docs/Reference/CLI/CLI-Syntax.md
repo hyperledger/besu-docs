@@ -3063,6 +3063,34 @@ The host for Websocket WS-RPC to listen on. The default is 127.0.0.1.
 
 To allow remote connections, set to `0.0.0.0`
 
+### `rpc-ws-max-active-connections`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-ws-max-active-connections=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rpc-ws-max-active-connections=100
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_MAX_ACTIVE_CONNECTIONS=100
+    ```
+
+=== "Configuration File"
+
+    ```toml
+    rpc-ws-max-active-connections=100
+    ```
+
+The maximum number of WebSocket connections allowed for JSON-RPC. Once this limit is reached, incoming connections are rejected. The default is 80.
+
 ### `rpc-ws-port`
 
 === "Syntax"

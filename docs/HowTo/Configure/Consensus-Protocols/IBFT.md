@@ -13,8 +13,6 @@ IBFT 2.0.
     than 1/3 of validators stop participating, new blocks are no longer created, and the
     network stalls. It may take significant time to recover once nodes are restarted.
 
-
-
 In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.

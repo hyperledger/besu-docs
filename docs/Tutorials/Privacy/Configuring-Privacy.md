@@ -311,7 +311,7 @@ configuration:
 
 In the configuration file, specify:
 
-* Different port numbers for the various servers in the 
+* Different port numbers for the various servers in the
     [`serverConfigs`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TesseraAPI/) section.
 * The address of the Tessera nodes to discover, in the
     [`peer`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Peer-discovery/#specify-peers) section.

@@ -50,9 +50,9 @@ the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea):
 
 !!! tip
 
-    The Orion logs for Orion 1 and Orion 2 display `PrivacyGroupNotFound` errors. This is expected
-    behavior because private transactions check offchain and onchain to find the privacy group for
-    a private transaction.
+    The Tessera logs for Tessera 1 and Tessera 2 display `PrivacyGroupNotFound` errors. This is
+    expected behavior because private transactions check offchain and onchain to find the privacy
+    group for a private transaction.
 
 ## Adding and removing members
 

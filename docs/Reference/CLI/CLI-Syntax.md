@@ -1303,7 +1303,7 @@ The default is `mainnet`.
 Possible values are:
 
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
-|-----------|-------|-------------|--------------------|----------------------------------------------------------------|
+|:----------|:------|:------------|:-------------------|:---------------------------------------------------------------|
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
 | `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoW network similar to the current main Ethereum network     |
 | `rinkeby` | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
@@ -1920,22 +1920,22 @@ Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
 === "Command Line"
 
     ```bash
-    --privacy-public-key-file=Orion/nodeKey.pub
+    --privacy-public-key-file=Tessera/nodeKey.pub
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_PRIVACY_PUBLIC_KEY_FILE=Orion/nodeKey.pub
+    BESU_PRIVACY_PUBLIC_KEY_FILE=Tessera/nodeKey.pub
     ```
 
 === "Configuration File"
 
     ```bash
-    privacy-public-key-file="Orion/nodeKey.pub"
+    privacy-public-key-file="Tessera/nodeKey.pub"
     ```
 
-The [public key of the Orion node](../../Concepts/Privacy/Privacy-Overview.md#besu-and-orion-keys).
+The [public key of the Tessera node](https://docs.tessera.consensys.net/).
 
 !!! important
 
@@ -2087,7 +2087,7 @@ The path to the file containing the hostnames, ports, and SHA256 certificate fin
     ```
 
 The URL on which the
-[Orion node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
+[Tessera node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
 running.
 
 ### `pruning-block-confirmations`

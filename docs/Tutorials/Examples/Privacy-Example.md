@@ -4,8 +4,8 @@ description: Hyperledger Besu privacy-enabled private network tutorial
 
 # Privacy-enabled Quorum Developer Quickstart tutorial
 
-The privacy-enabled private network example runs a private network of Hyperledger Besu and Orion
-nodes managed by Docker Compose. It's an expanded version of the
+The privacy-enabled private network example runs a private network of Hyperledger Besu and private
+transaction manager nodes managed by Docker Compose. It's an expanded version of the
 [Quorum Developer Quickstart tutorial](Private-Network-Example.md).
 
 You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make

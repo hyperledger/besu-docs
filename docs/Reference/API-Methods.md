@@ -519,8 +519,8 @@ None
 
 `result` : *string* - Current network ID.
 
-| Network ID | Chain | Network | Description
-|------------|-------|---------|-------------------------------|
+| Network ID | Chain | Network | Description                   |
+|:-----------|:------|:--------|:------------------------------|
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
 | `3`        | ETH   | Ropsten | PoW test network              |
 | `4`        | ETH   | Rinkeby | PoA test network using Clique |
@@ -5355,15 +5355,15 @@ For example, you cannot query transactions with a gas price between 8 and 9 Gwei
 
 All filters must be satisfied for a transaction to be returned.
 
-| Field name   | Value                                     | Value type            | Supported operators |
-|--------------|-------------------------------------------|:---------------------:|---------------------|
-| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
-| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
-| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
-| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
-| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-|
+| Field name   | Value                                              |      Value type       | Supported operators |
+|:-------------|:---------------------------------------------------|:---------------------:|:--------------------|
+| **from**     | Address of the sender.                             | *Data*, 20&nbsp;bytes | `eq`                |
+| **to**       | Address of the receiver, or `"contract_creation"`. | *Data*, 20&nbsp;bytes | `eq`, `action`      |
+| **gas**      | Gas provided by the sender.                        |      *Quantity*       | `eq`, `gt`, `lt`    |
+| **gasPrice** | Gas price, in wei, provided by the sender.         |      *Quantity*       | `eq`, `gt`, `lt`    |
+| **value**    | Value transferred, in wei.                         |      *Quantity*       | `eq`, `gt`, `lt`    |
+| **nonce**    | Number of transactions made by the sender.         |      *Quantity*       | `eq`, `gt`, `lt`    |
+|              |                                                    |                       |                     |
 
 Supported operators:
 
@@ -6086,7 +6086,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.consensys.net/).
+[Tessera](https://docs.tessera.consensys.net/).
 
 !!! example
 
@@ -6127,9 +6127,9 @@ Returns the private transaction count for the specified account and
 
 `data` - Account address.
 
-`data` - Base64 encoded Orion address of the sender.
+`data` - Base64 encoded Tessera address of the sender.
 
-`array of data` - Base64 encoded Orion addresses of recipients.
+`array of data` - Base64 encoded Tessera addresses of recipients.
 
 #### Returns
 
@@ -6463,14 +6463,14 @@ a participant in the private transaction.
 
 ### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
+Creates a group of nodes, specified by their [Tessera](https://docs.tessera.consensys.net/) public key.
 
 #### Parameters
 
 `Object` - Request options:
 
 * `addresses`: `array of data` - Array of nodes, specified by
-  [Orion](https://docs.orion.consensys.net/) public keys.
+  [Tessera](https://docs.tessera.consensys.net/) public keys.
 * `name`: `string` - Privacy group name. Optional.
 * `description`: `string` - Privacy group description. Optional.
 
@@ -6545,7 +6545,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.
+`array of data` - Members specified by [Tessera](https://docs.tessera.consensys.net/) public keys.
 
 #### Returns
 

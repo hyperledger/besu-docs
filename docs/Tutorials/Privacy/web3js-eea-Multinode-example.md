@@ -51,6 +51,11 @@ To use the examples provided in the web3js-eea library with
       logs: [] }
     ```
 
+    !!! note
+      
+          If you receive a `Method not enabled` error, ensure you enabled the appropriate APIs
+          using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api)
+
 1. Copy the contract address from the private transaction receipt and set the `CONTRACT_ADDRESS`
    environment variable:
 

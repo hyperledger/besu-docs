@@ -88,19 +88,16 @@ configuration:
        "serverConfigs":[
            {
                "app":"ThirdParty",
-               "enabled": true,
                "serverAddress": "http://localhost:9101",
                "communicationType" : "REST"
            },
            {
                "app":"Q2T",
-               "enabled": true,
                "serverAddress": "http://localhost:9102",
                "communicationType" : "REST"
            },
            {
                "app":"P2P",
-               "enabled": true,
                "serverAddress":"http://localhost:9103",
                "sslConfig": {
                    "tls": "OFF"
@@ -147,19 +144,16 @@ configuration:
        "serverConfigs":[
            {
                "app":"ThirdParty",
-               "enabled": true,
                "serverAddress": "http://localhost:9201",
                "communicationType" : "REST"
            },
            {
                "app":"Q2T",
-               "enabled": true,
                "serverAddress": "http://localhost:9202",
                "communicationType" : "REST"
            },
            {
                "app":"P2P",
-               "enabled": true,
                "serverAddress":"http://localhost:9203",
                "sslConfig": {
                    "tls": "OFF"
@@ -206,19 +200,16 @@ configuration:
        "serverConfigs":[
            {
                "app":"ThirdParty",
-               "enabled": true,
                "serverAddress": "http://localhost:9301",
                "communicationType" : "REST"
            },
            {
                "app":"Q2T",
-               "enabled": true,
                "serverAddress": "http://localhost:9302",
                "communicationType" : "REST"
            },
            {
                "app":"P2P",
-               "enabled": true,
                "serverAddress":"http://localhost:9303",
                "sslConfig": {
                    "tls": "OFF"
@@ -265,19 +256,16 @@ configuration:
        "serverConfigs":[
            {
                "app":"ThirdParty",
-               "enabled": true,
                "serverAddress": "http://localhost:9401",
                "communicationType" : "REST"
            },
            {
                "app":"Q2T",
-               "enabled": true,
                "serverAddress": "http://localhost:9402",
                "communicationType" : "REST"
            },
            {
                "app":"P2P",
-               "enabled": true,
                "serverAddress":"http://localhost:9403",
                "sslConfig": {
                    "tls": "OFF"
@@ -415,7 +403,7 @@ The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifie
 
 ## 8. Start Besu Node-4
 
-In the `Node-3` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting
+In the `Node-4` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting
 Node-1 as the bootnode:
 
 === "MacOS"

@@ -75,19 +75,16 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
    "serverConfigs":[
        {
            "app":"ThirdParty",
-           "enabled": true,
            "serverAddress": "http://localhost:9101",
            "communicationType" : "REST"
        },
        {
            "app":"Q2T",
-           "enabled": true,
            "serverAddress": "http://localhost:9102",
            "communicationType" : "REST"
        },
        {
            "app":"P2P",
-           "enabled": true,
            "serverAddress":"http://localhost:9103",
            "sslConfig": {
                "tls": "OFF"

@@ -16,7 +16,7 @@ To successfully distribute a private transaction, all private transaction partic
 online. If any participants are offline when submitting the private transaction, the transaction is
 not attempted and you need to resubmit the transaction.
 
-If an Tessera node is unavailable when Besu attempts to process a privacy marker transaction, the
+If a Tessera node is unavailable when Besu attempts to process a privacy marker transaction, the
 Besu node stops processing all new blocks until Tessera is available. The Besu node continually
 attempts to process the privacy marker transaction until Tessera is available again.
 

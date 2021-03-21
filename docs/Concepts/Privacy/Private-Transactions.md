@@ -29,14 +29,14 @@ For more information about creating and sending private transactions, see the
 ## Besu and Tessera keys
 
 Besu and Tessera nodes both have public/private key pairs identifying them. A Besu node sending a
-private transaction to an Tessera node signs the transaction with the Besu node private key. The
+private transaction to a Tessera node signs the transaction with the Besu node private key. The
 `privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) are the public
 keys of the Tessera nodes sending and receiving the transaction.
 
 !!! important
 
-    The mapping of Besu node addresses to Tessera node public keys is off-chain. That is, the sender
+    The mapping of Besu node addresses to Tessera node public keys is offchain. That is, the sender
     of a private transaction must know the Tessera node public key of the recipient.
 
 ## Nonces

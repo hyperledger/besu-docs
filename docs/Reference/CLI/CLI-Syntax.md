@@ -2087,7 +2087,7 @@ The path to the file containing the hostnames, ports, and SHA256 certificate fin
     ```
 
 The URL on which the
-[Tessera node](../../Tutorials/Privacy/Configuring-Privacy.md#4-create-orion-configuration-files) is
+[Tessera node](../../Tutorials/Privacy/Configuring-Privacy.md#3-create-tessera-configuration-files) is
 running.
 
 ### `pruning-block-confirmations`

@@ -154,3 +154,5 @@ in the event of a misunderstanding.
 This code is based on the
 [W3C’s Code of Ethics and Professional Conduct](https://www.w3.org/Consortium/cepc) with some
 additions from the [Cloud Foundry](https://www.cloudfoundry.org/)‘s Code of Conduct.
+
+This document is a copy of the [Hyperledger wiki online version of the code of conduct](https://wiki.hyperledger.org/community/hyperledger-project-code-of-conduct).

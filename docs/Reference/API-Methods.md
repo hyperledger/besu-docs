@@ -527,8 +527,9 @@ None
 | `5`        | ETH   | Goerli  | PoA test network using Clique |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `6`        | ETC   | Kotti   | PoA test network using Clique |
 | `7`        | ETC   | Mordor  | PoW test network              |
+| `6`        | ETC   | Kotti   | PoA test network using Clique |
+| `212`      | ETC   | Astor   | PoW test network              |
 
 !!! note
 

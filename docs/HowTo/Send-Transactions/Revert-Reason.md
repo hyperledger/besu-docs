@@ -76,7 +76,7 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
-The error returned by [`eth_estimateGas`](../../Reference/API-Methods/#eth_estimategas) includes the revert reason as an ABI-encoded string in the `data` field.
+The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) includes the revert reason as an ABI-encoded string in the `data` field.
 
 !!! example
 

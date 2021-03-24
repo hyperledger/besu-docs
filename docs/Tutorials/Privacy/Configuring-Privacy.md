@@ -24,7 +24,7 @@ a Tessera node.
 
 ## Prerequisites
 
-* [Install Tessera](https://docs.tessera.consensys.net/en/stable/HowTo/Get-started/DistributionJar/).
+* [Install Tessera](https://docs.tessera.consensys.net/HowTo/Get-started/DistributionJar/).
 
 ## 1. Create Tessera directories
 
@@ -70,7 +70,7 @@ configuration:
 !!! important
 
     In production environments, only specify
-    [`tls`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/) as `OFF` if another
+    [`tls`](https://docs.tessera.consensys.net/HowTo/Configure/TLS/) as `OFF` if another
     transport security mechanism, such as WireGuard, is in place.
 
 === "Node-1"
@@ -300,9 +300,9 @@ configuration:
 In the configuration file, specify:
 
 * Different port numbers for the various servers in the
-    [`serverConfigs`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TesseraAPI/) section.
+    [`serverConfigs`](https://docs.tessera.consensys.net/HowTo/Configure/TesseraAPI/) section.
 * The address of the Tessera nodes to discover, in the
-    [`peer`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Peer-discovery/#specify-peers) section.
+    [`peer`](https://docs.tessera.consensys.net/HowTo/Configure/Peer-discovery/#specify-peers) section.
 * The location of the public/private key pair.
 
 ## 4. Start the Tessera nodes
@@ -403,7 +403,7 @@ The [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option specifie
 
 ## 8. Start Besu Node-4
 
-In the `Node-4` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting
+In the `Node-4` directory, start Besu Node-4 specifying the Node-1 enode URL copied when starting
 Node-1 as the bootnode:
 
 === "MacOS"

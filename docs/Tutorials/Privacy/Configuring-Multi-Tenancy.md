@@ -147,8 +147,8 @@ The command line specifies privacy options:
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
   authenticate the [tenant JWTs](#7-generate-the-tenant-jwts).
 * [`--privacy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-enabled) enables privacy.
-* [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the Q2T server address
-    of the Tessera node (`Q2T` in `tessera.conf`).
+* [`--privacy-url`](../../Reference/CLI/CLI-Syntax.md#privacy-url) specifies the
+    [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
 * [`--privacy-multi-tenancy-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-multi-tenancy-enabled)
   enables multi-tenancy.
 
@@ -184,6 +184,6 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 [username and password authentication]: ../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication
 [generate the private and public key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests
-
+[Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Concepts/TesseraAPI/#quorum-to-tessera-api
 <!-- Abbreviations -->
 *[JWT]: JSON Web Token

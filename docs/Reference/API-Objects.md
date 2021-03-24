@@ -124,7 +124,7 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **s**                | Data, 32&nbsp;bytes               | ECDSA signature s.                                                              |
 | **privateFrom**      | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.   |
 | **privateFor**       | Array of Data, 32&nbsp;bytes each | [Tessera](https://docs.tessera.consensys.net/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
-| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Tessera](hhttps://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
+| **privacyGroupId**   | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
 | **restriction**      | String                            | Must be [`restricted`](../Concepts/Privacy/Private-Transactions.md).            |
 
 ## Range object

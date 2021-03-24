@@ -1,5 +1,5 @@
 ---
-description: Running Tessera with Hyperledger Besu
+description: Running ConsenSys Quorum Tessera with Hyperledger Besu
 ---
 
 # Run Tessera with Besu

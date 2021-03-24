@@ -194,6 +194,56 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
         }
         ```
 
+### `admin_logsRemoveCache`
+
+Removes cache files for the specified range of blocks.
+
+#### Parameters
+
+`fromBlock` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+`toBlock` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+If you specify:
+
+* No parameters, the call removes cache files for all blocks.
+* Only the first parameter, the call removes cache files for the specified block.
+* Only the second parameter, the call removes cache files from the genesis block to the specified block.
+
+#### Returns
+
+`result` - `Cache Removed` status or `error`.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "Status": "Cache Removed"
+          }
+        }
+        ```
+
 ### `admin_logsRepairCache`
 
 Repairs cached logs by fixing all segments starting with the specified block number.

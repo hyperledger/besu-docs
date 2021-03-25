@@ -684,6 +684,10 @@ None
 
 Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
 
+!!! note
+
+    The [`--nat-method`](../CLI/CLI-Syntax/#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
+
 #### Parameters
 
 None

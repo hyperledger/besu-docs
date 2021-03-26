@@ -208,11 +208,11 @@ Removes cache files for the specified range of blocks.
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-If you specify:
+You can skip a parameter by using an empty string, `""`. If you specify:
 
 * No parameters, the call removes cache files for all blocks.
-* Only the first parameter, the call removes cache files for the specified block.
-* Only the second parameter, the call removes cache files from the genesis block to the specified block.
+* Only `fromBlock`, the call removes cache files for the specified block.
+* Only `toBlock`, the call removes cache files from the genesis block to the specified block.
 
 #### Returns
 

@@ -31,7 +31,8 @@ client an optional string message containing information about the error.
 ## Enabling revert reason
 
 Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
-command line option to include the revert reason in the transaction receipt in Hyperledger Besu.
+command line option to include the revert reason in the transaction receipt and [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) 
+error in Hyperledger Besu.
 
 !!! caution
 

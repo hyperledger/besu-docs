@@ -2355,7 +2355,7 @@ and node performance.
 The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
-If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled), 
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
 the `eth_estimateGas` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 #### Parameters

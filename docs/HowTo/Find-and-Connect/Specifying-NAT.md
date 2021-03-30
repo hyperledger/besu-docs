@@ -89,3 +89,5 @@ Specify `NONE` to explicitly configure the external IP address and ports adverti
   for the P2P service.
 * [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
   for the JSON-RPC HTTP service.
+  
+The P2P and JSON-RPC HTTP hosts and ports are advertised in the [`net_services`](../../Reference/API-Methods.md#net_services) method.

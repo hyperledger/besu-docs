@@ -1312,6 +1312,7 @@ Possible values are:
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 | `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `astor`   | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 
 !!!tip
 
@@ -2617,6 +2618,34 @@ To allow remote connections, set to `0.0.0.0`
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.
 
+### `rpc-http-max-active-connections`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-http-max-active-connections=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rpc-http-max-active-connections=100
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_HTTP_MAX_ACTIVE_CONNECTIONS=100
+    ```
+
+=== "Configuration File"
+
+    ```toml
+    rpc-http-max-active-connections=100
+    ```
+
+The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reached, incoming connections are rejected. The default is 80.
+
 ### `rpc-http-port`
 
 === "Syntax"
@@ -2839,7 +2868,7 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
 === "Environment Variable"
 
     ```bash
-    BESU_RPC_TX_FEE=1200000000000000000
+    BESU_RPC_TX_FEECAP=1200000000000000000
     ```
 
 === "Configuration File"
@@ -3035,6 +3064,34 @@ The host for Websocket WS-RPC to listen on. The default is 127.0.0.1.
 
 To allow remote connections, set to `0.0.0.0`
 
+### `rpc-ws-max-active-connections`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-ws-max-active-connections=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rpc-ws-max-active-connections=100
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_RPC_WS_MAX_ACTIVE_CONNECTIONS=100
+    ```
+
+=== "Configuration File"
+
+    ```toml
+    rpc-ws-max-active-connections=100
+    ```
+
+The maximum number of WebSocket connections allowed for JSON-RPC. Once this limit is reached, incoming connections are rejected. The default is 80.
+
 ### `rpc-ws-port`
 
 === "Syntax"
@@ -3188,6 +3245,10 @@ within that constraint.
 
 If a value for `target-gas-limit` is not specified, the block gas limit remains at the value
 specified in the [genesis file](../Config-Items.md#genesis-block-parameters).
+
+Use the [`miner_changeTargetGasLimit`](../API-Methods.md#miner_changetargetgaslimit) API to update
+the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated
+`target-gas-limit` value.
 
 ### `tx-pool-max-size`
 

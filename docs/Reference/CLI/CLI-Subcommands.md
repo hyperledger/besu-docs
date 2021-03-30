@@ -22,12 +22,12 @@ Provides blocks related actions.
     besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet.blocks
     ```
 
-Imports a block or list of blocks from the specified file into the blockchain database.
+Imports a block or range of blocks from the specified file into the blockchain database.
 
-You can specify the starting index of the block list to import with `--start-block`.
+You can specify the starting index of the block range to import with `--start-block`.
 If omitted, the start block defaults to 0 (the beginning of the chain).
 
-You can specify the ending index (exclusive) of the block list to import with `--end-block`.
+You can specify the ending index (exclusive) of the block range to import with `--end-block`.
 If omitted, all blocks after the start block will be imported.
 
 Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
@@ -50,7 +50,7 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
     besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
     ```
 
-Exports a block or list of blocks from storage to a file in RLP format.
+Exports a block or range of blocks from storage to a file in RLP format.
 
 If you omit `--start-block`, the start block defaults to 0 (the beginning of the chain), and if you
 omit `--end-block`, the end block defaults to the end of the chain.

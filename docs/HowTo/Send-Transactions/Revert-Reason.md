@@ -31,7 +31,8 @@ client an optional string message containing information about the error.
 ## Enabling revert reason
 
 Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
-command line option to include the revert reason in the transaction receipt in Hyperledger Besu.
+command line option to include the revert reason in the transaction receipt and [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas)
+error in Hyperledger Besu.
 
 !!! caution
 
@@ -76,9 +77,25 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
+The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) includes the revert reason as an ABI-encoded string in the `data` field.
+
+!!! example
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "error": {
+        "code": -32000,
+        "message": "Execution reverted",
+        "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
+      }
+    }
+    ```
+
 ## Revert reason format
 
-As described in the [Solidity documentation], the transaction receipt includes the revert reason as
+As described in the [Solidity documentation], the transaction receipt and `eth_estimateGas` error include the revert reason as
 an ABI-encoded string consisting of:
 
 ```bash

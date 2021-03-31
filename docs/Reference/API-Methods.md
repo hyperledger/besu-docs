@@ -389,8 +389,8 @@ Properties of the remote node object are:
   address might not match the hex value for `port`. The remote address depends on which node
   initiated the connection.
 * `port` - Port on the remote node on which P2P discovery is listening.
-* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the [enode
-  URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.
+* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the
+  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.
 * `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
 including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
 * `enode` - Enode URL of the remote node.  

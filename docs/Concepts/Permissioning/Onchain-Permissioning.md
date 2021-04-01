@@ -62,7 +62,7 @@ Permissioning implements three allowlists:
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key
+    command line option and the corresponding public key
     included in the accounts allowlist.
 
 !!! tip

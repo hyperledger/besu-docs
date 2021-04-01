@@ -1850,8 +1850,8 @@ is false.
 you do not specify this option, Besu signs each transaction with a different randomly generated
 key.
 
-If using [account permissioning] and privacy, you must specify a private key file and the signing
-key included in the accounts allowlist.
+If using [account permissioning] and privacy, you must specify a private key file and include the
+corresponding public key in the accounts allowlist.
 
 ### `privacy-multi-tenancy-enabled`
 

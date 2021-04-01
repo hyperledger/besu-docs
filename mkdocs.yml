@@ -114,7 +114,7 @@ nav:
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
            - Create and Send Private Transactions: HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
            - Send Concurrent Private Transactions: HowTo/Send-Transactions/Concurrent-Private-Transactions.md
-           - Include Revert Reason in Transaction Receipts: HowTo/Send-Transactions/Revert-Reason.md
+           - Include Revert Reason: HowTo/Send-Transactions/Revert-Reason.md
         - Limit Access to Node:
           - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
           - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md

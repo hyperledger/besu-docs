@@ -64,3 +64,10 @@ the firewalls.
 In private networks with a level of trust between peers, enabling the
 [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
 is unnecessary and might adversely affect the speed at which nodes can join the network.
+Limiting remote connections may cause a clique of nodes to form when the number of nodes in the network is slightly
+higher than [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers).
+The nodes in this clique are all connected to each other and cannot accept more connections.
+
+In public networks, enabling the remote connections limit is necessary to prevent eclipse attacks, especially when
+using [`--sync-mode`](../../Reference/CLI/CLI-Syntax.md#sync-mode) and
+[`--fast-sync-min-peers`](../../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers).

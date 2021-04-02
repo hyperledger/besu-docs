@@ -1312,6 +1312,7 @@ Possible values are:
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 | `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `astor`   | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 
 !!!tip
 
@@ -2370,7 +2371,7 @@ rejects that peer.
     ```
 
 Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
-transaction receipt. The default is `false`.
+transaction receipt and [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response. The default is `false`.
 
 !!! caution
 

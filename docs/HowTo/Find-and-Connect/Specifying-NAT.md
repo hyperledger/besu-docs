@@ -59,6 +59,11 @@ device.
     UPnP support is often disabled by default in networking firmware. If disabled by default, you
     must explicitly enable UPnP support.
 
+!!! important
+
+    When the NAT method is set to `UPNP`, the advertised port is the same as the
+    [listening port](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+
 ## Kubernetes
 
 Specify `KUBERNETES` to explicitly specify Hyperledger Besu is running inside a Kubernetes cluster.
@@ -68,7 +73,7 @@ Kubernetes APIs as required to determine external IP addresses and exposed ports
 In Kubernetes, the Ingress IP of the load balancer will be used as the external IP for Besu.
 A load balancer service can map any incoming port to a target port. These mapping rules will be the one retrieved by Besu.
 
-A tutorial is available [Configure the Nat Manager for Kubernetes](../../Tutorials/Examples/Nat-Manager-Kubernetes.md)
+A tutorial to [Configure the Nat Manager for Kubernetes](../../Tutorials/Examples/Nat-Manager-Kubernetes.md) is available.
 
 ## Docker
 
@@ -91,3 +96,8 @@ Specify `NONE` to explicitly configure the external IP address and ports adverti
   for the JSON-RPC HTTP service.
   
 The P2P and JSON-RPC HTTP hosts and ports are advertised in the [`net_services`](../../Reference/API-Methods.md#net_services) method.
+
+!!! important
+
+    When the NAT method is set to `NONE`, the advertised port is the same as the
+    [listening port](../../Reference/CLI/CLI-Syntax.md#p2p-port).

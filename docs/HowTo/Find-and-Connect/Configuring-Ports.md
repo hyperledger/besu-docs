@@ -23,7 +23,7 @@ To enable peer discovery, the P2P UDP port must be open for inbound connections.
 port using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is
 `30303`.
 
-Opening the P2P TCP port is also recommended for inbound connections. This is not strictly required
+We also recommend opening the P2P TCP port for inbound connections. This is not strictly required
 because Besu attempts to open outbound TCP connections. But if no nodes on the network are
 accepting inbound TCP connections, nodes cannot communicate.
 

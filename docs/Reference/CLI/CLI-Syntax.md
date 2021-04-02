@@ -1448,8 +1448,14 @@ The default is true.
     p2p-host="0.0.0.0"
     ```
 
-The host on which P2P listens.
+The advertised host that can be used to access the node from outside the network in
+[P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
 The default is 127.0.0.1.
+
+!!! info
+
+    If [`--nat-method`](#nat-method) is set to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none),
+    `--p2p-host` is not overridden and must be specified for the node to be accessed from outside the network.
 
 ### `p2p-interface`
 

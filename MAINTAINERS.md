@@ -7,6 +7,7 @@
 <!-- vale off -->
 | Name             | GitHub           | LFID             |
 | ---------------- | ---------------- | ---------------- |
+| Alexandra Tran   | alexandratran    | alexandratran    |
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |

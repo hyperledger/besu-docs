@@ -171,18 +171,21 @@ Returned by [`debug_traceBlock`](API-Methods.md#debug_traceblock),
 Returned by [`eth_getTransactionByHash`](API-Methods.md#eth_gettransactionbyhash),
 [`eth_getTransactionByBlockHashAndIndex`](API-Methods.md#eth_gettransactionbyblockhashandindex),
 and
-[`eth_getTransactionsByBlockNumberAndIndex`](API-Methods.md#eth_gettransactionbyblocknumberandindex).
+[`eth_getTransactionByBlockNumberAndIndex`](API-Methods.md#eth_gettransactionbyblocknumberandindex).
 
 | Key | Type | Value |
 |-----|:----:|-------|
 | **blockHash**        | Data, 32&nbsp;bytes | Hash of the block containing this transaction. `null` when transaction is pending.         |
 | **blockNumber**      | Quantity            | Block number of the block containing this transaction. `null` when transaction is pending. |
+| **chainId**          | Quantity            | [Chain ID](../Concepts/NetworkID-And-ChainID.md).                                          |
 | **from**             | Data, 20&nbsp;bytes | Address of the sender.                                                                     |
 | **gas**              | Quantity            | Gas provided by the sender.                                                                |
 | **gasPrice**         | Quantity            | Gas price, in wei, provided by the sender.                                                 |
 | **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
 | **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Orion](https://docs.orion.consensys.net/en/stable/). |
 | **nonce**            | Quantity            | Number of transactions made by the sender before this one.                                 |
+| **publicKey**        | Data, 64&nbsp;bytes | Public key of the sender.                                                                  |
+| **raw**              | Data                | This signed transaction in Recursive Length Prefix (RLP) encoded form.                     |
 | **to**               | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                        |
 | **transactionIndex** | Quantity, Integer   | Index position of the transaction in the block. `null` when transaction is pending.        |
 | **value**            | Quantity            | Value transferred, in wei.                                                                 |

@@ -110,7 +110,7 @@ Account allowlisting is at the node level. That is, each node in the network has
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key included in the accounts allowlist.
+    command line option and the corresponding public key included in the accounts allowlist.
 
 Transaction validation against the accounts allowlist occurs at the following points:
 

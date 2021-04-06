@@ -1312,6 +1312,7 @@ Possible values are:
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 | `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `astor`   | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 
 !!!tip
 
@@ -1447,8 +1448,14 @@ The default is true.
     p2p-host="0.0.0.0"
     ```
 
-The host on which P2P listens.
+The advertised host that can be used to access the node from outside the network in
+[P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
 The default is 127.0.0.1.
+
+!!! info
+
+    If [`--nat-method`](#nat-method) is set to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none),
+    `--p2p-host` is not overridden and must be specified for the node to be accessed from outside the network.
 
 ### `p2p-interface`
 
@@ -1849,8 +1856,8 @@ is false.
 you do not specify this option, Besu signs each transaction with a different randomly generated
 key.
 
-If using [account permissioning] and privacy, you must specify a private key file and the signing
-key included in the accounts allowlist.
+If using [account permissioning] and privacy, you must specify a private key file and include the
+corresponding public key in the accounts allowlist.
 
 ### `privacy-multi-tenancy-enabled`
 
@@ -2370,7 +2377,8 @@ rejects that peer.
     ```
 
 Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
-transaction receipt. The default is `false`.
+transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response, and
+[`eth_call`](../API-Methods.md#eth_call) error response. The default is `false`.
 
 !!! caution
 

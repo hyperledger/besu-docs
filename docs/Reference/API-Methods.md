@@ -194,6 +194,56 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
         }
         ```
 
+### `admin_logsRemoveCache`
+
+Removes cache files for the specified range of blocks.
+
+#### Parameters
+
+`fromBlock` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+`toBlock` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+You can skip a parameter by using an empty string, `""`. If you specify:
+
+* No parameters, the call removes cache files for all blocks.
+* Only `fromBlock`, the call removes cache files for the specified block.
+* Only `toBlock`, the call removes cache files from the genesis block to the specified block.
+
+#### Returns
+
+`result` - `Cache Removed` status or `error`.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "Status": "Cache Removed"
+          }
+        }
+        ```
+
 ### `admin_logsRepairCache`
 
 Repairs cached logs by fixing all segments starting with the specified block number.
@@ -339,10 +389,11 @@ Properties of the remote node object are:
   address might not match the hex value for `port`. The remote address depends on which node
   initiated the connection.
 * `port` - Port on the remote node on which P2P discovery is listening.
-* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the enode
-  URL `enode://<id ex 0x>@<host>:<port>`.
+* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the
+  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.
 * `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
 including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
+* `enode` - Enode URL of the remote node.  
 
 !!! example
 
@@ -387,7 +438,8 @@ including `difficulty` and `head`. `head` is the hash of the highest known block
                    "head": "0x964090ae9277aef43f47f1b8c28411f162243d523118605f0b1231dbfdf3611a",
                    "version": 65
                  }
-               }
+               },
+               "enode": "enode://e143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc@127.0.0.1:30303"
              }
            ]
         }
@@ -527,8 +579,9 @@ None
 | `5`        | ETH   | Goerli  | PoA test network using Clique |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `6`        | ETC   | Kotti   | PoA test network using Clique |
 | `7`        | ETC   | Mordor  | PoW test network              |
+| `6`        | ETC   | Kotti   | PoA test network using Clique |
+| `212`      | ETC   | Astor   | PoW test network              |
 
 !!! note
 
@@ -683,6 +736,10 @@ None
 ### `net_services`
 
 Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
+
+!!! note
+
+    The [`--nat-method`](../CLI/CLI-Syntax/#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
 
 #### Parameters
 
@@ -2264,6 +2321,9 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the `eth_call` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+
 #### Parameters
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
@@ -2349,6 +2409,9 @@ and node performance.
 
 The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
+
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the `eth_estimateGas` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 #### Parameters
 
@@ -6837,19 +6900,24 @@ or `null` if no receipt found.
             "jsonrpc": "2.0",
             "id": 1,
             "result": {
+                "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
+                "blockNumber": "0x50",
                 "contractAddress": "0x493b76031593402e24e16faa81f677b58e2d53f3",
                 "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                "logs": [],
+                "to": "0xf17f52151ebef6c7334fad080c5704d77216b732",
+                "transactionHash": "0x36219e92b5f53d4150aa9ef7d2d793118cced523de6724100da5b534e3ceb4b8",
+                "transactionIndex": "0x0",
                 "output": "0x6080604052600436106049576000357c010000000000000000000000000000000000000000000
                 0000000000000900463ffffffff1680633fa4f24514604e57806355241077146076575b600080fd5b3480156059
                 57600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b
                 50609e6004803603810190808035906020019092919050505060a6565b005b60005481565b8060008190555050560
                 0a165627a7a723058202bdbba2e694dba8fff33d9d0976df580f57bff0a40e25a46c398f8063b4c00360029",
                 "commitmentHash": "0x79b9e6b0856db398ad7dc208f15b1d38c0c0b0c5f99e4a443a2c5a85510e96a5",
-                "transactionHash": "0x36219e92b5f53d4150aa9ef7d2d793118cced523de6724100da5b534e3ceb4b8",
+                "status": "0x1",
                 "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
                 "privacyGroupId": "cD636RZlcqVSpoxT/ExbkWQfBO7kPAZO0QlWHErNSL8=",
-                "status": "0x1",
-                "logs": []
+                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
             }
         }
         ```

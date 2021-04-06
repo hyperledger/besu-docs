@@ -31,8 +31,9 @@ client an optional string message containing information about the error.
 ## Enabling revert reason
 
 Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
-command line option to include the revert reason in the transaction receipt and [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas)
-error in Hyperledger Besu.
+command line option to include the revert reason in the transaction receipt,
+[`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) error, and
+[`eth_call`](../../Reference/API-Methods.md#eth_call) error in Hyperledger Besu.
 
 !!! caution
 
@@ -77,9 +78,10 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
-The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) includes the revert reason as an ABI-encoded string in the `data` field.
+The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) and
+[`eth_call`](../../Reference/API-Methods.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
 
-!!! example
+!!! example "Example of `eth_estimateGas` and `eth_call` error"
 
     ```json
     {
@@ -95,8 +97,7 @@ The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_est
 
 ## Revert reason format
 
-As described in the [Solidity documentation], the transaction receipt and `eth_estimateGas` error include the revert reason as
-an ABI-encoded string consisting of:
+As described in the [Solidity documentation], the revert reason is an ABI-encoded string consisting of:
 
 ```bash
 0x08c379a0                                                         // Function selector for Error(string)

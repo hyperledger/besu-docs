@@ -171,7 +171,7 @@ Returned by [`debug_traceBlock`](API-Methods.md#debug_traceblock),
 Returned by [`eth_getTransactionByHash`](API-Methods.md#eth_gettransactionbyhash),
 [`eth_getTransactionByBlockHashAndIndex`](API-Methods.md#eth_gettransactionbyblockhashandindex),
 and
-[`eth_getTransactionsByBlockNumberAndIndex`](API-Methods.md#eth_gettransactionbyblocknumberandindex).
+[`eth_getTransactionByBlockNumberAndIndex`](API-Methods.md#eth_gettransactionbyblocknumberandindex).
 
 | Key                  | Type                | Value                                                                                      |
 |----------------------|:-------------------:|--------------------------------------------------------------------------------------------|

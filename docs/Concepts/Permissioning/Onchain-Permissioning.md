@@ -10,9 +10,11 @@ source, the blockchain.
 
 !!! important
 
-    Nodes validate account permissions when importing blocks. This means if you disable onchain
-    account permissioning and add transactions to the chain, nodes cannot resync the network if
-    account permissioning is re-enabled.
+    When using Onchain Account Permissioning, a node checks permissions when importing blocks.
+    Meaning, a node only imports blocks in which all transactions are from authorized senders. If
+    you disable Onchain Account Permissioning and your node accept blocks without enforcing this rule,
+    your node cannot resync with other nodes that are enforcing Onchain Account Permissioning rules
+    (your node goes into forked state).
 
 !!! note
 

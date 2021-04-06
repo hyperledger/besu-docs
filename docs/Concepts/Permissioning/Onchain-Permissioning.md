@@ -8,6 +8,12 @@ Onchain permissioning uses smart contracts to store and administer the node, acc
 allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single
 source, the blockchain.
 
+!!! important
+
+    Nodes validate account permissions when importing blocks. This means if you disable onchain
+    account permissioning and add transactions to the chain, nodes cannot resync the network if
+    account permissioning is re-enabled.
+
 !!! note
 
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to

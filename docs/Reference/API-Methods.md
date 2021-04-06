@@ -5776,6 +5776,10 @@ combination of the three options including none of them.
 `result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
 one object per transaction, in transaction execution order.
 
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace object will include the
+[revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+
 !!! example
 
     === "curl HTTP request"
@@ -5882,8 +5886,11 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 #### Returns
 
-`result` - Array of [calls to other contracts](Trace-Types.md#trace) containing
+`result` - List of [calls to other contracts](Trace-Types.md#trace) containing
 one object per call, in transaction execution order.
+
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the returned list items will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
 
@@ -5981,6 +5988,9 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 `result` - Array of [calls to other contracts](Trace-Types.md#trace) containing
 one object per call, in the order called by the transaction.
+
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the returned list items will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
 

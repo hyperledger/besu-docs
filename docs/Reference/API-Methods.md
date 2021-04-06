@@ -2321,6 +2321,9 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
+If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the `eth_call` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+
 #### Parameters
 
 *OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).

@@ -17,6 +17,8 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 ## `ADMIN` methods
 
+The `ADMIN` API methods provide administrative functionality to manage your node.
+
 !!! note
 
     The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API
@@ -134,14 +136,14 @@ You can specify only one log level per RPC call.
 
 ### `admin_generateLogBloomCache`
 
+Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and
+[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
+
 !!! tip
 
     Manually executing `admin_generateLogBloomCache` is not required unless the
     [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command
     line option was set to false.
-
-Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and
-[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
 
 !!! note
 
@@ -484,6 +486,8 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 ## `WEB3` methods
 
+The `WEB3` API methods provide functionality for the Ethereum ecosystem.
+
 ### `web3_clientVersion`
 
 Returns the current client version.
@@ -558,6 +562,8 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
         ```
 
 ## `NET` methods
+
+The `NET` API methods provide network-related information.
 
 ### `net_version`
 
@@ -786,7 +792,9 @@ None
         }
         ```
 
-## `Eth` methods
+## `ETH` methods
+
+The `ETH` API methods allow you to interact with the blockchain.
 
 !!! note
 
@@ -3779,6 +3787,8 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 
 ## `CLIQUE` methods
 
+The `CLIQUE` API methods provide access to the [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus engine.
+
 !!! note
 
     The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
@@ -4052,13 +4062,16 @@ remove a signer.
 
 ## `DEBUG` methods
 
+The `DEBUG` API methods allow you to inspect and debug the network.
+The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
+compatibility with tools such as [Remix](https://remix.ethereum.org/).
+We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
+
 !!! note
 
     The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-    The DEBUG API is a more verbose alternative to the [TRACE API](#trace-methods) whose main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). We recommend using the [TRACE API](#trace-methods) for production use over the DEBUG API.
 
 ### `debug_accountRange`
 
@@ -4831,6 +4844,8 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ## `MINER` methods
 
+The `MINER` API methods allow you to control the node’s mining operation.
+
 !!! note
 
     The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
@@ -4948,6 +4963,8 @@ None
         ```
 
 ## `IBFT` 2.0 methods
+
+The `IBFT` API methods provide access to the [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus engine.
 
 !!! note
 
@@ -5230,8 +5247,8 @@ If you specify:
 
 ## `PERM` (Permissioning) methods
 
-Use the permissioning API methods for [local](../HowTo/Limit-Access/Local-Permissioning.md)
-permissioning only.
+The `PERM` API methods provide permissioning functionality.
+Use these methods for [local permissioning](../HowTo/Limit-Access/Local-Permissioning.md) only.
 
 !!! important
 
@@ -5529,6 +5546,8 @@ None
 
 ## `TXPOOL` methods
 
+The `TXPOOL` API methods allow you to inspect the contents of the transaction pool.
+
 !!! note
 
     The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
@@ -5743,13 +5762,13 @@ None
 
 ## `TRACE` methods
 
+The `TRACE` API is a more concise alternative to the [`DEBUG` API](#debug-methods).
+
 !!! note
 
     The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-    The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
 
 ### `trace_replayBlockTransactions`
 
@@ -6104,6 +6123,9 @@ the returned list items include the [revert reason](../HowTo/Send-Transactions/R
 
 ## `EEA` methods
 
+The `EEA` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
+
 !!! note
 
     The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
@@ -6185,6 +6207,9 @@ transaction data using `eea_sendRawTransaction`.
         ```
 
 ## `PRIV` methods
+
+The `PRIV` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
 
 !!! note
 
@@ -7034,6 +7059,8 @@ for public contracts.
         ```
 
 ## `PLUGINS` methods
+
+The `PLUGINS` API methods provide plugin-related functionality.
 
 !!! note
 

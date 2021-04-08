@@ -17,7 +17,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 ## `ADMIN` methods
 
-The `ADMIN` API methods allow you to control your Besu instance.
+The `ADMIN` API methods provide administrative functionality to manage your node.
 
 !!! note
 
@@ -4964,7 +4964,7 @@ None
 
 ## `IBFT` 2.0 methods
 
-The `IBFT` API methods provide access to the IBFT 2.0 consensus engine.
+The `IBFT` API methods provide access to the [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus engine.
 
 !!! note
 

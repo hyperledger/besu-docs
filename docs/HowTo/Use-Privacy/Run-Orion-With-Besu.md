@@ -8,6 +8,8 @@ To enable [privacy functionality](../../Concepts/Privacy/Privacy-Overview.md) in
 systems, [Orion](https://docs.orion.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
+![Besu-Orion-High-Availability](../../images/Besu-Orion-High-Availability.png)
+
 ## High availability
 
 Privacy requires you to

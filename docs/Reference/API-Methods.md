@@ -17,6 +17,8 @@ description: Hyperledger Besu JSON-RPC API methods reference
 
 ## `ADMIN` methods
 
+The `ADMIN` API methods provide administrative functionality to manage your node.
+
 !!! note
 
     The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API
@@ -134,14 +136,14 @@ You can specify only one log level per RPC call.
 
 ### `admin_generateLogBloomCache`
 
+Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and
+[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
+
 !!! tip
 
     Manually executing `admin_generateLogBloomCache` is not required unless the
     [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command
     line option was set to false.
-
-Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and
-[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
 
 !!! note
 
@@ -484,6 +486,8 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 ## `WEB3` methods
 
+The `WEB3` API methods provide functionality for the Ethereum ecosystem.
+
 ### `web3_clientVersion`
 
 Returns the current client version.
@@ -558,6 +562,8 @@ is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SH
         ```
 
 ## `NET` methods
+
+The `NET` API methods provide network-related information.
 
 ### `net_version`
 
@@ -786,7 +792,9 @@ None
         }
         ```
 
-## `Eth` methods
+## `ETH` methods
+
+The `ETH` API methods allow you to interact with the blockchain.
 
 !!! note
 
@@ -2824,12 +2832,15 @@ transaction.
           "result" : {
             "blockHash" : "0x510efccf44a192e6e34bcb439a1947e24b86244280762cbb006858c237093fda",
             "blockNumber" : "0x422",
+            "chainId": 2018,
             "from" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
             "gas" : "0x5208",
             "gasPrice" : "0x3b9aca00",
             "hash" : "0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44",
             "input" : "0x",
             "nonce" : "0x1",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf8641d018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a84e8beef5b1ca011232cac2f935ab8dd5d5972438fde90e05d0dd620860b42886e7d54dc5c4a0ca03dd467b5faa6e5a0f3c22a5396fefa5b03f07d8114d8434e0e1493736aad8d0e",
             "to" : "0x627306090abab3a6e1400e9345bc60c78a8bef57",
             "transactionIndex" : "0x0",
             "value" : "0x4e1003b28d9280000",
@@ -2934,12 +2945,15 @@ transaction.
           "result" : {
             "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
             "blockNumber" : "0x1442e",
+            "chainId": 2018,
             "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
             "gas" : "0x3d090",
             "gasPrice" : "0x57148a6be",
             "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
             "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
             "nonce" : "0x2cb2",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
             "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
             "transactionIndex" : "0x2",
             "value" : "0x0",
@@ -3032,12 +3046,15 @@ transaction.
           "result" : {
             "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
             "blockNumber" : "0x1442e",
+            "chainId": 2018,
             "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
             "gas" : "0x3d090",
             "gasPrice" : "0x57148a6be",
             "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
             "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
             "nonce" : "0x2cb2",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
             "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
             "transactionIndex" : "0x2",
             "value" : "0x0",
@@ -3770,6 +3787,8 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 
 ## `CLIQUE` methods
 
+The `CLIQUE` API methods provide access to the [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus engine.
+
 !!! note
 
     The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
@@ -4043,13 +4062,16 @@ remove a signer.
 
 ## `DEBUG` methods
 
+The `DEBUG` API methods allow you to inspect and debug the network.
+The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
+compatibility with tools such as [Remix](https://remix.ethereum.org/).
+We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
+
 !!! note
 
     The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-    The DEBUG API is a more verbose alternative to the [TRACE API](#trace-methods) whose main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). We recommend using the [TRACE API](#trace-methods) for production use over the DEBUG API.
 
 ### `debug_accountRange`
 
@@ -4822,6 +4844,8 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ## `MINER` methods
 
+The `MINER` API methods allow you to control the node’s mining operation.
+
 !!! note
 
     The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
@@ -4939,6 +4963,8 @@ None
         ```
 
 ## `IBFT` 2.0 methods
+
+The `IBFT` API methods provide access to the [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus engine.
 
 !!! note
 
@@ -5221,8 +5247,8 @@ If you specify:
 
 ## `PERM` (Permissioning) methods
 
-Use the permissioning API methods for [local](../HowTo/Limit-Access/Local-Permissioning.md)
-permissioning only.
+The `PERM` API methods provide permissioning functionality.
+Use these methods for [local permissioning](../HowTo/Limit-Access/Local-Permissioning.md) only.
 
 !!! important
 
@@ -5520,6 +5546,8 @@ None
 
 ## `TXPOOL` methods
 
+The `TXPOOL` API methods allow you to inspect the contents of the transaction pool.
+
 !!! note
 
     The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
@@ -5734,13 +5762,13 @@ None
 
 ## `TRACE` methods
 
+The `TRACE` API is a more concise alternative to the [`DEBUG` API](#debug-methods).
+
 !!! note
 
     The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-    The TRACE API is an more concise alternative to the [DEBUG API](#debug-methods).
 
 ### `trace_replayBlockTransactions`
 
@@ -6085,6 +6113,9 @@ one object per call, in the order called by the transaction.
 
 ## `EEA` methods
 
+The `EEA` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
+
 !!! note
 
     The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
@@ -6166,6 +6197,9 @@ transaction data using `eea_sendRawTransaction`.
         ```
 
 ## `PRIV` methods
+
+The `PRIV` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
 
 !!! note
 
@@ -7015,6 +7049,8 @@ for public contracts.
         ```
 
 ## `PLUGINS` methods
+
+The `PLUGINS` API methods provide plugin-related functionality.
 
 !!! note
 

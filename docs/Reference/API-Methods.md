@@ -2322,7 +2322,7 @@ Invokes a contract function locally and does not change the state of the blockch
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the `eth_call` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the `eth_call` error response includes the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 #### Parameters
 
@@ -2411,7 +2411,7 @@ The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the `eth_estimateGas` error response will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the `eth_estimateGas` error response includes the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 #### Parameters
 
@@ -5777,7 +5777,7 @@ combination of the three options including none of them.
 one object per transaction, in transaction execution order.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace object will include the
+the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace object include the
 [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
@@ -5890,7 +5890,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 one object per call, in transaction execution order.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the returned list items will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
 
@@ -5990,7 +5990,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 one object per call, in the order called by the transaction.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the returned list items will include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
 

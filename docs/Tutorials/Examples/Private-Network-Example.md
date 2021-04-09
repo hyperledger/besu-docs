@@ -111,8 +111,6 @@ To display the list of endpoints again, run:
 
 This tutorial uses a modified version of the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer).
 
-### Run the block explorer
-
 Access the explorer at [`http://localhost:25000`](http://localhost:25000) as displayed when starting
 the private network.
 
@@ -300,7 +298,7 @@ The script will:
 * runs tests.
 * Build and run a Docker image to serve the dapp website.
 
-!!! example "`./run-dapp.sh` output"
+!!! example "`./run-dapp.sh` example output"
 
     ```text
     Compiling your contracts...

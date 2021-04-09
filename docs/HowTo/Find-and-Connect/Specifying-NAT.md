@@ -43,7 +43,7 @@ The following log shows an automatic detection failure.
     ```
 
 !!!tip
-    If automatic detection fails, set the IP and ports in [`MANUAL`](#manual) mode.
+    If automatic detection fails, set the IP and ports in [`NONE`](#none) mode.
 
 ## UPnP
 

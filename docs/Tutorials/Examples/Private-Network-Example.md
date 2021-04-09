@@ -90,7 +90,7 @@ When execution is successfully finished, the process lists the available service
   cryptocurrency wallets such as MetaMask.
 * Use the **JSON-RPC WebSocket service endpoint** to access the Web socket node service from your
   dapp.
-* Use the **Web block explorer address** to display the block explorer Web application at [`http://localhost:25000`](http://localhost:25000).
+* Use the **Web block explorer address** to display the [block explorer Web application](http://localhost:25000).
 * Use the **Prometheus address** to access the
   [Prometheus dashboard](http://localhost:9090/graph).
   _[Read more about metrics](../../HowTo/Monitor/Metrics.md)_.

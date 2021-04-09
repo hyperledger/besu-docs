@@ -21,7 +21,7 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 * On Windows only you will need:
     * Windows Subsystem for Linux 2
     * Docker desktop configured to use the WSL2-based engine.
-* [`Node.js` v6+ LTS and npm (comes with Node)](https://nodejs.org/en/)
+* [`Node.js` v6+ LTS and `npm` (comes with `Node.js`)](https://nodejs.org/en/)
     installed and ready to use.
     The best way to install this tool it to use [`NVM`](http://nvm.sh), the Node Version Manager.
 

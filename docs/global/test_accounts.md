@@ -44,9 +44,3 @@
     ```
 
     Initial balance : 90000 Eth _(90000000000000000000000 Wei)_
-
-!!!note
-
-    Besu doesn't incorporate
-    [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own
-    account, you have to use a third-party tool, such as MetaMask.

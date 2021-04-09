@@ -14,22 +14,21 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 ## Prerequisites
 
 * One of the following operating systems is required:
-  * Linux on x86_64 architecture.
-  * macOS on an Intel processor (M1 processor not supported yet)
-  * Windows 64bits edition
+    * Linux on x86_64 architecture.
+    * macOS on an Intel processor (M1 processor not supported yet)
+    * Windows 64bits edition
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 * On Windows only you will need:
     * Windows Subsystem for Linux 2
     * Docker desktop configured to use the WSL2-based engine.
-<!-- vale off -->
-* [Node.js v6+ LTS and npm (comes with Node)](https://nodejs.org/en/)
-<!-- vale on -->
+* [`Node.js` v6+ LTS and npm (comes with Node)](https://nodejs.org/en/)
     installed and ready to use.
     The best way to install this tool it to use [`NVM`](http://nvm.sh), the Node Version Manager.
+
 * [Truffle](https://www.trufflesuite.com/truffle) development framework installed:
-* [Curl command line](https://curl.haxx.se/download.html)
+* [cURL command line](https://curl.haxx.se/download.html)
 * A Web browser with [MetaMask](https://metamask.io/) installed.
-  Metamask is currently available for Chrome, Firefox, Opera and Brave.
+  MetaMask is currently available for Chrome, Firefox, Opera and Brave.
 
 !!! important
     Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
@@ -143,7 +142,6 @@ and [Grafana documentation](https://grafana.com/docs/).
 
 ## Run JSON-RPC requests
 
-
 You can run JSON-RPC requests on:
 
 * HTTP with `http://localhost:8545`.
@@ -181,7 +179,7 @@ The result displays the client version of the running node:
 
 === "Result explanation"
 
-    * `"jsonrpc" : "2.0"` indicates the that JSON-RPC 2.0 spec format is used. 
+    * `"jsonrpc" : "2.0"` indicates the that JSON-RPC 2.0 spec format is used.
     * `"id" : 1` is the request identifier used to match the request and the response. This tutorial always uses 1.
     * `"result"` contains the running Besu information:
         * `v21.1.2` is the running Besu version number. This may be different when you run this tutorial.
@@ -238,10 +236,16 @@ about 2 minutes after the new network started.
 
 You will now use [MetaMask](https://metamask.io/) to send a transaction on your private network.
 
-* Open Metamask and connect it to your private network RPC endpoint by selecting `Localhost 8545` in the network list.
+* Open MetaMask and connect it to your private network RPC endpoint by selecting `Localhost 8545` in the network list.
 * Choose one of the following test accounts and [import it into MetaMask by copying the corresponding private key](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
 
 {!global/test_accounts.md!}
+
+!!!note
+
+    Besu doesn't incorporate
+    [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own
+    account, you have to use a third-party tool, such as MetaMask.
 
 When you're finished importing an existing test account, [create another test account from scratch]
 to use as the recipient for a test Ether transaction.
@@ -271,7 +275,7 @@ You are now going to use a demo dapp called Pet Shop and provided by [Truffle](h
 
 This dapp will run a local website using Docker and use smart contracts on the blockchain that you started in the previous steps.
 
-The network directory created by `quorum-dev-quickstart` at the begining of this tutorial has a
+The network directory created by `quorum-dev-quickstart` at the beginning of this tutorial has a
 `dapps` directory with a `pet-shop` sub-directory containing the source code for the dapp
 including the smart contracts, website and configurations to run this tutorial.
 
@@ -289,7 +293,7 @@ The script will:
 * compiles the contracts.
 * deploy then to the blockchain.
 * runs tests.
-* Build and run a Docker image to serve the dapp web site.
+* Build and run a Docker image to serve the dapp website.
 
 !!! example "`./run-dapp.sh` output"
 
@@ -310,7 +314,7 @@ The script will:
 
     1_initial_migration.js
     ======================
-    
+
         Deploying 'Migrations'
         ----------------------
         > transaction hash:    0xdd27f5bc5b0c4a42bb4f4d9ba00b4d33742de10ba8f03484cbf095ee824ba11a
@@ -324,13 +328,13 @@ The script will:
         > gas price:           20 gwei
         > value sent:          0 ETH
         > total cost:          0.0044311 ETH
-        
-        
+
+
         > Saving migration to chain.
         > Saving artifacts
            -------------------------------------
         > Total cost:           0.0044311 ETH
-    
+
     2_deploy_contracts.js
     =====================
 
@@ -347,8 +351,8 @@ The script will:
         > gas price:           20 gwei
         > value sent:          0 ETH
         > total cost:          0.0047983 ETH
-        
-        
+
+
         > Saving migration to chain.
         > Saving artifacts
            -------------------------------------
@@ -358,19 +362,19 @@ The script will:
     =======
     > Total deployments:   2
     > Final cost:          0.0092294 ETH
-    
-    
+
+
     Using network 'quickstartWallet'.
-    
+
     Compiling your contracts...
     ===========================
     > Compiling ./test/TestAdoption.sol
-    
+
     TestAdoption
     ✓ testUserCanAdoptPet (2071ms)
     ✓ testGetAdopterAddressByPetId (6070ms)
     ✓ testGetAdopterAddressByPetIdInArray (6077ms)
-    
+
     3 passing (37s)
     ```
 

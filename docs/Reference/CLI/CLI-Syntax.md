@@ -2377,8 +2377,9 @@ rejects that peer.
     ```
 
 Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
-transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response, and
-[`eth_call`](../API-Methods.md#eth_call) error response. The default is `false`.
+transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response,
+[`eth_call`](../API-Methods.md#eth_call) error response, and [`trace`](../Trace-Types.md#trace) response.
+The default is `false`.
 
 !!! caution
 

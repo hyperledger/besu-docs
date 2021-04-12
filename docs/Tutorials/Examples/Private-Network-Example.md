@@ -14,7 +14,7 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 ## Prerequisites
 
 * One of the following operating systems is required:
-    * Linux on x86_64 architecture.
+    * Linux on x86_64 architecture
     * macOS on an Intel processor (M1 processor not supported yet)
     * Windows 64-bit edition
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/).
@@ -405,7 +405,7 @@ The script will:
     b1615ab765656bc027f63fc60019dba1ca572305766c820f41eaf113b7e14cf8
     ```
 
-In the browser where you have MetaMask enabled and one of the test account loaded, open a new tab and navigate
+In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate
 to [the Pet Shop dapp](http://localhost:3001) where you can adopt lovely pets (sorry, not for real, it's a demo).
 
 When you click on 'Adopt', a MetaMask window will pop up and request your permissions to continue

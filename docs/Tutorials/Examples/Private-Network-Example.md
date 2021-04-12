@@ -5,7 +5,7 @@ description: Quorum dev quickstart tutorial
 # Quorum Developer Quickstart tutorial
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
-[IBFT2](../../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
+[IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
 
 !!! warning
     This tutorial runs a private network suitable for education or demonstration purposes

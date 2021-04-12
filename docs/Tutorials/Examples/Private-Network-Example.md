@@ -405,7 +405,7 @@ The script will:
     b1615ab765656bc027f63fc60019dba1ca572305766c820f41eaf113b7e14cf8
     ```
 
-In the browser where you have MetaMask enabled and the account loaded, open a new tab and navigate
+In the browser where you have MetaMask enabled and one of the test account loaded, open a new tab and navigate
 to [the Pet Shop dapp](http://localhost:3001) where you can adopt lovely pets (sorry, not for real, it's a demo).
 
 When you click on 'Adopt', a MetaMask window will pop up and request your permissions to continue

@@ -16,10 +16,10 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 * One of the following operating systems is required:
     * Linux on x86_64 architecture.
     * macOS on an Intel processor (M1 processor not supported yet)
-    * Windows 64bits edition
-* [Docker and Docker-compose](https://docs.docker.com/compose/install/)
+    * Windows 64-bit edition
+* [Docker and Docker-compose](https://docs.docker.com/compose/install/).
 * On Windows only you will need:
-    * Windows Subsystem for Linux 2
+    * Windows Subsystem for Linux 2.
     * Docker desktop configured to use the WSL2-based engine.
     <!-- vale off -->
 * [Node.js v6+ LTS](https://nodejs.org/en/)
@@ -30,13 +30,13 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
     [NVM](http://nvm.sh)
     <!-- vale on -->
     the Node Version Manager.
-* [Truffle](https://www.trufflesuite.com/truffle) development framework installed:
-* [cURL command line](https://curl.haxx.se/download.html)
+* [Truffle](https://www.trufflesuite.com/truffle) development framework installed.
+* [cURL command line](https://curl.haxx.se/download.html).
 * A Web browser with [MetaMask](https://metamask.io/) installed.
-  MetaMask is currently available for Chrome, Firefox, Opera and Brave.
+  MetaMask is currently available for Chrome, Firefox, Opera, and Brave.
 
 !!! important
-    Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
+    Allow Docker up to 4G of memory or 6G if running the privacy examples.
     Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
     [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
@@ -62,7 +62,7 @@ To start the network, go to the installation directory (`quorum-test-network` if
 
 The script builds the Docker images, and runs the Docker containers.
 
-Four Besu IBFT2 validator nodes and a non validator node are created to simulate a base network.
+Four Besu IBFT 2.0 validator nodes and a non-validator node are created to simulate a base network.
 
 When execution is successfully finished, the process lists the available services:
 
@@ -120,7 +120,7 @@ Click the block number to the right of **Best Block** to display the block detai
 
 ![Block Details](../../images/ExplorerBlockDetails.png)
 
-You can explore blocks by clicking on the blue blocks under **`Bk`** on the left-hand side.
+You can explore blocks by clicking on the blocks under **`Bk`** on the left-hand side.
 
 You can search for a specific block, transaction hash, or address by clicking the :mag:
 in the top left-hand corner.
@@ -129,7 +129,7 @@ in the top left-hand corner.
 
 ## Monitor nodes with Prometheus and Grafana
 
-The sample network also includes Prometheus and Grafana monitoring tools to let you visualise
+The sample network also includes Prometheus and Grafana monitoring tools to let you visualize
 node health and usage.
 You can directly access these tools from your browser at the addresses displayed in the endpoint list.
 
@@ -148,7 +148,7 @@ and [Grafana documentation](https://grafana.com/docs/).
 You can run JSON-RPC requests on:
 
 * HTTP with `http://localhost:8545`.
-* and Websocket with `ws://localhost:8546`.
+* WebSockets with `ws://localhost:8546`.
 
 ### Run with `cURL`
 
@@ -182,7 +182,7 @@ The result displays the client version of the running node:
 
 === "Result explanation"
 
-    * `"jsonrpc" : "2.0"` indicates the that JSON-RPC 2.0 spec format is used.
+    * `"jsonrpc" : "2.0"` indicates that the JSON-RPC 2.0 spec format is used.
     * `"id" : 1` is the request identifier used to match the request and the response. This tutorial always uses 1.
     * `"result"` contains the running Besu information:
         * `v21.1.2` is the running Besu version number. This may be different when you run this tutorial.
@@ -216,13 +216,13 @@ The result indicates that there are four peers (our validators):
 
 ### Request the most recent block number
 
-Call [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blockNumber) to retrieve the number of the most recently synchronised block:
+Call [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blockNumber) to retrieve the number of the most recently synchronized block:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545
 ```
 
-The result indicates the highest block number synchronised on this node.
+The result indicates the highest block number synchronized on this node.
 
 ```json
 {
@@ -237,7 +237,7 @@ about 2 minutes after the new network started.
 
 ## Create a transaction using MetaMask
 
-You will now use [MetaMask](https://metamask.io/) to send a transaction on your private network.
+You can use [MetaMask](https://metamask.io/) to send a transaction on your private network.
 
 * Open MetaMask and connect it to your private network RPC endpoint by selecting `Localhost 8545` in the network list.
 * Choose one of the following test accounts and [import it into MetaMask by copying the corresponding private key](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
@@ -250,7 +250,7 @@ You will now use [MetaMask](https://metamask.io/) to send a transaction on your 
     [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own
     account, you have to use a third-party tool, such as MetaMask.
 
-When you're finished importing an existing test account, [create another test account from scratch]
+After importing an existing test account, [create another test account from scratch]
 to use as the recipient for a test Ether transaction.
 
 In MetaMask, select the new test account and [copy its address](https://metamask.zendesk.com/hc/en-us/articles/360015289512-How-to-copy-your-MetaMask-Account-Public-Address).
@@ -260,7 +260,7 @@ the test account address into the search box.
 
 The new test account displays with a zero balance.
 
-[Send test Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-)
+[Send test Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488931-How-to-send-ETH-and-ERC-20-tokens-from-your-MetaMask-Wallet)
 from the first test account (containing test Ether) to the new test account (which has a zero balance).
 
 !!!tip
@@ -270,35 +270,35 @@ from the first test account (containing test Ether) to the new test account (whi
 
 Refresh the Block Explorer page in your browser displaying the target test account.
 
-The updated balance displays and reflects the transaction completed using MetaMask.
+The updated balance reflects the transaction completed using MetaMask.
 
 ## Smart contract and dapp usage
 
-You are now going to use a demo dapp called Pet Shop and provided by [Truffle](https://www.trufflesuite.com/tutorials/pet-shop).
+You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorials/pet-shop).
 
 This dapp will run a local website using Docker and use smart contracts on the blockchain that you started in the previous steps.
 
 The network directory created by `quorum-dev-quickstart` at the beginning of this tutorial has a
-`dapps` directory with a `pet-shop` sub-directory containing the source code for the dapp
-including the smart contracts, website and configurations to run this tutorial.
+`dapps` directory with a `pet-shop` subdirectory containing the source code for the dapp
+including the smart contracts, website, and configurations to run this tutorial.
 
 With the blockchain running and MetaMask connected to `Localhost 8545` via the browser,
 run the following command to start the Pet Shop dapp:
 
 ```bash
 cd dapps/pet-shop
-./run-dapp.sh
+./run_dapp.sh
 ```
 
 The script will:
 
-* Install the dapp Node dependencies (you may see some warning here, but it will not prevent the dapp to run).
-* compiles the contracts.
-* deploy then to the blockchain.
-* runs tests.
-* Build and run a Docker image to serve the dapp website.
+1. Install the dapp Node dependencies (you may see some warnings here, but it will not prevent the dapp from running).
+1. Compile the contracts.
+1. Deploy the contracts to the blockchain.
+1. Run tests.
+1. Build and run a Docker image to serve the dapp website.
 
-!!! example "`./run-dapp.sh` example output"
+!!! example "`./run_dapp.sh` example output"
 
     ```text
     Compiling your contracts...
@@ -381,7 +381,7 @@ The script will:
     3 passing (37s)
     ```
 
-    After these tests are successful, it builds a container for the Pet Shop DApp and deploys it,
+    After these tests are successful, the script builds a container for the Pet Shop dapp and deploys it,
     binding it to port 3001 on your system.
 
     ```text
@@ -447,7 +447,7 @@ To restart the private network:
 ## Stop the private network and remove containers
 
 To shut down the private network and delete all containers and images created from running the
-sample network and the PetShop dapp:
+sample network and the Pet Shop dapp:
 
 === "Linux/MacOS"
 

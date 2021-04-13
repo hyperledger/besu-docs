@@ -16,11 +16,10 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 * One of the following operating systems is required:
     * Linux on x86_64 architecture
     * macOS on an Intel processor (M1 processor not supported yet)
-    * Windows 64-bit edition
+    * Windows 64-bit edition, with:
+        * Windows Subsystem for Linux 2.
+        * Docker desktop configured to use the WSL2-based engine.
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/).
-* On Windows only you will need:
-    * Windows Subsystem for Linux 2.
-    * Docker desktop configured to use the WSL2-based engine.
     <!-- vale off -->
 * [Node.js v6+ LTS](https://nodejs.org/en/)
     <!-- vale on -->
@@ -276,11 +275,11 @@ The updated balance reflects the transaction completed using MetaMask.
 
 You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorials/pet-shop).
 
-This dapp will run a local website using Docker and use smart contracts on the blockchain that you started in the previous steps.
+You can use a demo dapp called Pet Shop, provided by Truffle.
+The dapp runs a local website using Docker, and uses smart contracts deployed on the network.
 
-The network directory created by `quorum-dev-quickstart` at the beginning of this tutorial has a
-`dapps` directory with a `pet-shop` subdirectory containing the source code for the dapp
-including the smart contracts, website, and configurations to run this tutorial.
+The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory,
+which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
 
 With the blockchain running and MetaMask connected to `Localhost 8545` via the browser,
 run the following command to start the Pet Shop dapp:

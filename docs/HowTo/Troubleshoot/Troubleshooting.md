@@ -115,7 +115,7 @@ Restart Besu with the command line option
 
 During [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node) for a full node, the
 Pending State Nodes count is the number of nodes yet to be downloaded, and it should change
-constantly. Pending State Nodes trend to 0 during fast sync and then goes to 0.
+constantly. Pending State Nodes trend to 0 during fast synchronization and then goes to 0.
 
 If the number stays constant, this could mean your node is not syncing against any peers.
 
@@ -123,7 +123,7 @@ In the following example the Pivot Block is 0 (zero) and the Pending State Nodes
 This means the node isn't syncing against any peers. The fact that state nodes have been downloaded
 means at some stage it was syncing.
 
-![Fastsync](../../images/fastsync.png)
+![Fast synchronization](../../images/fastsync.png)
 
-The easiest solution in this scenario is to restart fast synchonisation to obtain a new
+The easiest solution in this scenario is to restart fast synchonization to obtain a new
 pivot block.

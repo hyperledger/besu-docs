@@ -1888,33 +1888,35 @@ corresponding public key in the accounts allowlist.
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
 
-### `privacy-onchain-groups-enabled`
+### `privacy-flexible-groups-enabled`
 
 === "Syntax"
 
     ```bash
-    --privacy-onchain-groups-enabled[=<true|false>]
+    --privacy-flexible-groups-enabled[=<true|false>]
     ```
 
 === "Command Line"
 
     ```bash
-    --privacy-onchain-groups-enabled=true
+    --privacy-flexible-groups-enabled=true
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+    BESU_PRIVACY_FLEXIBLE_GROUPS_ENABLED=true
     ```
 
 === "Configuration File"
 
     ```bash
-    privacy-onchain-groups-enabled=true
+    privacy-flexible-groups-enabled=true
     ```
 
 Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
+
+Alternative syntax for this option is `--privacy-onchain-groups-enabled`.
 
 ### `privacy-public-key-file`
 

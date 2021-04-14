@@ -125,5 +125,5 @@ means at some stage it was syncing.
 
 ![Fast synchronization](../../images/fastsync.png)
 
-The easiest solution in this scenario is to restart fast synchonization to obtain a new
+The easiest solution in this scenario is to restart fast synchronization to obtain a new
 pivot block.

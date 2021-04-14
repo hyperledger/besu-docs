@@ -4,37 +4,44 @@ description: Quorum dev quickstart tutorial
 
 # Quorum Developer Quickstart tutorial
 
-The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private network of Besu
-nodes managed by Docker Compose.
+The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
+[IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
 
-!!! important
-
-    This tutorial runs a private network suitable for education or demonstration purposes and is
-    not intended for running production networks.
+!!! warning
+    This tutorial runs a private network suitable for education or demonstration purposes
+    and is not intended for running production networks.
 
 ## Prerequisites
 
-* [Docker and Docker-compose](https://docs.docker.com/compose/install/)
-* [Nodejs](https://nodejs.org/en/download/)
-* On Windows:
-    * Windows Subsystem for Linux 2
-    * Docker desktop configured to use the WSL2-based engine.
+* One of the following operating systems is required:
+    * Linux on x86_64 architecture
+    * macOS on an Intel processor (M1 processor not supported yet)
+    * Windows 64-bit edition, with:
+        * Windows Subsystem for Linux 2.
+        * Docker desktop configured to use the WSL2-based engine.
+* [Docker and Docker-compose](https://docs.docker.com/compose/install/).
+    <!-- vale off -->
+* [Node.js v6+ LTS](https://nodejs.org/en/)
+    <!-- vale on -->
+    installed and ready to use.
+    The best way to install this tool it to use
+    <!-- vale off -->
+    [NVM](http://nvm.sh)
+    <!-- vale on -->
+    the Node Version Manager.
+* [Truffle](https://www.trufflesuite.com/truffle) development framework installed.
+* [cURL command line](https://curl.haxx.se/download.html).
+* A Web browser with [MetaMask](https://metamask.io/) installed.
+  MetaMask is currently available for Chrome, Firefox, Opera, and Brave.
 
 !!! important
-    Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
+    Allow Docker up to 4G of memory or 6G if running the privacy examples.
     Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
     [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
-* [Git command line](https://git-scm.com/)
-* [Curl command line](https://curl.haxx.se/download.html)
-* A Web browser that supports [MetaMask](https://metamask.io/) (currently Chrome, Firefox, Opera,
-  and Brave), and has the MetaMask plug-in installed. This tutorial uses screenshots from Brave.
+## Generate the tutorial blockchain configuration files
 
-## Create Docker-compose file
-
-## Usage
-
-To create the docker-compose file and artifacts, run:
+To create the tutorial `docker-compose` files and artifacts, run:
 
 ```bash
 npx quorum-dev-quickstart
@@ -46,40 +53,25 @@ Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/sta
 
 ## Start the network
 
-To start the network, go to the installation directory and run:
+To start the network, go to the installation directory (`quorum-test-network` if you used the default value) and run:
 
-=== "Linux/MacOS"
+```bash
+./run.sh
+```
 
-    ```bash
-    ./run.sh
-    ```
+The script builds the Docker images, and runs the Docker containers.
 
-The script builds the images, and runs the containers. It also scales the regular node container to
-four containers to simulate a network with enough peers to synchronize.
+Four Besu IBFT 2.0 validator nodes and a non-validator node are created to simulate a base network.
 
-When the process ends, it lists the running services:
+When execution is successfully finished, the process lists the available services:
 
-!!! example "Docker-compose services list example"
+!!! example "Services list"
 
     ```log
     *************************************
     Quorum Dev Quickstart
     *************************************
-    Setting up the index patterns in kibana............
-    {"type":"index-pattern","id":"metricbeat","attributes":{"title":"metricbeat-*","timeFieldName":"@timestamp"},
-    "references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:34.252Z",
-    "version":"WzgsMV0=","namespaces":["default"]}{"success":true,"successCount":7}{"type":"index-pattern",
-    "id":"besu","attributes":{"title":"besu-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":
-    {"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:36.927Z","version":"WzE2LDFd","namespaces":
-    ["default"]}{"type":"index-pattern","id":"orion","attributes":{"title":"orion-*","timeFieldName":"@timestamp"},
-    "references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:37.982Z","version":
-    "WzE3LDFd","namespaces":["default"]}{"type":"index-pattern","id":"quorum","attributes":{"title":"quorum-*",
-    "timeFieldName":"@timestamp"},"references":[],"migrationVersion":{"index-pattern":"7.6.0"},"updated_at":
-    "2020-11-04T10:43:39.003Z","version":"WzE4LDFd","namespaces":["default"]}{"type":"index-pattern","id":
-    "tessera","attributes":{"title":"tessera-*","timeFieldName":"@timestamp"},"references":[],"migrationVersion":
-    {"index-pattern":"7.6.0"},"updated_at":"2020-11-04T10:43:40.053Z","version":"WzE5LDFd","namespaces":
-    ["default"]}
-
+    ----------------------------------
     List endpoints and services
     ----------------------------------
     JSON-RPC HTTP service endpoint      : http://localhost:8545
@@ -93,35 +85,33 @@ When the process ends, it lists the running services:
     ****************************************************************
     ```
 
-* Use the **JSON-RPC HTTP service endpoint** to access the RPC node service from your Dapp or from
+* Use the **JSON-RPC HTTP service endpoint** to access the RPC node service from your dapp or from
   cryptocurrency wallets such as MetaMask.
 * Use the **JSON-RPC WebSocket service endpoint** to access the Web socket node service from your
-  Dapp.
-* Use the **Web block explorer address** to display the block explorer Web application. View the
-  block explorer by entering the URL in your Web browser.
+  dapp.
+* Use the **Web block explorer address** to display the [block explorer Web application](http://localhost:25000).
 * Use the **Prometheus address** to access the
-  [Prometheus dashboard](../../HowTo/Monitor/Metrics.md).
+  [Prometheus dashboard](http://localhost:9090/graph).
+  _[Read more about metrics](../../HowTo/Monitor/Metrics.md)_.
 * Use the **Grafana address** to access the
-  [Grafana dashboard](../../HowTo/Monitor/Metrics.md).
+  [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All).
+  _[Read more about metrics](../../HowTo/Monitor/Metrics.md)_.
 * Use the **Kibana logs address** to access the
-  [logs in Kibana](../../HowTo/Monitor/Elastic-Stack.md).
+  [logs in Kibana](http://localhost:5601/app/kibana#/discover).
+  _[Read more about log management](../../HowTo/Monitor/Elastic-Stack.md)_.
 
 To display the list of endpoints again, run:
 
-=== "Linux/MacOS"
-
-    ```bash
-    ./list.sh
-    ```
+```bash
+./list.sh
+```
 
 ## Block explorer
 
-This tutorial uses the Alethio Ethereum Lite Explorer.
+This tutorial uses a modified version of the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer).
 
-### Run the block explorer
-
-Access the explorer by copying and pasting the `Web block explorer address` displayed when starting
-the private network to your browser.
+Access the explorer at [`http://localhost:25000`](http://localhost:25000) as displayed when starting
+the private network.
 
 The block explorer displays a summary of the private network, indicating four peers.
 
@@ -129,18 +119,21 @@ Click the block number to the right of **Best Block** to display the block detai
 
 ![Block Details](../../images/ExplorerBlockDetails.png)
 
-You can explore blocks by clicking on the blocks under **Bk** on the left-hand side.
+You can explore blocks by clicking on the blocks under **`Bk`** on the left-hand side.
 
-You can search for a specific block, transaction hash, or address by clicking the magnifying glass
+You can search for a specific block, transaction hash, or address by clicking the :mag:
 in the top left-hand corner.
 
 ![Explorer Search](../../images/ExplorerSearch.png)
 
 ## Monitor nodes with Prometheus and Grafana
 
-The sample network also includes Prometheus and Grafana monitoring tools to let you visualise
-node health and usage. You can directly access these tools from your browser at the addresses
-displayed in the endpoint list.
+The sample network also includes Prometheus and Grafana monitoring tools to let you visualize
+node health and usage.
+You can directly access these tools from your browser at the addresses displayed in the endpoint list.
+
+* [Prometheus dashboard](http://localhost:9090/graph).
+* [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All).
 
 For more details on how to configure and use these tools for your own nodes, see our
 [performances monitoring documentation](../../HowTo/Monitor/Metrics.md),
@@ -151,13 +144,18 @@ and [Grafana documentation](https://grafana.com/docs/).
 
 ## Run JSON-RPC requests
 
-You can run RPC requests on `rpcnode`, the node exposed to the host to listen for requests. This
-tutorial uses [cURL](https://curl.haxx.se/download.html) to make JSON-RPC requests.
+You can run JSON-RPC requests on:
 
-For the RPC URL, this tutorial uses the placeholder `<http-rpc-endpoint>`. When you run the
-tutorial, replace this placeholder with the JSON-RPC HTTP service endpoint provided when you list
-the endpoints. (For example, `http://localhost:8545`.) The dynamic docker port mapping changes each
-time you run the network.
+* HTTP with `http://localhost:8545`.
+* WebSockets with `ws://localhost:8546`.
+
+### Run with `cURL`
+
+This tutorial uses [cURL](https://curl.haxx.se/download.html) to send JSON-RPC requests over HTTP.
+
+### Run with Postman
+
+You can also run all the requests with the Besu Postman collection.
 
 {!global/Postman.md!}
 
@@ -169,33 +167,43 @@ Run the following command from the host shell:
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://localhost:8545
 ```
 
-The result specifies the client version:
+The result displays the client version of the running node:
 
-```json
-{
-   "jsonrpc" : "2.0",
-   "id" : 1,
-   "result" : "besu/<version number>"
-}
-```
+=== "Result example"
 
-Here we query the version of the Besu node, which confirms the node is running.
+    ```json
+    {
+    "jsonrpc" : "2.0",
+    "id" : 1,
+    "result" : "besu/v21.1.2/linux-x86_64/oracle_openjdk-java-11"
+    }
+    ```
 
-Successfully calling this method shows that you can connect to the nodes using RPC. From here, you
-can walk through more interesting requests demonstrated in the rest of this section, or skip ahead
-to [Create a transaction using MetaMask](#create-a-transaction-using-metamask).
+=== "Result explanation"
+
+    * `"jsonrpc" : "2.0"` indicates that the JSON-RPC 2.0 spec format is used.
+    * `"id" : 1` is the request identifier used to match the request and the response. This tutorial always uses 1.
+    * `"result"` contains the running Besu information:
+        * `v21.1.2` is the running Besu version number. This may be different when you run this tutorial.
+        * `linux-x86_64` is the architecture used to build this version.
+        * `oracle_openjdk-java-11` is the JVM type and version used to build this version. This may be different when you run this tutorial.
+
+Successfully calling this method shows that you can connect to the nodes using JSON-RPC over HTTP.
+
+From here, you can walk through more interesting requests demonstrated in the rest of this section,
+or skip ahead to [Create a transaction using MetaMask](#create-a-transaction-using-metamask).
 
 ### Count the peers
 
-Peers are the number of other nodes connected to the RPC node.
+Peers are the other nodes connected to the node receiving the JSON-RPC request.
 
-Poll the peer count using `net_peerCount`:
+Poll the peer count using [`net_peerCount`](../../Reference/API-Methods.md#net_peercount):
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545
 ```
 
-The result indicates that there are four peers:
+The result indicates that there are four peers (our validators):
 
 ```json
 {
@@ -207,28 +215,31 @@ The result indicates that there are four peers:
 
 ### Request the most recent block number
 
-Call `eth_blockNumber` to retrieve the number of the most recent block:
+Call [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blockNumber) to retrieve the number of the most recently synchronized block:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545
 ```
 
+The result indicates the highest block number synchronized on this node.
+
 ```json
 {
   "jsonrpc" : "2.0",
   "id" : 1,
-  "result" : "0x8b8"
+  "result" : "0x2a"
 }
 ```
 
-The hexadecimal value `0x8b8` translates to `2232` in decimal, the number of blocks so far.
+Here the hexadecimal value `0x2a` translates to decimal as `42`, the number of blocks received by the node so far,
+about 2 minutes after the new network started.
 
 ## Create a transaction using MetaMask
 
-Now let's use [MetaMask](https://metamask.io/) to send transactions.
+You can use [MetaMask](https://metamask.io/) to send a transaction on your private network.
 
-Before sending transactions, you need to create an account or use one of the accounts below
-created during the genesis of this private test network.
+* Open MetaMask and connect it to your private network RPC endpoint by selecting `Localhost 8545` in the network list.
+* Choose one of the following test accounts and [import it into MetaMask by copying the corresponding private key](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
 
 {!global/test_accounts.md!}
 
@@ -238,169 +249,172 @@ created during the genesis of this private test network.
     [account management](../../HowTo/Send-Transactions/Account-Management.md). To create your own
     account, you have to use a third-party tool, such as MetaMask.
 
-After you sign in to MetaMask, connect to the private network RPC endpoint:
+After importing an existing test account, [create another test account from scratch]
+to use as the recipient for a test Ether transaction.
 
-1. In the MetaMask network list, select **Custom RPC**.
-1. In the **New RPC URL** field, enter the JSON-RPC HTTP service endpoint displayed when you
-   started the private network.
+In MetaMask, select the new test account and [copy its address](https://metamask.zendesk.com/hc/en-us/articles/360015289512-How-to-copy-your-MetaMask-Account-Public-Address).
 
-Save the configuration and return to the MetaMask main screen. Your current network is now set to
-the private network RPC node.
+In the [Block Explorer](http://localhost:25000), search for the new test account by clicking on the :mag: and pasting
+the test account address into the search box.
 
-[Import one of the existing accounts above into MetaMask] using the corresponding private key.
+The new test account displays with a zero balance.
 
-!!!note
+[Send test Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488931-How-to-send-ETH-and-ERC-20-tokens-from-your-MetaMask-Wallet)
+from the first test account (containing test Ether) to the new test account (which has a zero balance).
 
-    In this tutorial, we don't need to secure the keys, because we're using a private test network
-    to send valueless Ether. In a production environment, be sure to secure your accounts on the
-    main Ethereum network (MainNet).
+!!!tip
 
-When you're finished importing an existing account, [create another account from scratch] to send
-Ether to.
+    You can use a zero gas price here as this private test network is a [free gas network](../../HowTo/Configure/FreeGas.md)
+    but the maximum amount of gas that can be used (the gas limit) for a value transaction must be at least 21000.
 
-In MetaMask, select the new account and copy the account address by clicking the **&hellip;**
-gadget and selecting **Copy Address to clipboard**.
+Refresh the Block Explorer page in your browser displaying the target test account.
 
-In the block explorer, search for the new account by clicking on the magnifying glass and pasting
-the account address into the search box. The account displays with a zero balance.
+The updated balance reflects the transaction completed using MetaMask.
 
-[Send Ether](https://metamask.zendesk.com/hc/en-us/articles/360015488991-Sending-Ether-New-UI-)
-from the first account (containing Ether) to the new account (which has a zero balance).
+## Smart contract and dapp usage
 
-Refresh the browser page displaying the new account. The updated balance displays and reflects the
-transaction completed using MetaMask.
+You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorials/pet-shop).
 
-## Smart contract and DApp usage with the blockchain network
+You can use a demo dapp called Pet Shop, provided by Truffle.
+The dapp runs a local website using Docker, and uses smart contracts deployed on the network.
 
-We are going to use the
-[PetShop tutorial on Truffle website](https://truffleframework.com/tutorials/pet-shop) with a few
-modifications, so we use the private network in this tutorial as the blockchain network.
+The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory,
+which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
 
-### Prerequisites
-
-<!-- vale off -->
-* [Node.js v6+ LTS and npm](https://nodejs.org/en/) (comes with Node)
-<!-- vale on -->
-* Import an account into MetaMask using the private key
-  `0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3`. The following steps use
-  this account.
-
-### Install Truffle
-
-Install Truffle:
+With the blockchain running and MetaMask connected to `Localhost 8545` via the browser,
+run the following command to start the Pet Shop dapp:
 
 ```bash
-npm install -g truffle
+cd dapps/pet-shop
+./run_dapp.sh
 ```
 
-!!! note
+The script will:
 
-    `npm` requires `sudo` on Linux.
+1. Install the dapp Node dependencies (you may see some warnings here, but it will not prevent the dapp from running).
+1. Compile the contracts.
+1. Deploy the contracts to the blockchain.
+1. Run tests.
+1. Build and run a Docker image to serve the dapp website.
 
-The source code for the smart contract and DApp are in the `pet-shop` folder. With the blockchain
-running and MetaMask connected to it via the browser, run the command below to start the DApp.
+!!! example "`./run_dapp.sh` example output"
 
-The script first compiles the contract, then performs a migration to the blockchain network and
-then runs some tests. You can then search for the deployed contracts and transactions in the Web
-Block Explorer using the addresses displayed in your output earlier `http://localhost:32768/`
-(your port will differ). Similar output to the following displays (your addresses will differ).
+    ```text
+    Compiling your contracts...
+    ===========================
+    > Compiling ./contracts/Adoption.sol
+    > Compiling ./contracts/Migrations.sol
+    > Artifacts written to /Users/demo/quorum-test-network/dapps/pet-shop/pet-shop-box/build/contracts
+    > Compiled successfully using:
+        - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
 
-!!! example
+    Starting migrations...
+    ======================
+    > Network name:    'quickstartWallet'
+    > Network id:      1337
+    > Block gas limit: 16234336 (0xf7b760)
 
-    === "Linux/MacOS command"
+    1_initial_migration.js
+    ======================
 
-         ```bash
-         ./run-dapp.sh
-         ```
+        Deploying 'Migrations'
+        ----------------------
+        > transaction hash:    0xdd27f5bc5b0c4a42bb4f4d9ba00b4d33742de10ba8f03484cbf095ee824ba11a
+        > Blocks: 0            Seconds: 0
+        > contract address:    0xFB88dE099e13c3ED21F80a7a1E49f8CAEcF10df6
+        > block number:        2747
+        > block timestamp:     1618000437
+        > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+        > balance:             89999.97435026
+        > gas used:            221555 (0x36173)
+        > gas price:           20 gwei
+        > value sent:          0 ETH
+        > total cost:          0.0044311 ETH
 
-    === "DApp result"
 
-        ```log
-        Compiling your contracts...
-        ===========================
-        > Compiling ./contracts/Adoption.sol
-        > Compiling ./contracts/Migrations.sol
-
-        Starting migrations...
-        ======================
-        > Network name:    'quickstartWallet'
-        > Network id:      2018
-        > Block gas limit: 0xf7b760
-
-        1_initial_migration.js
-        ======================
-
-           Replacing 'Migrations'
-           ----------------------
-           > transaction hash:    0x10f5ebaca0e89fa84bcae19d6848dde19817ea3cf270be0fd0ab52f041a02c61
-           > Blocks: 0            Seconds: 0
-           > contract address:    0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
-           > block number:        64
-           > block timestamp:     1579833316
-           > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-           > balance:             89999.99472518
-           > gas used:            263741
-           > gas price:           20 gwei
-           > value sent:          0 ETH
-           > total cost:          0.00527482 ETH
-
-           > Saving migration to chain.
-           > Saving artifacts
+        > Saving migration to chain.
+        > Saving artifacts
            -------------------------------------
-           > Total cost:          0.00527482 ETH
+        > Total cost:           0.0044311 ETH
 
-        2_deploy_contracts.js
-        =====================
+    2_deploy_contracts.js
+    =====================
 
-           Replacing 'Adoption'
-           --------------------
-           > transaction hash:    0x56f39e2411f2e95b89832c6ff81b619815ee83db1c54d2b166ecdc3ceda633a8
-           > Blocks: 0            Seconds: 0
-           > contract address:    0x345cA3e014Aaf5dcA488057592ee47305D9B3e10
-           > block number:        66
-           > block timestamp:     1579833320
-           > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-           > balance:             89999.9890877
-           > gas used:            239851
-           > gas price:           20 gwei
-           > value sent:          0 ETH
-           > total cost:          0.00479702 ETH
+        Deploying 'Adoption'
+        --------------------
+        > transaction hash:    0xd6f5b11807a0727a92b6063c95b9101769d310592b0d3cf35d6df233d05d50e6
+        > Blocks: 0            Seconds: 0
+        > contract address:    0xf204a4Ef082f5c04bB89F7D5E6568B796096735a
+        > block number:        2749
+        > block timestamp:     1618000441
+        > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+        > balance:             89999.968712
+        > gas used:            239915 (0x3a92b)
+        > gas price:           20 gwei
+        > value sent:          0 ETH
+        > total cost:          0.0047983 ETH
 
-           > Saving migration to chain.
-           > Saving artifacts
+
+        > Saving migration to chain.
+        > Saving artifacts
            -------------------------------------
-           > Total cost:          0.00479702 ETH
+        > Total cost:           0.0047983 ETH
 
-        Summary
-        =======
-        > Total deployments:   2
-        > Final cost:          0.01007184 ETH
+    Summary
+    =======
+    > Total deployments:   2
+    > Final cost:          0.0092294 ETH
 
-        Compiling your contracts...
-        ===========================
-        > Compiling ./test/TestAdoption.sol
 
-          TestAdoption
-            ✓ testUserCanAdoptPet (2071ms)
-            ✓ testGetAdopterAddressByPetId (6070ms)
-            ✓ testGetAdopterAddressByPetIdInArray (6077ms)
+    Using network 'quickstartWallet'.
 
-          3 passing (37s)
-        ```
+    Compiling your contracts...
+    ===========================
+    > Compiling ./test/TestAdoption.sol
 
-After these tests are successful, it builds a container for the Pet Shop DApp and deploys it,
-binding it to port 3001 on your system.
+    TestAdoption
+    ✓ testUserCanAdoptPet (2071ms)
+    ✓ testGetAdopterAddressByPetId (6070ms)
+    ✓ testGetAdopterAddressByPetIdInArray (6077ms)
 
-In the browser that you have MetaMask enabled and the account loaded, open a new tab and navigate
-to [`http://localhost:3001`](http://localhost:3001) which should have the Pet Shop running, and you can adopt pets from the
-app. When you click on 'Adopt', a MetaMask window should pop up and request your permissions to continue
-with the transaction. After the transaction is complete and successful, the status of the pet you
-adopted will show 'Success'.
+    3 passing (37s)
+    ```
+
+    After these tests are successful, the script builds a container for the Pet Shop dapp and deploys it,
+    binding it to port 3001 on your system.
+
+    ```text
+    Sending build context to Docker daemon  489.4MB
+    Step 1/5 : FROM node:12.14.1-stretch-slim
+    ---> 2f7e25ad14ea
+    Step 2/5 : EXPOSE 3001
+    ---> Using cache
+    ---> 2ef0665a040a
+    Step 3/5 : WORKDIR /app
+    ---> Using cache
+    ---> e8e97cedb575
+    Step 4/5 : COPY . /app
+    ---> f70e4265e598
+    Step 5/5 : CMD npm run dev
+    ---> Running in 3c6e8bdb3f3b
+    Removing intermediate container 3c6e8bdb3f3b
+    ---> ce2588e47ab0
+    Successfully built ce2588e47ab0
+    Successfully tagged quorum-dev-quickstart_pet_shop:latest
+    b1615ab765656bc027f63fc60019dba1ca572305766c820f41eaf113b7e14cf8
+    ```
+
+In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate
+to [the Pet Shop dapp](http://localhost:3001) where you can adopt lovely pets (sorry, not for real, it's a demo).
+
+When you click on 'Adopt', a MetaMask window will pop up and request your permissions to continue
+with the transaction.
+
+After the transaction is complete and successful, the status of the pet you adopted will show 'Success'.
 
 ![Dapp UI](../../images/dapp-ui.png)
 
-You can also search for the transaction and view its details in the Block Explorer UI at
-[`http://localhost:25000/`](http://localhost:25000/).
+You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
 ![Dapp UI](../../images/dapp-explorer-tx.png)
 
@@ -432,7 +446,7 @@ To restart the private network:
 ## Stop the private network and remove containers
 
 To shut down the private network and delete all containers and images created from running the
-sample network:
+sample network and the Pet Shop dapp:
 
 === "Linux/MacOS"
 
@@ -442,4 +456,4 @@ sample network:
 
 <!-- Links -->
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
-[create another account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-
+[create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-

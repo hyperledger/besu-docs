@@ -57,7 +57,7 @@ The enode URL format is `enode://<id>@<host:port>[?discport=<port>]` where:
   the host and TCP port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
   [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
   and the default port is `30303`.
-* If the TCP and UDP (discovery) ports differ, the UDP port is specified as query parameter "discport".
+* If the TCP listening and UDP discovery ports differ, the UDP port is specified as query parameter `discport`.
 
 !!! example
 

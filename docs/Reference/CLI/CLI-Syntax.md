@@ -1916,7 +1916,7 @@ transactions. The default is `false`.
 
 Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
 
-Alternative syntax for this option is `--privacy-onchain-groups-enabled`.
+Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
 ### `privacy-public-key-file`
 

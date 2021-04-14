@@ -2189,6 +2189,7 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     ```
 
 Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
+Defaults to `false`.
 
 !!! important
 

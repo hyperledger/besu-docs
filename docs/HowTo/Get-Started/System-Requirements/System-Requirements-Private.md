@@ -23,7 +23,7 @@ To determine system requirements, check CPU and disk space requirements using
 ## Java Virtual Machine size
 
 Depending on your environment and network setup, the minimum Java Virtual
-Machine (JVM) memory requirement for private networks is 4GB.
+Machine (JVM) memory requirement for private networks is 4 GB.
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
 to the chain head. Monitor your system to determine your actual JVM memory needs.
@@ -38,7 +38,7 @@ If you set up your own VM locally using a VM manager such as [VirtualBox](https:
 
 We recommend you create a VM with the following attributes:
 
-* Memory Size: Set to 4096 MB (recommended)
+* Memory Size: Set to 6 GB (recommended)
 * Create a virtual hard disk with at least 10 GB (20 GB recommended)
 * Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)
 * (Optional) You can create a shared directory to copy block files or genesis files from the host

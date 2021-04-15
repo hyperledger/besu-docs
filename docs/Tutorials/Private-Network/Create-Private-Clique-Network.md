@@ -76,7 +76,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 ```json
 {
   "config":{
-    "chainId":1981,
+    "chainId":1337,
     "constantinoplefixblock": 0,
     "clique":{
       "blockperiodseconds":15,

@@ -342,6 +342,29 @@ The default is `none`.
 The path to the Besu data directory. The default is the directory you installed Besu in, or
 `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
+### `discovery-dns-url`
+
+=== "Syntax"
+
+    ```bash
+    --discovery-dns-url=<enrtree URL>
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_DISCOVERY_DNS-URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    discovery-dns-url="enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org"
+    ```
+
+The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips.ethereum.org/EIPS/eip-1459).
+The default is `null`.
+
 ### `discovery-enabled`
 
 === "Syntax"
@@ -1888,33 +1911,35 @@ corresponding public key in the accounts allowlist.
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
 
-### `privacy-onchain-groups-enabled`
+### `privacy-flexible-groups-enabled`
 
 === "Syntax"
 
     ```bash
-    --privacy-onchain-groups-enabled[=<true|false>]
+    --privacy-flexible-groups-enabled[=<true|false>]
     ```
 
 === "Command Line"
 
     ```bash
-    --privacy-onchain-groups-enabled=true
+    --privacy-flexible-groups-enabled=true
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+    BESU_PRIVACY_FLEXIBLE_GROUPS_ENABLED=true
     ```
 
 === "Configuration File"
 
     ```bash
-    privacy-onchain-groups-enabled=true
+    privacy-flexible-groups-enabled=true
     ```
 
 Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
+
+Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
 ### `privacy-public-key-file`
 

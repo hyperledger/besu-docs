@@ -1698,7 +1698,8 @@ Returns the number of transactions in the block matching the given block hash.
 
 #### Returns
 
-`result` : `quantity` - Integer representing the number of transactions in the specified block.
+`result` : `quantity` - Integer representing the number of transactions in the specified block,
+or `null` if no matching block hash is found.
 
 !!! example
 
@@ -1764,7 +1765,8 @@ Returns the number of transactions in a block matching the specified block numbe
 
 #### Returns
 
-`result` : *QUANTITY* - Integer representing the number of transactions in the specified block.
+`result` : *QUANTITY* - Integer representing the number of transactions in the specified block,
+or `null` if no matching block number is found.
 
 !!! example
 

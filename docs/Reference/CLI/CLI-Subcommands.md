@@ -4,27 +4,39 @@ description: Hyperledger Besu command line interface subcommands
 
 # Subcommands
 
-## blocks
+## `blocks`
 
 Provides blocks related actions.
 
-### import
+### `import`
 
 === "Syntax"
 
     ```bash
-    besu blocks import --from=<block-file>
+    besu blocks import [--skip-pow-validation-enabled] [--start-block=<LONG>] [--end-block=<LONG>] --from=<block-file>
     ```
 
 === "Example"
 
     ```bash
-    besu blocks import --from=/home/me/me_project/mainnet.blocks
+    besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet.blocks
     ```
 
-Imports blocks from the specified file into the blockchain database.
+Imports a block or range of blocks from the specified file into the blockchain database.
 
-### export
+You can specify the starting index of the block range to import with `--start-block`.
+If omitted, the start block defaults to 0 (the beginning of the chain).
+
+You can specify the ending index (exclusive) of the block range to import with `--end-block`.
+If omitted, all blocks after the start block will be imported.
+
+Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
+
+!!! note
+
+    Use `--skip-pow-validation-enabled` when performing [Ethereum Foundation hive testing](https://github.com/ethereum/hive).
+
+### `export`
 
 === "Syntax"
 
@@ -38,7 +50,7 @@ Imports blocks from the specified file into the blockchain database.
     besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
     ```
 
-Exports a block, or list of blocks from storage to a file in RLP format.
+Exports a block or range of blocks from storage to a file in RLP format.
 
 If you omit `--start-block`, the start block defaults to 0 (the beginning of the chain), and if you
 omit `--end-block`, the end block defaults to the end of the chain.
@@ -46,7 +58,7 @@ omit `--end-block`, the end block defaults to the end of the chain.
 If you are not running the command against the default network (MainNet), specify the `--network`
 or `--genesis-file` parameter.
 
-## public-key
+## `public-key`
 
 This command provides node public key related actions.
 
@@ -58,7 +70,7 @@ This command provides node public key related actions.
     command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when
     starting Besu.
 
-### export
+### `export`
 
 === "Syntax"
 
@@ -80,7 +92,7 @@ This command provides node public key related actions.
 
 Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
 
-### export-address
+### `export-address`
 
 === "Syntax"
 
@@ -102,11 +114,11 @@ Outputs the node public key to standard output or to the file specified by `--to
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
 
-## password
+## `password`
 
 Provides password related actions.
 
-### hash
+### `hash`
 
 This command generates the hash of a given password. Include the hash in the
 [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
@@ -124,11 +136,11 @@ This command generates the hash of a given password. Include the hash in the
     besu password hash --password=myPassword123
     ```
 
-## operator
+## `operator`
 
 Provides operator actions.
 
-### generate-blockchain-config
+### `generate-blockchain-config`
 
 This command generates
 [IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
@@ -145,12 +157,12 @@ This command generates
     besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
     ```
 
-The configuration file has 2 subnested JSON nodes. The first is the `genesis` property defining the
+The configuration file has 2 nested JSON nodes. The first is the `genesis` property defining the
 [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for
 the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
 generate.
 
-### generate-log-bloom-cache
+### `generate-log-bloom-cache`
 
 !!! tip
 
@@ -181,11 +193,11 @@ To generate cached log bloom indexes while the node is running, use the
     besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
     ```
 
-## rlp
+## `rlp`
 
 Provides RLP related actions.
 
-### encode
+### `encode`
 
 This command encodes a typed JSON value from a file or from the standard input into an RLP
 hexadecimal string.
@@ -262,7 +274,7 @@ the `IBFT_EXTRA_DATA` type.
             0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
             ```
 
-## retesteth
+## `retesteth`
 
 Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a
 developer tool that can generate and run consensus tests against any Ethereum client running such a

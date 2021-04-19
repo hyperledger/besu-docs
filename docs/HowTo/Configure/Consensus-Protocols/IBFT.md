@@ -7,6 +7,12 @@ description: Hyperledger Besu IBFT 2.0 Proof-of-Authority (PoA) consensus protoc
 Besu implements the IBFT 2.0 Proof-of-Authority (PoA) consensus protocol. Private networks can use
 IBFT 2.0.
 
+!!! warning
+
+    Configure your network to ensure you never lose 1/3 or more of your validators. If more
+    than 1/3 of validators stop participating, new blocks are no longer created, and the
+    network stalls. It may take significant time to recover once nodes are restarted.
+
 In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
@@ -63,7 +69,7 @@ The properties specific to IBFT 2.0 are:
 * `epochlength` - The number of blocks after which to reset all votes.
 * `requesttimeoutseconds` - The timeout for each consensus round before a round change, in seconds.
 * `blockreward` - Optional reward amount in Wei to reward the beneficiary. Defaults to zero (0).
-    Can be specified as a hexidecimal (with 0x prefix) or decimal string value. If set, then all
+    Can be specified as a hexadecimal (with 0x prefix) or decimal string value. If set, then all
     nodes on the network must use the identical value.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
@@ -129,13 +135,20 @@ Usually, the protocol adds the proposed block before reaching `requesttimeoutsec
 then starts, resetting the block time and round timeout timers. When `blockperiodseconds`
 expires, the protocol proposes the next new block.
 
+!!! warning
+
+    If more than 1/3 of validators stop participating, new blocks can no longer be created and 
+    `requesttimeoutseconds` doubles with each round change. The quickest method
+    to resume block production is to restart all validators, which resets `requesttimeoutseconds` to
+    its genesis value.
+
 Once `blockperiodseconds` is over, the time from proposing a block to adding the block is
 small (usually around one second) even in networks with geographically dispersed validators.
 
 !!! example
     An internal IBFT 2.0 network run by PegaSys had four geographically dispersed validators in Sweden,
     Sydney, and two in North Virginia. With a `blockperiodseconds` of 5 and a `requesttimeoutseconds`
-    of 10, the testnet consistently created blocks with a five second blocktime.
+    of 10, the testnet consistently created blocks with a five second block time.
 
 #### Tuning block timeout
 
@@ -145,6 +158,11 @@ To tune the block timeout for your network deployment:
    `blockperiodseconds`.
 1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
 1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
+
+!!! tip
+
+    View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
+    log messages. 
 
 ### Optional configuration options
 
@@ -202,7 +220,7 @@ To propose adding a validator, call
 specifying the address of the proposed validator and `true`. A majority of validators must execute
 the call.
 
-!!! example "JSON-RPC ibft_proposeValidatorVote Request Example"
+!!! example "JSON-RPC `ibft_proposeValidatorVote` Request Example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
@@ -219,7 +237,7 @@ adds the proposed validator to the validator pool and the validator can begin va
 To return a list of validators and confirm the addition of a proposed validator, use
 [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getValidatorsByBlockNumber).
 
-!!! example "JSON-RPC ibft_getValidatorsByBlockNumber Request Example"
+!!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` Request Example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
@@ -229,7 +247,7 @@ To discard your proposal after confirming the addition of a validator, call
 [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardValidatorVote),
 specifying the address of the proposed validator.
 
-!!! example "JSON-RPC ibft_discardValidatorVote Request Example"
+!!! example "JSON-RPC `ibft_discardValidatorVote` Request Example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>

@@ -72,7 +72,7 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 * [Logs](#logs)
 * [Pending transactions](#pending-transactions)
 * [Dropped transactions](#dropped-transactions)
-* [Synchronizng](#synchronizing)
+* [Synchronizing](#synchronizing)
 
 Use `priv_subscribe` to [create subscriptions for logs on private contracts](#logs).
 
@@ -464,7 +464,7 @@ To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_
 
 When cancelling a subscription for private logs, the privacy group ID must be specified.
 
-`eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription succuessfully unsubscribed;
+`eth_unsubscribe` and `priv_unsubscribe` return `true` if subscription successfully unsubscribed;
 otherwise, returns an error.
 
 !!!example

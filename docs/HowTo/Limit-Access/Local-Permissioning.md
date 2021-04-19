@@ -99,7 +99,7 @@ permissioning accepts transactions only from accounts in the accounts allowlist.
     `accounts-allowlist=["0x0000000000000000000000000000000000000009"]`
 
 Account allowlisting is at the node level. That is, each node in the network has a
-[permisssions configuration file](#permissions-configuration-file) in the
+[permissions configuration file](#permissions-configuration-file) in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
 !!! caution "Using account permissioning and privacy"
@@ -110,7 +110,7 @@ Account allowlisting is at the node level. That is, each node in the network has
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key included in the accounts allowlist.
+    command line option and the corresponding public key included in the accounts allowlist.
 
 Transaction validation against the accounts allowlist occurs at the following points:
 
@@ -200,7 +200,7 @@ options.
     The [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
     and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
     options are not used when running Besu from the
-    [Docker image](../Get-Started/Run-Docker-Image.md). Use a bind mount to
+    [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md). Use a bind mount to
     [specify a permissions configuration file with Docker].
 
 !!! example "Sample Permissions Configuration File"
@@ -212,4 +212,4 @@ options.
     ```
 
 <!-- Links -->
-[specify a permissions configuration file with Docker]: ../Get-Started/Run-Docker-Image.md#permissions-configuration-file
+[specify a permissions configuration file with Docker]: ../Get-Started/Installation-Options/Run-Docker-Image.md#permissions-configuration-file

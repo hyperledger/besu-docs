@@ -95,7 +95,7 @@ Run the `kubectl describe services besu` command again until the load balancer I
 
 ### 3 - Deploy Besu
 
-When steps 1 and 2 are completed, deploy Besu using the following yaml example:
+When steps 1 and 2 are completed, deploy Besu using the following YAML example:
 
 !!!example
 
@@ -166,9 +166,9 @@ Possible errors messages for Kubernetes automatic detection failure:
 
 - **Error message:** `Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used`
 - **Cause:** load balancer did start correctly or has the incorrect name.
-- **Fix:** check and modify load balancer yaml configuration and restart service.
+- **Fix:** check and modify load balancer YAML configuration and restart service.
 
-!!!exemple "Example error log"
+!!!example "Example error log"
 
     ```
     INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
@@ -186,7 +186,7 @@ Possible errors messages for Kubernetes automatic detection failure:
 
     If you can't manage permissions, define the IP address and ports manually with [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none) mode
 
-!!!exemple "Example error log"
+!!!example "Example error log"
 
     ```
     INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
@@ -196,7 +196,7 @@ Possible errors messages for Kubernetes automatic detection failure:
     ```
 
 !!!tip
-    For dev environment, the permission issue can be fixed by running `kubectl create clusterrolebinding myapp-view-binding --clusterrole=admin --serviceaccount=default:default`
+    For development environment, the permission issue can be fixed by running `kubectl create clusterrolebinding myapp-view-binding --clusterrole=admin --serviceaccount=default:default`
 
       This command should only be used on developement environment and not in production environment.
 
@@ -209,7 +209,7 @@ Possible errors messages for Kubernetes automatic detection failure:
 - **Cause:** Load balancer did not finish to recover an IP address.
 - **Fix:** [Check that the load balancer is properly deployed](#check-that-the-load-balancer-is-properly-deployed) before launching Besu.
 
-!!!exemple "Example error log"
+!!!example "Example error log"
 
     ```
     INFO  | KubernetesNatManager | Starting kubernetes NAT manager.

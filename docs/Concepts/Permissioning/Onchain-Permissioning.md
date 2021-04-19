@@ -8,16 +8,24 @@ Onchain permissioning uses smart contracts to store and administer the node, acc
 allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single
 source, the blockchain.
 
+!!! important
+
+    When using Onchain Account Permissioning, a node checks permissions when importing blocks.
+    Meaning, a node only imports blocks in which all transactions are from authorized senders. If
+    you disable Onchain Account Permissioning and your node accept blocks without enforcing this rule,
+    your node cannot resync with other nodes that are enforcing Onchain Account Permissioning rules
+    (your node goes into forked state).
+
 !!! note
 
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to
-    Hyperledger Besu, located in the [PegaSysEng/permissioning-smart-contracts] repository.
+    Hyperledger Besu, located in the [ConsenSys/permissioning-smart-contracts] repository.
 
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts
 
-The permissioning smart contracts provided in the [PegaSysEng/permissioning-smart-contracts]
+The permissioning smart contracts provided in the [ConsenSys/permissioning-smart-contracts]
 repository are:
 
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
@@ -28,7 +36,14 @@ repository are:
 * Account Rules - stores the accounts allowlist and account allowlist operations (for example, add
   and remove).
 * Admin - stores the list of admin accounts and admin list operations (for example, add and
-  remove). There is one list of admin accounts for node and accounts.
+  remove). Admin accounts are stored in a single list for both nodes and accounts.
+
+!!! important
+
+    The permissioning contract has multiple interfaces, and each interface maps to a specific
+    version of the Enterprise [Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
+    Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    being used when starting Besu.
 
 ## Permissioning management Dapp
 
@@ -54,8 +69,18 @@ Permissioning implements three allowlists:
     [privacy marker transactions](../Privacy/Private-Transaction-Processing.md).
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [`--privacy-marker-transaction-signing-key-file`] command line option and the signing key
+    [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    command line option and the corresponding public key
     included in the accounts allowlist.
+
+!!! tip
+
+    If nodes are not connecting as expected, set the [log level to `TRACE`](../../Reference/CLI/CLI-Syntax.md#logging)
+    and search for messages containing `Node permissioning` to identify the issue.
+
+    Ensure the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) command line option has been
+    correctly configured for all nodes with the
+    externally accessible address.
 
 ## Bootnodes
 
@@ -71,6 +96,6 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[PegaSysEng/permissioning-smart-contracts]: https://github.com/PegaSysEng/permissioning-smart-contracts
+[ConsenSys/permissioning-smart-contracts]: https://github.com/ConsenSys/permissioning-smart-contracts
 [Permissioning Management Dapp]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
 [`--privacy-marker-transaction-signing-key-file`]: ../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file

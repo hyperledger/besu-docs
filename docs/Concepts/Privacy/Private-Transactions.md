@@ -69,13 +69,13 @@ transaction is submitted to the [transaction pool](../Transactions/Transaction-P
 
 Unlike [public transaction nonces](../Transactions/Transaction-Validation.md), private transaction
 nonces are not validated when the private transaction is submitted. If a private transaction has an
-incorrect nonce, the privacy marker transaction is still valid and is added to a block.  The
-private transaction execution fails when [processing the privacy marker transaction](../Privacy/Private-Transaction-Processing.md)
+incorrect nonce, the privacy marker transaction is still valid and is added to a block.
+The private transaction execution fails when [processing the privacy marker transaction](../Privacy/Private-Transaction-Processing.md)
 for the private transaction with the incorrect nonce.
 
 !!! tip
 
-    The [web3js-eea library includes an example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    The [web3js-eea library includes an example](https://github.com/ConsenSys/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     of nonce management when sending multiple private transactions. The example calculates the
     correct nonces for the private transactions and privacy marker transactions outside of Besu.
 

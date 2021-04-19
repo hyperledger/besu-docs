@@ -41,7 +41,7 @@ consensus protocols.
 | `coinbase`          | Address to pay mining rewards to. Can be any value in the genesis block (commonly set to `0x0000000000000000000000000000000000000000`). |
 | `gasLimit`          | Block gas limit. Total gas limit for all transactions in a block.                                                                       |
 | `nonce`             | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`).                                               |
-| `timestamp`         | Creation date and time of the block.  Must be before the next block so we recommend specifying `0x0` in the genesis file.               |
+| `timestamp`         | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.               |
 | `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../HowTo/Configure/Contracts-in-Genesis.md).                   |
 
 ## Milestone blocks
@@ -108,4 +108,6 @@ Use `fixeddifficulty` to specify a fixed difficulty in private networks using Et
     ```
 
 !!! tip
-    Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments. For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead. Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targetted frequency.
+    Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments.
+    For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead.
+    Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targeted frequency.

@@ -5,13 +5,13 @@ description: Running Orion with Hyperledger Besu
 # Run Orion with Besu
 
 To enable [privacy functionality](../../Concepts/Privacy/Privacy-Overview.md) in production
-systems, [Orion](https://docs.orion.pegasys.tech/) must be [highly available](#high-availability)
+systems, [Orion](https://docs.orion.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
 ## High availability
 
 Privacy requires you to
-[configure Orion for high availability](https://docs.orion.pegasys.tech/HowTo/High-Availability/).
+[configure Orion for high availability](https://docs.orion.consensys.net/HowTo/High-Availability/).
 
 To successfully distribute a private transaction, all private transaction participants must be
 online. If any participants are offline when submitting the private transaction, the transaction is

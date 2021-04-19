@@ -12,8 +12,8 @@ latest state for the blockchain (and some older states, but not all). You can ch
 balances, sign and send transactions, and look at current Dapp data.
 
 Archive nodes have all of this and they also store the intermediary state of every account and
-contract for every block since the genesis block. With an archive node you can do everything you
-do with a full node, as well as access historical state data.
+contract for every block since the genesis block.
+An archive node can do everything a full node does, and it can access historical state data.
 
 For Besu on MainNet, Archive nodes require significantly more disk space (approximately 3TB) than
 full nodes (approximately 750GB).
@@ -24,12 +24,10 @@ full nodes (approximately 750GB).
     different disk space requirements.
 
 To run an archive node, enable full synchronization using
-[`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode), which by default also disables
-pruning ([`--pruning-enabled=false`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)).
+[`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 
 To run a full node, enable fast synchronization using
-[`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode), which by default also enables
-pruning ([`--pruning-enabled=true`](../Reference/CLI/CLI-Syntax.md#pruning-enabled)).
+[`--sync-mode=FAST`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 
 ## Fast synchronization
 

@@ -8,7 +8,7 @@ Create and send [private transactions](../../Concepts/Privacy/Privacy-Overview.m
 
 * [web3js-eea client library](../Interact/Client-Libraries/web3js-eea.md) or
   [web3j client library](https://github.com/web3j/web3j)
-* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.pegasys.tech/en/latest/Using-EthSigner/Using-EthSigner/)
+* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/)
 * [`eea_sendRawTransaction`](#eea_sendrawtransaction)
 * [`priv_distributeRawTransaction`](#priv_distributerawtransaction).
 
@@ -24,7 +24,7 @@ The `gas` and `gasPrice` specified when sending a private transaction are used b
     Private transactions either deploy contracts or call contract functions. Ether transfer
     transactions cannot be private.
 
-## eea_sendRawTransaction
+## `eea_sendRawTransaction`
 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
 private transaction to the participating nodes, and signs and submits the
@@ -40,7 +40,7 @@ private transaction to the participating nodes, and signs and submits the
     [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
     the nonce for an account for the specified privacy group or participants.
 
-## priv_distributeRawTransaction
+## `priv_distributeRawTransaction`
 
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
 distributes the private transaction to the participating nodes but does not sign and submit the
@@ -54,7 +54,7 @@ If using
 instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction), use
 the value returned by
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
-which is the enclave key to the private transaction in [Orion](https://docs.orion.pegasys.tech/),
+which is the enclave key to the private transaction in [Orion](https://docs.orion.consensys.net/),
 in the `data` field of a call to
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction).
 

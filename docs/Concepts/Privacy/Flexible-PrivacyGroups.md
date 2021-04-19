@@ -37,7 +37,7 @@ In the default implementation of the group management contract, the signer of th
 that creates the privacy group is also the owner of the group. Only the owner can add and remove participants,
 and upgrade the management contract.
 
-The owner is identified by the signing key.  Transactions to add and remove participants, or upgrade
+The owner is identified by the signing key. Transactions to add and remove participants, or upgrade
 the management contract, must be signed by the same key that signed the group creation transaction.
 
 ## Flexible privacy group IDs

@@ -9,8 +9,8 @@ an example port configuration for a Besu node on AWS.
 
 ![Port Configuration](../../images/PortConfiguration.png)
 
-When running Besu from the [Docker image](../Get-Started/Run-Docker-Image.md),
-[expose ports](../Get-Started/Run-Docker-Image.md#exposing-ports).
+When running Besu from the [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md),
+[expose ports](../Get-Started/Installation-Options/Run-Docker-Image.md#exposing-ports).
 
 !!! tip
 
@@ -23,7 +23,7 @@ To enable peer discovery, the P2P UDP port must be open for inbound connections.
 port using the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option. The default is
 `30303`.
 
-We also recommended opening the P2P TCP port for inbound connections. This is not strictly required
+We also recommend opening the P2P TCP port for inbound connections. This is not strictly required
 because Besu attempts to open outbound TCP connections. But if no nodes on the network are
 accepting inbound TCP connections, nodes cannot communicate.
 

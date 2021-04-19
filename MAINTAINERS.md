@@ -4,22 +4,23 @@
 
 <!-- Please keep this sorted alphabetically by github -->
 
-| Name             | Github           | LFID             |
+<!-- vale off -->
+| Name             | GitHub           | LFID             |
 | ---------------- | ---------------- | ---------------- |
+| Alexandra Tran   | alexandratran    | alexandratran    |
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
-| Steven Gregg     | sgregglives      | sagregg          |
-| Grant Noble      | grantnoble       | grantnoble       |
+<!-- vale on -->
 
 ## Emeritus maintainers
 
-None.
-<!--
-| Name | Github | LFID |
-|------|--------|------|
-| null | null   | null |
--->
+<!-- vale off -->
+| Name             | GitHub           | LFID             |
+| ---------------- | ---------------- | ---------------- |
+| Steven Gregg     | sgregglives      | sagregg          |
+| Grant Noble      | grantnoble       | grantnoble       |
+<!-- vale on -->
 
 ## Becoming a maintainer
 
@@ -32,7 +33,7 @@ To become a maintainer the following steps occur, roughly in order.
     - The proposed maintainer accepts the nomination and expresses a willingness to be a long-term
       (more than six months) committer.
     - This would be a comment in the above PR.
-    - All appropriate communication channels will advertise this PR, as well as mentioned in any
+    - All appropriate communication channels will advertise this PR and it will be mentioned in any
       maintainer/community call. The appropriate mailing lists or chat channels (if they exist)
       will also advertise the PR.
 - Approval by at least three current maintainers within two weeks of the proposal or an absolute
@@ -42,7 +43,7 @@ To become a maintainer the following steps occur, roughly in order.
     - Accompanying all vetoes must be a public explanation as a comment in the PR for adding this
       maintainer.
     - The explanation of the veto must be reasonable.
-    - You can retract a veto, in which case the approval/veto timeframe is reset.
+    - You can retract a veto, in which case the approval/veto time frame is reset.
     - It's bad form to veto, retract, and veto again.
 - The proposed maintainer becomes a maintainer:
     - Either two weeks have passed since the third approval,

@@ -83,8 +83,8 @@ Besu provides readiness and liveness endpoints to confirm the Besu node status. 
 
 By default, the readiness check requires a connected peer and the node to be within two blocks of
 the best known block. If you have
-[disabled p2p communication](../../../Reference/CLI/CLI-Syntax.md#p2p-enabled), you do not need
-peers. A live node with p2p disabled is always ready.
+[disabled P2P communication](../../../Reference/CLI/CLI-Syntax.md#p2p-enabled), you do not need
+peers. A live node with P2P disabled is always ready.
 
 Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required
 and the number of blocks tolerance.
@@ -146,7 +146,7 @@ The block parameter can have the following values:
 * `earliest` : `tag` - The earliest (genesis) block.
 * `latest` : `tag` - The last block mined.
 * `pending` : `tag` - The last block mined plus pending transactions. Use only with
-  [eth_getTransactionCount](../../../Reference/API-Methods.md#eth_gettransactioncount).
+  [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount).
 
 !!! note
 

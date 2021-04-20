@@ -16,7 +16,7 @@ To determine system requirements, check CPU and disk space requirements using
 
 ## Java Virtual Machine size
 
-For Mainnet and testnets, the minimum Java Virtual Machine (JVM) memory requirement is 8GB.
+For Mainnet and testnets, the minimum Java Virtual Machine (JVM) memory requirement is 8 GB.
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
 to the chain head. Monitor your system to determine your actual JVM memory needs.
@@ -24,8 +24,8 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 ## Disk space
 
 [Fast synchronization](../../../Reference/CLI/CLI-Syntax.md#sync-mode) with
-[pruning](../../../Concepts/Pruning.md) enabled requires approximately 750GB of disk space.
-[Full synchronization](../../../Reference/CLI/CLI-Syntax.md#sync-mode) requires approximately 3TB.
+[pruning](../../../Concepts/Pruning.md) enabled requires approximately 750 GB of disk space.
+[Full synchronization](../../../Reference/CLI/CLI-Syntax.md#sync-mode) requires approximately 3 TB.
 
 ## AWS requirements
 

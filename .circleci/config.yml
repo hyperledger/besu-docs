@@ -4,12 +4,21 @@ executors:
   python_executor:
     docker:
       - image: circleci/python:3.7.4
+        auth:
+          username: $DOCKER_USER_RO
+          password: $DOCKER_PASSWORD_RO
   node_executor:
     docker:
-      - image: circleci/node:12.9.0-stretch
+      - image: circleci/node:lts-buster
+        auth:
+          username: $DOCKER_USER_RO
+          password: $DOCKER_PASSWORD_RO
   shell_executor:
     docker:
       - image: circleci/buildpack-deps:buster-scm
+        auth:
+          username: $DOCKER_USER_RO
+          password: $DOCKER_PASSWORD_RO
 
 commands:
   install_node:
@@ -149,12 +158,24 @@ workflows:
   version: 2
   default:
     jobs:
-      - dco
-      - build
-      - vale
-      - markdownlint
-      - linkchecker
-      - repolint
+      - dco:
+          context:
+            - besu-dockerhub-ro
+      - build:
+          context:
+            - besu-dockerhub-ro
+      - vale:
+          context:
+            - besu-dockerhub-ro
+      - markdownlint:
+          context:
+            - besu-dockerhub-ro
+      - linkchecker:
+          context:
+            - besu-dockerhub-ro
+      - repolint:
+          context:
+            - besu-dockerhub-ro
 
   nightly:
     triggers:
@@ -165,7 +186,9 @@ workflows:
               only:
                 - master
     jobs:
-      - linkchecker
+      - linkchecker:
+          context:
+            - besu-dockerhub-ro
 
   weekly:
     triggers:
@@ -176,4 +199,6 @@ workflows:
               only:
                 - master
     jobs:
-      - repolint
+      - repolint:
+          context:
+            - besu-dockerhub-ro

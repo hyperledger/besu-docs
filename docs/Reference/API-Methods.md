@@ -6299,6 +6299,47 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
         }
         ```
 
+### `priv_debugGetStateRoot`
+
+Returns the state root of the specified privacy group at the specified block.
+
+#### Parameters
+
+`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
+
+`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result` : `data` - 32-byte state root.
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+        }
+
+        ```
+
 ### `priv_distributeRawTransaction`
 
 Distributes a signed, RLP encoded

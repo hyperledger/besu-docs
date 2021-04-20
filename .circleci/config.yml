@@ -6,7 +6,7 @@ executors:
       - image: circleci/python:3.7.4
   node_executor:
     docker:
-      - image: circleci/node:12.9.0-stretch
+      - image: circleci/node:lts-buster
   shell_executor:
     docker:
       - image: circleci/buildpack-deps:buster-scm

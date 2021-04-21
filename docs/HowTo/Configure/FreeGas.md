@@ -92,6 +92,8 @@ to zero.
 !!! important
     In a free gas network, ensure the [minimum gas price](../../Reference/CLI/CLI-Syntax.md#min-gas-price)
     is set to zero for every node.
+    Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
+    You can query a node's gas configuration using [`eth_gasPrice`](../../Reference/API-Methods.md#eth_gasprice).
 
 ## Configuring free gas in Truffle
 

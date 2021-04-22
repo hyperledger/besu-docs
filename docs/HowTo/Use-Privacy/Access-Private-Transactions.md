@@ -19,8 +19,8 @@ receipt for the:
 * Privacy marker transaction, use
   [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt).
 
-The transaction receipt includes a `status` indicating success (`0x1`) or failure (`0x0`) of the
-transactions.
+The transaction receipt includes a `status` indicating if the transaction failed (`0x0`), succeeded (`0x1`), or
+was invalid (`0x2`).
 
 !!! example "Private Transaction Failure Example"
 

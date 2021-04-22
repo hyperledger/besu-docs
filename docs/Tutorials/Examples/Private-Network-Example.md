@@ -273,7 +273,7 @@ The updated balance reflects the transaction completed using MetaMask.
 
 ## Smart contract and dapp usage
 
-You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorials/pet-shop).
+You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
 
 You can use a demo dapp called Pet Shop, provided by Truffle.
 The dapp runs a local website using Docker, and uses smart contracts deployed on the network.

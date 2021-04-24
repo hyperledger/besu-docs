@@ -37,6 +37,7 @@ Ethereum
 Etherscan
 Ethminer
 EthSigner
+EthStats
 Filebeat
 Filecoin
 Filestore(s)?

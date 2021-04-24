@@ -3187,6 +3187,35 @@ plugin
 Defaults to using the nodes's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
 
+### `static-nodes-file`
+
+=== "Syntax"
+
+    ```bash
+    --static-nodes-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --static-nodes-file=~/besudata/static-nodes.json
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    static-nodes-file="~/besudata/static-nodes.json"
+    ```
+
+Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
+connect to.
+
 ### `sync-mode`
 
 === "Syntax"

@@ -278,3 +278,4 @@ plugins:
           Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
           HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
+          Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-eea-Multinode-example.md

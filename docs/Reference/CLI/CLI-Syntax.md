@@ -1254,7 +1254,10 @@ The minimum price a transaction offers to include it in a mined block. The minim
 lowest value [`eth_gasPrice`](../API-Methods.md#eth_gasprice) can return. The default is 1000
 Wei.
 
-In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
+!!! important
+    In a [free gas network](../../HowTo/Configure/FreeGas.md), ensure the minimum gas price is set to zero for every node.
+    Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
+    You can query a node's gas configuration using [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
 
 ### `nat-method`
 

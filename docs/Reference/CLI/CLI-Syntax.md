@@ -2646,11 +2646,11 @@ The default is `false`.
 
 Specifies the host on which HTTP JSON-RPC listens. The default is 127.0.0.1.
 
-To allow remote connections, set to `0.0.0.0`
+To allow remote connections, set to `0.0.0.0`.
 
 !!! caution
 
-    Setting the host to 0.0.0.0 exposes the RPC connection on your node to any remote connection.
+    Setting the host to `0.0.0.0` exposes the RPC connection on your node to any remote connection.
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.
 

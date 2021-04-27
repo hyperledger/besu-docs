@@ -7,7 +7,7 @@ description: Full and archive node types
 Besu supports two node types, commonly referred to as _full nodes_ and _archive nodes_.
 
 Full nodes have the current state of the blockchain so cannot serve the network with all data
-requests (for example, the balance of an account as at an old block). Full nodes can guarantee the
+requests (for example, the balance of an account at an old block). Full nodes can guarantee the
 latest state for the blockchain (and some older states, but not all). You can check current
 balances, sign and send transactions, and look at current dapp data.
 
@@ -15,7 +15,7 @@ Archive nodes have all of this and they also store the intermediary state of eve
 contract for every block since the genesis block. An archive node can do everything a full node
 does, and it can access historical state data.
 
-For Besu on MainNet, Archive nodes require significantly more disk space (approximately 3TB) than
+For Besu on MainNet, archive nodes require significantly more disk space (approximately 3TB) than
 full nodes (approximately 750GB).
 
 !!! note
@@ -31,8 +31,8 @@ To run a full node, enable fast synchronization using
 Fast synchronization downloads the block headers and transaction receipts, and verifies the chain of
 block headers from the genesis block.
 
-When starting fast synchronisation, Besu first downloads the world state for a recent block verified
-by its peers (referred to as a pivot block), and then begins fast synchronisation from the
+When starting fast synchronization, Besu first downloads the world state for a recent block verified
+by its peers (referred to as a pivot block), and then begins fast synchronization from the
 genesis block.
 
 !!! important
@@ -45,7 +45,7 @@ genesis block.
     the [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
     options.
 
-## Run an archive nodes
+## Run an archive node
 
 To run an archive node, enable full synchronization using
 [`--sync-mode=FULL`](../Reference/CLI/CLI-Syntax.md#sync-mode).

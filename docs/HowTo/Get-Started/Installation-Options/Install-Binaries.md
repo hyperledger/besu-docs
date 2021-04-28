@@ -37,8 +37,8 @@ brew upgrade hyperledger/besu/besu
 
 !!! note
 
-    If you've upgraded your MacOS version between installing and upgrading Besu, upon running `brew upgrade
-    hyperledger/besu/besu`, you may be prompted to reinstall command line tools with `xcode-select --install`.
+    If you've upgraded your MacOS version between installing and upgrading Besu, when running `brew upgrade
+    hyperledger/besu/besu` you may be prompted to reinstall command line tools with `xcode-select --install`.
 
 To display the Besu version and confirm installation:
 

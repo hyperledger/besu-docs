@@ -3217,7 +3217,7 @@ Defaults to using the nodes's local private key file specified using
     ```
 
 Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
-connect to.
+connect to. Defaults to `datapath/static-nodes.json`.
 
 ### `sync-mode`
 

@@ -30,6 +30,8 @@ To configure a network of static nodes:
 
 1. Save the `static-nodes.json` file in the data directory (specified by
    [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path)) of each node.
+   Alternatively, you can explicitly specify the static nodes file on the command line using
+   [`--static-nodes-file`](../../Reference/CLI/CLI-Syntax.md#static-nodes-file).
 
 1. Start Besu with discovery disabled using
    [`--discovery-enabled=false`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled).

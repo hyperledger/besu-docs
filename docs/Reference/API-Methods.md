@@ -6645,7 +6645,7 @@ for private contracts.
 
 Returns the address of the
 [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
-is derived and based on the value of the [`privacy-onchain-groups-enabled`](CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+is derived and based on the value of the [`privacy-flexible-groups-enabled`](CLI/CLI-Syntax.md#privacy-flexible-groups-enabled)
 option.
 
 #### Parameters

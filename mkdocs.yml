@@ -191,6 +191,7 @@ nav:
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - TLS Communication: Concepts/TLS.md
+        - Node Types: Concepts/Node-Types.md
         - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
@@ -207,6 +208,7 @@ nav:
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md
+        - Projects Using Besu: Reference/Projects-Using-Besu.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 
@@ -277,3 +279,4 @@ plugins:
           Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
           HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
+          Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-eea-Multinode-example.md

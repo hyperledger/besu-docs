@@ -20,6 +20,7 @@
 | ---------------- | ---------------- | ---------------- |
 | Steven Gregg     | sgregglives      | sagregg          |
 | Grant Noble      | grantnoble       | grantnoble       |
+| Tim Beiko        | timbeiko         | timbeiko       |
 <!-- vale on -->
 
 ## Becoming a maintainer

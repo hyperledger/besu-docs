@@ -12,6 +12,9 @@ Signed transactions can be simple value transfers, contract creation, or contrac
 the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../../Reference/CLI/CLI-Syntax.md#rpc-tx-feecap)
 CLI option.
 
+To accept signed transactions from remote connections, set the
+[API listening host](../Interact/APIs/API.md#service-hosts) to `0.0.0.0`.
+
 [Use client libraries](../Develop-Dapps/Client-Libraries.md) to create and send a signed raw transaction to transfer
 Ether and create a smart contract.
 
@@ -28,6 +31,13 @@ Ether and create a smart contract.
     offline, or use [EthSigner](https://docs.ethsigner.consensys.net/) to isolate your private keys
     and sign transactions with
     [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+
+!!! caution
+
+    Setting the [listening host](../Interact/APIs/API.md#service-hosts) to `0.0.0.0` exposes the API service
+    connection on your node to any remote connection.
+    In a production environment, ensure you are using a firewall to avoid exposing your node to the
+    internet.
 
 !!! tip
 

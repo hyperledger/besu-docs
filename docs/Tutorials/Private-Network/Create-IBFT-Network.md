@@ -62,7 +62,7 @@ in the `IBFT-Network` directory:
 {
  "genesis": {
    "config": {
-      "chainId": 2018,
+      "chainId": 1337,
       "muirglacierblock": 0,
       "ibft2": {
         "blockperiodseconds": 2,

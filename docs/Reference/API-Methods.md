@@ -5402,7 +5402,7 @@ None
 
 #### Returns
 
-`result`: *array* of *strings* - eccounts (participants) in the accounts allowlist
+`result`: *array* of *strings* - list of accounts (participants) in the accounts allowlist
 
 !!! example
 

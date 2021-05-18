@@ -1334,9 +1334,9 @@ Reruns the transaction with the same state as when the transaction executed.
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
     * `disableStorage`: *boolean* - `true` disables storage capture.
-      
+
     * `disableMemory`: *boolean* - `true` disables memory capture.
-      
+
     * `disableStack` : *boolean* - `true` disables stack capture.
 
 #### Returns
@@ -1391,11 +1391,11 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
-  * `disableStorage`: *boolean* - `true` disables storage capture.
+    * `disableStorage`: *boolean* - `true` disables storage capture.
 
-  * `disableMemory`: *boolean* - `true` disables memory capture.
+    * `disableMemory`: *boolean* - `true` disables memory capture.
 
-  * `disableStack` : *boolean* - `true` disables stack capture.
+    * `disableStack` : *boolean* - `true` disables stack capture.
 
 #### Returns
 
@@ -1449,11 +1449,11 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
-  * `disableStorage`: *boolean* - `true` disables storage capture.
+    * `disableStorage`: *boolean* - `true` disables storage capture.
 
-  * `disableMemory`: *boolean* - `true` disables memory capture.
+    * `disableMemory`: *boolean* - `true` disables memory capture.
 
-  * `disableStack` : *boolean* - `true` disables stack capture.
+    * `disableStack` : *boolean* - `true` disables stack capture.
 
 #### Returns
 
@@ -1514,11 +1514,11 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
-  * `disableStorage`: *boolean* - `true` disables storage capture.
+    * `disableStorage`: *boolean* - `true` disables storage capture.
 
-  * `disableMemory`: *boolean* - `true` disables memory capture.
+    * `disableMemory`: *boolean* - `true` disables memory capture.
 
-  * `disableStack` : *boolean* - `true` disables stack capture.
+    * `disableStack` : *boolean* - `true` disables stack capture.
 
 #### Returns
 
@@ -3089,9 +3089,9 @@ from untrusted sources, by using a trusted block hash.
 * `storageProof`: *array* of *objects* - list of storage entry objects with the following fields:
   
     * `key`: *string* - storage key
-      
+
     * `value`: *string* - storage value
-      
+
     * `proof`: *array* of *strings* - list of RLP-encoded Merkle tree nodes, starting with the `storageHash`
 
 !!! example
@@ -6940,7 +6940,7 @@ Supported operators:
 * `action`
 
 !!! note
-    
+
     The only supported `action` is `"contract_creation"`.
 
 #### Returns

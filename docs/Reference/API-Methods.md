@@ -152,19 +152,19 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 
 #### Parameters
 
-* `startBlock`: *number* - block to start generating indexes
+* `startBlock`: *string* - block to start generating indexes
 
-* `endBlock`: *number* - block to stop generating indexes
+* `endBlock`: *string* - block to stop generating indexes
 
 #### Returns
 
 `result`: *object* - log bloom index details:
 
-* `startBlock`: *number* - starting block for the last requested cache generation
+* `startBlock`: *string* - starting block for the last requested cache generation
   
-* `endBlock`: *number* - ending block for the last requested cache generation
+* `endBlock`: *string* - ending block for the last requested cache generation
   
-* `currentBlock`: *number* - most recent block added to the cache
+* `currentBlock`: *string* - most recent block added to the cache
   
 * `indexing`: *boolean* - indicates if indexing is in progress
   
@@ -206,11 +206,11 @@ Removes cache files for the specified range of blocks.
 
 #### Parameters
 
-* `fromBlock`: *number* - integer representing a block number or one of the string tags `latest`,
+* `fromBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-* `toBlock`: *number* - integer representing a block number or one of the string tags `latest`,
+* `toBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
@@ -259,7 +259,7 @@ Repairs cached logs by fixing all segments starting with the specified block num
 
 #### Parameters
 
-`startBlock`: *number* - decimal index of the starting block to fix; defaults to the head block
+`startBlock`: *string* - decimal index of the starting block to fix; defaults to the head block
 
 #### Returns
 
@@ -595,10 +595,10 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-* `fromBlockNumber`: *number* - integer representing a block number or the string tag `earliest`, as described
+* `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest`, as described
 in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-* `toBlockNumber`: *number* - integer representing a block number or one of the string tags `latest` or
+* `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
 `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
@@ -796,7 +796,7 @@ Returns the accounts for a specified block.
 
 #### Parameters
 
-* `blockHashOrNumber`: *string* or *number* - block hash or number
+* `blockHashOrNumber`: *string* - block hash or number
 
 * `txIndex`: *number* - transaction index from which to start
 
@@ -860,7 +860,7 @@ This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTrans
 
 `result`: *array* of *objects* - object returned for each transaction, with the following fields:
 
-* `index`: *number* - index of the transaction in the request parameters array
+* `index`: *string* - index of the transaction in the request parameters array
   
 * `success`: *boolean* - indicates whether or not the transaction has been added to the transaction pool
   
@@ -2535,13 +2535,13 @@ Returns the number of transactions in a block matching the specified block numbe
 
 #### Parameters
 
-`blockNumber`: *string* or *number* - integer representing a block number or one of the string tags `latest`,
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 #### Returns
 
-`result`: *number* - integer representing the number of transactions in the specified block,
+`result`: *string* - integer representing the number of transactions in the specified block,
 or `null` if no matching block number is found
 
 !!! example
@@ -2605,7 +2605,7 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
 `address`: *string* - 20-byte contract address
 
-`blockNumber`: *string* or *number* - integer representing a block number or one of the string tags `latest`,
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 

@@ -208,11 +208,11 @@ Removes cache files for the specified range of blocks.
 
 * `fromBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 * `toBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 You can skip a parameter by using an empty string, `""`.
 If you specify:
@@ -397,17 +397,17 @@ None
   
 * `caps`: *array* of *strings* - list of Ethereum sub-protocol capabilities
   
-* `network`: *object* - local and remote addresses established at time of bonding with the peer; the remote
+* `network`: *object* - local and remote addresses established at time of bonding with the peer (the remote
   address might not match the hex value for `port`; it depends on which node
-  initiated the connection.
+  initiated the connection.)
   
 * `port`: *string* - port on the remote node on which P2P discovery is listening
   
-* `id`: *string* - node public key; excluding the `0x` prefix, the node public key is the ID in the
-  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.
+* `id`: *string* - node public key (excluding the `0x` prefix, the node public key is the ID in the
+  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.)
   
 * `protocols`: *object* - [current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
-including `difficulty` and `head`; `head` is the hash of the highest known block for the peer.
+including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
   
 * `enode`: *string* - enode URL of the remote node
 
@@ -472,7 +472,7 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 #### Returns
 
 `result`: *boolean* - `true` if peer removed or `false` if peer not a
-[static node](../HowTo/Find-and-Connect/Static-Nodes.md))
+[static node](../HowTo/Find-and-Connect/Static-Nodes.md)
 
 !!! example
 
@@ -706,8 +706,8 @@ None
 #### Returns
 
 `result`: *map* of *strings* to *booleans* - map of account addresses to corresponding boolean values indicating the
-proposal for each account; if `true`, the proposal is to add a signer. If `false`, the proposal is to
-remove a signer.
+proposal for each account (if `true`, the proposal is to add a signer; if `false`, the proposal is to
+remove a signer.)
 
 !!! example
 
@@ -920,7 +920,7 @@ None
 
 #### Returns
 
-`result`: *array* of [block objects](API-Objects.md#block-object)
+`result`: *array* of *objects* - list of [block objects](API-Objects.md#block-object)
 
 !!! example
 
@@ -1619,7 +1619,7 @@ transaction data using `eea_sendRawTransaction`.
 #### Returns
 
 `result`: *string* - 32-byte transaction hash of the
-[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
 
 !!! tip
 
@@ -2197,7 +2197,7 @@ Returns information about the block matching the specified block hash.
 * `hash`: *string* - 32-byte hash of a block
 
 * `verbose`: *boolean* - if `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
-if `false`, returns the transaction hashes.
+if `false`, returns the transaction hashes
 
 #### Returns
 
@@ -2611,7 +2611,7 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
 #### Returns
 
-`result`: *data* - Code stored at the specified address
+`result`: *data* - code stored at the specified address
 
 !!! example
 
@@ -3159,7 +3159,7 @@ Returns the value of a storage position at a specified address.
 
 #### Returns
 
-`result` : *DATA* - The value at the specified storage position.
+`result` : *string* - value at the specified storage position
 
 !!! example
 
@@ -4076,7 +4076,7 @@ None
 
 `result`: *array* of *strings* - array with the following items:
 
-* `header`: *string* - 32-byte hash of the current block header (pow-hash)
+* `header`: *string* - 32-byte hash of the current block header (PoW-hash)
   
 * `seed`: *string* - 32-byte seed hash used for the DAG
   
@@ -4540,19 +4540,19 @@ synchronizing:
   synchronization starts
   
 * `currentBlock`: *string* - index of the latest block (also known as the best block) for the
-  current node; this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.
+  current node (this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.)
   
 * `highestBlock`: *string* - index of the highest known block in the peer network (that is, the
-  highest block so far discovered among peer nodes); this is the same value as `currentBlock` if
-  the current node has no peers.
+  highest block so far discovered among peer nodes. This is the same value as `currentBlock` if
+  the current node has no peers.)
   
 * `pulledStates`: *string* - if fast synchronizing, the number of state entries fetched so far,
-  or `null` if this is not known or not relevant; if full synchronizing or fully synchronized, this
-  field is not returned.
+  or `null` if this is not known or not relevant (if full synchronizing or fully synchronized, this
+  field is not returned.)
   
 * `knownStates`: *string* - if fast synchronizing, the number of states the node knows of so
-  far, or `null` if this is not known or not relevant; if full synchronizing or fully synchronized,
-  this field is not returned.
+  far, or `null` if this is not known or not relevant (if full synchronizing or fully synchronized,
+  this field is not returned.)
 
 !!! example
 
@@ -4872,7 +4872,7 @@ Lists the validators defined in the specified block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 #### Returns
 
@@ -5321,8 +5321,8 @@ Adds accounts (participants) to the
 
 #### Returns
 
-`result`: *string* - `Success` or `error`; errors include attempting to add accounts already on the
-allowlist or including invalid account addresses.
+`result`: *string* - `Success` or `error` (errors include attempting to add accounts already on the
+allowlist and including invalid account addresses.)
 
 !!! example
 
@@ -5523,8 +5523,8 @@ Removes accounts (participants) from the
 
 #### Returns
 
-`result`: *string* - `Success` or `error`; errors include attempting to remove accounts not on the allowlist
-or including invalid account addresses.
+`result`: *string* - `Success` or `error` (errors include attempting to remove accounts not on the allowlist
+and including invalid account addresses.)
 
 !!! example
 
@@ -5566,8 +5566,8 @@ Removes nodes from the
 
 #### Returns
 
-`result`: *string* - `Success` or `error`; errors include attempting to remove nodes not on the allowlist
-or including invalid enode URLs.
+`result`: *string* - `Success` or `error` (errors include attempting to remove nodes not on the allowlist
+and including invalid enode URLs.)
 
 !!! example
 
@@ -5664,7 +5664,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 #### Returns
 
@@ -5867,8 +5867,8 @@ Distributes a signed, RLP encoded
 
 #### Returns
 
-`result`: *string* - 32-byte enclave key; the enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.consensys.net/).
+`result`: *string* - 32-byte enclave key (the enclave key is a pointer to the private transaction in
+[Orion](https://docs.orion.consensys.net/).)
 
 !!! example
 

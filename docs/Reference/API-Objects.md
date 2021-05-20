@@ -198,19 +198,28 @@ and
 Parameter for [`eth_call`](API-Methods.md#eth_call) and
 [`eth_estimateGas`](API-Methods.md#eth_estimategas).
 
-!!!note
+!!! note
 
-    All parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas).
+    All transaction call object parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas).
 
 | Key | Type | Required/Optional | Value |
 |-----|:----:|:-----------------:|-------|
-| **from**     | Data, 20&nbsp;bytes | Optional | Address of the transaction sender.   |
-| **to**       | Data, 20&nbsp;bytes | Required | Address of the transaction receiver. |
-| **gas**      | Quantity, Integer   | Optional | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice** | Quantity, Integer   | Optional | Price used for each paid gas. The default is `0`.       |
-| **value**    | Quantity, Integer   | Optional | Value sent with this transaction.    |
-| **data**     | Data                | Optional | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
-| **strict**   | Tag                 | Optional | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
+| **from**                 | Data, 20&nbsp;bytes | Optional | Address of the transaction sender.                       |
+| **to**                   | Data, 20&nbsp;bytes | Required | Address of the transaction receiver.                     |
+| **gas**                  | Quantity, Integer   | Optional | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
+| **gasPrice**             | Quantity, Integer   | Optional | Price used for each paid gas in Wei. The default is `0`. |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Optional | Maximum fee per gas in Wei the sender is willing to pay above the base fee. |
+| **maxFeePerGas**         | Quantity, Integer   | Optional | Maximum total fee per gas in Wei (base fee + priority fee) the sender is willing to pay. |
+| **value**                | Quantity, Integer   | Optional | Value in Wei sent with this transaction.                 |
+| **data**                 | Data                | Optional | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+| **strict**               | Tag                 | Optional | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
+
+!!! important
+
+    `maxPriorityFeePerGas` and `maxFeePerGas` are used for
+    [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) transactions.
+    If one of the two parameters is provided, both must be provided.
+    `gasPrice` can't be used with `maxPriorityFeePerGas` or `maxFeePerGas`.
 
 ## Transaction receipt object
 

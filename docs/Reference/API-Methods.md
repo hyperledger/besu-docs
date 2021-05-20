@@ -6657,9 +6657,6 @@ Provides transaction processing tracing per block.
 
 #### Parameters
 
-<<<<<<< HEAD
-`array of data` - Members specified by [Tessera](https://docs.tessera.consensys.net/) public keys.
-=======
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
@@ -6667,7 +6664,6 @@ Provides transaction processing tracing per block.
 * `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
 combination of the three options including none of them.
->>>>>>> f362855c75de52cff7abbedc86066c4f9f3f9452
 
 #### Returns
 

@@ -122,9 +122,9 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **v**              | Quantity                          | ECDSA Recovery ID.                                                              |
 | **r**              | Data, 32&nbsp;bytes               | ECDSA signature r.                                                              |
 | **s**              | Data, 32&nbsp;bytes               | ECDSA signature s.                                                              |
-| **privateFrom**    | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.   |
-| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.consensys.net/en/stable/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
-| **privacyGroupId** | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
+| **privateFrom**    | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.   |
+| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Tessera](https://docs.tessera.consensys.net/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
+| **privacyGroupId** | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
 | **restriction**    | String                            | Must be [`restricted`](../Concepts/Privacy/Private-Transactions.md).            |
 
 ## Range object
@@ -182,7 +182,7 @@ and
 | **gas**              | Quantity            | Gas provided by the sender.                                                                |
 | **gasPrice**         | Quantity            | Gas price, in wei, provided by the sender.                                                 |
 | **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
-| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Orion](https://docs.orion.consensys.net/en/stable/). |
+| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | **nonce**            | Quantity            | Number of transactions made by the sender before this one.                                 |
 | **publicKey**        | Data, 64&nbsp;bytes | Public key of the sender.                                                                  |
 | **raw**              | Data                | This signed transaction in Recursive Length Prefix (RLP) encoded form.                     |
@@ -271,6 +271,6 @@ Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionRec
 | **output**           | Data                 | RLP-encoded return value of a contract call if a value returns, otherwise, `null`. |
 | **commitmentHash**   | Data, 32&nbsp;bytes  | Hash of the privacy marker transaction.                                            |
 | **status**           | Quantity             | Either `0x1` (success) or `0x0` (failure).                                         |
-| **privateFrom**      | Data, 32&nbsp;bytes  | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.     |
-| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Orion](https://docs.orion.consensys.net/en/stable/) public keys or privacy group ID of the recipients. |
+| **privateFrom**      | Data, 32&nbsp;bytes  | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.     |
+| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Tessera](https://docs.tessera.consensys.net/) public keys or privacy group ID of the recipients. |
 | **logsBloom**        | Data, 256&nbsp;bytes | Bloom filter for light clients to quickly retrieve related logs.                   |

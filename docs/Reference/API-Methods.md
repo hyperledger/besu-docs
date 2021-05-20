@@ -606,7 +606,7 @@ If you specify:
 
 * No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
   than 100 blocks.
-  
+
 * Only the first parameter, the call provides metrics for all blocks from the block specified to
   the latest block.
 

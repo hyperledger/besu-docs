@@ -4,8 +4,8 @@ description: Privacy groups
 
 # Privacy groups
 
-A privacy group is a group of nodes identified by a unique privacy group ID by Orion. Orion stores
-each private transaction with the privacy group ID.
+A privacy group is a group of nodes identified by a unique privacy group ID by Tessera. Tessera
+stores each private transaction with the privacy group ID.
 
 The Besu nodes maintain the public world state for the blockchain and a private state for each
 privacy group. The private states contain data that is not shared in the globally replicated world
@@ -27,14 +27,14 @@ Besu implements two types of privacy:
 * Besu-extended privacy, where private transactions include `privacyGroupId` as the recipient.
 
 Both privacy types create privacy groups and store private transactions with their privacy group in
-Orion.
+Tessera.
 
 ![Privacy Groups](../../images/PrivacyGroups.png)
 
 !!! note
 
-    For clarity, the Orion nodes are not shown in the previous diagram. To send private
-    transactions, each Besu node must have an associated Orion node.
+    For clarity, the Tessera nodes are not shown in the previous diagram. To send private
+    transactions, each Besu node must have an associated Tessera node.
 
 ### Access between states
 
@@ -51,7 +51,7 @@ A public contract cannot access a private contract.
 In the privacy implementation complying with the
 [EEA Client Specification](https://entethalliance.org/technical-documents/) the group of nodes
 specified by `privateFrom` and `privateFor` form a privacy group with a unique privacy group ID
-provided by Orion.
+provided by Tessera.
 
 !!! example
 

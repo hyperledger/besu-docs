@@ -7,6 +7,10 @@ description: web3js-eea client library multi-node example
 To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):
 
+!!! note
+
+    This example uses 3 of the 4 nodes configured in the [privacy tutorial](Configuring-Privacy.md).
+
 1. Clone the **ConsenSys/web3js-eea** repository:
 
     ```bash
@@ -20,9 +24,9 @@ To use the examples provided in the web3js-eea library with
     ```
 
 1. In the `example` directory, update the `keys.js` file to include:
-    * Orion node public keys
+    * Tessera node public keys
     * Hyperledger Besu node RPC URLs
-    * Hyperledger Besu node private keys.
+    * [Hyperledger Besu node private keys](../../Concepts/Node-Keys.md#node-private-key).
 
 1. If the `chainID` specified in the genesis file for your network is not `2018`, update
    `deployContract.js`, `storeValueFromNode1.js`, and `storeValueFromNode2.js` to specify your
@@ -46,6 +50,11 @@ To use the examples provided in the web3js-eea library with
        '0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f245811461005b5780636057361d1461008257806367e404ce146100ae575b600080fd5b34801561006757600080fd5b506100706100ec565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100ac600480360360208110156100a557600080fd5b50356100f2565b005b3480156100ba57600080fd5b506100c3610151565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60025490565b604080513381526020810183905281517fc9db20adedc6cf2b5d25252b101ab03e124902a73fcb12b753f3d1aaa2d8f9f5929181900390910190a16002556001805473ffffffffffffffffffffffffffffffffffffffff191633179055565b60015473ffffffffffffffffffffffffffffffffffffffff169056fea165627a7a72305820c7f729cb24e05c221f5aa913700793994656f233fe2ce3b9fd9a505ea17e8d8a0029',
       logs: [] }
     ```
+
+    !!! note
+
+        If you receive a `Method not enabled` error, ensure you enabled the appropriate APIs
+        using the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api)
 
 1. Copy the contract address from the private transaction receipt and set the `CONTRACT_ADDRESS`
    environment variable:
@@ -102,5 +111,5 @@ To use the examples provided in the web3js-eea library with
 
     !!! note
 
-        As expected, log messages indicate that Node 3 Orion cannot find payloads because Node 3
+        As expected, log messages indicate that Node 3 Tessera cannot find payloads because Node 3
         does not have access to the private transactions between Node 1 and Node 2.

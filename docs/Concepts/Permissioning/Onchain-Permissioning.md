@@ -8,6 +8,14 @@ Onchain permissioning uses smart contracts to store and administer the node, acc
 allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single
 source, the blockchain.
 
+!!! important
+
+    When using Onchain Account Permissioning, a node checks permissions when importing blocks.
+    Meaning, a node only imports blocks in which all transactions are from authorized senders. If
+    you disable Onchain Account Permissioning and your node accept blocks without enforcing this rule,
+    your node cannot resync with other nodes that are enforcing Onchain Account Permissioning rules
+    (your node goes into forked state).
+
 !!! note
 
     The permissioning smart contracts and Permissioning Management Dapp are a separate product to
@@ -62,7 +70,7 @@ Permissioning implements three allowlists:
 
     If using account permissioning and privacy, a signing key must be specified using the
     [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
-    command line option and the signing key
+    command line option and the corresponding public key
     included in the accounts allowlist.
 
 !!! tip

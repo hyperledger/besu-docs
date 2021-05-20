@@ -25,7 +25,7 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
 
 ## Enabling flexible privacy groups
 
-Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+Use the [`--privacy-flexible-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-flexible-groups-enabled)
 command line option to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),

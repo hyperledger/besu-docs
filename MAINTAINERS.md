@@ -7,23 +7,20 @@
 <!-- vale off -->
 | Name             | GitHub           | LFID             |
 | ---------------- | ---------------- | ---------------- |
+| Alexandra Tran   | alexandratran    | alexandratran    |
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
-| Steven Gregg     | sgregglives      | sagregg          |
-| Grant Noble      | grantnoble       | grantnoble       |
 <!-- vale on -->
 
 ## Emeritus maintainers
 
-None.
-
 <!-- vale off -->
-<!--
-| Name | Github | LFID |
-|------|--------|------|
-| null | null   | null |
--->
+| Name             | GitHub           | LFID             |
+| ---------------- | ---------------- | ---------------- |
+| Steven Gregg     | sgregglives      | sagregg          |
+| Grant Noble      | grantnoble       | grantnoble       |
+| Tim Beiko        | timbeiko         | timbeiko       |
 <!-- vale on -->
 
 ## Becoming a maintainer

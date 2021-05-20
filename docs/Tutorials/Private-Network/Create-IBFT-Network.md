@@ -62,7 +62,7 @@ in the `IBFT-Network` directory:
 {
  "genesis": {
    "config": {
-      "chainId": 2018,
+      "chainId": 1337,
       "muirglacierblock": 0,
       "ibft2": {
         "blockperiodseconds": 2,
@@ -369,7 +369,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 !!!tip
 
     To restart the IBFT 2.0 network in the future, start from
-    [6. Start First Node as Bootnode](#6-start-first-node-as-bootnode).
+    [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
 [IBFT 2.0 (Proof of Authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md

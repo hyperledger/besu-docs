@@ -342,6 +342,29 @@ The default is `none`.
 The path to the Besu data directory. The default is the directory you installed Besu in, or
 `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
 
+### `discovery-dns-url`
+
+=== "Syntax"
+
+    ```bash
+    --discovery-dns-url=<enrtree URL>
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_DISCOVERY_DNS-URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
+    ```
+
+=== "Example Configuration File"
+
+    ```bash
+    discovery-dns-url="enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org"
+    ```
+
+The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips.ethereum.org/EIPS/eip-1459).
+The default is `null`.
+
 ### `discovery-enabled`
 
 === "Syntax"
@@ -1231,7 +1254,10 @@ The minimum price a transaction offers to include it in a mined block. The minim
 lowest value [`eth_gasPrice`](../API-Methods.md#eth_gasprice) can return. The default is 1000
 Wei.
 
-In a [free gas network](../../HowTo/Configure/FreeGas.md), set to zero.
+!!! important
+    In a [free gas network](../../HowTo/Configure/FreeGas.md), ensure the minimum gas price is set to zero for every node.
+    Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
+    You can query a node's gas configuration using [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
 
 ### `nat-method`
 
@@ -1312,6 +1338,7 @@ Possible values are:
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 | `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
+| `astor`   | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 
 !!!tip
 
@@ -1447,8 +1474,14 @@ The default is true.
     p2p-host="0.0.0.0"
     ```
 
-The host on which P2P listens.
+The advertised host that can be used to access the node from outside the network in
+[P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
 The default is 127.0.0.1.
+
+!!! info
+
+    If [`--nat-method`](#nat-method) is set to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none),
+    `--p2p-host` is not overridden and must be specified for the node to be accessed from outside the network.
 
 ### `p2p-interface`
 
@@ -1849,8 +1882,8 @@ is false.
 you do not specify this option, Besu signs each transaction with a different randomly generated
 key.
 
-If using [account permissioning] and privacy, you must specify a private key file and the signing
-key included in the accounts allowlist.
+If using [account permissioning] and privacy, you must specify a private key file and include the
+corresponding public key in the accounts allowlist.
 
 ### `privacy-multi-tenancy-enabled`
 
@@ -1881,33 +1914,35 @@ key included in the accounts allowlist.
 Enables or disables [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) for private
 transactions. The default is `false`.
 
-### `privacy-onchain-groups-enabled`
+### `privacy-flexible-groups-enabled`
 
 === "Syntax"
 
     ```bash
-    --privacy-onchain-groups-enabled[=<true|false>]
+    --privacy-flexible-groups-enabled[=<true|false>]
     ```
 
 === "Command Line"
 
     ```bash
-    --privacy-onchain-groups-enabled=true
+    --privacy-flexible-groups-enabled=true
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_PRIVACY_ONCHAIN_GROUPS_ENABLED=true
+    BESU_PRIVACY_FLEXIBLE_GROUPS_ENABLED=true
     ```
 
 === "Configuration File"
 
     ```bash
-    privacy-onchain-groups-enabled=true
+    privacy-flexible-groups-enabled=true
     ```
 
 Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
+
+Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
 ### `privacy-public-key-file`
 
@@ -2182,6 +2217,7 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     ```
 
 Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
+Defaults to `false`.
 
 !!! important
 
@@ -2370,7 +2406,9 @@ rejects that peer.
     ```
 
 Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
-transaction receipt. The default is `false`.
+transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response,
+[`eth_call`](../API-Methods.md#eth_call) error response, and [`trace`](../Trace-Types.md#trace) response.
+The default is `false`.
 
 !!! caution
 
@@ -2609,11 +2647,11 @@ The default is `false`.
 
 Specifies the host on which HTTP JSON-RPC listens. The default is 127.0.0.1.
 
-To allow remote connections, set to `0.0.0.0`
+To allow remote connections, set to `0.0.0.0`.
 
 !!! caution
 
-    Setting the host to 0.0.0.0 exposes the RPC connection on your node to any remote connection.
+    Setting the host to `0.0.0.0` exposes the RPC connection on your node to any remote connection.
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.
 
@@ -3152,6 +3190,35 @@ plugin
 
 Defaults to using the nodes's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
+
+### `static-nodes-file`
+
+=== "Syntax"
+
+    ```bash
+    --static-nodes-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --static-nodes-file=~/besudata/static-nodes.json
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    static-nodes-file="~/besudata/static-nodes.json"
+    ```
+
+Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
+connect to. Defaults to `datapath/static-nodes.json`.
 
 ### `sync-mode`
 

@@ -31,7 +31,10 @@ client an optional string message containing information about the error.
 ## Enabling revert reason
 
 Use the [`--revert-reason-enabled`](../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
-command line option to include the revert reason in the transaction receipt in Hyperledger Besu.
+command line option to include the revert reason in the transaction receipt,
+[`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) error,
+[`eth_call`](../../Reference/API-Methods.md#eth_call) error, and
+[`trace`](../../Reference/Trace-Types.md#trace) response in Hyperledger Besu.
 
 !!! caution
 
@@ -76,10 +79,61 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
+The error returned by [`eth_estimateGas`](../../Reference/API-Methods.md#eth_estimategas) and
+[`eth_call`](../../Reference/API-Methods.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
+
+!!! example "Example of `eth_estimateGas` and `eth_call` error"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "error": {
+        "code": -32000,
+        "message": "Execution reverted",
+        "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
+      }
+    }
+    ```
+
+The list items in the [`trace`](../../Reference/Trace-Types.md#trace) response returned by
+[`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions),
+[`trace_block`](../../Reference/API-Methods.md#trace_block), and
+[`trace_transaction`](../../Reference/API-Methods.md#trace_transaction) include the revert reason as an ABI-encoded string.
+
+!!! example "Example of `trace` response list item"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 415,
+      "result": [
+        {
+          "action": {
+            "callType": "call",
+            "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+            "gas": "0xffadea",
+            "input": "0x",
+            "to": "0x0110000000000000000000000000000000000000",
+            "value": "0x0"
+          },
+          "blockHash": "0x220bc13dc4f1ed38dcca927a5be15eca16497d279f4c40d7b8fe9704eadf1464",
+          "blockNumber": 18,
+          "error": "Reverted",
+          "revertReason": "0x7d88c1856cc95352",
+          "subtraces": 0,
+          "traceAddress": [],
+          "transactionHash": "0xc388baa0e55e6b73e850b22dc7e9853700f6b995fd55d95dd6ccd5a13d63c566",
+          "transactionPosition": 1,
+          "type": "call"
+        }
+      ]
+    }
+    ```
+
 ## Revert reason format
 
-As described in the [Solidity documentation], the transaction receipt includes the revert reason as
-an ABI-encoded string consisting of:
+As described in the [Solidity documentation], the revert reason is an ABI-encoded string consisting of:
 
 ```bash
 0x08c379a0                                                         // Function selector for Error(string)

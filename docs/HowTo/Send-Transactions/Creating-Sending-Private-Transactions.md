@@ -57,6 +57,10 @@ the value returned by
 which is the enclave key to the private transaction in [Tessera](https://docs.tessera.consensys.net/),
 in the `data` field of a call to
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction).
+Use the value returned by
+[`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress), which is the
+address of the [privacy precompiled contract](../../Concepts/Privacy/Private-Transaction-Processing.md), in the `to`
+field of the call.
 
 By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
@@ -95,12 +99,12 @@ to send [concurrent private transactions](Concurrent-Private-Transactions.md).
     }
     ```
 
-    Send the enclave key in the `data` field, and the [privacy precompile address](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendTransaction`:
+    Send the enclave key in the `data` field, and the [privacy precompile address](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendRawTransaction`:
 
     ```json
     {
       "jsonrpc":"2.0",
-      "method":"eth_sendTransaction",
+      "method":"eth_sendRawTransaction",
       "params":[{
         "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
         "to": "0x000000000000000000000000000000000000007e",

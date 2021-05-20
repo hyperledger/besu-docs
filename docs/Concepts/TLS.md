@@ -6,7 +6,7 @@ description: TLS overview
 
 Hyperledger Besu supports TLS to secure client and server communication. You also need to configure
 the client ([EthSigner](https://docs.ethsigner.consensys.net/en/latest/Concepts/TLS/))
-or server ([Orion](https://docs.orion.consensys.net/en/latest/Concepts/TLS-Communication/)) for TLS.
+or server ([Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/)) for TLS.
 
 ![Besu TLS](../images/Besu_TLS.png)
 

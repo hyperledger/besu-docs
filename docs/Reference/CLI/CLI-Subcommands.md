@@ -142,8 +142,9 @@ Provides operator actions.
 
 ### `generate-blockchain-config`
 
-This command generates
-[IBFT 2.0 configuration files](../../Tutorials/Private-Network/Create-IBFT-Network.md).
+This command generates an
+[IBFT 2.0](../../Tutorials/Private-Network/Create-IBFT-Network.md) or
+[QBFT](../../Tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
 
 === "Syntax"
 
@@ -158,7 +159,8 @@ This command generates
     ```
 
 The configuration file has 2 nested JSON nodes. The first is the `genesis` property defining the
-[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) except for
+[IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) or
+[QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) genesis file, except for
 the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
 generate.
 
@@ -200,7 +202,7 @@ Provides RLP related actions.
 ### `encode`
 
 This command encodes a typed JSON value from a file or from the standard input into an RLP
-hexadecimal string.
+hexadecimal string. Defaults to `IBFT_EXTRA_DATA`.
 
 === "Syntax"
 
@@ -220,11 +222,16 @@ hexadecimal string.
     cat extra_data.json | besu rlp encode > rlp.txt
     ```
 
-The `IBFT_EXTRA_DATA` type is the only type supported for RLP encoding. The
-[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
-the `IBFT_EXTRA_DATA` type.
+Supported types are:
 
-???+ summary "IBFT 2.0 Extra Data"
+* `IBFT_EXTRA_DATA` - The [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
+the `IBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-Protocols/IBFT.md#extra-data) property.
+
+* `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) includes
+       the `QBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-Protocols/QBFT.md#extra-data) property.
+
+
+???+ summary "IBFT 2.0 extra data"
 
     To generate the RLP encoded `extraData` string, specify a JSON input that is an array of
     validator addresses in ascending order.

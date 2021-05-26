@@ -74,6 +74,7 @@ nav:
           - Consensus Protocols:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
+            - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
           - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
@@ -158,6 +159,7 @@ nav:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
         - Using IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
+        - Using QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md
       - Permissioning:
         - Create a Permissioned Network: Tutorials/Permissioning/Create-Permissioned-Network.md
         - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

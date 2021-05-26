@@ -60,7 +60,7 @@ Each user requiring JSON-RPC access the configuration file lists the:
   [`password hash`](../../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the
   hash.
 * [JSON-RPC permissions](#json-rpc-permissions).
-* Optional. The tenant's Orion public key using `privacyPublicKey`. Only used for
+* Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
 !!! example "password hash Subcommand"
@@ -159,7 +159,7 @@ Each payload for the JWT contains:
 
 * [JSON-RPC permissions](#json-rpc-permissions)
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
-* Optionally, the tenant's Orion public key using `privacyPublicKey`. Only used for
+* Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
 !!! example "Example payload"

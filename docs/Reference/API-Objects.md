@@ -122,9 +122,9 @@ Returned by [`priv_getPrivateTransaction`](API-Methods.md#priv_getprivatetransac
 | **v**              | Quantity                          | ECDSA Recovery ID.                                                              |
 | **r**              | Data, 32&nbsp;bytes               | ECDSA signature r.                                                              |
 | **s**              | Data, 32&nbsp;bytes               | ECDSA signature s.                                                              |
-| **privateFrom**    | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.   |
-| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Orion](https://docs.orion.consensys.net/en/stable/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
-| **privacyGroupId** | Data, 32&nbsp;bytes               | [Orion](https://docs.orion.consensys.net/en/stable/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
+| **privateFrom**    | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.   |
+| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Tessera](https://docs.tessera.consensys.net/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types).  |
+| **privacyGroupId** | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../Concepts/Privacy/Privacy-Groups.md#privacy-types). |
 | **restriction**    | String                            | Must be [`restricted`](../Concepts/Privacy/Private-Transactions.md).            |
 
 ## Range object
@@ -182,7 +182,7 @@ and
 | **gas**              | Quantity            | Gas provided by the sender.                                                                |
 | **gasPrice**         | Quantity            | Gas price, in wei, provided by the sender.                                                 |
 | **hash**             | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
-| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Orion](https://docs.orion.consensys.net/en/stable/). |
+| **input**            | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | **nonce**            | Quantity            | Number of transactions made by the sender before this one.                                 |
 | **publicKey**        | Data, 64&nbsp;bytes | Public key of the sender.                                                                  |
 | **raw**              | Data                | This signed transaction in Recursive Length Prefix (RLP) encoded form.                     |
@@ -198,19 +198,28 @@ and
 Parameter for [`eth_call`](API-Methods.md#eth_call) and
 [`eth_estimateGas`](API-Methods.md#eth_estimategas).
 
-!!!note
+!!! note
 
-    All parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas).
+    All transaction call object parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas).
 
 | Key | Type | Required/Optional | Value |
 |-----|:----:|:-----------------:|-------|
-| **from**     | Data, 20&nbsp;bytes | Optional | Address of the transaction sender.   |
-| **to**       | Data, 20&nbsp;bytes | Required | Address of the transaction receiver. |
-| **gas**      | Quantity, Integer   | Optional | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice** | Quantity, Integer   | Optional | Price used for each paid gas. The default is `0`.       |
-| **value**    | Quantity, Integer   | Optional | Value sent with this transaction.    |
-| **data**     | Data                | Optional | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
-| **strict**   | Tag                 | Optional | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
+| **from**                 | Data, 20&nbsp;bytes | Optional | Address of the transaction sender.                       |
+| **to**                   | Data, 20&nbsp;bytes | Required | Address of the transaction receiver.                     |
+| **gas**                  | Quantity, Integer   | Optional | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
+| **gasPrice**             | Quantity, Integer   | Optional | Price used for each paid gas in Wei. The default is `0`. |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Optional | Maximum fee per gas in Wei the sender is willing to pay above the base fee. |
+| **maxFeePerGas**         | Quantity, Integer   | Optional | Maximum total fee per gas in Wei (base fee + priority fee) the sender is willing to pay. |
+| **value**                | Quantity, Integer   | Optional | Value in Wei sent with this transaction.                 |
+| **data**                 | Data                | Optional | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+| **strict**               | Tag                 | Optional | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
+
+!!! important
+
+    `maxPriorityFeePerGas` and `maxFeePerGas` are used for
+    [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) transactions.
+    If one of the two parameters is provided, both must be provided.
+    `gasPrice` can't be used with `maxPriorityFeePerGas` or `maxFeePerGas`.
 
 ## Transaction receipt object
 
@@ -271,6 +280,6 @@ Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionRec
 | **output**           | Data                 | RLP-encoded return value of a contract call if a value returns, otherwise, `null`. |
 | **commitmentHash**   | Data, 32&nbsp;bytes  | Hash of the privacy marker transaction.                                            |
 | **status**           | Quantity             | Either `0x1` (success) or `0x0` (failure).                                         |
-| **privateFrom**      | Data, 32&nbsp;bytes  | [Orion](https://docs.orion.consensys.net/en/stable/) public key of the sender.     |
-| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Orion](https://docs.orion.consensys.net/en/stable/) public keys or privacy group ID of the recipients. |
+| **privateFrom**      | Data, 32&nbsp;bytes  | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.     |
+| **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Tessera](https://docs.tessera.consensys.net/) public keys or privacy group ID of the recipients. |
 | **logsBloom**        | Data, 256&nbsp;bytes | Bloom filter for light clients to quickly retrieve related logs.                   |

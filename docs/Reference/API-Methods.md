@@ -36,12 +36,12 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 #### Parameters
 
-`string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to add
+`enode`: *string* - [enode URL](../Concepts/Node-Keys.md#enode-url) of peer to add
 
 #### Returns
 
-`result` : `boolean` - `true` if peer added or `false` if peer already a
-[static node](../HowTo/Find-and-Connect/Static-Nodes.md).
+`result`: *boolean* - `true` if peer added or `false` if peer already a
+[static node](../HowTo/Find-and-Connect/Static-Nodes.md)
 
 !!! example
 
@@ -76,13 +76,13 @@ You can specify only one log level per RPC call.
 
 #### Parameters
 
-`level` - [Log level](CLI/CLI-Syntax.md#logging)
+* `level`: *string* - [log level](CLI/CLI-Syntax.md#logging)
 
-`log_filter`: `Array` - Packages or classes to change the log level for. Optional.
+* `log_filter`: *array* - (optional) packages or classes for which to change the log level
 
 #### Returns
 
-`result` : `Success` if the log level has changed, otherwise `error`.
+`result`: *string* - `Success` if the log level has changed, otherwise `error`
 
 !!! example
 
@@ -143,7 +143,7 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 
     Manually executing `admin_generateLogBloomCache` is not required unless the
     [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command
-    line option was set to false.
+    line option is set to false.
 
 !!! note
 
@@ -152,19 +152,23 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 
 #### Parameters
 
-`integer` - Block to start generating indexes.
+* `startBlock`: *string* - block to start generating indexes
 
-`integer` - Block to stop generating indexes.
+* `endBlock`: *string* - block to stop generating indexes
 
 #### Returns
 
-`result` : *object* - Log bloom index details:
+`result`: *object* - log bloom index details:
 
-* `quantity` : `startBlock` - Starting block for the last requested cache generation.
-* `quantity` : `endBlock` - Ending block for the last requested cache generation.
-* `quantity` : `currentBlock` - The most recent block added to the cache.
-* `boolean` : `indexing` - `true` if indexing is in progress.
-* `boolean` : `true` indicates acceptance of the request from this call to generate the cache.
+* `startBlock`: *string* - starting block for the last requested cache generation
+  
+* `endBlock`: *string* - ending block for the last requested cache generation
+  
+* `currentBlock`: *string* - most recent block added to the cache
+  
+* `indexing`: *boolean* - indicates if indexing is in progress
+  
+* *boolean* - indicates acceptance of the request from this call to generate the cache
 
 !!! example
 
@@ -202,23 +206,26 @@ Removes cache files for the specified range of blocks.
 
 #### Parameters
 
-`fromBlock` - Integer representing a block number or one of the string tags `latest`,
+* `fromBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-`toBlock` - Integer representing a block number or one of the string tags `latest`,
+* `toBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-You can skip a parameter by using an empty string, `""`. If you specify:
+You can skip a parameter by using an empty string, `""`.
+If you specify:
 
 * No parameters, the call removes cache files for all blocks.
+  
 * Only `fromBlock`, the call removes cache files for the specified block.
+  
 * Only `toBlock`, the call removes cache files from the genesis block to the specified block.
 
 #### Returns
 
-`result` - `Cache Removed` status or `error`.
+`result`: *object* - `Cache Removed` status or `error`.
 
 !!! example
 
@@ -252,12 +259,11 @@ Repairs cached logs by fixing all segments starting with the specified block num
 
 #### Parameters
 
-`quantity` - Decimal index of the starting block to fix. If left empty, the head block
-is used as the starting point.
+`startBlock`: *string* - decimal index of the starting block to fix; defaults to the head block
 
 #### Returns
 
-`result` -  Status of the repair request. Either `Started`, or `Already running`.
+`result`: *object* -  status of the repair request; `Started` or `Already running`
 
 !!! example
 
@@ -296,17 +302,20 @@ None
 
 #### Returns
 
-`result` : Node object
+`result`: *object* - node object with the following fields:
 
-Properties of the node object are:
-
-* `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the node.
-* `listenAddr` - Host and port for the node.
-* `name` - Client name.
-* `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key).
-* `ports` - Peer discovery and listening
-  [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration).
-* `protocols` - List of objects containing information for each Ethereum sub-protocol.
+* `enode`: *string* - [enode URL](../Concepts/Node-Keys.md#enode-url) of the node
+  
+* `listenAddr`: *string* - host and port for the node
+  
+* `name`: *string* - client name
+  
+* `id`: *string* - [node public key](../Concepts/Node-Keys.md#node-public-key)
+  
+* `ports`: *object* - peer discovery and listening
+  [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration)
+  
+* `protocols`: *object* - list of objects containing information for each Ethereum sub-protocol
 
 !!! note
 
@@ -380,22 +389,27 @@ None
 
 #### Returns
 
-`result` : *array* of *objects* - Object returned for each remote node.
+`result`: *array* of *objects* - list of objects returned for each remote node, with the following fields.
 
-Properties of the remote node object are:
-
-* `version` - P2P protocol version.
-* `name` - Client name.
-* `caps` - List of Ethereum sub-protocol capabilities.
-* `network` - Local and remote addresses established at time of bonding with the peer. The remote
-  address might not match the hex value for `port`. The remote address depends on which node
-  initiated the connection.
-* `port` - Port on the remote node on which P2P discovery is listening.
-* `id` - Node public key. Excluding the `0x` prefix, the node public key is the ID in the
-  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.
-* `protocols` - [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
-including `difficulty` and `head`. `head` is the hash of the highest known block for the peer.
-* `enode` - Enode URL of the remote node.  
+* `version`: *string* - P2P protocol version
+  
+* `name`: *string* - client name
+  
+* `caps`: *array* of *strings* - list of Ethereum sub-protocol capabilities
+  
+* `network`: *object* - local and remote addresses established at time of bonding with the peer (the remote
+  address might not match the hex value for `port`; it depends on which node
+  initiated the connection.)
+  
+* `port`: *string* - port on the remote node on which P2P discovery is listening
+  
+* `id`: *string* - node public key (excluding the `0x` prefix, the node public key is the ID in the
+  [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.)
+  
+* `protocols`: *object* - [current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
+  
+* `enode`: *string* - enode URL of the remote node
 
 !!! example
 
@@ -453,12 +467,12 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 #### Parameters
 
-`string` : [Enode URL](../Concepts/Node-Keys.md#enode-url) of peer to remove.
+`enode`: *string* - [enode URL](../Concepts/Node-Keys.md#enode-url) of peer to remove
 
 #### Returns
 
-`result` : `boolean` - `true` if peer removed or `false` if peer not a
-[static node](../HowTo/Find-and-Connect/Static-Nodes.md)).
+`result`: *boolean* - `true` if peer removed or `false` if peer not a
+[static node](../HowTo/Find-and-Connect/Static-Nodes.md)
 
 !!! example
 
@@ -484,249 +498,40 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
         }
         ```
 
-## `WEB3` methods
+## `CLIQUE` methods
 
-The `WEB3` API methods provide functionality for the Ethereum ecosystem.
-
-### `web3_clientVersion`
-
-Returns the current client version.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *string* - Current client version.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "besu/<version>"
-        }
-        ```
-
-### `web3_sha3`
-
-Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value
-is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
-
-#### Parameters
-
-`DATA` - Data to convert to a SHA3 hash.
-
-#### Returns
-
-`result` (*DATA*) - SHA3 result of the input data.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0x5e39a0a66544c0668bde22d61c47a8710000ece931f13b84d3b2feb44ec96d3f"
-        }
-        ```
-
-## `NET` methods
-
-The `NET` API methods provide network-related information.
-
-### `net_version`
-
-Returns the [network ID](../Concepts/NetworkID-And-ChainID.md).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *string* - Current network ID.
-
-| Network ID | Chain | Network | Description
-|------------|-------|---------|-------------------------------|
-| `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `3`        | ETH   | Ropsten | PoW test network              |
-| `4`        | ETH   | Rinkeby | PoA test network using Clique |
-| `5`        | ETH   | Goerli  | PoA test network using Clique |
-| `2018`     | ETH   | Dev     | PoW development network       |
-| `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `7`        | ETC   | Mordor  | PoW test network              |
-| `6`        | ETC   | Kotti   | PoA test network using Clique |
-| `212`      | ETC   | Astor   | PoW test network              |
+The `CLIQUE` API methods provide access to the [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus engine.
 
 !!! note
 
-    For almost all networks network ID and chain ID are the same.
+    The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
+    methods use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-    The only networks in the table above with different network and chain IDs are
-    Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
+### `clique_discard`
 
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"net_version","params":[],"id":53}
-        ```
-
-    === "JSON result for Mainnet"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 51,
-          "result" : "1"
-        }
-        ```
-
-    === "JSON result for Ropsten"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "3"
-        }
-        ```
-
-### `net_listening`
-
-Whether the client is actively listening for network connections.
+Discards a proposal to [add or remove a signer with the specified address].
 
 #### Parameters
 
-None
+`address`: *string* - 20-byte address of proposed signer
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively listening for network connections;
-otherwise `false`.
+`result`: *boolean* - indicates if the proposal is discarded
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : true
-        }
-        ```
-
-### `net_peerCount`
-
-Returns the number of peers currently connected to the client.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *integer* - Number of connected peers in hexadecimal.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0x5"
-        }
-        ```
-
-### `net_enode`
-
-Returns the [enode URL](../Concepts/Node-Keys.md#enode-url).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the node.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}
+        {"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}
         ```
 
     === "JSON result"
@@ -735,17 +540,164 @@ None
         {
           "jsonrpc" : "2.0",
           "id" : 1,
-          "result" : "enode://6a63160d0ccef5e4986d270937c6c8d60a9a4d3b25471cda960900d037c61988ea14da67f69dbfb3497c465d0de1f001bb95598f74b68a39a5156a608c42fa1b@127.0.0.1:30303"
+          "result" : true
         }
         ```
 
-### `net_services`
+### `clique_getSigners`
 
-Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
+Lists [signers for the specified block].
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *array* of *string* - list of 20-byte addresses of signers
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : [ "0x42eb768f2244c8811c63729a21a3569731535f06", "0x7ffc57839b00206d1ad20c69a1981b489f772031", "0xb279182d99e65703f0076e4812653aab85fca0f0" ]
+        }
+        ```
+
+### `clique_getSignerMetrics`
+
+Provides the following validator metrics for the specified range:
+
+* Number of blocks from each validator
+  
+* Block number of the last block proposed by each validator (if any proposed in the specified
+  range)
+  
+* All validators present in the last block
+
+#### Parameters
+
+* `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest`, as described
+in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+* `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
+`pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+If you specify:
+
+* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
+  than 100 blocks.
+
+* Only the first parameter, the call provides metrics for all blocks from the block specified to
+  the latest block.
+
+#### Returns
+
+`result`: *array* of *objects* - list of validator objects
 
 !!! note
 
-    The [`--nat-method`](../CLI/CLI-Syntax/#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
+    The proposer of the genesis block has address `0x0000000000000000000000000000000000000000`.
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                {
+                    "address": "0x7ffc57839b00206d1ad20c69a1981b489f772031",
+                    "proposedBlockCount": "0x21",
+                    "lastProposedBlockNumber": "0x61"
+                },
+                {
+                    "address": "0x42eb768f2244c8811c63729a21a3569731535f06",
+                    "proposedBlockCount": "0x21",
+                    "lastProposedBlockNumber": "0x63"
+                },
+                {
+                    "address": "0xb279182d99e65703f0076e4812653aab85fca0f0",
+                    "proposedBlockCount": "0x21",
+                    "lastProposedBlockNumber": "0x62"
+                }
+            ]
+        }
+        ```
+
+### `clique_getSignersAtHash`
+
+Lists signers for the specified block.
+
+#### Parameters
+
+`hash`: *string* - 32-byte block hash
+
+#### Returns
+
+`result`: *array* of *string* - list of 20-byte addresses of signers
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : [ "0x42eb768f2244c8811c63729a21a3569731535f06", "0x7ffc57839b00206d1ad20c69a1981b489f772031", "0xb279182d99e65703f0076e4812653aab85fca0f0" ]
+        }
+        ```
+
+### `clique_proposals`
+
+Returns
+[current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -753,20 +705,22 @@ None
 
 #### Returns
 
-`result` : *objects* - Enabled services.
+`result`: *map* of *strings* to *booleans* - map of account addresses to corresponding boolean values indicating the
+proposal for each account (if `true`, the proposal is to add a signer; if `false`, the proposal is to
+remove a signer.)
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"net_services","params":[],"id":1}
+        {"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}
         ```
 
     === "JSON result"
@@ -776,19 +730,923 @@ None
             "jsonrpc": "2.0",
             "id": 1,
             "result": {
-                "jsonrpc": {
-                    "host": "127.0.0.1",
-                    "port": "8545"
+                "0x42eb768f2244c8811c63729a21a3569731535f07": false,
+                "0x12eb759f2222d7711c63729a45c3585731521d01": true
+            }
+        }
+        ```
+
+### `clique_propose`
+
+Proposes to [add or remove a signer with the specified address].
+
+#### Parameters
+
+* `address`: *string* - 20-byte address
+
+* `proposal`: *boolean* - `true` to propose adding signer or `false` to propose removing signer
+
+#### Returns
+
+`result`: *boolean* - `true`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+         "jsonrpc" : "2.0",
+         "id" : 1,
+         "result" : true
+        }
+        ```
+
+## `DEBUG` methods
+
+The `DEBUG` API methods allow you to inspect and debug the network.
+The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
+compatibility with tools such as [Remix](https://remix.ethereum.org/).
+We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
+
+!!! note
+
+    The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### `debug_accountRange`
+
+[Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses
+`debug_accountRange` to implement debugging.
+
+Returns the accounts for a specified block.
+
+#### Parameters
+
+* `blockHashOrNumber`: *string* - block hash or number
+
+* `txIndex`: *number* - transaction index from which to start
+
+* `address`: *string* - address hash from which to start
+
+* `limit`: *integer* - maximum number of account entries to return
+
+#### Returns
+
+`result`: *object* - account details object with the following fields:
+
+* `addressMap`: *map* of *strings* to *strings* - map of address hashes and account addresses
+  
+* `nextKey`: *string* - hash of the next address if any addresses remain in the state, otherwise
+  zero
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "addressMap": {
+              "0x005e5...86960": "0x0000000000000000000000000000000000000000",
+              "0x021fe...6ffe3": "0x0000000000000000000000000000000000000000",
+              "0x028e6...ab776": "0x0000000000000000000000000000000000000000",
+              "0x02cb5...bc4d8": "0x0000000000000000000000000000000000000000",
+              "0x03089...23fd5": "0x0000000000000000000000000000000000000000"
+            },
+            "nextKey": "0x04242954a5cb9748d3f66bcd4583fd3830287aa585bebd9dd06fa6625976be49"
+          }
+        }
+        ```
+
+### `debug_batchSendRawTransaction`
+
+Sends a list of [signed transactions](../HowTo/Send-Transactions/Transactions.md).
+This is used to quickly load a network with a lot of transactions.
+This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
+
+#### Parameters
+
+`data`: *string* -  signed transaction data array
+
+#### Returns
+
+`result`: *array* of *objects* - object returned for each transaction, with the following fields:
+
+* `index`: *string* - index of the transaction in the request parameters array
+  
+* `success`: *boolean* - indicates whether or not the transaction has been added to the transaction pool
+  
+* `errorMessage`: *string* - (optional) error message
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "index": 0,
+              "success": true
+            },
+            {
+              "index": 1,
+              "success": false,
+              "errorMessage": "Invalid raw transaction hex"
+            },
+            {
+              "index": 2,
+              "success": true
+            },
+            {
+              "index": 3,
+              "success": false,
+              "errorMessage": "TRANSACTION_REPLACEMENT_UNDERPRICED"
+            }
+          ]
+        }
+        ```
+
+### `debug_getBadBlocks`
+
+Returns a list of invalid blocks.
+This is used to detect and analyze consensus flaws.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *array* of *objects* - list of [block objects](API-Objects.md#block-object)
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "block": {
+                "number": "0xd",
+                "hash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
+                "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "parentHash": "0x544a2f7a4c8defc0d8da44aa0c0db7c36b56db2605c01ed266e919e936579d31",
+                "nonce": "0x0000000000000000",
+                "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                "transactionsRoot": "0x02c387e001cbe2a8296bfa2e18afbc3480d0e49588b05556148b0bf7c17dec41",
+                "stateRoot": "0x861ab7e868e3c23f84b7c4ed86b52a6a4f063633bc45ef29212c33459df84ea5",
+                "receiptsRoot": "0xccd2d33763dc0ac3fe02d4ecbbcd7d2bdc6f57db635ba31007184679303721d7",
+                "miner": "0x0000000000000000000000000000000000000000",
+                "difficulty": "0x1",
+                "totalDifficulty": "0x1",
+                "extraData": "0x00000000000000000000000000000000000000000000000000000000000000008c6a091f07e4ba3930f2f5fabbfc5b1c70986319096760ba200a6abc0d30e33c2d501702d1b58d7f75807bdbf981044557628611319121170b96466ec06bb3fd01",
+                "size": "0x3a0",
+                "gasLimit": "0xffffffffffff",
+                "gasUsed": "0x1a488",
+                "timestamp": "0x5f5b6824",
+                "uncles": [],
+                "transactions": [
+                  {
+                    "blockHash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
+                    "blockNumber": "0xd",
+                    "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                    "gas": "0x1a49e",
+                    "gasPrice": "0x3e8",
+                    "hash": "0xdd8cf045113754c306ba9ac8ac8786235e33bc5c087678084ef260a2a583f127",
+                    "input": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033",
+                    "nonce": "0x0",
+                    "to": null,
+                    "transactionIndex": "0x0",
+                    "value": "0x0",
+                    "v": "0xf9d",
+                    "r": "0xa7a15050302ca4b7d3842d35cdd3cbf25b2c48c0c37f96d78beb6a6a6bc4f1c7",
+                    "s": "0x130d29294b2b6a2b7e89f501eb27772f7abf37bfa28a1ce300daade975589fca"
+                  }
+                ]
+              },
+              "hash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
+              "rlp": "0xf9039df9025ca0544a2f7a4c8defc0d8da44aa0c0db7c36b56db2605c01ed266e919e936579d31a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000a0861ab7e868e3c23f84b7c4ed86b52a6a4f063633bc45ef29212c33459df84ea5a002c387e001cbe2a8296bfa2e18afbc3480d0e49588b05556148b0bf7c17dec41a0ccd2d33763dc0ac3fe02d4ecbbcd7d2bdc6f57db635ba31007184679303721d7b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010d86ffffffffffff8301a488845f5b6824b86100000000000000000000000000000000000000000000000000000000000000008c6a091f07e4ba3930f2f5fabbfc5b1c70986319096760ba200a6abc0d30e33c2d501702d1b58d7f75807bdbf981044557628611319121170b96466ec06bb3fd01a00000000000000000000000000000000000000000000000000000000000000000880000000000000000f9013af90137808203e88301a49e8080b8e6608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033820f9da0a7a15050302ca4b7d3842d35cdd3cbf25b2c48c0c37f96d78beb6a6a6bc4f1c7a0130d29294b2b6a2b7e89f501eb27772f7abf37bfa28a1ce300daade975589fcac0"
+            },
+            {
+              "block": {
+                "number": "0x8",
+                "hash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
+                "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "parentHash": "0x98ae440cd7b904d842daa6c263608969a3c8ce6a9acd6bd1f99b394f5f28a207",
+                "nonce": "0x0000000000000000",
+                "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                "transactionsRoot": "0x8ee998cc699a1f9310a1079458780b3ebee8756f96a0905f5224b89d0eb17486",
+                "stateRoot": "0x140a9783291704223eb759e3a0db5471a520d349fc17ac2f77ff8582472e3bac",
+                "receiptsRoot": "0x2b5c77f6e7764d2468178fab7253346b9b8bb6a34b63946f6bdc2f5ad398bfc3",
+                "miner": "0x0000000000000000000000000000000000000000",
+                "difficulty": "0x2",
+                "totalDifficulty": "0x2",
+                "extraData": "0x00000000000000000000000000000000000000000000000000000000000000004d04551bdd9ae08af1fd661e49d4ab662c98c532c7ec0e4656a27e4de7d330af578ab1e4f5e49e085ff1d78673c7388ed9ccf017fbe89e53066bfa4018142c0701",
+                "size": "0x3a0",
+                "gasLimit": "0xffffffffffff",
+                "gasUsed": "0x1a4c9",
+                "timestamp": "0x5f5b6b80",
+                "uncles": [],
+                "transactions": [
+                  {
+                    "blockHash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
+                    "blockNumber": "0x8",
+                    "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                    "gas": "0x1a4c9",
+                    "gasPrice": "0x3e8",
+                    "hash": "0x675e336a4281b29c619dfd4ccfbd2f930f3728b20caf9e0067284aa3224e6758",
+                    "input": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033",
+                    "nonce": "0x0",
+                    "to": null,
+                    "transactionIndex": "0x0",
+                    "value": "0x0",
+                    "v": "0xf9d",
+                    "r": "0x2e30624c0305e64812e1d9e325ba6e50410314634b008edcb50f45be71fa0d4",
+                    "s": "0x50e205faed23c219ba15610de2451d458cbd4221207b2168344cfc972a7973c0"
+                  }
+                ]
+              },
+              "hash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
+              "rlp": "0xf9039df9025ca098ae440cd7b904d842daa6c263608969a3c8ce6a9acd6bd1f99b394f5f28a207a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000a0140a9783291704223eb759e3a0db5471a520d349fc17ac2f77ff8582472e3baca08ee998cc699a1f9310a1079458780b3ebee8756f96a0905f5224b89d0eb17486a02b5c77f6e7764d2468178fab7253346b9b8bb6a34b63946f6bdc2f5ad398bfc3b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020886ffffffffffff8301a4c9845f5b6b80b86100000000000000000000000000000000000000000000000000000000000000004d04551bdd9ae08af1fd661e49d4ab662c98c532c7ec0e4656a27e4de7d330af578ab1e4f5e49e085ff1d78673c7388ed9ccf017fbe89e53066bfa4018142c0701a00000000000000000000000000000000000000000000000000000000000000000880000000000000000f9013af90137808203e88301a4c98080b8e6608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033820f9da002e30624c0305e64812e1d9e325ba6e50410314634b008edcb50f45be71fa0d4a050e205faed23c219ba15610de2451d458cbd4221207b2168344cfc972a7973c0c0"
+            }
+          ]
+        }
+        ```
+
+### `debug_standardTraceBlockToFile`
+
+Generates files containing the block trace. A separate file is generated for each
+transaction in the block.
+
+You can also specify a trace file for a specific transaction in a block.
+
+Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to view the trace for
+an invalid block.
+
+#### Parameters
+
+`blockHash`: *string* - block hash
+
+`txHash`: *string* - (optional) transaction hash; if omitted, a trace file is generated for each
+transaction in the block.
+
+`disableMemory`: *boolean* - (optional) specifies whether to capture EVM memory during the trace; defaults to `true`
+
+#### Returns
+
+`result`: *string* - location of the generated trace files
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
+        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
+        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+           "result": [
+             "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+           ]
+        }
+        ```
+
+### `debug_standardTraceBadBlockToFile`
+
+Generates files containing the block trace of invalid blocks.
+A separate file is generated for each
+transaction in the block.
+
+Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view the trace for a
+valid block.
+
+#### Parameters
+
+`blockHash`: *string* - block hash
+
+#### Returns
+
+`result`: *string* - location of the generated trace files
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+           "result": [
+             "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+           ]
+        }
+        ```
+
+### `debug_storageRangeAt`
+
+[Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging.
+Use the *Debugger* tab in Remix instead of calling `debug_storageRangeAt` directly.
+
+Returns the contract storage for the specified range.
+
+#### Parameters
+
+* `blockHash`: *string* - block hash
+
+* `txIndex`: *number* - transaction index from which to start
+
+* `address`: *string* - contract address
+
+* `startKey`: *string* - start key
+
+* `limit`: *number* - number of storage entries to return
+
+#### Returns
+
+`result`: *object* - [range object](API-Objects.md#range-object).
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "storage": {
+                    "0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563": {
+                        "key": null,
+                        "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+                    }
                 },
-                "p2p" : {
-                    "host" : "127.0.0.1",
-                    "port" : "30303"
+                "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
+            }
+        }
+        ```
+
+### `debug_metrics`
+
+Returns metrics providing information on the internal operation of Besu.
+
+The available metrics might change over time.
+The JVM metrics might vary based on the JVM implementation used.
+
+The metric types are:
+
+* Timer
+  
+* Counter
+  
+* Gauge
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *object* - metrics object
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "jvm": {
+                    "memory_bytes_init": {
+                        "heap": 268435456,
+                        "nonheap": 2555904
+                    },
+                    "threads_current": 41,
+                    "memory_bytes_used": {
+                        "heap": 696923976,
+                        "nonheap": 63633456
+                    },
+                    "memory_pool_bytes_used": {
+                        "PS Eden Space": 669119360,
+                        "Code Cache": 19689024,
+                        "Compressed Class Space": 4871144,
+                        "PS Survivor Space": 2716320,
+                        "PS Old Gen": 25088296,
+                        "Metaspace": 39073288
+                    },
+                    ...
                 },
-                "metrics" : {
-                    "host": "127.0.0.1",
-                    "port": "9545"
+                "process": {
+                    "open_fds": 546,
+                    "cpu_seconds_total": 67.148992,
+                    "start_time_seconds": 1543897699.589,
+                    "max_fds": 10240
+                },
+                "rpc": {
+                    "request_time": {
+                        "debug_metrics": {
+                            "bucket": {
+                                "+Inf": 2,
+                                "0.01": 1,
+                                "0.075": 2,
+                                "0.75": 2,
+                                "0.005": 1,
+                                "0.025": 2,
+                                "0.1": 2,
+                                "1.0": 2,
+                                "0.05": 2,
+                                "10.0": 2,
+                                "0.25": 2,
+                                "0.5": 2,
+                                "5.0": 2,
+                                "2.5": 2,
+                                "7.5": 2
+                            },
+                            "count": 2,
+                            "sum": 0.015925392
+                        }
+                    }
+                },
+                "blockchain": {
+                    "difficulty_total": 3533501,
+                    "announcedBlock_ingest": {
+                        "bucket": {
+                            "+Inf": 0,
+                            "0.01": 0,
+                            "0.075": 0,
+                            "0.75": 0,
+                            "0.005": 0,
+                            "0.025": 0,
+                            "0.1": 0,
+                            "1.0": 0,
+                            "0.05": 0,
+                            "10.0": 0,
+                            "0.25": 0,
+                            "0.5": 0,
+                            "5.0": 0,
+                            "2.5": 0,
+                            "7.5": 0
+                        },
+                        "count": 0,
+                        "sum": 0
+                    },
+                    "height": 1908793
+                },
+                "peers": {
+                    "disconnected_total": {
+                        "remote": {
+                            "SUBPROTOCOL_TRIGGERED": 5
+                        },
+                        "local": {
+                            "TCP_SUBSYSTEM_ERROR": 1,
+                            "SUBPROTOCOL_TRIGGERED": 2,
+                            "USELESS_PEER": 3
+                        }
+                    },
+                    "peer_count_current": 2,
+                    "connected_total": 10
                 }
             }
+        }
+        ```
+
+### `debug_traceTransaction`
+
+[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging.
+Use the *Debugger* tab in Remix instead of calling `debug_traceTransaction` directly.
+
+Reruns the transaction with the same state as when the transaction executed.
+
+#### Parameters
+
+* `transactionHash`: *string* - transaction hash
+
+* `options`: *object* - request options object with the following fields (all optional and default to `false`):
+
+    * `disableStorage`: *boolean* - `true` disables storage capture.
+
+    * `disableMemory`: *boolean* - `true` disables memory capture.
+
+    * `disableStack` : *boolean* - `true` disables stack capture.
+
+#### Returns
+
+`result`: *object* - [trace object](API-Objects.md#trace-object)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : {
+            "gas" : 21000,
+            "failed" : false,
+            "returnValue" : "",
+            "structLogs" : [ {
+              "pc" : 0,
+              "op" : "STOP",
+              "gas" : 0,
+              "gasCost" : 0,
+              "depth" : 1,
+              "stack" : [ ],
+              "memory" : [ ],
+              "storage" : null
+            } ]
+          }
+        }
+        ```
+
+### `debug_traceBlock`
+
+Returns full trace of all invoked opcodes of all transactions included in the block.
+
+#### Parameters
+
+* `block`: *string* - RLP of the block
+
+* `options`: *object* - request options object with the following fields (all optional and default to `false`):
+
+    * `disableStorage`: *boolean* - `true` disables storage capture.
+
+    * `disableMemory`: *boolean* - `true` disables memory capture.
+
+    * `disableStack` : *boolean* - `true` disables stack capture.
+
+#### Returns
+
+`result`: *object* - [trace object](API-Objects.md#trace-object)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : {
+            "gas" : 21000,
+            "failed" : false,
+            "returnValue" : "",
+            "structLogs" : [ {
+              "pc" : 0,
+              "op" : "STOP",
+              "gas" : 0,
+              "gasCost" : 0,
+              "depth" : 1,
+              "stack" : [ ],
+              "memory" : [ ],
+              "storage" : null
+            } ]
+          }
+        }
+        ```
+
+### `debug_traceBlockByHash`
+
+Returns full trace of all invoked opcodes of all transactions included in the block.
+
+#### Parameters
+
+* `blockHash`: *string* - block hash
+
+* `options`: *object* - request options object with the following fields (all optional and default to `false`):
+
+    * `disableStorage`: *boolean* - `true` disables storage capture.
+
+    * `disableMemory`: *boolean* - `true` disables memory capture.
+
+    * `disableStack` : *boolean* - `true` disables stack capture.
+
+#### Returns
+
+`result`: *array* of *objects* - list of [trace objects](API-Objects.md#trace-object)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                {
+                    "gas": 21000,
+                    "failed": false,
+                    "returnValue": "",
+                    "structLogs": [
+                        {
+                            "pc": 0,
+                            "op": "STOP",
+                            "gas": 0,
+                            "gasCost": 0,
+                            "depth": 1,
+                            "stack": [],
+                            "memory": [],
+                            "storage": {},
+                            "reason": null
+                        }
+                    ]
+                }
+            ]
+        }
+        ```
+
+### `debug_traceBlockByNumber`
+
+Returns full trace of all invoked opcodes of all transactions included in the block.
+
+#### Parameters
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+* `options`: *object* - request options object with the following fields (all optional and default to `false`):
+
+    * `disableStorage`: *boolean* - `true` disables storage capture.
+
+    * `disableMemory`: *boolean* - `true` disables memory capture.
+
+    * `disableStack` : *boolean* - `true` disables stack capture.
+
+#### Returns
+
+`result`: *array* of *objects* - list of [trace objects](API-Objects.md#trace-object)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                {
+                    "gas": 21000,
+                    "failed": false,
+                    "returnValue": "",
+                    "structLogs": [
+                        {
+                            "pc": 0,
+                            "op": "STOP",
+                            "gas": 0,
+                            "gasCost": 0,
+                            "depth": 1,
+                            "stack": [],
+                            "memory": [],
+                            "storage": null,
+                            "reason": null
+                        }
+                    ]
+                }
+            ]
+        }
+        ```
+
+## `EEA` methods
+
+The `EEA` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
+
+!!! note
+
+    The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
+    use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### `eea_sendRawTransaction`
+
+Distributes the
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
+generates the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+and submits it to the transaction pool, and returns the transaction hash of the
+[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+
+The signed transaction passed as an input parameter includes the `privateFrom`,
+[`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
+and `restriction` fields.
+
+The `gas` and `gasPrice` are used by the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+not the private transaction itself.
+
+To avoid exposing your private key, create signed transactions offline and send the signed
+transaction data using `eea_sendRawTransaction`.
+
+!!! important
+
+    For production systems requiring private transactions, use a network with a consensus mechanism
+    supporting transaction finality to make sure the private state does not become inconsistent
+    with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
+    provides the required finality.
+
+    Using private transactions with [pruning](../Concepts/Pruning.md) or
+    [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
+
+    Besu does not implement
+    [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+
+    [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
+    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+
+#### Parameters
+
+`transaction`: *string* -  signed RLP-encoded private transaction
+
+#### Returns
+
+`result`: *string* - 32-byte transaction hash of the
+[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+
+!!! tip
+
+    If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to
+    retrieve the contract address after the transaction is finalized.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "id":1,
+          "jsonrpc": "2.0",
+          "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
         }
         ```
 
@@ -801,388 +1659,6 @@ The `ETH` API methods allow you to interact with the blockchain.
     Methods with an equivalent [GraphQL](../HowTo/Interact/APIs/GraphQL.md) query include a GraphQL
     request and result in the method example. The parameter and result descriptions apply to the
     JSON-RPC requests. The GraphQL specification is defined in the [schema].
-
-### `eth_syncing`
-
-Returns an object with data about the synchronization status, or `false` if not synchronizing.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *Object|Boolean* - Object with synchronization status data or `false` if not
-synchronizing:
-
-* `startingBlock` : *quantity* - Index of the highest block on the blockchain when the network
-  synchronization starts.
-* `currentBlock` : *quantity* - Index of the latest block (also known as the best block) for the
-  current node. This is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.
-* `highestBlock`: *quantity* - Index of the highest known block in the peer network (that is, the
-  highest block so far discovered among peer nodes). This is the same value as `currentBlock` if
-  the current node has no peers.
-* `pulledStates`: *quantity* - If fast synchronizing, the number of state entries fetched so far,
-  or `null` if this is not known or not relevant. If full synchronizing or fully synchronized, this
-  field is not returned.
-* `knownStates`: *quantity* - If fast synchronizing, the number of states the node knows of so
-  far, or `null` if this is not known or not relevant. If full synchronizing or fully synchronized,
-  this field is not returned.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 51,
-          "result" : {
-            "startingBlock" : "0x0",
-            "currentBlock" : "0x1518",
-            "highestBlock" : "0x9567a3",
-            "pulledStates" : "0x203ca",
-            "knownStates" : "0x200636"
-          }
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          syncing {
-            startingBlock
-            currentBlock
-            highestBlock
-            pulledStates
-            knownStates
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```json
-        {
-          "data" : {
-            "syncing" : {
-              "startingBlock" : 0,
-              "currentBlock" : 5400,
-              "highestBlock" : 9791395,
-              "pullStates" : 132042,
-              "knownStates" : 2098742
-            }
-          }
-        }
-        ```
-
-### `eth_chainId`
-
-Returns the [chain ID](../Concepts/NetworkID-And-ChainID.md).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *quantity* - Chain ID, in hexadecimal.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 51,
-          "result" : "0x7e2"
-        }
-        ```
-
-### `eth_protocolVersion`
-
-Returns current Ethereum protocol version.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *quantity* - Ethereum protocol version.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "0x3f"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{protocolVersion}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          protocolVersion
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```json
-        {
-          "data" : {
-            "protocolVersion" : 63
-          }
-        }
-        ```
-
-### `eth_coinbase`
-
-Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
-
-To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum
-account address. You can get the Ethereum account address from a client such as MetaMask or
-Etherscan. For example:
-
-!!!example
-
-    ```bash
-    besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
-    ```
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *data* - Coinbase address.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-        }
-        ```
-
-### `eth_mining`
-
-Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
-with the network regardless of command settings or methods called.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` (*BOOLEAN*) - `true` if the client is actively mining new blocks, otherwise `false`.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : true
-        }
-        ```
-
-### `eth_hashrate`
-
-Returns the number of hashes per second with which the node is mining.
-
-When the stratum server is enabled, this method returns the cumulative hashrate of all sealers
-reporting their hashrate.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : `quantity` - Number of hashes per second.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x12b"
-        }
-        ```
-
-### `eth_gasPrice`
-
-Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
-the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
-is returned.
-
-If there are no blocks, the value for [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) is returned.
-The value returned is restricted to values between [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price)
-and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 1000 Wei and
-500GWei.
-
-Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
-, and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
-options to configure the `eth_gasPrice` default values.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : `quantity` - Percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0x3e8"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          gasPrice
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```json
-        {
-          "data" : {
-            "gasPrice" : "0x3e8"
-          }
-        }
-        ```
 
 ### `eth_accounts`
 
@@ -1203,7 +1679,7 @@ None
 
 #### Returns
 
-`Array of data` : List of 20-byte account addresses owned by the client.
+`result`: *array* of *strings* - list of 20-byte account addresses owned by the client
 
 !!! example
 
@@ -1239,8 +1715,8 @@ None
 
 #### Returns
 
-`result` : *QUANTITY* - Hexadecimal integer representing the index corresponding to the block
-number of the current chain head.
+`result`: *string* - hexadecimal integer representing the index corresponding to the block
+number of the current chain head
 
 !!! example
 
@@ -1294,1037 +1770,6 @@ number of the current chain head.
         }
         ```
 
-### `eth_getBalance`
-
-Returns the account balance of the specified address.
-
-#### Parameters
-
-`DATA` - 20-byte account address from which to retrieve the balance.
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *QUANTITY* - Current balance, in wei, as a hexadecimal value.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0x1cfe56f3795885980000"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account ( address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") { balance } }"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
-            balance
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data": {
-            "account": {
-              "balance": "0x1ce96a1ffe7620d00000"
-            }
-          }
-        }
-        ```
-
-### `eth_getMinerDataByBlockHash`
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`data` - 32 byte block hash.
-
-#### Returns
-
-`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "netBlockReward": "0x47c6f3739f3da800",
-            "staticBlockReward": "0x4563918244f40000",
-            "transactionFee": "0x38456548220800",
-            "uncleInclusionReward": "0x22b1c8c1227a000",
-            "uncleRewards": [
-              {
-                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-              }
-             ],
-             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-             "difficulty": "0x7348c20",
-             "totalDifficulty": "0xa57bcfdd96"
-          }
-        }
-        ```
-
-### `eth_getMinerDataByBlockNumber`
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result`: `object` - [Miner data](API-Objects.md#miner-data-object).
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "netBlockReward": "0x47c6f3739f3da800",
-            "staticBlockReward": "0x4563918244f40000",
-            "transactionFee": "0x38456548220800",
-            "uncleInclusionReward": "0x22b1c8c1227a000",
-            "uncleRewards": [
-              {
-                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-              }
-             ],
-             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-             "difficulty": "0x7348c20",
-             "totalDifficulty": "0xa57bcfdd96"
-          }
-        }
-        ```
-
-### `eth_getProof`
-
-Returns the account and storage values of the specified account, including the Merkle proof.
-
-The API allows IoT devices or mobile apps which are unable to run light clients to verify responses
-from untrusted sources, by using a trusted block hash.
-
-#### Parameters
-
-`DATA` - 20-byte address of the account or contract.
-
-`ARRAY` - Array of 32-byte storage keys to generate proofs for.
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result`: *Object* - Account details:
-
-* `balance`:`Quantity` - Account balance.
-* `codeHash`:`Data, 32-byte` - Hash of the account code.
-* `nonce`:`Quantity` - Number of transactions sent from the account.
-* `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
-* `accountProof`:`Array` - RLP-encoded Merkle tree nodes, starting with the `stateRoot`.
-* `storageProof`:`Array`- Storage entries. Each entry is an object that displays:
-    * `key`:`Quantity` - Storage key.
-    * `value`:`Quantity` - Storage value.
-    * `proof`:`Array` - RLP-encoded Merkle tree nodes, starting with the `storageHash`.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
-        "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method": "eth_getProof","params": [
-        "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "accountProof": [
-              "0xf90211a0...608d898380",
-              "0xf90211a0...ec33f19580",
-              "0xf901d1a0...9e55584480",
-              "0xf8718080...18e5777142"
-            ],
-            "address": "0x0a8156e7ee392d885d10eaa86afd0e323afdcd95",
-            "balance": "0x0",
-            "codeHash": "0x2b6975dcaf69f9bb9a3b30bb6a37b305ce440250bf0dd2f23338cb18e5777142",
-            "nonce": "0x5f",
-            "storageHash": "0x917688de43091589aa58c1dfd315105bc9de4478b9ba7471616a4d8a43d46203",
-            "storageProof": [
-              {
-                "key": "0x0000000000000000000000000000000000000000000000000000000000000347",
-                "value": "0x0",
-                "proof": [
-                  "0xf90211a0...5176779280",
-                  "0xf901f1a0...c208d86580",
-                  "0xf8d180a0...1ce6808080"
-                ]
-              }
-            ]
-          }
-        }
-        ```
-
-### `eth_getStorageAt`
-
-Returns the value of a storage position at a specified address.
-
-#### Parameters
-
-`DATA` - A 20-byte storage address.
-
-`QUANTITY` - Integer index of the storage position.
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *DATA* - The value at the specified storage position.
-
-!!! example
-
-    Calculating the correct position depends on the storage you want to retrieve.
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : "0x0000000000000000000000000000000000000000000000000000000000000000"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{account(address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") {storage(slot: \"0x04\")}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
-            storage(slot: "0x04")
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "account" : {
-              "storage" : "0x0000000000000000000000000000000000000000000000000000000000000000"
-            }
-          }
-        }
-        ```
-
-### `eth_getTransactionCount`
-
-Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
-next account nonce not used by any pending transactions.
-
-#### Parameters
-
-`data` - 20-byte account address.
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *quantity* - Integer representing the number of transactions sent from the specified
-address.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : "0x1"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account (address:\"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\"){transactionCount}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
-            transactionCount
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "account" : {
-              "transactionCount" : 5
-            }
-          }
-        }
-        ```
-
-### `eth_getBlockTransactionCountByHash`
-
-Returns the number of transactions in the block matching the given block hash.
-
-#### Parameters
-
-`data` - 32-byte block hash.
-
-#### Returns
-
-`result` : `quantity` - Integer representing the number of transactions in the specified block,
-or `null` if no matching block hash is found.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 53,
-          "result" : null
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097\"){transactionCount}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(hash: "0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097") {
-            transactionCount
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "block" : {
-              "transactionCount" : 1
-            }
-          }
-        }
-        ```
-
-### `eth_getBlockTransactionCountByNumber`
-
-Returns the number of transactions in a block matching the specified block number.
-
-#### Parameters
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *QUANTITY* - Integer representing the number of transactions in the specified block,
-or `null` if no matching block number is found.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 51,
-          "result" : "0x8"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:232){transactionCount}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(number: 232) {
-            transactionCount
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "block" : {
-              "transactionCount" : 1
-            }
-          }
-        }
-        ```
-
-### `eth_getUncleByBlockHashAndIndex`
-
-Returns uncle specified by block hash and index.
-
-#### Parameters
-
-`data` - 32-byte block hash.
-
-`quantity` - Index of the uncle.
-
-#### Returns
-
-`result` : [Block object](API-Objects.md#block-object)
-
-!!! note
-
-    Uncles do not contain individual transactions.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc":"2.0",
-          "id":1,
-          "result":{
-            "difficulty":"0x76b123df93230",
-            "extraData":"0x50505945206e616e6f706f6f6c2e6f7267",
-            "gasLimit":"0x7a121d",
-            "gasUsed":"0x7a0175",
-            "hash":"0xc20189c0b1a4a23116ab3b177e929137f6e826f17fc4c2e880e7258c620e9817",
-            "logsBloom":"0x890086c024487ca422be846a201a10e41bc2882902312116c1119609482031e9c000e2a708004a10281024028020c505727a12570c4810121c59024490b040894406a1c23c37a0094810921da3923600c71c03044b40924280038d07ab91964a008084264a01641380798840805a284cce201a8026045451002500113a00de441001320805ca2840037000111640d090442c11116d2112948084240242340400236ce81502063401dcc214b9105194d050884721c1208800b20501a4201400276004142f118e60808284506979a86e050820101c170c185e2310005205a82a2100382422104182090184800c02489e033440218142140045801c024cc1818485",
-            "miner":"0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5",
-            "mixHash":"0xf557cc827e058862aa3ea1bd6088fb8766f70c0eac4117c56cf85b7911f82a14",
-            "nonce":"0xd320b48904347cdd",
-            "number":"0x768964",
-            "parentHash":"0x98d752708b3677df8f439c4529f999b94663d5494dbfc08909656db3c90f6255",
-            "receiptsRoot":"0x0f838f0ceb73368e7fc8d713a7761e5be31e3b4beafe1a6875a7f275f82da45b",
-            "sha3Uncles":"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
-            "size":"0x21a",
-            "stateRoot":"0xa0c7d4fca79810c89c517eff8dadb9c6d6f4bcc27c2edfb301301e1cf7dec642",
-            "timestamp":"0x5cdcbba6",
-            "totalDifficulty":"0x229ad33cabd4c40d23d",
-            "transactionsRoot":"0x866e38e91d01ef0387b8e07ccf35cd910224271ccf2b7477b8c8439e8b70f365",
-            "uncles":[]
-          }
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7\"){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(hash: "0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7") {
-            ommerAt(index: 0) {
-              difficulty
-              extraData
-              gasLimit
-              gasUsed
-              hash
-              logsBloom
-              mixHash
-              nonce
-              number
-              receiptsRoot
-              stateRoot
-              timestamp
-              totalDifficulty
-              transactionsRoot
-            }
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data": {
-            "block": {
-              "difficulty": "0x1",
-              "extraData": "0xf882a00000000000000000000000000000000000000000000000000000000000000000d5949811ebc35d7b06b3fa8dc5809a1f9c52751e1deb808400000000f843b8418e98ef756acdae1e510b1df4b507b7af04eb3802db7fa0f3e73e7d0721b3645e76f4eb3d0dbf0de75620c4405bd5a663247cdd9616482c883053856d857f884a01",
-              "gasLimit": 4700000,
-              "gasUsed": 0,
-              "hash": "0x0efe67972b982eb6be5df84e5238eb07475f86afa8a7de708f6a13ac0ff60d6c",
-              "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-              "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
-              "nonce": "0x0000000000000000",
-              "number": 200,
-              "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
-              "stateRoot": "0xd650578a04b39f50cc979155f4510ec28c2c0a7c1e5fdbf84609bc7b1c430f48",
-              "timestamp": "0x5cd109fb",
-              "totalDifficulty": "0xc9",
-              "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
-            }
-          }
-        }
-        ```
-
-### `eth_getUncleByBlockNumberAndIndex`
-
-Returns uncle specified by block number and index.
-
-#### Parameters
-
-`quantity|tag` - Index of the block, or one of the string tags `latest`, `earliest`, or `pending`,
-as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-`quantity` - Index of the uncle.
-
-#### Returns
-
-`result` : [Block object](API-Objects.md#block-object)
-
-!!! note
-
-    Uncles do not contain individual transactions.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc":"2.0",
-          "id":1,
-          "result":{
-            "difficulty":"0x77daec467bf93",
-            "extraData":"0x50505945206e616e6f706f6f6c2e6f7267",
-            "gasLimit":"0x7a121d",
-            "gasUsed":"0x7a0f7b",
-            "hash":"0x42d83ae9c0743f4b1f9c61ff7ea8b164c1bab3627decd49233760680be006ecf",
-            "logsBloom":"0x888200800000340120220008640200500408006100038400100581c000080240080a0014e8002010080004088040004022402a000c18010001400100002a041141a0610a0052900600041018c0002a0003090020404c00206010010513d00020005380124e08050480710000000108401012b0901c1424006000083a10a8c1040100a0440081050210124400040044304070004001100000012600806008061d0320800000b40042160600002480000000800000c0002100200940801c000820800048024904710000400640490026000a44300309000286088010c2300060003011380006400200812009144042204810209020410a84000410520c08802941",
-            "miner":"0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5",
-            "mixHash":"0xf977fcdb52868be410b75ef2becc35cc312f13ab0a6ce400ecd9d445f66fa3f2",
-            "nonce":"0x628b28403bf1e3d3",
-            "number":"0x7689d0",
-            "parentHash":"0xb32cfdfbf4adb05d30f02fcc6fe039cc6666402142954051c1a1cb9cc91aa11e",
-            "receiptsRoot":"0x9c7c8361d1a24ea2841432234c81974a9920d3eba2b2b1c496b5f925a95cb4ac",
-            "sha3Uncles":"0x7d972aa1b182b7e93f1db043f03fbdbfac6874fe7e67e162141bcc0aefa6336b",
-            "size":"0x21a",
-            "stateRoot":"0x74e97b77813146344d75acb5a52a006cc6dfaca678a10fb8a484a8443e919272",
-            "timestamp":"0x5cdcc0a7",
-            "totalDifficulty":"0x229b0583b4bd2698ca0",
-            "transactionsRoot":"0x1d21626afddf05e5866de66ca3fcd98f1caf5357eba0cc6ec675606e116a891b",
-            "uncles":[]
-          }
-        }
-        ```
-
-    === "curl GraphQL"
-
-         ```bash
-         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:2587){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
-         ```
-
-    === "GraphQL"
-
-         ```bash
-         {
-           block(number: 2587) {
-             ommerAt(index: 0) {
-               difficulty
-               extraData
-               gasLimit
-               gasUsed
-               hash
-               logsBloom
-               mixHash
-               nonce
-               number
-               receiptsRoot
-               stateRoot
-               timestamp
-               totalDifficulty
-               transactionsRoot
-             }
-           }
-         }
-         ```
-
-    === "GraphQL result"
-
-         ```bash
-         {
-           "data" : {
-             "block" : {
-               "ommerAt" : null
-             }
-           }
-         }
-         ```
-
-### `eth_getUncleCountByBlockHash`
-
-Returns the number of uncles in a block from a block matching the given block hash.
-
-#### Parameters
-
-`DATA` - 32-byte block hash.
-
-#### Returns
-
-`result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : 0x0
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426\"){ommerCount}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(hash: "0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426") {
-            ommerCount
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "block" : {
-              "ommerCount" : 2
-            }
-          }
-        }
-        ```
-
-### `eth_getUncleCountByBlockNumber`
-
-Returns the number of uncles in a block matching the specified block number.
-
-#### Parameters
-
-`QUANTITY|TAG` - Integer representing either the index of the block within the blockchain, or one
-of the string tags `latest`, `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *QUANTITY* - Integer representing the number of uncles in the specified block.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : "0x1"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:\"0x59fd\"){ommerCount}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(number: "0x59fd") {
-            ommerCount
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "block" : {
-              "ommerCount" : 0
-            }
-          }
-        }
-        ```
-
-### `eth_getCode`
-
-Returns the code of the smart contract at the specified address. Besu stores compiled smart
-contract code as a hexadecimal value.
-
-#### Parameters
-
-`DATA` - 20-byte contract address.
-
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : *DATA* - Code stored at the specified address.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 53,
-            "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{"query": "{account(address: \"0xa50a51c09a5c451c52bb714527e1974b686d8e77\"){ code }}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
-            code
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "account" : {
-              "code" : "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
-            }
-          }
-        }
-        ```
-
-### `eth_sendRawTransaction`
-
-Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
-A transaction can send ether, deploy a contract, or interact with a contract.
-Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
-
-You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#eth_call).
-
-To avoid exposing your private key, create signed transactions offline and send the signed
-transaction data using `eth_sendRawTransaction`.
-
-!!!important
-
-    Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
-
-    [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
-    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
-
-#### Parameters
-
-`data` -  Signed transaction serialized to hexadecimal format. For example:
-
-`params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
-
-!!! note
-
-    [Creating and Sending Transactions](../HowTo/Send-Transactions/Transactions.md) includes
-    examples of creating signed transactions using the
-    [web3.js](https://github.com/ethereum/web3.js/) library.
-
-#### Returns
-
-`result` : `data` - 32-byte transaction hash.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "id":1,
-          "jsonrpc": "2.0",
-          "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
-        }
-        ```
-
-    === "curl GraphQL"
-
-         ```bash
-         curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation {sendRawTransaction(data: \"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\")}"}' http://localhost:8547/graphql
-         ```
-
-    === "GraphQL"
-
-         ```bash
-         mutation {
-           sendRawTransaction(data: "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833")
-         }
-         ```
-
-    === "GraphQL result"
-
-         ```json
-         {
-           "data" : {
-             "sendRawTransaction" : "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
-           }
-         }
-         ```
-
 ### `eth_call`
 
 Invokes a contract function locally and does not change the state of the blockchain.
@@ -2336,11 +1781,11 @@ the `eth_call` error response includes the [revert reason](../HowTo/Send-Transac
 
 #### Parameters
 
-*OBJECT* - [Transaction call object](API-Objects.md#transaction-call-object).
+`call`: *object* - [transaction call object](API-Objects.md#transaction-call-object)
 
-*QUANTITY|TAG* - Integer representing a block number or one of the string tags `latest`,
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 !!! note
 
@@ -2348,7 +1793,7 @@ the `eth_call` error response includes the [revert reason](../HowTo/Send-Transac
 
 #### Returns
 
-`result` - `data` - Return value of the executed contract.
+`result`: *string* - return value of the executed contract
 
 !!! example
 
@@ -2410,6 +1855,88 @@ the `eth_call` error response includes the [revert reason](../HowTo/Send-Transac
         }
         ```
 
+### `eth_chainId`
+
+Returns the [chain ID](../Concepts/NetworkID-And-ChainID.md).
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - chain ID in hexadecimal
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 51,
+          "result" : "0x7e2"
+        }
+        ```
+
+### `eth_coinbase`
+
+Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
+
+To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum
+account address. You can get the Ethereum account address from a client such as MetaMask or
+Etherscan. For example:
+
+!!!example
+
+    ```bash
+    besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
+    ```
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - coinbase address
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+        }
+        ```
+
 ### `eth_estimateGas`
 
 Returns an estimate of the gas required for a transaction to complete. The estimation process
@@ -2428,11 +1955,11 @@ the `eth_estimateGas` error response includes the [revert reason](../HowTo/Send-
 For `eth_estimateGas`, all fields are optional because setting a gas limit
 is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
 
-`object` - [Transaction call object](API-Objects.md#transaction-call-object).
+`call`: *object* - [transaction call object](API-Objects.md#transaction-call-object)
 
 #### Returns
 
-`result` : `quantity` -  Amount of gas used.
+`result`: *string* -  amount of gas used
 
 !!! example "Example of cost estimate of a value transaction"
 
@@ -2522,21 +2049,160 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
         }
         ```
 
-### `eth_getBlockByHash`
+### `eth_gasPrice`
 
-Returns information about the block by hash.
+Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
+the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value)
+is returned.
+
+If there are no blocks, the value for [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price) is returned.
+The value returned is restricted to values between [`--min-gas-price`](CLI/CLI-Syntax.md#min-gas-price)
+and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max). By default, 1000 Wei and
+500GWei.
+
+Use the [`--api-gas-price-blocks`](CLI/CLI-Syntax.md#api-gas-price-blocks), [`--api-gas-price-percentile`](CLI/CLI-Syntax.md#api-gas-price-percentile)
+, and [`--api-gas-price-max`](CLI/CLI-Syntax.md#api-gas-price-max) command line
+options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 
-`DATA` - 32-byte hash of a block.
-
-`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
-if `false`, returns the transaction hashes.
+None
 
 #### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
-block.
+`result`: *string* - percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0x3e8"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          gasPrice
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```json
+        {
+          "data" : {
+            "gasPrice" : "0x3e8"
+          }
+        }
+        ```
+
+### `eth_getBalance`
+
+Returns the account balance of the specified address.
+
+#### Parameters
+
+* `address`: *string* - 20-byte account address from which to retrieve the balance
+
+* `blockNumber`: *string*  - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - current balance, in Wei, as a hexadecimal value
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0x1cfe56f3795885980000"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account ( address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") { balance } }"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
+            balance
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data": {
+            "account": {
+              "balance": "0x1ce96a1ffe7620d00000"
+            }
+          }
+        }
+        ```
+
+### `eth_getBlockByHash`
+
+Returns information about the block matching the specified block hash.
+
+#### Parameters
+
+* `hash`: *string* - 32-byte hash of a block
+
+* `verbose`: *boolean* - if `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
+if `false`, returns the transaction hashes
+
+#### Returns
+
+`result`: *object* - [block object](API-Objects.md#block-object), or `null` when there is no
+block
 
 !!! example
 
@@ -2649,20 +2315,20 @@ block.
 
 ### `eth_getBlockByNumber`
 
-Returns information about a block by block number.
+Returns information about the block matching the specified block number.
 
 #### Parameters
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-`Boolean` - If `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
+* `verbose`: *boolean* - if `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
 if `false`, returns only the hashes of the transactions.
 
 #### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or `null` when there is no
+`result`: *object* - [block object](API-Objects.md#block-object), or `null` when there is no
 block.
 
 !!! example
@@ -2798,31 +2464,31 @@ block.
         }
         ```
 
-### `eth_getTransactionByHash`
+### `eth_getBlockTransactionCountByHash`
 
-Returns transaction information for the specified transaction hash.
+Returns the number of transactions in the block matching the specified block hash.
 
 #### Parameters
 
-`DATA` - 32-byte transaction hash.
+`hash`: *string* - 32-byte block hash
 
 #### Returns
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
-transaction.
+`result`: *number* - integer representing the number of transactions in the specified block,
+or `null` if no matching block hash is found
 
 !!! example
 
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}
+        {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}
         ```
 
     === "JSON result"
@@ -2831,158 +2497,22 @@ transaction.
         {
           "jsonrpc" : "2.0",
           "id" : 53,
-          "result" : {
-            "blockHash" : "0x510efccf44a192e6e34bcb439a1947e24b86244280762cbb006858c237093fda",
-            "blockNumber" : "0x422",
-            "chainId": 2018,
-            "from" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-            "gas" : "0x5208",
-            "gasPrice" : "0x3b9aca00",
-            "hash" : "0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44",
-            "input" : "0x",
-            "nonce" : "0x1",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf8641d018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a84e8beef5b1ca011232cac2f935ab8dd5d5972438fde90e05d0dd620860b42886e7d54dc5c4a0ca03dd467b5faa6e5a0f3c22a5396fefa5b03f07d8114d8434e0e1493736aad8d0e",
-            "to" : "0x627306090abab3a6e1400e9345bc60c78a8bef57",
-            "transactionIndex" : "0x0",
-            "value" : "0x4e1003b28d9280000",
-            "v" : "0xfe7",
-            "r" : "0x84caf09aefbd5e539295acc67217563438a4efb224879b6855f56857fa2037d3",
-            "s" : "0x5e863be3829812c81439f0ae9d8ecb832b531d651fb234c848d1bf45e62be8b9"
-          }
+          "result" : null
         }
         ```
 
     === "curl GraphQL"
 
         ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash : \"0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d\") { block{hash} gas gasPrice hash nonce value from {address} to {address} status}}"}' http://localhost:8547/graphql
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097\"){transactionCount}}"}' http://localhost:8547/graphql
         ```
 
     === "GraphQL"
 
         ```bash
         {
-          transaction(hash: "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d") {
-            block {
-              hash
-            }
-            gas
-            gasPrice
-            hash
-            nonce
-            value
-            from {
-              address
-            }
-            to {
-              address
-            }
-            status
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```bash
-        {
-          "data" : {
-            "transaction" : {
-              "block" : {
-                "hash" : "0xb1ef35744bade6980c3a933024b2557a8c724a19e5fdd2116bac712aa5e57198"
-              },
-              "gas" : 21000,
-              "gasPrice" : "0x2540be400",
-              "hash" : "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d",
-              "nonce" : 6,
-              "value" : "0x8ac7230489e80000",
-              "from" : {
-                "address" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-              },
-              "to" : {
-                "address" : "0x9d8f8572f345e1ae53db1dfa4a7fce49b467bd7f"
-              },
-              "status" : 1
-            }
-          }
-        }
-        ```
-
-### `eth_getTransactionByBlockHashAndIndex`
-
-Returns transaction information for the specified block hash and transaction index position.
-
-#### Parameters
-
-`DATA` - 32-byte hash of a block.
-
-`QUANTITY` - Integer representing the transaction index position.
-
-#### Returns
-
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
-transaction.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : {
-            "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
-            "blockNumber" : "0x1442e",
-            "chainId": 2018,
-            "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
-            "gas" : "0x3d090",
-            "gasPrice" : "0x57148a6be",
-            "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
-            "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
-            "nonce" : "0x2cb2",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
-            "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
-            "transactionIndex" : "0x2",
-            "value" : "0x0",
-            "v" : "0x2a",
-            "r" : "0xa2d2b1021e1428740a7c67af3c05fe3160481889b25b921108ac0ac2c3d5d40a",
-            "s" : "0x63186d2aaefe188748bfb4b46fb9493cbc2b53cf36169e8501a5bc0ed941b484"
-          }
-         }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{"query": "{ block(hash: \"0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69\") { transactionAt(index: 0) {block{hash}  hash } } }"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block(hash: "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69") {
-            transactionAt(index: 0) {
-              block {
-                hash
-              }
-              hash
-            }
+          block(hash: "0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097") {
+            transactionCount
           }
         }
         ```
@@ -2993,50 +2523,39 @@ transaction.
         {
           "data" : {
             "block" : {
-              "transactionAt" : {
-                "block" : {
-                  "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69"
-                },
-                "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86"
-              }
+              "transactionCount" : 1
             }
           }
         }
         ```
 
-### `eth_getTransactionByBlockNumberAndIndex`
+### `eth_getBlockTransactionCountByNumber`
 
-Returns transaction information for the specified block number and transaction index position.
+Returns the number of transactions in a block matching the specified block number.
 
 #### Parameters
 
-`QUANTITY|TAG` - Integer representing a block number or one of the string tags `latest`,
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-`QUANTITY` - The transaction index position.
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 #### Returns
 
-Object - [Transaction object](API-Objects.md#transaction-object), or `null` when there is no
-transaction.
+`result`: *string* - integer representing the number of transactions in the specified block,
+or `null` if no matching block number is found
 
 !!! example
-
-    This request returns the third transaction in the 82990 block on the Ropsten testnet. You can
-    also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on
-    Etherscan.
 
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}
+        {"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}
         ```
 
     === "JSON result"
@@ -3044,46 +2563,23 @@ transaction.
         ```json
         {
           "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : {
-            "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
-            "blockNumber" : "0x1442e",
-            "chainId": 2018,
-            "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
-            "gas" : "0x3d090",
-            "gasPrice" : "0x57148a6be",
-            "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
-            "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
-            "nonce" : "0x2cb2",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
-            "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
-            "transactionIndex" : "0x2",
-            "value" : "0x0",
-            "v" : "0x2a",
-            "r" : "0xa2d2b1021e1428740a7c67af3c05fe3160481889b25b921108ac0ac2c3d5d40a",
-            "s" : "0x63186d2aaefe188748bfb4b46fb9493cbc2b53cf36169e8501a5bc0ed941b484"
-          }
+          "id" : 51,
+          "result" : "0x8"
         }
         ```
 
     === "curl GraphQL"
 
         ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{"query": "{block(number:20303) {transactionAt(index: 0) {block{hash} hash}}}"}' http://localhost:8547/graphql
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:232){transactionCount}}"}' http://localhost:8547/graphql
         ```
 
     === "GraphQL"
 
         ```bash
         {
-          block(number: 20303) {
-            transactionAt(index: 0) {
-              block {
-                hash
-              }
-              hash
-            }
+          block(number: 232) {
+            transactionCount
           }
         }
         ```
@@ -3094,46 +2590,41 @@ transaction.
         {
           "data" : {
             "block" : {
-              "transactionAt" : {
-              "block" : {
-                "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69"
-              },
-              "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86"
-              }
+              "transactionCount" : 1
             }
           }
         }
         ```
 
-### `eth_getTransactionReceipt`
+### `eth_getCode`
 
-Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
-available.
-
-If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
-available revert reasons in the response.
+Returns the code of the smart contract at the specified address.
+Besu stores compiled smart contract code as a hexadecimal value.
 
 #### Parameters
 
-`DATA` - 32-byte hash of a transaction.
+`address`: *string* - 20-byte contract address
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 #### Returns
 
-`Object` - [Transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when
-there is no receipt.
+`result`: *data* - code stored at the specified address
 
 !!! example
 
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}
+        {"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}
         ```
 
     === "JSON result"
@@ -3141,56 +2632,23 @@ there is no receipt.
         ```json
         {
             "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
-                "blockNumber": "0x50",
-                "contractAddress": null,
-                "cumulativeGasUsed": "0x5208",
-                "from": "0x627306090abab3a6e1400e9345bc60c78a8bef57",
-                "gasUsed": "0x5208",
-                "logs": [],
-                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-                "status": "0x1",
-                "to": "0xf17f52151ebef6c7334fad080c5704d77216b732",
-                "transactionHash": "0xc00e97af59c6f88de163306935f7682af1a34c67245e414537d02e422815efc3",
-                "transactionIndex": "0x0"
-            }
+            "id": 53,
+            "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
         }
         ```
 
     === "curl GraphQL"
 
         ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash: \"0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86\") {block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}"}' http://localhost:8547/graphql
+        curl -X POST -H "Content-Type: application/json" --data '{"query": "{account(address: \"0xa50a51c09a5c451c52bb714527e1974b686d8e77\"){ code }}"}' http://localhost:8547/graphql
         ```
 
     === "GraphQL"
 
         ```bash
         {
-          transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
-            block {
-              hash
-              logsBloom
-            }
-            hash
-            createdContract {
-              address
-            }
-            cumulativeGasUsed
-            gas
-            gasUsed
-            logs {
-              topics
-            }
-            from {
-              address
-            }
-            to {
-              address
-            }
-            index
+          account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
+            code
           }
         }
         ```
@@ -3200,181 +2658,10 @@ there is no receipt.
         ```bash
         {
           "data" : {
-            "transaction" : {
-              "block" : {
-                "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69",
-                "logsBloom" : "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-              },
-              "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86",
-              "createdContract" : null,
-              "cumulativeGasUsed" : 21000,
-              "gas" : 21000,
-              "gasUsed" : 21000,
-              "logs" : [ ],
-              "from" : {
-                "address" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-              },
-              "to" : {
-                "address" : "0x9d8f8572f345e1ae53db1dfa4a7fce49b467bd7f"
-              },
-              "index" : 0
+            "account" : {
+              "code" : "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
             }
           }
-        }
-        ```
-
-### `eth_newFilter`
-
-Creates a [log filter](../Concepts/Events-and-Logs.md). To poll for logs associated with the
-created filter, use [`eth_getFilterChanges`](#eth_getfilterchanges). To get all logs associated with
-the filter, use [`eth_getFilterLogs`](#eth_getfilterlogs).
-
-#### Parameters
-
-`Object` - [Filter options object](API-Objects.md#filter-options-object).
-
-!!! note
-
-    `fromBlock` and `toBlock` in the filter options object default to `latest`.
-
-#### Returns
-
-`data` - Filter ID.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x1ddf0c00989044e9b41cc0ae40272df3"
-        }
-        ```
-
-### `eth_newBlockFilter`
-
-Creates a filter to retrieve new block hashes. To poll for new blocks, use
-[`eth_getFilterChanges`](#eth_getfilterchanges).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`data` - Filter ID.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x9d78b6780f844228b96ecc65a320a825"
-        }
-        ```
-
-### `eth_newPendingTransactionFilter`
-
-Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions,
-use [`eth_getFilterChanges`](#eth_getfilterchanges).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`data` - Filter ID.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x443d6a77c4964707a8554c92f7e4debd"
-        }
-        ```
-
-### `eth_uninstallFilter`
-
-Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
-
-Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or [`eth_getFilterLogs`](#eth_getfilterlogs) for 10
-minutes.
-
-#### Parameters
-
-`data` - Filter ID.
-
-#### Returns
-
-`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : true
         }
         ```
 
@@ -3384,14 +2671,16 @@ Polls the specified filter and returns an array of changes that have occurred si
 
 #### Parameters
 
-`data` - Filter ID.
+`filterId`: *string* - filter ID
 
 #### Returns
 
-`result` : `Array of Object` - If nothing changed since the last poll, an empty list. Otherwise:
+`result`: *array* of *strings* or *objects* - if nothing changed since the last poll, an empty list; otherwise:
 
 * For filters created with `eth_newBlockFilter`, returns block hashes.
+  
 * For filters created with `eth_newPendingTransactionFilter`, returns transaction hashes.
+  
 * For filters created with `eth_newFilter`, returns [log objects](API-Objects.md#log-object).
 
 !!! example
@@ -3484,11 +2773,11 @@ command line option at the default value of `true` to improve log retrieval perf
 
 #### Parameters
 
-`data` - Filter ID.
+`filterId`: *string* - filter ID
 
 #### Returns
 
-`array` - [Log objects](API-Objects.md#log-object).
+`result`: *array* of *objects* - list of [log objects](API-Objects.md#log-object)
 
 !!! example
 
@@ -3547,11 +2836,11 @@ command line option at the default value of `true` to improve log retrieval perf
 
 #### Parameters
 
-`Object` - [Filter options object](API-Objects.md#filter-options-object).
+`filterOptions`: *object* - [filter options object](API-Objects.md#filter-options-object)
 
 #### Returns
 
-`array` - [Log objects](API-Objects.md#log-object).
+`result`: *array* of *objects* - list of [log objects](API-Objects.md#log-object)
 
 !!! example
 
@@ -3662,6 +2951,1119 @@ command line option at the default value of `true` to improve log retrieval perf
         }
         ```
 
+### `eth_getMinerDataByBlockHash`
+
+Returns miner data for the specified block.
+
+#### Parameters
+
+`hash`: *string* - 32-byte block hash
+
+#### Returns
+
+`result`: *object* - [miner data object](API-Objects.md#miner-data-object)
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
+          }
+        }
+        ```
+
+### `eth_getMinerDataByBlockNumber`
+
+Returns miner data for the specified block.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *object* - [miner data object](API-Objects.md#miner-data-object)
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "netBlockReward": "0x47c6f3739f3da800",
+            "staticBlockReward": "0x4563918244f40000",
+            "transactionFee": "0x38456548220800",
+            "uncleInclusionReward": "0x22b1c8c1227a000",
+            "uncleRewards": [
+              {
+                "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
+                "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
+              }
+             ],
+             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+             "difficulty": "0x7348c20",
+             "totalDifficulty": "0xa57bcfdd96"
+          }
+        }
+        ```
+
+### `eth_getProof`
+
+Returns the account and storage values of the specified account, including the Merkle proof.
+
+The API allows IoT devices or mobile apps which are unable to run light clients to verify responses
+from untrusted sources, by using a trusted block hash.
+
+#### Parameters
+
+`address`: *string* - 20-byte address of the account or contract
+
+`keys`: *array* of *strings* - list of 32-byte storage keys to generate proofs for
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *object* - account details object with the following fields:
+
+* `balance`: *string* - account balance
+  
+* `codeHash`: *string* - 32-byte hash of the account code
+  
+* `nonce`: *string* - number of transactions sent from the account
+  
+* `storageHash`: *string* - 32-byte SHA3 of the `storageRoot`
+  
+* `accountProof`: *array* of *strings* - list of RLP-encoded Merkle tree nodes, starting with the `stateRoot`
+  
+* `storageProof`: *array* of *objects* - list of storage entry objects with the following fields:
+  
+    * `key`: *string* - storage key
+
+    * `value`: *string* - storage value
+
+    * `proof`: *array* of *strings* - list of RLP-encoded Merkle tree nodes, starting with the `storageHash`
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
+        "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getProof","params": [
+        "0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "accountProof": [
+              "0xf90211a0...608d898380",
+              "0xf90211a0...ec33f19580",
+              "0xf901d1a0...9e55584480",
+              "0xf8718080...18e5777142"
+            ],
+            "address": "0x0a8156e7ee392d885d10eaa86afd0e323afdcd95",
+            "balance": "0x0",
+            "codeHash": "0x2b6975dcaf69f9bb9a3b30bb6a37b305ce440250bf0dd2f23338cb18e5777142",
+            "nonce": "0x5f",
+            "storageHash": "0x917688de43091589aa58c1dfd315105bc9de4478b9ba7471616a4d8a43d46203",
+            "storageProof": [
+              {
+                "key": "0x0000000000000000000000000000000000000000000000000000000000000347",
+                "value": "0x0",
+                "proof": [
+                  "0xf90211a0...5176779280",
+                  "0xf901f1a0...c208d86580",
+                  "0xf8d180a0...1ce6808080"
+                ]
+              }
+            ]
+          }
+        }
+        ```
+
+### `eth_getStorageAt`
+
+Returns the value of a storage position at a specified address.
+
+#### Parameters
+
+`address`: *string* - 20-byte storage address
+
+`index`: *string* - integer index of the storage position
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result` : *string* - value at the specified storage position
+
+!!! example
+
+    Calculating the correct position depends on the storage you want to retrieve.
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{account(address: \"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\") {storage(slot: \"0x04\")}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
+            storage(slot: "0x04")
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "account" : {
+              "storage" : "0x0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        }
+        ```
+
+### `eth_getTransactionByBlockHashAndIndex`
+
+Returns transaction information for the specified block hash and transaction index position.
+
+#### Parameters
+
+`block`: *string* - 32-byte hash of a block
+
+`index`: *string* - integer representing the transaction index position
+
+#### Returns
+
+`result`: *object* - [transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : {
+            "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
+            "blockNumber" : "0x1442e",
+            "chainId": 2018,
+            "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
+            "gas" : "0x3d090",
+            "gasPrice" : "0x57148a6be",
+            "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
+            "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
+            "nonce" : "0x2cb2",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
+            "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
+            "transactionIndex" : "0x2",
+            "value" : "0x0",
+            "v" : "0x2a",
+            "r" : "0xa2d2b1021e1428740a7c67af3c05fe3160481889b25b921108ac0ac2c3d5d40a",
+            "s" : "0x63186d2aaefe188748bfb4b46fb9493cbc2b53cf36169e8501a5bc0ed941b484"
+          }
+         }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{"query": "{ block(hash: \"0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69\") { transactionAt(index: 0) {block{hash}  hash } } }"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block(hash: "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69") {
+            transactionAt(index: 0) {
+              block {
+                hash
+              }
+              hash
+            }
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "block" : {
+              "transactionAt" : {
+                "block" : {
+                  "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69"
+                },
+                "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86"
+              }
+            }
+          }
+        }
+        ```
+
+### `eth_getTransactionByBlockNumberAndIndex`
+
+Returns transaction information for the specified block number and transaction index position.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+`index`: *string* - transaction index position
+
+#### Returns
+
+`result`: *object* - [transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction
+
+!!! example
+
+    This request returns the third transaction in the 82990 block on the Ropsten testnet. You can
+    also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on
+    Etherscan.
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : {
+            "blockHash" : "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7",
+            "blockNumber" : "0x1442e",
+            "chainId": 2018,
+            "from" : "0x70c9217d814985faef62b124420f8dfbddd96433",
+            "gas" : "0x3d090",
+            "gasPrice" : "0x57148a6be",
+            "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
+            "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
+            "nonce" : "0x2cb2",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
+            "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
+            "transactionIndex" : "0x2",
+            "value" : "0x0",
+            "v" : "0x2a",
+            "r" : "0xa2d2b1021e1428740a7c67af3c05fe3160481889b25b921108ac0ac2c3d5d40a",
+            "s" : "0x63186d2aaefe188748bfb4b46fb9493cbc2b53cf36169e8501a5bc0ed941b484"
+          }
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{"query": "{block(number:20303) {transactionAt(index: 0) {block{hash} hash}}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block(number: 20303) {
+            transactionAt(index: 0) {
+              block {
+                hash
+              }
+              hash
+            }
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "block" : {
+              "transactionAt" : {
+              "block" : {
+                "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69"
+              },
+              "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86"
+              }
+            }
+          }
+        }
+        ```
+
+### `eth_getTransactionByHash`
+
+Returns transaction information for the specified transaction hash.
+
+#### Parameters
+
+`transaction`: *string* - 32-byte transaction hash
+
+#### Returns
+
+`result`: *object* - [transaction object](API-Objects.md#transaction-object), or `null` when there is no
+transaction
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : {
+            "blockHash" : "0x510efccf44a192e6e34bcb439a1947e24b86244280762cbb006858c237093fda",
+            "blockNumber" : "0x422",
+            "chainId": 2018,
+            "from" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+            "gas" : "0x5208",
+            "gasPrice" : "0x3b9aca00",
+            "hash" : "0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44",
+            "input" : "0x",
+            "nonce" : "0x1",
+            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
+            "raw": "0xf8641d018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a84e8beef5b1ca011232cac2f935ab8dd5d5972438fde90e05d0dd620860b42886e7d54dc5c4a0ca03dd467b5faa6e5a0f3c22a5396fefa5b03f07d8114d8434e0e1493736aad8d0e",
+            "to" : "0x627306090abab3a6e1400e9345bc60c78a8bef57",
+            "transactionIndex" : "0x0",
+            "value" : "0x4e1003b28d9280000",
+            "v" : "0xfe7",
+            "r" : "0x84caf09aefbd5e539295acc67217563438a4efb224879b6855f56857fa2037d3",
+            "s" : "0x5e863be3829812c81439f0ae9d8ecb832b531d651fb234c848d1bf45e62be8b9"
+          }
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash : \"0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d\") { block{hash} gas gasPrice hash nonce value from {address} to {address} status}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          transaction(hash: "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d") {
+            block {
+              hash
+            }
+            gas
+            gasPrice
+            hash
+            nonce
+            value
+            from {
+              address
+            }
+            to {
+              address
+            }
+            status
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "transaction" : {
+              "block" : {
+                "hash" : "0xb1ef35744bade6980c3a933024b2557a8c724a19e5fdd2116bac712aa5e57198"
+              },
+              "gas" : 21000,
+              "gasPrice" : "0x2540be400",
+              "hash" : "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d",
+              "nonce" : 6,
+              "value" : "0x8ac7230489e80000",
+              "from" : {
+                "address" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+              },
+              "to" : {
+                "address" : "0x9d8f8572f345e1ae53db1dfa4a7fce49b467bd7f"
+              },
+              "status" : 1
+            }
+          }
+        }
+        ```
+
+### `eth_getTransactionCount`
+
+Returns the number of transactions sent from a specified address. Use the `pending` tag to get the
+next account nonce not used by any pending transactions.
+
+#### Parameters
+
+`address`: *string* - 20-byte account address
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - integer representing the number of transactions sent from the specified address
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "0x1"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account (address:\"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73\"){transactionCount}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
+            transactionCount
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "account" : {
+              "transactionCount" : 5
+            }
+          }
+        }
+        ```
+
+### `eth_getTransactionReceipt`
+
+Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
+available.
+
+If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
+available revert reasons in the response.
+
+#### Parameters
+
+`transaction`: *string* - 32-byte hash of a transaction
+
+#### Returns
+
+`result`: *object* - [transaction receipt object](API-Objects.md#transaction-receipt-object), or `null` when
+there is no receipt
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
+                "blockNumber": "0x50",
+                "contractAddress": null,
+                "cumulativeGasUsed": "0x5208",
+                "from": "0x627306090abab3a6e1400e9345bc60c78a8bef57",
+                "gasUsed": "0x5208",
+                "logs": [],
+                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                "status": "0x1",
+                "to": "0xf17f52151ebef6c7334fad080c5704d77216b732",
+                "transactionHash": "0xc00e97af59c6f88de163306935f7682af1a34c67245e414537d02e422815efc3",
+                "transactionIndex": "0x0"
+            }
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction(hash: \"0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86\") {block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
+            block {
+              hash
+              logsBloom
+            }
+            hash
+            createdContract {
+              address
+            }
+            cumulativeGasUsed
+            gas
+            gasUsed
+            logs {
+              topics
+            }
+            from {
+              address
+            }
+            to {
+              address
+            }
+            index
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "transaction" : {
+              "block" : {
+                "hash" : "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69",
+                "logsBloom" : "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "hash" : "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86",
+              "createdContract" : null,
+              "cumulativeGasUsed" : 21000,
+              "gas" : 21000,
+              "gasUsed" : 21000,
+              "logs" : [ ],
+              "from" : {
+                "address" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+              },
+              "to" : {
+                "address" : "0x9d8f8572f345e1ae53db1dfa4a7fce49b467bd7f"
+              },
+              "index" : 0
+            }
+          }
+        }
+        ```
+
+### `eth_getUncleByBlockHashAndIndex`
+
+Returns uncle specified by block hash and index.
+
+#### Parameters
+
+`block`: *string* - 32-byte block hash
+
+`uncleIndex`: *string* - index of the uncle
+
+#### Returns
+
+`result`: *object* - [block object](API-Objects.md#block-object)
+
+!!! note
+
+    Uncles do not contain individual transactions.
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":1,
+          "result":{
+            "difficulty":"0x76b123df93230",
+            "extraData":"0x50505945206e616e6f706f6f6c2e6f7267",
+            "gasLimit":"0x7a121d",
+            "gasUsed":"0x7a0175",
+            "hash":"0xc20189c0b1a4a23116ab3b177e929137f6e826f17fc4c2e880e7258c620e9817",
+            "logsBloom":"0x890086c024487ca422be846a201a10e41bc2882902312116c1119609482031e9c000e2a708004a10281024028020c505727a12570c4810121c59024490b040894406a1c23c37a0094810921da3923600c71c03044b40924280038d07ab91964a008084264a01641380798840805a284cce201a8026045451002500113a00de441001320805ca2840037000111640d090442c11116d2112948084240242340400236ce81502063401dcc214b9105194d050884721c1208800b20501a4201400276004142f118e60808284506979a86e050820101c170c185e2310005205a82a2100382422104182090184800c02489e033440218142140045801c024cc1818485",
+            "miner":"0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5",
+            "mixHash":"0xf557cc827e058862aa3ea1bd6088fb8766f70c0eac4117c56cf85b7911f82a14",
+            "nonce":"0xd320b48904347cdd",
+            "number":"0x768964",
+            "parentHash":"0x98d752708b3677df8f439c4529f999b94663d5494dbfc08909656db3c90f6255",
+            "receiptsRoot":"0x0f838f0ceb73368e7fc8d713a7761e5be31e3b4beafe1a6875a7f275f82da45b",
+            "sha3Uncles":"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+            "size":"0x21a",
+            "stateRoot":"0xa0c7d4fca79810c89c517eff8dadb9c6d6f4bcc27c2edfb301301e1cf7dec642",
+            "timestamp":"0x5cdcbba6",
+            "totalDifficulty":"0x229ad33cabd4c40d23d",
+            "transactionsRoot":"0x866e38e91d01ef0387b8e07ccf35cd910224271ccf2b7477b8c8439e8b70f365",
+            "uncles":[]
+          }
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7\"){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block(hash: "0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7") {
+            ommerAt(index: 0) {
+              difficulty
+              extraData
+              gasLimit
+              gasUsed
+              hash
+              logsBloom
+              mixHash
+              nonce
+              number
+              receiptsRoot
+              stateRoot
+              timestamp
+              totalDifficulty
+              transactionsRoot
+            }
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data": {
+            "block": {
+              "difficulty": "0x1",
+              "extraData": "0xf882a00000000000000000000000000000000000000000000000000000000000000000d5949811ebc35d7b06b3fa8dc5809a1f9c52751e1deb808400000000f843b8418e98ef756acdae1e510b1df4b507b7af04eb3802db7fa0f3e73e7d0721b3645e76f4eb3d0dbf0de75620c4405bd5a663247cdd9616482c883053856d857f884a01",
+              "gasLimit": 4700000,
+              "gasUsed": 0,
+              "hash": "0x0efe67972b982eb6be5df84e5238eb07475f86afa8a7de708f6a13ac0ff60d6c",
+              "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+              "nonce": "0x0000000000000000",
+              "number": 200,
+              "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+              "stateRoot": "0xd650578a04b39f50cc979155f4510ec28c2c0a7c1e5fdbf84609bc7b1c430f48",
+              "timestamp": "0x5cd109fb",
+              "totalDifficulty": "0xc9",
+              "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+            }
+          }
+        }
+        ```
+
+### `eth_getUncleByBlockNumberAndIndex`
+
+Returns uncle specified by block number and index.
+
+#### Parameters
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+* `uncleIndex`: *string* - index of the uncle
+
+#### Returns
+
+`result`: *object* - [block object](API-Objects.md#block-object)
+
+!!! note
+
+    Uncles do not contain individual transactions.
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":1,
+          "result":{
+            "difficulty":"0x77daec467bf93",
+            "extraData":"0x50505945206e616e6f706f6f6c2e6f7267",
+            "gasLimit":"0x7a121d",
+            "gasUsed":"0x7a0f7b",
+            "hash":"0x42d83ae9c0743f4b1f9c61ff7ea8b164c1bab3627decd49233760680be006ecf",
+            "logsBloom":"0x888200800000340120220008640200500408006100038400100581c000080240080a0014e8002010080004088040004022402a000c18010001400100002a041141a0610a0052900600041018c0002a0003090020404c00206010010513d00020005380124e08050480710000000108401012b0901c1424006000083a10a8c1040100a0440081050210124400040044304070004001100000012600806008061d0320800000b40042160600002480000000800000c0002100200940801c000820800048024904710000400640490026000a44300309000286088010c2300060003011380006400200812009144042204810209020410a84000410520c08802941",
+            "miner":"0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5",
+            "mixHash":"0xf977fcdb52868be410b75ef2becc35cc312f13ab0a6ce400ecd9d445f66fa3f2",
+            "nonce":"0x628b28403bf1e3d3",
+            "number":"0x7689d0",
+            "parentHash":"0xb32cfdfbf4adb05d30f02fcc6fe039cc6666402142954051c1a1cb9cc91aa11e",
+            "receiptsRoot":"0x9c7c8361d1a24ea2841432234c81974a9920d3eba2b2b1c496b5f925a95cb4ac",
+            "sha3Uncles":"0x7d972aa1b182b7e93f1db043f03fbdbfac6874fe7e67e162141bcc0aefa6336b",
+            "size":"0x21a",
+            "stateRoot":"0x74e97b77813146344d75acb5a52a006cc6dfaca678a10fb8a484a8443e919272",
+            "timestamp":"0x5cdcc0a7",
+            "totalDifficulty":"0x229b0583b4bd2698ca0",
+            "transactionsRoot":"0x1d21626afddf05e5866de66ca3fcd98f1caf5357eba0cc6ec675606e116a891b",
+            "uncles":[]
+          }
+        }
+        ```
+
+    === "curl GraphQL"
+
+         ```bash
+         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:2587){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
+         ```
+
+    === "GraphQL"
+
+         ```bash
+         {
+           block(number: 2587) {
+             ommerAt(index: 0) {
+               difficulty
+               extraData
+               gasLimit
+               gasUsed
+               hash
+               logsBloom
+               mixHash
+               nonce
+               number
+               receiptsRoot
+               stateRoot
+               timestamp
+               totalDifficulty
+               transactionsRoot
+             }
+           }
+         }
+         ```
+
+    === "GraphQL result"
+
+         ```bash
+         {
+           "data" : {
+             "block" : {
+               "ommerAt" : null
+             }
+           }
+         }
+         ```
+
+### `eth_getUncleCountByBlockHash`
+
+Returns the number of uncles in a block from a block matching the given block hash.
+
+#### Parameters
+
+`block`: *string* - 32-byte block hash
+
+#### Returns
+
+`result`: *string* - integer representing the number of uncles in the specified block
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : 0x0
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(hash:\"0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426\"){ommerCount}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block(hash: "0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426") {
+            ommerCount
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "block" : {
+              "ommerCount" : 2
+            }
+          }
+        }
+        ```
+
+### `eth_getUncleCountByBlockNumber`
+
+Returns the number of uncles in a block matching the specified block number.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - integer representing the number of uncles in the specified block
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "0x1"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:\"0x59fd\"){ommerCount}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block(number: "0x59fd") {
+            ommerCount
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```bash
+        {
+          "data" : {
+            "block" : {
+              "ommerCount" : 0
+            }
+          }
+        }
+        ```
+
 ### `eth_getWork`
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
@@ -3672,12 +4074,15 @@ None
 
 #### Returns
 
-`result` : Array with the following fields:
+`result`: *array* of *strings* - array with the following items:
 
-* `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
-* `DATA`, 32 Bytes - The seed hash used for the DAG.
-* `DATA`, 32 Bytes - The required target boundary condition: 2^256 / difficulty.
-* `QUANTITY` - Hexadecimal integer representing the current block number.
+* `header`: *string* - 32-byte hash of the current block header (PoW-hash)
+  
+* `seed`: *string* - 32-byte seed hash used for the DAG
+  
+* `target`: *string* - 32-byte required target boundary condition: 2^256 / difficulty
+  
+* `blockNumber`: *string* - hexadecimal integer representing the current block number
 
 !!! example
 
@@ -3708,20 +4113,350 @@ None
         }
         ```
 
-### `eth_submitHashrate`
+### `eth_hashrate`
 
-Submits the mining hashrate.
+Returns the number of hashes per second with which the node is mining.
 
-Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+When the stratum server is enabled, this method returns the cumulative hashrate of all sealers
+reporting their hashrate.
 
 #### Parameters
 
-* DATA, 32 Bytes - Hexadecimal string representation of the hash rate.
-* DATA, 32 Bytes - Random hexadecimal ID identifying the client.
+None
 
 #### Returns
 
-`result: Boolean`, `true` if submission is successful, otherwise `false`.
+`result`: *string* - number of hashes per second
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x12b"
+        }
+        ```
+
+### `eth_mining`
+
+Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes
+with the network regardless of command settings or methods called.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *boolean* - indicates if the client is actively mining new blocks
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : true
+        }
+        ```
+
+### `eth_newBlockFilter`
+
+Creates a filter to retrieve new block hashes.
+To poll for new blocks, use [`eth_getFilterChanges`](#eth_getfilterchanges).
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - filter ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x9d78b6780f844228b96ecc65a320a825"
+        }
+        ```
+
+### `eth_newFilter`
+
+Creates a [log filter](../Concepts/Events-and-Logs.md).
+To poll for logs associated with the created filter, use [`eth_getFilterChanges`](#eth_getfilterchanges).
+To get all logs associated with the filter, use [`eth_getFilterLogs`](#eth_getfilterlogs).
+
+#### Parameters
+
+`filterOptions`: *object* - [filter options object](API-Objects.md#filter-options-object)
+
+!!! note
+
+    `fromBlock` and `toBlock` in the filter options object default to `latest`.
+
+#### Returns
+
+`result`: *string* - filter ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x1ddf0c00989044e9b41cc0ae40272df3"
+        }
+        ```
+
+### `eth_newPendingTransactionFilter`
+
+Creates a filter to retrieve new pending transactions hashes.
+To poll for new pending transactions, use [`eth_getFilterChanges`](#eth_getfilterchanges).
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - filter ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x443d6a77c4964707a8554c92f7e4debd"
+        }
+        ```
+
+### `eth_protocolVersion`
+
+Returns current Ethereum protocol version.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - Ethereum protocol version
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "0x3f"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{protocolVersion}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          protocolVersion
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```json
+        {
+          "data" : {
+            "protocolVersion" : 63
+          }
+        }
+        ```
+
+### `eth_sendRawTransaction`
+
+Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
+A transaction can send ether, deploy a contract, or interact with a contract.
+Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
+
+You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#eth_call).
+
+To avoid exposing your private key, create signed transactions offline and send the signed
+transaction data using `eth_sendRawTransaction`.
+
+!!!important
+
+    Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+
+    [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+
+#### Parameters
+
+`transaction`: *string* -  signed transaction serialized to hexadecimal format
+!!! note
+
+    [Creating and Sending Transactions](../HowTo/Send-Transactions/Transactions.md) includes
+    examples of creating signed transactions using the
+    [web3.js](https://github.com/ethereum/web3.js/) library.
+
+#### Returns
+
+`result`: *string* - 32-byte transaction hash
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "id":1,
+          "jsonrpc": "2.0",
+          "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+        }
+        ```
+
+    === "curl GraphQL"
+
+         ```bash
+         curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation {sendRawTransaction(data: \"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\")}"}' http://localhost:8547/graphql
+         ```
+
+    === "GraphQL"
+
+         ```bash
+         mutation {
+           sendRawTransaction(data: "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833")
+         }
+         ```
+
+    === "GraphQL result"
+
+         ```json
+         {
+           "data" : {
+             "sendRawTransaction" : "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+           }
+         }
+         ```
+
+### `eth_submitHashrate`
+
+Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+
+#### Parameters
+
+* `hashrate`: *string* - 32-byte hexadecimal string representation of the hashrate
+  
+* `id`: *string* - 32-byte random hexadecimal ID identifying the client
+
+#### Returns
+
+`result`: *boolean* - indicates if submission is successful
 
 !!! example
 
@@ -3749,19 +4484,20 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
 
 ### `eth_submitWork`
 
-Submits a Proof of Work (Ethash) solution.
-
-Used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
+Submits a proof of work (Ethash) solution.
+This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
 #### Parameters
 
-* DATA, 8 Bytes - Retrieved nonce.
-* DATA, 32 Bytes - Hash of the block header (PoW-hash).
-* DATA, 32 Bytes - Mix digest.
+* `nonce`: *string* - retrieved 8-byte nonce
+  
+* `header`: *string* - 32-byte hash of the block header (PoW-hash)
+  
+* `digest`: *string* - 32-bytes mix digest
 
 #### Returns
 
-`result: Boolean`, `true` if the provided solution is valid, otherwise `false`.
+`result`: *boolean* - indicates if the provided solution is valid
 
 !!! example
 
@@ -3787,40 +4523,131 @@ Used by mining software such as [Ethminer](https://github.com/ethereum-mining/et
         }
         ```
 
-## `CLIQUE` methods
+### `eth_syncing`
 
-The `CLIQUE` API methods provide access to the [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus engine.
-
-!!! note
-
-    The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
-    methods use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### `clique_discard`
-
-Discards a proposal to [add or remove a signer with the specified address].
+Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
 #### Parameters
 
-`data` - 20-byte address of proposed signer.
+None
 
 #### Returns
 
-`result: boolean` - `true`
+`result`: *object* or *boolean* - synchronization status data object with the following fields, or `false` if not
+synchronizing:
+
+* `startingBlock`: *string* - index of the highest block on the blockchain when the network
+  synchronization starts
+  
+* `currentBlock`: *string* - index of the latest block (also known as the best block) for the
+  current node (this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.)
+  
+* `highestBlock`: *string* - index of the highest known block in the peer network (that is, the
+  highest block so far discovered among peer nodes. This is the same value as `currentBlock` if
+  the current node has no peers.)
+  
+* `pulledStates`: *string* - if fast synchronizing, the number of state entries fetched so far,
+  or `null` if this is not known or not relevant (if full synchronizing or fully synchronized, this
+  field is not returned.)
+  
+* `knownStates`: *string* - if fast synchronizing, the number of states the node knows of so
+  far, or `null` if this is not known or not relevant (if full synchronizing or fully synchronized,
+  this field is not returned.)
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 51,
+          "result" : {
+            "startingBlock" : "0x0",
+            "currentBlock" : "0x1518",
+            "highestBlock" : "0x9567a3",
+            "pulledStates" : "0x203ca",
+            "knownStates" : "0x200636"
+          }
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock pulledStates knownStates}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          syncing {
+            startingBlock
+            currentBlock
+            highestBlock
+            pulledStates
+            knownStates
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```json
+        {
+          "data" : {
+            "syncing" : {
+              "startingBlock" : 0,
+              "currentBlock" : 5400,
+              "highestBlock" : 9791395,
+              "pullStates" : 132042,
+              "knownStates" : 2098742
+            }
+          }
+        }
+        ```
+
+### `eth_uninstallFilter`
+
+Uninstalls a filter with the specified ID.
+When a filter is no longer required, call this method.
+
+Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or
+[`eth_getFilterLogs`](#eth_getfilterlogs) for 10 minutes.
+
+#### Parameters
+
+`filterId`: *string* - filter ID
+
+#### Returns
+
+`result`: *boolean* - indicates if the filter is successfully uninstalled
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}
+        {"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}
         ```
 
     === "JSON result"
@@ -3830,1137 +4657,6 @@ Discards a proposal to [add or remove a signer with the specified address].
           "jsonrpc" : "2.0",
           "id" : 1,
           "result" : true
-        }
-        ```
-
-### `clique_getSigners`
-
-Lists [signers for the specified block].
-
-#### Parameters
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result: array of data` - List of 20-byte addresses of signers.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : [ "0x42eb768f2244c8811c63729a21a3569731535f06", "0x7ffc57839b00206d1ad20c69a1981b489f772031", "0xb279182d99e65703f0076e4812653aab85fca0f0" ]
-        }
-        ```
-
-### `clique_getSignerMetrics`
-
-Provides validator metrics for the specified range:
-
-* Number of blocks from each validator.
-* Block number of the last block proposed by each validator (if any proposed in the specified
-  range).
-* All validators present in the last block.
-
-#### Parameters
-
-`fromBlockNumber` - Integer representing a block number or the string tag `earliest`, as described
-in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or
-`pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
-
-If you specify:
-
-* No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
-  than 100 blocks.
-* Only the first parameter, the call provides metrics for all blocks from the block specified to
-  the latest block.
-
-#### Returns
-
-`result`: _object_ - List of validator objects.
-
-!!! note
-
-    The proposer of the genesis block has address `0x0000000000000000000000000000000000000000`.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "address": "0x7ffc57839b00206d1ad20c69a1981b489f772031",
-                    "proposedBlockCount": "0x21",
-                    "lastProposedBlockNumber": "0x61"
-                },
-                {
-                    "address": "0x42eb768f2244c8811c63729a21a3569731535f06",
-                    "proposedBlockCount": "0x21",
-                    "lastProposedBlockNumber": "0x63"
-                },
-                {
-                    "address": "0xb279182d99e65703f0076e4812653aab85fca0f0",
-                    "proposedBlockCount": "0x21",
-                    "lastProposedBlockNumber": "0x62"
-                }
-            ]
-        }
-        ```
-
-### `clique_getSignersAtHash`
-
-Lists signers for the specified block.
-
-#### Parameters
-
-`data` - 32-byte block hash.
-
-#### Returns
-
-`result: array of data` - List of 20-byte addresses of signers.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : [ "0x42eb768f2244c8811c63729a21a3569731535f06", "0x7ffc57839b00206d1ad20c69a1981b489f772031", "0xb279182d99e65703f0076e4812653aab85fca0f0" ]
-        }
-        ```
-
-### `clique_propose`
-
-Propose to [add or remove a signer with the specified address].
-
-#### Parameters
-
-`data` - 20-byte address.
-
-`boolean` -  `true` to propose adding signer or `false` to propose removing signer.
-
-#### Returns
-
-`result: boolean` - `true`
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-         "jsonrpc" : "2.0",
-         "id" : 1,
-         "result" : true
-        }
-        ```
-
-### `clique_proposals`
-
-Returns
-[current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`:_object_ - Map of account addresses to corresponding boolean values indicating the
-proposal for each account.
-
-If the boolean value is `true`, the proposal is to add a signer. If `false`, the proposal is to
-remove a signer.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "0x42eb768f2244c8811c63729a21a3569731535f07": false,
-                "0x12eb759f2222d7711c63729a45c3585731521d01": true
-            }
-        }
-        ```
-
-## `DEBUG` methods
-
-The `DEBUG` API methods allow you to inspect and debug the network.
-The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
-compatibility with tools such as [Remix](https://remix.ethereum.org/).
-We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
-
-!!! note
-
-    The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### `debug_accountRange`
-
-[Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses
-`debug_accountRange` to implement debugging.
-
-Returns the accounts for a specified block.
-
-#### Parameters
-
-`blockHashOrNumber` : `data` - Block hash or number.
-
-`txIndex` : `integer` - Transaction index from which to start.
-
-`address` : `data` - Address hash from which to start.
-
-`limit` : `integer` - Maximum number of account entries to return.
-
-#### Returns
-
-`result`:`object` - Account details:
-
-* `addressMap`:`object` - List of address hashes and account addresses.
-* `nextKey`:`data` - Hash of the next address if any addresses remain in the state, otherwise
-  zero.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "addressMap": {
-              "0x005e5...86960": "0x0000000000000000000000000000000000000000",
-              "0x021fe...6ffe3": "0x0000000000000000000000000000000000000000",
-              "0x028e6...ab776": "0x0000000000000000000000000000000000000000",
-              "0x02cb5...bc4d8": "0x0000000000000000000000000000000000000000",
-              "0x03089...23fd5": "0x0000000000000000000000000000000000000000"
-            },
-            "nextKey": "0x04242954a5cb9748d3f66bcd4583fd3830287aa585bebd9dd06fa6625976be49"
-          }
-        }
-        ```
-
-### `debug_batchSendRawTransaction`
-
-Sends a list of [signed transactions](../HowTo/Send-Transactions/Transactions.md).
-This is used to quickly load a network with a lot of transactions.
-This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
-
-#### Parameters
-
-`data` -  The signed transaction data array.
-
-#### Returns
-
-`result` : *array* of *objects* - Object returned for each transaction.
-
-Properties of the transaction result object are:
-
-* `index` - The index of the transaction in the request parameters array.
-* `success` - A boolean indicating whether or not the transaction has been added to the transaction pool.
-* `errorMessage` - An optional error message.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": [
-            {
-              "index": 0,
-              "success": true
-            },
-            {
-              "index": 1,
-              "success": false,
-              "errorMessage": "Invalid raw transaction hex"
-            },
-            {
-              "index": 2,
-              "success": true
-            },
-            {
-              "index": 3,
-              "success": false,
-              "errorMessage": "TRANSACTION_REPLACEMENT_UNDERPRICED"
-            }
-          ]
-        }
-        ```
-
-### `debug_getBadBlocks`
-
-Returns a list of invalid blocks.
-This is used to detect and analyze consensus flaws.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` : *array* of [block objects](API-Objects.md#block-object)
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": [
-            {
-              "block": {
-                "number": "0xd",
-                "hash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
-                "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-                "parentHash": "0x544a2f7a4c8defc0d8da44aa0c0db7c36b56db2605c01ed266e919e936579d31",
-                "nonce": "0x0000000000000000",
-                "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
-                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-                "transactionsRoot": "0x02c387e001cbe2a8296bfa2e18afbc3480d0e49588b05556148b0bf7c17dec41",
-                "stateRoot": "0x861ab7e868e3c23f84b7c4ed86b52a6a4f063633bc45ef29212c33459df84ea5",
-                "receiptsRoot": "0xccd2d33763dc0ac3fe02d4ecbbcd7d2bdc6f57db635ba31007184679303721d7",
-                "miner": "0x0000000000000000000000000000000000000000",
-                "difficulty": "0x1",
-                "totalDifficulty": "0x1",
-                "extraData": "0x00000000000000000000000000000000000000000000000000000000000000008c6a091f07e4ba3930f2f5fabbfc5b1c70986319096760ba200a6abc0d30e33c2d501702d1b58d7f75807bdbf981044557628611319121170b96466ec06bb3fd01",
-                "size": "0x3a0",
-                "gasLimit": "0xffffffffffff",
-                "gasUsed": "0x1a488",
-                "timestamp": "0x5f5b6824",
-                "uncles": [],
-                "transactions": [
-                  {
-                    "blockHash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
-                    "blockNumber": "0xd",
-                    "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                    "gas": "0x1a49e",
-                    "gasPrice": "0x3e8",
-                    "hash": "0xdd8cf045113754c306ba9ac8ac8786235e33bc5c087678084ef260a2a583f127",
-                    "input": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033",
-                    "nonce": "0x0",
-                    "to": null,
-                    "transactionIndex": "0x0",
-                    "value": "0x0",
-                    "v": "0xf9d",
-                    "r": "0xa7a15050302ca4b7d3842d35cdd3cbf25b2c48c0c37f96d78beb6a6a6bc4f1c7",
-                    "s": "0x130d29294b2b6a2b7e89f501eb27772f7abf37bfa28a1ce300daade975589fca"
-                  }
-                ]
-              },
-              "hash": "0x85c2edc1ca74b4863cab46ff6ed4df514a698aa7c29a9bce58742a33af07d7e6",
-              "rlp": "0xf9039df9025ca0544a2f7a4c8defc0d8da44aa0c0db7c36b56db2605c01ed266e919e936579d31a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000a0861ab7e868e3c23f84b7c4ed86b52a6a4f063633bc45ef29212c33459df84ea5a002c387e001cbe2a8296bfa2e18afbc3480d0e49588b05556148b0bf7c17dec41a0ccd2d33763dc0ac3fe02d4ecbbcd7d2bdc6f57db635ba31007184679303721d7b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010d86ffffffffffff8301a488845f5b6824b86100000000000000000000000000000000000000000000000000000000000000008c6a091f07e4ba3930f2f5fabbfc5b1c70986319096760ba200a6abc0d30e33c2d501702d1b58d7f75807bdbf981044557628611319121170b96466ec06bb3fd01a00000000000000000000000000000000000000000000000000000000000000000880000000000000000f9013af90137808203e88301a49e8080b8e6608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033820f9da0a7a15050302ca4b7d3842d35cdd3cbf25b2c48c0c37f96d78beb6a6a6bc4f1c7a0130d29294b2b6a2b7e89f501eb27772f7abf37bfa28a1ce300daade975589fcac0"
-            },
-            {
-              "block": {
-                "number": "0x8",
-                "hash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
-                "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-                "parentHash": "0x98ae440cd7b904d842daa6c263608969a3c8ce6a9acd6bd1f99b394f5f28a207",
-                "nonce": "0x0000000000000000",
-                "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
-                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-                "transactionsRoot": "0x8ee998cc699a1f9310a1079458780b3ebee8756f96a0905f5224b89d0eb17486",
-                "stateRoot": "0x140a9783291704223eb759e3a0db5471a520d349fc17ac2f77ff8582472e3bac",
-                "receiptsRoot": "0x2b5c77f6e7764d2468178fab7253346b9b8bb6a34b63946f6bdc2f5ad398bfc3",
-                "miner": "0x0000000000000000000000000000000000000000",
-                "difficulty": "0x2",
-                "totalDifficulty": "0x2",
-                "extraData": "0x00000000000000000000000000000000000000000000000000000000000000004d04551bdd9ae08af1fd661e49d4ab662c98c532c7ec0e4656a27e4de7d330af578ab1e4f5e49e085ff1d78673c7388ed9ccf017fbe89e53066bfa4018142c0701",
-                "size": "0x3a0",
-                "gasLimit": "0xffffffffffff",
-                "gasUsed": "0x1a4c9",
-                "timestamp": "0x5f5b6b80",
-                "uncles": [],
-                "transactions": [
-                  {
-                    "blockHash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
-                    "blockNumber": "0x8",
-                    "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                    "gas": "0x1a4c9",
-                    "gasPrice": "0x3e8",
-                    "hash": "0x675e336a4281b29c619dfd4ccfbd2f930f3728b20caf9e0067284aa3224e6758",
-                    "input": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033",
-                    "nonce": "0x0",
-                    "to": null,
-                    "transactionIndex": "0x0",
-                    "value": "0x0",
-                    "v": "0xf9d",
-                    "r": "0x2e30624c0305e64812e1d9e325ba6e50410314634b008edcb50f45be71fa0d4",
-                    "s": "0x50e205faed23c219ba15610de2451d458cbd4221207b2168344cfc972a7973c0"
-                  }
-                ]
-              },
-              "hash": "0x601a3ae9b6eceb2476d249e1cffe058ba3ff2c9c1b28b1ec7a0259fdd1d90121",
-              "rlp": "0xf9039df9025ca098ae440cd7b904d842daa6c263608969a3c8ce6a9acd6bd1f99b394f5f28a207a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000a0140a9783291704223eb759e3a0db5471a520d349fc17ac2f77ff8582472e3baca08ee998cc699a1f9310a1079458780b3ebee8756f96a0905f5224b89d0eb17486a02b5c77f6e7764d2468178fab7253346b9b8bb6a34b63946f6bdc2f5ad398bfc3b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020886ffffffffffff8301a4c9845f5b6b80b86100000000000000000000000000000000000000000000000000000000000000004d04551bdd9ae08af1fd661e49d4ab662c98c532c7ec0e4656a27e4de7d330af578ab1e4f5e49e085ff1d78673c7388ed9ccf017fbe89e53066bfa4018142c0701a00000000000000000000000000000000000000000000000000000000000000000880000000000000000f9013af90137808203e88301a4c98080b8e6608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033820f9da002e30624c0305e64812e1d9e325ba6e50410314634b008edcb50f45be71fa0d4a050e205faed23c219ba15610de2451d458cbd4221207b2168344cfc972a7973c0c0"
-            }
-          ]
-        }
-        ```
-
-### `debug_standardTraceBlockToFile`
-
-Generates files containing the block trace. A separate file is generated for each
-transaction in the block.
-
-You can also specify a trace file for a specific transaction in a block.
-
-Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to view the trace for
-an invalid block.
-
-#### Parameters
-
-`blockHash` : `data` - Block hash.
-
-`txHash` : `data` - The transaction hash. Optional. If omitted, then a trace file is generated for each
-transaction in the block.
-
-`disableMemory` : `boolean` - Specify whether to capture EVM memory during the trace.
-Defaults to `true`.
-
-#### Returns
-
-`result` : `data` - Location of the generated trace files.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
-        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
-        "txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-           "result": [
-             "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
-           ]
-        }
-        ```
-
-### `debug_standardTraceBadBlockToFile`
-
-Generates files containing the block trace of invalid blocks. A separate file is generated for each
-transaction in the block.
-
-Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view the trace for a
-valid block.
-
-#### Parameters
-
-`blockHash` : `data` - Block hash.
-
-#### Returns
-
-`result` : `data` - Location of the generated trace files.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-           "result": [
-             "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
-           ]
-        }
-        ```
-
-### `debug_storageRangeAt`
-
-[Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to implement debugging. Use the
-_Debugger_ tab in Remix instead of calling `debug_storageRangeAt` directly.
-
-Returns the contract storage for the specified range.
-
-#### Parameters
-
-`blockHash` : `data` - Block hash.
-
-`txIndex` : `integer` - Transaction index from which to start.
-
-`address` : `data` - Contract address.
-
-`startKey` : `hash` - Start key.
-
-`limit` : `integer` - Number of storage entries to return.
-
-#### Returns
-
-`result`:`object` - [Range object](API-Objects.md#range-object).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "storage": {
-                    "0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563": {
-                        "key": null,
-                        "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
-                    }
-                },
-                "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
-            }
-        }
-        ```
-
-### `debug_metrics`
-
-Returns metrics providing information on the internal operation of Besu.
-
-The available metrics might change over time. The JVM metrics might vary based on the JVM
-implementation used.
-
-The metric types are:
-
-* Timer
-* Counter
-* Gauge.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`:`object`
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "jvm": {
-                    "memory_bytes_init": {
-                        "heap": 268435456,
-                        "nonheap": 2555904
-                    },
-                    "threads_current": 41,
-                    "memory_bytes_used": {
-                        "heap": 696923976,
-                        "nonheap": 63633456
-                    },
-                    "memory_pool_bytes_used": {
-                        "PS Eden Space": 669119360,
-                        "Code Cache": 19689024,
-                        "Compressed Class Space": 4871144,
-                        "PS Survivor Space": 2716320,
-                        "PS Old Gen": 25088296,
-                        "Metaspace": 39073288
-                    },
-                    ...
-                },
-                "process": {
-                    "open_fds": 546,
-                    "cpu_seconds_total": 67.148992,
-                    "start_time_seconds": 1543897699.589,
-                    "max_fds": 10240
-                },
-                "rpc": {
-                    "request_time": {
-                        "debug_metrics": {
-                            "bucket": {
-                                "+Inf": 2,
-                                "0.01": 1,
-                                "0.075": 2,
-                                "0.75": 2,
-                                "0.005": 1,
-                                "0.025": 2,
-                                "0.1": 2,
-                                "1.0": 2,
-                                "0.05": 2,
-                                "10.0": 2,
-                                "0.25": 2,
-                                "0.5": 2,
-                                "5.0": 2,
-                                "2.5": 2,
-                                "7.5": 2
-                            },
-                            "count": 2,
-                            "sum": 0.015925392
-                        }
-                    }
-                },
-                "blockchain": {
-                    "difficulty_total": 3533501,
-                    "announcedBlock_ingest": {
-                        "bucket": {
-                            "+Inf": 0,
-                            "0.01": 0,
-                            "0.075": 0,
-                            "0.75": 0,
-                            "0.005": 0,
-                            "0.025": 0,
-                            "0.1": 0,
-                            "1.0": 0,
-                            "0.05": 0,
-                            "10.0": 0,
-                            "0.25": 0,
-                            "0.5": 0,
-                            "5.0": 0,
-                            "2.5": 0,
-                            "7.5": 0
-                        },
-                        "count": 0,
-                        "sum": 0
-                    },
-                    "height": 1908793
-                },
-                "peers": {
-                    "disconnected_total": {
-                        "remote": {
-                            "SUBPROTOCOL_TRIGGERED": 5
-                        },
-                        "local": {
-                            "TCP_SUBSYSTEM_ERROR": 1,
-                            "SUBPROTOCOL_TRIGGERED": 2,
-                            "USELESS_PEER": 3
-                        }
-                    },
-                    "peer_count_current": 2,
-                    "connected_total": 10
-                }
-            }
-        }
-        ```
-
-### `debug_traceTransaction`
-
-[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the
-_Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
-
-Reruns the transaction with the same state as when the transaction executed.
-
-#### Parameters
-
-`transactionHash` : `data` - Transaction hash.
-
-`Object` - request options (all optional and default to `false`):
-
-* `disableStorage` : `boolean` - `true` disables storage capture.
-* `disableMemory` : `boolean` - `true` disables memory capture.
-* `disableStack` : `boolean` - `true` disables stack capture.
-
-#### Returns
-
-`result`:`object` - [Trace object](API-Objects.md#trace-object).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : {
-            "gas" : 21000,
-            "failed" : false,
-            "returnValue" : "",
-            "structLogs" : [ {
-              "pc" : 0,
-              "op" : "STOP",
-              "gas" : 0,
-              "gasCost" : 0,
-              "depth" : 1,
-              "stack" : [ ],
-              "memory" : [ ],
-              "storage" : null
-            } ]
-          }
-        }
-        ```
-
-### `debug_traceBlock`
-
-Returns full trace of all invoked opcodes of all transactions included in the block.
-
-#### Parameters
-
-`Block` : `data` - RLP of the block.
-
-`Object` - request options (all optional and default to `false`):
-
-* `disableStorage` : `boolean` - `true` disables storage capture.
-* `disableMemory` : `boolean` - `true` disables memory capture.
-* `disableStack` : `boolean` - `true` disables stack capture.
-
-#### Returns
-
-`result`:`object` - [Trace object](API-Objects.md#trace-object).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : {
-            "gas" : 21000,
-            "failed" : false,
-            "returnValue" : "",
-            "structLogs" : [ {
-              "pc" : 0,
-              "op" : "STOP",
-              "gas" : 0,
-              "gasCost" : 0,
-              "depth" : 1,
-              "stack" : [ ],
-              "memory" : [ ],
-              "storage" : null
-            } ]
-          }
-        }
-        ```
-
-### `debug_traceBlockByHash`
-
-Returns full trace of all invoked opcodes of all transactions included in the block.
-
-#### Parameters
-
-`block hash` : `data` - Block hash.
-
-`Object` - request options (all optional and default to `false`):
-
-* `disableStorage` : `boolean` - `true` disables storage capture.
-* `disableMemory` : `boolean` - `true` disables memory capture.
-* `disableStack` : `boolean` - `true` disables stack capture.
-
-#### Returns
-
-`result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "gas": 21000,
-                    "failed": false,
-                    "returnValue": "",
-                    "structLogs": [
-                        {
-                            "pc": 0,
-                            "op": "STOP",
-                            "gas": 0,
-                            "gasCost": 0,
-                            "depth": 1,
-                            "stack": [],
-                            "memory": [],
-                            "storage": {},
-                            "reason": null
-                        }
-                    ]
-                }
-            ]
-        }
-        ```
-
-### `debug_traceBlockByNumber`
-
-Returns full trace of all invoked opcodes of all transactions included in the block.
-
-#### Parameters
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-`Object` - request options (all optional and default to `false`):
-
-* `disableStorage` : `boolean` - `true` disables storage capture.
-* `disableMemory` : `boolean` - `true` disables memory capture.
-* `disableStack` : `boolean` - `true` disables stack capture.
-
-#### Returns
-
-`result`:`array of objects` - [Trace objects](API-Objects.md#trace-object).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "gas": 21000,
-                    "failed": false,
-                    "returnValue": "",
-                    "structLogs": [
-                        {
-                            "pc": 0,
-                            "op": "STOP",
-                            "gas": 0,
-                            "gasCost": 0,
-                            "depth": 1,
-                            "stack": [],
-                            "memory": [],
-                            "storage": null,
-                            "reason": null
-                        }
-                    ]
-                }
-            ]
-        }
-        ```
-
-## `MINER` methods
-
-The `MINER` API methods allow you to control the node’s mining operation.
-
-!!! note
-
-    The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### miner_changeTargetGasLimit
-
-Updates the target gas limit set using the [`--target-gas-limit`](CLI/CLI-Syntax.md#target-gas-limit)
-command line option.
-
-#### Parameters
-
-`integer` : `quantity` - The target gas price in Wei.
-
-#### Returns
-
-`result` - `Success` or `error`.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-           "jsonrpc" : "2.0",
-           "id" : 1,
-           "result" : "Success"
-        }
-        ```
-
-### `miner_start`
-
-Starts the mining process. To start mining, you must first specify a miner coinbase using the
-[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` :  `boolean` - `true` if mining starts, or if the node was already mining.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": true
-        }
-        ```
-
-### `miner_stop`
-
-Stops the mining process on the client.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` :  `boolean` - `true` if mining stops, or if the node was not mining.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": true
         }
         ```
 
@@ -4980,11 +4676,11 @@ Discards a proposal to [add or remove a validator] with the specified address.
 
 #### Parameters
 
-`data` - 20-byte address of proposed validator.
+`address`: *string* - 20-byte address of proposed validator
 
 #### Returns
 
-`result: boolean` - `true`
+`result`: *boolean* - indicates if the proposal is discarded
 
 !!! example
 
@@ -5012,8 +4708,8 @@ Discards a proposal to [add or remove a validator] with the specified address.
 
 ### `ibft_getPendingVotes`
 
-Returns [votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
-cast in the current [epoch](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
+Returns [votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) cast in the current
+[epoch](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
 
 #### Parameters
 
@@ -5021,10 +4717,8 @@ None
 
 #### Returns
 
-`result`: `object` - Map of account addresses to corresponding boolean values indicating the vote
-for each account.
-
-If the boolean value is `true`, the vote is to add a validator. If `false`, the proposal is to
+`result`: *map* of *strings* to *booleans* - map of account addresses to corresponding boolean values indicating the
+vote for each account; if `true`, the vote is to add a validator. If `false`, the proposal is to
 remove a validator.
 
 !!! example
@@ -5054,141 +4748,23 @@ remove a validator.
         }
         ```
 
-### `ibft_getValidatorsByBlockHash`
-
-Lists the validators defined in the specified block.
-
-#### Parameters
-
-`data` - 32-byte block hash.
-
-#### Returns
-
-`result: array of data` - List of validator addresses.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                "0x42d4287eac8078828cf5f3486cfe601a275a49a5",
-                "0xb1b2bc9582d2901afdc579f528a35ca41403fa85",
-                "0xef1bfb6a12794615c9b0b5a21e6741f01e570185"
-            ]
-        }
-        ```
-
-### `ibft_getValidatorsByBlockNumber`
-
-Lists the validators defined in the specified block.
-
-#### Parameters
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result: array of data` - List of validator addresses.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                "0x42d4287eac8078828cf5f3486cfe601a275a49a5",
-                "0xb1b2bc9582d2901afdc579f528a35ca41403fa85",
-                "0xef1bfb6a12794615c9b0b5a21e6741f01e570185"
-            ]
-        }
-        ```
-
-### `ibft_proposeValidatorVote`
-
-Propose to [add or remove a validator] with the specified address.
-
-#### Parameters
-
-`data` - Account address
-
-`boolean` -  `true` to propose adding validator or `false` to propose removing validator.
-
-#### Returns
-
-`result: boolean` - `true`
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-         "jsonrpc" : "2.0",
-         "id" : 1,
-         "result" : true
-        }
-        ```
-
 ### `ibft_getSignerMetrics`
 
-Provides validator metrics for the specified range:
+Provides the following validator metrics for the specified range:
 
-* Number of blocks from each validator.
+* Number of blocks from each validator
+  
 * Block number of the last block proposed by each validator (if any proposed in the specified
-  range).
-* All validators present in the last block of the range.
+  range)
+  
+* All validators present in the last block of the range
 
 #### Parameters
 
-`fromBlockNumber` - Integer representing a block number or the string tag `earliest` as described
-in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+* `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest` as described
+in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-`toBlockNumber` - Integer representing a block number or one of the string tags `latest` or
+* `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
 `pending`, as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
@@ -5196,12 +4772,13 @@ If you specify:
 
 * No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
   than 100 blocks.
+  
 * Only the first parameter, the call provides metrics for all blocks from the block specified to
   the latest block.
 
 #### Returns
 
-`result`: _object_ - List of validator objects
+`result`: *array* of *objects* - list of validator objects
 
 !!! note
 
@@ -5247,6 +4824,476 @@ If you specify:
         }
         ```
 
+### `ibft_getValidatorsByBlockHash`
+
+Lists the validators defined in the specified block.
+
+#### Parameters
+
+`block`: *string* - 32-byte block hash
+
+#### Returns
+
+`result`: *array* of *strings* - list of validator addresses
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                "0x42d4287eac8078828cf5f3486cfe601a275a49a5",
+                "0xb1b2bc9582d2901afdc579f528a35ca41403fa85",
+                "0xef1bfb6a12794615c9b0b5a21e6741f01e570185"
+            ]
+        }
+        ```
+
+### `ibft_getValidatorsByBlockNumber`
+
+Lists the validators defined in the specified block.
+
+#### Parameters
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *array* of *strings* - list of validator addresses
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                "0x42d4287eac8078828cf5f3486cfe601a275a49a5",
+                "0xb1b2bc9582d2901afdc579f528a35ca41403fa85",
+                "0xef1bfb6a12794615c9b0b5a21e6741f01e570185"
+            ]
+        }
+        ```
+
+### `ibft_proposeValidatorVote`
+
+Proposes to [add or remove a validator] with the specified address.
+
+#### Parameters
+
+* `address`: *string* - account address
+
+* `proposal`: *boolean* - `true` to propose adding validator or `false` to propose removing validator
+
+#### Returns
+
+`result`: *boolean* - `true`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+         "jsonrpc" : "2.0",
+         "id" : 1,
+         "result" : true
+        }
+        ```
+
+## `MINER` methods
+
+The `MINER` API methods allow you to control the node’s mining operation.
+
+!!! note
+
+    The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### `miner_changeTargetGasLimit`
+
+Updates the target gas limit set using the [`--target-gas-limit`](CLI/CLI-Syntax.md#target-gas-limit)
+command line option.
+
+#### Parameters
+
+`gasPrice`: *number* - target gas price in Wei
+
+#### Returns
+
+`result`: *string* - `Success` or `error`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+           "jsonrpc" : "2.0",
+           "id" : 1,
+           "result" : "Success"
+        }
+        ```
+
+### `miner_start`
+
+Starts the mining process. To start mining, you must first specify a miner coinbase using the
+[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *boolean* - `true` if mining starts, or if the node is already mining
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": true
+        }
+        ```
+
+### `miner_stop`
+
+Stops the mining process on the client.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *boolean* - `true` if mining stops, or if the node is not mining
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": true
+        }
+        ```
+
+## `NET` methods
+
+The `NET` API methods provide network-related information.
+
+### `net_enode`
+
+Returns the [enode URL](../Concepts/Node-Keys.md#enode-url).
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - [enode URL](../Concepts/Node-Keys.md#enode-url) of the node
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "enode://6a63160d0ccef5e4986d270937c6c8d60a9a4d3b25471cda960900d037c61988ea14da67f69dbfb3497c465d0de1f001bb95598f74b68a39a5156a608c42fa1b@127.0.0.1:30303"
+        }
+        ```
+
+### `net_listening`
+
+Whether the client is actively listening for network connections.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *boolean* - indicates if the client is actively listening for network connections
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : true
+        }
+        ```
+
+### `net_peerCount`
+
+Returns the number of peers currently connected to the client.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - number of connected peers in hexadecimal
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0x5"
+        }
+        ```
+
+### `net_services`
+
+Returns enabled services (for example, `jsonrpc`) and the host and port for each service.
+
+!!! note
+
+    The [`--nat-method`](../CLI/CLI-Syntax/#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *object* - enabled services
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"net_services","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "jsonrpc": {
+                    "host": "127.0.0.1",
+                    "port": "8545"
+                },
+                "p2p" : {
+                    "host" : "127.0.0.1",
+                    "port" : "30303"
+                },
+                "metrics" : {
+                    "host": "127.0.0.1",
+                    "port": "9545"
+                }
+            }
+        }
+        ```
+
+### `net_version`
+
+Returns the [network ID](../Concepts/NetworkID-And-ChainID.md).
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - current network ID
+
+| Network ID | Chain | Network | Description
+|------------|-------|---------|-------------------------------|
+| `1`        | ETH   | Mainnet | Main Ethereum network         |
+| `3`        | ETH   | Ropsten | PoW test network              |
+| `4`        | ETH   | Rinkeby | PoA test network using Clique |
+| `5`        | ETH   | Goerli  | PoA test network using Clique |
+| `2018`     | ETH   | Dev     | PoW development network       |
+| `1`        | ETC   | Classic | Main Ethereum Classic network |
+| `7`        | ETC   | Mordor  | PoW test network              |
+| `6`        | ETC   | Kotti   | PoA test network using Clique |
+| `212`      | ETC   | Astor   | PoW test network              |
+
+!!! note
+
+    For almost all networks network ID and chain ID are the same.
+
+    The only networks in the table above with different network and chain IDs are
+    Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"net_version","params":[],"id":53}
+        ```
+
+    === "JSON result for Mainnet"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 51,
+          "result" : "1"
+        }
+        ```
+
+    === "JSON result for Ropsten"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "3"
+        }
+        ```
+
 ## `PERM` (Permissioning) methods
 
 The `PERM` API methods provide permissioning functionality.
@@ -5265,7 +5312,7 @@ Adds accounts (participants) to the
 
 #### Parameters
 
-`list of strings` - List of account addresses.
+`addresses`: *array* of *strings* - list of account addresses
 
 !!! note
 
@@ -5274,8 +5321,8 @@ Adds accounts (participants) to the
 
 #### Returns
 
-`result` - `Success` or `error`. Errors include attempting to add accounts already on the
-allowlist or including invalid account addresses.
+`result`: *string* - `Success` or `error` (errors include attempting to add accounts already on the
+allowlist and including invalid account addresses.)
 
 !!! example
 
@@ -5301,6 +5348,49 @@ allowlist or including invalid account addresses.
         }
         ```
 
+### `perm_addNodesToAllowlist`
+
+Adds nodes to the
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+
+#### Parameters
+
+`enodes`: *array* of *strings* - list of [enode URLs](../Concepts/Node-Keys.md#enode-url)
+
+!!! note
+
+    The parameters list contains a list which is why the enode URLs are enclosed by double
+    square brackets.
+
+#### Returns
+
+`result`: *string* - `Success` or `error`; errors include attempting to add nodes already on the allowlist or
+including invalid enode URLs.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "Success"
+        }
+        ```
+
 ### `perm_getAccountsAllowlist`
 
 Lists accounts (participants) in the
@@ -5312,7 +5402,7 @@ None
 
 #### Returns
 
-`result: list` - Accounts (participants) in the accounts allowlist.
+`result`: *array* of *strings* - list of accounts (participants) in the accounts allowlist
 
 !!! example
 
@@ -5341,92 +5431,6 @@ None
         }
         ```
 
-### `perm_removeAccountsFromAllowlist`
-
-Removes accounts (participants) from the
-[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
-
-#### Parameters
-
-`list of strings` - List of account addresses.
-
-!!! note
-
-    The parameters list contains a list which is why the account addresses are enclosed by double
-    square brackets.
-
-#### Returns
-
-`result` - `Success` or `error`. Errors include attempting to remove accounts not on the allowlist
-or including invalid account addresses.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "Success"
-        }
-        ```
-
-### `perm_addNodesToAllowlist`
-
-Adds nodes to the
-[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
-
-#### Parameters
-
-`list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url).
-
-!!! note
-
-    The parameters list contains a list which is why the enode URLs are enclosed by double
-    square brackets.
-
-#### Returns
-
-`result` - `Success` or `error`. Errors include attempting to add nodes already on the allowlist or
-including invalid enode URLs.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "Success"
-        }
-        ```
-
 ### `perm_getNodesAllowlist`
 
 Lists nodes in the
@@ -5438,7 +5442,7 @@ None
 
 #### Returns
 
-`result: list` - [Enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes allowlist.
+`result`: *array* of *strings* - [enode URLs](../Concepts/Node-Keys.md#enode-url) of nodes in the nodes allowlist
 
 !!! example
 
@@ -5467,49 +5471,6 @@ None
         }
         ```
 
-### `perm_removeNodesFromAllowlist`
-
-Removes nodes from the
-[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
-
-#### Parameters
-
-`list of strings` - List of [enode URLs](../Concepts/Node-Keys.md#enode-url)
-
-!!! note
-
-    The parameters list contains a list which is why the enode URLs are enclosed by double square
-    brackets.
-
-#### Returns
-
-`result` - `Success` or `error`. Errors include attempting to remove nodes not on the allowlist
-or including invalid enode URLs.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "Success"
-        }
-        ```
-
 ### `perm_reloadPermissionsFromFile`
 
 Reloads the accounts and nodes allowlists from the [permissions configuration file].
@@ -5520,7 +5481,7 @@ None
 
 #### Returns
 
-`result` - `Success`, or `error` if the permissions configuration file is not valid.
+`result`: *string* - `Success`, or `error` if the permissions configuration file is not valid
 
 !!! example
 
@@ -5546,159 +5507,37 @@ None
         }
         ```
 
-## `TXPOOL` methods
+### `perm_removeAccountsFromAllowlist`
 
-The `TXPOOL` API methods allow you to inspect the contents of the transaction pool.
-
-!!! note
-
-    The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### `txpool_besuPendingTransactions`
-
-Lists pending transactions that match the supplied filter conditions.
+Removes accounts (participants) from the
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
-* `QUANTITY` - Integer representing the maximum number of results to return.
-* Object of fields used to create the filter condition.
-
-Each field in the object corresponds to a field name containing an operator, and a value for the
-operator. A field name can only be specified once, and can only contain one operator.
-For example, you cannot query transactions with a gas price between 8 and 9 Gwei by using both the
-`gt` and `lt` operator in the same field name instance.
-
-All filters must be satisfied for a transaction to be returned.
-
-| Field name   | Value                                     | Value type            | Supported operators |
-|--------------|-------------------------------------------|:---------------------:|---------------------|
-| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
-| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
-| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
-| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
-| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-|
-
-Supported operators:
-
-* `eq` (Equal to)
-* `lt` (Less than)
-* `gt` (Greater than)
-* `action`
+`addresses`: *array* of *strings* - list of account addresses
 
 !!! note
-    The only supported `action` is `"contract_creation"`.
+
+    The parameters list contains a list which is why the account addresses are enclosed by double
+    square brackets.
 
 #### Returns
 
-`result` - Array of objects with [details of the pending transaction](API-Objects.md#pending-transaction-object).
+`result`: *string* - `Success` or `error` (errors include attempting to remove accounts not on the allowlist
+and including invalid account addresses.)
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{
-           "jsonrpc":"2.0",
-           "method":"txpool_besuPendingTransactions",
-           "params":[
-              2,
-              {
-                 "from":{
-                    "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-                 },
-                 "gas":{
-                    "lt":"0x5209"
-                 },
-                 "nonce":{
-                    "gt":"0x1"
-                 }
-              }
-           ],
-           "id":1
-        }' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {
-           "jsonrpc":"2.0",
-           "method":"txpool_besuPendingTransactions",
-           "params":[
-              2,
-              {
-                 "from":{
-                    "eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-                 },
-                 "gas":{
-                    "lt":"0x5209"
-                 },
-                 "nonce":{
-                    "gt":"0x1"
-                 }
-              }
-           ],
-           "id":1
-        }
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": [
-            {
-              "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-              "gas": "0x5208",
-              "gasPrice": "0xab5d04c00",
-              "hash": "0xb7b2f4306c1c228ec94043da73b582594007091a7dfe024b1f8d6d772284e54b",
-              "input": "0x",
-              "nonce": "0x2",
-              "to": "0xf8be4ebda7f62d79a665294ec1263bfdb59aabf2",
-              "value": "0x0",
-              "v": "0xfe8",
-              "r": "0x5beb711e652c6cf0a589d3cea904eefc4f45ce4372652288701d08cc4412086d",
-              "s": "0x3af14a56e63aa5fb7dcb444a89708363a9d2c1eba1f777c67690288415080ded"
-            }
-          ]
-        }
-        ```
-
-### `txpool_besuStatistics`
-
-Lists statistics about the node transaction pool.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result` - Transaction pool statistics:
-
-* `maxSize` - Maximum number of transactions kept in the transaction pool. Use the
-  [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size) option to configure the maximum size.
-* `localCount` - Number of transactions submitted directly to this node.
-* `remoteCount` - Number of transactions received from remote nodes.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}
+        {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
         ```
 
     === "JSON result"
@@ -5707,38 +5546,530 @@ None
         {
             "jsonrpc": "2.0",
             "id": 1,
-            "result": {
-                "maxSize": 4096,
-                "localCount": 1,
-                "remoteCount": 0
-            }
+            "result": "Success"
         }
         ```
 
-### `txpool_besuTransactions`
+### `perm_removeNodesFromAllowlist`
 
-Lists transactions in the node transaction pool.
+Removes nodes from the
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
-None
+`enodes`: *array* of *strings* - list of [enode URLs](../Concepts/Node-Keys.md#enode-url)
+
+!!! note
+
+    The parameters list contains a list which is why the enode URLs are enclosed by double square
+    brackets.
 
 #### Returns
 
-`result` - List of transactions.
+`result`: *string* - `Success` or `error` (errors include attempting to remove nodes not on the allowlist
+and including invalid enode URLs.)
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}
+        {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "Success"
+        }
+        ```
+
+## `PLUGINS` methods
+
+The `PLUGINS` API methods provide plugin-related functionality.
+
+!!! note
+
+    The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### `plugins_reloadPluginConfig`
+
+Reloads specified plugin configuration.
+
+#### Parameters
+
+`plugin`: *string* - plugin
+
+#### Returns
+
+`result`: *string* - `Success`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "Success"
+        }
+        ```
+
+## `PRIV` methods
+
+The `PRIV` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
+[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
+
+!!! note
+
+    The `PRIV` API methods are not enabled by default for JSON-RPC. To enable the `PRIV` API
+    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
+    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### `priv_call`
+
+Invokes a private contract function locally and does not change the privacy group state.
+
+For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for public contracts.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `call`: *object* - [transaction call object](API-Objects.md#transaction-call-object)
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *data* - return value of the executed contract
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        }
+        ```
+
+    === "curl GraphQL"
+
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
+        ```
+
+    === "GraphQL"
+
+        ```bash
+        {
+          block {
+            number
+            call(data: {from: "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", to: "0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13", data: "0x12a7b914"}) {
+              data
+              status
+            }
+          }
+        }
+        ```
+
+    === "GraphQL result"
+
+        ```json
+        {
+          "data" : {
+            "block" : {
+              "number" : 17449,
+              "call" : {
+                "data" : "0x",
+                "status" : 1
+              }
+            }
+          }
+        }
+        ```
+
+### `priv_createPrivacyGroup`
+
+Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
+
+#### Parameters
+
+`options`: *object* - request options object with the following fields:
+
+* `addresses`: *array* of *strings* - list of nodes specified by
+  [Orion](https://docs.orion.consensys.net/) public keys
+  
+* `name`: *string* - (optional) privacy group name
+  
+* `description`: *string* - (optional) privacy group description
+
+#### Returns
+
+`result`: *string* - privacy group ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="
+        }
+        ```
+
+### `priv_debugGetStateRoot`
+
+Returns the state root of the specified privacy group at the specified block.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - 32-byte state root
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+        }
+
+        ```
+
+### `priv_deletePrivacyGroup`
+
+Deletes the specified privacy group.
+
+#### Parameters
+
+`privacyGroupId`: *string* - privacy group ID
+
+#### Returns
+
+`result`: *string* - deleted privacy group ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 53,
+          "result": "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="
+        }
+        ```
+
+### `priv_distributeRawTransaction`
+
+Distributes a signed, RLP encoded
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+
+!!! tip
+
+    If you want to sign the Privacy Marker Transaction outside of Besu,
+    use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+    instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
+
+#### Parameters
+
+`transaction`: *string* - signed RLP-encoded private transaction
+
+#### Returns
+
+`result`: *string* - 32-byte enclave key (the enclave key is a pointer to the private transaction in
+[Orion](https://docs.orion.consensys.net/).)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "0xfd0d90ab824574abc19c0776ca0210e764561d0ef6d621f2bbbea316eccfe56b"
+        }
+        ```
+
+### `priv_findPrivacyGroup`
+
+Returns a list of privacy groups containing only the listed members. For example, if the listed
+members are A and B, a privacy group containing A, B, and C is not returned.
+
+#### Parameters
+
+`members`: *array* of *strings* - members specified by [Orion](https://docs.orion.consensys.net/) public keys
+
+#### Returns
+
+`result`: *array* of *objects* - privacy group objects containing only the specified members; privacy groups are
+[EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
+or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
+
+* `LEGACY` for EEA-compliant groups.
+  
+* `PANTHEON` for Besu-extended groups.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+         "jsonrpc": "2.0",
+         "id": 1,
+         "result": [
+           {
+             "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
+             "name": "Group B",
+             "description": "Description of Group B",
+             "type": "PANTHEON",
+             "members": [
+               "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+               "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
+             ]
+           }
+        ]
+        }
+        ```
+
+### `priv_getCode`
+
+Returns the code of the private smart contract at the specified address. Compiled smart contract code
+is stored as a hexadecimal value.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `address`: *string* - 20-byte contract address
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`, `earliest`,
+or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *data* - code stored at the specified address
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
+        }
+        ```
+
+### `priv_getEeaTransactionCount`
+
+Returns the private transaction count for the specified account and
+[group of sender and recipients].
+
+!!! important
+
+    If sending more than one transaction to be mined in the same block (that is, you are not
+    waiting for the transaction receipt), you must calculate the private transaction nonce outside
+    Besu instead of using `priv_getEeaTransactionCount`.
+
+#### Parameters
+
+* `address`: *string* - account address
+
+* `sender`: *string* - base64-encoded Orion address of the sender
+
+* `recipients`: *array* of *strings* - base64-encoded Orion addresses of recipients
+
+#### Returns
+
+`result`: *string* - integer representing the number of private transactions sent from the address to the
+specified group of sender and recipients
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "0x1"
+        }
+        ```
+
+### `priv_getFilterChanges`
+
+Polls the specified filter for a private contract and returns an array of changes that have occurred
+since the last poll.
+
+Filters for private contracts can only be created by [`priv_newFilter`](#priv_newfilter) so unlike
+[`eth_getFilterChanges`](#eth_getfilterchanges), `priv_getFilterChanges` always returns an array
+of log objects or an empty list.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `filterId`: *string* - filter ID
+
+#### Returns
+
+`result`: *array* of *objects* - list of [log objects](API-Objects.md#log-object), or an empty list if nothing has
+changed since the last poll
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
         ```
 
     === "JSON result"
@@ -5749,16 +6080,457 @@ None
             "id": 1,
             "result": [
                 {
-                    "hash": "0x8a66830098be4006a3f63a03b6e9b67aa721e04bd6b46d420b8f1937689fb4f1",
-                    "isReceivedFromLocalSource": true,
-                    "addedToPoolAt": "2019-03-21T01:35:50.911Z"
-                },
-                {
-                    "hash": "0x41ee803c3987ceb5bcea0fad7a76a8106a2a6dd654409007d9931032ea54579b",
-                    "isReceivedFromLocalSource": true,
-                    "addedToPoolAt": "2019-03-21T01:36:00.374Z"
+                    "logIndex": "0x0",
+                    "removed": false,
+                    "blockNumber": "0x4d0",
+                    "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
+                    "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
+                    "transactionIndex": "0x0",
+                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                    "data": "0x",
+                    "topics": [
+                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                        "0x0000000000000000000000000000000000000000000000000000000000000002"
+                    ]
                 }
             ]
+        }
+        ```
+
+### `priv_getFilterLogs`
+
+Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private
+contract.
+
+For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`](#eth_getfilterlogs)
+for public contracts except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
+
+!!! note
+
+    `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter).
+    To specify a filter object and get logs without creating a filter, use [`priv_getLogs`](#priv_getlogs).
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `filterId`: *string* - filter ID
+
+#### Returns
+
+`result`: *array* of *objects* - list of [log objects](API-Objects.md#log-object)
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                {
+                    "logIndex": "0x0",
+                    "removed": false,
+                    "blockNumber": "0x493",
+                    "blockHash": "0xd9cb3a852e1e02c95f035a2e32d57f82c10cab61faa3e8f5c010adf979bb4786",
+                    "transactionHash": "0x78866dc51fdf189d8cca74f6a8fe54f172348fbd2163bbe80fa8b106cfc7deb4",
+                    "transactionIndex": "0x0",
+                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                    "data": "0x",
+                    "topics": [
+                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                        "0x0000000000000000000000000000000000000000000000000000000000000001"
+                    ]
+                },
+                {
+                    "logIndex": "0x0",
+                    "removed": false,
+                    "blockNumber": "0x4d0",
+                    "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
+                    "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
+                    "transactionIndex": "0x0",
+                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
+                    "data": "0x",
+                    "topics": [
+                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                        "0x0000000000000000000000000000000000000000000000000000000000000002"
+                    ]
+                }
+            ]
+        }
+        ```
+
+### `priv_getLogs`
+
+Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
+
+For private contracts, `priv_getLogs` is the same as [`eth_getLogs`](#eth_getlogs) for public contracts
+except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `filterOptions`: *object* - [filter options object](API-Objects.md#filter-options-object)
+
+#### Returns
+
+`result`: *array* of *objects* - list of [log objects](API-Objects.md#log-object)
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": [
+                {
+                    "logIndex": "0x0",
+                    "removed": false,
+                    "blockNumber": "0x342",
+                    "blockHash": "0xf5954f068fa2f2f7741281e8c753a8e92047e27ab3c4971836d2c89fab86d92b",
+                    "transactionHash": "0xa9ba5cffde9d4ad8997c5c4352d5d49eeea0e9def8a4ea69991b8837c49d4e4f",
+                    "transactionIndex": "0x0",
+                    "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
+                    "data": "0x",
+                    "topics": [
+                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                        "0x0000000000000000000000000000000000000000000000000000000000000001"
+                    ]
+                },
+                {
+                    "logIndex": "0x0",
+                    "removed": false,
+                    "blockNumber": "0x383",
+                    "blockHash": "0x91b73a47d53e3a88d62ed091a89a4be7557ad91b552e7ff7d86bf78977d5d45d",
+                    "transactionHash": "0xc2a185faf00e87434e55b7f70cc4c38be354c2128b4b96b5f5def0b54a2173ec",
+                    "transactionIndex": "0x0",
+                    "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
+                    "data": "0x",
+                    "topics": [
+                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
+                        "0x0000000000000000000000000000000000000000000000000000000000000002"
+                    ]
+                }
+            ]
+        }
+        ```
+
+### `priv_getPrivacyPrecompileAddress`
+
+Returns the address of the
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md).
+The address
+is derived and based on the value of the
+[`privacy-flexible-groups-enabled`](CLI/CLI-Syntax.md#privacy-flexible-groups-enabled) option.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *string* - address of the privacy precompile
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x000000000000000000000000000000000000007e"
+        }
+        ```
+
+### `priv_getPrivateTransaction`
+
+Returns the private transaction if you are a participant, otherwise, `null`.
+
+#### Parameters
+
+`transaction`: *string* - transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
+[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+
+#### Returns
+
+`result`: *object* - [private transaction object](API-Objects.md#private-transaction-object), or `null` if not
+a participant in the private transaction
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                "gas": "0x2dc6c0",
+                "gasPrice": "0x0",
+                "hash": "0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498",
+                "input": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610221806100606000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633fa4f2451461005c5780636057361d1461008757806367e404ce146100b4575b600080fd5b34801561006857600080fd5b5061007161010b565b6040518082815260200191505060405180910390f35b34801561009357600080fd5b506100b260048036038101908080359060200190929190505050610115565b005b3480156100c057600080fd5b506100c96101cb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000600254905090565b7fc9db20adedc6cf2b5d25252b101ab03e124902a73fcb12b753f3d1aaa2d8f9f53382604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a18060028190555033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050905600a165627a7a723058208efaf938851fb2d235f8bf9a9685f149129a30fe0f4b20a6c1885dc02f639eba0029",
+                "nonce": "0x0",
+                "to": null,
+                "value": "0x0",
+                "v": "0xfe8",
+                "r": "0x654a6a9663ca70bb13e27cca14b3777cc92da184e19a151cdeef2ccbbd5c6405",
+                "s": "0x5dd4667b020c8a5af7ae28d4c3126f8dcb1187f49dcf0de9d7a39b1651892eef",
+                "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+                "privateFor": [
+                    "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
+                ],
+                "restriction": "restricted"
+            }
+        }
+        ```
+
+### `priv_getTransactionCount`
+
+Returns the private transaction count for specified account and privacy group.
+
+!!! important
+
+    If sending more than one transaction to be mined in the same block (that is, you are not
+    waiting for the transaction receipt), you must calculate the private transaction nonce outside
+    Besu instead of using `priv_getTransactionCount`.
+
+#### Parameters
+
+* `address`: *string* - account address
+
+* `privacyGroupId`: *string* - privacy group ID
+
+#### Returns
+
+`result`: *string* - integer representing the number of private transactions sent from the address to the
+specified privacy group
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "0x1"
+        }
+        ```
+
+### `priv_getTransactionReceipt`
+
+Returns information about the private transaction after mining the transaction. Receipts for
+pending transactions are not available.
+
+#### Parameters
+
+`transaction`: *string* - 32-byte hash of a transaction
+
+#### Returns
+
+`result`: *object* - [private Transaction receipt object](API-Objects.md#private-transaction-receipt-object),
+or `null` if no receipt found
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
+                "blockNumber": "0x50",
+                "contractAddress": "0x493b76031593402e24e16faa81f677b58e2d53f3",
+                "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                "logs": [],
+                "to": "0xf17f52151ebef6c7334fad080c5704d77216b732",
+                "transactionHash": "0x36219e92b5f53d4150aa9ef7d2d793118cced523de6724100da5b534e3ceb4b8",
+                "transactionIndex": "0x0",
+                "output": "0x6080604052600436106049576000357c010000000000000000000000000000000000000000000
+                0000000000000900463ffffffff1680633fa4f24514604e57806355241077146076575b600080fd5b3480156059
+                57600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b
+                50609e6004803603810190808035906020019092919050505060a6565b005b60005481565b8060008190555050560
+                0a165627a7a723058202bdbba2e694dba8fff33d9d0976df580f57bff0a40e25a46c398f8063b4c00360029",
+                "commitmentHash": "0x79b9e6b0856db398ad7dc208f15b1d38c0c0b0c5f99e4a443a2c5a85510e96a5",
+                "status": "0x1",
+                "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+                "privacyGroupId": "cD636RZlcqVSpoxT/ExbkWQfBO7kPAZO0QlWHErNSL8=",
+                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            }
+        }
+        ```
+
+### `priv_newFilter`
+
+Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
+created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
+the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs).
+
+For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_newfilter)
+for public contracts.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `filterOptions`: *object* - [filter options object](API-Objects.md#filter-options-object)
+
+!!! note
+
+    `fromBlock` and `toBlock` in the filter options object default to `latest`.
+
+#### Returns
+
+`result`: *string* - filter ID
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": "0x4a35b92809d73f4f53a2355d62125442"
+        }
+        ```
+
+### `priv_uninstallFilter`
+
+Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
+call this method.
+
+Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) or [`priv_getFilterLogs`](#priv_getfilterlogs) for 10
+minutes.
+
+For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)
+for public contracts.
+
+#### Parameters
+
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md)
+
+* `filterId`: *string* - filter ID
+
+#### Returns
+
+`result`: *boolean* - indicates if the filter is successfully uninstalled
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": true
         }
         ```
 
@@ -5772,6 +6544,107 @@ The `TRACE` API is a more concise alternative to the [`DEBUG` API](#debug-method
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
+### `trace_block`
+
+Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified block.
+
+!!! important
+
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in transaction execution order; if revert reason is enabled with
+[`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": [
+              {
+                "action": {
+                  "callType": "call",
+                  "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas": "0xffad82",
+                  "input": "0x0000000000000000000000000000000000000999",
+                  "to": "0x0020000000000000000000000000000000000000",
+                  "value": "0x0"
+                },
+                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+                "blockNumber": 6,
+                "result": {
+                  "gasUsed": "0x7536",
+                  "output": "0x"
+                },
+                "subtraces": 1,
+                "traceAddress": [],
+                "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
+                "transactionPosition": 0,
+                "type": "call"
+              },
+              {
+                "action": {
+                  "address": "0x0020000000000000000000000000000000000000",
+                  "balance": "0x300",
+                  "refundAddress": "0x0000000000000999000000000000000000000000"
+                },
+                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+                "blockNumber": 6,
+                "result": null,
+                "subtraces": 0,
+                "traceAddress": [
+                  0
+                ],
+                "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
+                "transactionPosition": 0,
+                "type": "suicide"
+              },
+              {
+                "action": {
+                  "author": "0x0000000000000000000000000000000000000000",
+                  "rewardType": "block",
+                  "value": "0x1bc16d674ec80000"
+                },
+                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
+                "blockNumber": 6,
+                "result": null,
+                "subtraces": 0,
+                "traceAddress": [],
+                "transactionHash": null,
+                "transactionPosition": null,
+                "type": "reward"
+              }
+            ],
+            "id": 1
+          }
+        ```
+
 ### `trace_replayBlockTransactions`
 
 Provides transaction processing tracing per block.
@@ -5784,20 +6657,19 @@ Provides transaction processing tracing per block.
 
 #### Parameters
 
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
-`array of strings` - Tracing options are
+* `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
 combination of the three options including none of them.
 
 #### Returns
 
-`result` - Array of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
-one object per transaction, in transaction execution order.
-
-If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+`result`: *array* of *objects* - list of [transaction trace objects](API-Objects.md#transaction-trace-object) containing
+one object per transaction, in transaction execution order; if revert reason is enabled with
+[`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
 the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace object include the
 [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
@@ -5889,108 +6761,6 @@ the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace
         }
         ```
 
-### `trace_block`
-
-Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified block.
-
-!!! important
-
-    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
-    (by default, 1024).
-
-#### Parameters
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` - List of [calls to other contracts](Trace-Types.md#trace) containing
-one object per call, in transaction execution order.
-
-If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "result": [
-              {
-                "action": {
-                  "callType": "call",
-                  "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                  "gas": "0xffad82",
-                  "input": "0x0000000000000000000000000000000000000999",
-                  "to": "0x0020000000000000000000000000000000000000",
-                  "value": "0x0"
-                },
-                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
-                "blockNumber": 6,
-                "result": {
-                  "gasUsed": "0x7536",
-                  "output": "0x"
-                },
-                "subtraces": 1,
-                "traceAddress": [],
-                "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
-                "transactionPosition": 0,
-                "type": "call"
-              },
-              {
-                "action": {
-                  "address": "0x0020000000000000000000000000000000000000",
-                  "balance": "0x300",
-                  "refundAddress": "0x0000000000000999000000000000000000000000"
-                },
-                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
-                "blockNumber": 6,
-                "result": null,
-                "subtraces": 0,
-                "traceAddress": [
-                  0
-                ],
-                "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
-                "transactionPosition": 0,
-                "type": "suicide"
-              },
-              {
-                "action": {
-                  "author": "0x0000000000000000000000000000000000000000",
-                  "rewardType": "block",
-                  "value": "0x1bc16d674ec80000"
-                },
-                "blockHash": "0x71512d31e18f828cef069a87bc2c7514a8ca334f9ee72625efdf5cc2d43768dd",
-                "blockNumber": 6,
-                "result": null,
-                "subtraces": 0,
-                "traceAddress": [],
-                "transactionHash": null,
-                "transactionPosition": null,
-                "type": "reward"
-              }
-            ],
-            "id": 1
-          }
-        ```
-
 ### `trace_transaction`
 
 Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the specified transaction.
@@ -6003,14 +6773,13 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 #### Parameters
 
-`data` : Transaction hash
+`transaction`: *string* - transaction hash
 
 #### Returns
 
-`result` - Array of [calls to other contracts](Trace-Types.md#trace) containing
-one object per call, in the order called by the transaction.
-
-If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in the order called by the transaction; if revert reason is enabled with
+[`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
 the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
 
 !!! example
@@ -6123,530 +6892,103 @@ the returned list items include the [revert reason](../HowTo/Send-Transactions/R
         }
         ```
 
-## `EEA` methods
+## `TXPOOL` methods
 
-The `EEA` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
-[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
-
-!!! note
-
-    The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
-    use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### `eea_sendRawTransaction`
-
-Distributes the
-[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
-generates the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
-and submits it to the transaction pool, and returns the transaction hash of the
-[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
-
-The signed transaction passed as an input parameter includes the `privateFrom`,
-[`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
-and `restriction` fields.
-
-The `gas` and `gasPrice` are used by the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
-not the private transaction itself.
-
-To avoid exposing your private key, create signed transactions offline and send the signed
-transaction data using `eea_sendRawTransaction`.
-
-!!! important
-
-    For production systems requiring private transactions, use a network with a consensus mechanism
-    supporting transaction finality to make sure the private state does not become inconsistent
-    with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
-    provides the required finality.
-
-    Using private transactions with [pruning](../Concepts/Pruning.md) or
-    [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
-
-    Besu does not implement
-    [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
-
-    [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
-    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
-
-#### Parameters
-
-`data` -  Signed RLP-encoded private transaction. For example:
-
-`params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
-
-#### Returns
-
-`result` : `data` - 32-byte transaction hash of the
-[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
-
-!!! tip
-
-    If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionreceipt) to
-    retrieve the contract address after the transaction is finalized.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "id":1,
-          "jsonrpc": "2.0",
-          "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
-        }
-        ```
-
-## `PRIV` methods
-
-The `PRIV` API methods provide functionality for [private transactions](../Concepts/Privacy/Private-Transactions.md) and
-[privacy groups](../Concepts/Privacy/Privacy-Groups.md).
+The `TXPOOL` API methods allow you to inspect the contents of the transaction pool.
 
 !!! note
 
-    The `PRIV` API methods are not enabled by default for JSON-RPC. To enable the `PRIV` API
+    The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### `priv_call`
+### `txpool_besuPendingTransactions`
 
-Invokes a private contract function locally and does not change the privacy group state.
-
-For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for public contracts.
+Lists pending transactions that match the supplied filter conditions.
 
 #### Parameters
 
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`object` - [Transaction call object](API-Objects.md#transaction-call-object).
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : `data` - Return value of the executed contract.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
-        }
-        ```
-
-    === "curl GraphQL"
-
-        ```bash
-        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
-        ```
-
-    === "GraphQL"
-
-        ```bash
-        {
-          block {
-            number
-            call(data: {from: "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", to: "0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13", data: "0x12a7b914"}) {
-              data
-              status
-            }
-          }
-        }
-        ```
-
-    === "GraphQL result"
-
-        ```json
-        {
-          "data" : {
-            "block" : {
-              "number" : 17449,
-              "call" : {
-                "data" : "0x",
-                "status" : 1
-              }
-            }
-          }
-        }
-        ```
-
-### `priv_debugGetStateRoot`
-
-Returns the state root of the specified privacy group at the specified block.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : `data` - 32-byte state root.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
-        }
-
-        ```
-
-### `priv_distributeRawTransaction`
-
-Distributes a signed, RLP encoded
-[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
-
-!!! tip
-
-    If you want to sign the Privacy Marker Transaction outside of Besu,
-    use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
-    instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
-
-#### Parameters
-
-`data` -  Signed RLP-encoded private transaction. For example:
-
-`params: ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"]`
-
-#### Returns
-
-`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.consensys.net/).
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "0xfd0d90ab824574abc19c0776ca0210e764561d0ef6d621f2bbbea316eccfe56b"
-        }
-        ```
-
-### `priv_getEeaTransactionCount`
-
-Returns the private transaction count for the specified account and
-[group of sender and recipients].
-
-!!! important
-
-    If sending more than one transaction to be mined in the same block (that is, you are not
-    waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu instead of using `priv_getEeaTransactionCount`.
-
-#### Parameters
-
-`data` - Account address.
-
-`data` - Base64 encoded Orion address of the sender.
-
-`array of data` - Base64 encoded Orion addresses of recipients.
-
-#### Returns
-
-`quantity` - Integer representing the number of private transactions sent from the address to the
-specified group of sender and recipients.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "0x1"
-        }
-        ```
-
-### `priv_getFilterChanges`
-
-Polls the specified filter for a private contract and returns an array of changes that have occurred
-since the last poll.
-
-Filters for private contracts can only be created by [`priv_newFilter`](#priv_newfilter) so unlike
-[`eth_getFilterChanges`](#eth_getfilterchanges), `priv_getFilterChanges` always returns an array
-of log objects or an empty list.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`data` - Filter ID.
-
-#### Returns
-
-`array` - [Log objects](API-Objects.md#log-object). If nothing has changed since the last poll, an
-empty list.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x4d0",
-                    "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
-                    "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
-                    "transactionIndex": "0x0",
-                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
-                    "data": "0x",
-                    "topics": [
-                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
-                        "0x0000000000000000000000000000000000000000000000000000000000000002"
-                    ]
-                }
-            ]
-        }
-        ```
-
-### `priv_getFilterLogs`
-
-Returns an array of [logs](../Concepts/Events-and-Logs.md) for the specified filter for a private
-contract.
-
-For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`](#eth_getfilterlogs)
-for public contracts except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
-for private contracts.
+* `numResults`: *number* - integer representing the maximum number of results to return
+  
+* `fields`: *object* - object of fields used to create the filter condition
+
+Each field in the object corresponds to a field name containing an operator, and a value for the operator.
+A field name can only be specified once, and can only contain one operator.
+For example, you cannot query transactions with a gas price between 8 and 9 Gwei by using both the
+`gt` and `lt` operator in the same field name instance.
+
+All filters must be satisfied for a transaction to be returned.
+
+| Field name   | Value                                     | Value type            | Supported operators |
+|--------------|-------------------------------------------|:---------------------:|---------------------|
+| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
+| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
+| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
+| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
+| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+|
+
+Supported operators:
+
+* `eq` (equal to)
+  
+* `lt` (less than)
+  
+* `gt` (greater than)
+  
+* `action`
 
 !!! note
 
-    `priv_getFilterLogs` is only used for filters created with [`priv_newFilter`](#priv_newfilter).
-    To specify a filter object and get logs without creating a filter, use [`priv_getLogs`](#priv_getlogs).
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`data` - Filter ID.
+    The only supported `action` is `"contract_creation"`.
 
 #### Returns
 
-`array` - [Log objects](API-Objects.md#log-object).
+`result`: *array* of *objects* - list of objects with
+[details of the pending transaction](API-Objects.md#pending-transaction-object)
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuPendingTransactions","params":[2,{"from":{"eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"},"gas":{"lt":"0x5209"},"nonce":{"gt":"0x1"}}],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
+        {"jsonrpc":"2.0","method":"txpool_besuPendingTransactions","params":[2,{"from":{"eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"},"gas":{"lt":"0x5209"},"nonce":{"gt":"0x1"}}],"id":1}
         ```
 
     === "JSON result"
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x493",
-                    "blockHash": "0xd9cb3a852e1e02c95f035a2e32d57f82c10cab61faa3e8f5c010adf979bb4786",
-                    "transactionHash": "0x78866dc51fdf189d8cca74f6a8fe54f172348fbd2163bbe80fa8b106cfc7deb4",
-                    "transactionIndex": "0x0",
-                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
-                    "data": "0x",
-                    "topics": [
-                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
-                        "0x0000000000000000000000000000000000000000000000000000000000000001"
-                    ]
-                },
-                {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x4d0",
-                    "blockHash": "0x1c8200667a869e99b945374c37277b5ee7a7ae67943e13c82563381387553dbb",
-                    "transactionHash": "0xb1966b9b372ba68952f48f3a3e78f036f5ae82ceca2de972a782d07fb88f6d88",
-                    "transactionIndex": "0x0",
-                    "address": "0x991cc548c154b2953cc48c02f782e1314097dfbb",
-                    "data": "0x",
-                    "topics": [
-                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
-                        "0x0000000000000000000000000000000000000000000000000000000000000002"
-                    ]
-                }
-            ]
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+              "gas": "0x5208",
+              "gasPrice": "0xab5d04c00",
+              "hash": "0xb7b2f4306c1c228ec94043da73b582594007091a7dfe024b1f8d6d772284e54b",
+              "input": "0x",
+              "nonce": "0x2",
+              "to": "0xf8be4ebda7f62d79a665294ec1263bfdb59aabf2",
+              "value": "0x0",
+              "v": "0xfe8",
+              "r": "0x5beb711e652c6cf0a589d3cea904eefc4f45ce4372652288701d08cc4412086d",
+              "s": "0x3af14a56e63aa5fb7dcb444a89708363a9d2c1eba1f777c67690288415080ded"
+            }
+          ]
         }
         ```
 
-### `priv_getLogs`
+### `txpool_besuStatistics`
 
-Returns an array of [logs](../Concepts/Events-and-Logs.md) matching a specified filter object.
-
-For private contracts, `priv_getLogs` is the same as [`eth_getLogs`](#eth_getlogs) for public contracts
-except there is no [automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
-for private contracts.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`Object` - [Filter options object](API-Objects.md#filter-options-object).
-
-#### Returns
-
-`array` - [Log objects](API-Objects.md#log-object).
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
-                {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x342",
-                    "blockHash": "0xf5954f068fa2f2f7741281e8c753a8e92047e27ab3c4971836d2c89fab86d92b",
-                    "transactionHash": "0xa9ba5cffde9d4ad8997c5c4352d5d49eeea0e9def8a4ea69991b8837c49d4e4f",
-                    "transactionIndex": "0x0",
-                    "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
-                    "data": "0x",
-                    "topics": [
-                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
-                        "0x0000000000000000000000000000000000000000000000000000000000000001"
-                    ]
-                },
-                {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x383",
-                    "blockHash": "0x91b73a47d53e3a88d62ed091a89a4be7557ad91b552e7ff7d86bf78977d5d45d",
-                    "transactionHash": "0xc2a185faf00e87434e55b7f70cc4c38be354c2128b4b96b5f5def0b54a2173ec",
-                    "transactionIndex": "0x0",
-                    "address": "0x630c507ff633312087dc33c513b66276abcd2fc3",
-                    "data": "0x",
-                    "topics": [
-                        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410",
-                        "0x0000000000000000000000000000000000000000000000000000000000000002"
-                    ]
-                }
-            ]
-        }
-        ```
-
-### `priv_getPrivacyPrecompileAddress`
-
-Returns the address of the
-[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md). The address
-is derived and based on the value of the [`privacy-flexible-groups-enabled`](CLI/CLI-Syntax.md#privacy-flexible-groups-enabled)
-option.
+Lists statistics about the node transaction pool.
 
 #### Parameters
 
@@ -6654,58 +6996,27 @@ None
 
 #### Returns
 
-`result` : `data` - Address of the privacy precompile.
+`result`: *object* - transaction pool statistics object with the following fields:
+
+* `maxSize`: *number* - maximum number of transactions kept in the transaction pool; use the
+  [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size) option to configure the maximum size.
+  
+* `localCount`: *number* - number of transactions submitted directly to this node
+  
+* `remoteCount`: *number* - number of transactions received from remote nodes
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x000000000000000000000000000000000000007e"
-        }
-        ```
-
-### `priv_getPrivateTransaction`
-
-Returns the private transaction if you are a participant, otherwise, `null`.
-
-#### Parameters
-
-`data` - Transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
-
-#### Returns
-
-Object - [Private transaction object](API-Objects.md#private-transaction-object), or `null` if not
-a participant in the private transaction.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}
+        {"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}
         ```
 
     === "JSON result"
@@ -6715,186 +7026,37 @@ a participant in the private transaction.
             "jsonrpc": "2.0",
             "id": 1,
             "result": {
-                "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                "gas": "0x2dc6c0",
-                "gasPrice": "0x0",
-                "hash": "0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498",
-                "input": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610221806100606000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633fa4f2451461005c5780636057361d1461008757806367e404ce146100b4575b600080fd5b34801561006857600080fd5b5061007161010b565b6040518082815260200191505060405180910390f35b34801561009357600080fd5b506100b260048036038101908080359060200190929190505050610115565b005b3480156100c057600080fd5b506100c96101cb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000600254905090565b7fc9db20adedc6cf2b5d25252b101ab03e124902a73fcb12b753f3d1aaa2d8f9f53382604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a18060028190555033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050905600a165627a7a723058208efaf938851fb2d235f8bf9a9685f149129a30fe0f4b20a6c1885dc02f639eba0029",
-                "nonce": "0x0",
-                "to": null,
-                "value": "0x0",
-                "v": "0xfe8",
-                "r": "0x654a6a9663ca70bb13e27cca14b3777cc92da184e19a151cdeef2ccbbd5c6405",
-                "s": "0x5dd4667b020c8a5af7ae28d4c3126f8dcb1187f49dcf0de9d7a39b1651892eef",
-                "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
-                "privateFor": [
-                    "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
-                ],
-                "restriction": "restricted"
+                "maxSize": 4096,
+                "localCount": 1,
+                "remoteCount": 0
             }
         }
         ```
 
-### `priv_createPrivacyGroup`
+### `txpool_besuTransactions`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
+Lists transactions in the node transaction pool.
 
 #### Parameters
 
-`Object` - Request options:
-
-* `addresses`: `array of data` - Array of nodes, specified by
-  [Orion](https://docs.orion.consensys.net/) public keys.
-* `name`: `string` - Privacy group name. Optional.
-* `description`: `string` - Privacy group description. Optional.
+None
 
 #### Returns
 
-Privacy group ID
+`result`: *array* of *objects* - list of transactions
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="
-        }
-        ```
-
-### `priv_deletePrivacyGroup`
-
-Deletes the specified privacy group.
-
-#### Parameters
-
-`data` - Privacy group ID
-
-#### Returns
-
-Privacy group ID that was deleted.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 53,
-          "result": "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="
-        }
-        ```
-
-### `priv_findPrivacyGroup`
-
-Returns a list of privacy groups containing only the listed members. For example, if the listed
-members are A and B, a privacy group containing A, B, and C is not returned.
-
-#### Parameters
-
-`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.
-
-#### Returns
-
-Privacy groups containing only the specified members. Privacy groups are
-[EEA-compliant](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
-or [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
-
-* `LEGACY` for EEA-compliant groups.
-* `PANTHEON` for Besu-extended groups.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-         "jsonrpc": "2.0",
-         "id": 1,
-         "result": [
-           {
-             "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
-             "name": "Group B",
-             "description": "Description of Group B",
-             "type": "PANTHEON",
-             "members": [
-               "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
-               "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
-             ]
-           }
-        ]
-        }
-        ```
-
-### `priv_getCode`
-
-Returns the code of the private smart contract at the specified address. Compiled smart contract code
-is stored as a hexadecimal value.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`data` - 20-byte contract address.
-
-`quantity|tag` - Integer representing a block number or one of the string tags `latest`, `earliest`,
-or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
-
-#### Returns
-
-`result` : `data` - Code stored at the specified address.
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}
+        {"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}
         ```
 
     === "JSON result"
@@ -6903,247 +7065,95 @@ or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSO
         {
             "jsonrpc": "2.0",
             "id": 1,
-            "result": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f2458114604d57806355241077146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b60008190556040805182815290517f199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca0727879181900360200190a1505600a165627a7a723058209d8929142720a69bde2ab3bfa2da6217674b984899b62753979743c0470a2ea70029"
+            "result": [
+                {
+                    "hash": "0x8a66830098be4006a3f63a03b6e9b67aa721e04bd6b46d420b8f1937689fb4f1",
+                    "isReceivedFromLocalSource": true,
+                    "addedToPoolAt": "2019-03-21T01:35:50.911Z"
+                },
+                {
+                    "hash": "0x41ee803c3987ceb5bcea0fad7a76a8106a2a6dd654409007d9931032ea54579b",
+                    "isReceivedFromLocalSource": true,
+                    "addedToPoolAt": "2019-03-21T01:36:00.374Z"
+                }
+            ]
         }
         ```
 
-### `priv_getTransactionCount`
+## `WEB3` methods
 
-Returns the private transaction count for specified account and privacy group.
+The `WEB3` API methods provide functionality for the Ethereum ecosystem.
 
-!!! important
+### `web3_clientVersion`
 
-    If sending more than one transaction to be mined in the same block (that is, you are not
-    waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu instead of using `priv_getTransactionCount`.
+Returns the current client version.
 
 #### Parameters
 
-`data` - Account address.
-
-`data` - Privacy group ID.
+None
 
 #### Returns
 
-`quantity` - Integer representing the number of private transactions sent from the address to the
-specified privacy group.
+`result`: *string* - current client version
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}
+        {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}
         ```
 
     === "JSON result"
 
         ```json
         {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "0x1"
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "besu/<version>"
         }
         ```
 
-### `priv_getTransactionReceipt`
+### `web3_sha3`
 
-Returns information about the private transaction after mining the transaction. Receipts for
-pending transactions are not available.
+Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data.
+The result value is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
 
 #### Parameters
 
-`data` - 32-byte hash of a transaction.
+`data`: *string* - data to convert to a SHA3 hash
 
 #### Returns
 
-`Object` - [Private Transaction receipt object](API-Objects.md#private-transaction-receipt-object),
-or `null` if no receipt found.
+`result`: *string* - SHA3 result of the input data
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
+        {"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}
         ```
 
     === "JSON result"
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
-                "blockNumber": "0x50",
-                "contractAddress": "0x493b76031593402e24e16faa81f677b58e2d53f3",
-                "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                "logs": [],
-                "to": "0xf17f52151ebef6c7334fad080c5704d77216b732",
-                "transactionHash": "0x36219e92b5f53d4150aa9ef7d2d793118cced523de6724100da5b534e3ceb4b8",
-                "transactionIndex": "0x0",
-                "output": "0x6080604052600436106049576000357c010000000000000000000000000000000000000000000
-                0000000000000900463ffffffff1680633fa4f24514604e57806355241077146076575b600080fd5b3480156059
-                57600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b
-                50609e6004803603810190808035906020019092919050505060a6565b005b60005481565b8060008190555050560
-                0a165627a7a723058202bdbba2e694dba8fff33d9d0976df580f57bff0a40e25a46c398f8063b4c00360029",
-                "commitmentHash": "0x79b9e6b0856db398ad7dc208f15b1d38c0c0b0c5f99e4a443a2c5a85510e96a5",
-                "status": "0x1",
-                "privateFrom": "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
-                "privacyGroupId": "cD636RZlcqVSpoxT/ExbkWQfBO7kPAZO0QlWHErNSL8=",
-                "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            }
-        }
-        ```
-
-### `priv_newFilter`
-
-Creates a [log filter](../Concepts/Events-and-Logs.md) for a private contract. To poll for logs associated with the
-created filter, use [`priv_getFilterChanges`](#priv_getfilterchanges). To get all logs associated with
-the filter, use [`priv_getFilterLogs`](#priv_getfilterlogs).
-
-For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](#eth_newfilter)
-for public contracts.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`Object` - [Filter options object](API-Objects.md#filter-options-object).
-
-!!! note
-
-    `fromBlock` and `toBlock` in the filter options object default to `latest`.
-
-#### Returns
-
-`data` - Filter ID.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x4a35b92809d73f4f53a2355d62125442"
-        }
-        ```
-
-### `priv_uninstallFilter`
-
-Uninstalls a filter for a private contract with the specified ID. When a filter is no longer required,
-call this method.
-
-Filters time out when not requested by [`priv_getFilterChanges`](#priv_getfilterchanges) or [`priv_getFilterLogs`](#priv_getfilterlogs) for 10
-minutes.
-
-For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilter`](#eth_uninstallfilter)
-for public contracts.
-
-#### Parameters
-
-`data` - 32-byte [privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
-
-`data` - Filter ID.
-
-#### Returns
-
-`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": true
-        }
-        ```
-
-## `PLUGINS` methods
-
-The `PLUGINS` API methods provide plugin-related functionality.
-
-!!! note
-
-    The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
-
-### `plugins_reloadPluginConfig`
-
-Reloads specified plugin configuration.
-
-#### Parameters
-
-`string` - Plugin
-
-#### Returns
-
-`string` - `Success`
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": "Success"
+          "jsonrpc" : "2.0",
+          "id" : 53,
+          "result" : "0x5e39a0a66544c0668bde22d61c47a8710000ece931f13b84d3b2feb44ec96d3f"
         }
         ```
 
@@ -7160,7 +7170,7 @@ None
 
 #### Returns
 
-Enabled APIs.
+`result`: *map* of *strings* to *strings* - enabled APIs and their versions
 
 !!! example
 

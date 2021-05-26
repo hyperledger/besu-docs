@@ -62,7 +62,7 @@ the `Private-Network` directory:
       "ethash": {
         "fixeddifficulty": 1000
       },
-       "chainID": 1981
+       "chainID": 1337
    },
   "nonce": "0x42",
   "gasLimit": "0x1000000",

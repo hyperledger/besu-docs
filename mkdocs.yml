@@ -125,7 +125,7 @@ nav:
           - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
           - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
-          - Run Orion with Besu: HowTo/Use-Privacy/Run-Orion-With-Besu.md
+          - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           - Use Flexible Privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
@@ -191,6 +191,7 @@ nav:
         - Monitoring: Concepts/Monitoring.md
         - Events and Logs: Concepts/Events-and-Logs.md
         - TLS Communication: Concepts/TLS.md
+        - Node Types: Concepts/Node-Types.md
         - Node Keys: Concepts/Node-Keys.md
         - Network vs Node Configuration: Concepts/Network-vs-Node.md
         - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
@@ -207,6 +208,7 @@ nav:
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md
+        - Projects Using Besu: Reference/Projects-Using-Besu.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 
@@ -269,6 +271,7 @@ plugins:
           HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
           HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
           HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md
+          HowTo/Use-Privacy/Run-Orion-With-Besu.md: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md
           HowTo/Develop-Dapps/Use-web3js.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
@@ -277,3 +280,4 @@ plugins:
           Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
           HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
+          Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-eea-Multinode-example.md

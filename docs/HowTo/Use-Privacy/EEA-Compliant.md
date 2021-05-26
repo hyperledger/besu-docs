@@ -5,7 +5,7 @@ description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy
 # Using EEA-compliant privacy
 
 When using Hyperledger Besu [EEA-compliant privacy](../../Concepts/Privacy/Privacy-Groups.md), the
-group of nodes specified by `privateFrom` and `privateFor` form a privacy group, to which Orion
+group of nodes specified by `privateFrom` and `privateFor` form a privacy group, to which Tessera
 assigns a unique privacy group ID.
 
 To enable the [`EEA` API methods](../../Reference/API-Methods.md#eea-methods), use the

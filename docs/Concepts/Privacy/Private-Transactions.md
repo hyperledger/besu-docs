@@ -6,8 +6,8 @@ description: Private transaction overview
 
 Private transactions have extra attributes to public Ethereum transactions:
 
-* `privateFrom` - The Orion public key of the transaction sender
-* `privateFor` - The Orion public keys of the transaction recipients, or
+* `privateFrom` - The Tessera public key of the transaction sender
+* `privateFor` - The Tessera public keys of the transaction recipients, or
 * `privacyGroupId` - [The privacy group to receive the transaction](Privacy-Groups.md)
 * `restriction` - Whether the private transaction is `restricted` or `unrestricted`:
     * `restricted` private transactions, only the nodes participating in the transaction receive
@@ -26,18 +26,18 @@ transaction itself.
 For more information about creating and sending private transactions, see the
 [How To documentation](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
 
-## Besu and Orion keys
+## Besu and Tessera keys
 
-Besu and Orion nodes both have public/private key pairs identifying them. A Besu node sending a
-private transaction to an Orion node signs the transaction with the Besu node private key. The
+Besu and Tessera nodes both have public/private key pairs identifying them. A Besu node sending a
+private transaction to a Tessera node signs the transaction with the Besu node private key. The
 `privateFrom` and `privateFor` attributes specified in the RLP-encoded transaction string for
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) are the public
-keys of the Orion nodes sending and receiving the transaction.
+keys of the Tessera nodes sending and receiving the transaction.
 
 !!! important
 
-    The mapping of Besu node addresses to Orion node public keys is off-chain. That is, the sender
-    of a private transaction must know the Orion node public key of the recipient.
+    The mapping of Besu node addresses to Tessera node public keys is offchain. That is, the sender
+    of a private transaction must know the Tessera node public key of the recipient.
 
 ## Nonces
 
@@ -52,6 +52,8 @@ Besu maintains separate private states for each
 [privacy group](../../Concepts/Privacy/Privacy-Groups.md). The private transaction nonce for an
 account is specific to the privacy group. That is, the nonce for account A for privacy group ABC is
 different to the nonce for account A for privacy group AB.
+
+A nonce is the number of previous transactions made by the sender.
 
 !!! note
     If sending more than one transaction for mining in the same block (that is, you are not waiting
@@ -79,6 +81,22 @@ for the private transaction with the incorrect nonce.
     of nonce management when sending multiple private transactions. The example calculates the
     correct nonces for the private transactions and privacy marker transactions outside of Besu.
 
-<!-- links ---->
+The following private transaction flow illustrates when nonce validation occurs:
 
+1. Submit a private transaction with a [nonce value](#private-transaction-nonce).
+1. The private transaction is distributed to all participants in the privacy group.
+1. The privacy marker transaction is created and submitted to the transaction pool with a nonce of `0`
+    if using one time accounts. If using a specific account with
+    [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file), the
+    nonce for that account is obtained and used for the privacy marker transaction.
+1. The privacy marker transaction is mined and included in the block.
+1. After the block containing the privacy marker transaction is imported, and the privacy marker
+    transaction is processed, the private transaction is retrieved from the private transaction manager
+    and executed.
+
+    If the private transaction was submitted with a correct nonce in step 1, the nonce is
+    validated as correct, if an incorrect nonce was submitted, the private transaction execution
+    fails.
+
+<!-- links ---->
 [privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md

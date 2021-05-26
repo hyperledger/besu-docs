@@ -25,7 +25,7 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
 
 ## Enabling flexible privacy groups
 
-Use the [`--privacy-onchain-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
+Use the [`--privacy-flexible-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-flexible-groups-enabled)
 command line option to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
@@ -50,9 +50,9 @@ the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea):
 
 !!! tip
 
-    The Orion logs for Orion 1 and Orion 2 display `PrivacyGroupNotFound` errors. This is expected
-    behavior because private transactions check offchain and onchain to find the privacy group for
-    a private transaction.
+    The Tessera logs for Tessera 1 and Tessera 2 display `PrivacyGroupNotFound` errors. This is
+    expected behavior because private transactions check offchain and onchain to find the privacy
+    group for a private transaction.
 
 ## Adding and removing members
 

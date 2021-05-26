@@ -3,7 +3,6 @@ mkdocs-material==6.1.7
 Markdown==3.2.1
 markdown-fenced-code-tabs==1.0.3
 markdown-include==0.5.1
-MarkupSafe==1.1.1
 mkdocs-markdownextradata-plugin==0.1.3
 mkdocs-exclude==1.0.2
 mkdocs-redirects==1.0.0

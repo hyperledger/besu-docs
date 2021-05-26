@@ -265,7 +265,7 @@ Metrics specific to Besu use the `besu_` prefix, and standard Ethereum metrics u
 | `process_cpu_seconds_total`                                      | Counter | Total user and system CPU time spent in seconds     | No equivalent |
 | `process_max_fds`                                                | Gauge   | Maximum number of open file descriptors             | No equivalent |
 | `process_open_fds`                                               | Gauge   | Number of open file descriptors                     | No equivalent |
-| `process_start_time_seconds`                                     | Gauge   | Start time of the process since unix epoch in seconds | No equivalent |
+| `process_start_time_seconds`                                     | Gauge   | Start time of the process since Unix epoch in seconds | No equivalent |
 
 !!! important
 

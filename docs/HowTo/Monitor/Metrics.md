@@ -177,31 +177,104 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 
 1. From the **Insert metric at cursor** drop-down, select a metric such as
-   `besu_blockchain_difficulty_total` or `ethereum_blockchain_height` and click **Execute**. The
-   values display.
+   `besu_blockchain_difficulty_total` or `ethereum_blockchain_height` and click **Execute**.
+   The values display.
 
-    The following table lists the Standard Ethereum metrics, shown with the `ethereum_` prefix.
-    Metrics specific to Besu use the `besu_` prefix.
+1. Click the **Graph** tab to view the data as a time-based graph. The query string displays below the graph.
+   For example: `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`
 
-    | Name | Metric Type | Definition | JSON-RPC Equivalent |
-    | ---  | ---         | ---        | ---                 |
-    | `ethereum_blockchain_height` | Gauge | Current height of the canonical chain | `eth_blockNumber` |
-    | `ethereum_best_known_block_number` | Gauge | Estimated highest block available | `highestBlock` of `eth_syncing` or `eth_blockNumber`, if not syncing |
-    | `ethereum_peer_count` | Gauge | Current number of peers connected | `net_peerCount` |
-    | `ethereum_peer_limit` | Gauge | Maximum number of peers this node allows to connect | No equivalent |
+### Metrics list
 
-    !!! important
+The following table lists available metrics.
+Metrics specific to Besu use the `besu_` prefix, and standard Ethereum metrics use the `ethereum_` prefix.
 
-        * The `ethereum_best_known_block_number` metric always has a value. When the
-          [`eth_syncing` JSON-RPC method](../../Reference/API-Methods.md#eth_syncing) returns
-          false, the current chain height displays.
-        * Although the `ethereum_peer_limit` metric does not have a JSON-RPC equivalent, the
-          [`max peers` command line option](../../Reference/CLI/CLI-Syntax.md#max-peers) sets the
-          maximum number of P2P connections that can be established.
+| Name | Metric Type | Definition | JSON-RPC Equivalent |
+| ---  | ---         | ---        | ---                 |
+| `besu_blockchain_chain_head_gas_limit`                           | Gauge   | Block gas limit of the current chain head block     | No equivalent |
+| `besu_blockchain_chain_head_gas_used`                            | Gauge   | Gas used by the current chain head block            | No equivalent |
+| `besu_blockchain_chain_head_ommer_count`                         | Gauge   | Number of uncles in the current chain head block    | [`eth_getUncleCountByBlockHash`](../../Reference/API-Methods.md#eth_getunclecountbyblockhash) or [`eth_getUncleCountByBlockNumber`](../../Reference/API-Methods.md#eth_getunclecountbyblocknumber) |
+| `besu_blockchain_chain_head_timestamp`                           | Gauge   | Timestamp from the current chain head               | No equivalent |
+| `besu_blockchain_chain_head_transaction_count`                   | Gauge   | Number of transactions in the current chain head block | [`eth_getBlockTransactionCountByHash`](../../Reference/API-Methods.md#eth_getblocktransactioncountbyhash) or [`eth_getBlockTransactionCountByNumber`](../../Reference/API-Methods.md#eth_getblocktransactioncountbynumber) |
+| `besu_blockchain_difficulty_total`                               | Gauge   | Difficulty of the chain head                        | `difficulty` of [`admin_peers`](../../Reference/API-Methods.md#admin_peers) |
+| `besu_executors_ethscheduler_computation_active_threads_current` | Gauge   | Current number of threads executing computation tasks | No equivalent |
+| `besu_executors_ethscheduler_computation_completed_tasks_total`  | Gauge   | Total number of computation tasks executed          | No equivalent |
+| `besu_executors_ethscheduler_computation_pool_size_current`      | Gauge   | Current number of threads in the computation thread pool | No equivalent |
+| `besu_executors_ethscheduler_computation_queue_length_current`   | Gauge   | Current number of computation tasks awaiting execution | No equivalent |
+| `besu_executors_ethscheduler_computation_rejected_tasks_total`   | Counter | Total number of tasks rejected by this computation executor | No equivalent |
+| `besu_executors_ethscheduler_computation_submitted_tasks_total`  | Gauge   | Total number of computation tasks submitted         | No equivalent |
+| `besu_executors_ethscheduler_timer_active_threads_current`       | Gauge   | Current number of threads executing timer tasks     | No equivalent |
+| `besu_executors_ethscheduler_timer_completed_tasks_total`        | Gauge   | Total number of timer tasks executed                | No equivalent |
+| `besu_executors_ethscheduler_timer_pool_size_current`            | Gauge   | Current number of threads in the timer thread pool  | No equivalent |
+| `besu_executors_ethscheduler_timer_queue_length_current`         | Gauge   | Current number of timer tasks awaiting execution    | No equivalent |
+| `besu_executors_ethscheduler_timer_rejected_tasks_total`         | Counter | Total number of tasks rejected by this timer executor | No equivalent |
+| `besu_executors_ethscheduler_timer_submitted_tasks_total`        | Gauge   | Total number of timer tasks submitted               | No equivalent |
+| `besu_executors_ethscheduler_workers_active_threads_current`     | Gauge   | Current number of threads executing worker tasks    | No equivalent |
+| `besu_executors_ethscheduler_workers_completed_tasks_total`      | Gauge   | Total number of worker tasks executed               | No equivalent |
+| `besu_executors_ethscheduler_workers_pool_size_current`          | Gauge   | Current number of threads in the worker thread pool | No equivalent |
+| `besu_executors_ethscheduler_workers_queue_length_current`       | Gauge   | Current number of worker tasks awaiting execution   | No equivalent |
+| `besu_executors_ethscheduler_workers_rejected_tasks_total`       | Counter | Total number of tasks rejected by this worker executor | No equivalent |
+| `besu_executors_ethscheduler_workers_submitted_tasks_total`      | Gauge   | Total number of worker tasks submitted              | No equivalent |
+| `besu_network_discovery_inflight_interactions_current`           | Gauge   | Current number of inflight discovery interactions   | No equivalent |
+| `besu_network_discovery_interaction_count`                       | Counter | Total number of discovery interactions initiated    | No equivalent |
+| `besu_network_discovery_interaction_retry_count`                 | Counter | Total number of interaction retries performed       | No equivalent |
+| `besu_network_discovery_messages_inbound`                        | Counter | Total number of P2P discovery messages received     | No equivalent |
+| `besu_network_discovery_messages_outbound`                       | Counter | Total number of P2P discovery messages sent         | No equivalent |
+| `besu_network_netty_boss_pending_tasks`                          | Gauge   | Number of pending tasks in Netty boss event loop    | No equivalent |
+| `besu_network_netty_workers_pending_tasks`                       | Gauge   | Number of pending tasks in Netty workers event loop | No equivalent |
+| `besu_network_p2p_messages_inbound`                              | Counter | Total number of P2P messages received               | No equivalent |
+| `besu_network_vertx_eventloop_pending_tasks`                     | Gauge   | Number of pending tasks in Vertx event loop         | No equivalent |
+| `besu_network_vertx_worker_pool_completed_total`                 | Counter | Total number of tasks completed by Vertx worker pool | No equivalent |
+| `besu_network_vertx_worker_pool_rejected_total`                  | Counter | Total number of tasks rejected by Vertx worker pool | No equivalent |
+| `besu_network_vertx_worker_pool_submitted_total`                 | Counter | Total number of tasks submitted to Vertx worker pool | No equivalent |
+| `besu_peers_connected_total`                                     | Counter | Total number of peers connected                     | No equivalent |
+| `besu_peers_disconnected_total`                                  | Counter | Total number of peers disconnected                  | No equivalent |
+| `besu_peers_pending_peer_requests_current`                       | Gauge   | Current number of peer requests pending because peers are busy | No equivalent |
+| `besu_synchronizer_chain_download_pipeline_restarts`             | Counter | Number of times chain download pipeline has been restarted | No equivalent |
+| `besu_synchronizer_in_sync`                                      | Gauge   | Whether or not the local node has caught up to the best known peer (1 or 0) | No equivalent |
+| `besu_synchronizer_task`                                         | Summary | Internal processing tasks                           | No equivalent |
+| `besu_transaction_pool_pending_transactions_messages_skipped_total` | Counter | Total number of pending transactions messages skipped by the processor | No equivalent|
+| `besu_transaction_pool_transactions`                             | Gauge   | Current size of the transaction pool                | Result number of [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions) |
+| `besu_transaction_pool_transactions_added_total`                 | Counter | Count of transactions added to the transaction pool | No equivalent |
+| `besu_transaction_pool_transactions_messages_skipped_total`      | Counter | Total number of transactions messages skipped by the processor. | No equivalent |
+| `ethereum_best_known_block_number`                               | Gauge   | Estimated highest block available                   | `highestBlock` of [`eth_syncing`](../../Reference/API-Methods.md#eth_syncing), or [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) if not syncing |
+| `ethereum_blockchain_height`                                     | Gauge   | Current height of the canonical chain               | [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) |
+| `ethereum_peer_count`                                            | Gauge   | Current number of peers connected                   | [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) |
+| `ethereum_peer_limit`                                            | Gauge   | Maximum number of peers this node allows to connect | No equivalent |
+| `jvm_buffer_pool_capacity_bytes`                                 | Gauge   | Bytes capacity of a given JVM buffer pool           | No equivalent |
+| `jvm_buffer_pool_used_buffers`                                   | Gauge   | Used buffers of a given JVM buffer pool             | No equivalent |
+| `jvm_buffer_pool_used_bytes`                                     | Gauge   | Used bytes of a given JVM buffer pool               | No equivalent |
+| `jvm_classes_loaded`                                             | Gauge   | Current number of classes loaded in the JVM         | No equivalent |
+| `jvm_classes_loaded_total`                                       | Counter | Total number of classes loaded since the JVM started execution | No equivalent |
+| `jvm_classes_unloaded_total`                                     | Counter | Total number of classes unloaded since the JVM started execution | No equivalent |
+| `jvm_gc_collection_seconds`                                      | Summary | Seconds spent in a given JVM garbage collector      | No equivalent |
+| `jvm_memory_bytes_committed`                                     | Gauge   | Committed bytes of a given JVM memory area          | No equivalent |
+| `jvm_memory_bytes_init`                                          | Gauge   | Initial bytes of a given JVM memory area            | No equivalent |
+| `jvm_memory_bytes_max`                                           | Gauge   | Maximum bytes of a given JVM memory area            | No equivalent |
+| `jvm_memory_bytes_used`                                          | Gauge   | Used bytes of a given JVM memory area               | No equivalent |
+| `jvm_memory_pool_bytes_committed`                                | Gauge   | Committed bytes of a given JVM memory pool          | No equivalent |
+| `jvm_memory_pool_bytes_init`                                     | Gauge   | Initial bytes of a given JVM memory pool            | No equivalent |
+| `jvm_memory_pool_bytes_max`                                      | Gauge   | Maximum bytes of a given JVM memory pool            | No equivalent |
+| `jvm_memory_pool_bytes_used`                                     | Gauge   | Used bytes of a given JVM memory pool               | No equivalent |
+| `jvm_threads_current`                                            | Gauge   | Current thread count of a JVM                       | No equivalent |
+| `jvm_threads_daemon`                                             | Gauge   | Daemon thread count of a JVM                        | No equivalent |
+| `jvm_threads_deadlocked`                                         | Gauge   | Cycles of JVM threads in deadlock waiting to acquire object monitors or ownable synchronizers | No equivalent |
+| `jvm_threads_deadlocked_monitor`                                 | Gauge   | Cycles of JVM threads in deadlock waiting to acquire object monitors | No equivalent |
+| `jvm_threads_peak`                                               | Gauge   | Peak thread count of a JVM                          | No equivalent |
+| `jvm_threads_started_total`                                      | Counter | Started thread count of a JVM                       | No equivalent |
+| `jvm_threads_state`                                              | Gauge   | Current count of threads by state                   | No equivalent |
+| `process_cpu_seconds_total`                                      | Counter | Total user and system CPU time spent in seconds     | No equivalent |
+| `process_max_fds`                                                | Gauge   | Maximum number of open file descriptors             | No equivalent |
+| `process_open_fds`                                               | Gauge   | Number of open file descriptors                     | No equivalent |
+| `process_start_time_seconds`                                     | Gauge   | Start time of the process since unix epoch in seconds | No equivalent |
 
-    Click the **Graph** tab to view the data as a time-based graph. The query string displays below
-    the graph. For example:
-    `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`
+!!! important
+
+    * The `ethereum_best_known_block_number` metric always has a value. When the
+      [`eth_syncing` JSON-RPC method](../../Reference/API-Methods.md#eth_syncing) returns
+      false, the current chain height displays.
+    * Although the `ethereum_peer_limit` metric does not have a JSON-RPC equivalent, the
+      [`max peers` command line option](../../Reference/CLI/CLI-Syntax.md#max-peers) sets the
+      maximum number of P2P connections that can be established.
 
 <!-- Links -->
 [monitoring with Prometheus and Grafana configured]: ../../Tutorials/Examples/Private-Network-Example.md#monitoring-nodes-with-prometheus-and-grafana

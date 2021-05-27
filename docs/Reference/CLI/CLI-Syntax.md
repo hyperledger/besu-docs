@@ -1880,6 +1880,10 @@ is false.
 `<FILE>` is the name of the private key file used to
 [sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
 
+!!! note
+
+    This can be the same file used by [`--node-private-key-file`](#node-private-key-file).
+
 You must specify this option if:
 
 * Using a privacy network where you pay gas. Also, the associated account must contain adequate funds.

@@ -10,6 +10,7 @@ Besu implements the following consensus protocols:
 * [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (Proof of Authority)
 * [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (Proof of Authority)
 * [Quorum IBFT 1.0](../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.md) (Proof of Authority).
+* [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md)
 
 The `config` property in the genesis file specifies the consensus protocol for a chain.
 
@@ -64,6 +65,20 @@ The `config` property in the genesis file specifies the consensus protocol for a
           "config": {
            ...
             "ibft": {
+             ...
+           }
+          },
+          ...
+        }
+        ```
+
+    === "QBFT"
+
+        ```json
+        {
+          "config": {
+           ...
+            "qbft": {
              ...
            }
           },

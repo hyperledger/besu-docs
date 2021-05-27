@@ -8,11 +8,12 @@ To enable [privacy functionality](../../Concepts/Privacy/Privacy-Overview.md) in
 systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
-![Besu-Orion-High-Availability](../../images/Besu-Orion-High-Availability.png)
+![Besu-Tessera-High-Availability](../../images/Besu-Tessera-High-Availability.png)
 
 !!! note
 
-    Besu
+    You can also [configure Besu for high availability](../Configure/Configure-HA/High-Availability.md) using load
+    balancers.
 
 ## High availability
 

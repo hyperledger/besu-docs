@@ -18,7 +18,14 @@ Use a load balancer to distribute requests across nodes in the cluster that are 
 
 !!! important
 
-    
+    We recommend using load balancers over WebSockets because WebSockets are persistent connections associated with
+    specific nodes. If you use load balancers configured in sticky mode over HTTP instead, the connection sticks to the
+    associated node even when the node is congested and there is a lower load node available. If you use load balancers
+    not configured in sticky mode over HTTP, the connections may switch from node to node, so some JSON-RPC requests may
+    not provide expected results (for example, [`admin` methods](../../../Reference/API-Methods.md#admin-methods),
+    [`net_enode`](../../../Reference/API-Methods.md#net_enode),
+    [`net_peerCount`](../../../Reference/API-Methods.md#net_peercount), and
+    [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing)).
 
 ## Determining when a node is ready
 

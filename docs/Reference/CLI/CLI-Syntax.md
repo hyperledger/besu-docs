@@ -1882,7 +1882,8 @@ is false.
 
 !!! note
 
-    This can be the same file used by [`--node-private-key-file`](#node-private-key-file).
+    This can be the same file used by [`--node-private-key-file`](#node-private-key-file), or a
+    different key file to identify who signed the privacy marker transaction.
 
 You must specify this option if:
 

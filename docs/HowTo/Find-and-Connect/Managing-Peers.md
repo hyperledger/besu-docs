@@ -61,7 +61,7 @@ the firewalls.
 
 ## Limiting remote connections
 
-In private networks with a level of trust between peers, enabling the
+In private and permissioned networks with a level of trust between peers, enabling the
 [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
 is unnecessary and might adversely affect the speed at which nodes can join the network.
 Limiting remote connections may cause a clique of nodes to form when the number of nodes in the network is slightly

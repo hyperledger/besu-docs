@@ -120,7 +120,6 @@ subcommand. For example:
 
 Copy the RLP encoded data to the `extraData` property in the genesis file.
 
-<!-- Topic shared with QBFT -->
 {!global/Blocktime.md!}
 {!global/Config-Options.md!}
 

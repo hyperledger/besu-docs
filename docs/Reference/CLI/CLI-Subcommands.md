@@ -230,7 +230,6 @@ the `IBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-
 * `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) includes
        the `QBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-Protocols/QBFT.md#extra-data) property.
 
-
 ???+ summary "IBFT 2.0 extra data"
 
     To generate the RLP encoded `extraData` string, specify a JSON input that is an array of

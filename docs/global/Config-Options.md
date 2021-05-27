@@ -1,7 +1,4 @@
-<!-- This topic is used in:
-HowTo/Configure/Consensus-Protocols/QBFT.md
-HowTo/Configure/Consensus-Protocols/IBFT.md
--->
+
 ### Optional configuration options
 
 Optional configuration options in the genesis file are:

@@ -1,7 +1,4 @@
-<!-- This topic is used in:
-HowTo/Configure/Consensus-Protocols/QBFT.md
-HowTo/Configure/Consensus-Protocols/IBFT.md
--->
+
 ### Block time
 
 When the protocol receives a new chain head, the block time (`blockperiodseconds`) and round

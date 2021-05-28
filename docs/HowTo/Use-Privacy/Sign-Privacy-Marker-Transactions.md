@@ -9,6 +9,12 @@ privacy marker transactions with a specified private key, use
 [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
 when starting Hyperledger Besu.
 
+!!! note
+
+    The private key file can be the same file used by
+    [`--node-private-key-file`](#node-private-key-file), or a different key file to identify who
+    signed the privacy marker transaction.
+
 In networks where you pay gas, you must specify a key and the associated account must contain
 adequate funds.
 

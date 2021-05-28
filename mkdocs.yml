@@ -77,6 +77,7 @@ nav:
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
           - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
+          - Add Validators: HowTo/Configure/Add-Validators.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
           - Configure TLS: HowTo/Configure/Configure-TLS.md
           - High Availability:

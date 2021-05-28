@@ -10,7 +10,8 @@ Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. The Rink
 Clique and private networks can also use Clique.
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
-take turns to create the next block. Existing signers propose and vote to add or remove signers.
+take turns to create the next block.
+Existing signers propose and vote to [add or remove signers](../Add-Validators.md#clique).
 
 ## Genesis file
 
@@ -79,83 +80,6 @@ To connect to the Rinkeby testnet, start Besu with the
 node on a Clique private network, use the
 [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
 genesis file.
-
-## Adding and removing signers
-
-To propose adding or removing signers using the JSON-RPC methods, enable the HTTP interface using
-[`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the WebSockets
-interface using [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
-
-The Clique API methods are not enabled by default. To enable them, specify the
-[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
-
-The JSON-RPC methods to add or remove signers are:
-
-* [`clique_propose`](../../../Reference/API-Methods.md#clique_propose)
-* [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners)
-* [`clique_discard`](../../../Reference/API-Methods.md#clique_discard).
-
-!!! important
-
-    A majority of existing signers must agree to add or remove a signer. That is, more than 50% of
-    signers must execute `clique_propose` to add or remove a signer. For example, if you have four
-    signers, the vote must be made on three signers.
-
-To view signer metrics for a specified block range, call
-[`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
-
-!!! tip
-    `clique_getSignerMetrics` can be used to identify validators that are not active. The validator's `lastProposedBlockNumber` will be `0x0`
-
-### Adding a signer
-
-To propose adding a signer, call
-[`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the
-proposed signer and `true`. A majority of signers must execute the call.
-
-!!! example "JSON-RPC clique_propose Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-When the signer creates the next block, the signer adds a vote to the block for the proposed
-signer.
-
-When more than half of the existing signers propose adding the signer, with their votes distributed
-in blocks, the signer can begin signing blocks.
-
-To return a list of signers and confirm the addition of a proposed signer, call
-[`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
-
-!!! example "JSON-RPC clique_getSigners Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-To discard your proposal after confirming the addition of a signer, call
-[`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the
-proposed signer.
-
-!!! example "JSON-RPC clique_discard Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-### Removing a signer
-
-The process for removing a signer is the same as adding a signer except you specify `false` as the
-second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
-
-### Epoch transition
-
-At each epoch transition, Clique discards all pending votes collected from received blocks.
-Existing proposals remain in effect and signers re-add their vote the next time they create a block.
-
-Define the number of blocks between epoch transitions in the genesis file.
 
 <!-- Acronyms and Definitions -->
 

@@ -1885,10 +1885,10 @@ is false.
     This can be the same file used by [`--node-private-key-file`](#node-private-key-file), or a
     different key file to identify who signed the privacy marker transaction.
 
-You must specify this option if:
+You must specify this option if you're using:
 
-* Using a privacy network where you pay gas. Also, the associated account must contain adequate funds.
-* Using [account permissioning] and privacy. You must include the corresponding public key in the
+* a privacy network where you pay gas. Also, the associated account must contain adequate funds.
+* [account permissioning] and privacy. You must include the corresponding public key in the
     accounts allowlist.
 
 If you do not specify this option (for example, in a free gas network), Besu signs each transaction

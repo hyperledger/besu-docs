@@ -3197,7 +3197,7 @@ The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
 plugin
 
-Defaults to using the nodes's local private key file specified using
+Defaults to using the node's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
 
 ### `static-nodes-file`

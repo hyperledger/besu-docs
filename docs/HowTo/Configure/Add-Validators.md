@@ -160,7 +160,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#adding-a-validator)
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposeValidatorVote).
+[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposeValidatorVote).
 
 #### Epoch transition
 
@@ -246,7 +246,7 @@ To add or remove validators without voting:
 
 1. Restart all nodes in the network using the updated genesis file.
 1. To verify the changes after the transition block, call
-   [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+   [`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 !!! caution
 

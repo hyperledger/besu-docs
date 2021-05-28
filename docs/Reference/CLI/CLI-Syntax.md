@@ -2293,7 +2293,7 @@ default is true.
 
 !!! tip
 
-    In private networks with a level of trust between peers, disabling the remote connection limits
+    In private and permissioned networks with a level of trust between peers, disabling the remote connection limits
     may increase the speed at which nodes can join the network.
 
 !!! important

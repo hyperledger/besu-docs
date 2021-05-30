@@ -89,6 +89,12 @@ To configure Prometheus and run with Besu:
    [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option. To start a
    single node for testing with metrics enabled:
 
+    !!! important
+
+        If running Prometheus on a different host to your Besu node (any host other than `localhost`),
+        ensure you add the Prometheus host to [`host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist)
+        when starting Besu to avoid receiving authorization failures.
+
     === "Command syntax"
 
         ```bash
@@ -104,7 +110,7 @@ To configure Prometheus and run with Besu:
     To specify the host and port on which Prometheus accesses Besu, use the
     [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host) and
     [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. The default host
-    and port are 127.0.0.1 and 9545.
+    and port are 127.0.0.1 (`localhost`) and 9545.
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 

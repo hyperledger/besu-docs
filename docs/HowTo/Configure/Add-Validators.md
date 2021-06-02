@@ -2,7 +2,7 @@
 description: Add and remove Clique signers and IBFT 2.0 validators to/from existing networks
 ---
 
-# Adding and removing signers and validators to/from a network
+# Adding and removing signers and validators
 
 You can add and remove signers to/from an existing [Clique](Consensus-Protocols/Clique.md) network, and add and remove
 validators to/from an existing [IBFT 2.0](Consensus-Protocols/IBFT.md) network.
@@ -120,7 +120,7 @@ To view validator metrics for a specified block range, use
 #### Adding a validator
 
 To propose adding a validator to an IBFT 2.0 network, call
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposeValidatorVote), specifying the address of the
+[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
 proposed validator and `true`.
 A majority of validators must execute the call.
 
@@ -131,14 +131,14 @@ A majority of validators must execute the call.
     ```
 
 When the validator proposes the next block, the protocol inserts one proposal received from
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposeValidatorVote) into the block.
+[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote) into the block.
 If blocks include all proposals, subsequent blocks proposed by the validator will not contain a vote.
 
 When more than half of the existing validators have published a matching proposal, the protocol adds the proposed
 validator to the validator pool and the validator can begin validating blocks.
 
 To return a list of validators and confirm the addition of a proposed validator, use
-[`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getValidatorsByBlockNumber).
+[`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
 
 !!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` Request Example"
 
@@ -147,7 +147,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```
 
 To discard your proposal after confirming the addition of a validator, call
-[`ibft_discardValidatorVote`](../../Reference/API-Methods.md#ibft_discardValidatorVote),
+[`ibft_discardValidatorVote`](../../Reference/API-Methods.md#ibft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
 !!! example "JSON-RPC `ibft_discardValidatorVote` Request Example"
@@ -160,7 +160,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#adding-a-validator)
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposeValidatorVote).
+[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote).
 
 #### Epoch transition
 

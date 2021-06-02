@@ -159,6 +159,7 @@ nav:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
         - Using IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
+        - Adding and Removing IBFT 2.0 Validators: Tutorials/Private-Network/Adding-removing-IBFT-validators.md
       - Permissioning:
         - Create a Permissioned Network: Tutorials/Permissioning/Create-Permissioned-Network.md
         - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

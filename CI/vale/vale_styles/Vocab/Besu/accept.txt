@@ -91,6 +91,7 @@ Nodejs
 [oO]nboard(ing)?
 [oO]nchain
 Orion
+[oO]wnable
 [pP]arallelization
 PegaSys
 [pP]ermission(ing|ed)?
@@ -123,6 +124,7 @@ Splunk
 [sS]ubcommand(s)?
 [sS]ubnet(s)?
 [sS]uborganization(s)?
+[sS]ynchronizer(s)?
 Teku
 Telegraf
 [tT]estnet(s)?
@@ -130,14 +132,16 @@ tmux
 [tT]oolset(s)?
 [tT]rie(s)?
 [tT]ruststore(s)?
-[uU]pcheck
+[uU]ncache(d)?
 underflow(s)?
 [uU]nencode(d)?
 [uU]nencrypt(ed)?
-[uU]ncache(d)?
+Unix
 [uU]ntrust(ed)?
+[uU]pcheck
 [uU]pstream(s)?
 [vV]alidator(s)?
+Vertx
 [vV]eto(s|es)?
 Web
 Web3Signer

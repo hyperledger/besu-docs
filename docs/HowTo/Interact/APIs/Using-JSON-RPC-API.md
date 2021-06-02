@@ -46,13 +46,58 @@ Besu disables [Authentication](Authentication.md) by default.
 
 To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/download.html).
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":53}' <JSON-RPC-http-endpoint:port>
-```
+!!! example
+
+    === "Syntax"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port>
+        ```
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":"1",
+          "result":"0x60e"
+        }
+        ```
+
+You can use `curl` to make multiple RPC requests over HTTP at the same time.
+Send the requests as an array, and receive an array of responses.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555
+        ```
+
+    === "JSON result"
+
+        ```json
+        [{
+          "jsonrpc":"2.0",
+          "id":"1",
+          "result":"0x60e"
+        },{
+          "jsonrpc":"2.0",
+          "id":"2",
+          "result":[]
+        }]
+        ```
 
 ### WebSockets
 
-To make RPC requests over WebSockets, you can use [wscat](https://github.com/websockets/wscat), a
+To make RPC requests over WebSockets, you can use [`wscat`](https://github.com/websockets/wscat), a
 Node.js based command-line tool.
 
 First connect to the WebSockets server using `wscat` (you only need to connect once per session):
@@ -61,12 +106,57 @@ First connect to the WebSockets server using `wscat` (you only need to connect o
 wscat -c ws://<JSON-RPC-ws-endpoint:port>
 ```
 
-After you establish a connection, the terminal displays a '>' prompt. Send individual requests as a
-JSON data package at each prompt:
+After you establish a connection, the terminal displays a '>' prompt.
+Send individual requests as a JSON data package at each prompt.
 
-```bash
-{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":53}
-```
+!!! Example
+
+    === "Syntax"
+    
+        ```bash
+        {"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}
+        ```
+    
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":"1",
+          "result":"0x23"
+        }
+        ```
+
+You can use `wscat` to make multiple RPC requests over WebSockets at the same time.
+Send the requests as an array, and receive an array of responses.
+
+!!! example
+
+    === "wscat WS request"
+
+        ```bash
+        [{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]
+        ```
+
+    === "JSON result"
+
+        ```json
+        [{
+          "jsonrpc":"2.0",
+          "id":"1",
+          "result":"0x23"
+        },{
+          "jsonrpc":"2.0",
+          "id":"2",
+          "result":[]
+        }]
+        ```
 
 !!! note
 

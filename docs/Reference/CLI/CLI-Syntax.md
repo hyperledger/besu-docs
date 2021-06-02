@@ -613,8 +613,9 @@ Show the help message and exit.
     host-allowlist=["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to allow
-[access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-allowlist). By
+A comma-separated list of hostnames to
+[access to the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
+[pull Besu metrics](../../HowTo/Monitor/Metrics.md). By
 default, Besu accepts access from `localhost` and `127.0.0.1`.
 
 !!!note

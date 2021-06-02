@@ -108,9 +108,6 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
         "balance": "90000000000000000000000"
       }
    },
-  "number":"0x0",
-  "gasUsed":"0x0",
-  "parentHash":"0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
 

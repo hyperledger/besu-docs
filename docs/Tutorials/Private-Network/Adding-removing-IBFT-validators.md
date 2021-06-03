@@ -13,7 +13,7 @@ This example walks through
 
 ## Adding a validator
 
-### 1. Create directories and start the validator
+### 1. Create directories
 
 Create a working directory and a data directory for the new node that needs to be added:
 
@@ -21,11 +21,13 @@ Create a working directory and a data directory for the new node that needs to b
 mkdir -p Node-5/data
 ```
 
+### 2. Start the node
+
 Change into the working directory for the new Node-5 and start the node, specifying the
 [Node-1 enode URL](Create-IBFT-Network.md#6-start-the-first-node-as-the-bootnode) as the bootnode:
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30307 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8549
 ```
 
 The command line specifies:
@@ -40,9 +42,9 @@ The command line specifies:
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * Other options as for [Node-1](Create-IBFT-Network.md#6-start-the-first-node-as-the-bootnode).
 
-### 2. Copy the address of the validator
+### 3. Copy the address of the node
 
-Copy the address of the validator.
+Copy the address of the node.
 You can find the address in the logs when starting the new node:
 
 !!! example
@@ -67,7 +69,7 @@ Or use the [`public-key export-address`](../../Reference/CLI/CLI-Subcommands.md#
         0x90626e6a67445aabf1c0615410d108d4733aa90b
         ```
 
-### 3. Propose adding the new validator
+### 4. Propose adding the new validator
 
 Propose adding the new validator from more than half the number of current validators, using
 [`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
@@ -93,6 +95,8 @@ proposed validator and `true`:
 
 Repeat the proposal process for this candidate node from at least two of the other nodes.
 
+### 5. Verify the addition of the new validator
+
 Verify that the new validator is now in the list of validators using
 [`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber):
 
@@ -114,5 +118,6 @@ The list of validators contains 5 addresses now.
 
 ## Removing a validator
 
-The process for removing a validator is the same as [adding a validator](#adding-a-validator) except you specify `false`
-as the second parameter of [`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote).
+The process for removing a validator is similar to [adding a validator](#adding-a-validator) starting from step 2,
+except you specify `false` as the second parameter of
+[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote).

@@ -32,4 +32,4 @@ npx quorum-dev-quickstart
 Follow the prompts displayed.
 
 When installation is complete, refer to `README.md` in the installation directory for more information
-on your test network. Optionally, refer to the walk-through above
+on your test network. Optionally, refer to the previously mentioned walk-through.

@@ -102,12 +102,7 @@ The QBFT properties are:
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
 
-The properties with specific values in the QBFT genesis files are:
-
-* `nonce` - `0x0`
-* `difficulty` - `0x1`
-* `mixHash` - `0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365` for Istanbul
-  block identification.
+The `difficulty` properties must be set to `0x1` in the QBFT genesis file.
 
 To start a node on a QBFT private network, use the
 [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
@@ -140,7 +135,44 @@ subcommand. For example:
 
 Copy the RLP encoded data to the `extraData` property in the genesis file.
 
-{!global/Blocktime.md!}
+### Block time
+
+When the protocol receives a new chain head, the block time (`blockperiodseconds`) timer starts.
+When `blockperiodseconds` expires, the round timeout (`requesttimeoutseconds`) timer starts and
+the protocol proposes a new block.
+
+If `requesttimeoutseconds` expires before adding the proposed block, a round change occurs, with
+the block time and timeout timers reset. The timeout period for the new round is two times
+`requesttimeoutseconds`. The timeout period continues to double each time a round fails to add a
+block.
+
+Usually, the protocol adds the proposed block before reaching `requesttimeoutseconds`. A new round
+then starts, resetting the block time and round timeout timers. When `blockperiodseconds`
+expires, the protocol proposes the next new block.
+
+!!! warning
+
+    If more than 1/3 of validators stop participating, new blocks can no longer be created and 
+    `requesttimeoutseconds` doubles with each round change. The quickest method
+    to resume block production is to restart all validators, which resets `requesttimeoutseconds` to
+    its genesis value.
+
+Once `blockperiodseconds` is over, the time from proposing a block to adding the block is
+small (usually around one second) even in networks with geographically dispersed validators.
+
+#### Tuning block timeout
+
+To tune the block timeout for your network deployment:
+
+1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times
+   `blockperiodseconds`.
+1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
+1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
+
+!!! tip
+
+    View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
+    log messages.
 {!global/Config-Options.md!}
 
 ## Adding and removing validators

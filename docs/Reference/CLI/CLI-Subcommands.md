@@ -201,8 +201,8 @@ Provides RLP related actions.
 
 ### `encode`
 
-This command encodes a typed JSON value from a file or from the standard input into an RLP
-hexadecimal string. Defaults to `IBFT_EXTRA_DATA`.
+Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. Defaults to
+`IBFT_EXTRA_DATA`.
 
 === "Syntax"
 

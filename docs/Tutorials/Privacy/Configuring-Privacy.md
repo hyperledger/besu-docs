@@ -4,6 +4,12 @@ description: Configure Hyperledger Besu privacy
 
 # Configure a network for private transactions
 
+!!! warning
+
+    Orion features have been merged into Tessera!
+    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
+    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
+
 Configuring a network that supports private transactions requires starting a [Tessera] node for each
 Hyperledger Besu node. Besu command line options associate the Besu node with the Tessera node.
 

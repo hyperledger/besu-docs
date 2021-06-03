@@ -117,8 +117,7 @@ You can then serialize it and call `eth_sendSignedTransaction` to deploy the con
 An alternative to using `eth_sendSignedTransaction` is using [`eth_sendTransaction`](https://eth.wiki/json-rpc/API).
 However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
 stronger security.
-Instead, Besu uses [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) paired with Besu to make the
-`eth_sendTransaction` API call.
+Instead, Besu uses [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
 
 An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPCNode is paired with
 EthSigner.

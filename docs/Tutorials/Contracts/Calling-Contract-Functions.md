@@ -50,7 +50,7 @@ To perform a read operation, you need the address that the contract was deployed
 The contract's ABI can be obtained from compiling the contract; see the
 [deploying smart contracts tutorial](Deploying-Contracts.md) for an example.
 
-Use the [web3.eth.Contract](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
+Use the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
 instance of the smart contract, then make the `get` function call from the contract's list of methods, which will return the value stored:
 
 ```js
@@ -104,7 +104,7 @@ As in the public contracts example, to perform a read operation, you need the ad
 and the contract's ABI.
 You also need your private and public keys and the recipient's public key.
 
-Use the [web3.eth.Contract](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
+Use the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
 instance of the smart contract, extract the signature of function's ABI for the `get` method, and then use this value as
 the `data` parameter for the `eea_sendRawTransaction` transaction.
 

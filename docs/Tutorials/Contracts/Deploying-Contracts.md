@@ -168,8 +168,9 @@ the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransac
 You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
 keeps account management separate for stronger security.
 
-An example can be found in the Developer Quickstart
-[here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
+An [example can be found here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
+in the Developer Quickstart.
+
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
 Use `eea_sendRawTransaction`:

@@ -4,7 +4,8 @@ description: funds transfer transactions
 
 # Transferring funds between accounts in a transaction
 
-You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate local blockchain networks.
+You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate
+local blockchain networks.
 
 This tutorial shows you how to transfer funds (ETH) between accounts in a transaction.
 
@@ -19,12 +20,12 @@ The simplest way to transfer funds between externally-owned accounts is using
 This example uses `eth_sendSignedTransaction` and one of the [test accounts](../../Reference/Accounts-for-Testing.md)
 to transfer funds to a newly created account.
 
-!!! warning
+!!! critical "Do not use the test accounts on Ethereum MainNet or any production network."
 
-    Do not use the test account on MainNet or any public network except for testing.
     The private key is publicly displayed, which means the account is not secure.
 
-Before making the transaction, check the balances of both accounts to verify the funds transfer after the transaction.
+Before making the transaction, check the balances of both accounts to verify the funds transfer
+after the transaction.
 
 ```js
 const web3 = new Web3(host);
@@ -40,9 +41,10 @@ var accountBBalance = web3.utils.fromWei(await web3.eth.getBalance(accountB.addr
 console.log("Account B has balance of: " + accountBBalance);
 ```
 
-Use the test account address (Account A) for the `from` parameter, the recipient account address (Account B) for the
-`to` parameter, and the amount of ETH to transfer between accounts for the `value` parameter.
-Sign the transaction with Account A's private key and send it using `eth_sendSignedTransaction`.
+Use the test account address (Account A) for the `from` parameter, the recipient account address
+(Account B) for the `to` parameter, and the amount of ETH to transfer between accounts for the
+`value` parameter. Sign the transaction with Account A's private key and send it using
+`eth_sendSignedTransaction`.
 
 ```js
 // Send some ETH from A to B
@@ -80,16 +82,15 @@ can be found in the Developer Quickstart.
 
 ## Using `eth_sendTransaction`
 
-An alternative to using `eth_sendSignedTransaction` is using
+An alternative to using `eth_sendSignedTransaction` is
 [`eth_sendTransaction`](https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#sendtransaction).
-However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
-stronger security.
-Instead, Besu uses [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
+However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account
+management separate for stronger security. Instead, Besu uses
+[EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
 
-An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPCNode is paired with
-EthSigner.
-Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/en/stable/) for more details on
-configuration.
+An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPC
+node is paired with EthSigner. Refer to the
+[EthSigner documentation](https://docs.ethsigner.consensys.net/en/stable/) configuration details.
 
 Use `eth_sendTransaction` similarly to [using `eth_sendSignedTransaction`](#using-eth_sendsignedtransaction):
 

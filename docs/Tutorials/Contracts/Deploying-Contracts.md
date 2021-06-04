@@ -4,25 +4,26 @@ description: deploying smart contracts
 
 # Deploying smart contracts to an Ethereum chain
 
-You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate local blockchain
+Use the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate local blockchain
 networks.
 
 This tutorial shows you how to deploy smart contracts as transactions to a network.
 
 ## Prerequisites
 
-* To deploy public contracts, a [private network](../Examples/Private-Network-Example.md)
+* A [private network](../Examples/Private-Network-Example.md) if deploying a public contract.
 
-* To deploy private contracts, a [privacy-enabled network](../Privacy/Configuring-Privacy.md) (Public contracts can also
-  be deployed on privacy-enabled networks.)
+* A [privacy-enabled network](../Privacy/Configuring-Privacy.md) if deploying a private contract
+    (Public contracts can also be deployed on privacy-enabled networks).
 
 ## Using `eth_sendSignedTransaction`
 
 To deploy a smart contract using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an
-account's private key to sign a transaction, serialize the transaction, and send the API request.
-An example can be found in the Developer Quickstart
-[here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
+account's private key to sign and serialize the transaction, and send the API request.
+An [example can be found here] (https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
+in the Developer Quickstart.
+
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
 Using the
@@ -101,31 +102,33 @@ console.log("tx contractAddress: " + pTx.contractAddress);
 
 `txOptions` contains the following fields:
 
-* `nonce` - the number of transactions sent from an address
-* `from` - address of the EthSigner account (`0xfe3b557e8fb62b89f4916b721be55ceb828dbd73` in this example)
-* `to` - address of the receiver (to deploy a contract, set to `null`)
-* `gas` - amount of gas provided by the sender for the transaction
-* `gasPrice` - price for each unit of gas the sender is willing to pay
-* `data` - binary of the contract (in this example there's also a constructor initialization value, so we append that to the binary value.)
-* `value` - amount of Ether/Wei transferred from the sender to the recipient
+* `nonce` - the number of transactions sent from an address.
+* `from` - address of the EthSigner account. For example `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`.
+* `to` - address of the receiver. To deploy a contract, set to `null`.
+* `gas` - amount of gas provided by the sender for the transaction.
+* `gasPrice` - price for each unit of gas the sender is willing to pay.
+* `data` - binary of the contract (in this example there's also a constructor initialization value,
+    so we append that to the binary value).
+* `value` - amount of Ether/Wei transferred from the sender to the recipient.
 
-As the example demonstrates, once the transaction `tx` is created, you can sign it with the private key of the account.
-You can then serialize it and call `eth_sendSignedTransaction` to deploy the contract.
+As the example demonstrates, once the transaction `tx` is created, you can sign it with the private
+key of the account. You can then serialize it and call `eth_sendSignedTransaction` to deploy the
+contract.
 
 ## Using `eth_sendTransaction`
 
-An alternative to using `eth_sendSignedTransaction` is using [`eth_sendTransaction`](https://eth.wiki/json-rpc/API).
-However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
-stronger security.
-Instead, Besu uses [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
+Use [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) as an alternative to `eth_sendSignedTransaction`.
+However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account
+management separate for stronger security. Instead, Besu uses
+[EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
 
-An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPCNode is paired with
-EthSigner.
-Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/en/stable/) for more details on
-configuration.
+An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPC node
+is paired with EthSigner.
+Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/) for
+configuration details.
 
 Pass the following parameters to the
-[`eth_sendTransaction`](https://docs.ethsigner.consensys.net/en/stable/Reference/API-Methods/#eth_sendtransaction) call
+[`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods/#eth_sendtransaction) call
 to EthSigner; EthSigner then converts the request to an
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) call that Besu uses:
 
@@ -141,13 +144,14 @@ params: {
 
 The parameters are:
 
-* `to` - address of the receiver (to deploy a contract, set to `null`)
-* `from` - address of the EthSigner account (`0x9b790656b9ec0db1936ed84b3bea605873558198` in this example)  
+* `to` - address of the receiver. To deploy a contract, set to `null`.
+* `from` - address of the EthSigner account. For example `0x9b790656b9ec0db1936ed84b3bea605873558198`.
 * `gas` - amount of gas provided by the sender for the transaction
-* `gasPrice` - price for each unit of gas the sender is willing to pay  
+* `gasPrice` - price for each unit of gas the sender is willing to pay
 * `data` - one of the following:
     * For contract deployments (this use case) - compiled code of the contract
-    * For contract interactions - hash of the invoked method signature and encoded parameters (see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html))
+    * For contract interactions - hash of the invoked method signature and encoded parameters
+      (see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html))
     * For simple ether transfers - empty
 
 Make the request using `eth_sendTransaction`:
@@ -198,7 +202,7 @@ return privateTxReceipt;
 `txOptions` contains the following field:
 
 * `data` - compiled code of the contract (in this example there's also a constructor initialization value, so we append
-  that to the bytecode.)
+  that to the bytecode).
 
 The deployment process is creating the client as in the previous examples, but rather than deploying the contract with
 `to: null`, it instead sends the transaction with `privateFor: [memberPublicKey/s]`.

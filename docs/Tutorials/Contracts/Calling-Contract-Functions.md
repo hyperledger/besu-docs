@@ -4,7 +4,8 @@ description: calling smart contracts functions
 
 # Interacting with deployed smart contracts
 
-You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate local blockchain networks.
+You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate
+local blockchain networks.
 
 This tutorial shows you how to interact with smart contracts that have been deployed to a network.
 
@@ -38,11 +39,11 @@ contract SimpleStorage {
 }
 ```
 
-Once the contract is deployed, you can perform a read operation using the `get` function call and a write operation
-using the `set` function call.
+Once the contract is deployed, you can perform a read operation using the `get` function call and a
+write operation using the `set` function call.
 This tutorial uses the [web3js](https://www.npmjs.com/package/web3) library to interact with the contract.
 A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
-of these calls can be found in the Developer Quickstart.
+of these calls can be found in the [Developer Quickstart].
 
 ### 1. Perform a read operation
 
@@ -96,7 +97,7 @@ This private contracts example uses the same `SimpleStorage.sol` contract as in 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) method to interact with the contract.
 Both read and write operations are performed using the `eea_sendRawTransaction` API call.
 A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js)
-can be found in the Developer Quickstart.
+can be found in the [Developer Quickstart].
 
 ### 1. Perform a read operation
 
@@ -170,3 +171,5 @@ async function setValueAtAddress(clientUrl, address, value, contractAbi, fromPri
 ### 3. Verify an updated value
 
 To verify that a value has been updated, perform a `get` call after a `set` update call.
+
+[Developer Quickstart]: ../Developer-Quickstart.md

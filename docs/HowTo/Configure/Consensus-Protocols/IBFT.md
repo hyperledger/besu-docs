@@ -22,7 +22,7 @@ super-majority (greater than 66%) of validators must first sign the block.
     [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
 
 Existing validators propose and vote to
-[add or remove validators](../Add-Validators.md#ibft-20). Adding or removing a validator
+[add or remove validators](Add-Validators.md#ibft-20). Adding or removing a validator
 requires a majority vote (greater than 50%) of validators.
 
 ## Minimum number of validators

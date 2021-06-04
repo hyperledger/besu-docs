@@ -11,7 +11,7 @@ Clique and private networks can also use Clique.
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.
-Existing signers propose and vote to [add or remove signers](../Add-Validators.md#clique).
+Existing signers propose and vote to [add or remove signers](Add-Validators.md#clique).
 
 ## Genesis file
 

@@ -75,9 +75,9 @@ nav:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
+            - Add Validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
           - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
           - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
-          - Add Validators: HowTo/Configure/Add-Validators.md
           - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
           - Configure TLS: HowTo/Configure/Configure-TLS.md
           - High Availability:

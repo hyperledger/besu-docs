@@ -4,24 +4,24 @@ description: Add and remove Clique signers and IBFT 2.0 validators to/from exist
 
 # Adding and removing signers and validators
 
-You can add and remove signers to/from an existing [Clique](Consensus-Protocols/Clique.md) network, and add and remove
-validators to/from an existing [IBFT 2.0](Consensus-Protocols/IBFT.md) network.
+You can add and remove signers to/from an existing [Clique](Clique.md) network, and add and remove
+validators to/from an existing [IBFT 2.0](IBFT.md) network.
 
 To propose adding or removing participants using the JSON-RPC methods,
-enable the HTTP interface with [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
-WebSockets interface with [`--rpc-ws-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
+WebSockets interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
 
 ## Clique
 
 The Clique API methods are not enabled by default.
-To enable them, specify the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
+To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
 
 The JSON-RPC methods to add or remove signers are:
 
-* [`clique_propose`](../../Reference/API-Methods.md#clique_propose).
-* [`clique_getSigners`](../../Reference/API-Methods.md#clique_getsigners).
-* [`clique_discard`](../../Reference/API-Methods.md#clique_discard).
+* [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
+* [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
+* [`clique_discard`](../../../Reference/API-Methods.md#clique_discard).
 
 !!! important
 
@@ -30,7 +30,7 @@ The JSON-RPC methods to add or remove signers are:
     For example, if you have four signers, the same vote must be made by three signers.
 
 To view signer metrics for a specified block range, call
-[`clique_getSignerMetrics`](../../Reference/API-Methods.md#clique_getsignermetrics).
+[`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
 
 !!! tip
 
@@ -40,7 +40,7 @@ To view signer metrics for a specified block range, call
 ### Adding a signer
 
 To propose adding a signer to a Clique network, call
-[`clique_propose`](../../Reference/API-Methods.md#clique_propose), specifying the address of the proposed signer and `true`.
+[`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the proposed signer and `true`.
 A majority of signers must execute the call.
 
 !!! example "JSON-RPC clique_propose Request Example"
@@ -55,7 +55,7 @@ When more than half of the existing signers propose adding the signer, with thei
 signer can begin signing blocks.
 
 To return a list of signers and confirm the addition of a proposed signer, call
-[`clique_getSigners`](../../Reference/API-Methods.md#clique_getsigners).
+[`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
 
 !!! example "JSON-RPC clique_getSigners Request Example"
 
@@ -64,7 +64,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
     ```
 
 To discard your proposal after confirming the addition of a signer, call
-[`clique_discard`](../../Reference/API-Methods.md#clique_discard) specifying the address of the proposed signer.
+[`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the proposed signer.
 
 !!! example "JSON-RPC clique_discard Request Example"
 
@@ -75,7 +75,7 @@ To discard your proposal after confirming the addition of a signer, call
 ### Removing a signer
 
 The process for removing a signer from a Clique network is the same as [adding a signer](#adding-a-signer), except you
-specify `false` as the second parameter of [`clique_propose`](../../Reference/API-Methods.md#clique_propose).
+specify `false` as the second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
 
 ### Epoch transition
 
@@ -83,25 +83,25 @@ At each epoch transition, Clique discards all pending votes collected from recei
 Existing proposals remain in effect and signers re-add their vote the next time they create a block.
 
 Define the number of blocks between epoch transitions in the
-[Clique genesis file](Consensus-Protocols/Clique.md#genesis-file).
+[Clique genesis file](Clique.md#genesis-file).
 
 ## IBFT 2.0
 
-In an [IBFT 2.0](Consensus-Protocols/IBFT.md) network, add and remove validators by
+In an [IBFT 2.0](IBFT.md) network, add and remove validators by
 [voting](#adding-and-removing-validators-by-voting) or if network conditions require it,
 [without voting](#adding-and-removing-validators-without-voting).
 
 ### Adding and removing validators by voting
 
 The IBFT API methods are not enabled by default.
-To enable them, specify the [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
+To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
 
 The JSON-RPC methods to add or remove validators are:
 
-* [`ibft_getPendingVotes`](../../Reference/API-Methods.md#ibft_getPendingVotes).
-* [`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposeValidatorVote).
-* [`ibft_discardValidatorVote`](../../Reference/API-Methods.md#ibft_discardValidatorVote).
+* [`ibft_getPendingVotes`](../../../Reference/API-Methods.md#ibft_getPendingVotes).
+* [`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposeValidatorVote).
+* [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardValidatorVote).
 
 !!! important
 
@@ -110,7 +110,7 @@ The JSON-RPC methods to add or remove validators are:
     For example, if you have four validators, the same vote must be made by three validators.
 
 To view validator metrics for a specified block range, use
-[`ibft_getSignerMetrics`](../../Reference/API-Methods.md#ibft_getsignermetrics).
+[`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
 
 !!! tip
 
@@ -120,7 +120,7 @@ To view validator metrics for a specified block range, use
 #### Adding a validator
 
 To propose adding a validator to an IBFT 2.0 network, call
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
 proposed validator and `true`.
 A majority of validators must execute the call.
 
@@ -131,14 +131,14 @@ A majority of validators must execute the call.
     ```
 
 When the validator proposes the next block, the protocol inserts one proposal received from
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote) into the block.
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote) into the block.
 If blocks include all proposals, subsequent blocks proposed by the validator will not contain a vote.
 
 When more than half of the existing validators have published a matching proposal, the protocol adds the proposed
 validator to the validator pool and the validator can begin validating blocks.
 
 To return a list of validators and confirm the addition of a proposed validator, use
-[`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
+[`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
 
 !!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` Request Example"
 
@@ -147,7 +147,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```
 
 To discard your proposal after confirming the addition of a validator, call
-[`ibft_discardValidatorVote`](../../Reference/API-Methods.md#ibft_discardvalidatorvote),
+[`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
 !!! example "JSON-RPC `ibft_discardValidatorVote` Request Example"
@@ -160,7 +160,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#adding-a-validator)
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote).
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote).
 
 #### Epoch transition
 
@@ -169,7 +169,7 @@ Existing proposals remain in effect and validators re-add their vote the next ti
 block.
 
 An epoch transition occurs every `epochLength` blocks.
-Define `epochlength` in the [IBFT 2.0 genesis file](Consensus-Protocols/IBFT.md#genesis-file).
+Define `epochlength` in the [IBFT 2.0 genesis file](IBFT.md#genesis-file).
 
 ### Adding and removing validators without voting
 
@@ -181,7 +181,7 @@ You can bypass voting and specify new validators in the genesis file.
 To add or remove validators without voting:
 
 1. Stop all nodes in the network.
-1. In the [genesis file](Consensus-Protocols/IBFT.md#genesis-file), add the `transitions` configuration item where:
+1. In the [genesis file](IBFT.md#genesis-file), add the `transitions` configuration item where:
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
     * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
@@ -246,7 +246,7 @@ To add or remove validators without voting:
 
 1. Restart all nodes in the network using the updated genesis file.
 1. To verify the changes after the transition block, call
-   [`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+   [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 !!! caution
 

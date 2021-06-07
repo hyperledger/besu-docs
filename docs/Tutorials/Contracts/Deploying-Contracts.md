@@ -21,7 +21,7 @@ This tutorial shows you how to deploy smart contracts as transactions to a netwo
 To deploy a smart contract using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an
 account's private key to sign and serialize the transaction, and send the API request.
-An [example can be found here] (https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
+An [example can be found here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
 in the Developer Quickstart.
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.

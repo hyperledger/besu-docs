@@ -4,9 +4,22 @@ description: Running ConsenSys Quorum Tessera with Hyperledger Besu
 
 # Run Tessera with Besu
 
+!!! warning
+
+    Orion features have been merged into Tessera!
+    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
+    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
+
 To enable [privacy functionality](../../Concepts/Privacy/Privacy-Overview.md) in production
 systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.
+
+![Besu-Tessera-High-Availability](../../images/Besu-Tessera-High-Availability.png)
+
+!!! note
+
+    You can also [configure Besu for high availability](../Configure/Configure-HA/High-Availability.md) using load
+    balancers.
 
 ## High availability
 

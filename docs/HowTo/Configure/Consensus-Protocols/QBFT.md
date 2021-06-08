@@ -22,7 +22,7 @@ super-majority (greater than 66%) of validators must first sign the block.
     [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
 
 Existing validators propose and vote to
-[add or remove validators](#adding-and-removing-validators). Adding or removing a validator
+[add or remove validators](Add-Validators.md#qbft). Adding or removing a validator
 requires a majority vote (greater than 50%) of validators.
 
 ## Minimum number of validators
@@ -102,7 +102,11 @@ The QBFT properties are:
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
 
-The `difficulty` properties must be set to `0x1` in the QBFT genesis file.
+The properties with specific values in the QBFT genesis files are:
+
+* `difficulty` - `0x1`
+* `mixHash` - `0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365` for Istanbul
+  block identification.
 
 To start a node on a QBFT private network, use the
 [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
@@ -177,174 +181,6 @@ To tune the block timeout for your network deployment:
 
 ## Adding and removing validators
 
-Add and remove validators by [voting](#adding-and-removing-validators-by-voting) or if network
-conditions require it, [without voting](#adding-and-removing-validators-without-voting).
-
-### Adding and removing validators by voting
-
-To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface
-using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
-WebSockets interface using
-[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
-
-The QBFT API methods are not enabled by default. To enable them, specify the
-[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `QBFT`.
-
-The JSON-RPC methods to add or remove validators are:
-
-* [`qbft_getPendingVotes`](../../../Reference/API-Methods.md#qbft_getpendingvotes)
-* [`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote)
-* [`qbft_discardValidatorVote`](../../../Reference/API-Methods.md#qbft_discardvalidatorvote).
-
-!!! important
-
-    A majority of existing validators must agree to add or remove a validator. That is, more that
-    50% of validators must execute `qbft_proposeValidatorVote` to add or remove a validator. For
-    example, if you have four validators, the vote must be made on three validators.
-
-To view validator metrics for a specified block range, use
-[`qbft_getSignerMetrics`](../../../Reference/API-Methods.md#qbft_getsignermetrics).
-
-!!! tip
-    `qbft_getSignerMetrics` can be used to identify validators that are not active. The validator's `lastProposedBlockNumber` will be `0x0`
-
-#### Adding a validator
-
-To propose adding a validator, call
-[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote),
-specifying the address of the proposed validator and `true`. A majority of validators must execute
-the call.
-
-!!! example "JSON-RPC `qbft_proposeValidatorVote` Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-When the validator proposes the next block, the protocol inserts one proposal received from
-[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote) into the
-block. If blocks include all proposals, subsequent blocks proposed by the validator will not
-contain a vote.
-
-When more than half of the existing validators have published a matching proposal, the protocol
-adds the proposed validator to the validator pool and the validator can begin validating blocks.
-
-To return a list of validators and confirm the addition of a proposed validator, use
-[`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#qbft_getvalidatorsbyblocknumber).
-
-!!! example "JSON-RPC `qbft_getValidatorsByBlockNumber` Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-To discard your proposal after confirming the addition of a validator, call
-[`qbft_discardValidatorVote`](../../../Reference/API-Methods.md#qbft_discardvalidatorvote),
-specifying the address of the proposed validator.
-
-!!! example "JSON-RPC `qbft_discardValidatorVote` Request Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
-    ```
-
-#### Removing a validator
-
-The process for removing a validator is the same as adding a validator except you specify `false`
-as the second parameter of
-[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote).
-
-#### Epoch transition
-
-At each epoch transition, QBFT discards all pending votes collected from received blocks.
-Existing proposals remain in effect and validators re-add their vote the next time they create a
-block.
-
-An epoch transition occurs every `epochLength` blocks. Define `epochlength` in the QBFT genesis
-file.
-
-### Adding and removing validators without voting
-
-Network conditions might not allow voting to change validators. For example, if a majority
-of the current validators are no longer participating in the network, so a vote to add or remove
-validators will never be successful. You can bypass voting and specify new validators in the genesis
-file.
-
-To add or remove validators without voting:
-
-1. Stop all nodes in the network.
-1. In the genesis file, add the `transitions` configuration item where:
-
-    * `<BlockNumber>` is the upcoming block at which to change validators.
-    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
-      of the validators after `<BlockNumber>`.
-
-    !!! example "Transitions object in the genesis file"
-
-        === "Syntax"
-
-            ```bash
-            {
-              "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": <BlockNumber>,
-                     "validators": [
-                        <ValidatorAddressX>,
-                        ...
-                        <ValidatorAddressZ>
-                     ]
-                   }
-                   ]
-                 }
-              },
-              ...
-            }
-            ```
-
-        === "Example"
-
-            ```bash
-            {
-              "config": {
-                ...
-                "qbft": {
-                  "blockperiodseconds": 2,
-                  "epochlength": 30000,
-                  "requesttimeoutseconds": 4
-                },
-                "transitions": {
-                   "qbft": [
-                   {
-                    "block": 25,
-                    "validators": [
-                      "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-                      "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
-                      ]
-                    }
-                   ]
-                }
-              },
-              ...
-            }
-            ```
-
-1. Restart all nodes in the network using the updated genesis file.
-1. To verify the changes after the transition block, call
-   [`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#qbft_getvalidatorsbyblocknumber),
-   specifying `latest`.
-
-!!! caution
-    Do not specify a transition block in the past. Specifying a transition block in the past could
-    result in unexpected behaviour.
 
 <!-- Acronyms and Definitions -->
 

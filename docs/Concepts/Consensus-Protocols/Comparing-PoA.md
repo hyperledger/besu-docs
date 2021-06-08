@@ -11,9 +11,9 @@ between them. For example, in a permissioned consortium network.
 Proof of Authority consensus protocols have faster block times and a much greater transaction
 throughput than the Ethash Proof of Work consensus protocol used on the Ethereum MainNet.
 
-In Clique and IBFT 2.0, a group of nodes in the network act as signers (Clique) or validators
-(IBFT 2.0). The existing nodes in the signer/validator pool vote to add nodes to or remove nodes
-from the pool.
+In Clique, IBFT 2.0, or QBFT, a group of nodes in the network act as signers (Clique) or validators
+(IBFT 2.0 and QBFT). The existing nodes in the signer/validator pool vote to add nodes to or remove
+nodes from the pool.
 
 !!! note
 
@@ -30,7 +30,7 @@ Properties to consider when comparing Clique, IBFT 2.0, and QBFT are:
 
 ### Immediate finality
 
-IBFT 2.0 and QBFT has immediate finality; there are no forks and all valid blocks get
+IBFT 2.0 and QBFT have immediate finality; there are no forks and all valid blocks get
 included in the main chain.
 
 Clique does not have immediate finality. Implementations using Clique must be aware of forks and
@@ -52,7 +52,7 @@ redundancy if the validator fails.
 
 Clique is more fault tolerant than IBFT 2.0 and QBFT. Clique tolerates up to half of the validators
 failing. IBFT 2.0 and QBFT networks require greater than or equal to two-thirds of validators to be
-operating to create blocks. For example, a IBFT 2.0 or QBFT network of:
+operating to create blocks. For example, an IBFT 2.0 or QBFT network of:
 
 * Four to five validators tolerates one unresponsive validator
 * Six to eight validators tolerates two unresponsive validators.

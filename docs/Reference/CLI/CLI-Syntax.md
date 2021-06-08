@@ -613,8 +613,9 @@ Show the help message and exit.
     host-allowlist=["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to allow
-[access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-allowlist). By
+A comma-separated list of hostnames to
+[access to the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
+[pull Besu metrics](../../HowTo/Monitor/Metrics.md). By
 default, Besu accepts access from `localhost` and `127.0.0.1`.
 
 !!!note
@@ -1868,7 +1869,7 @@ is false.
 === "Environment Variable"
 
     ```bash
-    PANTHEON_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
+    BESU_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
     ```
 
 === "Configuration File"
@@ -1878,12 +1879,21 @@ is false.
     ```
 
 `<FILE>` is the name of the private key file used to
-[sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md). If
-you do not specify this option, Besu signs each transaction with a different randomly generated
-key.
+[sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
 
-If using [account permissioning] and privacy, you must specify a private key file and include the
-corresponding public key in the accounts allowlist.
+!!! note
+
+    This can be the same file used by [`--node-private-key-file`](#node-private-key-file), or a
+    different key file to identify who signed the privacy marker transaction.
+
+You must specify this option if you're using:
+
+* a privacy network where you pay gas. Also, the associated account must contain adequate funds.
+* [account permissioning] and privacy. You must include the corresponding public key in the
+    accounts allowlist.
+
+If you do not specify this option (for example, in a free gas network), Besu signs each transaction
+with a different randomly generated key.
 
 ### `privacy-multi-tenancy-enabled`
 
@@ -3188,7 +3198,7 @@ The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
 plugin
 
-Defaults to using the nodes's local private key file specified using
+Defaults to using the node's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
 
 ### `static-nodes-file`

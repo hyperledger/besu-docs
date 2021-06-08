@@ -21,8 +21,8 @@ This tutorial shows you how to deploy smart contracts as transactions to a netwo
 To deploy a smart contract using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an
 account's private key to sign and serialize the transaction, and send the API request.
-An [example can be found here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
-in the Developer Quickstart.
+The Developer Quickstart provides an
+[example of a public transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
@@ -85,7 +85,7 @@ const rawTxOptions = {
   from: account.address,
   to: null, //public tx
   value: "0x00",
-  data: '0x'+contractBin+contractInit,
+  data: '0x'+contractBin+contractInit, // contract binary appended with initialization value
   gasPrice: "0x0", //ETH per unit of gas
   gasLimit: "0x24A22" //max number of gas units the tx is allowed to use
 };
@@ -100,7 +100,7 @@ console.log("tx transactionHash: " + pTx.transactionHash);
 console.log("tx contractAddress: " + pTx.contractAddress);
 ```
 
-`txOptions` contains the following fields:
+`rawTxOptions` contains the following fields:
 
 * `nonce` - the number of transactions sent from an address.
 * `from` - address of the EthSigner account. For example `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`.
@@ -168,8 +168,8 @@ the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransac
 You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
 keeps account management separate for stronger security.
 
-An [example can be found here](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
-in the Developer Quickstart.
+The Developer Quickstart provides an
+[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 

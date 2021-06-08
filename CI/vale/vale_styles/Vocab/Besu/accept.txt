@@ -59,6 +59,7 @@ Homebrew
 Hyperledger
 InfluxDB
 Infura
+Italiane
 Jasypt
 Javadoc
 JMeter
@@ -97,7 +98,7 @@ PegaSys
 [pP]ermission(ing|ed)?
 [pP]luggable
 P[oO]A
-Poste Italiane
+Poste
 Postgres
 P[oO]W
 [pP]recompile(d)?

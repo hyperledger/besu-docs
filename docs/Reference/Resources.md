@@ -16,6 +16,8 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 
 [Why Java for Blockchain]
 
+[Case Study: How Poste Italiane brings value to loyalty with Hyperledger Besu]
+
 ## Webinars
 
 [Besu Plugin API: Learn How to Leverage Plugin APIs on Hyperledger Besu]
@@ -42,3 +44,4 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 [The Final Word: IBFT 2.0 and Enterprise Consensus]: https://www.youtube.com/watch?v=YmTUP_dWfME
 [De-Mystifying Besu: Understanding an Ethereum Codebase]: https://www.youtube.com/watch?v=OJfib9kTK7U&feature=youtu.be
 [Getting Started with Besu]: https://www.youtube.com/watch?v=OKWBr94J9rY&t=1s
+[Case Study: How Poste Italiane brings value to loyalty with Hyperledger Besu]: https://www.hyperledger.org/learn/publications/posteitaliane-case-study

@@ -4,6 +4,12 @@ description: Privacy
 
 # Privacy
 
+!!! warning
+
+    Orion features have been merged into Tessera!
+    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
+    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
+
 In Besu, privacy refers to the ability to keep transactions private between the involved
 participants. Other participants cannot access the transaction content or list of participants.
 

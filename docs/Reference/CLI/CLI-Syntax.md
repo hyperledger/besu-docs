@@ -875,6 +875,36 @@ The port (TCP) on which [Prometheus](https://prometheus.io/) accesses
 default is `9545`. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
+### `metrics-protocol`
+
+=== "Syntax"
+
+    ```bash
+    --metrics-protocol=<metrics-protocol>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --metrics-port=OPENTELEMETRY
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PORT=OPENTELEMETRY
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-port="OPENTELEMETRY"
+    ```
+
+Metrics protocol to use.
+One of `PROMETHEUS`, `OPENTELEMETRY`, or `NONE`.
+Defaults to `PROMETHEUS`.
+
 ### `metrics-push-enabled`
 
 === "Syntax"

@@ -30,13 +30,11 @@ To use the examples provided in the web3js-eea library with
     ```
 
 1. In the `example` directory, update the `keys.js` file to include:
+    * chain ID
     * Tessera node public keys
     * Hyperledger Besu node RPC URLs
     * [Hyperledger Besu node private keys](../../Concepts/Node-Keys.md#node-private-key).
 
-1. If the `chainID` specified in the genesis file for your network is not `2018`, update
-   `deployContract.js`, `storeValueFromNode1.js`, and `storeValueFromNode2.js` to specify your
-   chain ID instead of `2018`.
 1. In the `example/multiNodeExample` directory, deploy the contract:
 
     ```bash

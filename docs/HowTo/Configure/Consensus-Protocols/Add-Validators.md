@@ -260,11 +260,6 @@ conditions require it, [without voting](#adding-and-removing-validators-without-
 
 ### Adding and removing validators by voting
 
-To propose adding or removing validators using the JSON-RPC methods, enable the HTTP interface
-using [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
-WebSockets interface using
-[`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
-
 The QBFT API methods are not enabled by default. To enable them, specify the
 [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `QBFT`.

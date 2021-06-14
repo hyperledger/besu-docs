@@ -179,9 +179,6 @@ To tune the block timeout for your network deployment:
     log messages.
 {!global/Config-Options.md!}
 
-## Adding and removing validators
-
-
 <!-- Acronyms and Definitions -->
 
 *[Vanity]: Validators can include anything they like as vanity data.

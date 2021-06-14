@@ -5,7 +5,7 @@ description: Collect Besu information with the OpenTelemetry Collector
 
 # Use OpenTelemetry to gather node metrics and traces
 
-To enable the [Prometheus](https://prometheus.io/) monitoring and tracing service to access
+To enable the OpenTelemetry monitoring and tracing service to access
 Hyperledger Besu, use the
 [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 and [`--metrics-protocol=opentelemetry`](../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options. Use

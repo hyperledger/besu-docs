@@ -17,7 +17,7 @@ The following API objects use a unique format for each `transactionType`:
 ## `FRONTIER` transactions
 
 Transactions with type `FRONTIER` are *legacy transactions* that use the transaction format existing before typed
-transactions were introduced in [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718#transactions).
+transactions were introduced in [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718).
 They contain the fields `chainId`, `nonce`, `gasPrice`, `gasLimit`, `to`, `value`, `data`, `v`, `r`, and `s`.
 Legacy transactions are not compatible with [access lists](#access_list-transactions) or
 [EIP-1559 fee market changes](#eip1559-transactions).

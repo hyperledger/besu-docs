@@ -1,0 +1,49 @@
+---
+description: Description of the different transaction types
+---
+
+# Transaction types
+
+You can interact with the Hyperledger Besu JSON-RPC API using different transaction types (specified by
+the `transactionType` parameter).
+
+The following API objects use a unique format for each `transactionType`:
+
+- [Pending transaction object](../../Reference/API-Objects.md#pending-transaction-object)
+- [Transaction object](../../Reference/API-Objects.md#transaction-object)
+- [Transaction call object](../../Reference/API-Objects.md#transaction-call-object)
+- [Transaction receipt object](../../Reference/API-Objects.md#transaction-receipt-object)
+
+## `FRONTIER` transactions
+
+Transactions with type `FRONTIER` are *legacy transactions* that use the transaction format existing before typed
+transactions were introduced in [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718#transactions).
+Legacy transactions are not compatible with [access lists](#access_list-transactions) or
+[EIP-1559 fee market changes](#eip1559-transactions).
+
+## `ACCESS_LIST` transactions
+
+Transactions with type `ACCESS_LIST` are transactions introduced in
+[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930).
+They contain an `accessList` parameter, which specifies an array of addresses and storage keys that the transaction
+plans to access (an *access list*).
+`ACCESS_LIST` transactions must specify an access list, and they are not compatible with
+[EIP-1559 fee market changes](#eip1559-transactions).
+
+## `EIP1559` transactions
+
+Transactions with type `EIP1559` are transactions introduced in
+[EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md).
+`EIP1559` transactions don't use `gasPrice`, and instead use an in-protocol, dynamically changing *base fee* per gas.
+At each block, the base fee per gas is adjusted up when blocks are above the gas target, and down when blocks are below
+the gas target.
+
+`EIP1559` transactions contain a `maxPriorityFeePerGas` parameter, which specifies the maximum fee the sender is willing
+to pay per gas above the base fee (the maximum *priority fee* per gas), and a `maxFeePerGas` parameter, which specifies
+the maximum total fee (base fee + priority fee) the sender is willing to pay per gas.
+An `EIP1559` transaction always pays the base fee of the block it's included in, and it pays the priority fee as long as
+the base fee per gas + `maxPriorityFeePerGas` doesn't exceed `maxFeePerGas`.
+The base fee is burned, and the priority fee is paid to the miner who mined the transaction's block.
+
+`EIP1559` transactions must specify both `maxPriorityFeePerGas` and `maxFeePerGas`, and may specify `accessList`.
+They must not specify `gasPrice`.

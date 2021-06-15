@@ -93,21 +93,21 @@ Returned by [`txpool_besuPendingTransactions`](API-Methods.md#txpool_besupending
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions).                     |
-| **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                                                   |
-| **gas**                  | Quantity            | Gas provided by the sender.                                                              |
-| **gasPrice**             | Quantity            | Gas price, in wei, provided by the sender.                                               |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee in Wei the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`.             |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee in Wei (base fee + priority fee) the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                                                 |
-| **input**                | Data                | Data sent with the transaction to create or invoke a contract.                           |
-| **nonce**                | Quantity            | Number of transactions made by the sender before this one.                               |
-| **to**                   | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                      |
-| **transactionType**      | String              | [Transaction type](../Concepts/Transactions/Transaction-Types.md).                       |
-| **value**                | Quantity            | Value transferred, in wei.                                                               |
-| **v**                    | Quantity            | ECDSA Recovery ID.                                                                       |
-| **r**                    | Data, 32&nbsp;bytes | ECDSA signature r.                                                                       |
-| **s**                    | Data, 32&nbsp;bytes | ECDSA signature s.                                                                       |
+| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                              |
+| **gas**                  | Quantity            | Gas provided by the sender.                                         |
+| **gasPrice**             | Quantity            | Gas price, in Wei, provided by the sender.                          |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                            |
+| **input**                | Data                | Data sent with the transaction to create or invoke a contract.      |
+| **nonce**                | Quantity            | Number of transactions made by the sender before this one.          |
+| **to**                   | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction. |
+| **transactionType**      | String              | [Transaction type](../Concepts/Transactions/Transaction-Types.md).  |
+| **value**                | Quantity            | Value transferred, in Wei.                                          |
+| **v**                    | Quantity            | ECDSA Recovery ID.                                                  |
+| **r**                    | Data, 32&nbsp;bytes | ECDSA signature r.                                                  |
+| **s**                    | Data, 32&nbsp;bytes | ECDSA signature s.                                                  |
 
 ## Private transaction object
 
@@ -179,15 +179,15 @@ and
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions).                       |
+| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **blockHash**            | Data, 32&nbsp;bytes | Hash of the block containing this transaction. `null` when transaction is pending.         |
 | **blockNumber**          | Quantity            | Block number of the block containing this transaction. `null` when transaction is pending. |
 | **chainId**              | Quantity            | [Chain ID](../Concepts/NetworkID-And-ChainID.md).                                          |
 | **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                                                     |
 | **gas**                  | Quantity            | Gas provided by the sender.                                                                |
-| **gasPrice**             | Quantity            | Gas price, in wei, provided by the sender.                                                 |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee in Wei the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`.               |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee in Wei (base fee + priority fee) the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`.  |
+| **gasPrice**             | Quantity            | Gas price, in Wei, provided by the sender.                                                 |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
 | **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
 | **input**                | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | **nonce**                | Quantity            | Number of transactions made by the sender before this one.                                 |
@@ -196,7 +196,7 @@ and
 | **to**                   | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                        |
 | **transactionIndex**     | Quantity, Integer   | Index position of the transaction in the block. `null` when transaction is pending.        |
 | **transactionType**      | String              | [Transaction type](../Concepts/Transactions/Transaction-Types.md).                         |
-| **value**                | Quantity            | Value transferred, in wei.                                                                 |
+| **value**                | Quantity            | Value transferred, in Wei.                                                                 |
 | **v**                    | Quantity            | ECDSA Recovery ID.                                                                         |
 | **r**                    | Data, 32&nbsp;bytes | ECDSA signature r.                                                                         |
 | **s**                    | Data, 32&nbsp;bytes | ECDSA signature s.                                                                         |
@@ -213,15 +213,15 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| **from**                 | Data, 20&nbsp;bytes | Address of the transaction sender.                                                       |
-| **to**                   | Data, 20&nbsp;bytes | Address of the transaction receiver.                                                     |
-| **gas**                  | Quantity, Integer   | Gas provided for the transaction execution. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice**             | Quantity, Integer   | Price used for each paid gas in Wei. The default is `0`.                                 |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee in Wei the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee in Wei (base fee + priority fee) the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **value**                | Quantity, Integer   | Value in Wei sent with this transaction.                                                 |
+| **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                         |
+| **to**                   | Data, 20&nbsp;bytes | Address of the action receiver.                                |
+| **gas**                  | Quantity, Integer   | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
+| **gasPrice**             | Quantity, Integer   | Gas price, in Wei, provided by the sender. The default is `0`. |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **value**                | Quantity, Integer   | Value transferred, in Wei.                                     |
 | **data**                 | Data                | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
-| **strict**               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`.   |
+| **strict**               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`. |
 
 ## Transaction receipt object
 
@@ -237,7 +237,7 @@ Returned by [`eth_getTransactionReceipt`](API-Methods.md#eth_gettransactionrecei
 | **gasUsed**           | Quantity             | Amount of gas used by this specific transaction.                                     |
 | **logs**              | Array                | Array of [log objects](#log-object) generated by this transaction.                   |
 | **logsBloom**         | Data, 256&nbsp;bytes | Bloom filter for light clients to quickly retrieve related logs.                     |
-| **status**            | Quantity             | Either `0x0` (failure), `0x1` (success), or `0x2` (invalid)                          |
+| **status**            | Quantity             | Either `0x0` (failure), `0x1` (success), or `0x2` (invalid).                         |
 | **to**                | Data, 20&nbsp;bytes  | Address of the receiver, if sending ether, otherwise, null.                          |
 | **transactionHash**   | Data, 32&nbsp;bytes  | Hash of the transaction.                                                             |
 | **transactionIndex**  | Quantity, Integer    | Index position of transaction in the block.                                          |

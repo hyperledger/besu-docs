@@ -35,12 +35,12 @@ array of addresses and storage keys that the transaction plans to access (an *ac
 
 Transactions with type `EIP1559` are transactions introduced in
 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md).
-EIP-1559 addresses the network congestion and overpricing of transaction fees present in the historical fee market,
+EIP-1559 addresses the network congestion and overpricing of transaction fees caused by the historical fee market,
 in which users send transactions specifying a gas price bid using the `gasPrice` parameter, and miners choose
 transactions with the highest bids.
 
 `EIP1559` transactions don't specify `gasPrice`, and instead use an in-protocol, dynamically changing *base fee* per gas.
-At each block, the base fee per gas is adjusted to deal with network congestion as measured by a gas target.
+At each block, the base fee per gas is adjusted to address network congestion as measured by a gas target.
 
 `EIP1559` transactions contain, along with the [legacy parameters](#frontier-transactions) and
 [`accessList`](#access_list-transactions) parameter, a `maxPriorityFeePerGas` parameter, which specifies the maximum fee

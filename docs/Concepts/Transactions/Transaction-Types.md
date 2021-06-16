@@ -38,16 +38,21 @@ Transactions with type `EIP1559` are transactions introduced in
 EIP-1559 addresses the network congestion and overpricing of transaction fees present in the historical fee market,
 in which users send transactions specifying a gas price bid using the `gasPrice` parameter, and miners choose
 transactions with the highest bids.
-`EIP1559` transactions don't use `gasPrice`, and instead use an in-protocol, dynamically changing *base fee* per gas.
+
+`EIP1559` transactions don't specify `gasPrice`, and instead use an in-protocol, dynamically changing *base fee* per gas.
 At each block, the base fee per gas is adjusted to deal with network congestion as measured by a gas target.
 
 `EIP1559` transactions contain, along with the legacy parameters and [`accessList`](#access_list-transactions)
 parameter, a `maxPriorityFeePerGas` parameter, which specifies the maximum fee the sender is willing to pay per gas
 above the base fee (the maximum *priority fee* per gas), and a `maxFeePerGas` parameter, which specifies the maximum
 total fee (base fee + priority fee) the sender is willing to pay per gas.
-An `EIP1559` transaction always pays the base fee of the block it's included in, and it pays the priority fee if the
-base fee per gas + `maxPriorityFeePerGas` doesn't exceed `maxFeePerGas`.
-The base fee is burned, and the priority fee is paid to the miner who mined the transaction's block.
+
+An `EIP1559` transaction always pays the base fee of the block it's included in, and it pays a priority fee as priced by
+`maxPriorityFeePerGas` or, if the base fee per gas + `maxPriorityFeePerGas` exceeds `maxFeePerGas`, it pays a priority
+fee as priced by `maxFeePerGas` minus the base fee per gas.
+The base fee is burned, and the priority fee is paid to the miner that included the transaction.
+A transaction's priority fee per gas incentivizes miners to include the transaction over other transactions with lower
+priority fees per gas.
 
 `EIP1559` transactions must specify both `maxPriorityFeePerGas` and `maxFeePerGas`.
 They must not specify `gasPrice`.

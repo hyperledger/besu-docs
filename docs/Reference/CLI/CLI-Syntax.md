@@ -353,7 +353,7 @@ The path to the Besu data directory. The default is the directory you installed 
 === "Environment Variable"
 
     ```bash
-    BESU_DISCOVERY_DNS-URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
+    BESU_DISCOVERY_DNS_URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
     ```
 
 === "Example Configuration File"

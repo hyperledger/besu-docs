@@ -19,7 +19,7 @@ The following API objects use a unique format for each `transactionType`:
 Transactions with type `FRONTIER` are *legacy transactions* that use the transaction format existing before typed
 transactions were introduced in [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718).
 They contain the parameters `chainId`, `nonce`, `gasPrice`, `gasLimit`, `to`, `value`, `data`, `v`, `r`, and `s`.
-Legacy transactions are not compatible with [access lists](#access_list-transactions) or
+Legacy transactions don't use [access lists](#access_list-transactions) or incorporate
 [EIP-1559 fee market changes](#eip1559-transactions).
 
 ## `ACCESS_LIST` transactions
@@ -28,7 +28,7 @@ Transactions with type `ACCESS_LIST` are transactions introduced in
 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930).
 They contain, along with the [legacy parameters](#frontier-transactions), an `accessList` parameter, which specifies an
 array of addresses and storage keys that the transaction plans to access (an *access list*).
-`ACCESS_LIST` transactions must specify an access list, and they are not compatible with
+`ACCESS_LIST` transactions must specify an access list, and they don't incorporate
 [EIP-1559 fee market changes](#eip1559-transactions).
 
 ## `EIP1559` transactions
@@ -42,10 +42,11 @@ transactions with the highest bids.
 `EIP1559` transactions don't specify `gasPrice`, and instead use an in-protocol, dynamically changing *base fee* per gas.
 At each block, the base fee per gas is adjusted to address network congestion as measured by a gas target.
 
-`EIP1559` transactions contain, along with the [legacy parameters](#frontier-transactions) and
-[`accessList`](#access_list-transactions) parameter, a `maxPriorityFeePerGas` parameter, which specifies the maximum fee
-the sender is willing to pay per gas above the base fee (the maximum *priority fee* per gas), and a `maxFeePerGas`
-parameter, which specifies the maximum total fee (base fee + priority fee) the sender is willing to pay per gas.
+`EIP1559` transactions contain, along with the [`accessList`](#access_list-transactions) parameter and
+[legacy parameters](#frontier-transactions) except for `gasPrice`, a `maxPriorityFeePerGas` parameter, which specifies
+the maximum fee the sender is willing to pay per gas above the base fee (the maximum *priority fee* per gas), and a
+`maxFeePerGas` parameter, which specifies the maximum total fee (base fee + priority fee) the sender is willing to pay
+per gas.
 
 An `EIP1559` transaction always pays the base fee of the block it's included in, and it pays a priority fee as priced by
 `maxPriorityFeePerGas` or, if the base fee per gas + `maxPriorityFeePerGas` exceeds `maxFeePerGas`, it pays a priority

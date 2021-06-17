@@ -93,12 +93,12 @@ Returned by [`txpool_besuPendingTransactions`](API-Methods.md#txpool_besupending
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **accessList**           | Array               | (Optional) List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                              |
 | **gas**                  | Quantity            | Gas provided by the sender.                                         |
-| **gasPrice**             | Quantity            | Gas price, in Wei, provided by the sender.                          |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **gasPrice**             | Quantity            | (Optional) Gas price, in Wei, provided by the sender. Not used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **maxPriorityFeePerGas** | Quantity, Integer   | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **maxFeePerGas**         | Quantity, Integer   | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                            |
 | **input**                | Data                | Data sent with the transaction to create or invoke a contract.      |
 | **nonce**                | Quantity            | Number of transactions made by the sender before this one.          |
@@ -179,15 +179,15 @@ and
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| **accessList**           | Array               | List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **accessList**           | Array               | (Optional) List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../Concepts/Transactions/Transaction-Types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **blockHash**            | Data, 32&nbsp;bytes | Hash of the block containing this transaction. `null` when transaction is pending.         |
 | **blockNumber**          | Quantity            | Block number of the block containing this transaction. `null` when transaction is pending. |
 | **chainId**              | Quantity            | [Chain ID](../Concepts/NetworkID-And-ChainID.md).                                          |
 | **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                                                     |
 | **gas**                  | Quantity            | Gas provided by the sender.                                                                |
-| **gasPrice**             | Quantity            | Gas price, in Wei, provided by the sender.                                                 |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **gasPrice**             | Quantity            | (Optional) Gas price, in Wei, provided by the sender. Not used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **maxPriorityFeePerGas** | Quantity, Integer   | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **maxFeePerGas**         | Quantity, Integer   | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
 | **input**                | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../Concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | **nonce**                | Quantity            | Number of transactions made by the sender before this one.                                 |
@@ -216,9 +216,9 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **from**                 | Data, 20&nbsp;bytes | Address of the sender.                                         |
 | **to**                   | Data, 20&nbsp;bytes | Address of the action receiver.                                |
 | **gas**                  | Quantity, Integer   | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| **gasPrice**             | Quantity, Integer   | Gas price, in Wei, provided by the sender. The default is `0`. |
-| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
-| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). Can't be used with `gasPrice`. |
+| **gasPrice**             | Quantity, Integer   | Gas price, in Wei, provided by the sender. The default is `0`. Can't be used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
+| **maxPriorityFeePerGas** | Quantity, Integer   | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Can be used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). If used, must specify `maxFeePerGas`. |
+| **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
 | **value**                | Quantity, Integer   | Value transferred, in Wei.                                     |
 | **data**                 | Data                | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 | **strict**               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`. |

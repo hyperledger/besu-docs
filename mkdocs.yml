@@ -192,6 +192,7 @@ nav:
         - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:
+          - Transaction Types: Concepts/Transactions/Transaction-Types.md
           - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
           - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
         - Monitoring: Concepts/Monitoring.md

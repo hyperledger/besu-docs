@@ -304,12 +304,6 @@ The default is `false`.
     --config-file=/home/me/me_node/config.toml
     ```
 
-=== "Environment Variable"
-
-    ```bash
-    BESU_CONFIG_FILE=/home/me/me_node/config.toml
-    ```
-
 The path to the [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 The default is `none`.
 

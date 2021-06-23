@@ -9,7 +9,8 @@ can use QBFT.
 
 !!! warning
 
-    QBFT is currently an early access feature. Do not use in production networks.
+    QBFT is currently an early access feature. It is not recommended for production networks with
+    business critical impact.
 
 In QBFT networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a

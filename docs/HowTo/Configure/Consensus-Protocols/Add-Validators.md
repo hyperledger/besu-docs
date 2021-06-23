@@ -251,7 +251,8 @@ To add or remove validators without voting:
 !!! caution
 
     Do not specify a transition block in the past.
-    Specifying a transition block in the past could result in unexpected behavior.
+    Specifying a transition block in the past could result in unexpected behavior,  such as causing
+    the network to fork
 
 ## QBFT
 
@@ -417,4 +418,4 @@ To add or remove validators without voting:
 
 !!! caution
     Do not specify a transition block in the past. Specifying a transition block in the past could
-    result in unexpected behaviour.
+    result in unexpected behaviour, such as causing the network to fork.

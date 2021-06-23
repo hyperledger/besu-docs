@@ -223,7 +223,7 @@ nav:
 markdown_extensions:
     - toc:
         permalink: 
-        toc_depth: 4
+        toc_depth: 3
     - codehilite
     - pymdownx.tabbed
     - pymdownx.superfences

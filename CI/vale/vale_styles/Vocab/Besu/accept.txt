@@ -57,6 +57,7 @@ Helmfile(s)?
 Homebrew
 [hH]ostname(s)?
 Hyperledger
+[iI]ncentiviz(?:e|es|ed|ing)
 InfluxDB
 Infura
 Italiane

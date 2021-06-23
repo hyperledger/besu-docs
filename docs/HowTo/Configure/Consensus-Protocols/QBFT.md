@@ -9,13 +9,17 @@ can use QBFT.
 
 !!! warning
 
-    Configure your network to ensure you never lose 1/3 or more of your validators. If more
-    than 1/3 of validators stop participating, new blocks are no longer created, and the
-    network stalls. It may take significant time to recover once nodes are restarted.
+    QBFT is currently an early access feature. Do not use in production networks.
 
 In QBFT networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
+
+!!! warning
+
+    Configure your network to ensure you never lose 1/3 or more of your validators. If more
+    than 1/3 of validators stop participating, new blocks are no longer created, and the
+    network stalls. It may take significant time to recover once nodes are restarted.
 
 !!! tip
     You can use a plugin to securely store a validator's key using the
@@ -138,6 +142,12 @@ subcommand. For example:
     ```
 
 Copy the RLP encoded data to the `extraData` property in the genesis file.
+
+!!! example "RLP encoded data"
+
+    ```no-lang
+    0xf83aa00000000000000000000000000000000000000000000000000000000000000000d5949811ebc35d7b06b3fa8dc5809a1f9c52751e1debc080c0
+    ```
 
 ### Block time
 

@@ -13,8 +13,8 @@ Use the JFR as a tool to analyze Besu performance.
 To enable JFR, set `BESU_OPTS` to the JFR tags as follows:
 
 ```bash
-export BESU_OPTS=-XX:StartFlightRecording=disk=true,delay=15s,dumponexit=true, \
-filename=/tmp/recording.jfr, maxsize=1024m,maxage=1d, \
+export BESU_OPTS=-XX:StartFlightRecording=disk=true,delay=15s,dumponexit=true,\
+filename=/tmp/recording.jfr,maxsize=1024m,maxage=1d,\
 settings=profile,path-to-gc-roots=true
 ```
 

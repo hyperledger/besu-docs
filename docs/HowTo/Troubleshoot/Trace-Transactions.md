@@ -7,8 +7,8 @@ description: How to trace transactions
 To get detailed information about transaction processing, use the
 [`TRACE` API](../../Reference/API-Methods.md#trace-methods). Enable the
 [`TRACE` API](../../Reference/API-Methods.md#trace-methods) using the
-[`-rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
+[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
 
 To specify the trace types required and retrieve the transaction traces for a block, use
 [`trace_replayBlockTransactions`](../../Reference/API-Methods.md#trace_replayblocktransactions). Options are

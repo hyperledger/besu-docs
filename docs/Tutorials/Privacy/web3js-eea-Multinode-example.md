@@ -4,6 +4,12 @@ description: web3js-eea client library multi-node example
 
 # Use the multi-node example in the web3js-eea client library
 
+!!! warning
+
+    Orion features have been merged into Tessera!
+    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
+    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
+
 To use the examples provided in the web3js-eea library with
 [your privacy network](Configuring-Privacy.md):
 
@@ -24,13 +30,11 @@ To use the examples provided in the web3js-eea library with
     ```
 
 1. In the `example` directory, update the `keys.js` file to include:
+    * chain ID
     * Tessera node public keys
     * Hyperledger Besu node RPC URLs
     * [Hyperledger Besu node private keys](../../Concepts/Node-Keys.md#node-private-key).
 
-1. If the `chainID` specified in the genesis file for your network is not `2018`, update
-   `deployContract.js`, `storeValueFromNode1.js`, and `storeValueFromNode2.js` to specify your
-   chain ID instead of `2018`.
 1. In the `example/multiNodeExample` directory, deploy the contract:
 
     ```bash

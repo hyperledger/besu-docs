@@ -353,7 +353,7 @@ The path to the Besu data directory. The default is the directory you installed 
 === "Environment Variable"
 
     ```bash
-    BESU_DISCOVERY_DNS-URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
+    BESU_DISCOVERY_DNS_URL=enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org
     ```
 
 === "Example Configuration File"
@@ -613,8 +613,9 @@ Show the help message and exit.
     host-allowlist=["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to allow
-[access to the JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md#host-allowlist). By
+A comma-separated list of hostnames to
+[access to the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
+[pull Besu metrics](../../HowTo/Monitor/Metrics.md). By
 default, Besu accepts access from `localhost` and `127.0.0.1`.
 
 !!!note
@@ -873,6 +874,36 @@ The port (TCP) on which [Prometheus](https://prometheus.io/) accesses
 [Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
 default is `9545`. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+
+### `metrics-protocol`
+
+=== "Syntax"
+
+    ```bash
+    --metrics-protocol=<metrics-protocol>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --metrics-port=OPENTELEMETRY
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_METRICS_PORT=OPENTELEMETRY
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    metrics-port="OPENTELEMETRY"
+    ```
+
+Metrics protocol to use.
+One of `PROMETHEUS`, `OPENTELEMETRY`, or `NONE`.
+Defaults to `PROMETHEUS`.
 
 ### `metrics-push-enabled`
 
@@ -2452,7 +2483,7 @@ The default is `false`.
 
 A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
 you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
-`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
 `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -2956,7 +2987,7 @@ If set to 0, then this option is ignored and no cap is applied.
 
 A comma-separated list of APIs to enable on the WebSockets channel. When you use this option
 you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`,
-`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`,
+`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
 `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

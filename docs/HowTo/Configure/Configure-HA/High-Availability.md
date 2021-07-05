@@ -7,14 +7,25 @@ description: Hyperledger Besu high availability
 To enable high availability to the
 [RPC Pub/Sub API over WebSockets](../../Interact/APIs/RPC-PubSub.md) or the
 [JSON-RPC API](../../Interact/APIs/Using-JSON-RPC-API.md), run and synchronize more than one
-Hyperledger Besu nodes to the network. Use a load balancer to distribute requests across nodes in
-the cluster that are ready to receive requests.
+Hyperledger Besu node to the network.
+Use a load balancer to distribute requests across nodes in the cluster that are ready to receive requests.
 
 ![Load Balancer](../../../images/LoadBalancer.png)
 
 !!! important
 
     We do not recommend putting [bootnodes](../../Deploy/Bootnodes.md) behind a load balancer.
+
+!!! important
+
+    We recommend using load balancers over WebSockets because WebSockets are persistent connections associated with
+    specific nodes. If you use load balancers configured in sticky mode over HTTP instead, the connection sticks to the
+    associated node even when the node is congested and there is a lower load node available. If you use load balancers
+    not configured in sticky mode over HTTP, the connections may switch from node to node, so some JSON-RPC requests may
+    not provide expected results (for example, [`admin` methods](../../../Reference/API-Methods.md#admin-methods),
+    [`net_enode`](../../../Reference/API-Methods.md#net_enode),
+    [`net_peerCount`](../../../Reference/API-Methods.md#net_peercount), and
+    [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing)).
 
 ## Determining when a node is ready
 
@@ -50,7 +61,7 @@ might be incorrect.
 
 To get correct nonces when distributing requests across a cluster, either:
 
-* Track the next nonce outside of the Besu node (as MetaMask does)
+* Track the next nonce outside of the Besu node (as MetaMask does).
 * Configure the load balancer in sticky mode to send requests from a specific account to a single
   node, unless that node is unavailable.
 
@@ -58,7 +69,7 @@ To get correct nonces when distributing requests across a cluster, either:
 
 You can subscribe to events using:
 
-* [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md)
+* [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md).
 * [Filters over HTTP](../../Interact/Filters/Accessing-Logs-Using-JSON-RPC.md).
 
 We recommend using [RPC Pub/Sub over WebSockets](../../Interact/APIs/RPC-PubSub.md) because

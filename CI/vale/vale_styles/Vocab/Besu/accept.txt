@@ -57,8 +57,10 @@ Helmfile(s)?
 Homebrew
 [hH]ostname(s)?
 Hyperledger
+[iI]ncentiviz(?:e|es|ed|ing)
 InfluxDB
 Infura
+Italiane
 Jasypt
 Javadoc
 JMeter
@@ -97,6 +99,7 @@ PegaSys
 [pP]ermission(ing|ed)?
 [pP]luggable
 P[oO]A
+Poste
 Postgres
 P[oO]W
 [pP]recompile(d)?

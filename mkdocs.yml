@@ -129,7 +129,7 @@ nav:
           - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
           - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           - Use Flexible Privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
-          - Use GoQuorum-compatibile Privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-Privacy.md
+          - Use GoQuorum-compatibile Privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
         - Deploy for Production:
           - Deploy to the Cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md

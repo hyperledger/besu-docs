@@ -23,6 +23,7 @@ genesis file.
 | `transitions`       | Specifies block at which to change [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-without-voting) or [QBFT](../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-without-voting_1) validators. |
 | `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). The default is `24576` and the maximum size is `2147483647`.                                |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                    |
+| `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                 |
 
 ## Genesis block parameters
 
@@ -92,7 +93,8 @@ In private networks, the milestone block defines the protocol version for the ne
 
 ## Fixed difficulty
 
-Use `fixeddifficulty` to specify a fixed difficulty in private networks using Ethash. This will keep the network's difficulty constant and override the `difficulty` parameter from the genesis file.
+Use `fixeddifficulty` to specify a fixed difficulty in private networks using Ethash. This will keep
+the network's difficulty constant and override the `difficulty` parameter from the genesis file.
 
 !!! example
 
@@ -113,3 +115,7 @@ Use `fixeddifficulty` to specify a fixed difficulty in private networks using Et
     Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments.
     For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead.
     Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targeted frequency.
+
+<!--links-->
+[GoQuorum clients]: https://docs.goquorum.consensys.net/
+[interoperable private transactions]: ../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md

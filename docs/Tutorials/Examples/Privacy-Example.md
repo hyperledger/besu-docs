@@ -119,19 +119,19 @@ all three members (Tessera) to check the value at an address. Only `Member1` & `
 this information as they were involved in the transaction, `Member2` responds with a `0x` to indicate it is
 unaware of the transaction.
 
-```
+```bash
 node scripts/private_tx.js
 Creating contract...
 Getting contractAddress from txHash:  0xc1b57f6a7773fe887afb141a09a573d19cb0fdbb15e0f2b9ed0dfead6f5b5dbf
 Waiting for transaction to be mined ...
 Address of transaction: 0x8220ca987f7bb7f99815d0ef64e1d8a072a2c167
-Use the smart contracts 'get' function to read the contract's constructor initialized value .. 
+Use the smart contracts 'get' function to read the contract's constructor initialized value ..
 Waiting for transaction to be mined ...
 Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000002f
-Use the smart contracts 'set' function to update that value to 123 .. - from member1 to member3 
+Use the smart contracts 'set' function to update that value to 123 .. - from member1 to member3
 Transaction hash: 0x387c6627fe87e235b0f2bbbe1b2003a11b54afc737dca8da4990d3de3197ac5f
 Waiting for transaction to be mined ...
-Verify the private transaction is private by reading the value from all three members .. 
+Verify the private transaction is private by reading the value from all three members ..
 Waiting for transaction to be mined ...
 Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
 Waiting for transaction to be mined ...
@@ -151,7 +151,7 @@ The general contract deployment flow is:
 
 ## Further examples
 
-View the the [web3js-eea client library example](../Privacy/web3js-eea-Multinode-example.md) and view the
+View the [web3js-eea client library example](../Privacy/web3js-eea-Multinode-example.md) and view the
 [sample code examples](https://github.com/ConsenSys/web3js-eea/tree/master/example). Additionally, a
 a [video tutorial](https://www.youtube.com/watch?v=Menekt6-TEQ) is also available.
 

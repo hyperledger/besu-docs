@@ -60,6 +60,3 @@ how to deploy the dapp and interact with the network.
 The sample network also includes Prometheus and Grafana monitoring tools to let you visualize node health and usage.
 The [quickstart tutorial](Examples/Private-Network-Example.md#monitor-nodes-with-prometheus-and-grafana) contains usage
 and configuration information.
-
-
- 

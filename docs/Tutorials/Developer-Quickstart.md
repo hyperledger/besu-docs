@@ -33,3 +33,33 @@ Follow the prompts displayed.
 
 When installation is complete, refer to `README.md` in the installation directory for more information
 on your test network. Optionally, refer to the previously mentioned walk-through.
+
+## Private Transactions
+
+Select 'y' to the 'privacy' option and you will get three member nodes pairs (a Besu node which has a corresponding
+Tessera node for privacy) that can be accessed for API calls and transactions. You can follow the
+[privacy walk-through](./Examples/Privacy-Example.md) which has details of how to send private transactions as well 
+as interact with deployed private contracts 
+
+## Smart Contracts and DApps
+
+You can use a demo DApp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
+
+The DApp runs a local website using Docker, and uses smart contracts deployed on the network.
+
+The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory,
+which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
+
+You can follow the
+[dapp walk-through](./Examples/Private-Network-Example.md/#smart-contract-and-dapp-usage) which has details of how to 
+deploy the DApp and intract with the network and buy pets
+
+## Monitoring
+
+The sample network also includes Prometheus and Grafana monitoring tools to let you visualize node health and usage.
+You can follow the
+[monitoring](./Examples/Private-Network-Example.md/#monitor-nodes-with-prometheus-and-grafana) section of the quickstart for details
+on usage as configuration
+
+
+ 

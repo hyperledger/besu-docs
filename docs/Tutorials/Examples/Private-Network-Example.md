@@ -271,18 +271,17 @@ Refresh the Block Explorer page in your browser displaying the target test accou
 
 The updated balance reflects the transaction completed using MetaMask.
 
-## Smart contract and dapp usage
+## Smart contract and DApp usage
 
-You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
+You can use a demo DApp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
 
-You can use a demo dapp called Pet Shop, provided by Truffle.
-The dapp runs a local website using Docker, and uses smart contracts deployed on the network.
+The DApp runs a local website using Docker, and uses smart contracts deployed on the network.
 
 The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory,
 which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
 
 With the blockchain running and MetaMask connected to `Localhost 8545` via the browser,
-run the following command to start the Pet Shop dapp:
+run the following command to start the Pet Shop DApp:
 
 ```bash
 cd dapps/pet-shop

@@ -4,16 +4,15 @@ description: Hyperledger Besu privacy-enabled private network tutorial
 
 # Privacy-enabled Quorum Developer Quickstart tutorial
 
-The privacy-enabled private network example runs a private network of Hyperledger Besu and private
-transaction manager nodes managed by Docker Compose. It's an expanded version of the
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md).
+The privacy-enabled private network example is an expanded version of the 
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md). It runs a private network of Hyperledger Besu and 
+uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as it's private transaction manager 
 
 You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
 [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
 [create transactions using MetaMask] as described in the
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how to use the
-examples provided in the web3js-eea library to
-[create and send private transactions](#send-private-transactions-and-read-values).
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how you can make private 
+transaction between nodes, and perform read and write operations on private contracts.
 
 !!! important
 
@@ -49,19 +48,6 @@ npx quorum-dev-quickstart
 Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
-## Clone web3js-eea libraries
-
-Clone the `ConsenSys/web3js-eea` library:
-
-```bash
-git clone https://github.com/ConsenSys/web3js-eea.git
-```
-
-In the `web3js-eea` directory:
-
-```bash
-npm install
-```
 
 ## Start the network
 
@@ -97,87 +83,79 @@ For more information on the endpoints and services, refer to README.md in the in
 ****************************************************************
 ```
 
-## Send private transactions and read values
+## Deploy the private contract and interact with the nodes
 
-The Event Emitter script deploys a contract with a privacy group of Node1 and Node2. That is, the
-other nodes cannot access the contract. After deploying the contract, Event Emitter stores a value.
+To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
+[web3js-eea](https://github.com/ConsenSys/web3js-eea) library and
+the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
+You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
+keeps account management separate for stronger security.
 
-In the `web3js-eea` directory, run `eventEmitter.js`:
-
-```bash
-node example/eventEmitter.js
-```
-
-!!! tip
-
-    The network takes a few minutes to get started. If you get a ` Error: socket hang up` error,
-    the network isn't fully setup. Wait and then run the command again.
-
-The Event Emitter logs display.
+This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, and the example 
+creates three member nodes pairs (a Besu node which has a corresponding Tessera node for privacy) that can be accessed
+via APIs on the following ports:
 
 ```bash
-Transaction Hash  0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f
-Waiting for transaction to be mined ...
-Private Transaction Receipt
- { contractAddress: '0x2f351161a80d74047316899342eedc606b13f9f8',
-  from: '0xfe3b557e8fb62b89f4916b721be55ceb828dbd73',
-  to: null,
-  output:
-   '0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f245811461005b5780636057361d1461008257806367e404ce146100ae575b600080fd5b34801561006757600080fd5b506100706100ec565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100ac600480360360208110156100a557600080fd5b50356100f2565b005b3480156100ba57600080fd5b506100c3610151565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60025490565b604080513381526020810183905281517fc9db20adedc6cf2b5d25252b101ab03e124902a73fcb12b753f3d1aaa2d8f9f5929181900390910190a16002556001805473ffffffffffffffffffffffffffffffffffffffff191633179055565b60015473ffffffffffffffffffffffffffffffffffffffff169056fea165627a7a72305820c7f729cb24e05c221f5aa913700793994656f233fe2ce3b9fd9a505ea17e8d8a0029',
-  logs: [] }
-Waiting for transaction to be mined ...
-Transaction Hash: 0xbf14d332fa4c8f50d90cb02d47e0f825b8b2ef987c975306f76a598f181f4698
-Event Emited: 0x000000000000000000000000fe3b557e8fb62b89f4916b721be55ceb828dbd7300000000000000000000000000000000000000000000000000000000000003e8
-Waiting for transaction to be mined ...
-Get Value: 0x00000000000000000000000000000000000000000000000000000000000003e8
-Waiting for transaction to be mined ...
-Transaction Hash: 0x5b538c5690e3ead6e6f811ad23c853bc63b3bca91635b3b611e51d2797b5f073
-Event Emited: 0x000000000000000000000000fe3b557e8fb62b89f4916b721be55ceb828dbd73000000000000000000000000000000000000000000000000000000000000002a
-Waiting for transaction to be mined ...
-Get Value: 0x000000000000000000000000000000000000000000000000000000000000002a
+Member1Besu RPC: http://localhost:20000
+Member1Tessera: http://localhost:9081
+
+Member2Besu RPC: http://localhost:20002
+Member1Tessera: http://localhost:9082
+
+Member3Besu RPC: http://localhost:20004
+Member1Tessera: http://localhost:9083
 ```
 
-Call [`eth_getTransactionReceipt`](../../Reference/API-Methods.md#eth_gettransactionreceipt) where:
-
-* `<TransactionHash>` is the transaction hash displayed in the Event Emitter logs.
-* `<JSON-RPC Endpoint>` is the JSON-RPC HTTP service endpoint displayed when starting the network.
-
-=== "curl HTTP request"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["<TransactionHash>"],"id":1}' http://localhost:8545
-    ```
-
-=== "Example"
-
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f"],"id":1}' http://localhost:8545
-    ```
-
-The transaction receipt for the
-[privacy marker transaction](../../Concepts/Privacy/Private-Transaction-Processing.md) displays
-with a `contractAddress` of `null`.
-
-```json
-{
-  "jsonrpc" : "2.0",
-  "id" : 1,
-  "result" : {
-    "blockHash" : "0xfacdc805f274553fcb2a12d3ef524f465c25e58626c27101c3e6f677297cdae9",
-    "blockNumber" : "0xa",
-    "contractAddress" : null,
-    "cumulativeGasUsed" : "0x5db8",
-    "from" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-    "gasUsed" : "0x5db8",
-    "logs" : [ ],
-    "logsBloom" : "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "status" : "0x1",
-    "to" : "0x000000000000000000000000000000000000007e",
-    "transactionHash" : "0xe0776de9a9d4e30be0025c1308eed8bc45502cba9fe22c504a56e2fd95343e6f",
-    "transactionIndex" : "0x0"
-  }
-}
+Navigate to the smart_contracts directory and deploy the private transaction like so:
+```bash
+cd smart_contracts
+npm install
+node scripts/private_tx.js
 ```
+
+which deploys the contract and sends an arbitrary value (47) from `Member1` to `Member3`. Once done, it queries all 
+three members (Tessera) to check the value at an address, and you should observe that only `Member1` & `Member3` have 
+this information as they were involved in the transaction and that `Member2` responds with a `0x` to indicate it is 
+unaware of the transaction.
+
+```
+node scripts/private_tx.js
+Creating contract...
+Getting contractAddress from txHash:  0xc1b57f6a7773fe887afb141a09a573d19cb0fdbb15e0f2b9ed0dfead6f5b5dbf
+Waiting for transaction to be mined ...
+Address of transaction: 0x8220ca987f7bb7f99815d0ef64e1d8a072a2c167
+Use the smart contracts 'get' function to read the contract's constructor initialized value .. 
+Waiting for transaction to be mined ...
+Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000002f
+Use the smart contracts 'set' function to update that value to 123 .. - from member1 to member3 
+Transaction hash: 0x387c6627fe87e235b0f2bbbe1b2003a11b54afc737dca8da4990d3de3197ac5f
+Waiting for transaction to be mined ...
+Verify the private transaction is private by reading the value from all three members .. 
+Waiting for transaction to be mined ...
+Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
+Waiting for transaction to be mined ...
+Member2 value from deployed contract is: 0x
+Waiting for transaction to be mined ...
+Member3 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
+```
+
+The general form is to:
+1. Deploy a contract from A to B, which returns a transaction hash
+2. Obtain the privacy transaction receipt from that transaction hash
+3. Use the contract address that is in the privacy transaction receipt to interact with the contract from that point on,
+where you can get/set values etc. Refer to Contracts [tutorials](../Contracts/Calling-Contract-Functions.md) for more 
+information.
+     
+## Further Examples
+
+Further [documentation](https://besu.hyperledger.org/en/stable/Tutorials/Privacy/eeajs-Multinode-example/) for this 
+example and more [sample code examples](https://github.com/ConsenSys/web3js-eea/tree/master/example) as well as 
+a [video tutorial](https://www.youtube.com/watch?v=Menekt6-TEQ) is also available.
+
+There is an additional erc20 token example that you can also test with: executing `node example/erc20.js` deploys 
+a `HumanStandardToken` contract and transfers 1 token to Node2.
+
+This can be verified from the `data` field of the `logs` which is `1`.
 
 ## Stop the network
 

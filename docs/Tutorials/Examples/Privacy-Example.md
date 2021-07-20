@@ -48,7 +48,6 @@ npx quorum-dev-quickstart
 Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../HowTo/Monitor/Elastic-Stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
-
 ## Start the network
 
 !!!important

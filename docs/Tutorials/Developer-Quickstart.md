@@ -34,32 +34,32 @@ Follow the prompts displayed.
 When installation is complete, refer to `README.md` in the installation directory for more information
 on your test network. Optionally, refer to the previously mentioned walk-through.
 
-## Private Transactions
+## Private transactions
 
-Select 'y' to the 'privacy' option and you will get three member nodes pairs (a Besu node which has a corresponding
-Tessera node for privacy) that can be accessed for API calls and transactions. You can follow the
-[privacy walk-through](./Examples/Privacy-Example.md) which has details of how to send private transactions as well 
-as interact with deployed private contracts 
+Select `Y` for **Do you wish to enable support for private transactions?** to get three Besu nodes, with each
+node having a corresponding Tessera node for privacy. You can access the Besu member nodes for API calls and
+transactions.
 
-## Smart Contracts and DApps
+Follow the [privacy walk-through](./Examples/Privacy-Example.md) which details how to send private
+transactions, and interact with deployed private contracts.
 
-You can use a demo DApp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
+## Smart contracts and dapps
 
-The DApp runs a local website using Docker, and uses smart contracts deployed on the network.
+You can use the Pet Shop demo dapp provided by [Truffle](https://www.trufflesuite.com/tutorial) which runs
+a local website using Docker, and uses smart contracts deployed on the network.
 
-The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory,
-which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
+The directory created by `quorum-dev-quickstart` includes a `dapps/pet-shop` directory which contains
+the source code for the dapp, including the smart contracts, website, and configurations to run
+the tutorial.
 
-You can follow the
-[dapp walk-through](./Examples/Private-Network-Example.md/#smart-contract-and-dapp-usage) which has details of how to 
-deploy the DApp and intract with the network and buy pets
+Follow the [dapp walk-through](Examples/Private-Network-Example.md#smart-contract-and-dapp-usage) which details
+how to deploy the dapp and interact with the network.
 
 ## Monitoring
 
 The sample network also includes Prometheus and Grafana monitoring tools to let you visualize node health and usage.
-You can follow the
-[monitoring](./Examples/Private-Network-Example.md/#monitor-nodes-with-prometheus-and-grafana) section of the quickstart for details
-on usage as configuration
+The [quickstart tutorial](Examples/Private-Network-Example.md#monitor-nodes-with-prometheus-and-grafana) contains usage
+and configuration information.
 
 
  

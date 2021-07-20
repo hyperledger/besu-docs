@@ -4,15 +4,15 @@ description: Hyperledger Besu privacy-enabled private network tutorial
 
 # Privacy-enabled Quorum Developer Quickstart tutorial
 
-The privacy-enabled private network example is an expanded version of the 
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md). It runs a private network of Hyperledger Besu and 
-uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as it's private transaction manager 
+The privacy-enabled private network example is an expanded version of the
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md). It runs a private Hyperledger Besu network that
+uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 
 You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
 [JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
 [create transactions using MetaMask] as described in the
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how you can make private 
-transaction between nodes, and perform read and write operations on private contracts.
+[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how to make private
+transactions between nodes, and perform read and write operations on private contracts.
 
 !!! important
 
@@ -91,31 +91,32 @@ the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransac
 You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
 keeps account management separate for stronger security.
 
-This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, and the example 
-creates three member nodes pairs (a Besu node which has a corresponding Tessera node for privacy) that can be accessed
-via APIs on the following ports:
+This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, the example
+creates three Besu nodes, with each node having a corresponding Tessera node for privacy. You can access the Besu
+member nodes for API calls on the following ports:
 
 ```bash
 Member1Besu RPC: http://localhost:20000
 Member1Tessera: http://localhost:9081
 
 Member2Besu RPC: http://localhost:20002
-Member1Tessera: http://localhost:9082
+Member2Tessera: http://localhost:9082
 
 Member3Besu RPC: http://localhost:20004
-Member1Tessera: http://localhost:9083
+Member3Tessera: http://localhost:9083
 ```
 
-Navigate to the smart_contracts directory and deploy the private transaction like so:
+Navigate to the smart_contracts directory and deploy the private transaction:
+
 ```bash
 cd smart_contracts
 npm install
 node scripts/private_tx.js
 ```
 
-which deploys the contract and sends an arbitrary value (47) from `Member1` to `Member3`. Once done, it queries all 
-three members (Tessera) to check the value at an address, and you should observe that only `Member1` & `Member3` have 
-this information as they were involved in the transaction and that `Member2` responds with a `0x` to indicate it is 
+The script deploys the contract and sends an arbitrary value (47) from `Member1` to `Member3`. Once done, it queries
+all three members (Tessera) to check the value at an address. Only `Member1` & `Member3` has
+this information as they were involved in the transaction, `Member2` responds with a `0x` to indicate it is
 unaware of the transaction.
 
 ```
@@ -139,20 +140,22 @@ Waiting for transaction to be mined ...
 Member3 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
 ```
 
-The general form is to:
-1. Deploy a contract from A to B, which returns a transaction hash
-2. Obtain the privacy transaction receipt from that transaction hash
-3. Use the contract address that is in the privacy transaction receipt to interact with the contract from that point on,
-where you can get/set values etc. Refer to Contracts [tutorials](../Contracts/Calling-Contract-Functions.md) for more 
-information.
-     
-## Further Examples
+The general contract deployment flow is:
 
-Further [documentation](https://besu.hyperledger.org/en/stable/Tutorials/Privacy/eeajs-Multinode-example/) for this 
-example and more [sample code examples](https://github.com/ConsenSys/web3js-eea/tree/master/example) as well as 
+1. Deploy a contract, which returns a transaction hash.
+
+1. Obtain the privacy transaction receipt from the transaction hash.
+
+1. Use the contract address in the privacy transaction receipt to
+    [interact with the contract](../Contracts/Calling-Contract-Functions.md) from that point on.
+
+## Further examples
+
+View the the [web3js-eea client library example](../Privacy/web3js-eea-Multinode-example.md) and view the
+[sample code examples](https://github.com/ConsenSys/web3js-eea/tree/master/example). Additionally, a
 a [video tutorial](https://www.youtube.com/watch?v=Menekt6-TEQ) is also available.
 
-There is an additional erc20 token example that you can also test with: executing `node example/erc20.js` deploys 
+You can also test the erc20 token example by executing `node example/erc20.js` which deploys
 a `HumanStandardToken` contract and transfers 1 token to Node2.
 
 This can be verified from the `data` field of the `logs` which is `1`.

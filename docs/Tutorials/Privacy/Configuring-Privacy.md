@@ -30,7 +30,7 @@ a Tessera node.
 
 ## Prerequisites
 
-* [Install Tessera](https://docs.tessera.consensys.net/HowTo/Get-started/DistributionJar/).
+* [Install Tessera](https://docs.tessera.consensys.net/en/stable/HowTo/Get-started/Distribution/).
 
 ## 1. Create Tessera directories
 

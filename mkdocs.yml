@@ -219,6 +219,7 @@ nav:
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md
         - Projects Using Besu: Reference/Projects-Using-Besu.md
+        - Alternative Elliptic Curves: Reference/Alternative-EC-Curves.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 

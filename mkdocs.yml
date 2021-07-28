@@ -87,6 +87,7 @@ nav:
           - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
           - Configure Mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
+          - Alternative Elliptic Curves: HowTo/Configure/Alternative-EC-Curves.md
         - Interact with Node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -219,7 +220,6 @@ nav:
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md
         - Projects Using Besu: Reference/Projects-Using-Besu.md
-        - Alternative Elliptic Curves: Reference/Alternative-EC-Curves.md
         - Security Disclosure Policy: Reference/Responsible-Disclosure.md
         - Blog Posts and Webinars: Reference/Resources.md
 

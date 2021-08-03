@@ -184,7 +184,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - linkchecker:
           context:
@@ -197,7 +197,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - repolint:
           context:

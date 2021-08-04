@@ -87,6 +87,7 @@ nav:
           - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
           - Configure Mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
+          - Alternative Elliptic Curves: HowTo/Configure/Alternative-EC-Curves.md
         - Interact with Node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md

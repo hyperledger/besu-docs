@@ -193,6 +193,7 @@ nav:
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+          - Plugin Permissioning: Concepts/Permissioning/Plugin-Permissioning.md
         - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:

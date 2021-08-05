@@ -1,29 +1,29 @@
 ---
-description: web3js-eea client library
+description: web3js-quorum client library
 ---
 
-# web3js-eea client library
+# web3js-quorum client library
 
-The [web3js-eea library](https://github.com/PegaSysEng/web3js-eea) adds a property to your web3
+The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum) adds a property to your web3
 instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and
 send RLP-encoded transactions using JSON-RPC.
 
 !!! note
-    web3js-eea supports JSON-RPC over HTTP only.
+    web3js-quorum supports JSON-RPC over HTTP only.
 
 ## Prerequisites
 
 * [Node.js (version > 10)](https://nodejs.org/en/download/)
 
-## Add web3js-eea to project
+## Add web3js-quorum to project
 
 ```bash
 npm install web3-eea
 ```
 
-## Initialize EEA client
+## Initialize the web3js-quorum client
 
-Initialize your EEA client where:
+Initialize your client where:
 
 * `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified
   by the [`--rpc-http-host`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and

@@ -93,7 +93,7 @@ To verify that a value has been updated, perform a `get` call after a `set` upda
 
 This private contracts example uses the same `SimpleStorage.sol` contract as in the
 [public contracts example](#interact-with-public-contracts), but it uses the
-[web3js-eea](https://github.com/ConsenSys/web3js-eea) library and the
+[web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) method to interact with the contract.
 Both read and write operations are performed using the `eea_sendRawTransaction` API call.
 A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js)

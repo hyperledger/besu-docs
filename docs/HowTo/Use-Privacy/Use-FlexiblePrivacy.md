@@ -10,7 +10,7 @@ description: Use flexible privacy groups
     Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
-Use the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea) to create and update
+Use the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum) to create and update
 membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
 
 !!! tip
@@ -41,7 +41,7 @@ and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygro
 ## Simple flexible privacy group example
 
 To create and find a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md) using
-the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea):
+the [`web3js-quorum` library](https://github.com/PegaSysEng/web3js-quorum):
 
 1. Update the `example/keys.js` file to match your network configuration.
 
@@ -63,7 +63,7 @@ the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea):
 ## Adding and removing members
 
 To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
-use the `addToPrivacyGroup` and `removeFromPrivacyGroup` methods in the [`web3.js-eea` library](https://github.com/PegaSysEng/web3js-eea)
+use the `addTo` and `removeFrom` methods in the [web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
 client library.
 
 !!! note

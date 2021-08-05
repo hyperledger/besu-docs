@@ -1,8 +1,8 @@
 ---
-description: web3js-eea client library multi-node example
+description: web3js-quorum client library multi-node example
 ---
 
-# Use the multi-node example in the web3js-eea client library
+# Use the multi-node example in the web3js-quorum client library
 
 !!! warning
 
@@ -10,20 +10,20 @@ description: web3js-eea client library multi-node example
     Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
-To use the examples provided in the web3js-eea library with
+To use the examples provided in the web3js-quorum library with
 [your privacy network](Configuring-Privacy.md):
 
 !!! note
 
     This example uses 3 of the 4 nodes configured in the [privacy tutorial](Configuring-Privacy.md).
 
-1. Clone the **ConsenSys/web3js-eea** repository:
+1. Clone the **ConsenSys/web3js-quorum** repository:
 
     ```bash
-    git clone https://github.com/ConsenSys/web3js-eea
+    git clone https://github.com/ConsenSys/web3js-quorum
     ```
 
-1. In the `web3js-eea` directory:
+1. In the web3js-quorum` directory:
 
     ```bash
     npm install

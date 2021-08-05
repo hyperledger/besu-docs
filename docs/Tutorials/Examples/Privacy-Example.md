@@ -85,7 +85,7 @@ For more information on the endpoints and services, refer to README.md in the in
 ## Deploy the private contract and interact with the nodes
 
 To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
-[web3js-eea](https://github.com/ConsenSys/web3js-eea) library and
+[web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
 keeps account management separate for stronger security.
@@ -150,11 +150,10 @@ The general contract deployment flow is:
 
 ## Further examples
 
-View the [web3js-eea client library example](../Privacy/web3js-eea-Multinode-example.md) and view the
-[sample code examples](https://github.com/ConsenSys/web3js-eea/tree/master/example). Additionally, a
-a [video tutorial](https://www.youtube.com/watch?v=Menekt6-TEQ) is also available.
+View the [web3js-quorum client library example](../Privacy/web3js-quorum-Multinode-example.md) and view the
+[sample code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
 
-You can also test the erc20 token example by executing `node example/erc20.js` which deploys
+You can also test the erc20 token example by executing `erc20.js` which deploys
 a `HumanStandardToken` contract and transfers 1 token to Node2.
 
 This can be verified from the `data` field of the `logs` which is `1`.

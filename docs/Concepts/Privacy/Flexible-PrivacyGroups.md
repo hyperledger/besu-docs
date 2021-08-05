@@ -51,7 +51,7 @@ the management contract, must be signed by the same key that signed the group cr
 When creating a flexible privacy group, generate the privacy group ID for the group outside of Besu
 and pass the ID as a parameter.
 
-The [web3js-eea library](../../HowTo/Use-Privacy/Use-FlexiblePrivacy.md) generates a unique privacy
+The [web3js-quorum library](../../HowTo/Use-Privacy/Use-FlexiblePrivacy.md) generates a unique privacy
 group ID and passes the ID to Besu when creating a privacy group.
 
 !!! caution

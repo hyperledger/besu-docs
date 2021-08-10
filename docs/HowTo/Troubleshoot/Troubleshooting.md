@@ -128,7 +128,7 @@ means at some stage it was syncing.
 The easiest solution in this scenario is to restart fast synchronization to obtain a new
 pivot block.
 
-##Homebrew Repair
+## Homebrew Repair
 
 When upgrading Besu, you might get the following error: 
 

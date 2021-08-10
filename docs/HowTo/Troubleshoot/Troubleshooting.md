@@ -130,14 +130,15 @@ pivot block.
 
 ## Homebrew Repair
 
-When upgrading Besu, you might get the following error: 
+When upgrading Besu, you might get the following error:
 
-```
+```bash
 Error: Some taps failed to update!
 The following taps can not read their remote branches:
   hyperledger/besu
 This is happening because the remote branch was renamed or deleted.
-Reset taps to point to the correct remote branches by running `brew tap --repair` 
+Reset taps to point to the correct remote branches by running `brew tap --repair`
 ```
+
 This error is caused by the branch name being updated from `master` to `main` but a reference to `master` still remains.
 To fix the branch reference and repair Homebrew, use the command `brew tap --repair`.

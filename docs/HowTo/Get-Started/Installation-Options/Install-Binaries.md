@@ -40,6 +40,11 @@ brew upgrade hyperledger/besu/besu
     If you've upgraded your MacOS version between installing and upgrading Besu, when running `brew upgrade
     hyperledger/besu/besu` you may be prompted to reinstall command line tools with `xcode-select --install`.
 
+!!! note
+
+    When upgrading Besu, you might be prompted to fix the remote branch names in Homebrew by using the command 
+    `brew tap --repair`.
+
 To display the Besu version and confirm installation:
 
 ```bash

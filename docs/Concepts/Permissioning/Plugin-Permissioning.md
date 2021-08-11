@@ -18,3 +18,35 @@ You can use this to decide if you want to connect to another node or not.
 
 Use node message permissioning to decide if you wish to propagate different types of devp2p messages to particular nodes.
 This could be used to prevent pending transactions from being forward to other nodes.
+
+## Registering your plugin
+
+To wire up permissioning in your plugin you need to resolve the `PermissioningService` and register your providers.
+
+```java
+@AutoService(BesuPlugin.class)
+public class TestPermissioningPlugin implements BesuPlugin {
+    PermissioningService service;
+
+    @Override
+    public void register(final BesuContext context) {
+        service = context.getService(PermissioningService.class).get();
+    }
+
+    @Override
+    public void start() {
+        service.registerNodePermissioningProvider((sourceEnode, destinationEnode) -> {
+            // perform logic for node permissioning
+            return true;
+        });
+
+        service.registerNodeMessagePermissioningProvider((destinationEnode, code) -> {
+            // perform logic for message permissioning
+            return true;
+        });
+    }
+
+    @Override
+    public void stop() {}
+}
+```

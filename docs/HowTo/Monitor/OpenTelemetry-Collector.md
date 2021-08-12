@@ -2,7 +2,6 @@
 description: Collect Besu information with the OpenTelemetry Collector
 ---
 
-
 # OpenTelemetry
 
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces.
@@ -36,8 +35,8 @@ Download and install the [Open Telemetry Collector](https://github.com/open-tele
 1. Configure OpenTelemetry to accept data from Besu.
    For example, use the following configuration for your `otel-collector-config.yml` file, and send data to Splunk and Splunk APM:
 
-    !!! example "otel-collector-config.yml"
-    
+    !!! example "`otel-collector-config.yml`"
+
         ```yml
         receivers:
             otlp:
@@ -115,9 +114,9 @@ Download and install the [Open Telemetry Collector](https://github.com/open-tele
                     exporters: [splunk_hec/metrics, signalfx]
                     processors: [batch]
         ```
-    
+
     It is easiest to run the OpenTelemetry collector with Docker with the following command:
-    
+
     === "Syntax"
 
         ```bash
@@ -130,7 +129,7 @@ Download and install the [Open Telemetry Collector](https://github.com/open-tele
         ```
 
     === "Example"
-   
+
         ```bash
         docker run -d \
           -v ./otel-collector-config.yml:/etc/otel/config.yaml \

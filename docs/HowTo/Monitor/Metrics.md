@@ -44,7 +44,7 @@ To configure Prometheus and run with Besu:
    For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
     !!! example
-   
+
         === "Fragment to insert in prometheus.yml"
    
             ```yml
@@ -116,7 +116,7 @@ To configure Prometheus and run with Besu:
 1. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
 
     !!! tip
-   
+
         Use a log ingestion tool, such as Logstash, to parse the logs and alert you to configured anomalies.
 
 ## Running Prometheus with Besu in push mode

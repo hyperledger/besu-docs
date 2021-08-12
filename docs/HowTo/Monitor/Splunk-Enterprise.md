@@ -42,7 +42,7 @@ Docker Compose environment provided by Splunk.
    [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
 
     !!! note
-    
+
         Splunk enterprise takes some time to start.
     
         Run `docker ps` and wait for the `STATUS` of the 3 containers to be `Up [number] seconds (healthy)`.
@@ -92,7 +92,7 @@ Docker Compose environment provided by Splunk.
     user with a password of `changeme`.
 
     !!! tip
-    
+
         To follow the logs of the Splunk container:
     
         ```bash

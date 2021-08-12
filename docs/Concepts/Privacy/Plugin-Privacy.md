@@ -23,7 +23,7 @@ Besu doesn't need to know how the private transaction is distributed it just nee
 
 ### Sending Transactions
 When submitting a private transaction using [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction). 
-The signed transaction must be sent to `0x000000000000000000000000000000000000007a` this is what is used to indicate which [privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md) we're using.
+The signed transaction must be sent to `0x000000000000000000000000000000000000007a` this is what is used to indicate which [privacy precompiled contract](../Privacy/Private-Transaction-Processing.md) we're using.
 
 1. The JSON-RPC endpoint passes the private transaction to the Private Transaction Handler.
 2. The Private Transaction Handler sends the private transaction to your plugin.

@@ -2,26 +2,26 @@
 description: Plugin based permissioning
 ---
 
-# Plugin based permissioning
+# Permissioning plugin
 
-Plugin based permissioning allows complex permissioning solutions to be defined by extending besu.
-To do this you need to [build a plugin](../Concepts/Plugins.md).
+You can define complex permissioning solutions by [building a plugin](../Plugins.md) that extends
+Hyperledger Besu functionality.
 
-This is currently broken down into two parts; connection permissioning and message permissioning.
+The Plugin API provides a `PermissioningService` interface that currently supports connection permissioning and
+message permissioning.
 
-## Node connection permissioning
+## Connection permissioning
 
-Node connection permissioning can be used to restrict access to known participants only. 
-You can use this to decide if you want to connect to another node or not.  
+Use connection permissioning when deciding whether to restrict node access to known participants only.
 
-## Node message permissioning
+## Message permissioning
 
-Use node message permissioning to decide if you wish to propagate different types of devp2p messages to particular nodes.
-This could be used to prevent pending transactions from being forward to other nodes.
+Use message permissioning to propagate different types of devP2P messages to particular nodes. For example,
+this can be used to prevent pending transactions from being forward to other nodes.
 
 ## Registering your plugin
 
-To wire up permissioning in your plugin you need to resolve the `PermissioningService` and register your providers.
+To implement permissioning in your plugin, implement the `PermissioningService` interface and register your providers.
 
 ```java
 @AutoService(BesuPlugin.class)

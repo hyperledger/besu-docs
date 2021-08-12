@@ -30,6 +30,10 @@ for the PMT is.
 ### Sending transactions
 
 When submitting a private transaction using [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction),
+the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which
+[privacy precompiled contract](../Privacy/Private-Transaction-Processing.md) is being used.
+
+When submitting a private transaction using [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction),
 the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate the
 [privacy precompiled contract](../Privacy/Private-Transaction-Processing.md) being used.
 

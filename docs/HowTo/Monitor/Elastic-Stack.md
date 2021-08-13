@@ -23,7 +23,7 @@ any new log fields.
     the [grok plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html)
     to extract the log fields.
 
-To see the Besu Sample Networks logs in Kibana:
+To see the Besu Quickstart Networks logs in Kibana:
 
 1. [Start the Quorum Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md),
    and select the appropriate options.

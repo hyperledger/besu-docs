@@ -21,16 +21,17 @@ This tutorial shows you how to deploy smart contracts as transactions to a netwo
 To deploy a smart contract using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an
 account's private key to sign and serialize the transaction, and send the API request.
-The Developer Quickstart provides an
-[example of a public transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
 Using the
 [`SimpleStorage.sol`](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/smart_contracts/contracts/SimpleStorage.sol)
-smart contract as an example, compile the contract to get its bytecode using `solc`:
+smart contract as an example, create a new file called `compile.js` with the contents below, and then
+compile the contract to get its bytecode using `solc`:
 
 ```js
+// compile.js
+
 const fs = require('fs').promises;
 const solc = require('solc');
 
@@ -63,19 +64,39 @@ function compile(sourceCode, contractName) {
 main().then(() => process.exit(0));
 ```
 
-Run the compile code:
+Run the compile code to get the smart contracts output JSON:
 
 ```bash
 node compile.js
 ```
 
-Once you have the bytecode and ABI, send the transaction:
+To get the contracts binary and ABI, run `solc` like so:
+
+```bash
+solc SimpleStorage.sol --bin --abi
+```
+
+Once you have the bytecode and ABI, you can rename the output files to make it a little easier to use, and
+we refer to them as SimpleStorage.bin and SimpleStorage.abi from here on. Then create a new file
+`public_tx.js`(or run the commands below in a JavaScript console) to send the transaction. The Developer Quickstart
+provides an [example of a public transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js).
 
 ```js
+// compile.js
+
 const web3 = new Web3(host);
 //use an exsiting account, alternatively you can make an account
 const privateKey = "0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63";
 const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+
+// read in the contracts
+const contractJsonPath = path.resolve(__dirname, 'SimpleStorage.json');
+const contractJson = JSON.parse(fs.readFileSync(contractJsonPath));
+const contractAbi = contractJson.abi;
+const contractBinPath = path.resolve(__dirname,'SimpleStorage.bin');
+const contractBin = fs.readFileSync(contractBinPath);
+// initialize the default constructor with a value `47 = 0x2F`; this value is appended to the bytecode
+const contractConstructorInit = "000000000000000000000000000000000000000000000000000000000000002F";
 
 // get txnCount for the nonce value
 const txnCount = await web3.eth.getTransactionCount(account.address);
@@ -160,7 +181,72 @@ Make the request using `eth_sendTransaction`:
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0x9b790656b9ec0db1936ed84b3bea605873558198", "to":null, "gas":"0x7600","gasPrice":"0x9184e72a000", "data":"0x608060405234801561001057600080fd5b5060405161014d38038061014d8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000819055505060f38061005a6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033"}], "id":1}' <JSON-RPC-endpoint:port>
 ```
 
-## Using `eea_sendRawTransaction` for private contracts
+## Using `eea_sendRawTransaction` for private contracts using [web3js-quorum](https://www.npmjs.com/package/web3js-quorum)
+
+To deploy a private contract to another node or [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
+[web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
+the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
+You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
+keeps account management separate for stronger security.
+
+The Developer Quickstart provides an
+[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js).
+
+This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
+
+Use `[web3.priv.generateAndSendRawTransaction](https://consensys.github.io/web3js-quorum/latest/module-priv.html#~generateAndSendRawTransaction)`:
+
+```js
+const Web3 = require('web3');
+const Web3Quorum = require('web3js-quorum');
+
+const bytecode="608060405234801561001057600080fd5b5060405161014d38038061014d8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000819055505060f38061005a6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033";
+// initialize the default constructor with a value `47 = 0x2F`; this value is appended to the bytecode
+const contractConstructorInit = "000000000000000000000000000000000000000000000000000000000000002F";
+
+const chainId = 1337;
+const web3 = new Web3(clientUrl);
+const web3quorum = new Web3Quorum(web3, chainId);
+
+const txOptions = {
+  data: '0x'+bytecode+contractConstructorInit,
+  privateKey: fromPrivateKey,
+  privateFrom: fromPublicKey,
+  privateFor: [toPublicKey]
+};
+console.log("Creating contract...");
+const txHash = await web3quorum.priv.generateAndSendRawTransaction(txOptions);
+console.log("Getting contractAddress from txHash: ", txHash);
+
+const privateTxReceipt = await web3quorum.priv.waitForTransactionReceipt(txHash);
+console.log("Private Transaction Receipt: ", privateTxReceipt);
+return privateTxReceipt;
+```
+
+`txOptions` contains the following field:
+
+* `data` - compiled code of the contract (in this example there's also a constructor initialization value, so we append
+  that to the bytecode).
+
+The deployment process is creating the client as in the previous examples, but rather than deploying the contract with
+`to: null`, it instead sends the transaction with `privateFor: [memberPublicKey/s]`.
+Once you make the API call, you receive a `transactionHash`, which you can use to get a `transactionReceipt` containing
+the contract's address.
+
+Please note: the above doesn't use a privacy group and makes a simple node to node transaction. To use a privacy group,
+is also quite simple and involves:
+
+* creating the privacy group using the public keys of the nodes in the group
+* specify the `privacyGroupId` instead of the `privateFor` option in the txOptions above and then send the transaction
+
+The Developer Quickstart provides an
+[example of a private transaction with a privacy group](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx_privacy_group.js).
+
+## Using `eea_sendRawTransaction` for private contracts using [web3js-eea](https://www.npmjs.com/package/web3-eea)
+
+!!! warning
+    This web3js-eea library will be deprecated on December 31, 2021. Please use the
+    [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library instead and refer to the previous section
 
 To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
 [web3js-eea](https://github.com/ConsenSys/web3js-eea) library and

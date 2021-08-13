@@ -1,4 +1,4 @@
----
+    ---
 description: Privacy Plugin
 ---
 
@@ -65,7 +65,6 @@ When it comes to mining transactions the process happens in reverse to sending t
     processor. The privacy group ID specifies the private world state to use.
 1. The private transaction processor executes the transaction. The private transaction processor
     can read and write to the private world state, and read from the public world state.
-
 
 ## Transaction factory
 

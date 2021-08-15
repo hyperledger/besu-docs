@@ -128,8 +128,8 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
     contract to the genesis file.
 
 Add the Ingress contracts to the genesis file for your network by copying them from
-[`genesis.json`](https://github.com/PegaSysEng/permissioning-smart-contracts/blob/master/genesis.json)
-in the [`permissioning-smart-contracts` repository](https://github.com/PegaSysEng/permissioning-smart-contracts) to
+[`genesis.json`](https://github.com/ConsenSys/permissioning-smart-contracts/blob/master/genesis.json)
+in the [`permissioning-smart-contracts` repository](https://github.com/ConsenSys/permissioning-smart-contracts) to
 the `alloc` section of the contract:
 
 ```json
@@ -185,6 +185,7 @@ Create the following environment variables and set to the specified values:
     ACCOUNT_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000008888
     BESU_NODE_PERM_ACCOUNT=627306090abaB3A6e1400e9345bC60c78a8BEf57
     BESU_NODE_PERM_KEY=c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
+    BESU_NODE_PERM_ENDPOINT=http://127.0.0.1:9545
     CHAIN_ID=2018
     ```
 

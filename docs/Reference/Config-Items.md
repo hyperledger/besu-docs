@@ -9,8 +9,7 @@ The genesis file contains [network configuration items](#configuration-items) an
 
 ## Configuration items
 
-The following table lists the network configuration items in the `config` object specified in the
-genesis file.
+Network configuration items are specified in the genesis file in the `config` object.  
 
 | Item                | Description                                                                                                                                                                                |
 |---------------------|-:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,6 +23,7 @@ genesis file.
 | `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). The default is `24576` and the maximum size is `2147483647`.                                |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                    |
 | `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                 |
+| `ecCurve`           | Specifies [the elliptic curve to use](../HowTo/Configure/Alternative-EC-Curves.md). Default is `secp256k1`.                                                                                            |
 
 ## Genesis block parameters
 

@@ -32,7 +32,7 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 | **timestamp**        | Quantity              | Unix timestamp for block assembly.                                 |
 | **transactions**     | Array                 | Array of [transaction objects](#transaction-object), or 32 byte transaction hashes depending on the specified boolean parameter. |
 | **uncles**           | Array                 | Array of uncle hashes.                                             |
-| **baseFeePerGas**    | Quantity              | The block's [base fee per gas](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). After EIP-1559, this field is set to the block's base fee per gas value. |
+| **baseFeePerGas**    | Quantity              | The block's [base fee per gas](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
 
 ## Filter options object
 

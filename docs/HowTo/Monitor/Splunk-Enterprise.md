@@ -22,7 +22,7 @@ Options for running Splunk and Besu are:
 To view the Quickstart network logs in Splunk:
 
 1. [Start the Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md), selecting Splunk monitoring.
-1. Open the Splunk UI at [http://localhost:8000](http://localhost:8000).
+1. Open the [Splunk UI](http://localhost:8000).
 
 ## Splunk connect for Ethereum Docker Compose
 

@@ -2,8 +2,9 @@
 description: Send Hyperledger Besu logs to Splunk
 ---
 
-# Splunk Enterprise
+# Splunk
 
+[Splunk](https://splunkbase.splunk.com/app/4866/#/details) is a third-party monitoring solution compatible with Besu.
 A Splunk server can receive Besu logs and enable complex search, visualization, and analysis.
 
 Splunk can aggregate multiple logs in one place and run complex queries without being connected to the machine running
@@ -11,9 +12,17 @@ Besu to read the standard output.
 
 Options for running Splunk and Besu are:
 
+- [Developer Quickstart with Splunk](#developer-quickstart-with-splunk)
 - [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose).
 - [Splunk Enterprise Docker container](#use-splunk-enterprise-as-a-docker-container) with a trial license.
 - [Splunk Enterprise](#run-a-splunk-enterprise-instance).
+
+## Developer Quickstart with Splunk
+
+To view the Quickstart network logs in Splunk:
+
+1. [Start the Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md), selecting Splunk monitoring.
+1. Open the Splunk UI at [http://localhost:8000](http://localhost:8000).
 
 ## Splunk connect for Ethereum Docker Compose
 

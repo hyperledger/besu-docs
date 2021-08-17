@@ -21,7 +21,7 @@ A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree
 
 ## Install OpenTelemetry Collector
 
-Download and install the [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases).
+Download and install the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases).
 
 !!! tip
 

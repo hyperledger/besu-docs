@@ -109,7 +109,7 @@ nav:
           - Use metrics: HowTo/Monitor/Metrics.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
           - Use Quorum Hibernate: HowTo/Monitor/Quorum-Hibernate.md
-          - Use Splunk Enterprise: HowTo/Monitor/Splunk-Enterprise.md
+          - Use Splunk: HowTo/Monitor/Splunk-Enterprise.md
           - Use OpenTelemetry: HowTo/Monitor/OpenTelemetry-Collector.md
           - Configure logging: HowTo/Monitor/Logging.md
         - Send Transactions:

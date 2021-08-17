@@ -4,10 +4,8 @@ description: Using Elastick Stack (ELK) with Hyperledger Besu
 
 # Elastic Stack
 
-[Elastic Stack] (ELK) is an open-source log management platform.
-
-The [Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) provides example implementations
-using ELK for log management.
+[Elastic Stack] (ELK) is an open-source log management platform that is available when using the
+[Developer Quickstart](../../Tutorials/Developer-Quickstart.md).
 
 The [Filebeat] configuration ingests logs and the [Metricbeat] configuration collects metrics from the nodes at regular
 defined intervals and outputs them to Redis for storage.
@@ -21,9 +19,9 @@ The [pipeline configuration] defines the JSON format used for Besu logs and auto
     If using the default, you can use the [grok plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html)
     to extract the log fields.
 
-To see the Besu Quickstart Networks logs in Kibana:
+To see the Besu Quickstart network logs in Kibana:
 
-1. [Start the Quorum Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md), selecting the appropriate options.
+1. [Start the Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md), selecting ELK monitoring.
 1. Open the [`Kibana logs address`](http://localhost:5601/app/kibana#/discover) listed by the sample networks `list.sh` script.
    The logs display in Kibana.
 

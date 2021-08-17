@@ -65,4 +65,3 @@ the tutorial.
 
 Follow the [dapp walk-through](Examples/Private-Network-Example.md#smart-contract-and-dapp-usage) which details
 how to deploy the dapp and interact with the network.
-

@@ -13,7 +13,7 @@ Besu to read the standard output.
 Options for running Splunk and Besu are:
 
 - [Developer Quickstart with Splunk](#developer-quickstart-with-splunk)
-- [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose).
+- [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose).
 - [Splunk Enterprise Docker container](#use-splunk-enterprise-as-a-docker-container) with a trial license.
 - [Splunk Enterprise](#run-a-splunk-enterprise-instance).
 
@@ -24,9 +24,9 @@ To view the Quickstart network logs in Splunk:
 1. [Start the Developer Quickstart with Besu](../../Tutorials/Developer-Quickstart.md), selecting Splunk monitoring.
 1. Open the [Splunk UI](http://localhost:8000).
 
-## Splunk connect for Ethereum Docker Compose
+## Splunk Connect for Ethereum Docker Compose
 
-To run a development Besu node and connect it to Splunk Enterprise, use the Splunk connect for Ethereum demonstration
+To run a development Besu node and connect it to Splunk Enterprise, use the Splunk Connect for Ethereum demonstration
 Docker Compose environment provided by Splunk.
 
 ### Requirements
@@ -36,18 +36,18 @@ Docker Compose environment provided by Splunk.
 
 !!! important
 
-    A Splunk license is not required to use the Splunk connect for Ethereum demonstration.
+    A Splunk license is not required to use the Splunk Connect for Ethereum demonstration.
 
 ### Steps
 
-1. Clone the Splunk connect for Ethereum repository:
+1. Clone the Splunk Connect for Ethereum repository:
 
     ```bash
     git clone https://github.com/splunk/splunk-connect-for-ethereum.git
     cd splunk-connect-for-ethereum
     ```
 
-1. Start the demonstration environment by following the Splunk connect for Ethereum repository
+1. Start the demonstration environment by following the Splunk Connect for Ethereum repository
    [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
 
     !!! note
@@ -78,7 +78,7 @@ Docker Compose environment provided by Splunk.
 !!! note
 
     If running [Besu as a Docker container](../Get-Started/Installation-Options/Run-Docker-Image.md), consider using
-    [Splunk connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose) or
+    [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose) or
     [Kubernetes](../Deploy/Kubernetes.md) instead of the Splunk Enterprise trial container.
 
 ### Steps

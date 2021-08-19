@@ -27,7 +27,7 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
 
     You can also install exporters that send system metrics to OpenTelemetry to monitor non-Besu-specific items such as
     disk and CPU usage.
-    The OpenTelemetry Collector can connect to additional applications, and may be deployed in Kubernetes environments\
+    The OpenTelemetry Collector can connect to additional applications, and may be deployed in Kubernetes environments
     as a daemonset.
 
 ## Setting up and running OpenTelemetry with Besu

@@ -16,7 +16,7 @@ The [pipeline configuration] defines the JSON format used for Besu logs and auto
 !!! note
 
     The pipeline configuration must match the your log format.
-    If using the default, you can use the [grok plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html)
+    If using the default log format, you can use the [grok plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html)
     to extract the log fields.
 
 To see the Besu Quickstart network logs in Kibana:

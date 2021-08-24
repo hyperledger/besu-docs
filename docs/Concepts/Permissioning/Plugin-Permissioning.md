@@ -17,11 +17,11 @@ Use connection permissioning when deciding whether to restrict node access to kn
 ## Message permissioning
 
 Use message permissioning to propagate different types of devP2P messages to particular nodes. For example,
-this can be used to prevent pending transactions from being forward to other nodes.
+this can be used to prevent pending transactions from being forwarded to other nodes.
 
 ## Registering your plugin
 
-To implement permissioning in your plugin, implement the `PermissioningService` interface and register your providers.
+To enable permissioning in your plugin, implement the `PermissioningService` interface and register your providers.
 
 ```java
 @AutoService(BesuPlugin.class)

@@ -39,9 +39,9 @@ the signed transaction must be sent to `0x00000000000000000000000000000000000000
 
 The transaction flow is as follows:
 
-1. The JSON-RPC endpoint passes the private transaction to the private transaction handler (for example Tessera).
-2. The private transaction handler sends the private transaction to the privacy plugin.
-3. The plugin decides what data to store onchain in the payload, for example encrypt and serialize the private
+1. The JSON-RPC endpoint passes the private transaction to the private transaction manager (for example Tessera).
+2. The private transaction manager sends the private transaction to the privacy plugin.
+3. The plugin decides what data to store onchain in the payload, for example the encrypted and serialized private
     transaction.
 4. The plugin returns what needs to be stored in the payload for the PMT.
 5. The private transaction handler creates a PMT for the private transaction, and propagates the PMT using devP2P in
@@ -49,7 +49,7 @@ The transaction flow is as follows:
 
 ### Mining transactions
 
-When it comes to mining transactions the process happens in reverse to sending transactions.
+The process of mining transactions happens in reverse to sending transactions.
 
 1. The Mainnet transaction processor processes the PMT in the same way as
     any other public transaction. On nodes containing the [privacy precompile contract](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
@@ -62,8 +62,8 @@ When it comes to mining transactions the process happens in reverse to sending t
 
 1. The privacy precompile contract queries the plugin for the private transaction using the PMT.
 1. The privacy precompile contract passes the private transaction to the private transaction
-    processor. The privacy group ID specifies the private world state to use.
-1. The private transaction processor executes the transaction. The private transaction processor
+    manager. The privacy group ID specifies the private world state to use.
+1. The private transaction manager executes the transaction. The private transaction manager
     can read and write to the private world state, and read from the public world state.
 
 ## Transaction factory

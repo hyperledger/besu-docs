@@ -1,4 +1,4 @@
-    ---
+---
 description: Privacy Plugin
 ---
 

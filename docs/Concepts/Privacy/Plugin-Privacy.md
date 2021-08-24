@@ -77,3 +77,50 @@ Your plugin needs to register the `PrivateMarkerTransactionFactory` interface wh
 to the transaction pool. The responsibility then lies with the plugin to sign and serialize the PMT.
 
 [privacy marker transaction (PMT)]: ../../HowTo/Use-Privacy/Access-Private-Transactions.md
+
+## Registering your plugin
+
+To enable besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and register your providers.
+
+
+```java
+
+@AutoService(BesuPlugin.class)
+public class TestPrivacyPlugin implements BesuPlugin {
+
+    private PrivacyPluginService service;
+
+    @Override
+    public void register(BesuContext context) {
+        service = context.getService(PrivacyPluginService.class).get();
+    }
+
+    @Override
+    public void start() {
+        service.setPayloadProvider(new PrivacyPluginPayloadProvider() {
+            @Override
+            public Bytes generateMarkerPayload(PrivateTransaction privateTransaction, String privacyUserId) {
+                // perform logic to serialize the payload of the marker transaction
+                // in this example we are serialising the private transaction using rlp https://eth.wiki/en/fundamentals/rlp
+                return org.hyperledger.besu.ethereum.privacy.PrivateTransaction.serialize(privateTransaction).encoded();
+            }
+
+            @Override
+            public Optional<PrivateTransaction> getPrivateTransactionFromPayload(Transaction transaction) {
+                // perform logic to deserialize payload from the marker transaction
+                
+                final BytesValueRLPInput bytesValueRLPInput =
+                        new BytesValueRLPInput(transaction.getPayload(), false);
+
+                return Optional.of(org.hyperledger.besu.ethereum.privacy.PrivateTransaction.readFrom(bytesValueRLPInput));
+            }
+        });
+    }
+
+    @Override
+    public void stop() {
+
+    }
+}
+
+```

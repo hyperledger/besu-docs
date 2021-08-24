@@ -80,7 +80,7 @@ to the transaction pool. The responsibility then lies with the plugin to sign an
 
 ## Registering your plugin
 
-To enable Besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and you must call `setPayloadProvider`. 
+To enable Besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and you must call `setPayloadProvider`.
 
 ```java
 
@@ -107,7 +107,7 @@ public class TestPrivacyPlugin implements BesuPlugin {
             @Override
             public Optional<PrivateTransaction> getPrivateTransactionFromPayload(Transaction transaction) {
                 // perform logic to deserialize payload from the marker transaction
-                
+
                 final BytesValueRLPInput bytesValueRLPInput =
                         new BytesValueRLPInput(transaction.getPayload(), false);
 

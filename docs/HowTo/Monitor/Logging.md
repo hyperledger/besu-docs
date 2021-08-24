@@ -12,28 +12,27 @@ Hyperledger Besu uses Log4J2 for logging and provides two methods to configure l
 * [Advanced](#advanced-custom-logging) - configures the output and format of the logs.
 
 [Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) provides an
-[example implementation using Elastic Stack](Elastic-Stack.md) (also known as ELK) for log
-management.
+[example implementation using Elastic Stack](Elastic-Stack.md) for log management.
 
-## Basic log level setting
+## Basic logging
 
-Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify
-logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes the
-volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`,
-`INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
+Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify logging verbosity.
+The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes the volume of events displayed in the log.
+Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+The default level is `INFO`.
 
-For most use-cases, the basic method provides enough configurability.
+For most use cases, the basic method provides enough configurability.
 
 !!! tip
 
-    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API
-    method to change the log level while Besu is running.
+    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method to change the log
+    level while Besu is running.
 
-## Advanced custom logging
+## Advanced logging
 
 You can provide your own logging configuration using the standard Log4J2 configuration mechanisms.
-For example, the following Log4J2 configuration is the same as the [default configuration] except
-for the exclusion of logging of stack traces for exceptions.
+For example, the following Log4J2 configuration is the same as the [default configuration] except for the exclusion of
+logging of stack traces for exceptions.
 
 !!! example "debug.xml"
 
@@ -57,16 +56,13 @@ for the exclusion of logging of stack traces for exceptions.
     </Configuration>
     ```
 
-To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the
-location of your configuration file.
+To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the location of your configuration file.
 
-If you have more specific requirements, you can create your own
-[log4j2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+If you have more specific requirements, you can create your own [log4j2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-For Bash-based executions, you can set the variable for only the scope of the program execution by
-setting it before starting Besu.
+For Bash-based executions, you can set the variable for only the scope of the program execution by setting it before starting Besu.
 
-!!!example
+!!! example
 
     To set the debug logging and start Besu connected to the Rinkeby testnet:
 
@@ -76,8 +72,8 @@ setting it before starting Besu.
 
 ### Log rotation
 
-[Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) logging configuration
-defines a [log rotation to restrict the size of the log files].
+[Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) logging configuration defines a
+[log rotation to restrict the size of the log files].
 
 <!-- Links -->
 [default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml

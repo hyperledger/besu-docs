@@ -80,8 +80,7 @@ to the transaction pool. The responsibility then lies with the plugin to sign an
 
 ## Registering your plugin
 
-To enable besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and register your providers.
-
+To enable Besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and you must call `setPayloadProvider`. 
 
 ```java
 

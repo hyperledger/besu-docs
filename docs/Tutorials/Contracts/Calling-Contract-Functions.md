@@ -116,7 +116,7 @@ the value stored:
 ```js
 async function getValueAtAddress(clientUrl, address, contractAbi, fromPrivateKey, fromPublicKey, toPublicKey) {
   const web3 = new Web3(clientUrl)
-  const web3eea = new EEAClient(web3, chainId);
+  const web3quorum = new Web3Quorum(web3, chainId);
   const contract = new web3eea.eth.Contract(contractAbi);
   // eslint-disable-next-line no-underscore-dangle
   const functionAbi = contract._jsonInterface.find(e => {
@@ -129,10 +129,10 @@ async function getValueAtAddress(clientUrl, address, contractAbi, fromPrivateKey
     privateFrom: fromPublicKey,
     privateFor: [toPublicKey]
   };
-  const transactionHash = await web3eea.eea.sendRawTransaction(functionParams);
-  console.log(`Transaction hash: ${transactionHash}`);
-  const result = await web3eea.priv.getTransactionReceipt(transactionHash, fromPublicKey);
-  console.log("The value from deployed contract is: " + result.output);
+  const transactionHash = await web3quorum.priv.generateAndSendRawTransaction(functionParams);
+  // console.log(`Transaction hash: ${transactionHash}`);
+  const result = await web3quorum.priv.waitForTransactionReceipt(transactionHash);
+  console.log("" + nodeName + " value from deployed contract is: " + result.output);
   return result;
 };
 ```
@@ -145,7 +145,7 @@ the `set` function's ABI, and then append these arguments to the `set` function'
 ```js
 async function setValueAtAddress(clientUrl, address, value, contractAbi, fromPrivateKey, fromPublicKey, toPublicKey) {
   const web3 = new Web3(clientUrl)
-  const web3eea = new EEAClient(web3, chainId);
+  const web3quorum = new Web3Quorum(web3, chainId);
   const contract = new web3eea.eth.Contract(contractAbi);
   // eslint-disable-next-line no-underscore-dangle
   const functionAbi = contract._jsonInterface.find(e => {
@@ -161,9 +161,9 @@ async function setValueAtAddress(clientUrl, address, value, contractAbi, fromPri
     privateFrom: fromPublicKey,
     privateFor: [toPublicKey]
   };
-  const transactionHash = await web3eea.eea.sendRawTransaction(functionParams);
+  const transactionHash = await web3quorum.priv.generateAndSendRawTransaction(functionParams);
   console.log(`Transaction hash: ${transactionHash}`);
-  const result = await web3eea.priv.getTransactionReceipt(transactionHash, fromPublicKey);
+  const result = await web3quorum.priv.waitForTransactionReceipt(transactionHash);
   return result;
 };
 ```

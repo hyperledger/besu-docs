@@ -2244,7 +2244,8 @@ block
             "gasUsed" : "0x37993",
             "timestamp" : "0x5835c54d",
             "uncles" : [ ],
-            "transactions" : [ "0xa0807e117a8dd124ab949f460f08c36c72b710188f01609595223b325e58e0fc", "0xeae6d797af50cb62a596ec3939114d63967c374fa57de9bc0f4e2b576ed6639d" ]
+            "transactions" : [ "0xa0807e117a8dd124ab949f460f08c36c72b710188f01609595223b325e58e0fc", "0xeae6d797af50cb62a596ec3939114d63967c374fa57de9bc0f4e2b576ed6639d" ],
+            "baseFeePerGas" : "0x7"
           }
         }
         ```
@@ -2307,7 +2308,8 @@ block
               "stateRoot" : "0xa7086c266aed46cd3bc45579178f8acb36d9d147de575a3ecbf8c7e6f1c737fc",
               "receiptsRoot" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
               "transactionCount" : 0,
-              "transactionsRoot" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+              "transactionsRoot" : "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+              "baseFeePerGas" : "0x7"
             }
           }
         }
@@ -2371,7 +2373,8 @@ block.
             "gasUsed" : "0x37993",
             "timestamp" : "0x5835c54d",
             "uncles" : [ ],
-            "transactions" : [ ]
+            "transactions" : [ ],
+            "baseFeePerGas" : "0x7"
           }
         }
         ```
@@ -2458,7 +2461,8 @@ block.
               },
               "parent" : {
                 "hash" : "0x7bca25e1fa5e395fd6029eb496a70b6b5495843976bf9e49b993c723ded29d9e"
-              }
+              },
+              "baseFeePerGas" : "0x7"
             }
           }
         }

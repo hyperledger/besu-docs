@@ -73,33 +73,6 @@ Not including a milestone far enough in advance in the genesis file can lead to 
 inconsistent behavior without specific errors. Ensure you include a milestone that is far enough in
 advance in the genesis file (for example, `constantinoplefixblock`).
 
-## Illegal reflective access error on startup
-
-When using Java 9 or later, the following error message might display on startup, but does not
-affect the operation of Besu:
-
-```bash
-WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/Users/madelinemurray/besu/build/distributions/besu-1.1.2-SNAPSHOT/lib/bcprov-jdk15on-1.61.jar) to constructor sun.security.provider.Sun()
-WARNING: Please consider reporting this to the maintainers of org.bouncycastle.jcajce.provider.drbg.DRBG
-WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
-WARNING: All illegal access operations will be denied in a future release
-```
-
-To stop the message displaying, add the following to the environment:
-
-=== "Linux / Mac OS"
-
-    ```bash
-    export BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
-    ```
-
-=== "Windows"
-
-    ```bash
-    set BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
-    ```
-
 ## Command line options
 
 Characters such as smart quotes and long (em) hyphens do not work in Besu command line options.

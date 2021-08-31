@@ -53,7 +53,7 @@ To deploy the private network example on Azure:
 
 1. To start the deployment, click **Review + create** at the bottom left of the page.
 
-    The deployment typically takes 3-5 minutes.
+    The deployment typically takes 3--5 minutes.
     The progress of your deployment is displayed.
    
     When the deployment is complete, the resources created are displayed.

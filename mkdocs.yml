@@ -105,13 +105,13 @@ nav:
           - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
           - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
           - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
-        - Monitor Nodes:
-          - Use Metrics: HowTo/Monitor/Metrics.md
-          - Use Quorum Hibernate: HowTo/Monitor/Quorum-Hibernate.md
-          - Configure Logging: HowTo/Monitor/Logging.md
+        - Monitor nodes:
+          - Use metrics: HowTo/Monitor/Metrics.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
-          - Use Splunk Enterprise: HowTo/Monitor/Splunk-Enterprise.md
-          - Monitor with OpenTelemetry: HowTo/Monitor/OpenTelemetry-Collector.md
+          - Use Quorum Hibernate: HowTo/Monitor/Quorum-Hibernate.md
+          - Use Splunk: HowTo/Monitor/Splunk-Enterprise.md
+          - Use OpenTelemetry: HowTo/Monitor/OpenTelemetry-Collector.md
+          - Configure logging: HowTo/Monitor/Logging.md
         - Send Transactions:
            - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
            - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
@@ -190,9 +190,11 @@ nav:
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
           - Flexible Privacy Groups: Concepts/Privacy/Flexible-PrivacyGroups.md
           - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
+          - Privacy plugin: Concepts/Privacy/Plugin-Privacy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+          - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
         - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:

@@ -34,7 +34,7 @@ To deploy the private network example on Azure:
 
 1. Click **Get It Now** and **Continue**.
    The Quickstart landing page is displayed.
-   
+
     ![Image landing](../../images/mp_0_landing.png)
 
 1. Click **Create**.
@@ -55,7 +55,7 @@ To deploy the private network example on Azure:
 
     The deployment typically takes 3--5 minutes.
     The progress of your deployment is displayed.
-   
+
     When the deployment is complete, the resources created are displayed.
 
 1. Click **Go to Resource**.

@@ -96,7 +96,7 @@ nav:
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
               - Authenticate JSON-RPC Requests: HowTo/Interact/APIs/Authentication.md
             - Client Libraries:
-              - Use the web3js-eea Client Library: HowTo/Interact/Client-Libraries/web3js-quorum.md
+              - Use the web3js-quorum Client Library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
               - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and Connect to Peers:
@@ -215,7 +215,7 @@ nav:
         - Besu API Objects: Reference/API-Objects.md
         - Transaction Trace Types: Reference/Trace-Types.md
         - Genesis File Items: Reference/Config-Items.md
-        - web3js-eaa Reference: https://consensys.github.io/web3js-eea/latest/
+        - Web3js-quorum Reference: Reference/web3js-quorum
         - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for Testing: Reference/Accounts-for-Testing.md
         - EVM Tool: Reference/Evm-Tool.md

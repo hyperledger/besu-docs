@@ -18,7 +18,7 @@ send RLP-encoded transactions using JSON-RPC.
 ## Add web3js-quorum to project
 
 ```bash
-npm install web3-eea
+npm install web3js-quorum
 ```
 
 ## Initialize the web3js-quorum client
@@ -67,7 +67,7 @@ contract binary.
 `web3.eea.sendRawTransaction(contractOptions)` returns the transaction hash. To get the private
 transaction receipt, use `web3.eea.getTransactionReceipt(txHash)`.
 
-## web3js-eea methods
+## web3js-quorum methods
 
-For more information about the web3js-eea methods, see the
-[web3js-eea reference documentation](https://consensys.github.io/web3js-eea/latest/).
+For more information about the web3js-quorum methods, see the
+[web3js-quorum reference documentation](https://consensys.github.io/web3js-quorum/latest/index.html).

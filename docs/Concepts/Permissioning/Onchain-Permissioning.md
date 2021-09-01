@@ -18,7 +18,7 @@ source, the blockchain.
 
 !!! note
 
-    The permissioning smart contracts and Permissioning Management Dapp are a separate product to
+    The permissioning smart contracts and permissioning management dapp are a separate product to
     Hyperledger Besu, located in the [ConsenSys/permissioning-smart-contracts] repository.
 
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
@@ -45,14 +45,14 @@ repository are:
     Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
     being used when starting Besu.
 
-## Permissioning management Dapp
+## Permissioning management dapp
 
-The [Permissioning Management Dapp] provides view and maintain access to the allowlists.
+The [permissioning management dapp] provides view and maintain access to the allowlists.
 
 !!! tip
 
     Before v1.2, the management interface used Truffle, now deprecated. For an improved user
-    experience, use the Dapp.
+    experience, use the dapp.
 
 ### Allowlists
 
@@ -97,5 +97,5 @@ bootnodes to rediscover peers.
 
 <!-- Links -->
 [ConsenSys/permissioning-smart-contracts]: https://github.com/ConsenSys/permissioning-smart-contracts
-[Permissioning Management Dapp]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+[permissioning management dapp]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
 [`--privacy-marker-transaction-signing-key-file`]: ../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file

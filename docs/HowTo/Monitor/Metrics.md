@@ -9,7 +9,7 @@ use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 Use [Grafana](https://grafana.com/) to visualize the collected data.
 See the sample [Besu Grafana dashboard](https://grafana.com/dashboards/10273).
 
-The Besu Example Networks have [monitoring with Prometheus and Grafana configured].
+The Besu example networks have [monitoring with Prometheus and Grafana configured].
 
 !!! example
 

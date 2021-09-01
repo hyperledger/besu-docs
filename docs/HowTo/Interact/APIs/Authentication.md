@@ -1,5 +1,5 @@
 ---
-description: Hyperledger Besu authentication and Authorization for JSON-RPC
+description: Hyperledger Besu authentication and authorization for JSON-RPC
 ---
 
 # Authentication and authorization for JSON-RPC
@@ -38,7 +38,7 @@ Using [public key authentication](#jwt-public-key-authentication) disables the `
 
 The `toml` credentials file defines user details and the JSON-RPC methods they can access.
 
-!!! example "Sample Credentials File"
+!!! example "Sample credentials file"
 
     ```toml
     [Users.username1]
@@ -63,7 +63,7 @@ Each user requiring JSON-RPC access the configuration file lists the:
 * Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
-!!! example "password hash Subcommand"
+!!! example "Password hash subcommand"
 
     ```bash
     besu password hash --password=pegasys
@@ -218,13 +218,13 @@ Specify the `Bearer` in the header.
 
 !!! example
 
-    === "cURL Request with Authentication Placeholders"
+    === "cURL Request with authentication placeholders"
 
         ```bash
         curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
         ```
 
-    === "cURL Request with Authentication"
+    === "cURL Request with authentication"
 
         ```bash
         curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545

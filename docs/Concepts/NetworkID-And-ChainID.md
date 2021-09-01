@@ -19,7 +19,7 @@ process uses the _chain ID_.
 For most networks, including MainNet and the public testnets, the network ID and the chain ID are
 the same, with the network ID defaulting to the chain ID, as specified in the genesis file.
 
-!!! example "Chain ID in the Genesis File"
+!!! example "Chain ID in the genesis file"
 
     ```json
     {

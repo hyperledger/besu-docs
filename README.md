@@ -12,9 +12,9 @@ This repository only contains the sources for
 ## Useful links
 
 * [Besu user documentation][Besu User Documentation]
-* [Besu Issues](https://github.com/hyperledger/besu/issues)
-* [Besu Docs Issues](https://github.com/hyperledger/besu-docs/issues)
-* [Besu Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
+* [Besu issues](https://github.com/hyperledger/besu/issues)
+* [Besu docs issues](https://github.com/hyperledger/besu-docs/issues)
+* [Besu wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
 * [How to contribute to the documentation](CONTRIBUTING.md)
 * How to contribute to the
   [Besu codebase](https://github.com/hyperledger/besu/blob/master/CONTRIBUTING.md).

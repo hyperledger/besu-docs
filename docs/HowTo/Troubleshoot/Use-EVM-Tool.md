@@ -1,18 +1,18 @@
 ---
-description: Hyperledger Besu EVM Tool
+description: Hyperledger Besu EVM tool
 ---
 
-# EVM Tool
+# EVM tool
 
-The Besu EVM Tool is a CLI program that executes arbitrary EVM programs and Ethereum State Tests
+The Besu EVM tool is a CLI program that executes arbitrary EVM programs and Ethereum State Tests
 outside the context of an operating node. Use the EVM tool for benchmarking and fuzz testing.
 
-## Getting the EVM Tool
+## Getting the EVM tool
 
 The Besu EVM Tool does not have a standard zip file distribution. To use, you need to either
 build from the source repository or use a pre-published docker image.
 
-### Building from Source
+### Building from source
 
 To build from source, run the following from the root of the Besu repository:
 
@@ -31,7 +31,7 @@ ethereum/evmtool/build/install/evmtool/bin/evm <evmtool options>
 
 ### Executing with Docker
 
-To run the Besu EVM Tool in a container:
+To run the Besu EVM tool in a container:
 
 ```bash
 docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool options>
@@ -50,12 +50,12 @@ docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool option
     The `latest` tag is the latest released version of Besu, starting with 1.5.3.  The `develop` tag
     is the current main branch code that will go into a future release version of Besu.
 
-## EVM Tool Run Options
+## EVM tool run options
 
-The first mode of the EVM Tool runs an arbitrary EVM and is invoked without an extra command.  [Command
-Line Options](../../Reference/Evm-Tool.md) specify the code and other contextual information.
+The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.  [Command
+line options](../../Reference/Evm-Tool.md) specify the code and other contextual information.
 
-The EVM Tool also has a [`state-test` sub command](../../Reference/Evm-Tool.md#evm-tool-state-test-options)
+The EVM tool also has a [`state-test` sub command](../../Reference/Evm-Tool.md#evm-tool-state-test-options)
 that allows the Ethereum State Tests to be evaluated. Most of the options from EVM execution do not apply.
 
-The [EVM Tool reference](../../Reference/Evm-Tool.md) provides more information on both modes.
+The [EVM tool reference](../../Reference/Evm-Tool.md) provides more information on both modes.

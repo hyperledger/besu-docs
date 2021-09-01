@@ -84,15 +84,15 @@ yarn truffle migrate --reset
     Copy the `NodeIngress` and `AccountIngress` contract addresses which are displayed in the
     output. These must be specified when restarting the nodes.
 
-### 5. Start the Permissioning Management Dapp
+### 5. Start the permissioning management dapp
 
-1. In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
+1. In the `permissioning-smart-contracts` directory, start the webserver serving the dapp:
 
     ```bash
     yarn start
     ```
 
-The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
+The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 ### 6. Restart Besu nodes
 
@@ -115,7 +115,7 @@ In the command, the following options have been updated:
 
 ### 7. Add nodes to the allowlist
 
-In the [Permissioning Management Dapp started earlier](#5-start-the-permissioning-management-dapp)
+In the [permissioning management dapp started earlier](#5-start-the-permissioning-management-dapp)
 add the [nodes to the allowlist].
 
 <!--link-->

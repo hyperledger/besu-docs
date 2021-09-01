@@ -22,7 +22,7 @@ genesis file in the `/besu/config/src/main/resources` directory.
 
 A Clique genesis file defines properties specific to Clique.
 
-!!! example "Sample Clique Genesis File"
+!!! example "Sample Clique genesis file"
 
     ```json
     {
@@ -65,11 +65,11 @@ The `extraData` field consists of:
 * 65 bytes (130 hex characters) for the proposer signature. In the genesis block there is no
   initial proposer so the proposer signature is all zeros.
 
-!!! example "One Initial Signer"
+!!! example "One initial signer"
 
     ![One Initial Signer](../../../images/CliqueOneIntialSigner.png)
 
-!!! example "Two Initial Signers"
+!!! example "Two initial signers"
 
     ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 

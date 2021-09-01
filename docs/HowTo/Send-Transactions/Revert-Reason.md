@@ -151,7 +151,7 @@ As described in the [Solidity documentation], the revert reason is an ABI-encode
 ## Dapp support
 
 Client libraries, such as web3j, do not support extracting the revert reason from the transaction
-receipt. To extract the revert reason your Dapp must interact directly with Besu using a custom
+receipt. To extract the revert reason your dapp must interact directly with Besu using a custom
 JSON -> Object converter.
 
 <!-- Links -->

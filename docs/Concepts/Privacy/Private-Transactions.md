@@ -83,7 +83,7 @@ for the private transaction with the incorrect nonce.
 
 !!! tip
 
-    The [web3js-quorum library includes an example](https://github.com/ConsenSys/https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     of nonce management when sending multiple private transactions. The example calculates the
     correct nonces for the private transactions and privacy marker transactions outside of Besu.
 

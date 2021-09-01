@@ -41,7 +41,7 @@ and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygro
 ## Simple flexible privacy group example
 
 To create and find a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md) using
-the [`web3js-quorum` library](https://github.com/PegaSysEng/web3js-quorum):
+the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 
 1. Update the `example/keys.js` file to match your network configuration.
 

@@ -190,9 +190,11 @@ nav:
           - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
           - Flexible Privacy Groups: Concepts/Privacy/Flexible-PrivacyGroups.md
           - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
+          - Privacy plugin: Concepts/Privacy/Plugin-Privacy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+          - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
         - Protocol Upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:

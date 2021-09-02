@@ -33,7 +33,7 @@ is `http://127.0.0.1:8547/graphql`.
     curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
     ```
 
-## GraphQL requests with GraphiQL App
+## GraphQL requests with GraphiQL app
 
 The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provides a tabbed
 interface for editing and testing GraphQL queries and mutations. GraphiQL also provides access to
@@ -52,7 +52,7 @@ the [Besu GraphQL schema] from within the app.
 
 !!! example
 
-    === "Pending Transaction Count"
+    === "Pending transaction count"
 
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
@@ -72,7 +72,7 @@ the [Besu GraphQL schema] from within the app.
 
 !!! example
 
-    === "Pending Transactions"
+    === "Pending transactions"
 
         ```bash
         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql

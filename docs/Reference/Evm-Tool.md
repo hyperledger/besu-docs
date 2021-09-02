@@ -1,15 +1,15 @@
 ---
-description: Hyperledger Besu EVM Tool Reference
+description: Hyperledger Besu EVM tool reference
 ---
 
-# EVM Tool Reference
+# EVM tool reference
 
 Options for running:
 
 * [Arbitrary EVM programs](#run-options)
 * [Ethereum State Tests](#state-test-options).
 
-## Run Options
+## Run options
 
 The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command Line
 Options specify the code and other contextual information.
@@ -186,7 +186,7 @@ For memory heavy scripts, setting this option may reduce the volume of JSON outp
 
 The Besu Genesis file to use when evaluating the EVM.
 Most useful are the `alloc` items that set up accounts and their stored memory states.
-For a complete description of this file see [Genesis File Items](Config-Items.md).
+For a complete description of this file see [Genesis file items](Config-Items.md).
 
 `--prestate` is a deprecated alternative option name.
 
@@ -297,12 +297,12 @@ The block number to evaluate the code against.
 Used to ensure that the EVM is evaluating the code against the correct fork, or to specify the
 specific world state when running with `rocksdb` for `key-value-storage`.
 
-## State Test Options
+## State test options
 
 The `state-test` sub command allows the Ethereum State Tests to be evaluated.
 Most of the options from EVM execution do not apply.
 
-### Applicable Options
+### Applicable options
 
 #### `json`
 
@@ -328,30 +328,30 @@ state test executed.
 If you use command arguments, you can list one or more state tests.
 All of the state tests are evaluated in the order they are specified.
 
-=== "Docker Example"
+=== "Docker example"
 
     ```bash
     docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop --json state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
     ```
 
-=== "CLI Example"
+=== "CLI example"
 
     ```bash
     evm --json state-test stExample/add11.json
     ```
 
-### Using Standard Input
+### Using standard input
 
 If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
 from standard input and executes that state test.
 
-=== "Docker Example"
+=== "Docker example"
 
     ```bash
     docker run --rm  -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
     ```
 
-=== "CLI Example"
+=== "CLI example"
 
     ```bash
     evm --json state-test < stExample/add11.json

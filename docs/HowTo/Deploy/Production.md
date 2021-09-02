@@ -1,10 +1,10 @@
 ---
-description: Deploying Hyperledger Besu Permissioning Management Dapp for production
+description: Deploying Hyperledger Besu permissioning management dapp for production
 ---
 
-# Deploying the Hyperledger Besu Permissioning Management Dapp for production
+# Deploying the Hyperledger Besu permissioning management dapp for production
 
-To deploy the Permissioning Management Dapp for production:
+To deploy the permissioning management dapp for production:
 
 1. Retrieve the most recent release (tarball or zip) from the [projects release page].
 
@@ -29,10 +29,10 @@ To deploy the Permissioning Management Dapp for production:
 
 ## Starting a production permissioned network
 
-Follow the procedure as for [Getting Started with Onchain Permissioning], but do not perform the
+Follow the procedure as for [Getting started with onchain permissioning], but do not perform the
 steps using `yarn` to install, build, and start the development server. Instead, follow the
-procedure above to deploy the Permissioning Management Dapp to your Web server.
+procedure above to deploy the permissioning management dapp to your Web server.
 
 <!-- Links -->
 [projects release page]: https://github.com/PegaSysEng/permissioning-smart-contracts/releases/latest
-[Getting Started with Onchain Permissioning]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+[Getting started with onchain permissioning]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

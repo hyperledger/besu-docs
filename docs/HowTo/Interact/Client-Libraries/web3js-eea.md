@@ -52,7 +52,7 @@ To deploy a private contract, you need the contract binary. You can use
 [Solidity](https://solidity.readthedocs.io/en/develop/using-the-compiler.html) to get the
 contract binary.
 
-!!! example "Deploying a Contract with sendRawTransaction"
+!!! example "Deploying a contract with sendRawTransaction"
 
     ```js
     const contractOptions = {

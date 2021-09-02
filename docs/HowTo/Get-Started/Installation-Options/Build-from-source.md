@@ -2,7 +2,7 @@
 description: Install or Hyperledger Besu from source
 ---
 
-# Build from Source
+# Build from source
 
 If you want to use the latest development version of Hyperledger Besu or a specific commit,
 build from source. Otherwise, use the [binary] or [Docker image] for more stable

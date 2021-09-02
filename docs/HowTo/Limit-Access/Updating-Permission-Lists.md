@@ -8,14 +8,14 @@ description: Updating Hyperledger Besu onchain allowlists
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
-1. On the _Nodes_ tab of the Permissioning Management Dapp, click the
+1. On the _Nodes_ tab of the permissioning management dapp, click the
    _Add Node_ button. The Add Node window displays.
 1. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and
    click the _Add Node_ button.
 
 To remove a node from the nodes allowlist:
 
-1. On the _Nodes_ tab of the Permissioning Management Dapp, hover over the row of the
+1. On the _Nodes_ tab of the permissioning management dapp, hover over the row of the
    node you are removing. A trash can displays.
 1. Click on the trash can.
 
@@ -42,14 +42,14 @@ To remove a node from the nodes allowlist:
 
 To add an account to the accounts allowlist:
 
-1. On the _Accounts_ tab of the Permissioning Management Dapp, click the
+1. On the _Accounts_ tab of the permissioning management dapp, click the
    _Add Account_ button. The add Account Window displays.
 1. Enter the account address in the _Account Address_ field and click the
    _Add Account_ button.
 
 To remove an account from the accounts allowlist:
 
-1. On the _Accounts_ tab of the Permissioning Management Dapp, hover over the row of
+1. On the _Accounts_ tab of the permissioning management dapp, hover over the row of
    the account you are removing. A trash can displays.
 1. Click on the trash can.
 

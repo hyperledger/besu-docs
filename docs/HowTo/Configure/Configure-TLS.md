@@ -16,16 +16,16 @@ Configure TLS communication from the command line.
 * Besu's password-protected PKCS #12 keystore.
 * File containing the keystore password
 
-## Configure Client TLS
+## Configure client TLS
 
-Allow clients (for example a dApp, curl, or EthSigner) to send and receive secure HTTP JSON-RPCs.
+Allow clients (for example a dapp, curl, or EthSigner) to send and receive secure HTTP JSON-RPCs.
 
 **Client Prerequisites**:
 
 * [Configure the client for TLS]
 * Client's PKCS #12 keystore information.
 
-### Create the Known Clients File
+### Create the known clients file
 
 The known clients file allows clients with self-signed certificates or non-public certificates to
 connect to Besu.
@@ -80,7 +80,7 @@ The command line:
     Set [`--rpc-http-tls-ca-clients-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-ca-clients-enabled)
     to `true` to allow access to clients with signed and trusted root CAs.
 
-## Configure Server TLS
+## Configure server TLS
 
 Allow Besu to securely communicate with the server (Tessera).
 
@@ -89,7 +89,7 @@ Allow Besu to securely communicate with the server (Tessera).
 * [Configure the server to allow TLS communication]
 * Server's certificate information.
 
-### Create the Known Servers file
+### Create the known servers file
 
 Create a file (in this example, `knownServers`) that lists one or more trusted servers. The file
 contents use the format `<hostame>:<port> <hex-string>` where:

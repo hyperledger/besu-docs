@@ -281,7 +281,7 @@ The migration logs the addresses of the Admin and Rules contracts.
     Production environments require a Web server to
     [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
 
-1. In the `permissioning-smart-contracts` directory, start the webserver serving the dapp:
+1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
 
     ```bash
     yarn start

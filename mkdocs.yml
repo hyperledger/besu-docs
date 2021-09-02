@@ -59,7 +59,7 @@ extra_javascript:
   - assets/javascripts/zoomify.min.js
 
 nav:
-    - How To:
+    - How to:
         - Get started with Besu:
             - System requirements:
                 - Private network: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
@@ -181,7 +181,7 @@ nav:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
-          - Comparing PoA Consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+          - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md

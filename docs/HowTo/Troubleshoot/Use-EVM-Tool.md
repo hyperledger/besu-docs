@@ -9,7 +9,7 @@ outside the context of an operating node. Use the EVM tool for benchmarking and 
 
 ## Getting the EVM tool
 
-The Besu EVM Tool does not have a standard zip file distribution. To use, you need to either
+The Besu EVM tool does not have a standard zip file distribution. To use, you need to either
 build from the source repository or use a pre-published docker image.
 
 ### Building from source

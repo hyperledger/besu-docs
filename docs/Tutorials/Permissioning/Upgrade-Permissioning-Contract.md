@@ -86,7 +86,7 @@ yarn truffle migrate --reset
 
 ### 5. Start the permissioning management dapp
 
-1. In the `permissioning-smart-contracts` directory, start the webserver serving the dapp:
+1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
 
     ```bash
     yarn start

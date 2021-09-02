@@ -15,14 +15,14 @@ Existing signers propose and vote to [add or remove signers](Add-Validators.md#c
 
 ## Genesis file
 
-To use Clique in a private network, Besu requires a Clique genesis file. When connecting to Rinkeby,
+To use Clique in a private network, Besu requires a Clique [genesis file](../Genesis-File.md). When connecting to Rinkeby,
 Besu uses the
 [`rinkeby.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/rinkeby.json)
 genesis file in the `/besu/config/src/main/resources` directory.
 
 A Clique genesis file defines properties specific to Clique.
 
-!!! example "Sample Clique genesis file"
+!!! example "Example Clique genesis file"
 
     ```json
     {

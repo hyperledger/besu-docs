@@ -23,7 +23,7 @@ To use the examples provided in the web3js-quorum library with
     git clone https://github.com/ConsenSys/web3js-quorum
     ```
 
-1. In the web3js-quorum` directory:
+1. In the `web3js-quorum` directory:
 
     ```bash
     npm install

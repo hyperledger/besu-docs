@@ -1,5 +1,5 @@
 ---
-description: Privacy Plugin
+description: Privacy plugin
 ---
 
 # Privacy plugin

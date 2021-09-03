@@ -29,7 +29,7 @@ The `gas` and `gasPrice` specified when sending a private transaction are used b
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
 private transaction to the participating nodes, and signs and submits the
 [privacy marker transaction], as described in
-[Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
+[Private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
 
 !!! note
     If sending more than one transaction for mining in the same block (that is, you are not waiting
@@ -116,7 +116,7 @@ to send [concurrent private transactions](Concurrent-Private-Transactions.md).
     }
     ```
 
-## EEA-compliant or Besu-extended Privacy
+## EEA-compliant or Besu-extended privacy
 
 To create an [EEA-compliant private transaction], specify `privateFor` when creating the signed
 transaction passed as an input parameter to

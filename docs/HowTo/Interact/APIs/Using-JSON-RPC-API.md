@@ -179,19 +179,19 @@ peers. A live node with P2P disabled is always ready.
 Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required
 and the number of blocks tolerance.
 
-=== "Readiness Endpoint"
+=== "Readiness endpoint"
 
     ```bash
     http://<JSON-RPC-HTTP-endpoint:port>/readiness
     ```
 
-=== "curl Request Example"
+=== "curl request example"
 
     ```bash
     curl -v 'http://localhost:8545/readiness'
     ```
 
-=== "Query Parameters Example"
+=== "Query parameters example"
 
     ```bash
     curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
@@ -201,13 +201,13 @@ and the number of blocks tolerance.
 
 The liveness check requires the JSON-RPC server to be up.
 
-=== "Liveness Endpoint"
+=== "Liveness endpoint"
 
     ```bash
     http://<JSON-RPC-HTTP-endpoint:port>/liveness
     ```
 
-=== "curl Request Example"
+=== "curl request example"
 
     ```bash
     curl -v 'http://localhost:8545/liveness'

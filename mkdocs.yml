@@ -59,36 +59,36 @@ extra_javascript:
   - assets/javascripts/zoomify.min.js
 
 nav:
-    - How To:
-        - Get Started with Besu:
-            - System Requirements:
-                - Private Network: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
-                - Public Network: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
+    - How to:
+        - Get started with Besu:
+            - System requirements:
+                - Private network: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
+                - Public network: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
             - Install Besu:
                 - Options: HowTo/Get-Started/Installation-Options/Options.md
-                - Run Besu from Docker Image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
-                - Install Binary Distribution: HowTo/Get-Started/Installation-Options/Install-Binaries.md
-                - Build from Source: HowTo/Get-Started/Installation-Options/Build-from-source.md
+                - Run Besu from Docker image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
+                - Install binary distribution: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+                - Build from source: HowTo/Get-Started/Installation-Options/Build-from-source.md
             - Start Besu: HowTo/Get-Started/Starting-node.md
         - Configure Besu:
-          - Consensus Protocols:
+          - Consensus protocols:
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
-            - Quorum IBFT 1.0 Network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
-            - Add and Remove Validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
-          - Create Besu Genesis File: HowTo/Configure/Genesis-File.md
-          - Specify Options in a Configuration File: HowTo/Configure/Using-Configuration-File.md
-          - Configure a Free Gas Network: HowTo/Configure/FreeGas.md
+            - Quorum IBFT 1.0 network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
+            - Add and remove validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
+          - Create Besu genesis file: HowTo/Configure/Genesis-File.md
+          - Specify options in a configuration file: HowTo/Configure/Using-Configuration-File.md
+          - Configure a free gas network: HowTo/Configure/FreeGas.md
           - Configure TLS: HowTo/Configure/Configure-TLS.md
-          - High Availability:
-            - Configure High Availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
-            - Sample Load Balancer Configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
-          - Predeploy a Contract in the Genesis File: HowTo/Configure/Contracts-in-Genesis.md
-          - Configure Mining: HowTo/Configure/Configure-Mining.md
-          - Pass JVM Options: HowTo/Configure/Passing-JVM-Options.md
-          - Alternative Elliptic Curves: HowTo/Configure/Alternative-EC-Curves.md
-        - Interact with Node:
+          - High availability:
+            - Configure high availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
+            - Sample load balancer configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
+          - Predeploy a contract in the genesis file: HowTo/Configure/Contracts-in-Genesis.md
+          - Configure mining: HowTo/Configure/Configure-Mining.md
+          - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
+          - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
+        - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
               - Use JSON-RPC API over HTTP or WebSockets: HowTo/Interact/APIs/Using-JSON-RPC-API.md
@@ -98,13 +98,13 @@ nav:
             - Client Libraries:
               - Use the web3js-quorum Client Library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
-              - Access Logs Using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
-        - Find and Connect to Peers:
-          - Specify Bootnodes: HowTo/Find-and-Connect/Bootnodes.md
-          - Configure Static Nodes: HowTo/Find-and-Connect/Static-Nodes.md
-          - Configure Ports for Access: HowTo/Find-and-Connect/Configuring-Ports.md
-          - Manage Peers: HowTo/Find-and-Connect/Managing-Peers.md
-          - Specify NAT Method: HowTo/Find-and-Connect/Specifying-NAT.md
+              - Access logs using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
+        - Find and connect to peers:
+          - Specify bootnodes: HowTo/Find-and-Connect/Bootnodes.md
+          - Configure static nodes: HowTo/Find-and-Connect/Static-Nodes.md
+          - Configure ports for access: HowTo/Find-and-Connect/Configuring-Ports.md
+          - Manage peers: HowTo/Find-and-Connect/Managing-Peers.md
+          - Specify NAT method: HowTo/Find-and-Connect/Specifying-NAT.md
         - Monitor nodes:
           - Use metrics: HowTo/Monitor/Metrics.md
           - Use Elastic Stack: HowTo/Monitor/Elastic-Stack.md
@@ -112,118 +112,118 @@ nav:
           - Use Splunk: HowTo/Monitor/Splunk-Enterprise.md
           - Use OpenTelemetry: HowTo/Monitor/OpenTelemetry-Collector.md
           - Configure logging: HowTo/Monitor/Logging.md
-        - Send Transactions:
-           - Use Wallets for Key Management: HowTo/Send-Transactions/Account-Management.md
-           - Create and Send Transactions: HowTo/Send-Transactions/Transactions.md
-           - Create and Send Private Transactions: HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
-           - Send Concurrent Private Transactions: HowTo/Send-Transactions/Concurrent-Private-Transactions.md
-           - Include Revert Reason: HowTo/Send-Transactions/Revert-Reason.md
-        - Limit Access to Node:
-          - Use Local Permissioning: HowTo/Limit-Access/Local-Permissioning.md
-          - Update Onchain Allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
-          - Specify Interface Version: HowTo/Limit-Access/Specify-Perm-Version.md
-        - Use Privacy Features:
-          - Use EEA-compliant Privacy: HowTo/Use-Privacy/EEA-Compliant.md
-          - Use Besu-extended Privacy: HowTo/Use-Privacy/Privacy.md
-          - Create and Manage Privacy Groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
-          - Sign Privacy Marker Transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
-          - Access Private and Privacy Marker Transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
+        - Send transactions:
+           - Use wallets for key management: HowTo/Send-Transactions/Account-Management.md
+           - Create and send transactions: HowTo/Send-Transactions/Transactions.md
+           - Create and send private transactions: HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md
+           - Send concurrent private transactions: HowTo/Send-Transactions/Concurrent-Private-Transactions.md
+           - Include revert reason: HowTo/Send-Transactions/Revert-Reason.md
+        - Limit access to node:
+          - Use local permissioning: HowTo/Limit-Access/Local-Permissioning.md
+          - Update onchain allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
+          - Specify interface version: HowTo/Limit-Access/Specify-Perm-Version.md
+        - Use privacy features:
+          - Use EEA-compliant privacy: HowTo/Use-Privacy/EEA-Compliant.md
+          - Use Besu-extended privacy: HowTo/Use-Privacy/Privacy.md
+          - Create and manage privacy groups: HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md
+          - Sign privacy marker transactions: HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
+          - Access private and privacy marker transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
           - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
-          - Use Flexible Privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
-          - Use GoQuorum-compatibile Privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
-        - Deploy for Production:
-          - Deploy to the Cloud: HowTo/Deploy/Cloud.md
-          - Use Ansible to Deploy Besu: HowTo/Deploy/Ansible.md
-          - Use Kubernetes to Deploy a Private Network: HowTo/Deploy/Kubernetes.md
-          - Configure Bootnodes: HowTo/Deploy/Bootnodes.md
-          - Configure Validators: HowTo/Deploy/Validators.md
-          - Deploy Permissioning Management Dapp: HowTo/Deploy/Production.md
+          - Use flexible privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
+          - Use GoQuorum-compatibile privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
+        - Deploy for production:
+          - Deploy to the cloud: HowTo/Deploy/Cloud.md
+          - Use Ansible to deploy Besu: HowTo/Deploy/Ansible.md
+          - Use Kubernetes to deploy a private network: HowTo/Deploy/Kubernetes.md
+          - Configure bootnodes: HowTo/Deploy/Bootnodes.md
+          - Configure validators: HowTo/Deploy/Validators.md
+          - Deploy permissioning management dapp: HowTo/Deploy/Production.md
           - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
-          - Use Alethio EthStats Lite Network Monitor: HowTo/Deploy/Lite-Network-Monitor.md
-        - Backup and Restore: HowTo/Backup/Backup.md
+          - Use Alethio EthStats Lite network monitor: HowTo/Deploy/Lite-Network-Monitor.md
+        - Backup and restore: HowTo/Backup/Backup.md
         - Upgrade:
-          - Upgrade Node: HowTo/Upgrade/Upgrade-Node.md
-          - Upgrade Protocol: HowTo/Upgrade/Upgrade-Protocol.md
-        - Develop Dapps on Besu:
+          - Upgrade node: HowTo/Upgrade/Upgrade-Node.md
+          - Upgrade protocol: HowTo/Upgrade/Upgrade-Protocol.md
+        - Develop dapps on Besu:
           - Use Truffle: HowTo/Develop-Dapps/Truffle.md
-          - Use Client Libraries: HowTo/Develop-Dapps/Client-Libraries.md
+          - Use client libraries: HowTo/Develop-Dapps/Client-Libraries.md
         - Troubleshoot:
           - Use EVM tool: HowTo/Troubleshoot/Use-EVM-Tool.md
           - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
-          - Trace Transactions: HowTo/Troubleshoot/Trace-Transactions.md
-          - Solve Common Problems: HowTo/Troubleshoot/Troubleshooting.md
+          - Trace transactions: HowTo/Troubleshoot/Trace-Transactions.md
+          - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
       - Examples:
-        - Private Network Example: Tutorials/Examples/Private-Network-Example.md
-        - Private Network Example for Private Transactions: Tutorials/Examples/Privacy-Example.md
+        - Private network example: Tutorials/Examples/Private-Network-Example.md
+        - Private network example for private transactions: Tutorials/Examples/Privacy-Example.md
         - Configure Kubernetes mode in NAT Manager : Tutorials/Examples/Nat-Manager-Kubernetes.md
         - Deploy on Microsoft Azure: Tutorials/Examples/Private-Network-Example-Azure.md
-      - Create a Private Network:
+      - Create a private network:
         - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
         - Using IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
         - Using QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md
-        - Adding and Removing IBFT 2.0 Validators: Tutorials/Private-Network/Adding-removing-IBFT-validators.md
+        - Adding and removing IBFT 2.0 validators: Tutorials/Private-Network/Adding-removing-IBFT-validators.md
       - Permissioning:
-        - Create a Permissioned Network: Tutorials/Permissioning/Create-Permissioned-Network.md
-        - Get Started with Onchain Permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+        - Create a permissioned network: Tutorials/Permissioning/Create-Permissioned-Network.md
+        - Get started with onchain permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
         - Upgrade the permissioning contract: Tutorials/Permissioning/Upgrade-Permissioning-Contract.md
-      - Smart Contracts and Transactions:
-        - Deploy a Contract: Tutorials/Contracts/Deploying-Contracts.md
-        - Interact with a Deployed Contract: Tutorials/Contracts/Calling-Contract-Functions.md
-        - Transfer Account Funds: Tutorials/Contracts/Account-Funds-Transfers.md
+      - Smart contracts and transactions:
+        - Deploy a contract: Tutorials/Contracts/Deploying-Contracts.md
+        - Interact with a deployed contract: Tutorials/Contracts/Calling-Contract-Functions.md
+        - Transfer account funds: Tutorials/Contracts/Account-Funds-Transfers.md
       - Privacy:
-        - Create a Privacy-Enabled Network: Tutorials/Privacy/Configuring-Privacy.md
-        - Configure a Multi-Tenant Network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
-        - Use web3js-quorum Multinode Example: Tutorials/Privacy/web3js-quorum-Multinode-example.md
+        - Create a privacy-enabled network: Tutorials/Privacy/Configuring-Privacy.md
+        - Configure a multi-tenant network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
+        - Use web3js-quorum multinode example: Tutorials/Privacy/web3js-quorum-Multinode-example.md
       - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
-        - Consensus Protocols:
+        - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
-          - Comparing PoA Consensus Protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+          - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
-          - Private Transactions: Concepts/Privacy/Private-Transactions.md
-          - Privacy Groups: Concepts/Privacy/Privacy-Groups.md
-          - Processing Private Transactions: Concepts/Privacy/Private-Transaction-Processing.md
-          - Flexible Privacy Groups: Concepts/Privacy/Flexible-PrivacyGroups.md
-          - Multi-Tenancy: Concepts/Privacy/Multi-Tenancy.md
+          - Private transactions: Concepts/Privacy/Private-Transactions.md
+          - Privacy groups: Concepts/Privacy/Privacy-Groups.md
+          - Processing private transactions: Concepts/Privacy/Private-Transaction-Processing.md
+          - Flexible privacy groups: Concepts/Privacy/Flexible-PrivacyGroups.md
+          - Multi-tenancy: Concepts/Privacy/Multi-Tenancy.md
           - Privacy plugin: Concepts/Privacy/Plugin-Privacy.md
         - Permissioning:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
-          - Onchain Permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+          - Onchain permissioning: Concepts/Permissioning/Onchain-Permissioning.md
           - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
-        - Protocol Upgrades: Concepts/Protocol-Upgrades.md
+        - Protocol upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:
-          - Transaction Types: Concepts/Transactions/Transaction-Types.md
-          - Transaction Pool: Concepts/Transactions/Transaction-Pool.md
-          - Validating Transactions: Concepts/Transactions/Transaction-Validation.md
+          - Transaction types: Concepts/Transactions/Transaction-Types.md
+          - Transaction pool: Concepts/Transactions/Transaction-Pool.md
+          - Validating transactions: Concepts/Transactions/Transaction-Validation.md
         - Monitoring: Concepts/Monitoring.md
-        - Events and Logs: Concepts/Events-and-Logs.md
-        - TLS Communication: Concepts/TLS.md
-        - Node Types: Concepts/Node-Types.md
-        - Node Keys: Concepts/Node-Keys.md
-        - Network vs Node Configuration: Concepts/Network-vs-Node.md
-        - Network ID and Chain ID: Concepts/NetworkID-And-ChainID.md
+        - Events and logs: Concepts/Events-and-Logs.md
+        - TLS communication: Concepts/TLS.md
+        - Node types: Concepts/Node-Types.md
+        - Node keys: Concepts/Node-Keys.md
+        - Network vs node configuration: Concepts/Network-vs-Node.md
+        - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md
         - Mining: Concepts/Mining.md
     - Reference:
-        - Besu Command Line:
+        - Besu command line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands: Reference/CLI/CLI-Subcommands.md
-        - Besu API Methods: Reference/API-Methods.md
-        - Besu API Objects: Reference/API-Objects.md
-        - Transaction Trace Types: Reference/Trace-Types.md
-        - Genesis File Items: Reference/Config-Items.md
-        - Web3js-quorum Reference: Reference/web3js-quorum.md
-        - Plugin API Interfaces: Reference/Plugin-API-Interfaces.md
-        - Accounts for Testing: Reference/Accounts-for-Testing.md
-        - EVM Tool: Reference/Evm-Tool.md
-        - Projects Using Besu: Reference/Projects-Using-Besu.md
-        - Security Disclosure Policy: Reference/Responsible-Disclosure.md
-        - Blog Posts and Webinars: Reference/Resources.md
+        - Besu API methods: Reference/API-Methods.md
+        - Besu API objects: Reference/API-Objects.md
+        - Transaction trace types: Reference/Trace-Types.md
+        - Genesis file items: Reference/Config-Items.md
+        - Web3js-quorum reference: Reference/web3js-quorum.md
+        - Plugin API interfaces: Reference/Plugin-API-Interfaces.md
+        - Accounts for testing: Reference/Accounts-for-Testing.md
+        - EVM tool: Reference/Evm-Tool.md
+        - Projects using Besu: Reference/Projects-Using-Besu.md
+        - Security disclosure policy: Reference/Responsible-Disclosure.md
+        - Blog posts and webinars: Reference/Resources.md
 
 markdown_extensions:
     - toc:

@@ -1,5 +1,5 @@
 ---
-description: Using alternative Elliptic Curves in Besu
+description: Using alternative elliptic curves in Besu
 ---
 
 # Using alternative elliptic curves

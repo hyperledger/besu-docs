@@ -1,5 +1,5 @@
 ---
-title: Hyperledger Besu System Requirements
+title: Hyperledger Besu system requirements
 description: System requirements to sync and run Besu
 ---
 

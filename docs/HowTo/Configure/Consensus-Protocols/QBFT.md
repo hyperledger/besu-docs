@@ -134,7 +134,7 @@ write the validator address and copy it to the `toEncode.json` file, use the
 [`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu
 subcommand. For example:
 
-!!! example "One Initial Validator in `toEncode.json` file"
+!!! example "One initial validator in `toEncode.json` file"
 
     ```json
     [

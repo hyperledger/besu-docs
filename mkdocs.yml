@@ -94,9 +94,9 @@ nav:
               - Use JSON-RPC API over HTTP or WebSockets: HowTo/Interact/APIs/Using-JSON-RPC-API.md
               - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/APIs/RPC-PubSub.md
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
-              - Authenticate JSON-RPC Requests: HowTo/Interact/APIs/Authentication.md
-            - Client Libraries:
-              - Use the web3js-quorum Client Library: HowTo/Interact/Client-Libraries/web3js-quorum.md
+              - Authenticate JSON-RPC requests: HowTo/Interact/APIs/Authentication.md
+            - Client libraries:
+              - Use the web3js-quorum client library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
               - Access logs using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and connect to peers:

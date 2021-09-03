@@ -45,7 +45,7 @@ EthStats Lite consists of a:
 * [Dashboard](https://github.com/Alethio/ethstats-network-dashboard). The dashboard displays
   [statistics](#statistics).
 
-## Pre-requisities
+## Prerequisites
 
 [Docker](https://docs.docker.com/install/)
 

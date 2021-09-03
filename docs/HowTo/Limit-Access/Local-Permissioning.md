@@ -53,7 +53,7 @@ To view the nodes allowlist, use the
     On-chain permissioning is under development. On-chain permissioning uses one on-chain
     nodes allowlist.
 
-!!! example "An example of different node allowlists"
+!!! example "Example of different node allowlists"
 
     Node 1 Allowlist = [Node 2, Node 3]
 
@@ -203,7 +203,7 @@ options.
     [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md). Use a bind mount to
     [specify a permissions configuration file with Docker].
 
-!!! example "Sample Permissions Configuration File"
+!!! example "Sample permissions configuration file"
 
     ```toml
     accounts-allowlist=["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]

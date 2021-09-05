@@ -2,13 +2,13 @@
 description: Upgrade the permissioning contract for onchain permissioning
 ---
 
-# Upgrade the permissioning contracts
+# Upgrade the permissioning contracts - Interface v1
 
 The following tutorial describes the steps to upgrade the permissioning contracts to the latest
 version when using onchain permissioning.
 
 The following instructions assume that the user is upgrading contracts that
-implement version 1 of the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
+implement version 1 of the [permissioning contract interface](../../../HowTo/Limit-Access/Specify-Perm-Version.md).
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 ### 6. Restart Besu nodes
 
 Restart the Besu nodes and include the updated [`NodeIngress` and `AccountIngress`](#4-deploy-the-contract)
-contract addresses and [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+contract addresses and [permissioning contract interface](../../../HowTo/Limit-Access/Specify-Perm-Version.md)
 version.
 
 ```cmd
@@ -107,10 +107,10 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-account
 In the command, the following options have been updated:
 
 * The address of the permissioned accounts contract (`AccountIngress` contract address) using
-    [`--permissions-accounts-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-address)
+    [`--permissions-accounts-contract-address`](../../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-address)
 * The address of the permissioned nodes contract (`NodeIngress` contract address) using
-    [`--permissions-nodes-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
-* Set [`--permissions-nodes-contract-version`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
+    [`--permissions-nodes-contract-address`](../../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
+* Set [`--permissions-nodes-contract-version`](../../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
     to `2`.
 
 ### 7. Add nodes to the allowlist
@@ -119,4 +119,4 @@ In the [permissioning management dapp started earlier](#5-start-the-permissionin
 add the [nodes to the allowlist].
 
 <!--link-->
-[nodes to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[nodes to the allowlist]: ../../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist

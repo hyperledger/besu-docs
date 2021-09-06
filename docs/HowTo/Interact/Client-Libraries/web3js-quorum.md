@@ -12,16 +12,17 @@ send RLP-encoded transactions using JSON-RPC.
     web3js-quorum supports JSON-RPC over HTTP only.
 
 !!! note
-    web3js-quorum assembles all features from [quorum.js](https://github.com/ConsenSys/quorum.js) and [web3js-eea](https://github.com/ConsenSys/web3js-eea).
 
-    Migration from one of these libraries to web3js-quorum requires to update your Javascript code as indicated in the following examples.
+    web3js-quorum includes all [quorum.js](https://github.com/ConsenSys/quorum.js) and [web3js-eea](https://github.com/ConsenSys/web3js-eea) features.
 
-    [Read the migration guide for more detail on how to update your code.](https://consensys.github.io/web3js-quorum/latest/tutorial-Migrate%20from%20web3js-eea.html)
+    If migrating to web3js-quorum, then update your Javascript code as indicated in the following examples.
+
+    [Read the migration guide for more information about updating your code.](https://consensys.github.io/web3js-quorum/latest/tutorial-Migrate%20from%20web3js-eea.html)
 
 ## Prerequisites
 
 * [Node.js (version > 10)](https://nodejs.org/en/download/)
-* [The web3 library has to be installed in your project](https://github.com/ChainSafe/web3.js#installation)
+* [The web3 library must be installed in your project](https://github.com/ChainSafe/web3.js#installation)
 
 ## Add web3js-quorum to project
 
@@ -56,8 +57,8 @@ Initialize your client where:
         ```
 
 !!! note
-    When updating from web3js-eea, you now have to use `Web3Quorum`. The constructor doesn't require the chain ID anymore.
-    Chain ID is automatically retrieved from the chain at JSON-RPC HTTP endpoint.
+    When migrating from web3js-eea to web3js-quorum, use `Web3Quorum`. The constructor doesn't require the chain ID anymore.
+    Chain ID is automatically retrieved from the chain using the specified JSON-RPC HTTP endpoint.
 
 ## Deploying a contract with `generateAndSendRawTransaction`
 
@@ -70,8 +71,8 @@ contract binary.
     ```js
     const contractOptions = {
       data: `0x123`, // contract binary
-      privateFrom: "orionNode1PublicKey",
-      privateFor: ["orionNode3PublicKey"],
+      privateFrom: "tesseraNode1PublicKey",
+      privateFor: ["tesseraNode3PublicKey"],
       privateKey: "besuNode1PrivateKey"
     };
     return web3.priv.generateAndSendRawTransaction(contractOptions);

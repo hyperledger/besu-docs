@@ -9,7 +9,7 @@ description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
 Subscribe to events by using either RPC Pub/Sub over WebSockets or
 [filters over HTTP](../Filters/Accessing-Logs-Using-JSON-RPC.md).
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, Dapps
+Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, dapps
 subscribe to logs and receive notifications when a specific event occurs.
 
 Methods specific to RPC Pub/Sub are:
@@ -302,7 +302,7 @@ If a chain reorganization occurs, Besu resubmits transactions for inclusion in t
 chain. This means the subscription can publish notifications for the same pending transaction more
 than once.
 
-!!!example "Transaction Hashes"
+!!!example "Transaction hashes"
 
     To subscribe to pending transaction notifications and receive transaction hashes only:
 
@@ -329,7 +329,7 @@ than once.
     }
     ```
 
-!!!example "Transaction Details"
+!!!example "Transaction details"
 
     To subscribe to pending transaction notifications and receive transaction details:
 

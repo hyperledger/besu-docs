@@ -36,7 +36,7 @@ propagating incorrect information to peers.
 To use IBFT 2.0, Besu requires an IBFT 2.0 genesis file. The genesis file defines properties
 specific to IBFT 2.0.
 
-!!! example "Sample IBFT 2.0 Genesis File"
+!!! example "Sample IBFT 2.0 genesis file"
 
     Example genesis file for a 4 nodes IBFT2 network.
 
@@ -110,7 +110,7 @@ write the validator address and copy it to the `toEncode.json` file, use the
 [`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu
 subcommand. For example:
 
-!!! example "One Initial Validator in `toEncode.json` file"
+!!! example "One initial validator in `toEncode.json` file"
 
     ```json
     [

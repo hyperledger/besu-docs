@@ -69,7 +69,7 @@ get the miner data for a specified block.
 * [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
   Only used when using the `getwork` scheme.
 
-## Hyperledger Besu Mined Blocks
+## Hyperledger Besu mined blocks
 
 Hyperledger Besu has successfully mined blocks on the Ropsten testnet, ETC mainnet (uncle block only) and Mordor ETC testnet.
 Blocks mined by the Hyperledger Besu team contain the version number used in the block's `extraData` field. The following accounts

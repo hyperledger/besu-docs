@@ -104,9 +104,9 @@ To run the Ethereum Lite Explorer using the Docker image:
 
 A browser window displays the Ethereum Lite Explorer [`http://localhost:3000/`](http://localhost:3000/).
 
-## Use with JSON-RPC Authentication
+## Use with JSON-RPC authentication
 
 You can install the [Alethio Explorer Plugin](https://github.com/adetante/explorer-besu-plugin) to use the Alethio
 Ethereum Lite Explorer with Hyperledger Besu nodes with
-[JSON-RPC Authentication](../Interact/APIs/Authentication.md) enabled. See the
+[JSON-RPC authentication](../Interact/APIs/Authentication.md) enabled. See the
 [plugin documentation](https://github.com/adetante/explorer-besu-plugin) for how to use the plugin with Node.js and Docker.

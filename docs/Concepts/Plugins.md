@@ -18,20 +18,20 @@ third-party application. The API exposes data about the following components:
 * Logs
 * Syncing state.
 
-![Besu Plugin API](../images/Hyperledger-Besu-Plugin-API.png)
+![Besu plugin API](../images/Hyperledger-Besu-Plugin-API.png)
 
-The Plugin API provides access to [interfaces](../Reference/Plugin-API-Interfaces.md) allowing you
+The plugin API provides access to [interfaces](../Reference/Plugin-API-Interfaces.md) allowing you
 to build the plugin.
 
 !!! tip
 
-    View the [Plugin API webinar](https://youtu.be/78sa2WuA1rg) for an example of how to build a
+    View the [plugin API webinar](https://youtu.be/78sa2WuA1rg) for an example of how to build a
     plugin.
 
     For more information about the available interfaces, see the
     [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).
 
-## Install Plugins
+## Install plugins
 
 To allow Besu to access and use the plugin, copy the plugin (`.jar`) to the `plugins` directory.
 

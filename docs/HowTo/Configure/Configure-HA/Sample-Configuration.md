@@ -1,5 +1,5 @@
 ---
-description: Sample Load Balancers
+description: Sample load balancers
 ---
 
 # Sample load balancer configurations

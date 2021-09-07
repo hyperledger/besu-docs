@@ -274,20 +274,20 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     The account that deploys the contracts is automatically an [admin account].
 
-### 9. Start the Permissioning Management Dapp
+### 9. Start the permissioning management dapp
 
 !!! note
 
     Production environments require a Web server to
-    [host the Permissioning Management Dapp](../../HowTo/Deploy/Production.md).
+    [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
 
-1. In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
+1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
 
     ```bash
     yarn start
     ```
 
-    The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
+    The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 1. Ensure MetaMask connects to your local node (by default [`http://localhost:8545`](http://localhost:8545)).
 
@@ -341,7 +341,7 @@ The command line specifies:
 
 ### 12. Add nodes to the allowlist
 
-In the [Permissioning Management Dapp started earlier](#9-start-the-permissioning-management-dapp)
+In the [permissioning management dapp started earlier](#9-start-the-permissioning-management-dapp)
 add [Node-1, Node-2, and Node-3 to the allowlist].
 
 <!-- Links -->

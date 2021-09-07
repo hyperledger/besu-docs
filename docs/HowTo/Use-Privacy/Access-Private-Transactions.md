@@ -28,7 +28,7 @@ receipt for the:
 The transaction receipt includes a `status` indicating if the transaction failed (`0x0`), succeeded (`0x1`), or
 was invalid (`0x2`).
 
-!!! example "Private Transaction Failure Example"
+!!! example "Private transaction failure example"
 
     To deploy a private contract, you submit a transaction using
     [`eea_sendRawTransaction`](../Send-Transactions/Creating-Sending-Private-Transactions.md). If

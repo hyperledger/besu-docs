@@ -4,7 +4,7 @@ description: Projects using Besu.
 
 # Projects using Besu
 
-## Block Explorers
+## Block explorers
 
 - [Blockscout](https://github.com/blockscout/blockscout#readme) is a Besu-compatible blockchain explorer for inspecting
   and analyzing Ethereum-based blockchains.

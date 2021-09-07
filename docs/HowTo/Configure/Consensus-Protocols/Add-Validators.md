@@ -43,7 +43,7 @@ To propose adding a signer to a Clique network, call
 [`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the proposed signer and `true`.
 A majority of signers must execute the call.
 
-!!! example "JSON-RPC clique_propose Request Example"
+!!! example "JSON-RPC `clique_propose` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
@@ -57,7 +57,7 @@ signer can begin signing blocks.
 To return a list of signers and confirm the addition of a proposed signer, call
 [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
 
-!!! example "JSON-RPC clique_getSigners Request Example"
+!!! example "JSON-RPC `clique_getSigners` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
@@ -66,7 +66,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
 To discard your proposal after confirming the addition of a signer, call
 [`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the proposed signer.
 
-!!! example "JSON-RPC clique_discard Request Example"
+!!! example "JSON-RPC `clique_discard` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
@@ -124,7 +124,7 @@ To propose adding a validator to an IBFT 2.0 network, call
 proposed validator and `true`.
 A majority of validators must execute the call.
 
-!!! example "JSON-RPC `ibft_proposeValidatorVote` Request Example"
+!!! example "JSON-RPC `ibft_proposeValidatorVote` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
@@ -140,7 +140,7 @@ validator to the validator pool and the validator can begin validating blocks.
 To return a list of validators and confirm the addition of a proposed validator, use
 [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
 
-!!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` Request Example"
+!!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
@@ -150,7 +150,7 @@ To discard your proposal after confirming the addition of a validator, call
 [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
-!!! example "JSON-RPC `ibft_discardValidatorVote` Request Example"
+!!! example "JSON-RPC `ibft_discardValidatorVote` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
@@ -290,7 +290,7 @@ To propose adding a validator, call
 specifying the address of the proposed validator and `true`. A majority of validators must execute
 the call.
 
-!!! example "JSON-RPC `qbft_proposeValidatorVote` Request Example"
+!!! example "JSON-RPC `qbft_proposeValidatorVote` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
@@ -307,7 +307,7 @@ adds the proposed validator to the validator pool and the validator can begin va
 To return a list of validators and confirm the addition of a proposed validator, use
 [`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#qbft_getvalidatorsbyblocknumber).
 
-!!! example "JSON-RPC `qbft_getValidatorsByBlockNumber` Request Example"
+!!! example "JSON-RPC `qbft_getValidatorsByBlockNumber` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
@@ -317,7 +317,7 @@ To discard your proposal after confirming the addition of a validator, call
 [`qbft_discardValidatorVote`](../../../Reference/API-Methods.md#qbft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
-!!! example "JSON-RPC `qbft_discardValidatorVote` Request Example"
+!!! example "JSON-RPC `qbft_discardValidatorVote` request example"
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>

@@ -2,7 +2,7 @@
 description: Configuring static nodes
 ---
 
-# Static Nodes
+# Static nodes
 
 Static nodes are a configured set of trusted nodes. Static nodes are exempt from
 [maximum peer](Managing-Peers.md#limiting-peers) and

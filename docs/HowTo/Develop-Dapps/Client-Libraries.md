@@ -9,7 +9,7 @@ Dapps use client libraries, such as [web3.js](https://github.com/ethereum/web3.j
 forward JSON-RPC requests to Hyperledger Besu. Any client library implementing core Ethereum RPC
 methods works with Besu.
 
-Use the [web3js-eea library](../Interact/Client-Libraries/web3js-eea.md) with Besu for
+Use the [web3js-quorum library](../Interact/Client-Libraries/web3js-quorum.md) with Besu for
 [privacy features](../../Concepts/Privacy/Privacy-Overview.md).
 
 ![Client Libraries](../../images/Hyperledger-Besu-Client-Libraries.png)

@@ -1,10 +1,10 @@
 ---
-description: Predeploying contracts in the genesis file
+description: Pre-deploying contracts in the genesis file
 ---
 
 # Pre-deploying contracts in the genesis file
 
-To pre-deploy contracts when starting Besu, specify the contract code in the genesis file.
+To pre-deploy contracts when starting Besu, specify the contract code in the [genesis file](Genesis-File.md).
 
 !!! example "Contract code in the genesis file"
 
@@ -27,7 +27,7 @@ To pre-deploy contracts when starting Besu, specify the contract code in the gen
 
 The contract code in the genesis file defines the:
 
-* Address
-* Balance
-* Bytecode
+* Address.
+* Balance.
+* Bytecode.
 * Key value pairs for contract storage.

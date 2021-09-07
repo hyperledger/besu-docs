@@ -252,7 +252,7 @@ The Developer Quickstart provides an
     Please use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library instead and refer to the previous section.
 
 To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
-[web3js-eea](https://github.com/ConsenSys/web3js-eea) library and
+[web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
 keeps account management separate for stronger security.

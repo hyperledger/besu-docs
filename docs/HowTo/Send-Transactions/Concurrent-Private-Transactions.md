@@ -14,11 +14,11 @@ using [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_dist
 you create and send the privacy marker transaction yourself rather than [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
 handling the privacy marker transaction.
 
-The [web3js-eea library](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum/tree/master/example/concurrentPrivateTransactions)
 includes an example of how to send concurrent private transactions.
 
 !!! tip
-    [The example](https://github.com/PegaSysEng/web3js-eea/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    [The example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     uses [off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
     Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
     to get the precompile address to specify in the `to` field when creating the [privacy marker transaction].

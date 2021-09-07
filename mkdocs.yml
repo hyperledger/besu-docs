@@ -72,12 +72,12 @@ nav:
             - Start Besu: HowTo/Get-Started/Starting-node.md
         - Configure Besu:
           - Consensus protocols:
-            - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
+            - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - Quorum IBFT 1.0 network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
             - Add and remove validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
-          - Create Besu genesis file: HowTo/Configure/Genesis-File.md
+          - Create a genesis file: HowTo/Configure/Genesis-File.md
           - Specify options in a configuration file: HowTo/Configure/Using-Configuration-File.md
           - Configure a free gas network: HowTo/Configure/FreeGas.md
           - Configure TLS: HowTo/Configure/Configure-TLS.md
@@ -96,7 +96,7 @@ nav:
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
               - Authenticate JSON-RPC requests: HowTo/Interact/APIs/Authentication.md
             - Client libraries:
-              - Use the web3js-eea client library: HowTo/Interact/Client-Libraries/web3js-eea.md
+              - Use the web3js-quorum client library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
               - Access logs using JSON-RPC API: HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md
         - Find and connect to peers:
@@ -177,7 +177,7 @@ nav:
       - Privacy:
         - Create a privacy-enabled network: Tutorials/Privacy/Configuring-Privacy.md
         - Configure a multi-tenant network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
-        - Use web3js-eea multinode example: Tutorials/Privacy/web3js-eea-Multinode-example.md
+        - Use web3js-quorum multinode example: Tutorials/Privacy/web3js-quorum-Multinode-example.md
       - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
@@ -219,7 +219,7 @@ nav:
         - Besu API objects: Reference/API-Objects.md
         - Transaction trace types: Reference/Trace-Types.md
         - Genesis file items: Reference/Config-Items.md
-        - web3js-eaa reference: https://consensys.github.io/web3js-eea/latest/
+        - Web3js-quorum reference: Reference/web3js-quorum.md
         - Plugin API interfaces: Reference/Plugin-API-Interfaces.md
         - Accounts for testing: Reference/Accounts-for-Testing.md
         - EVM tool: Reference/Evm-Tool.md
@@ -266,11 +266,11 @@ plugins:
           - global/*
     - git-revision-date-localized:
         locale: en
-    - minify:
-        minify_html: true
-        minify_js: true
-        htmlmin_opts:
-          remove_comments: true
+#    - minify:
+#        minify_html: true
+#        minify_js: true
+#        htmlmin_opts:
+#          remove_comments: true
     - redirects:
         redirect_maps:
           # Configure redirects using key:value pairs:
@@ -293,6 +293,8 @@ plugins:
           Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
           Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
-          HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-eea.md
+          HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
+          HowTo/Interact/Client-Libraries/web3js-eea.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
-          Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-eea-Multinode-example.md
+          Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
+          Tutorials/Privacy/web3js-eea-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md

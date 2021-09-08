@@ -48,5 +48,5 @@ the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `pl
     It's in our roadmap to improve lifecycle steps and provide additional visibility for some data.
     A workaround is to create a supplier during the `register` step and store it in memory.
 
-    The `start` step can be ignored and your plugin module will be instanciated when
+    The `start` step can be ignored and your plugin module will be instantiated when
     the command line interface is parsed and available.

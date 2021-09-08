@@ -37,7 +37,7 @@ The following table lists interfaces providing services you can retrieve.
 
 To use the interfaces in your plugin, ensure the
 [Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains
-the `https://hyperledger-org.bintray.com/besu-repo` repository and the `plugin-api` dependency.
+the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `plugin-api` dependency.
 
 !!! warning "Known issue"
 

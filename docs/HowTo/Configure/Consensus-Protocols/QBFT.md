@@ -38,12 +38,10 @@ propagating incorrect information to peers.
 
 ## Genesis file
 
-To use QBFT, Besu requires a QBFT genesis file. The genesis file defines properties
+To use QBFT, Besu requires a QBFT [genesis file](../Genesis-File.md). The genesis file defines properties
 specific to QBFT.
 
-!!! example "Sample QBFT genesis file"
-
-    Example genesis file for a 4 nodes QBFT network.
+!!! example "Example QBFT genesis file"
 
     ```json
     {

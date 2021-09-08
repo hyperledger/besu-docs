@@ -36,8 +36,8 @@ The following table lists interfaces providing services you can retrieve.
 | [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html)                         | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM).                  |
 
 To use the interfaces in your plugin, ensure the
-[Gradle build file](https://github.com/PegaSysEng/PluginsAPIDemo/blob/master/build.gradle) contains
-the `https://hyperledger-org.bintray.com/besu-repo` repository and the `plugin-api` dependency.
+[Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains
+the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `plugin-api` dependency.
 
 !!! warning "Known issue"
 

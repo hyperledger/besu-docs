@@ -36,7 +36,7 @@ The following table lists interfaces providing services you can retrieve.
 | [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html)                         | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM).                  |
 
 To use the interfaces in your plugin, ensure the
-[Gradle build file](https://github.com/PegaSysEng/PluginsAPIDemo/blob/master/build.gradle) contains
+[Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains
 the `https://hyperledger-org.bintray.com/besu-repo` repository and the `plugin-api` dependency.
 
 !!! warning "Known issue"
@@ -48,5 +48,5 @@ the `https://hyperledger-org.bintray.com/besu-repo` repository and the `plugin-a
     It's in our roadmap to improve lifecycle steps and provide additional visibility for some data.
     A workaround is to create a supplier during the `register` step and store it in memory.
 
-    The `start` step can be ignored and your plugin module will be instanciated when
+    The `start` step can be ignored and your plugin module will be instantiated when
     the command line interface is parsed and available.

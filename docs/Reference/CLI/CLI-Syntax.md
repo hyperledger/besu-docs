@@ -170,19 +170,19 @@ for a large number of blocks, you might want to disable automatic log bloom cach
 === "Command Line"
 
     ```bash
-    --banned-nodeids=0xc35c3...d615f,0xf42c13...fc456
+    --banned-node-ids=0xc35c3...d615f,0xf42c13...fc456
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
+    BESU_BANNED_NODE_IDS=0xc35c3...d615f,0xf42c13...fc456
     ```
 
 === "Configuration File"
 
     ```bash
-    banned-nodeids=["0xc35c3...d615f","0xf42c13...fc456"]
+    banned-node-ids=["0xc35c3...d615f","0xf42c13...fc456"]
     ```
 
 A list of node IDs with which this node will not peer. The node ID is the public key of the node.

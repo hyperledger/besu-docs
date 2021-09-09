@@ -170,19 +170,19 @@ for a large number of blocks, you might want to disable automatic log bloom cach
 === "Command Line"
 
     ```bash
-    --banned-nodeids=0xc35c3...d615f,0xf42c13...fc456
+    --banned-node-ids=0xc35c3...d615f,0xf42c13...fc456
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_BANNED_NODEIDS=0xc35c3...d615f,0xf42c13...fc456
+    BESU_BANNED_NODE_IDS=0xc35c3...d615f,0xf42c13...fc456
     ```
 
 === "Configuration File"
 
     ```bash
-    banned-nodeids=["0xc35c3...d615f","0xf42c13...fc456"]
+    banned-node-ids=["0xc35c3...d615f","0xf42c13...fc456"]
     ```
 
 A list of node IDs with which this node will not peer. The node ID is the public key of the node.
@@ -2413,7 +2413,7 @@ Minimum depth of chain reorganizations to log. The default is 6.
 === "Configuration File"
 
     ```bash
-    required-block="6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"
+    required-block=["6485846=0x43f0cd1e5b1f9c4d5cda26c240b59ee4f1b510d0a185aa8fd476d091b0097a80"]
     ```
 
 Requires a peer with the specified block number to have the specified hash when connecting, or Besu

@@ -886,19 +886,19 @@ default is `9545`. Ports must be
 === "Command Line"
 
     ```bash
-    --metrics-port=OPENTELEMETRY
+    --metrics-protocol=OPENTELEMETRY
     ```
 
 === "Environment Variable"
 
     ```bash
-    BESU_METRICS_PORT=OPENTELEMETRY
+    BESU_METRICS_PROTOCOL=OPENTELEMETRY
     ```
 
 === "Configuration File"
 
     ```bash
-    metrics-port="OPENTELEMETRY"
+    metrics-protocol="OPENTELEMETRY"
     ```
 
 Metrics protocol to use.

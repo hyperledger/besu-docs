@@ -2049,6 +2049,52 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
         }
         ```
 
+### `eth_feeHistory`
+
+Returns base fee per gas and transaction effective priority fee per gas history
+for the requested block range if available.
+
+#### Parameters
+
+* `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
+Less than requested may be returned if not all blocks are available.
+
+* `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
+ `earliest`, or `pending`, as described in
+ [Block parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result`: *object* - [Fee history results object](API-Objects.md#fee-history-results-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 28,
+          "result" : {
+            "oldestBlock" : "0x53cbe6",
+            "baseFeePerGas" : ["0x7", "0x7", "0x7" ]
+            "gasUsedRatio" : [ 0.0011536265162931602, 0.10653990633315608 ]
+         }
+        }
+        ```
+
 ### `eth_gasPrice`
 
 Returns a percentile gas unit price for the most recent blocks, in Wei. By default,

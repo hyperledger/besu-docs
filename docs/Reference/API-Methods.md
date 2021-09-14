@@ -2057,7 +2057,7 @@ for the requested block range if available.
 #### Parameters
 
 * `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
-Less than requested may be returned if not all blocks are available.
+If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
  `earliest`, or `pending`, as described in

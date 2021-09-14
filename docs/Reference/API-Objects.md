@@ -37,13 +37,13 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 ## Fee history results object
 
 Returned by [`eth_feeHistory`](API-Methods.md#eth_feehistory) for the requested block range.
-If not all blocks are available, only the available subsection of the requested range will be returned.
+If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
 
 | Key | Type | Value |
 |-----|:----:|-------|
 | **oldestBlock**        | Quantity, Integer     | Lowest number block of the returned range.                        |
-| **baseFeePerGas**      | Array                 | Array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
-| **gasUsedRatio**       | Array                 | Array of block gas used ratios. These are calculated as the ratio of gasUsed and gasLimit.   |
+| **baseFeePerGas**      | Array                 | Array of block base fees per gas, including an extra block value. The extra value is the next block after the newest block in the returned range. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
+| **gasUsedRatio**       | Array                 | Array of block gas used ratios. These are calculated as the ratio of `gasUsed` and `gasLimit`.   |
 
 ## Filter options object
 

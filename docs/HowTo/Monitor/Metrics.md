@@ -234,6 +234,10 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
 | `besu_synchronizer_chain_download_pipeline_restarts`             | Counter | Number of times chain download pipeline has been restarted |
 | `besu_synchronizer_in_sync`                                      | Gauge   | Whether or not the local node has caught up to the best known peer (1 or 0) |
 | `besu_synchronizer_task`                                         | Summary | Internal processing tasks                           |
+| `besu_stratum_connections`                                       | Counter | Number of connections over time                     |
+| `besu_stratum_difficulty`                                        | Gauge   | Current mining difficulty                           |
+| `besu_stratum_disconnections`                                    | Counter | Number of disconnections over time                  |
+| `besu_stratum_miners`                                            | Gauge   | Number of connected miners                          |
 | `besu_transaction_pool_pending_transactions_messages_skipped_total` | Counter | Total number of pending transactions messages skipped by the processor |
 | `besu_transaction_pool_transactions`                             | Gauge   | Current size of the transaction pool (JSON-RPC equivalent: result number of [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions)) |
 | `besu_transaction_pool_transactions_added_total`                 | Counter | Count of transactions added to the transaction pool |

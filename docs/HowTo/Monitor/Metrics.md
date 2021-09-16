@@ -231,6 +231,10 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
 | `besu_peers_connected_total`                                     | Counter | Total number of peers connected                     |
 | `besu_peers_disconnected_total`                                  | Counter | Total number of peers disconnected                  |
 | `besu_peers_pending_peer_requests_current`                       | Gauge   | Current number of peer requests pending because peers are busy |
+| `besu_stratum_connections`                                       | Counter | Number of connections over time                     |
+| `besu_stratum_difficulty`                                        | Gauge   | Current mining difficulty                           |
+| `besu_stratum_disconnections`                                    | Counter | Number of disconnections over time                  |
+| `besu_stratum_miners`                                            | Gauge   | Number of connected miners                          |
 | `besu_synchronizer_chain_download_pipeline_restarts`             | Counter | Number of times chain download pipeline has been restarted |
 | `besu_synchronizer_in_sync`                                      | Gauge   | Whether or not the local node has caught up to the best known peer (1 or 0) |
 | `besu_synchronizer_task`                                         | Summary | Internal processing tasks                           |

@@ -64,14 +64,14 @@ the file must be in the `permissioning-smart-contracts` directory.
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
     * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`.
 
-2. If updating from v1 to v2, delete the following environment variable:
+2. If updating from v1 to v2, the Node Ingress contract must be re-deployed
 
     !!! important
 
         This step is only required if upgrading from v1 of the node permissioning contract
         to v2 (because the interface changed, a new NodeIngress contract must be deployed).
+    If updating from v1 to v2, delete the following environment variable:
     * `NODE_INGRESS_CONTRACT_ADDRESS`.
-
 
 ### 4. Optional: Export current allowlists
 

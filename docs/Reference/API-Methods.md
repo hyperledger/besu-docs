@@ -2052,7 +2052,7 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
 ### `eth_feeHistory`
 
 Returns base fee per gas and transaction effective priority fee per gas history
-for the requested block range if available.
+for the requested block range, allowing you to track trends over time.
 
 #### Parameters
 

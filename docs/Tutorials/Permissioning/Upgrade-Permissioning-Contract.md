@@ -51,6 +51,14 @@ yarn run build
 If using a `.env` file to configure environment variables, then
 the file must be in the `permissioning-smart-contracts` directory.
 
+!!! tip
+
+    You can use environment variables to retain existing contracts if required. For example:
+
+    * `RETAIN_ADMIN_CONTRACT` to retain the current admin list
+    * `RETAIN_NODE_RULES_CONTRACT` to retain the current Node rules contract
+    * `RETAIN_ACCOUNT_RULES_CONTRACT` to retain the current Account rules contract
+
 1. Legacy: If they exist, rename the following environment variables:
     * `PANTHEON_NODE_PERM_ACCOUNT` to `BESU_NODE_PERM_ACCOUNT`
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
@@ -61,16 +69,9 @@ the file must be in the `permissioning-smart-contracts` directory.
     This step is only required if upgrading from v1 of the node permissioning contract
     to v2 (because the interface changed, a new NodeIngress contract must be deployed).
 
-1. If updating from v1 to v2, delete the following environment variable:
+2. If updating from v1 to v2, delete the following environment variable:
     * `NODE_INGRESS_CONTRACT_ADDRESS`.
 
-    !!! tip
-
-        You can use environment variables to retain existing contracts if required. For example:
-
-        * `RETAIN_ADMIN_CONTRACT` to retain the current admin list
-        * `RETAIN_NODE_RULES_CONTRACT` to retain the current Node rules contract
-        * `RETAIN_ACCOUNT_RULES_CONTRACT` to retain the current Account rules contract
 
 ### 4. Optional: Export current allowlists
 
@@ -92,7 +93,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     truffle migrate
     ```
 
-The migration scripts will log the existing rules to the console, but no contracts will be deployed.
+    The migration scripts will log the existing rules to the console, but no contracts will be deployed.
 
 1. Set initial values for updated deployment:
 
@@ -145,7 +146,7 @@ truffle migrate
 
         This will set the storage owner to the newly deployed contract version.
 
-### 5. Start the Permissioning Management Dapp
+### 6. Start the Permissioning Management Dapp
 
 In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
 
@@ -155,7 +156,7 @@ yarn start
 
 The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
-### 6. Restart Besu nodes
+### 7. Restart Besu nodes
 
 Restart the Besu nodes and include the updated [`NodeIngress`](#4-deploy-the-contract)
 contract address and [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)

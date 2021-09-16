@@ -88,6 +88,9 @@ nav:
           - Configure mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
           - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
+          - Public key infrastructure:
+              - Block proposal permissioning: HowTo/Configure/Public-Key-Infrastructure/Block-Proposal-Permissioning.md
+              - Node permissioning: HowTo/Configure/Public-Key-Infrastructure/Node-Permissioning.md
         - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -195,6 +198,7 @@ nav:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain permissioning: Concepts/Permissioning/Onchain-Permissioning.md
           - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
+        - Public key infrastructure: Concepts/PKI.md
         - Protocol upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:

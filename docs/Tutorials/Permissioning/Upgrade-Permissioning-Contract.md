@@ -55,21 +55,21 @@ the file must be in the `permissioning-smart-contracts` directory.
 
     You can use environment variables to retain existing contracts if required. For example:
 
-    * `RETAIN_ADMIN_CONTRACT` to retain the current admin list
-    * `RETAIN_NODE_RULES_CONTRACT` to retain the current Node rules contract
-    * `RETAIN_ACCOUNT_RULES_CONTRACT` to retain the current Account rules contract
+    * `RETAIN_ADMIN_CONTRACT=true` to retain the current admin list
+    * `RETAIN_NODE_RULES_CONTRACT=true` to retain the current Node rules contract
+    * `RETAIN_ACCOUNT_RULES_CONTRACT=true` to retain the current Account rules contract
 
 1. Legacy: If they exist, rename the following environment variables:
     * `PANTHEON_NODE_PERM_ACCOUNT` to `BESU_NODE_PERM_ACCOUNT`
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
     * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`.
 
-!!! important
-
-    This step is only required if upgrading from v1 of the node permissioning contract
-    to v2 (because the interface changed, a new NodeIngress contract must be deployed).
-
 2. If updating from v1 to v2, delete the following environment variable:
+
+    !!! important
+
+        This step is only required if upgrading from v1 of the node permissioning contract
+        to v2 (because the interface changed, a new NodeIngress contract must be deployed).
     * `NODE_INGRESS_CONTRACT_ADDRESS`.
 
 
@@ -78,6 +78,7 @@ the file must be in the `permissioning-smart-contracts` directory.
 !!! note
 
     These steps enable you to export the current allowlists to assist in updating.
+    You can set these lists via the dapp if you prefer.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -100,9 +101,9 @@ the file must be in the `permissioning-smart-contracts` directory.
     Using the values logged in the previous step, set the following environment variables as required:
 
     ```bash
-    INITIAL_ADMIN_ACCOUNTS=
-    INITIAL_ALLOWLISTED_ACCOUNTS=
-    INITIAL_ALLOWLISTED_NODES=
+    INITIAL_ADMIN_ACCOUNTS=<list-of-admins>
+    INITIAL_ALLOWLISTED_ACCOUNTS=<list-of-accounts>
+    INITIAL_ALLOWLISTED_NODES=<list-of-enode-urls>
     ```
 
 1. Update environment variables for contracts that are to be deployed. For example:

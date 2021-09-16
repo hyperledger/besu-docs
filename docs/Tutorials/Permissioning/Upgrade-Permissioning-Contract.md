@@ -48,44 +48,24 @@ yarn run build
 
 ### 3. Update environment variables
 
-#### 3.1 Version 2.01+
+1. Legacy: If they exist, rename the following environment variables:
+    * `PANTHEON_NODE_PERM_ACCOUNT` to `BESU_NODE_PERM_ACCOUNT`
+    * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
+    * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`.
+
+!!! important
+
+    This step is only required if upgrading from v1 of the node permissioning contract
+    to v2 (because the interface changed, a new NodeIngress contract must be deployed).
+
+1. If migrating from v1 to v2, delete the following environment variable:
+    * `NODE_INGRESS_CONTRACT_ADDRESS`.
+
+#### 4. Optional: export current allowlists
 
 !!! note
 
-    These steps apply only if upgrading from v2.0.1 or later.
-
-1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
-
-    ```bash
-    ACCOUNT_STORAGE_CONTRACT_ADDRESS=0x7153CCD1a20Bbb2f6dc89c1024de368326EC6b4F
-    NODE_STORAGE_CONTRACT_ADDRESS=0xE0bF6021e023a197DBb3fABE64efA880E13D3f4b
-    ```
-
-    These addresses will be logged when the contracts are deployed.
-
-    !!! tip
-
-        You can use environment variables to retain existing contracts if required. For example:
-
-        * `RETAIN_ADMIN_CONTRACT` to retain the current admin list
-        * `RETAIN_NODE_RULES_CONTRACT` to retain the current Node rules contract
-        * `RETAIN_ACCOUNT_RULES_CONTRACT` to retain the current Account rules contract
-
-1. Deploy the updated Rules contracts using truffle:
-
-    ```bash
-    truffle migrate
-    ```
-
-    !!! important
-
-        This will set the storage owner to the newly deployed contract version.
-
-#### 3.2 Version <= 2.0
-
-!!! note
-
-    These steps apply only if upgrading from release v2.0 or earlier of the permissioning contract to v2.0.1 or later.
+    If you want to export the current allowlists to assist in migrating.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -93,8 +73,6 @@ yarn run build
     RETAIN_ADMIN_CONTRACT=true
     RETAIN_NODE_RULES_CONTRACT=true
     RETAIN_ACCOUNT_RULES_CONTRACT=true
-    NODE_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000009999
-    ACCOUNT_INGRESS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000008888
     ```
 
 1. Log the current rules to console:
@@ -133,7 +111,54 @@ yarn run build
 
         This will set the storage owner to the newly deployed contract version.        
 
-### 4. Start the Permissioning Management Dapp
+### 5. Deploy the contracts
+
+If using a `.env` file to configure [environment variables](#3-update-environment-variables), then
+copy the file to the `permissioning-smart-contracts` directory.
+
+In the `permissioning-smart-contracts` directory, deploy the Admin, Rules, and Ingress
+contracts:
+
+```bash
+yarn truffle migrate --reset
+```
+
+!!! important
+
+    If migrating from v1 to v2, copy the `NodeIngress` contract address which is displayed in the output. This must be specified when restarting the Besu nodes.
+
+!!! note
+
+    These steps apply only if upgrading from v2.0.1 or later, with separate storage contracts.
+
+1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
+
+    ```bash
+    ACCOUNT_STORAGE_CONTRACT_ADDRESS=0x7153CCD1a20Bbb2f6dc89c1024de368326EC6b4F
+    NODE_STORAGE_CONTRACT_ADDRESS=0xE0bF6021e023a197DBb3fABE64efA880E13D3f4b
+    ```
+
+    These addresses will be logged when the contracts are deployed.
+
+    !!! tip
+
+        You can use environment variables to retain existing contracts if required. For example:
+
+        * `RETAIN_ADMIN_CONTRACT` to retain the current admin list
+        * `RETAIN_NODE_RULES_CONTRACT` to retain the current Node rules contract
+        * `RETAIN_ACCOUNT_RULES_CONTRACT` to retain the current Account rules contract
+
+1. Deploy the updated Rules contracts using truffle:
+
+    ```bash
+    truffle migrate
+    ```
+
+    !!! important
+
+        This will set the storage owner to the newly deployed contract version.
+
+### 5. Start the Permissioning Management Dapp
 
 In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
 
@@ -143,7 +168,7 @@ In the `permissioning-smart-contracts` directory, start the webserver serving th
 
 The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
-### 5. Restart Besu nodes
+### 6. Restart Besu nodes
 
 Restart the Besu nodes and include the updated [`NodeIngress` and `AccountIngress`](#4-deploy-the-contract)
 contract addresses and [permissioning contract interface](../../../HowTo/Limit-Access/Specify-Perm-Version.md)
@@ -162,7 +187,7 @@ In the command, the following options have been updated:
 * Set [`--permissions-nodes-contract-version`](../../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
     to `2`.
 
-### 6. Add nodes to the allowlist
+### 7. Add nodes to the allowlist
 
 In the [Permissioning Management Dapp](#5-start-the-permissioning-management-dapp)
 add the [nodes to the allowlist].

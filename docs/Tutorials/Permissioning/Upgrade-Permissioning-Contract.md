@@ -48,7 +48,7 @@ yarn run build
 
 ### 3. Update environment variables
 
-If using a `.env` file to configure [environment variables](#3-update-environment-variables), then
+If using a `.env` file to configure environment variables, then
 the file must be in the `permissioning-smart-contracts` directory.
 
 1. Legacy: If they exist, rename the following environment variables:
@@ -76,7 +76,7 @@ the file must be in the `permissioning-smart-contracts` directory.
 
 !!! note
 
-    If you want to export the current allowlists to assist in updating.
+    These steps enable you to export the current allowlists to assist in updating.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -92,7 +92,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     truffle migrate
     ```
 
-    The migration scripts will log the existing rules to the console, but no contracts will be deployed. 
+The migration scripts will log the existing rules to the console, but no contracts will be deployed.
 
 1. Set initial values for updated deployment:
 
@@ -126,7 +126,7 @@ truffle migrate
 
 !!! note
 
-    If upgrading from v2.0.1 or later, with separate storage contracts, copy the `Storage` contract addresses displayed in the output.
+    If upgrading from v2.0.1 or later (using separate storage contracts) copy the `Storage` contract addresses displayed in the output.
 
 1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
 
@@ -135,7 +135,7 @@ truffle migrate
     NODE_STORAGE_CONTRACT_ADDRESS=0xE0bF6021e023a197DBb3fABE64efA880E13D3f4b
     ```
 
-1. Deploy the updated Rules contracts using truffle:
+1. Deploy the updated contracts:
 
     ```bash
     truffle migrate
@@ -149,9 +149,9 @@ truffle migrate
 
 In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
 
-    ```bash
-    yarn start
-    ```
+```bash
+yarn start
+```
 
 The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
@@ -173,11 +173,6 @@ In the command, note the following options:
     [`--permissions-nodes-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
 * Set [`--permissions-nodes-contract-version`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
     to `2`.
-
-### 7. Add nodes to the allowlist
-
-In the [Permissioning Management Dapp](#5-start-the-permissioning-management-dapp)
-add the [nodes to the allowlist].
 
 <!--link-->
 [nodes to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist

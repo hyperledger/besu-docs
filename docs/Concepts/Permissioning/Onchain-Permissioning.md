@@ -12,7 +12,7 @@ source, the blockchain.
 
     When using Onchain Account Permissioning, a node checks permissions when importing blocks.
     Meaning, a node only imports blocks in which all transactions are from authorized senders. If
-    you disable Onchain Account Permissioning and your node accept blocks without enforcing this rule,
+    you disable Onchain Account Permissioning and your node accepts blocks without enforcing this rule,
     your node cannot resync with other nodes that are enforcing Onchain Account Permissioning rules
     (your node goes into forked state).
 

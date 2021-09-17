@@ -89,7 +89,7 @@ the file must be in the `permissioning-smart-contracts` directory.
 1. Log the current rules to console:
 
     ```bash
-    truffle migrate
+    truffle migrate --reset
     ```
 
     The migration scripts will log the existing rules to the console, but no contracts will be deployed.
@@ -117,13 +117,21 @@ the file must be in the `permissioning-smart-contracts` directory.
 1. In the `permissioning-smart-contracts` directory, deploy the contracts:
 
     ```bash
-    truffle migrate
+    truffle migrate --reset
     ```
 
     !!! important
 
-        - If updating from v1 to v2, copy the `NodeIngress` contract address which is displayed in the output. This must be specified when restarting the Besu nodes.
-        - If upgrading from v2 (using separate storage contracts) copy the `Storage` contract addresses displayed in the output.
+        - If updating from v1 to v2, the new `NodeIngress` contract address must be specified when restarting the Besu nodes. Copy this address from the migration output. For example:
+        ```bash
+        > Deployed NodeIngress contract to address = 0x12B1f953395080A13AeED0dC4d0bb14e787A91cF
+        ```
+        - If upgrading from v2 (using separate storage contracts) copy the `Storage` contract addresses displayed in the output. For example:
+        ```
+        > Deployed NodeStorage contract to address = 0x4F3e35A3Be3C1b77Ade39969D175C743ad3484Ee
+        ...
+        > Deployed AccountStorage contract to address = 0x2362187023D738034B516438Af187356b31E8Fb8
+        ```
 
 1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
 
@@ -135,7 +143,7 @@ the file must be in the `permissioning-smart-contracts` directory.
 1. Deploy the updated contracts:
 
     ```bash
-    truffle migrate
+    truffle migrate --reset
     ```
 
     !!! important

@@ -4,6 +4,40 @@ description: PKI node permissioning
 
 # Node permissioning
 
+Hyperledger Besu allows you to configure node permissioning by using Besu's public key infrastructure (PKI) integration.
+
+!!! warning
+
+    Public key infrastructure (PKI) support is an early access feature, and functionality and options may be updated
+    between releases.
+
+    Node permissioning is not recommended for use on public networks.
+
+Node permissioning allows nodes to use certificates issued by a trusted authority to connect to other authorized
+nodes in the network, and enforces TLS between peers.
+
+## Configure node permissioning
+
+**Prerequisites**:
+
+* A configured private network. For example,
+    [see steps 1 - 5 in the QBFT tutorial](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
+* A keystore containing the certificate and key for each network node.
+* A truststore containing all the trusted certificates for the network.
+
+Start Besu and include the following command line options:
+
+```bash
+besu --Xp2p-tls-enabled=true \
+--Xp2p-tls-keystore-type="PKCS12" \
+--Xp2p-tls-keystore-file="keystore2" \
+--Xp2p-tls-keystore-password-file="keystore2.password" \
+--Xp2p-tls-crl-file="crl2.pem" \
+--Xp2p-tls-truststore-type="JKS" \
+--Xp2p-tls-truststore-file="truststore2.jks" \
+--Xp2p-tls-truststore-password-file="truststore2_password.txt"
+```
+
 ## Command line options
 
 ### `Xpki-block-creation-crl-file`

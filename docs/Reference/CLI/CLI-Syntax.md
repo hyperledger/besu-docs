@@ -414,7 +414,8 @@ The default is `true`.
     fast-sync-min-peers=2
     ```
 
-The minimum number of peers required before starting fast sync. The default is 5.
+The minimum number of peers required before starting fast sync. The default is 5. To improve performance,
+or if the fast sync is taking a long time to complete, increase the number of peers to at least 8 instead.  
 
 !!! note
 

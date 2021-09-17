@@ -9,7 +9,7 @@ version.
 
 ## Prerequisites
 
-For the development server to run the dapp:
+For the development server to run the Dapp:
 
 <!-- vale off -->
 * [Node.js](https://nodejs.org/en/) v10.16.0 or later
@@ -62,23 +62,21 @@ the file must be in the `permissioning-smart-contracts` directory.
 1. Legacy: If they exist, rename the following environment variables:
     * `PANTHEON_NODE_PERM_ACCOUNT` to `BESU_NODE_PERM_ACCOUNT`
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
-    * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`.
+    * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`
 
-2. If updating from v1 to v2, the Node Ingress contract must be re-deployed
+2. If updating from v1 to v2, re-deploy the the `NodeIngress` contract and delete the `NODE_INGRESS_CONTRACT_ADDRESS` environment variable.
 
     !!! important
 
         This step is only required if upgrading from v1 of the node permissioning contract
-        to v2 (because the interface changed, a new NodeIngress contract must be deployed).
-    If updating from v1 to v2, delete the following environment variable:
-    * `NODE_INGRESS_CONTRACT_ADDRESS`.
+        to v2 (because the interface changed, a new `NodeIngress` contract must be deployed).
 
 ### 4. Optional: Export current allowlists
 
 !!! note
 
     These steps enable you to export the current allowlists to assist in updating.
-    You can set these lists via the dapp if you prefer.
+    You can set these lists via the Dapp if you prefer.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -116,19 +114,16 @@ the file must be in the `permissioning-smart-contracts` directory.
 
 ### 5. Deploy the contracts
 
-In the `permissioning-smart-contracts` directory, deploy the contracts:
+1. In the `permissioning-smart-contracts` directory, deploy the contracts:
 
-```bash
-truffle migrate
-```
+    ```bash
+    truffle migrate
+    ```
 
-!!! important
+    !!! important
 
-    If updating from v1 to v2, copy the `NodeIngress` contract address which is displayed in the output. This must be specified when restarting the Besu nodes.
-
-!!! note
-
-    If upgrading from v2.0.1 or later (using separate storage contracts) copy the `Storage` contract addresses displayed in the output.
+        - If updating from v1 to v2, copy the `NodeIngress` contract address which is displayed in the output. This must be specified when restarting the Besu nodes.
+        - If upgrading from v2 (using separate storage contracts) copy the `Storage` contract addresses displayed in the output.
 
 1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
 
@@ -149,7 +144,7 @@ truffle migrate
 
 ### 6. Start the Permissioning Management Dapp
 
-In the `permissioning-smart-contracts` directory, start the webserver serving the Dapp:
+In the `permissioning-smart-contracts` directory, start the Web server serving the Dapp:
 
 ```bash
 yarn start

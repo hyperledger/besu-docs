@@ -64,7 +64,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     * `PANTHEON_NODE_PERM_KEY` to `BESU_NODE_PERM_KEY`
     * `PANTHEON_NODE_PERM_ENDPOINT` to `BESU_NODE_PERM_ENDPOINT`
 
-2. If updating from v1 to v2, re-deploy the `NodeIngress` contract and delete the `NODE_INGRESS_CONTRACT_ADDRESS` environment variable.
+2. If updating from v1 to v2, you need to re-deploy the `NodeIngress` contract. In order to do this, first delete the `NODE_INGRESS_CONTRACT_ADDRESS` environment variable.
 
     !!! important
 
@@ -86,13 +86,13 @@ the file must be in the `permissioning-smart-contracts` directory.
     RETAIN_ACCOUNT_RULES_CONTRACT=true
     ```
 
-1. Log the current rules to console:
+1. Log the current allowlists to console:
 
     ```bash
     truffle migrate --reset
     ```
 
-    The migration scripts will log the existing rules to the console, but no contracts will be deployed.
+    The migration scripts will log the existing allowlists to the console, but no contracts will be deployed.
 
 1. Set initial values for updated deployment:
 
@@ -136,8 +136,8 @@ the file must be in the `permissioning-smart-contracts` directory.
 1. Set the storage contract address environment variables to ensure that the storage contracts are not re-deployed. For example:
 
     ```bash
-    ACCOUNT_STORAGE_CONTRACT_ADDRESS=0x7153CCD1a20Bbb2f6dc89c1024de368326EC6b4F
     NODE_STORAGE_CONTRACT_ADDRESS=0xE0bF6021e023a197DBb3fABE64efA880E13D3f4b
+    ACCOUNT_STORAGE_CONTRACT_ADDRESS=0x7153CCD1a20Bbb2f6dc89c1024de368326EC6b4F
     ```
 
 1. Deploy the updated contracts:
@@ -146,13 +146,9 @@ the file must be in the `permissioning-smart-contracts` directory.
     truffle migrate --reset
     ```
 
-    !!! important
-
-        This will set the storage owner to the newly deployed contract version.
-
 ### 6. Start the Permissioning Management Dapp
 
-In the `permissioning-smart-contracts` directory, start the Web server serving the Dapp:
+In the `permissioning-smart-contracts` directory, start the Web server:
 
 ```bash
 yarn start
@@ -162,7 +158,7 @@ The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 ### 7. Restart Besu nodes
 
-Restart the Besu nodes and include the updated [`NodeIngress`](#4-deploy-the-contract)
+Restart the Besu nodes with the updated [`NodeIngress`](#4-deploy-the-contract)
 contract address and [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
 version.
 

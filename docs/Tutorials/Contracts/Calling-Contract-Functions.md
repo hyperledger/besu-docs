@@ -93,9 +93,9 @@ To verify that a value has been updated, perform a `get` call after a `set` upda
 
 This private contracts example uses the same `SimpleStorage.sol` contract as in the
 [public contracts example](#interact-with-public-contracts), but it uses the
-[web3js-eea](https://github.com/ConsenSys/web3js-eea) library and the
-[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) method to interact with the contract.
-Both read and write operations are performed using the `eea_sendRawTransaction` API call.
+[web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the
+[`generateAndSendRawTransaction`](https://consensys.github.io/web3js-quorum/latest/module-priv.html#~generateAndSendRawTransaction) method to interact with the contract.
+Both read and write operations are performed using the `generateAndSendRawTransaction` API call.
 A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js)
 can be found in the [Developer Quickstart].
 
@@ -107,7 +107,7 @@ You also need your private and public keys and the recipient's public key.
 
 Use the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
 instance of the smart contract, extract the signature of function's ABI for the `get` method, and then use this value as
-the `data` parameter for the `eea_sendRawTransaction` transaction.
+the `data` parameter for the `generateAndSendRawTransaction` transaction.
 
 The keys remain the same for the sender and recipient, and the `to` field is the contract's address.
 Once you make the request, you receive a `transactionHash`, which you can use to get a `transactionReceipt` containing
@@ -115,9 +115,9 @@ the value stored:
 
 ```js
 async function getValueAtAddress(clientUrl, address, contractAbi, fromPrivateKey, fromPublicKey, toPublicKey) {
-  const web3 = new Web3(clientUrl)
-  const web3quorum = new Web3Quorum(web3, chainId);
-  const contract = new web3eea.eth.Contract(contractAbi);
+  const Web3 = require("web3");
+  const Web3Quorum = require("web3js-quorum");
+  const web3 = new Web3Quorum(new Web3("http://localhost:22000"));
   // eslint-disable-next-line no-underscore-dangle
   const functionAbi = contract._jsonInterface.find(e => {
     return e.name === "get";
@@ -144,14 +144,14 @@ the `set` function's ABI, and then append these arguments to the `set` function'
 
 ```js
 async function setValueAtAddress(clientUrl, address, value, contractAbi, fromPrivateKey, fromPublicKey, toPublicKey) {
-  const web3 = new Web3(clientUrl)
-  const web3quorum = new Web3Quorum(web3, chainId);
-  const contract = new web3eea.eth.Contract(contractAbi);
+  const Web3 = require("web3");
+  const Web3Quorum = require("web3js-quorum");
+  const web3 = new Web3Quorum(new Web3("http://localhost:22000"));
   // eslint-disable-next-line no-underscore-dangle
   const functionAbi = contract._jsonInterface.find(e => {
     return e.name === "set";
   });
-  const functionArgs = web3eea.eth.abi
+  const functionArgs = web3quorum.eth.abi
     .encodeParameters(functionAbi.inputs, [value])
     .slice(2);
   const functionParams = {

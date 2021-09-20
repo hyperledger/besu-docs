@@ -2049,6 +2049,52 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
         }
         ```
 
+### `eth_feeHistory`
+
+Returns base fee per gas and transaction effective priority fee per gas history
+for the requested block range, allowing you to track trends over time.
+
+#### Parameters
+
+* `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
+If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
+
+* `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
+ `earliest`, or `pending`, as described in
+ [Block parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result`: *object* - [Fee history results object](API-Objects.md#fee-history-results-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 28,
+          "result" : {
+            "oldestBlock" : "0x53cbe6",
+            "baseFeePerGas" : ["0x7", "0x7", "0x7" ]
+            "gasUsedRatio" : [ 0.0011536265162931602, 0.10653990633315608 ]
+         }
+        }
+        ```
+
 ### `eth_gasPrice`
 
 Returns a percentile gas unit price for the most recent blocks, in Wei. By default,
@@ -5738,14 +5784,14 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 
 ### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
+Creates a group of nodes, specified by their [Tessera](https://docs.tessera.consensys.net/) public key.
 
 #### Parameters
 
 `options`: *object* - request options object with the following fields:
 
 * `addresses`: *array* of *strings* - list of nodes specified by
-  [Orion](https://docs.orion.consensys.net/) public keys
+  [Tessera](https://docs.tessera.consensys.net/) public keys
   
 * `name`: *string* - (optional) privacy group name
   
@@ -5874,7 +5920,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result`: *string* - 32-byte enclave key (the enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.consensys.net/).)
+[Tessera](https://docs.tessera.consensys.net/).)
 
 !!! example
 
@@ -5907,7 +5953,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`members`: *array* of *strings* - members specified by [Orion](https://docs.orion.consensys.net/) public keys
+`members`: *array* of *strings* - members specified by [Tessera](https://docs.tessera.consensys.net/) public keys
 
 #### Returns
 
@@ -6011,9 +6057,9 @@ Returns the private transaction count for the specified account and
 
 * `address`: *string* - account address
 
-* `sender`: *string* - base64-encoded Orion address of the sender
+* `sender`: *string* - base64-encoded Tessera address of the sender
 
-* `recipients`: *array* of *strings* - base64-encoded Orion addresses of recipients
+* `recipients`: *array* of *strings* - base64-encoded Tessera addresses of recipients
 
 #### Returns
 

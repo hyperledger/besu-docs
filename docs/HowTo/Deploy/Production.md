@@ -34,5 +34,5 @@ steps using `yarn` to install, build, and start the development server. Instead,
 procedure above to deploy the permissioning management dapp to your Web server.
 
 <!-- Links -->
-[projects release page]: https://github.com/PegaSysEng/permissioning-smart-contracts/releases/latest
+[projects release page]: https://github.com/ConsenSys/permissioning-smart-contracts/releases/latest
 [Getting started with onchain permissioning]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

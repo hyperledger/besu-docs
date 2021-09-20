@@ -5,7 +5,7 @@ description: Configure TLS
 # Configure TLS
 
 Hyperledger Besu supports TLS for client and server communication. For example, you can
-[configure TLS](../../Concepts/TLS.md) for communication between
+[configure TLS](../../../Concepts/TLS.md) for communication between
 [EthSigner](https://docs.ethsigner.consensys.net/en/latest/Concepts/TLS/) and Besu, and Besu and
 [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
 
@@ -13,7 +13,7 @@ Configure TLS communication from the command line.
 
 **Prerequisites**:
 
-* Besu's password-protected PKCS #12 keystore.
+* Besu's password-protected PKCS12 keystore.
 * File containing the keystore password
 
 ## Configure client TLS
@@ -23,7 +23,7 @@ Allow clients (for example a dapp, curl, or EthSigner) to send and receive secur
 **Client Prerequisites**:
 
 * [Configure the client for TLS]
-* Client's PKCS #12 keystore information.
+* Client's PKCS12 keystore information.
 
 ### Create the known clients file
 
@@ -62,22 +62,22 @@ besu --rpc-http-enabled --rpc-http-tls-enabled --rpc-http-tls-client-auth-enable
 The command line:
 
 * Enables the HTTP JSON-RPC service using the
-  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
+  [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
 * Enables TLS for the HTTP JSON-RPC service using the
-  [`--rpc-http-tls-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-enabled) option.
+  [`--rpc-http-tls-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-enabled) option.
 * Enables TLS client authentication using the
-  [`--rpc-http-tls-client-auth-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-client-auth-enabled) option.
+  [`--rpc-http-tls-client-auth-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-client-auth-enabled) option.
 * Specifies the keystore using the
-  [`--rpc-http-tls-keystore-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-file)
+  [`--rpc-http-tls-keystore-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-file)
   option.
 * Specifies the file that contains the password to decrypt the keystore using the
-  [`--rpc-http-tls-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-password-file) option.
+  [`--rpc-http-tls-keystore-password-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-password-file) option.
 * [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the
-  [`--rpc-http-tls-known-clients-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
+  [`--rpc-http-tls-known-clients-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
 
 !!! note
 
-    Set [`--rpc-http-tls-ca-clients-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-ca-clients-enabled)
+    Set [`--rpc-http-tls-ca-clients-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-ca-clients-enabled)
     to `true` to allow access to clients with signed and trusted root CAs.
 
 ## Configure server TLS
@@ -119,14 +119,14 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 The command line:
 
 * Enables TLS with the server using the
-  [`--privacy-tls-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-enabled) option.
+  [`--privacy-tls-enabled`](../../../Reference/CLI/CLI-Syntax.md#privacy-tls-enabled) option.
 * Specifies the keystore using the
-  [`--privacy-tls-keystore-file`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-keystore-file)
+  [`--privacy-tls-keystore-file`](../../../Reference/CLI/CLI-Syntax.md#privacy-tls-keystore-file)
   option.
 * Specifies the file that contains the password to decrypt the keystore using the
-  [`--privacy-tls-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-keystore-password-file) option.
+  [`--privacy-tls-keystore-password-file`](../../../Reference/CLI/CLI-Syntax.md#privacy-tls-keystore-password-file) option.
 * Specifies the trusted servers using the
-  [`--privacy-tls-known-enclave-file`](../../Reference/CLI/CLI-Syntax.md#privacy-tls-known-enclave-file) option.
+  [`--privacy-tls-known-enclave-file`](../../../Reference/CLI/CLI-Syntax.md#privacy-tls-known-enclave-file) option.
 
 <!-- Links -->
 [Configure the client for TLS]: https://docs.ethsigner.consensys.net/en/latest/HowTo/Configure-TLS/#server-tls-connection

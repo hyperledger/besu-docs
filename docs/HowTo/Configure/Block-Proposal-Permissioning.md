@@ -1,42 +1,54 @@
 ---
-description: PKI node permissioning
+description: Block proposal permissioning
 ---
 
-# Node permissioning
+# Block proposal permissioning
 
-Hyperledger Besu allows you to configure node permissioning by using Besu's public key infrastructure (PKI) integration.
+!!! important
 
-!!! warning
+    Only private networks using the [QBFT consensus protocol] support block proposal permissioning.
 
-    Public key infrastructure (PKI) support is an early access feature, and functionality and options may be updated
-    between releases.
+    Block proposal permissioning is an early access feature, and functionality and options may be updated between releases.
 
-    Node permissioning is not recommended for use on public networks.
+You can configure [block proposal permissoning](../../Concepts/PKI.md#block-proposal-permissioning)
+to ensure authorized validator nodes can propose new blocks in the network.
 
-Node permissioning allows nodes to use certificates issued by a trusted authority to connect to other authorized
-nodes in the network, and enforces TLS between peers.
+Use certificates issued by a trusted authority to ensure validators are authorized to propose blocks.
 
-## Configure node permissioning
+## Configure block proposal permissioning
 
 **Prerequisites**:
 
-* A configured private network. For example,
-    [see steps 1 - 5 in the QBFT tutorial](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
+* A configured network. For example,
+    [see steps 1 - 5 in the QBFT tutorial](../../Tutorials/Private-Network/Create-QBFT-Network.md).
 * A keystore containing the certificate and key for each network node.
 * A truststore containing all the trusted certificates for the network.
 
-Start Besu and include the following command line options:
+Start Besu and include the following command line options on the required nodes:
 
 ```bash
-besu --Xp2p-tls-enabled=true \
---Xp2p-tls-keystore-type="PKCS12" \
---Xp2p-tls-keystore-file="keystore2" \
---Xp2p-tls-keystore-password-file="keystore2.password" \
---Xp2p-tls-crl-file="crl2.pem" \
---Xp2p-tls-truststore-type="JKS" \
---Xp2p-tls-truststore-file="truststore2.jks" \
---Xp2p-tls-truststore-password-file="truststore2_password.txt"
+besu Xpki-block-creation-enabled=true \
+Xpki-block-creation-keystore-type="pkcs12" \
+Xpki-block-creation-keystore-file="keystore" \
+Xpki-block-creation-keystore-password-file="keystore.password" \
+Xpki-block-creation-keystore-certificate-alias="validator" \
+Xpki-block-creation-truststore-type="pkcs12" \
+Xpki-block-creation-truststore-file="truststore" \
+Xpki-block-creation-truststore-password-file="truststore.password"
 ```
+
+In the command line:
+
+* Enable block proposal permissioning using [`--Xpki-block-creation-enabled=true`](#xpki-block-creation-enabled)
+* Specify the the keystore type and keystore file using [`Xpki-block-creation-keystore-type`](#xpki-block-creation-keystore-type) and
+    [`--Xpki-block-creation-keystore-file`](#xpki-block-creation-keystore-file)
+* Specify the text file containing the password to unlock the keystore file using [`Xpki-block-creation-keystore-password-file`](#xpki-block-creation-keystore-password-file)
+* Specify the alias of the certificate to be included in blocks proposed by this validator using
+    [`Xpki-block-creation-keystore-certificate-alias`](#xpki-block-creation-keystore-certificate-alias)
+* Specify the the trusttore type and truststore file using [`Xpki-block-creation-truststore-type`](#xpki-block-creation-truststore-type) and
+    [`Xpki-block-creation-truststore-file`](#xpki-block-creation-truststore-file)
+* Specify the text file containing the password to unlock the truststore file using
+    [`Xpki-block-creation-truststore-password-file`](#xpki-block-creation-truststore-password-file)
 
 ## Command line options
 
@@ -237,3 +249,5 @@ Text file containing the password to unlock the truststore file.
     ```
 
 PKI truststore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
+
+[QBFT consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md

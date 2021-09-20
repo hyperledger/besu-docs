@@ -9,23 +9,24 @@ description: Public key infrastructure
     Public key infrastructure (PKI) support is an early access feature, and functionality and options may be updated
     between releases.
 
-Hyperledger Besu provides public key infrastructure support to allow you to use certificates issued by a trusted authority
-to manage node and account identities in the following ways:
+Hyperledger Besu provides public key infrastructure support to allow you to use certificates issued by a trusted
+authority to manage node and account identities in the following ways:
 
-* Node permissioning - Only authorized nodes can connect to other nodes in the network.
+* Node permissioning - Only authorized nodes can connect to other nodes in the network using TLS for the P2P
+    communication.
 * Account permissioning - Only authorized validator nodes can propose new blocks in the network.
 
 Supported keystore and truststore formats used to store the certificates include PKCS12 and JKS.
 
 ## Node permissioning
 
-Allow nodes to use certificates issued by a trusted authority to connect to other authorized nodes in the network.
-
-Enforces TLS between peers, by enforcing TLS at the TCP layer, only nodes with valid certificates are
-allowed to communicate with other peers.
+Allow TLS communication between nodes by using certificates issued by a trusted authority to connect to other
+authorized nodes in the network.
 
 When receiving connection requests, the incoming connection must be from another authorized node; simalarly when
 connecting to a node, the initiator ensures that the remote node is authorized to participate in the network.
+
+[Configure TLS for the P2P communication using the Besu command line options](../HowTo/Configure/TLS/P2P-TLS.md).
 
 ## Block proposal permissioning
 
@@ -36,5 +37,7 @@ connecting to a node, the initiator ensures that the remote node is authorized t
 Use certificates issued by a trusted authority to ensure only authorized validator nodes can propose new blocks in the
 network. Certificate information is included in the header of the proposed block to verify that the proposer is
 authorised to create a block in the network.
+
+[Configure blocl proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md)
 
 [QBFT consensus protocol]: ../HowTo/Configure/Consensus-Protocols/QBFT.md

@@ -179,6 +179,7 @@ nav:
       - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
+        - Bonsai Tries data storage format: Concepts/Bonsai.md
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md

@@ -152,7 +152,7 @@ Copy the RLP encoded data to the `extraData` property in the genesis file.
     0xf87aa00000000000000000000000000000000000000000000000000000000000000000f854944592c8e45706cc08b8f44b11e43cba0cfc5892cb9406e23768a0f59cf365e18c2e0c89e151bcdedc7094c5327f96ee02d7bcbc1bf1236b8c15148971e1de94ab5e7f4061c605820d3744227eed91ff8e2c8908c080c0
     ```
 
-When the network is started the four nodes specified in the `toEncode.json` file will be the validators for the network.
+When you start the network, the four nodes previously specified in `toEncode.json` are the validators for the network.
 
 ### Block time
 

@@ -16,3 +16,4 @@ The [Web3js-quorum documentation] contains information about the available APIs 
 [web3.js]: https://github.com/ChainSafe/web3.js
 [quorum.js]: https://github.com/ConsenSys/quorum.js
 [web3js-eea]: https://github.com/ConsenSys/web3js-eea
+[Web3js-quorum documentation]:https://consensys.github.io/web3js-quorum/latest/index.html

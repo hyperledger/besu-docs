@@ -34,6 +34,17 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 | **uncles**           | Array                 | Array of uncle hashes.                                             |
 | **baseFeePerGas**    | Quantity              | The block's [base fee per gas](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
 
+## Fee history results object
+
+Returned by [`eth_feeHistory`](API-Methods.md#eth_feehistory) for the requested block range.
+If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
+
+| Key | Type | Value |
+|-----|:----:|-------|
+| **oldestBlock**        | Quantity, Integer     | Lowest number block of the returned range.                        |
+| **baseFeePerGas**      | Array                 | Array of block base fees per gas, including an extra block value. The extra value is the next block after the newest block in the returned range. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
+| **gasUsedRatio**       | Array                 | Array of block gas used ratios. These are calculated as the ratio of `gasUsed` and `gasLimit`.   |
+
 ## Filter options object
 
 Parameter for [`eth_newFilter`](API-Methods.md#eth_newfilter),

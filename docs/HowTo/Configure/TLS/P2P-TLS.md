@@ -19,7 +19,7 @@ Besu supports PKCS12 and JKS keystore and truststore types for P2P TLS.
 **Prerequisites**:
 
 * A configured network. For example,
-    [see steps 1 - 5 in the QBFT tutorial](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
+    [see steps 1 to 5 in the QBFT tutorial](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
 * Each node requires a keystore that contains the node's certificate and key.
 * A truststore containing all the trusted certificates for the network.
 
@@ -39,11 +39,11 @@ besu --Xp2p-tls-enabled=true \
 In the command line:
 
 * Enable TLS for P2P communication using [`--Xp2p-tls-enabled=true`](#xp2p-tls-enabled)
-* Specify the the keystore type and keystore file using [`--Xp2p-tls-keystore-type`](#xp2p-tls-keystore-type) and
+* Specify the keystore type and keystore file using [`--Xp2p-tls-keystore-type`](#xp2p-tls-keystore-type) and
     [`--Xp2p-tls-keystore-file`](#xp2p-tls-keystore-file)
 * Specify the text file containing the password to unlock the keystore file using [`--Xp2p-tls-keystore-password-file`](#xp2p-tls-keystore-password-file)
 * Specify the optional [certificate revocation list (CRL)] file using [`--Xp2p-tls-crl-file`](#xp2p-tls-crl-file)
-* Specify the the trusttore type and truststore file using [`--Xp2p-tls-truststore-type`](#xp2p-tls-truststore-type) and
+* Specify the truststore type and truststore file using [`--Xp2p-tls-truststore-type`](#xp2p-tls-truststore-type) and
     [`--Xp2p-tls-truststore-file`](#xp2p-tls-truststore-file)
 * Specify the text file containing the password to unlock the truststore file using [`--Xp2p-tls-truststore-password-file`](#xp2p-tls-keystore-password-file)
 

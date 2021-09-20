@@ -10,7 +10,7 @@ description: Block proposal permissioning
 
     Block proposal permissioning is an early access feature, and functionality and options may be updated between releases.
 
-You can configure [block proposal permissoning](../../Concepts/PKI.md#block-proposal-permissioning)
+You can configure [block proposal permissioning](../../Concepts/PKI.md#block-proposal-permissioning)
 to ensure authorized validator nodes can propose new blocks in the network.
 
 Use certificates issued by a trusted authority to ensure validators are authorized to propose blocks.
@@ -20,7 +20,7 @@ Use certificates issued by a trusted authority to ensure validators are authoriz
 **Prerequisites**:
 
 * A configured network. For example,
-    [see steps 1 - 5 in the QBFT tutorial](../../Tutorials/Private-Network/Create-QBFT-Network.md).
+    [see steps 1 to 5 in the QBFT tutorial](../../Tutorials/Private-Network/Create-QBFT-Network.md).
 * A keystore containing the certificate and key for each network node.
 * A truststore containing all the trusted certificates for the network.
 
@@ -40,12 +40,12 @@ Xpki-block-creation-truststore-password-file="truststore.password"
 In the command line:
 
 * Enable block proposal permissioning using [`--Xpki-block-creation-enabled=true`](#xpki-block-creation-enabled)
-* Specify the the keystore type and keystore file using [`Xpki-block-creation-keystore-type`](#xpki-block-creation-keystore-type) and
+* Specify the keystore type and keystore file using [`Xpki-block-creation-keystore-type`](#xpki-block-creation-keystore-type) and
     [`--Xpki-block-creation-keystore-file`](#xpki-block-creation-keystore-file)
 * Specify the text file containing the password to unlock the keystore file using [`Xpki-block-creation-keystore-password-file`](#xpki-block-creation-keystore-password-file)
 * Specify the alias of the certificate to be included in blocks proposed by this validator using
     [`Xpki-block-creation-keystore-certificate-alias`](#xpki-block-creation-keystore-certificate-alias)
-* Specify the the trusttore type and truststore file using [`Xpki-block-creation-truststore-type`](#xpki-block-creation-truststore-type) and
+* Specify the truststore type and truststore file using [`Xpki-block-creation-truststore-type`](#xpki-block-creation-truststore-type) and
     [`Xpki-block-creation-truststore-file`](#xpki-block-creation-truststore-file)
 * Specify the text file containing the password to unlock the truststore file using
     [`Xpki-block-creation-truststore-password-file`](#xpki-block-creation-truststore-password-file)

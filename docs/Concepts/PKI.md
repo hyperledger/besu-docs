@@ -23,8 +23,8 @@ Supported keystore and truststore formats used to store the certificates include
 Allow TLS communication between nodes by using certificates issued by a trusted authority to connect to other
 authorized nodes in the network.
 
-When receiving connection requests, the incoming connection must be from another authorized node; simalarly when
-connecting to a node, the initiator ensures that the remote node is authorized to participate in the network.
+When receiving connection requests, the incoming connection must be from another authorized node; similarly, when
+connecting to a node the initiator ensures that the remote node is authorized to participate in the network.
 
 [Configure TLS for the P2P communication using the Besu command line options](../HowTo/Configure/TLS/P2P-TLS.md).
 
@@ -38,6 +38,6 @@ Use certificates issued by a trusted authority to ensure only authorized validat
 network. Certificate information is included in the header of the proposed block to verify that the proposer is
 authorised to create a block in the network.
 
-[Configure blocl proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md)
+[Configure block proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md)
 
 [QBFT consensus protocol]: ../HowTo/Configure/Consensus-Protocols/QBFT.md

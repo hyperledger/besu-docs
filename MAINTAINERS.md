@@ -11,6 +11,7 @@
 | Byron Gravenorst | bgravenorst      | bgravenorst      |
 | Madeline Murray  | MadelineMurray   | madelinemurray   |
 | Nicolas Massart  | NicolasMassart   | NicolasMassart   |
+| Roland Tyler     | rolandtyler      | rolandtyler      |
 <!-- vale on -->
 
 ## Emeritus maintainers

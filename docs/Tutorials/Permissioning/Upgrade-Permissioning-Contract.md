@@ -158,21 +158,12 @@ The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 Restart the Besu nodes with the updated [`NodeIngress`](#4-deploy-the-contract)
 contract address and [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
-version.
+version 2.
 
 !!! example
     ```cmd
         besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x4E72770760c011647D4873f60A3CF6cDeA896CD8" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*"
     ```
-
-In the command, note the following options:
-
-* The address of the permissioned accounts contract (`AccountIngress` contract address) using
-    [`--permissions-accounts-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-contract-address)
-* The address of the permissioned nodes contract (`NodeIngress` contract address) using
-    [`--permissions-nodes-contract-address`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-address)
-* Set [`--permissions-nodes-contract-version`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version)
-    to `2`.
 
 <!--link-->
 [nodes to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist

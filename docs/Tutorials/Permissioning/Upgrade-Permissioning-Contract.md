@@ -9,7 +9,7 @@ version.
 
 ## Prerequisites
 
-For the development server to run the Dapp:
+For the development server to run the dapp:
 
 <!-- vale off -->
 * [Node.js](https://nodejs.org/en/) v10.16.0 or later
@@ -75,8 +75,8 @@ the file must be in the `permissioning-smart-contracts` directory.
 
 !!! note
 
-    These steps enable you to export the current allowlists to assist in updating.
-    You can set these lists via the Dapp if you prefer.
+    This step enables you to export the current allowlists to assist in updating.
+    You can set these lists via the dapp if you prefer.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -94,9 +94,7 @@ the file must be in the `permissioning-smart-contracts` directory.
 
     The migration scripts will log the existing allowlists to the console, but no contracts will be deployed.
 
-1. Set initial values for updated deployment:
-
-    Using the values logged in the previous step, set the following environment variables as required:
+1. Set initial values for updated deployment using the values logged in the previous step:
 
     ```bash
     INITIAL_ADMIN_ACCOUNTS=<list-of-admins>
@@ -146,7 +144,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     truffle migrate --reset
     ```
 
-### 6. Start the Permissioning Management Dapp
+### 6. Start the permissioning management dapp
 
 In the `permissioning-smart-contracts` directory, start the Web server:
 
@@ -154,7 +152,7 @@ In the `permissioning-smart-contracts` directory, start the Web server:
 yarn start
 ```
 
-The Dapp displays at [`http://localhost:3000`](http://localhost:3000).
+The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 ### 7. Restart Besu nodes
 
@@ -162,9 +160,10 @@ Restart the Besu nodes with the updated [`NodeIngress`](#4-deploy-the-contract)
 contract address and [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
 version.
 
-```cmd
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x4E72770760c011647D4873f60A3CF6cDeA896CD8" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*"
-```
+!!! example
+    ```cmd
+        besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x4E72770760c011647D4873f60A3CF6cDeA896CD8" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*"
+    ```
 
 In the command, note the following options:
 

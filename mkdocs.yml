@@ -88,6 +88,7 @@ nav:
           - Configure mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
           - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
+          - Configure data storage formats: HowTo/Configure/Configure-Data-Storage.md
         - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -179,10 +180,10 @@ nav:
       - Developer Quickstart: Tutorials/Developer-Quickstart.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
-        - Bonsai Tries data storage format: Concepts/Bonsai.md
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+        - Data storage formats: Concepts/Data-Storage-Formats.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md

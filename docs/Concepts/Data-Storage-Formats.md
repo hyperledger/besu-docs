@@ -8,7 +8,7 @@ Besu offers two formats for storing the world state, [Forest of Tries](#forest-o
 
 ## Forest of Tries
 
-Forest of Tries, also called forest mode, is the [default storage format](../HowTo/Configure/Configure-Data-Storage.md). 
+Forest of Tries, also called forest mode, is the [default storage format](../HowTo/Configure/Configure-Data-Storage.md).
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated
 with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed

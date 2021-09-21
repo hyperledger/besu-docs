@@ -21,7 +21,7 @@ and stored by hash, which increases the size of the database and increases the r
     Bonsai Tries is an experimental feature.
 
 Bonsai Tries is an experimental data storage layout policy designed to reduce storage requirements and increase
-read performance. 
+read performance.
 
 Bonsai stores leaf values separate from the branches of the trie. Bonsai stores nodes by the
 location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the
@@ -35,7 +35,7 @@ To run a node with Bonsai Tries data storage format, use the experimental comman
 
 ### Memory requirements
 
-Forest mode uses significantly more memory than Bonsai.  With full archives, forest mode uses an estimated 12 TB of storage.
+Forest mode uses significantly more memory than Bonsai. With full archives, forest mode uses an estimated 12 TB of storage.
 Bonsai with full archives uses an estimated 800 GB of storage.
 
 ### Accessing data
@@ -45,13 +45,13 @@ underlying storage directly using the account key. Bonsai will generally read fa
 particularly if the blocks are more recent.
 
 However, Bonsai becomes increasingly more resource intensive the further in history you try to read data. To improve performance,
-limit the number of layers back to load to 500 layers using the 
+limit the number of layers back to load to 500 layers using the
 [`--Xbonsai-maximum-back-layers-to-load`](../HowTo/Configure/Configure-Data-Storage.md#configuring-the-number-of-layers-loaded-with-bonsai) option.
 
 ### Fast syncing nodes
 
 With forest mode, your node can use [fast synchronization](Node-Types.md#run-a-full-node) as normal.
-Your node can fast sync from other nodes and other nodes can fast sync to your node.  
+Your node can fast sync from other nodes and other nodes can fast sync to your node.
 
 You can fast sync from other nodes using Bonsai, but other nodes cannot fast sync
 to a Bonsai node. Bonsai stores data at a point-in-time. Fast synchronization messages request node data by-hash at a

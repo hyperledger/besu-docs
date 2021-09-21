@@ -3193,6 +3193,43 @@ from untrusted sources, by using a trusted block hash.
         }
         ```
 
+### `eth_getQuorumPayload`
+
+When using [GoQuorum-compatible privacy](../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md), returns the
+[unencrypted payload from Tessera](https://docs.tessera.consensys.net/Concepts/Transaction-manager/#private-transaction-flow).
+
+#### Parameters
+
+`id`: *string* - the generated SHA3-512 hash of the encrypted payload from Tessera, in hex (the `input` value in the transaction)
+
+#### Returns
+
+`result`: *string* - unencrypted transaction payload in hex
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST http://127.0.0.1:22000 --data '{"jsonrpc":"2.0","method":"eth_getQuorumPayload","params":["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id":67}'
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getQuorumPayload","params": ["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id": 67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":67,
+          "result":"0x6060604052341561000f57600080fd5b604051602080610149833981016040528080519060200190919050505b806000819055505b505b610104806100456000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632a1afcd914605157806360fe47b11460775780636d4ce63c146097575b600080fd5b3415605b57600080fd5b606160bd565b6040518082815260200191505060405180910390f35b3415608157600080fd5b6095600480803590602001909190505060c3565b005b341560a157600080fd5b60a760ce565b6040518082815260200191505060405180910390f35b60005481565b806000819055505b50565b6000805490505b905600a165627a7a72305820d5851baab720bba574474de3d09dbeaabc674a15f4dd93b974908476542c23f00029000000000000000000000000000000000000000000000000000000000000002a"
+        }
+        ```
+
 ### `eth_getStorageAt`
 
 Returns the value of a storage position at a specified address.

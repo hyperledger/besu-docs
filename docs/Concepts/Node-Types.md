@@ -48,7 +48,7 @@ genesis block.
 !!! note
 
     To improve performace, or if the fast sync is taking a long time to complete, use
-    [`fast-sync-min-peers`](../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) to increase the number of peers to at least 8.
+    [`--fast-sync-min-peers`](../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) to increase the number of peers to at least 8.
 
 ## Run an archive node
 

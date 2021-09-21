@@ -33,7 +33,7 @@ Private transaction processing is illustrated and described in the following dia
     * `privateFor` or `privacyGroupId` specifies the list of recipients
     * `privateFrom` specifies the sender
     * `restriction` specifies the transaction is of type
-      [_restricted_](../Privacy/Privacy-Overview.md#private-transactions).
+      [_restricted_](../Privacy/Private-Transactions.md).
 
 1. The JSON-RPC endpoint passes the private transaction to the Private Transaction Handler.
 

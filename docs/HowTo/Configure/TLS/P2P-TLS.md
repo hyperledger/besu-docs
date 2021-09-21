@@ -66,7 +66,7 @@ In the command line:
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-CRL-FILE=/home/cert/cert.crl.pem
+    BESU_XP2P_TLS_CRL_FILE=/home/cert/cert.crl.pem
     ```
 
 Path to the optional certificate revocation list (CRL) file.
@@ -88,7 +88,7 @@ Path to the optional certificate revocation list (CRL) file.
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-ENABLED=true
+    BESU_XP2P_TLS_ENABLED=true
     ```
 
 Enable TLS for P2P communication. Defaults to `false`.
@@ -110,7 +110,7 @@ Enable TLS for P2P communication. Defaults to `false`.
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-KEYSTORE-FILE=/home/cert/keystore.jks
+    BESU_XP2P_TLS_KEYSTORE_FILE=/home/cert/keystore.jks
     ```
 
 Keystore file containing the key and certificate to allow TLS for P2P communication.
@@ -132,7 +132,7 @@ Keystore file containing the key and certificate to allow TLS for P2P communicat
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-KEYSTORE-PASSWORD-FILE=/home/cert/password.txt
+    BESU_XP2P_TLS_KEYSTORE_PASSWORD_FILE=/home/cert/password.txt
     ```
 
 Text file containing the password to unlock the keystore file.
@@ -154,7 +154,7 @@ Text file containing the password to unlock the keystore file.
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-KEYSTORE-TYPE=JKS
+    BESU_XP2P_TLS_KEYSTORE_TYPE=JKS
     ```
 
 Keystore type that allows TLS for P2P communication. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
@@ -176,7 +176,7 @@ Keystore type that allows TLS for P2P communication. Valid options are `JKS` and
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-TRUSTSTORE-FILE=/home/cert/truststore.jks
+    BESU_XP2P_TLS_TRUSTSTORE_FILE=/home/cert/truststore.jks
     ```
 
 Truststore containing the trusted certificates that allows TLS for P2P communication.
@@ -198,7 +198,7 @@ Truststore containing the trusted certificates that allows TLS for P2P communica
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-TRUSTSTORE-PASSWORD-FILE=/home/cert/password.txt
+    BESU_XP2P_TLS_TRUSTSTORE_PASSWORD_FILE=/home/cert/password.txt
     ```
 
 Text file containing the password to unlock the truststore file.
@@ -220,7 +220,7 @@ Text file containing the password to unlock the truststore file.
 === "Environment Variable"
 
     ```bash
-    BESU_XP2P-TLS-TRUSTSTORE-TYPE=JKS
+    BESU_XP2P_TLS_TRUSTSTORE_TYPE=JKS
     ```
 
 Truststore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.

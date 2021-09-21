@@ -27,14 +27,15 @@ Use certificates issued by a trusted authority to ensure validators are authoriz
 Start Besu and include the following command line options on the required nodes:
 
 ```bash
-besu Xpki-block-creation-enabled=true \
-Xpki-block-creation-keystore-type="pkcs12" \
-Xpki-block-creation-keystore-file="keystore" \
-Xpki-block-creation-keystore-password-file="keystore.password" \
-Xpki-block-creation-keystore-certificate-alias="validator" \
-Xpki-block-creation-truststore-type="pkcs12" \
-Xpki-block-creation-truststore-file="truststore" \
-Xpki-block-creation-truststore-password-file="truststore.password"
+besu --Xpki-block-creation-enabled=true \
+--Xpki-block-creation-keystore-type="pkcs12" \
+--Xpki-block-creation-keystore-file="keystore" \
+--Xpki-block-creation-keystore-password-file="keystore.password" \
+--Xpki-block-creation-crl-file="crl2.pem" \
+--Xpki-block-creation-keystore-certificate-alias="validator" \
+--Xpki-block-creation-truststore-type="pkcs12" \
+--Xpki-block-creation-truststore-file="truststore" \
+--Xpki-block-creation-truststore-password-file="truststore.password"
 ```
 
 In the command line:
@@ -43,6 +44,7 @@ In the command line:
 * Specify the keystore type and keystore file using [`Xpki-block-creation-keystore-type`](#xpki-block-creation-keystore-type) and
     [`--Xpki-block-creation-keystore-file`](#xpki-block-creation-keystore-file)
 * Specify the text file containing the password to unlock the keystore file using [`Xpki-block-creation-keystore-password-file`](#xpki-block-creation-keystore-password-file)
+* Specify the optional [certificate revocation list (CRL)] file using [`Xpki-block-creation-crl-file`](#xpki-block-creation-crl-file)
 * Specify the alias of the certificate to be included in blocks proposed by this validator using
     [`Xpki-block-creation-keystore-certificate-alias`](#xpki-block-creation-keystore-certificate-alias)
 * Specify the truststore type and truststore file using [`Xpki-block-creation-truststore-type`](#xpki-block-creation-truststore-type) and
@@ -69,7 +71,7 @@ In the command line:
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-CRL-FILE=/home/cert/cert.crl.pem
+    BESU_XPKI_BLOCK_CREATION_CRL_FILE=/home/cert/cert.crl.pem
     ```
 
 Path to the optional certificate revocation list (CRL) file.
@@ -91,7 +93,7 @@ Path to the optional certificate revocation list (CRL) file.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-ENABLED=true
+    BESU_XPKI_BLOCK_CREATION_ENABLED=true
     ```
 
 Enable PKI integration. Defaults to `false`.
@@ -113,7 +115,7 @@ Enable PKI integration. Defaults to `false`.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-KEYSTORE-CERTIFICATE-ALIAS=validatorA
+    BESU_XPKI_BLOCK_CREATION_KEYSTORE_CERTIFICATE_ALIAS=validatorA
     ```
 
 Alias of the certificate to be included in the blocks proposed by this validator. Defaults to `validator`.
@@ -135,7 +137,7 @@ Alias of the certificate to be included in the blocks proposed by this validator
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-KEYSTORE-FILE=/home/cert/keystore.jks
+    BESU_XPKI_BLOCK_CREATION_KEYSTORE_FILE=/home/cert/keystore.jks
     ```
 
 Keystore file containing the key and certificate for PKI block creation.
@@ -157,7 +159,7 @@ Keystore file containing the key and certificate for PKI block creation.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-KEYSTORE-PASSWORD-FILE=/home/cert/password.txt
+    BESU_XPKI_BLOCK_CREATION_KEYSTORE_PASSWORD-FILE=/home/cert/password.txt
     ```
 
 Text file containing the password to unlock the keystore file.
@@ -179,7 +181,7 @@ Text file containing the password to unlock the keystore file.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-KEYSTORE-TYPE=JKS
+    BESU_XPKI_BLOCK_CREATION_KEYSTORE_TYPE=JKS
     ```
 
 PKI keystore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
@@ -201,7 +203,7 @@ PKI keystore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-TRUSTSTORE-FILE=/home/cert/truststore.jks
+    BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_FILE=/home/cert/truststore.jks
     ```
 
 Truststore containing the trusted certificates for PKI block creation.
@@ -223,7 +225,7 @@ Truststore containing the trusted certificates for PKI block creation.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-TRUSTSTORE-PASSWORD-FILE=/home/cert/password.txt
+    BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_PASSWORD_FILE=/home/cert/password.txt
     ```
 
 Text file containing the password to unlock the truststore file.
@@ -245,9 +247,10 @@ Text file containing the password to unlock the truststore file.
 === "Environment Variable"
 
     ```bash
-    BESU_XPKI-BLOCK-CREATION-TRUSTSTORE-TYPE=JKS
+    BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_TYPE=JKS
     ```
 
 PKI truststore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
 
 [QBFT consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md
+[certificate revocation list (CRL)]: https://www.securew2.com/blog/certificate-revocation-crl-explained

@@ -118,7 +118,8 @@ genesis file.
 ### Extra data
 
 The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization
-scheme used in Ethereum. To generate the `extraData` RLP string for inclusion in the genesis file,
+scheme used in Ethereum. The `extraData` property contains a list of validators for the network.
+To generate the `extraData` RLP string for inclusion in the genesis file,
 use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
 
 !!! example
@@ -132,11 +133,14 @@ write the validator address and copy it to the `toEncode.json` file, use the
 [`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu
 subcommand. For example:
 
-!!! example "One initial validator in `toEncode.json` file"
+!!! example "Initial validators in `toEncode.json` file"
 
     ```json
     [
-     "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+        "0x4592c8e45706cc08b8f44b11e43cba0cfc5892cb",
+        "0x06e23768a0f59cf365e18c2e0c89e151bcdedc70",
+        "0xc5327f96ee02d7bcbc1bf1236b8c15148971e1de",
+        "0xab5e7f4061c605820d3744227eed91ff8e2c8908"
     ]
     ```
 
@@ -145,8 +149,10 @@ Copy the RLP encoded data to the `extraData` property in the genesis file.
 !!! example "RLP encoded data"
 
     ```no-lang
-    0xf83aa00000000000000000000000000000000000000000000000000000000000000000d5949811ebc35d7b06b3fa8dc5809a1f9c52751e1debc080c0
+    0xf87aa00000000000000000000000000000000000000000000000000000000000000000f854944592c8e45706cc08b8f44b11e43cba0cfc5892cb9406e23768a0f59cf365e18c2e0c89e151bcdedc7094c5327f96ee02d7bcbc1bf1236b8c15148971e1de94ab5e7f4061c605820d3744227eed91ff8e2c8908c080c0
     ```
+
+When you start the network, the four nodes previously specified in `toEncode.json` are the validators for the network.
 
 ### Block time
 

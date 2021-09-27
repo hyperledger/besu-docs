@@ -168,7 +168,7 @@ nav:
       - Permissioning:
         - Create a permissioned network: Tutorials/Permissioning/Create-Permissioned-Network.md
         - Get started with onchain permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
-        - Upgrade the permissioning contract: Tutorials/Permissioning/Upgrade-Permissioning-Contract.md
+        - Upgrade the permissioning contracts: Tutorials/Permissioning/Upgrade-Permissioning-Contract.md
       - Smart contracts and transactions:
         - Deploy a contract: Tutorials/Contracts/Deploying-Contracts.md
         - Interact with a deployed contract: Tutorials/Contracts/Calling-Contract-Functions.md

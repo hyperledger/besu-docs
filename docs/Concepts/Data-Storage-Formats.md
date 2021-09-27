@@ -5,10 +5,11 @@ description: Data storage formats
 # Data storage formats
 
 Besu offers two formats for storing the world state, [Forest of Tries](#forest-of-tries) and [Bonsai Tries](#bonsai-tries).
+You can [configure the data storage format](../HowTo/Configure/Configure-Data-Storage.md) when starting Besu.
 
 ## Forest of Tries
 
-Forest of Tries, also called forest mode, is the [default storage format](../HowTo/Configure/Configure-Data-Storage.md).
+Forest of Tries, also called forest mode, is the default storage format.
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated
 with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed
@@ -25,18 +26,18 @@ read performance.
 
 Bonsai stores leaf values separate from the branches of the trie. Bonsai stores nodes by the
 location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the
-account key. This greatly reduces the disk space needed for storage. It also allows for less resource demanding
+account key. This greatly reduces the disk space needed for storage and allows for less resource demanding
 and faster read performance. Bonsai inherently [prunes](Pruning.md) orphaned nodes and old branches.
 
 To run a node with Bonsai Tries data storage format, use the experimental command line option
 [`--Xdata-storage-format=BONSAI`](../HowTo/Configure/Configure-Data-Storage.md).
 
-## Forest of Tries vs Bonsai Tries
+## Forest of Tries vs. Bonsai Tries
 
 ### Memory requirements
 
-Forest mode uses significantly more memory than Bonsai. With full archives, forest mode uses an estimated 12 TB of storage.
-Bonsai with full archives uses an estimated 800 GB of storage.
+Forest mode uses significantly more memory than Bonsai. With full archives, forest mode uses an estimated 12 TB of storage,
+while Bonsai with full archives uses an estimated 800 GB of storage.
 
 ### Accessing data
 
@@ -44,7 +45,7 @@ Forest mode must go through all the branches by hash to read a leaf value. Bonsa
 underlying storage directly using the account key. Bonsai will generally read faster than forest mode,
 particularly if the blocks are more recent.
 
-However, Bonsai becomes increasingly more resource intensive the further in history you try to read data. To improve performance,
+However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data. To improve performance,
 limit the number of layers back to load to 500 layers using the
 [`--Xbonsai-maximum-back-layers-to-load`](../HowTo/Configure/Configure-Data-Storage.md#configuring-the-number-of-layers-loaded-with-bonsai) option.
 
@@ -55,5 +56,5 @@ Your node can fast sync from other nodes and other nodes can fast sync to your n
 
 You can fast sync from other nodes using Bonsai, but other nodes cannot fast sync
 to a Bonsai node. Bonsai stores data at a point-in-time. Fast synchronization messages request node data by-hash at a
-point-in-time (pivot block), thousands of blocks back from current during the sync. This limitation will be addressed
-once the [snap-sync protocol](https://github.com/ethereum/devp2p/blob/master/caps/snap.md) has been implemented.
+point-in-time (pivot block), thousands of blocks back during the sync. This limitation will be addressed
+once the [snap-sync protocol](https://github.com/ethereum/devp2p/blob/master/caps/snap.md) is implemented.

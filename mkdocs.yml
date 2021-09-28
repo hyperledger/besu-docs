@@ -184,6 +184,13 @@ nav:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Data storage formats: Concepts/Data-Storage-Formats.md
+        - Events and logs: Concepts/Events-and-Logs.md
+        - Mining: Concepts/Mining.md
+        - Monitoring: Concepts/Monitoring.md
+        - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md
+        - Network vs node configuration: Concepts/Network-vs-Node.md
+        - Node keys: Concepts/Node-Keys.md
+        - Node types: Concepts/Node-Types.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
@@ -199,18 +206,11 @@ nav:
           - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
         - Protocol upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
+        - TLS communication: Concepts/TLS.md
         - Transactions:
           - Transaction types: Concepts/Transactions/Transaction-Types.md
           - Transaction pool: Concepts/Transactions/Transaction-Pool.md
           - Validating transactions: Concepts/Transactions/Transaction-Validation.md
-        - Monitoring: Concepts/Monitoring.md
-        - Events and logs: Concepts/Events-and-Logs.md
-        - TLS communication: Concepts/TLS.md
-        - Node types: Concepts/Node-Types.md
-        - Node keys: Concepts/Node-Keys.md
-        - Network vs node configuration: Concepts/Network-vs-Node.md
-        - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md
-        - Mining: Concepts/Mining.md
     - Reference:
         - Besu command line:
           - Options: Reference/CLI/CLI-Syntax.md

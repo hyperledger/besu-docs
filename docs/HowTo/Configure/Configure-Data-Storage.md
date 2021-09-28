@@ -23,5 +23,5 @@ The default is 512.
 !!! example
 
     ```
-    besu --Xdata-storage-format=BONSAI --Xbonsai-maximum-back-layers-to-load=500
+    besu [OPTIONS] --Xdata-storage-format=BONSAI --Xbonsai-maximum-back-layers-to-load=500
     ```

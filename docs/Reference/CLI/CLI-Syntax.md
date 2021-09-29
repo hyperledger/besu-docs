@@ -399,22 +399,23 @@ The default is `true`.
 === "Example"
 
     ```bash
-    --fast-sync-min-peers=2
+    --fast-sync-min-peers=8
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_FAST_SYNC_MIN_PEERS=2
+    BESU_FAST_SYNC_MIN_PEERS=8
     ```
 
 === "Example configuration file"
 
     ```bash
-    fast-sync-min-peers=2
+    fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting fast sync. The default is 5.
+The minimum number of peers required before starting fast sync. The default is 5. To improve performance,
+or if the fast sync is taking a long time to complete, increase the number of peers to at least 8 instead.  
 
 !!! note
 

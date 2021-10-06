@@ -1601,7 +1601,7 @@ transaction data using `eea_sendRawTransaction`.
     For production systems requiring private transactions, use a network with a consensus mechanism
     supporting transaction finality to make sure the private state does not become inconsistent
     with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
-    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provides the required finality.
+    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provide the required finality.
 
     Using private transactions with [pruning](../Concepts/Pruning.md) or
     [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.

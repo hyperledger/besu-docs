@@ -18,7 +18,7 @@ Local permissioning supports node and account allowlisting.
 
 You can allow access to specified nodes in the
 [permissions configuration file](#permissions-configuration-file). With node allowlisting
-enabled, communication is only between nodes in the allowlist
+enabled, communication is only between nodes in the allowlist.
 
 !!! example "Nodes allowlist in the permissions configuration file"
 

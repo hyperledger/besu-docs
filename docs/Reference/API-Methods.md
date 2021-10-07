@@ -1601,7 +1601,7 @@ transaction data using `eea_sendRawTransaction`.
     For production systems requiring private transactions, use a network with a consensus mechanism
     supporting transaction finality to make sure the private state does not become inconsistent
     with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
-    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provides the required finality.
+    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provide the required finality.
 
     Using private transactions with [pruning](../Concepts/Pruning.md) or
     [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
@@ -2046,6 +2046,52 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
             "jsonrpc": "2.0",
             "id": 1,
             "result": "0x1bacb"
+        }
+        ```
+
+### `eth_feeHistory`
+
+Returns base fee per gas and transaction effective priority fee per gas history
+for the requested block range, allowing you to track trends over time.
+
+#### Parameters
+
+* `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
+If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
+
+* `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
+ `earliest`, or `pending`, as described in
+ [Block parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+
+#### Returns
+
+`result`: *object* - [Fee history results object](API-Objects.md#fee-history-results-object).
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 28,
+          "result" : {
+            "oldestBlock" : "0x53cbe6",
+            "baseFeePerGas" : ["0x7", "0x7", "0x7" ]
+            "gasUsedRatio" : [ 0.0011536265162931602, 0.10653990633315608 ]
+         }
         }
         ```
 
@@ -3144,6 +3190,43 @@ from untrusted sources, by using a trusted block hash.
               }
             ]
           }
+        }
+        ```
+
+### `eth_getQuorumPayload`
+
+When using [GoQuorum-compatible privacy](../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md), returns the
+[unencrypted payload from Tessera](https://docs.tessera.consensys.net/Concepts/Transaction-manager/#private-transaction-flow).
+
+#### Parameters
+
+`id`: *string* - the generated SHA3-512 hash of the encrypted payload from Tessera, in hex (the `input` value in the transaction)
+
+#### Returns
+
+`result`: *string* - unencrypted transaction payload in hex
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST http://127.0.0.1:22000 --data '{"jsonrpc":"2.0","method":"eth_getQuorumPayload","params":["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id":67}'
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method": "eth_getQuorumPayload","params": ["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id": 67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc":"2.0",
+          "id":67,
+          "result":"0x6060604052341561000f57600080fd5b604051602080610149833981016040528080519060200190919050505b806000819055505b505b610104806100456000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632a1afcd914605157806360fe47b11460775780636d4ce63c146097575b600080fd5b3415605b57600080fd5b606160bd565b6040518082815260200191505060405180910390f35b3415608157600080fd5b6095600480803590602001909190505060c3565b005b341560a157600080fd5b60a760ce565b6040518082815260200191505060405180910390f35b60005481565b806000819055505b50565b6000805490505b905600a165627a7a72305820d5851baab720bba574474de3d09dbeaabc674a15f4dd93b974908476542c23f00029000000000000000000000000000000000000000000000000000000000000002a"
         }
         ```
 
@@ -5738,14 +5821,14 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 
 ### `priv_createPrivacyGroup`
 
-Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.
+Creates a group of nodes, specified by their [Tessera](https://docs.tessera.consensys.net/) public key.
 
 #### Parameters
 
 `options`: *object* - request options object with the following fields:
 
 * `addresses`: *array* of *strings* - list of nodes specified by
-  [Orion](https://docs.orion.consensys.net/) public keys
+  [Tessera](https://docs.tessera.consensys.net/) public keys
   
 * `name`: *string* - (optional) privacy group name
   
@@ -5874,7 +5957,7 @@ Distributes a signed, RLP encoded
 #### Returns
 
 `result`: *string* - 32-byte enclave key (the enclave key is a pointer to the private transaction in
-[Orion](https://docs.orion.consensys.net/).)
+[Tessera](https://docs.tessera.consensys.net/).)
 
 !!! example
 
@@ -5907,7 +5990,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 
 #### Parameters
 
-`members`: *array* of *strings* - members specified by [Orion](https://docs.orion.consensys.net/) public keys
+`members`: *array* of *strings* - members specified by [Tessera](https://docs.tessera.consensys.net/) public keys
 
 #### Returns
 
@@ -6011,9 +6094,9 @@ Returns the private transaction count for the specified account and
 
 * `address`: *string* - account address
 
-* `sender`: *string* - base64-encoded Orion address of the sender
+* `sender`: *string* - base64-encoded Tessera address of the sender
 
-* `recipients`: *array* of *strings* - base64-encoded Orion addresses of recipients
+* `recipients`: *array* of *strings* - base64-encoded Tessera addresses of recipients
 
 #### Returns
 

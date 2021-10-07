@@ -14,7 +14,7 @@ When starting Hyperledger Besu, if the
 specified and a `key` file does not exist in the data directory for the node, Besu generates a node
 private key and writes it to the `key` file.
 
-If a `key` file does exist in the data directory when starting Besu, the node starts with using
+If a `key` file does exist in the data directory when starting Besu, the node starts using the
 private key in the `key` file.
 
 !!!info

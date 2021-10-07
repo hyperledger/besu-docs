@@ -45,6 +45,11 @@ genesis block.
     the [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
     options.
 
+!!! note
+
+    To improve performance, or if the fast sync is taking a long time to complete, use
+    [`--fast-sync-min-peers`](../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) to increase the number of peers to at least 8.
+
 ## Run an archive node
 
 To run an archive node, enable full synchronization using

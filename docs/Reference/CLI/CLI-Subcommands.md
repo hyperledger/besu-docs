@@ -210,13 +210,13 @@ Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. D
     besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
     ```
 
-=== "File Example"
+=== "File example"
 
     ```bash
     besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
     ```
 
-=== "Standard Input/Output Example"
+=== "Standard input/output example"
 
     ```bash
     cat extra_data.json | besu rlp encode > rlp.txt

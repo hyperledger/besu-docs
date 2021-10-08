@@ -6,19 +6,19 @@ description: Hyperledger Besu local permissioning
 
 Local permissioning supports node and account allowlisting.
 
-!!! tip
-
-    If deploying Besu using Kubernetes in private permissioned networks, use the
-    [`--Xdns-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
-    [`--Xdns-update-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
-    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
-    the IP address changes after being restarted.
-
 ## Node allowlisting
 
 You can allow access to specified nodes in the
 [permissions configuration file](#permissions-configuration-file). With node allowlisting
 enabled, communication is only between nodes in the allowlist.
+
+!!! important
+
+    Node allowlists [support domain names] as an experimental feature. Use the `--Xdns-enabled` options to use domain
+    names instead of IP addresses.
+
+    If using Kubernetes, enable domain names and use the `--Xdns-update-enabled` option to ensure that Besu can
+    connect to a container after being restarted, even if the IP address of the container changes.
 
 !!! example "Nodes allowlist in the permissions configuration file"
 
@@ -26,7 +26,7 @@ enabled, communication is only between nodes in the allowlist.
 
 Node allowlisting is at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) file in the
-[data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
+[data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node. 
 
 To update the nodes allowlist while the node is running, use the JSON-RPC API methods:
 
@@ -49,9 +49,6 @@ To view the nodes allowlist, use the
     nodes can have different nodes allowlists. This means nodes might be participating in the
     network that are not on the allowlist of other nodes in the network. We recommend each node in
     the network has the same nodes allowlist.
-
-    On-chain permissioning is under development. On-chain permissioning uses one on-chain
-    nodes allowlist.
 
 !!! example "Example of different node allowlists"
 
@@ -213,3 +210,4 @@ options.
 
 <!-- Links -->
 [specify a permissions configuration file with Docker]: ../Get-Started/Installation-Options/Run-Docker-Image.md#permissions-configuration-file
+[support domain names]: ../../Concepts/Node-Keys.md#domain-name-support

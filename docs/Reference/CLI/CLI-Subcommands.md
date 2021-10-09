@@ -4,6 +4,20 @@ description: Hyperledger Besu command line interface subcommands
 
 # Subcommands
 
+This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) subcommands.
+
+To start a Besu node using subcommands, run:
+
+```bash
+besu [OPTIONS] [SUBCOMMAND] [SUBCOMMAND OPTIONS]
+```
+
+If using Bash or Z shell, you can view subcommand suggestions by selecting the Tab key twice.
+
+```bash
+besu <TAB><TAB>
+```
+
 ## `blocks`
 
 Provides blocks related actions.

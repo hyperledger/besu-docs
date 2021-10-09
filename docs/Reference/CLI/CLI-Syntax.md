@@ -4,37 +4,38 @@ description: Hyperledger Besu command line interface reference
 
 # Hyperledger Besu command line
 
-This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) options
-and subcommands.
+This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) options.
 
 ## Specifying options
 
 You can specify Besu options:
 
-* On the command line
-* As an [environment variable](#besu-environment-variables)
+* On the command line.
+
+    ```bash
+    besu [OPTIONS] [SUBCOMMAND]
+    ```
+
+* As an environment variable.
+  For each command line option, the equivalent environment variable is:
+    * Upper-case.
+    * `_` replaces `-`.
+    * Has a `BESU_` prefix.
+      
+    For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
+  
 * In a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment
 variable, configuration file.
 
-### Besu environment variables
-
-For each command line option, the equivalent environment variable is:
-
-* Upper-case
-* `_` replaces `-`
-* Has a `BESU_` prefix
-
-For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
-
-## Options
-
-To start a Besu node run:
+If using Bash or Z shell, you can view option suggestions by entering `--` and selecting the Tab key twice.
 
 ```bash
-besu [OPTIONS] [COMMAND]
+besu --<TAB><TAB>
 ```
+
+## Options
 
 ### `api-gas-price-blocks`
 

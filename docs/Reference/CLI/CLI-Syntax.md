@@ -21,9 +21,9 @@ You can specify Besu options:
     * Upper-case.
     * `_` replaces `-`.
     * Has a `BESU_` prefix.
-      
+
     For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
-  
+
 * In a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment

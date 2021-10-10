@@ -103,8 +103,10 @@ defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
     Enode URL domain name support is an experimental feature that you can use in private
     [permissioned networks](Permissioning/Permissioning-Overview.md) only.
 
-To use domain names in your enode URL, ensure you have DNS reverse lookup configured, and enabled DNS support
-using the `--Xdns-enabled` command line option.
+To use domain names in your enode URL: 
+
+* Configure DNS reverse lookup.
+* Enable DNS support using Besu's `--Xdns-enabled` experimental command line option.
 
 !!! example "Example enode URL using a domain name"
 

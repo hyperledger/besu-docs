@@ -53,6 +53,7 @@ writes a generated private key to `privatekeyfile`.
     ```bash
     besu --node-private-key-file="/Users/username/privatekeyfile"
     ```
+
 ## Enode URL
 
 The enode URL identifies a node. For example, the [`--bootnodes`](../Reference/CLI/CLI-Syntax.md#bootnodes) option and
@@ -122,4 +123,3 @@ using the `--Xdns-enabled` command line option.
 
 If nodes are not connecting as expected, set the [log level to TRACE](../Reference/API-Methods.md#admin_changeloglevel) to
 help troubleshoot the issue.
-

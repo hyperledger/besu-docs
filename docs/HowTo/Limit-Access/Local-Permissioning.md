@@ -14,10 +14,10 @@ enabled, communication is only between nodes in the allowlist.
 
 !!! important
 
-    Node allowlists [support domain names] as an experimental feature. Use the `--Xdns-enabled` options to use domain
-    names instead of IP addresses.
+    Node allowlists [support domain names] in enode URLs as an experimental feature. Use the `--Xdns-enabled` option
+    to enable domain name support.
 
-    If using Kubernetes, enable domain names and use the `--Xdns-update-enabled` option to ensure that Besu can
+    If using Kubernetes, enable domain name support and use the `--Xdns-update-enabled` option to ensure that Besu can
     connect to a container after being restarted, even if the IP address of the container changes.
 
 !!! example "Nodes allowlist in the permissions configuration file"

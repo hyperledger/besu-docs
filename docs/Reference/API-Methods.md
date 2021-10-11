@@ -4616,6 +4616,10 @@ This is used by mining software such as [Ethminer](https://github.com/ethereum-m
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
+!!! note
+
+    Once the node reaches the head of the chain, `eth_syncing` returns false, indicating that there is no active syncing target.
+
 #### Parameters
 
 None

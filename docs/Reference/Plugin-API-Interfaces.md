@@ -10,13 +10,17 @@ extend Besu functionality, such as the [Quorum Besu plugins](https://doc.quorump
 For more information about the available interfaces, see the
 [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).
 
+!!! note "Javadoc issue"
+
+    Since the deprecation of bintray javadoc.io is no longer being updated with our latest Javadocs. We're working on a fix, but in the meantime, some links will be temporarily pointing to wiki.hyperledger.org
+
 ## Core plugin classes
 
 The following table lists the interfaces providing core plugin classes.
 
 | Interface                                                                                                                     | Description                             |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| [**BesuContext**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuContext.html) | Allows plugins to access Besu services. |
+| [**BesuContext**](https://wiki.hyperledger.org/display/BESU/BesuContext) | Allows plugins to access Besu services. |
 | [**BesuPlugin**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html)   | Used to manage the plugin lifecycle.    |
 
 ## Plugin services
@@ -34,6 +38,9 @@ The following table lists interfaces providing services you can retrieve.
 | [**PicoCLIOptions**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/PicoCLIOptions.html)                         | Adds CLI commands to the Besu command line.                         |
 | [**SecurityModuleService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/SecurityModuleService.html)                         | Allows plugins to register a security module.                  |
 | [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html)                         | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM).                  |
+| [**PermissioningService**](https://wiki.hyperledger.org/display/BESU/PermissioningService)| Allows for fine grain control of node connection and node messaging permissioning.|
+| [**PrivacyPluginService**](https://wiki.hyperledger.org/display/BESU/PrivacyPluginService)| Provides a way to define how private marker transactions are created and what private genesis is to be used.|
+| [**RpcEndpointService**](https://wiki.hyperledger.org/display/BESU/RpcEndpointService)| Allows the registration of custom RPC Endpoints.|
 
 To use the interfaces in your plugin, ensure the
 [Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains

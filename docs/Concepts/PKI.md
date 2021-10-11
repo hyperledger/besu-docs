@@ -14,7 +14,7 @@ node and account identities in the following ways:
 
 * Node permissioning - Only authorized nodes can connect to other nodes in the network using TLS for the P2P
     communication.
-* Account permissioning - Only authorized validator nodes can propose new blocks in the network.
+* Block proposal permissioning - Only authorized validator nodes can propose new blocks in the network.
 
 Supported keystore and truststore formats used to store the certificates include PKCS12 and JKS.
 
@@ -35,9 +35,11 @@ connecting to a node the initiator ensures that the remote node is authorized to
     Only private networks using the [QBFT consensus protocol] support block proposal permissioning.
 
 Use certificates issued by a trusted authority to ensure only authorized validator nodes can propose new blocks in the
-network. Certificate information is included in the header of the proposed block to verify that the proposer is
-authorised to create a block in the network.
+network. The block hash is signed by the validator private certificate and included in the header of the proposed block
+as a [CMS (Cryptographic Message Syntax)]. This is used by other validators to verify that the proposer is authorized
+to create a block in the network.
 
 [Configure block proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md)
 
 [QBFT consensus protocol]: ../HowTo/Configure/Consensus-Protocols/QBFT.md
+[CMS (Cryptographic Message Syntax)]: https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax

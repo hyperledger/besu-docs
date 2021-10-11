@@ -11,7 +11,7 @@ description: Block proposal permissioning
     Block proposal permissioning is an early access feature, and functionality and options may be updated between releases.
 
 You can configure [block proposal permissioning](../../Concepts/PKI.md#block-proposal-permissioning)
-to ensure authorized validator nodes can propose new blocks in the network.
+to ensure only authorized validator nodes can propose blocks in the network.
 
 Use certificates issued by a trusted authority to ensure validators are authorized to propose blocks.
 

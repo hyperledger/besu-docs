@@ -12,7 +12,7 @@ with each other. Use certificates issued by a trusted authority to connect to ot
     P2P TLS is an early access feature, and functionality and options may be updated
     between releases.
 
-Besu supports PKCS12 and JKS keystore and truststore types for P2P TLS.
+Besu supports PKCS11, PKCS12, and JKS keystore and truststore types for P2P TLS.
 
 ## Configure P2P TLS
 
@@ -157,7 +157,7 @@ Text file containing the password to unlock the keystore file.
     BESU_XP2P_TLS_KEYSTORE_TYPE=JKS
     ```
 
-Keystore type that allows TLS for P2P communication. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
+Keystore type that allows TLS for P2P communication. Valid options are `JKS`, `PKCS11`, and `PKCS12`. Defaults to `JKS`.
 
 ### `Xp2p-tls-truststore-file`
 
@@ -223,6 +223,6 @@ Text file containing the password to unlock the truststore file.
     BESU_XP2P_TLS_TRUSTSTORE_TYPE=JKS
     ```
 
-Truststore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
+Truststore type. Valid options are `JKS`, `PKCS11`, and `PKCS12`. Defaults to `JKS`.
 
 [certificate revocation list (CRL)]: https://www.securew2.com/blog/certificate-revocation-crl-explained

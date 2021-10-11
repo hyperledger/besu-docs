@@ -80,7 +80,9 @@ nav:
           - Create a genesis file: HowTo/Configure/Genesis-File.md
           - Specify options in a configuration file: HowTo/Configure/Using-Configuration-File.md
           - Configure a free gas network: HowTo/Configure/FreeGas.md
-          - Configure TLS: HowTo/Configure/Configure-TLS.md
+          - TLS:
+              - Client and server TLS: HowTo/Configure/TLS/Configure-TLS.md
+              - Peer-to-peer TLS: HowTo/Configure/TLS/P2P-TLS.md
           - High availability:
             - Configure high availability of APIs: HowTo/Configure/Configure-HA/High-Availability.md
             - Sample load balancer configurations: HowTo/Configure/Configure-HA/Sample-Configuration.md
@@ -88,6 +90,7 @@ nav:
           - Configure mining: HowTo/Configure/Configure-Mining.md
           - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
           - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
+          - Block proposal permissioning: HowTo/Configure/Block-Proposal-Permissioning.md
         - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -130,7 +133,7 @@ nav:
           - Access private and privacy marker transactions: HowTo/Use-Privacy/Access-Private-Transactions.md
           - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           - Use flexible privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
-          - Use GoQuorum-compatibile privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
+          - Use GoQuorum-compatible privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
         - Deploy for production:
           - Deploy to the cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to deploy Besu: HowTo/Deploy/Ansible.md
@@ -195,6 +198,7 @@ nav:
           - Overview: Concepts/Permissioning/Permissioning-Overview.md
           - Onchain permissioning: Concepts/Permissioning/Onchain-Permissioning.md
           - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
+        - Public key infrastructure: Concepts/PKI.md
         - Protocol upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
         - Transactions:

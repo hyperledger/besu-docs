@@ -14,9 +14,9 @@ node and account identities in the following ways:
 
 * Node permissioning - Only authorized nodes can connect to other nodes in the network using TLS for the P2P
     communication.
-* Block proposal permissioning - Only authorized validator nodes can propose new blocks in the network.
+* Block proposal permissioning - Only blocks proposed by authorized validators are accepted.
 
-Supported keystore and truststore formats used to store the certificates include PKCS12 and JKS.
+Supported keystore and truststore formats used to store the certificates include PKCS11, PKCS12, and JKS.
 
 ## Node permissioning
 

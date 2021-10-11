@@ -40,17 +40,17 @@ besu --Xpki-block-creation-enabled=true \
 
 In the command line:
 
-* Enable block proposal permissioning using [`--Xpki-block-creation-enabled=true`](#xpki-block-creation-enabled)
+* Enable block proposal permissioning using [`--Xpki-block-creation-enabled=true`](#xpki-block-creation-enabled).
 * Specify the keystore type and keystore file using [`Xpki-block-creation-keystore-type`](#xpki-block-creation-keystore-type) and
-    [`--Xpki-block-creation-keystore-file`](#xpki-block-creation-keystore-file)
-* Specify the text file containing the password to unlock the keystore file using [`Xpki-block-creation-keystore-password-file`](#xpki-block-creation-keystore-password-file)
-* Specify the optional [certificate revocation list (CRL)] file using [`Xpki-block-creation-crl-file`](#xpki-block-creation-crl-file)
+    [`--Xpki-block-creation-keystore-file`](#xpki-block-creation-keystore-file).
+* Specify the text file containing the password to unlock the keystore file using [`Xpki-block-creation-keystore-password-file`](#xpki-block-creation-keystore-password-file).
+* Specify the optional [certificate revocation list (CRL)] file using [`Xpki-block-creation-crl-file`](#xpki-block-creation-crl-file).
 * Specify the alias of the certificate to be included in blocks proposed by this validator using
-    [`Xpki-block-creation-keystore-certificate-alias`](#xpki-block-creation-keystore-certificate-alias)
+    [`Xpki-block-creation-keystore-certificate-alias`](#xpki-block-creation-keystore-certificate-alias).
 * Specify the truststore type and truststore file using [`Xpki-block-creation-truststore-type`](#xpki-block-creation-truststore-type) and
-    [`Xpki-block-creation-truststore-file`](#xpki-block-creation-truststore-file)
+    [`Xpki-block-creation-truststore-file`](#xpki-block-creation-truststore-file).
 * Specify the text file containing the password to unlock the truststore file using
-    [`Xpki-block-creation-truststore-password-file`](#xpki-block-creation-truststore-password-file)
+    [`Xpki-block-creation-truststore-password-file`](#xpki-block-creation-truststore-password-file).
 
 ## Command line options
 
@@ -62,13 +62,13 @@ In the command line:
     --Xpki-block-creation-crl-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-crl-file=/home/cert/cert.crl.pem
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_CRL_FILE=/home/cert/cert.crl.pem
@@ -84,19 +84,19 @@ Path to the optional certificate revocation list (CRL) file.
     --Xpki-block-creation-enabled[=<true|false>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-enabled=true
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_ENABLED=true
     ```
 
-Enable PKI integration. Defaults to `false`.
+Enable PKI integration. The default is `false`.
 
 ### `Xpki-block-creation-keystore-certificate-alias`
 
@@ -106,19 +106,19 @@ Enable PKI integration. Defaults to `false`.
     --Xpki-block-creation-keystore-certificate-alias=<NAME>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-keystore-certificate-alias=validatorA
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_KEYSTORE_CERTIFICATE_ALIAS=validatorA
     ```
 
-Alias of the certificate to be included in the blocks proposed by this validator. Defaults to `validator`.
+Alias of the certificate to be included in the blocks proposed by this validator. The default is `validator`.
 
 ### `Xpki-block-creation-keystore-file`
 
@@ -128,13 +128,13 @@ Alias of the certificate to be included in the blocks proposed by this validator
     --Xpki-block-creation-keystore-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-keystore-file=/home/cert/keystore.jks
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_KEYSTORE_FILE=/home/cert/keystore.jks
@@ -150,13 +150,13 @@ Keystore file containing the key and certificate for PKI block creation.
     --Xpki-block-creation-keystore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-keystore-password-file=/home/cert/password.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_KEYSTORE_PASSWORD-FILE=/home/cert/password.txt
@@ -172,19 +172,19 @@ Text file containing the password to unlock the keystore file.
     --Xpki-block-creation-keystore-type=<TYPE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-keystore-type=JKS
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_KEYSTORE_TYPE=JKS
     ```
 
-PKI keystore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
+PKI keystore type. Valid options are `JKS` and `PKCS12`. The default is `JKS`.
 
 ### `Xpki-block-creation-truststore-file`
 
@@ -194,13 +194,13 @@ PKI keystore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
     --Xpki-block-creation-truststore-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-truststore-file=/home/cert/truststore.jks
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_FILE=/home/cert/truststore.jks
@@ -216,13 +216,13 @@ Truststore containing the trusted certificates for PKI block creation.
     --Xpki-block-creation-truststore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-truststore-password-file=/home/cert/password.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_PASSWORD_FILE=/home/cert/password.txt
@@ -238,19 +238,19 @@ Text file containing the password to unlock the truststore file.
     --Xpki-block-creation-truststore-type=<TYPE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --Xpki-block-creation-truststore-type=JKS
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_TYPE=JKS
     ```
 
-PKI truststore type. Valid options are `JKS` and `PKCS12`. Defaults to `JKS`.
+PKI truststore type. Valid options are `JKS` and `PKCS12`. The default is `JKS`.
 
 [QBFT consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md
 [certificate revocation list (CRL)]: https://www.securew2.com/blog/certificate-revocation-crl-explained

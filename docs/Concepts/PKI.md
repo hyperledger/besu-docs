@@ -39,7 +39,7 @@ network. The block hash is signed by the validator private certificate and inclu
 as a [CMS (Cryptographic Message Syntax)]. This is used by other validators to verify that the proposer is authorized
 to create a block in the network.
 
-[Configure block proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md)
+[Configure block proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md).
 
 [QBFT consensus protocol]: ../HowTo/Configure/Consensus-Protocols/QBFT.md
 [CMS (Cryptographic Message Syntax)]: https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax

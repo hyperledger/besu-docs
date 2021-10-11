@@ -5442,7 +5442,7 @@ allowlist and including invalid account addresses.)
 Adds nodes to the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
-To use domain names in your enode URL, ensure you [enable DNS support](../Concepts/Node-Keys.md#domain-name-support) to
+To use domain names in enode URLs, ensure you [enable DNS support](../Concepts/Node-Keys.md#domain-name-support) to
 avoid receiving a `request contains an invalid node` error.
 
 !!! warning

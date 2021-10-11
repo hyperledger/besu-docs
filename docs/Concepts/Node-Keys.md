@@ -103,7 +103,7 @@ defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
     Enode URL domain name support is an experimental feature that you can use in private
     [permissioned networks](Permissioning/Permissioning-Overview.md) only.
 
-To use domain names in your enode URL:
+To use domain names in enode URLs:
 
 * Configure DNS reverse lookup.
 * Enable DNS support using Besu's `--Xdns-enabled` experimental command line option.
@@ -117,7 +117,7 @@ To use domain names in your enode URL:
 !!! tip
 
     If deploying Besu using Kubernetes in private permissioned networks, use the
-    `--Xdns-enabled` and `--Xdns-update-enabled` options to ensures that Besu can connect to a container after
+    `--Xdns-enabled` and `--Xdns-update-enabled` options to ensure that Besu can connect to a container after
     restarting even if the IP address of the container changes.
 
     Use the [`--Xhelp`](../Reference/CLI/CLI-Syntax.md#xhelp) command line option to view experimental options and their

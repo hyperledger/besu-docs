@@ -12,7 +12,8 @@ For more information about the available interfaces, see the
 
 !!! note "Javadoc issue"
 
-    Since the deprecation of bintray javadoc.io is no longer being updated with our latest Javadocs. We're working on a fix, but in the meantime, some links will be temporarily pointing to wiki.hyperledger.org
+    The plugin API documentation is currently not being updated. We're working on a fix, but in the
+    meantime, some links are temporarily pointing to wiki.hyperledger.org.
 
 ## Core plugin classes
 

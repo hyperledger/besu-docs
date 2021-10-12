@@ -49,8 +49,9 @@ Forest mode must go through all the branches by hash to read a leaf value. Bonsa
 underlying storage directly using the account key. Bonsai will generally read faster than forest mode,
 particularly if the blocks are more recent.
 
-However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data. To improve performance,
-limit the number of layers back to load to 500 layers using the
+However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data.
+To prevent this, you can limit how far Bonsai looks back while reconstructing data.
+To improve performance, limit the number of layers back to load to 500 layers using the
 [`--Xbonsai-maximum-back-layers-to-load`](../HowTo/Configure/Configure-Data-Storage.md#configuring-the-number-of-layers-loaded-with-bonsai) option.
 
 ### Fast syncing nodes

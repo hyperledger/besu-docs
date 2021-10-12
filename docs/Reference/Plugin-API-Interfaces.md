@@ -33,15 +33,15 @@ The following table lists interfaces providing services you can retrieve.
 | [**BesuEvents**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/BesuEvents.html)                                   | Allows plugins to attach to events during Besu operation.           |
 | [**BesuConfiguration**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/BesuConfiguration.html)                     | Provides file system locations of Besu's storage.                   |
 | [**IbftQueryService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/query/IbftQueryService.html)                 | Allows query of the IBFT 2.0 aspects of the blockchain.             |
-| [**MetricCategoryRegistry**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/metrics/MetricCategoryRegistry.html) | Adds a new metrics category to the CLI.                             |
+| [**MetricCategoryRegistry**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/metrics/MetricCategoryRegistry.html)   | Adds a new metrics category to the CLI.                             |
 | [**MetricsSystem**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/MetricsSystem.html)                             | Register metrics with the Prometheus endpoint.                      |
-| [**PoaQueryService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/query/PoaQueryService.html)                 | Query the current state of Clique and IBFT 2.0 consensus protocols. |
-| [**PicoCLIOptions**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/PicoCLIOptions.html)                         | Adds CLI commands to the Besu command line.                         |
-| [**SecurityModuleService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/SecurityModuleService.html)                         | Allows plugins to register a security module.                  |
-| [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html)                         | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM).                  |
-| [**PermissioningService**](https://wiki.hyperledger.org/display/BESU/PermissioningService)| Allows for fine grain control of node connection and node messaging permissioning.|
-| [**PrivacyPluginService**](https://wiki.hyperledger.org/display/BESU/PrivacyPluginService)| Provides a way to define how private marker transactions are created and what private genesis is to be used.|
-| [**RpcEndpointService**](https://wiki.hyperledger.org/display/BESU/RpcEndpointService)| Allows the registration of custom RPC Endpoints.|
+| [**PoaQueryService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/query/PoaQueryService.html)                   | Query the current state of Clique and IBFT 2.0 consensus protocols. |
+| [**PicoCLIOptions**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/PicoCLIOptions.html)                           | Adds CLI commands to the Besu command line.                         |
+| [**SecurityModuleService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/SecurityModuleService.html)             | Allows plugins to register a security module.                       |
+| [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html)                           | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM). |
+| [**PermissioningService**](https://wiki.hyperledger.org/display/BESU/PermissioningService)                                                                             | Allows for fine grain control of node connection and node messaging permissioning. |
+| [**PrivacyPluginService**](https://wiki.hyperledger.org/display/BESU/PrivacyPluginService)                                                                             | Provides a way to define how [privacy marker transactions] are created, and what private genesis to use. |
+| [**RpcEndpointService**](https://wiki.hyperledger.org/display/BESU/RpcEndpointService)                                                                                 | Register custom RPC endpoints.                    |
 
 To use the interfaces in your plugin, ensure the
 [Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains
@@ -58,3 +58,5 @@ the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `pl
 
     The `start` step can be ignored and your plugin module will be instantiated when
     the command line interface is parsed and available.
+
+[privacy marker transactions]: ../Concepts/Privacy/Private-Transaction-Processing.md

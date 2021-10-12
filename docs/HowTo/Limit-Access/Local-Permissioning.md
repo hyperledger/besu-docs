@@ -6,19 +6,19 @@ description: Hyperledger Besu local permissioning
 
 Local permissioning supports node and account allowlisting.
 
-!!! tip
-
-    If deploying Besu using Kubernetes in private permissioned networks, use the
-    [`--Xdns-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
-    [`--Xdns-update-enabled`](../../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
-    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
-    the IP address changes after being restarted.
-
 ## Node allowlisting
 
 You can allow access to specified nodes in the
 [permissions configuration file](#permissions-configuration-file). With node allowlisting
 enabled, communication is only between nodes in the allowlist.
+
+!!! important
+
+    Node allowlists [support domain names] in enode URLs as an experimental feature. Use the `--Xdns-enabled` option
+    to enable domain name support.
+
+    If using Kubernetes, enable domain name support and use the `--Xdns-update-enabled` option to ensure that Besu can
+    connect to a container after being restarted, even if the IP address of the container changes.
 
 !!! example "Nodes allowlist in the permissions configuration file"
 
@@ -28,41 +28,11 @@ Node allowlisting is at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) file in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
-To update the nodes allowlist while the node is running, use the JSON-RPC API methods:
+Local permissioning does not check that the node using the permissions configuration file is listed in the
+allowlist, it only checks that the remote end of the connection is in the allowlist. Use [onchain permissioning] if you
+need to check both ends of the connection.
 
-* [perm_addNodesToAllowlist](../../Reference/API-Methods.md#perm_addnodestoallowlist)
-* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist).
-
-You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
-and then update the allowlist using the
-[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
-method.
-
-Updates to the permissions configuration file persist across node restarts.
-
-To view the nodes allowlist, use the
-[perm_getNodesAllowlist](../../Reference/API-Methods.md#perm_getnodesallowlist) method.
-
-!!! note
-
-    Each node has a [permissions configuration file](#permissions-configuration-file), which means
-    nodes can have different nodes allowlists. This means nodes might be participating in the
-    network that are not on the allowlist of other nodes in the network. We recommend each node in
-    the network has the same nodes allowlist.
-
-    On-chain permissioning is under development. On-chain permissioning uses one on-chain
-    nodes allowlist.
-
-!!! example "Example of different node allowlists"
-
-    Node 1 Allowlist = [Node 2, Node 3]
-
-    Node 2 Allowlist = [Node 3, Node 5]
-
-    Node 5 is participating in the same network as Node 1 even though Node 1 does not have Node 5
-    on their allowlist.
-
-### Bootnodes
+### Specifying bootnodes in the allowlist
 
 The nodes permissions list must include the bootnodes or Hyperledger Besu does not start with
 node permissions enabled.
@@ -87,6 +57,41 @@ option when starting Besu.
 The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
 [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### Updating the node allowlist
+
+To update the nodes allowlist while the node is running, use the JSON-RPC API methods:
+
+* [perm_addNodesToAllowlist](../../Reference/API-Methods.md#perm_addnodestoallowlist)
+* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist).
+
+You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
+and then update the allowlist using the
+[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
+method.
+
+Updates to the permissions configuration file persist across node restarts.
+
+### Viewing the node allowlist
+
+To view the nodes allowlist, use the
+[perm_getNodesAllowlist](../../Reference/API-Methods.md#perm_getnodesallowlist) method.
+
+!!! note
+
+    Each node has a [permissions configuration file](#permissions-configuration-file), which means
+    nodes can have different nodes allowlists. This means nodes might be participating in the
+    network that are not on the allowlist of other nodes in the network. We recommend each node in
+    the network has the same nodes allowlist.
+
+!!! example "Example of different node allowlists"
+
+    Node 1 Allowlist = [Node 2, Node 3]
+
+    Node 2 Allowlist = [Node 3, Node 5]
+
+    Node 5 is participating in the same network as Node 1 even though Node 1 does not have Node 5
+    on their allowlist.
 
 ## Account allowlisting
 
@@ -151,6 +156,18 @@ The following diagram illustrates applying local and onchain permissioning rules
     by Node B to which it's propagated if the account is not in the Node B allowlist. We
     recommend each node in the network has the same accounts allowlist.
 
+### Enabling account allowlisting
+
+To enable account allowlisting, specify the
+[`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled)
+option when starting Besu.
+
+The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
+[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+
+### Updating the account allowlist
+
 To update the accounts allowlist when the node is running, use the JSON-RPC API methods:
 
 * [`perm_addAccountsToAllowlist`](../../Reference/API-Methods.md#perm_addaccountstoallowlist)
@@ -163,18 +180,10 @@ method to update the allowlists.
 
 Updates to the permissions configuration file persist across node restarts.
 
+### Viewing the account allowlist
+
 To view the accounts allowlist, use the
 [`perm_getAccountsAllowlist`](../../Reference/API-Methods.md#perm_getaccountsallowlist) method.
-
-### Enabling account allowlisting
-
-To enable account allowlisting, specify the
-[`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled)
-option when starting Besu.
-
-The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
 
 ## Permissions configuration file
 
@@ -213,3 +222,5 @@ options.
 
 <!-- Links -->
 [specify a permissions configuration file with Docker]: ../Get-Started/Installation-Options/Run-Docker-Image.md#permissions-configuration-file
+[support domain names]: ../../Concepts/Node-Keys.md#domain-name-support
+[onchain permissioning]: ../../Concepts/Permissioning/Onchain-Permissioning.md

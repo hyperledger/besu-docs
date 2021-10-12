@@ -4616,6 +4616,10 @@ This is used by mining software such as [Ethminer](https://github.com/ethereum-m
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
+!!! note
+
+    Once the node reaches the head of the chain, `eth_syncing` returns false, indicating that there is no active syncing target.
+
 #### Parameters
 
 None
@@ -5441,6 +5445,13 @@ allowlist and including invalid account addresses.)
 
 Adds nodes to the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+
+To use domain names in enode URLs, ensure you [enable DNS support](../Concepts/Node-Keys.md#domain-name-support) to
+avoid receiving a `request contains an invalid node` error.
+
+!!! warning
+
+    Enode URL domain name support is an experimental feature.
 
 #### Parameters
 

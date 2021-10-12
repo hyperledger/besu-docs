@@ -2134,7 +2134,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
-[authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
+[authorized privacy enclave](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-servers-file).
 
 ### `privacy-url`
 
@@ -2918,7 +2918,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file used to
-[authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) using
+[authenticate clients](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
 Must contain the certificates's Common Name, and SHA-256 fingerprint in the format

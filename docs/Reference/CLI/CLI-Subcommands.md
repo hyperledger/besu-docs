@@ -12,10 +12,10 @@ To start a Besu node using subcommands, run:
 besu [OPTIONS] [SUBCOMMAND] [SUBCOMMAND OPTIONS]
 ```
 
-If using Bash or Z shell, you can view subcommand suggestions by selecting the Tab key twice.
+If using Bash or Z shell, you can view subcommand suggestions by pressing the Tab key twice.
 
 ```bash
-besu <TAB><TAB>
+besu Tab+Tab
 ```
 
 ## `blocks`

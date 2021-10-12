@@ -18,7 +18,7 @@ You can specify Besu options:
 
 * As an environment variable.
   For each command line option, the equivalent environment variable is:
-    * Upper-case.
+    * Uppercase.
     * `_` replaces `-`.
     * Has a `BESU_` prefix.
 
@@ -29,10 +29,10 @@ You can specify Besu options:
 If you specify an option in more than one place, the order of priority is command line, environment
 variable, configuration file.
 
-If using Bash or Z shell, you can view option suggestions by entering `--` and selecting the Tab key twice.
+If using Bash or Z shell, you can view option suggestions by entering `--` and pressing the Tab key twice.
 
 ```bash
-besu --<TAB><TAB>
+besu --Tab+Tab
 ```
 
 ## Options

@@ -38,7 +38,7 @@ To run a node with Bonsai Tries data storage format, use the experimental comman
 
 ## Forest of Tries vs. Bonsai Tries
 
-### Memory requirements
+### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai. With full archives, forest mode uses an estimated 12 TB of storage,
 while Bonsai with full archives uses an estimated 800 GB of storage.
@@ -51,7 +51,7 @@ particularly if the blocks are more recent.
 
 However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data.
 To prevent this, you can limit how far Bonsai looks back while reconstructing data.
-To improve performance, limit the number of layers back to load to 500 layers using the
+The default limit Bonsai looks back is 512. To change the parameter, use the
 [`--Xbonsai-maximum-back-layers-to-load`](../HowTo/Configure/Configure-Data-Storage.md#configuring-the-number-of-layers-loaded-with-bonsai) option.
 
 ### Fast syncing nodes

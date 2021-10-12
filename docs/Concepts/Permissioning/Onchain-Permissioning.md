@@ -49,11 +49,6 @@ repository are:
 
 The [permissioning management dapp] provides view and maintain access to the allowlists.
 
-!!! tip
-
-    Before v1.2, the management interface used Truffle, now deprecated. For an improved user
-    experience, use the dapp.
-
 ### Allowlists
 
 Permissioning implements three allowlists:

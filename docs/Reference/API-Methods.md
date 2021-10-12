@@ -1601,7 +1601,7 @@ transaction data using `eea_sendRawTransaction`.
     For production systems requiring private transactions, use a network with a consensus mechanism
     supporting transaction finality to make sure the private state does not become inconsistent
     with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
-    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provides the required finality.
+    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provide the required finality.
 
     Using private transactions with [pruning](../Concepts/Pruning.md) or
     [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
@@ -4616,6 +4616,10 @@ This is used by mining software such as [Ethminer](https://github.com/ethereum-m
 
 Returns an object with data about the synchronization status, or `false` if not synchronizing.
 
+!!! note
+
+    Once the node reaches the head of the chain, `eth_syncing` returns false, indicating that there is no active syncing target.
+
 #### Parameters
 
 None
@@ -5441,6 +5445,13 @@ allowlist and including invalid account addresses.)
 
 Adds nodes to the
 [nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+
+To use domain names in enode URLs, ensure you [enable DNS support](../Concepts/Node-Keys.md#domain-name-support) to
+avoid receiving a `request contains an invalid node` error.
+
+!!! warning
+
+    Enode URL domain name support is an experimental feature.
 
 #### Parameters
 

@@ -4,7 +4,7 @@ description: Private and public key, and node address used to identify nodes
 
 # Node keys and node address
 
-Each node has a private / public key pair and a node address. Besu uses the private / public key
+Each node has a private and public key pair, and a node address. Hyperledger Besu uses the private and public key
 pair to sign and verify transactions, and the node address as an identifier for the node.
 
 ## Node private key
@@ -14,7 +14,7 @@ When starting Hyperledger Besu, if the
 specified and a `key` file does not exist in the data directory for the node, Besu generates a node
 private key and writes it to the `key` file.
 
-If a `key` file does exist in the data directory when starting Besu, the node starts with using
+If a `key` file does exist in the data directory when starting Besu, the node starts using the
 private key in the `key` file.
 
 !!!info
@@ -37,26 +37,42 @@ bytes of the hash as the node address. It is also displayed in the logs after st
 You can export the node address, either to standard output or to a specified file, using the
 [`public-key export-address`](../Reference/CLI/CLI-Subcommands.md#public-key) subcommand.
 
+## Specifying a custom node private key file
+
+Use the [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option to
+specify a custom `key` file in any location.
+
+If the `key` file exists, the node starts with the private key in the `key` file. If the `key` file
+does not exist, Besu generates a node private key and writes it to the `key` file.
+
+For example, the following command either reads the node private key from `privatekeyfile` or
+writes a generated private key to `privatekeyfile`.
+
+!!! example
+
+    ```bash
+    besu --node-private-key-file="/Users/username/privatekeyfile"
+    ```
+
 ## Enode URL
 
-The enode URL identifies a node. For example, the `--bootnodes` option and the
-`perm_addNodesToAllowlist` method specify nodes by enode URL.
-
-!!! tip
-
-    If deploying Besu using Kubernetes in private permissioned networks, use the
-    [`--Xdns-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-enabled) and
-    [`--Xdns-update-enabled`](../Reference/CLI/CLI-Syntax.md#xdns-update-enabled) options to use
-    domain names instead of IP addresses. This ensures that Besu can connect to a container even if
-    the IP address changes after being restarted.
+The enode URL identifies a node. For example, the [`--bootnodes`](../Reference/CLI/CLI-Syntax.md#bootnodes) option and
+the [`perm_addNodesToAllowlist`](../Reference/API-Methods.md#perm_addnodestoallowlist) method specify nodes by
+enode URL.
 
 The enode URL format is `enode://<id>@<host:port>[?discport=<port>]` where:
 
 * `<id>` is the node public key, excluding the initial 0x.
 * `<host:port>` is the host and TCP port the bootnode is listening on for P2P discovery. Specify
-  the host and TCP port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
-  [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
-  and the default port is `30303`.
+    the host and TCP port using the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) and
+    [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options. The default host is `127.0.0.1`
+    and the default port is `30303`.
+
+    !!! note
+
+        Standard Ethereum enode URLs allow hostnames as IP addresses only, however Besu provides [domain name support](#domain-name-support) in
+        private permissioned networks.
+
 * If the TCP listening and UDP discovery ports differ, the UDP port is specified as query parameter `discport`.
 
 !!! example
@@ -80,19 +96,32 @@ the node.
 The enode advertised to other nodes during discovery is the external IP address and port, as
 defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
 
-## Specifying a custom node private key file
+### Domain name support
 
-Use the [`--node-private-key-file`](../Reference/CLI/CLI-Syntax.md#node-private-key-file) option to
-specify a custom `key` file in any location.
+!!! warning
 
-If the `key` file exists, the node starts with the private key in the `key` file. If the `key` file
-does not exist, Besu generates a node private key and writes it to the `key` file.
+    Enode URL domain name support is an experimental feature that you can use in private
+    [permissioned networks](Permissioning/Permissioning-Overview.md) only.
 
-For example, the following command either reads the node private key from `privatekeyfile` or
-writes a generated private key to `privatekeyfile`.
+To use domain names in enode URLs:
 
-!!! example
+* Configure DNS reverse lookup.
+* Enable DNS support using Besu's `--Xdns-enabled` experimental command line option.
+
+!!! example "Example enode URL using a domain name"
 
     ```bash
-    besu --node-private-key-file="/Users/username/privatekeyfile"
+    enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@mydomain.dev.example.net:30301
     ```
+
+!!! tip
+
+    If deploying Besu using Kubernetes in private permissioned networks, use the
+    `--Xdns-enabled` and `--Xdns-update-enabled` options to ensure that Besu can connect to a container after
+    restarting even if the IP address of the container changes.
+
+    Use the [`--Xhelp`](../Reference/CLI/CLI-Syntax.md#xhelp) command line option to view experimental options and their
+    descriptions.
+
+If nodes are not connecting as expected, set the [log level to TRACE](../Reference/API-Methods.md#admin_changeloglevel) to
+help troubleshoot the issue.

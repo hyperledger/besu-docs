@@ -399,22 +399,23 @@ The default is `true`.
 === "Example"
 
     ```bash
-    --fast-sync-min-peers=2
+    --fast-sync-min-peers=8
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_FAST_SYNC_MIN_PEERS=2
+    BESU_FAST_SYNC_MIN_PEERS=8
     ```
 
 === "Example configuration file"
 
     ```bash
-    fast-sync-min-peers=2
+    fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting fast sync. The default is 5.
+The minimum number of peers required before starting fast sync. The default is 5. To improve performance,
+or if the fast sync is taking a long time to complete, increase the number of peers to at least 8 instead.  
 
 !!! note
 
@@ -2133,7 +2134,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
-[authorized privacy enclave](../../HowTo/Configure/Configure-TLS.md#create-the-known-servers-file).
+[authorized privacy enclave](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-servers-file).
 
 ### `privacy-url`
 
@@ -2917,7 +2918,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file used to
-[authenticate clients](../../HowTo/Configure/Configure-TLS.md#create-the-known-clients-file) using
+[authenticate clients](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
 Must contain the certificates's Common Name, and SHA-256 fingerprint in the format

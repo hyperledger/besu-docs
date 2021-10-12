@@ -13,6 +13,14 @@ To add a node to the Hyperledger Besu nodes allowlist:
 1. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and
    click the _Add Node_ button.
 
+!!! important
+
+    Node allowlists [support domain names] in enode URLs as an experimental feature. Use the `--Xdns-enabled` option
+    to enable domain name support.
+
+    If using Kubernetes, enable domain name support and use the `--Xdns-update-enabled` option to ensure that Besu can
+    connect to a container after being restarted, even if the IP address of the container changes.
+
 To remove a node from the nodes allowlist:
 
 1. On the _Nodes_ tab of the permissioning management dapp, hover over the row of the
@@ -56,3 +64,5 @@ To remove an account from the accounts allowlist:
 ## Update admins
 
 You can add or remove Admins in the same way as accounts, except on the _Admins_ tab.
+
+[support domain names]: ../../Concepts/Node-Keys.md#domain-name-support

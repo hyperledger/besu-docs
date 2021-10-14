@@ -188,7 +188,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 The following table lists available metrics.
 Metrics specific to Besu use the `besu_` prefix, and standard Ethereum metrics use the `ethereum_` prefix.
-Each metric is part of a metric category which can be enabled using a [command line option](../../Reference/CLI/CLI-Syntax.md#metrics-category).
+Each metric is part of a metric category which can be enabled using the [`metrics-category`](../../Reference/CLI/CLI-Syntax.md#metrics-category) command line option.
 If a metric has a JSON-RPC equivalent, it is included in the definition column.
 
 | Name | Metric category | Metric type | Definition |

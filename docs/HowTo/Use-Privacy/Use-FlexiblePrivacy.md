@@ -63,7 +63,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 ## Adding and removing members
 
 To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
-use the `addTo` and `removeFrom` methods in the [web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
+use the `addTo` and `removeFrom` methods in the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
 client library.
 
 !!! note

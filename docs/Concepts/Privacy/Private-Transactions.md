@@ -49,7 +49,7 @@ keys of the Tessera nodes sending and receiving the transaction.
 
 [Private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md) involves
 two transactions, the private transaction distributed to involved participants and the
-[privacy marker transaction] included on the public blockchain. Each each of these transactions has
+[privacy marker transaction] included on the public blockchain. Each of these transactions has
 its own nonce.
 
 ### Private transaction nonce

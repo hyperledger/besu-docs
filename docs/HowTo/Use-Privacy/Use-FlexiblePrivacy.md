@@ -36,7 +36,7 @@ command line option to enable [flexible privacy groups](../../Concepts/Privacy/F
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
 and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
-[off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
+[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple flexible privacy group example
 

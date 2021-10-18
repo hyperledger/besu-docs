@@ -232,8 +232,11 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
 | `besu_peers_connected_total`                                        | `PEERS`            | Counter | Total number of peers connected                     |
 | `besu_peers_disconnected_total`                                     | `PEERS`            | Counter | Total number of peers disconnected                  |
 | `besu_peers_pending_peer_requests_current`                          | `PEERS`            | Gauge   | Current number of peer requests pending because peers are busy |
-| `besu_pruner_swept_nodes_total`                                     | `PRUNER`           | Counter | Total number of unused nodes removed                |
 | `besu_pruner_mark_time_duration`                                    | `PRUNER`           | Gauge   | Cumulative number of seconds spent marking the state trie across all pruning cycles |
+| `besu_pruner_mark_operations_total`                                 | `PRUNER`           | Counter | Total number of mark operations performed           |
+| `besu_pruner_marked_nodes_total`                                    | `PRUNER`           | Counter | Total number of nodes marked as in use              |
+| `besu_pruner_sweep_operations_total`                                | `PRUNER`           | Counter | Total number of sweep operations performed          |
+| `besu_pruner_swept_nodes_total`                                     | `PRUNER`           | Counter | Total number of unused nodes removed                |
 | `besu_stratum_connections`                                          | `STRATUM`          | Counter | Number of connections over time                     |
 | `besu_stratum_difficulty`                                           | `STRATUM`          | Gauge   | Current mining difficulty                           |
 | `besu_stratum_disconnections`                                       | `STRATUM`          | Counter | Number of disconnections over time                  |

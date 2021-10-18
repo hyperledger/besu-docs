@@ -48,6 +48,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 1. Run:
 
     ```bash
+    cd example/onchainPrivacy
     node simpleExample.js
     ```
 

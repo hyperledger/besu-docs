@@ -2268,7 +2268,7 @@ Defaults to `false`.
 
 !!! Important
 
-    Pruning is being depreciated for [Bonsai Tries](Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.
+    Pruning is being depreciated for [Bonsai Tries](../../Concepts/Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.
 
 ### `random-peer-priority-enabled`
 

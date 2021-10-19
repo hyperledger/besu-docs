@@ -27,7 +27,7 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
     group functionality in future versions.
 
     We do not recommend creating flexible privacy groups in a chain with existing
-    [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
+    [off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
 
 ## Enabling flexible privacy groups
 
@@ -36,7 +36,7 @@ command line option to enable [flexible privacy groups](../../Concepts/Privacy/F
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
 and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
-[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
+[off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple flexible privacy group example
 
@@ -58,7 +58,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 !!! tip
 
     The Tessera logs for Tessera 1 and Tessera 2 display `PrivacyGroupNotFound` errors. This is
-    expected behavior because private transactions check offchain and onchain to find the privacy
+    expected behavior because private transactions check off-chain and onchain to find the privacy
     group for a private transaction.
 
 ## Adding and removing members

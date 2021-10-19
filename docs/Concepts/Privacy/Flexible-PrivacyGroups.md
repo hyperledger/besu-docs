@@ -27,7 +27,7 @@ and remove members to and from flexible privacy groups.
     group functionality in future versions.
 
     It's not recommended to create flexible privacy groups in a chain with existing
-    [offchain privacy groups](Privacy-Groups.md).
+    [off-chain privacy groups](Privacy-Groups.md).
 
 ## Group management contracts
 

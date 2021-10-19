@@ -2266,6 +2266,10 @@ Defaults to `false`.
     Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
     supported.
 
+!!! Important
+
+    Pruning is being depreciated for [Bonsai Tries](Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.
+
 ### `random-peer-priority-enabled`
 
 === "Syntax"

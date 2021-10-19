@@ -19,7 +19,7 @@ state.
 
 !!! important
 
-    The privacy group implementations described below are offchain privacy groups and cannot have
+    The privacy group implementations described below are off-chain privacy groups and cannot have
     their group membership updated.
 
     [Flexible privacy groups are an early access feature](Flexible-PrivacyGroups.md).

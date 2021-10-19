@@ -12,6 +12,10 @@ description: Hyperledger Besu private network using the QBFT (Proof of Authority
 A private network provides a configurable network for testing. This private network uses the
 [QBFT (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/QBFT.md).
 
+The QBFT network in this tutorial implements the [voting-based method] to add and remove
+validators, for a tutorial on how to implement the [smart contract-based method], follow the
+steps in the [example smart contract repository].
+
 !!! important
 
     The steps in this tutorial create an isolated, but not protected or secure, Ethereum private
@@ -378,6 +382,9 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 <!-- Links -->
 [private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
+[voting-based method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting
+[smart contract-based method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-using-a-smart-contract
+[example smart contract repository]: https://github.com/ConsenSys/validator-smart-contracts
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

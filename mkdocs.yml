@@ -91,6 +91,7 @@ nav:
           - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
           - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
           - Block proposal permissioning: HowTo/Configure/Block-Proposal-Permissioning.md
+          - Configure the data storage format: HowTo/Configure/Configure-Data-Storage.md
         - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -185,6 +186,18 @@ nav:
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
+        - Data storage formats: Concepts/Data-Storage-Formats.md
+        - Events and logs: Concepts/Events-and-Logs.md
+        - Mining: Concepts/Mining.md
+        - Monitoring: Concepts/Monitoring.md
+        - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md
+        - Network vs node configuration: Concepts/Network-vs-Node.md
+        - Node keys: Concepts/Node-Keys.md
+        - Node types: Concepts/Node-Types.md
+        - Permissioning:
+            - Overview: Concepts/Permissioning/Permissioning-Overview.md
+            - Onchain permissioning: Concepts/Permissioning/Onchain-Permissioning.md
+            - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
         - Plugins: Concepts/Plugins.md
         - Privacy:
           - Overview: Concepts/Privacy/Privacy-Overview.md
@@ -194,25 +207,14 @@ nav:
           - Flexible privacy groups: Concepts/Privacy/Flexible-PrivacyGroups.md
           - Multi-tenancy: Concepts/Privacy/Multi-Tenancy.md
           - Privacy plugin: Concepts/Privacy/Plugin-Privacy.md
-        - Permissioning:
-          - Overview: Concepts/Permissioning/Permissioning-Overview.md
-          - Onchain permissioning: Concepts/Permissioning/Onchain-Permissioning.md
-          - Permissioning plugin: Concepts/Permissioning/Plugin-Permissioning.md
-        - Public key infrastructure: Concepts/PKI.md
         - Protocol upgrades: Concepts/Protocol-Upgrades.md
         - Pruning: Concepts/Pruning.md
+        - Public key infrastructure: Concepts/PKI.md
+        - TLS communication: Concepts/TLS.md
         - Transactions:
           - Transaction types: Concepts/Transactions/Transaction-Types.md
           - Transaction pool: Concepts/Transactions/Transaction-Pool.md
           - Validating transactions: Concepts/Transactions/Transaction-Validation.md
-        - Monitoring: Concepts/Monitoring.md
-        - Events and logs: Concepts/Events-and-Logs.md
-        - TLS communication: Concepts/TLS.md
-        - Node types: Concepts/Node-Types.md
-        - Node keys: Concepts/Node-Keys.md
-        - Network vs node configuration: Concepts/Network-vs-Node.md
-        - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md
-        - Mining: Concepts/Mining.md
     - Reference:
         - Besu command line:
           - Options: Reference/CLI/CLI-Syntax.md
@@ -300,3 +302,4 @@ plugins:
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
           Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
           Tutorials/Privacy/web3js-eea-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
+          HowTo/Configure/Configure-TLS.md: HowTo/Configure/TLS/Configure-TLS.md

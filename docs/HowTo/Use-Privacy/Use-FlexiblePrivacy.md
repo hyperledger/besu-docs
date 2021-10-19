@@ -16,7 +16,7 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
 !!! tip
 
     Because group membership for flexible privacy groups is stored in a smart contract, flexible
-    privacy groups are also known as onchain privacy groups.
+    privacy groups are also known as on-chain privacy groups.
 
 !!! important
     [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
@@ -58,7 +58,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 !!! tip
 
     The Tessera logs for Tessera 1 and Tessera 2 display `PrivacyGroupNotFound` errors. This is
-    expected behavior because private transactions check off-chain and onchain to find the privacy
+    expected behavior because private transactions check off-chain and on-chain to find the privacy
     group for a private transaction.
 
 ## Adding and removing members

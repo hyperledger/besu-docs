@@ -16,7 +16,7 @@ and remove members to and from flexible privacy groups.
 !!! tip
 
     Because group membership for flexible privacy groups is stored in a smart contract, flexible
-    privacy groups are also known as onchain privacy groups.
+    privacy groups are also known as on-chain privacy groups.
 
 !!! important
 

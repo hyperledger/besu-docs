@@ -19,4 +19,4 @@ sync.
 
 !!! Important
 
-    Pruning is being depreciated for [Bonsai Tries](Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.
+    Pruning is being deprecated for [Bonsai Tries](Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.

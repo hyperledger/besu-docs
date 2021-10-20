@@ -36,7 +36,7 @@ command line option to enable [flexible privacy groups](../../Concepts/Privacy/F
 When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
 [`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
 and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
-[off-chain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
+[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple flexible privacy group example
 
@@ -48,6 +48,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 1. Run:
 
     ```bash
+    cd example/onchainPrivacy
     node simpleExample.js
     ```
 
@@ -63,7 +64,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 ## Adding and removing members
 
 To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
-use the `addTo` and `removeFrom` methods in the [web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
+use the `addTo` and `removeFrom` methods in the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
 client library.
 
 !!! note

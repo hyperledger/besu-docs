@@ -779,7 +779,7 @@ The maximum number of P2P connections you can establish. The default is 25.
 
 A comma-separated list of categories for which to track metrics. The defaults are `BLOCKCHAIN`,
 `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`,
-`SYNCHRONIZER`, and `TRANSACTION_POOL`.
+`STRATUM`, `SYNCHRONIZER`, and `TRANSACTION_POOL`.
 
 Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and
 `KVSTORE_PRIVATE_ROCKSDB_STATS`.

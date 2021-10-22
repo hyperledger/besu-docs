@@ -42,7 +42,7 @@ keys of the Tessera nodes sending and receiving the transaction.
 
 !!! important
 
-    The mapping of Besu node addresses to Tessera node public keys is off-chain. That is, the sender
+    The mapping of Besu node addresses to Tessera node public keys is offchain. That is, the sender
     of a private transaction must know the Tessera node public key of the recipient.
 
 ## Nonces

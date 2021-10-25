@@ -16,3 +16,7 @@ Pruning is disabled by default, and can be enabled with the
 
 Pruning might increase block import times, but it does not affect the ability of nodes to stay in
 sync.
+
+!!! Important
+
+    Pruning is being deprecated for [Bonsai Tries](Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.

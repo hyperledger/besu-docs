@@ -163,7 +163,7 @@ To tune the block timeout for your network deployment:
     View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
     log messages.
 
-#### Configure block time on an existing network deployment.
+#### Configure block time on an existing network deployment
 
 To update an existing network with a new `blockperiodseconds`:
 

@@ -21,7 +21,7 @@ The imported chain makes new blocks faster than the genesis file allows and Besu
 This error most often occurs when importing chains from older versions of Besu to newer versions.
 
 To correct this error, decrease the `blockperiodseconds` in the new [IBFT 2.0 genesis file](../Configure/Consensus-Protocols/IBFT.md#genesis-file)
-or [QFBT genesis file](../Configure/Consensus-Protocols/QBFT.md#genesis-file) to a lower value that satisfies the block header validation. 
+or [QFBT genesis file](../Configure/Consensus-Protocols/QBFT.md#genesis-file) to a lower value that satisfies the block header validation.
 
 !!! example
 

@@ -157,7 +157,7 @@ When using the smart contract you can either make changes
 via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via RPC
 [API] calls.
 
-[api]: ../Reference/API-Methods.md
+[api]: ../Reference/API-Methods.md#perm_addNodesToAllowlist
 [bootnodes]: ../HowTo/Deploy/Bootnodes.md
 [permissions file]: ../HowTo/Limit-Access/Local-Permissioning.md
 [static nodes]: ../HowTo/Find-and-Connect/Static-Nodes.md

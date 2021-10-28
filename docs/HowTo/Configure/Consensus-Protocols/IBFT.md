@@ -173,55 +173,55 @@ To update an existing network with a new `blockperiodseconds`:
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     * `<NewValue>` is the updated value for `blockperiodseconds`.
 
-    !!! example "Transitions object in the genesis file"
+    !!! example "Transitions configuration"
 
-    === "Syntax"
+        === "Syntax"
 
-        ```bash
-        {
-          "config": {
-             ...
-             "ibft2": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "ibft2": [
-               {
-                 "block": <FutureBlockNumber>,
-                 "blockperiodseconds": <NewValue>
-               }
-               ]
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockperiodseconds": <NewValue>
+                   }
+                   ]
+                }
+              },
+              ...
             }
-          },
-          ...
-        }
-        ```
+            ```
 
-    === "Example"
+        === "Example"
 
-        ```bash
-        {
-          "config": {
-             ...
-             "ibft2": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "ibft2": [
-               {
-                 "block": 1240,
-                 "blockperiodseconds": 4
-               }
-               ]
-             }
-          },
-          ...
-        }
-        ```
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": 1240,
+                     "blockperiodseconds": 4
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
 
 1. Restart all nodes in the network using the updated genesis file.
 1. To verify the changes after the transition block, call

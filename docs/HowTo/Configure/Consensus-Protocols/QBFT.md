@@ -203,55 +203,55 @@ To update an existing network with a new `blockperiodseconds`:
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     * `<NewValue>` is the updated value for `blockperiodseconds`.
 
-    !!! example "Transitions object in the genesis file"
+    !!! example "Transitions configuration"
 
-    === "Syntax"
+        === "Syntax"
 
-        ```bash
-        {
-          "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "qbft": [
-               {
-                 "block": <FutureBlockNumber>,
-                 "blockperiodseconds": <NewValue>
-               }
-               ]
-             }
-          },
-          ...
-        }
-        ```
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockperiodseconds": <NewValue>
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
 
-    === "Example"
+        === "Example"
 
-        ```bash
-        {
-          "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4
-             },
-             "transitions": {
-               "qbft": [
-               {
-                 "block": 1240,
-                 "blockperiodseconds": 4
-               }
-               ]
-             }
-          },
-          ...
-        }
-        ```
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": 1240,
+                     "blockperiodseconds": 4
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
 
 3. Restart all nodes in the network using the updated genesis file.
 4. To verify the changes after the transition block, call

@@ -14,9 +14,10 @@ description: Rapidly generate local blockchain networks.
   - Docker desktop configured to use the WSL2-based engine
 
 !!! important
-Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
-Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
-[Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
+
+    Ensure you allow Docker up to 4G of memory or 6G if running the privacy examples.
+    Refer to the _Resources_ section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and
+    [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
 ## Usage
 
@@ -88,7 +89,8 @@ node generate_node_keys.js --password "Password"
 ```
 
 !!! note
-The `--password` parameter is optional.
+
+    The `--password` parameter is optional.
 
 ### 2. Create new node directory
 
@@ -117,13 +119,14 @@ Add an entry for the new node into the docker-compose file:
 ```
 
 !!! important
-Select an IP address and port map that aren't being used for the other containers. Additionally mount the newly created
-folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node.
 
-### 4. Update prometheus.yml
+    Select an IP address and port map that aren't being used for the other containers. Additionally mount the newly created
+    folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen in the example above.
 
-Update prometheus.yml under ./config/prometheus/ to enable metrics gathering and to show up under Grafana.
-Insert the following under scrape_configs in the file. Make sure to change the `job_name` and `targets` appropriately if you have changed them:
+### 4. Update prometheus configuration
+
+Update prometheus.yml under [`./config/prometheus/`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/besu/config/prometheus) to enable metrics gathering and to show up under Grafana.
+Insert the following under `scrape_configs` section in the file. Make sure to change the `job_name` and `targets` appropriately if you have changed them:
 
 ```yaml
 - job_name: newnode
@@ -143,16 +146,19 @@ If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`,
 address would be `"enode://4540ea...9c1d78@172.16.239.41:30303"`,
 which must be added to both files.
 
-As an alternative, it is also possible to call the Besu API method [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) to add the new node to the [allow list]: ../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting
+As an alternative, it is also possible to call the Besu API method [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) to add the new node to the [allow list].
 
 ### 6. Start the network
 
-Once complete, start the network up with `./run.sh`
+Once complete, start the network up with `./run.sh`.
 On a live network the process is the same when using local permissions with the `permissions_config.toml` file.
 You don't need to restart the network and subsequent changes to the files are picked up by the servers.
 When using the smart contract you can either make changes
 via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via RPC
-[API]: ../Reference/API-Methods.md#`PERM` calls.
+[API] calls.
+
+[api]: ../Reference/API-Methods.md
 [bootnodes]: ../HowTo/Deploy/Bootnodes.md
 [permissions file]: ../HowTo/Limit-Access/Local-Permissioning.md
-[static nodes]: ../HowTo/Find-And-Connect/Bootnodes.md
+[static nodes]: ../HowTo/Find-and-Connect/Static-Nodes.md
+[allow list]: ../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting

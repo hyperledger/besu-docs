@@ -13,6 +13,25 @@ matching the genesis block of the data directory, or use the
 [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option to specify a different data
 directory.
 
+## Invalid block header
+
+If a `TimeStampMoreRecentThanParent | Invalid block header` error occurs, the [genesis file](../Configure/Genesis-File.md) of the new node is specifying a higher
+[`blockperiodseconds`](../Configure/Consensus-Protocols/IBFT.md#block-time) than the imported chain.
+The imported chain makes new blocks faster than the genesis file allows and Besu rejects them with this error.
+This error most often occurs when importing chains from older versions of Besu.
+
+To correct this error, decrease the `blockperiodseconds` in the new [IBFT 2.0 genesis file](../Configure/Consensus-Protocols/IBFT.md#genesis-file)
+or [QFBT genesis file](../Configure/Consensus-Protocols/QBFT.md#genesis-file) to a lower value that satisfies the block header validation.
+
+!!! example
+
+    If the error reads `| TimestampMoreRecentThanParent | Invalid block header: timestamp 1619660141 is only 3 seconds newer than parent timestamp 1619660138. Minimum 4 seconds`,
+    decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
+
+After you have updated the new genesis file, if the imported chain has a `blockperiodseconds` value set lower than you prefer, you can adjust it by configuring the block time on an
+[existing IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#block-time)
+or [existing QBFT](../Configure/Consensus-Protocols/QBFT.md#block-time) network.
+
 ## Host not authorized
 
 If a `Host not authorized` error occurs when attempting to access the JSON-RPC API, ensure

@@ -125,7 +125,7 @@ Add an entry for the new node into the docker-compose file:
 
 ### 4. Update prometheus configuration
 
-Update prometheus.yml under [`./config/prometheus/`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/besu/config/prometheus) to enable metrics gathering and to show up under Grafana.
+Update `prometheus.yml` under [`./config/prometheus/`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/besu/config/prometheus) to enable metrics gathering and to show up under Grafana.
 Insert the following under `scrape_configs` section in the file. Make sure to change the `job_name` and `targets` appropriately if you have changed them:
 
 ```yaml

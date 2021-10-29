@@ -99,7 +99,7 @@ The QBFT properties are:
 
 !!! caution
 
-    The `blockperiodseconds`, `blockreward`, and  `miningbeneficiary` properties
+    The `blockreward` and  `miningbeneficiary` properties
     cannot be updated once your network is started.
 
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
@@ -171,7 +171,7 @@ expires, the protocol proposes the next new block.
 
 !!! warning
 
-    If more than 1/3 of validators stop participating, new blocks can no longer be created and 
+    If more than 1/3 of validators stop participating, new blocks can no longer be created and
     `requesttimeoutseconds` doubles with each round change. The quickest method
     to resume block production is to restart all validators, which resets `requesttimeoutseconds` to
     its genesis value.
@@ -192,8 +192,77 @@ To tune the block timeout for your network deployment:
 
     View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
     log messages.
-{!global/Config-Options.md!}
 
+#### Configure block time on an existing network deployment
+
+To update an existing network with a new `blockperiodseconds`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
+    * `<NewValue>` is the updated value for `blockperiodseconds`.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockperiodseconds": <NewValue>
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": 1240,
+                     "blockperiodseconds": 4
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+3. Restart all nodes in the network using the updated genesis file.
+4. To verify the changes after the transition block, call
+   [`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+
+!!! caution
+
+    Do not specify a transition block in the past.
+    Specifying a transition block in the past could result in unexpected behavior, such as causing
+    the network to fork.
+{!global/Config-Options.md!}
 <!-- Acronyms and Definitions -->
 
 *[Vanity]: Validators can include anything they like as vanity data.

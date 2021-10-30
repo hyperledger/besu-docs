@@ -123,7 +123,7 @@ Add an entry for the new node into the docker-compose file:
     Select an IP address and port map that aren't being used for the other containers. Additionally mount the newly created
     folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen in the example above.
 
-### 4. Update prometheus configuration
+### 4. Update Prometheus configuration
 
 Update `prometheus.yml` under [`./config/prometheus/`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/besu/config/prometheus) to enable metrics gathering and to show up under Grafana.
 Insert the following under `scrape_configs` section in the file. Make sure to change the `job_name` and `targets` appropriately if you have changed them:
@@ -146,15 +146,18 @@ If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`,
 address would be `"enode://4540ea...9c1d78@172.16.239.41:30303"`,
 which must be added to both files.
 
-As an alternative, it is also possible to call the Besu API method [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) to add the new node to the [allow list].
+For the permissioned allow list, you can alternatively call the API method [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) to add the new node.
+
+!!! note
+
+    On a live network, the new node should be added to the [permissions file] so that subsequent nodes will be aware of the change.
+    Existing nodes that are already online can reflect the change by calling the [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) method without a restart.
+    Please note that calling the API method by itself will only persist for as long as the nodes remain online and will be lost on next restart.
 
 ### 6. Start the network
 
 Once complete, start the network up with `./run.sh`.
-On a live network the process is the same when using local permissions with the `permissions_config.toml` file.
-You don't need to restart the network and subsequent changes to the files are picked up by the servers.
-When using the smart contract you can either make changes
-via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via RPC
+When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via RPC
 [API] calls.
 
 [api]: ../Reference/API-Methods.md#perm_addNodesToAllowlist

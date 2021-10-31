@@ -10,8 +10,8 @@ description: Rapidly generate local blockchain networks.
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 - [Node.js](https://nodejs.org/en/download/) version 12 or higher
 - On Windows:
-  - Windows Subsystem for Linux 2
-  - Docker desktop configured to use the WSL2-based engine
+    - Windows Subsystem for Linux 2
+    - Docker desktop configured to use the WSL2-based engine
 
 !!! important
 

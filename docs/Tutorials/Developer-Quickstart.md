@@ -76,11 +76,12 @@ New nodes joining an existing network require the following:
 - A node key pair and optionally an account. If the running network is using permissions, then you need
   to add the new node's enode details to the [permissions file] used by existing nodes, or update
   the onchain permissioning contract.
-  The following steps describe the process to add a new node to the Quorum Dev Quickstart.
+
+The following steps describe the process to add a new node to the Developer Quickstart.
 
 ### 1. Create the node key files
 
-Create a node key pair and account for a new node, by running the following script:
+Create a node key pair and account for a new node by running the following script:
 
 ```bash
 cd ./extra
@@ -94,8 +95,14 @@ node generate_node_keys.js --password "Password"
 
 ### 2. Create new node directory
 
-In the [`config/nodes`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/common/config/nodes)
-directory, create a subdirectory for the new node (for example, `newnode`), and move the
+Navigate to the directory where the configuration files for the network were created.
+
+!!! note
+
+    The directory was specified in an earlier step when running `npx quorum-dev-quickstart`. The default
+    location is `./quorum-test-network`.
+
+In the `config/nodes` directory, create a subdirectory for the new node (for example, `newnode`), and move the
 `nodekey`, `nodekey.pub`, `address` and `accountkey` files from the previous step into this directory.
 
 ### 3. Update docker-compose
@@ -120,13 +127,15 @@ Add an entry for the new node into the docker-compose file:
 
 !!! important
 
-    Select an IP address and port map that aren't being used for the other containers. Additionally mount the newly created
+    Select an IP address and port map not being used for the other containers. Additionally mount the newly created
     folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen in the example above.
 
 ### 4. Update Prometheus configuration
 
-Update `prometheus.yml` under [`./config/prometheus/`](https://github.com/ConsenSys/quorum-dev-quickstart/tree/master/files/besu/config/prometheus) to enable metrics gathering and to show up under Grafana.
-Insert the following under `scrape_configs` section in the file. Make sure to change the `job_name` and `targets` appropriately if you have changed them:
+Update `prometheus.yml` in the `./config/prometheus/` directory to configure metrics to display in Grafana.
+
+Insert the following under `scrape_configs` section in the file. Ensure you change `job_name` and `targets`
+appropriately if you've updated them.
 
 ```yaml
 - job_name: newnode
@@ -146,13 +155,17 @@ If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`,
 address would be `"enode://4540ea...9c1d78@172.16.239.41:30303"`,
 which must be added to both files.
 
-For the permissioned allow list, you can alternatively call the API method [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) to add the new node.
+Alternatively, call the
+[`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist)
+API method on existing nodes to add the new node without requiring a restart.
 
 !!! note
 
-    On a live network, the new node should be added to the [permissions file] so that subsequent nodes will be aware of the change.
-    Existing nodes that are already online can reflect the change by calling the [`perm_addNodesToAllowlist`](https://besu.hyperledger.org/en/latest/Reference/API-Methods/#perm_addnodestoallowlist) method without a restart.
-    Please note that calling the API method by itself will only persist for as long as the nodes remain online and will be lost on next restart.
+    Please note that calling the API method by itself will only persist for as long as the nodes remain online
+    and will be lost on next restart.
+
+    On a live network, the new node must be added to the [permissions file] so that subsequent nodes are aware
+    of the change.
 
 ### 6. Start the network
 

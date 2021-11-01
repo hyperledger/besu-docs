@@ -164,8 +164,8 @@ API method on existing nodes to add the new node without requiring a restart.
     Please note that calling the API method by itself will only persist for as long as the nodes remain online
     and will be lost on next restart.
 
-    On a live network, the new node must be added to the [permissions file] so that subsequent nodes are aware
-    of the change.
+    On a live network, the new node must be added to the [permissions file] so that subsequent restarts
+    of the nodes are aware of the change.
 
 ### 6. Start the network
 

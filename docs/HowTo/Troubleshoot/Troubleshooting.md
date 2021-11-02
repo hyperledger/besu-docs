@@ -103,6 +103,13 @@ hyphens.
 Restart Besu with the command line option
 [`--logging=TRACE`](../../Reference/CLI/CLI-Syntax.md#logging) and look at the log files.
 
+## Unsupported Address Type Exception (IPV6)
+
+If your runtime (docker) is not configured for IPV6 correctly you might see exceptions 
+thrown starting with "Unsupported address type exception when connecting to peer...",
+you can [enable](https://docs.docker.com/config/daemon/ipv6/) IPV6 or alternatively enabled 
+TRACE level logging to see the full exception stacktrace.
+
 ## Pending State Nodes not decreasing for a full node in Grafana
 
 During [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node) for a full node, the

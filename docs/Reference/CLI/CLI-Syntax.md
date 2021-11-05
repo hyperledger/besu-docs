@@ -2632,9 +2632,10 @@ with your Besu node.
 
 !!!note
 
-    To run a local Besu node as a backend for MetaMask and use MetaMask anywhere, set
-    `--rpc-http-cors-origins` to `"all"` or `"*"`. To allow a specific domain to use MetaMask with
-    the Besu node, set `--rpc-http-cors-origins` to the client domain.
+    To run a local Besu node as with MetaMask, set `--rpc-http-cors-origins` to 
+    `chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn`.
+    To allow a specific domain to use MetaMask with the Besu node, set `--rpc-http-cors-origins` to 
+    the client domain. Remember to also include the dApp domain MetaMask interacts with.
 
 !!!tip
 

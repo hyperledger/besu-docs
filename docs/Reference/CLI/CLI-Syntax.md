@@ -2632,9 +2632,12 @@ with your Besu node.
 
 !!!note
 
-    To run a local Besu node as a backend for MetaMask and use MetaMask anywhere, set
-    `--rpc-http-cors-origins` to `"all"` or `"*"`. To allow a specific domain to use MetaMask with
-    the Besu node, set `--rpc-http-cors-origins` to the client domain.
+    To run a local Besu node with MetaMask, set `--rpc-http-cors-origins` to 
+    `chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn`.
+
+    Remember to also include the dapp domain MetaMask interacts with, for example if your app is deployed 
+    on Remix and you're using MetaMask to interact with the contract the config option should be 
+    `--rpc-http-cors-origins=["chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn", "http://remix.ethereum.org"]`
 
 !!!tip
 

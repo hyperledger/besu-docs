@@ -256,8 +256,12 @@ To add or remove validators without voting:
 
 ## QBFT
 
-Add and remove validators by [voting](#adding-and-removing-validators-by-voting) or if network
-conditions require it, [without voting](#adding-and-removing-validators-without-voting).
+QBFT provides two methods (modes) to manage validators:
+
+* [Block header validator selection](#adding-and-removing-validators-by-voting) - Existing validators propose
+    and vote to  add or remove validators, or if network conditions require it, [without voting](#adding-and-removing-validators-without-voting).
+* [Contract validator selection](#adding-and-removing-validators-using-a-smart-contract) - Use a smart contract
+    to add or remove validators.
 
 ### Adding and removing validators by voting
 
@@ -419,3 +423,13 @@ To add or remove validators without voting:
 !!! caution
     Do not specify a transition block in the past. Specifying a transition block in the past could
     result in unexpected behaviour, such as causing the network to fork.
+
+### Adding and removing validators using a smart contract
+
+You can deploy the validator smart contract in a QBFT network by specifying the contract details in the
+[genesis file](QBFT.md#genesis-file).
+
+Users can create their own smart contracts to add or remove validators based on their organisational requirements.
+[View the example smart contract] for more information on how to create and deploy the smart contract.
+
+[View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts

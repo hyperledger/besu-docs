@@ -11,7 +11,7 @@ BerkeleyDB
 Besu
 Bintray
 [bB]lockchain(s)?
-Blockscout
+BlockScout
 [bB]oolean(s)?
 [bB]ootnode(s)?
 [bB]roadcast(ing|ed)

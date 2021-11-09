@@ -54,6 +54,25 @@ Choose **Splunk** to use the default monitoring tools and [Splunk monitoring](..
 
 Choose **ELK** to use the default monitoring tools and [ELK logging](../HowTo/Monitor/Elastic-Stack.md).
 
+### Block explorer
+
+The quickstart supports the [BlockScout](https://github.com/blockscout/blockscout) block explorer.
+Access BlockScout at [`http://localhost:26000`](http://localhost:26000).
+
+!!! note
+
+    BlockScout's Docker image is resource heavy when running.
+    Ensure you have adequate CPU resources dedicated to the container.
+
+To start BlockScout, run the following command after the quickstart is already running:
+
+```bash
+./run-blockscout.sh
+```
+
+The [quickstart BlockScout configuration](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/templates/goquorum/docker-compose.blockscout.yml)
+is available as a reference for your own network.
+
 ## Smart contracts and dapps
 
 You can use the Pet Shop demo dapp provided by [Truffle](https://www.trufflesuite.com/tutorial) which runs

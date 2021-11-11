@@ -76,5 +76,4 @@ Most of the options from EVM execution do not apply.
     docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
     ```
 
-
 The [EVM tool reference](../../Reference/Evm-Tool.md) provides more information on both modes.

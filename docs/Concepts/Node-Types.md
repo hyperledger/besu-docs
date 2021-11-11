@@ -45,8 +45,10 @@ genesis block.
 
 !!! note
 
-    When fast synchronizing, block numbers increase until close to the head block, then the synchronization stalls for
-    some time depending on world state size.
+    When fast synchronizing, block numbers increase until close to the head block, then the process pauses while the
+    world state download completes.
+    This may take a significant amount of time depending on world state size, during which the current head block
+    doesn't increase.
     For example, MainNet may take several days or more to fast synchronize.
     Fast synchronization time may increase because Besu picks new pivot blocks, or because peers prune the world state
     before it completes downloading.

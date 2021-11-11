@@ -416,7 +416,7 @@ The default is `true`.
     ```
 
 The minimum number of peers required before starting [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node).
-The default is 5. 
+The default is 5.
 
 !!! note
 

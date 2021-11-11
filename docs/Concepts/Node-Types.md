@@ -53,9 +53,6 @@ genesis block.
     Fast synchronization time may increase because Besu picks new pivot blocks, or because peers prune the world state
     before it completes downloading.
 
-    To improve performance, or if the fast synchronization is taking a long time to complete, use
-    [`--fast-sync-min-peers`](../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) to increase the number of peers to at least 8.
-
 !!! tip
 
     You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`

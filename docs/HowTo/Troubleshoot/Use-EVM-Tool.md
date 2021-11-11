@@ -55,7 +55,26 @@ docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool option
 The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.  [Command
 line options](../../Reference/Evm-Tool.md) specify the code and other contextual information.
 
-The EVM tool also has a [`state-test` sub command](../../Reference/Evm-Tool.md#evm-tool-state-test-options)
-that allows the Ethereum State Tests to be evaluated. Most of the options from EVM execution do not apply.
+The EVM tool also has a [`state-test` subcommand](../../Reference/Evm-Tool.md#state-test-options)
+that allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/e102032ae30ef8ae0f0ec94b9cf37ac53c940cb2/GeneralStateTests) to be evaluated.
+Most of the options from EVM execution do not apply.
+
+=== "Syntax"
+
+    ```bash
+    evm state-test <state-test> --nomemory
+    ```
+
+=== "CLI example"
+
+    ```bash
+    evm state-test stExample/add11.json --nomemory
+    ```
+=== "Docker example"
+
+    ```bash
+    docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
+    ```
+
 
 The [EVM tool reference](../../Reference/Evm-Tool.md) provides more information on both modes.

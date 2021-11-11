@@ -299,7 +299,7 @@ specific world state when running with `rocksdb` for `key-value-storage`.
 
 ## State test options
 
-The `state-test` sub command allows the Ethereum State Tests to be evaluated.
+The `state-test` subcommand allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/e102032ae30ef8ae0f0ec94b9cf37ac53c940cb2/GeneralStateTests) to be evaluated.
 Most of the options from EVM execution do not apply.
 
 ### Applicable options
@@ -323,10 +323,27 @@ Set to true for EVMLab Fuzzing.
 Whether or not `json` is set, a summary JSON object is printed to standard output for each
 state test executed.
 
+#### `nomemory`
+
+=== "Syntax"
+
+    ```bash
+    --nomemory=<boolean>
+    ```
+
+=== "Example"
+
+    ```bash
+    --nomemory=true
+    ```
+
+By default, when tracing operations the memory is traced for each operation.
+For memory heavy scripts, setting this option may reduce the volume of JSON output.
+
 ### Using command arguments
 
 If you use command arguments, you can list one or more state tests.
-All of the state tests are evaluated in the order they are specified.
+All the state tests are evaluated in the order they are specified.
 
 === "Docker example"
 

@@ -89,44 +89,48 @@ This command provides node public key related actions.
 === "Syntax"
 
     ```bash
-    besu public-key export [--to=<key-file>]
+    besu public-key export [--node-private-key-file=<file>] [--to=<key-file>]
     ```
 
 === "Example (to standard output)"
 
     ```bash
-    besu --data-path=<node data path> public-key export
+    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey
     ```
 
 === "Example (to file)"
 
     ```bash
-    besu --data-path=<node data path> public-key export --to=/home/me/me_project/not_precious_pub_key
+    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/not_precious_pub_key
     ```
 
 Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
+You can add the subcommand [`--node-private-key-file=<file>`](CLI-Syntax.md#node-private-key-file)
+to export the public key associated with the private key file.
 
 ### `export-address`
 
 === "Syntax"
 
     ```bash
-    besu public-key export-address [--to=<address-file>]
+    besu public-key export-address [--node-private-key-file=<file>] [--to=<address-file>]
     ```
 
 === "Example (to standard output)"
 
     ```bash
-    besu --data-path=<node data path> public-key export-address
+    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey
     ```
 
 === "Example (to file)"
 
     ```bash
-    besu --data-path=<node data path> public-key export-address --to=/home/me/me_project/me_node_address
+    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/me_node_address
     ```
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
+You can add the subcommand [`--node-private-key-file=<file>`](CLI-Syntax.md#node-private-key-file)
+to export the node address associated with the private key file.
 
 ## `password`
 

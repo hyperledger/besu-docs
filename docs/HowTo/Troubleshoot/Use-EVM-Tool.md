@@ -56,7 +56,7 @@ The first mode of the EVM tool runs an arbitrary EVM and is invoked without an e
 line options](../../Reference/Evm-Tool.md) specify the code and other contextual information.
 
 The EVM tool also has a [`state-test` subcommand](../../Reference/Evm-Tool.md#state-test-options)
-that allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/e102032ae30ef8ae0f0ec94b9cf37ac53c940cb2/GeneralStateTests) to be evaluated.
+that allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
 Most of the options from EVM execution do not apply.
 
 === "Syntax"

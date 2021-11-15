@@ -299,7 +299,7 @@ specific world state when running with `rocksdb` for `key-value-storage`.
 
 ## State test options
 
-The `state-test` subcommand allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/e102032ae30ef8ae0f0ec94b9cf37ac53c940cb2/GeneralStateTests) to be evaluated.
+The `state-test` subcommand allows the [Ethereum State Tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
 Most of the options from EVM execution do not apply.
 
 ### Applicable options

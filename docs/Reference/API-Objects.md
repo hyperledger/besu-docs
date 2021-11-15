@@ -233,7 +233,7 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 | **maxFeePerGas**         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
 | **value**                | Quantity, Integer   | Value transferred, in Wei.                                     |
 | **data**                 | Data                | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
-| **strict**               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, this balance is not checked. The default is `false`. |
+| **strict**               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, the `gasPrice` and `baseFee` are set to zero, in order to simulate a transaction without enforcing a balance check. The default is `false`. |
 
 ## Transaction receipt object
 
@@ -280,7 +280,7 @@ Returned by [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktr
 
 ## Private transaction receipt object
 
-Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_getTransactionReceipt).
+Returned by [`priv_getTransactionReceipt`](API-Methods.md#priv_gettransactionreceipt).
 
 | Key | Type | Value |
 |-----|:----:|-------|

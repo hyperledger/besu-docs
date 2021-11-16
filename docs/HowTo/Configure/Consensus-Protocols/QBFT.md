@@ -46,23 +46,25 @@ QBFT provides two methods (modes) to manage validators:
 * Contract validator selection - Use a smart contract to specify the validators used to propose and
     validate blocks.
 
+Users can create their own smart contracts to manage validators based on their organisation's
+requirements. [View the example smart contract] for more information on how to create one.
+
 !!! important
 
     You cannot use the JSON-RPC calls to add or remove validators when using a smart contract to manage nodes.
     You must interact with the contract functions using transactions.
 
-You can deploy the validator smart contract in a new QBFT network by specifying the
-contract details in the [genesis file](#genesis-file). Use [transitions](#transitions) to swap between
-block header validator selection and contract validator selection in an existing network.
+You can pre-deploy the validator smart contract in a new QBFT network by specifying the
+contract details in the [genesis file](#genesis-file). For existing QBFT networks you need to compile
+and deploy the contract using a transaction, then obtain the contract address from the receipt and
+use that in a [transition](#swap-validator-management-methods).
+
+You can use [transitions](#transitions) to swap between block header validator selection and contract
+validator selection in an existing network.
 
 For block header validator selection, initial validators are configured in the genesis file's
 [`extraData`](#extra-data) property, whereas the initial validators when using the contract validator selection
 method are configured in the genesis file's `storage` section.
-
-!!! important
-
-    Users can create their own smart contracts to manage validators based on their organisation's
-    requirements. [View the example smart contract] for more information on how to create one.
 
 ## Genesis file
 

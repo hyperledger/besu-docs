@@ -426,8 +426,9 @@ To add or remove validators without voting:
 
 ### Adding and removing validators using a smart contract
 
-You can deploy the validator smart contract in a QBFT network by specifying the contract details in the
-[genesis file](QBFT.md#genesis-file).
+You can pre-deploy the validator smart contract in a new QBFT network by specifying the contract details in the
+[genesis file](QBFT.md#genesis-file). For existing QBFT networks you need to compile and deploy the contract
+using a transaction, then obtain the contract address from the receipt and use that in a [transition].
 
 Users can create their own smart contracts to add or remove validators based on their organisational requirements.
 [View the example smart contract] for more information on how to create and deploy the smart contract.
@@ -522,8 +523,8 @@ To bypass the smart contract and specify new validators:
 1. In the genesis file, add another `transitions` configuration item where:
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
-    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to the
-        `contract`.
+    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to
+        `contract` mode.
     * `<NewValidatorContractAddress>` is the address of the new smart contract.
 
     === "Syntax"
@@ -597,3 +598,4 @@ To bypass the smart contract and specify new validators:
 1. Restart all nodes in the network using the updated genesis file.
 
 [View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts
+[transition]: QBFT.md#swap-validator-management-methods

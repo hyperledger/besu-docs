@@ -105,8 +105,7 @@ This command provides node public key related actions.
     ```
 
 Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
-You can add the subcommand [`--node-private-key-file=<file>`](CLI-Syntax.md#node-private-key-file)
-to export the public key associated with the private key file.
+You can output the public key associated with a specific private key file using the [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option.
 
 ### `export-address`
 
@@ -129,8 +128,7 @@ to export the public key associated with the private key file.
     ```
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
-You can add the subcommand [`--node-private-key-file=<file>`](CLI-Syntax.md#node-private-key-file)
-to export the node address associated with the private key file.
+You can output the address associated with a specific private key file using the [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option.
 
 ## `password`
 

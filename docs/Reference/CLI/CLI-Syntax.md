@@ -415,12 +415,12 @@ The default is `true`.
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting fast sync. The default is 5. To improve performance,
-or if the fast sync is taking a long time to complete, increase the number of peers to at least 8 instead.  
+The minimum number of peers required before starting [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node).
+The default is 5.
 
 !!! note
 
-    If synchronizing in FAST mode, most historical world state data is unavailable. Any methods
+    If synchronizing in `FAST` mode, most historical world state data is unavailable. Any methods
     attempting to access unavailable world state data return `null`.
 
 ### `genesis-file`
@@ -2632,9 +2632,12 @@ with your Besu node.
 
 !!!note
 
-    To run a local Besu node as a backend for MetaMask and use MetaMask anywhere, set
-    `--rpc-http-cors-origins` to `"all"` or `"*"`. To allow a specific domain to use MetaMask with
-    the Besu node, set `--rpc-http-cors-origins` to the client domain.
+    To run a local Besu node with MetaMask, set `--rpc-http-cors-origins` to 
+    `chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn`.
+
+    Remember to also include the dapp domain MetaMask interacts with, for example if your app is deployed 
+    on Remix and you're using MetaMask to interact with the contract the config option should be 
+    `--rpc-http-cors-origins=["chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn", "http://remix.ethereum.org"]`
 
 !!!tip
 
@@ -3292,14 +3295,16 @@ connect to. Defaults to `datapath/static-nodes.json`.
     sync-mode="FAST"
     ```
 
-The synchronization mode. The options are `FAST` and `FULL`.
+The synchronization mode.
+Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node) and `FULL` for
+[full synchronization](../../Concepts/Node-Types.md#run-an-archive-node).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.
-* The default is `FAST` when using the [`--network`](#network) option
-  with named networks, except for the `dev` development network. `FAST` is also the default if Ethereum mainnet
-  is being connected to by not specifying the [`--network`](#network) and [`--genesis-file`](#genesis-file)
-  options.
+* The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev`
+  development network.
+  `FAST` is also the default if connecting to Ethereum MainNet by not specifying the [`--network`](#network) and
+  [`--genesis-file`](#genesis-file) options.
 
 !!! note
 
@@ -3313,12 +3318,13 @@ The synchronization mode. The options are `FAST` and `FULL`.
     ....
     ```
 
-    The failure has been seen on AWS and Digital Ocean. A full restart of the AWS VM is required to
-    restart the fast sync. Fast sync is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143).
+    The failure has been seen on AWS and Digital Ocean.
+    On AWS, A full restart of the VM is required to restart the fast synchronization.
+    Fast synchronization is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143).
 
 !!! important
 
-    Using fast sync with
+    Using fast synchronization with
     [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets
     is not supported.
 

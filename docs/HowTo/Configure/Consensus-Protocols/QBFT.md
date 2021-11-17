@@ -41,8 +41,9 @@ propagating incorrect information to peers.
 
 QBFT provides two methods (modes) to manage validators:
 
-* Block header validator selection - Existing validators propose and vote to [add or remove validators](Add-Validators.md#qbft)
+* [Block header validator selection](Add-Validators.md#qbft) - Existing validators propose and vote to add or remove validators
     using the JSON-RPC calls. Adding or removing a validator requires a majority vote (greater than 50%) of validators.
+
 * Contract validator selection - Use a smart contract to specify the validators used to propose and
     validate blocks.
 
@@ -201,7 +202,7 @@ The QBFT properties are:
 * [`extraData`](#extra-data) - Differs depending on the [method used to manage validators](#validator-management):
 
     * Block header validator selection uses: `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`
-    * Contract validator selection uses `RLP([32 bytes Vanity, 0 validators, No Vote, Round=Int(0), 0 Seals])`
+    * Contract validator selection uses: `RLP([32 bytes Vanity, 0 validators, No Vote, Round=Int(0), 0 Seals])`
 
 !!! caution
 

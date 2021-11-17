@@ -426,25 +426,25 @@ To add or remove validators without voting:
 
 ### Adding and removing validators using a smart contract
 
+Users can create their own smart contracts to add or remove validators based on their organizational requirements.
+[View the example smart contract] for more information on how to create and deploy the smart contract.
+
 You can pre-deploy the validator smart contract in a new QBFT network by specifying the contract details in the
 [genesis file](QBFT.md#genesis-file). For existing QBFT networks you need to compile and deploy the contract
 using a transaction, then obtain the contract address from the receipt and use that in a [transition].
-
-Users can create their own smart contracts to add or remove validators based on their organisational requirements.
-[View the example smart contract] for more information on how to create and deploy the smart contract.
 
 !!! important
 
     You cannot use the JSON-RPC calls to add or remove validators when using a smart contract to manage nodes.
     You must interact with the contract functions using transactions.
 
-### Override smart contract validators
+### Overriding smart contract validators
 
-If due to network conditions you're unable to manage your validators using the smart contract, you can bypass the
-smart contract and specify new validators in the genesis file. For example if you've lost quorum for your
-current list of contract validators, and are no longer able to perform a transaction to vote more in.
+If you can't manage your validators using the smart contract due to network conditions, you can bypass the
+smart contract and specify new validators in the genesis file. For example, you lose quorum for your
+current list of contract validators, and you can't perform a transaction to vote more in.
 
-This requires temporarily switching to [block header validator selection mode](QBFT.md#validator-management).
+This requires temporarily [switching to block header validator selection mode](QBFT.md#swap-validator-management-methods).
 
 To bypass the smart contract and specify new validators:
 

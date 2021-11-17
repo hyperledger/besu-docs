@@ -13,7 +13,7 @@ A private network provides a configurable network for testing. This private netw
 [QBFT (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/QBFT.md).
 
 The QBFT network in this tutorial implements the [block header validator selection method] to manage
-validators, for a tutorial on how to implement the [contract validator selection method], follow the
+validators. For a tutorial on how to implement the [contract validator selection method], follow the
 steps in the [example smart contract repository].
 
 !!! important
@@ -378,7 +378,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 <!-- Links -->
 [private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
-[block header validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting
+[block header validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting_1
 [contract validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-using-a-smart-contract
 [example smart contract repository]: https://github.com/ConsenSys/validator-smart-contracts
 [configuring a transition]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md#transitions

@@ -225,21 +225,19 @@ The `extraData` property is an RLP encoding of:
 
 * 32 bytes of vanity data.
 * If using:
-    * [Block header validator selection](Add-Validators.md#qbft), a list of initial validator addresses (at least one
-      initial validator is required).
+    * [Block header validator selection](Add-Validators.md#qbft), a list of validator addresses.
     * [Contract validator selection](Add-Validators.md#adding-and-removing-validators-using-a-smart-contract), no validators.
 * Any validator votes. No vote is included in the genesis block.
 * The round the block was created on. The round in the genesis block is 0.
 * A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
 
-When using block header validator selection, the important information in the genesis block extra data is the list of
-initial validators.
+When using block header validator selection, the important information in the genesis block extra data is the list of validators.
 All other details have empty values in the genesis block.
 
 !!! important
 
-    When using contract validator selection to manage validators, the list of initial validators is configured in the
-    `alloc` property's `storage` section.
+    When using contract validator selection to manage validators, the list of validators is configured in the `alloc`
+    property's `storage` section.
     [View the example smart contract] for more information on how to generate the `storage` section.
 
 Formally, `extraData` in the genesis block contains:

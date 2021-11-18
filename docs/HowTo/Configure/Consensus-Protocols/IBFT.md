@@ -98,9 +98,9 @@ The `extraData` property is an RLP encoding of:
 
 * 32 bytes of vanity data.
 * A list of initial validator addresses (at least one initial validator is required).
-* Any validator votes. There is no vote in the genesis block.
+* Any validator votes. No vote is included in the genesis block.
 * The round the block was created on. The round in the genesis block is 0.
-* A list of seals of the validators (signed block hashes). There are no seals in the genesis block.
+* A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
   
 In the genesis block, the important information in the extra data is the list of initial validators.
 All other details have empty values.

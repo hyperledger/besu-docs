@@ -44,10 +44,10 @@ QBFT provides two methods (modes) to manage validators:
 * [Block header validator selection](Add-Validators.md#qbft) - Existing validators propose and vote to add or remove validators
     using the JSON-RPC calls. Adding or removing a validator requires a majority vote (greater than 50%) of validators.
 
-* Contract validator selection - Use a smart contract to specify the validators used to propose and
+* [Contract validator selection](Add-Validators.md#adding-and-removing-validators-using-a-smart-contract) - Use a smart contract to specify the validators used to propose and
     validate blocks.
 
-Users can create their own smart contracts to manage validators based on their organisation's
+Users can create their own smart contracts to manage validators based on their organizational
 requirements. [View the example smart contract] for more information on how to create one.
 
 !!! important
@@ -199,10 +199,7 @@ The QBFT properties are:
      [validator management methods](#validator-management) in an existing network.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
-* [`extraData`](#extra-data) - Differs depending on the [method used to manage validators](#validator-management):
-
-    * Block header validator selection uses: `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`
-    * Contract validator selection uses: `RLP([32 bytes Vanity, 0 validators, No Vote, Round=Int(0), 0 Seals])`
+* [`extraData`](#extra-data) - RLP encoded [extra data](#extra-data).
 
 !!! caution
 
@@ -224,16 +221,37 @@ genesis file.
 
 ### Extra data
 
-The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization
-scheme used in Ethereum. When using the voting-based method to [add or remove validators](#add-or-remove-validators),
-the `extraData` property contains a list of validators for the network.
+The `extraData` property is an RLP encoding of:
+
+* 32 bytes of vanity data.
+* If using:
+    * [Block header validator selection](Add-Validators.md#qbft), a list of initial validator addresses (at least one
+      initial validator is required).
+    * [Contract validator selection](Add-Validators.md#adding-and-removing-validators-using-a-smart-contract), no validators.
+* Any validator votes. There is no vote in the genesis block.
+* The round the block was created on. The round in the genesis block is 0.
+* A list of seals of the validators (signed block hashes). There are no seals in the genesis block.
+
+When using block header validator selection, the important information in the genesis block extra data is the list of
+initial validators.
+All other details have empty values in the genesis block.
 
 !!! important
 
-     When using the contract validator selection method to manage validators, the list of validators
-     are configured in the `alloc` property's `storage` section.
+    When using contract validator selection to manage validators, the list of initial validators is configured in the
+    `alloc` property's `storage` section.
+    [View the example smart contract] for more information on how to generate the `storage` section.
 
-     [View the example smart contract] for more information on how to generate the `storage` section.
+Formally, `extraData` in the genesis block contains:
+
+* If using block header validator selection: `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+* If using contract validator selection: `RLP([32 bytes Vanity, 0 Validators, No Vote, Round=Int(0), 0 Seals])`.
+
+!!! info
+
+    RLP encoding is a space-efficient object serialization scheme used in Ethereum.
+
+#### Generating extra data
 
 To generate the `extraData` RLP string for inclusion in the genesis file,
 use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
@@ -456,8 +474,8 @@ To swap between block header validator selection and contract validator selectio
 
 <!-- Acronyms and Definitions -->
 
-*[Vanity]: Validators can include anything they like as vanity data.
-*[RLP]: Recursive Length Prefix.
+*[vanity data]: Validators can include anything they like as vanity data.
+*[RLP]: Recursive Length Prefix
 
 [GoQuorum]: https://docs.goquorum.consensys.net/en/stable/
 [View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts

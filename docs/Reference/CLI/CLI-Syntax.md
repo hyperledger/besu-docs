@@ -389,6 +389,66 @@ The default is `null`.
 Enables or disables P2P discovery.
 The default is `true`.
 
+### `ethstats`
+
+=== "Syntax"
+
+    ```bash
+    --ethstats=<nodename:secret@host:port>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ethstats=Dev-Node-1:secret@127.0.0.1:3001
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ETHSTATS=Dev-Node-1:secret@127.0.0.1:3001
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ethstats="Dev-Node-1:secret@127.0.0.1:3001"
+    ```
+
+Reporting URL of an [EthStats](../../HowTo/Deploy/Ethstats.md) server.
+
+### `ethstats-contact
+`
+=== "Syntax"
+
+    ```bash
+    --ethstats-contact=<CONTACT>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --ethstats-contact=contact@mail.com
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    BESU_ETHSTATS_CONTACT=contact@mail.com
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    ethstats-contact="contact@mail.com"
+    ```
+
+Contact email address to send to the EthStats server specified by [`--ethstats`](#ethstats).
+
+!!! note
+
+    A server must be specified by `--ethstats` in order to use this option.
+
 ### `fast-sync-min-peers`
 
 === "Syntax"

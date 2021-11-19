@@ -50,6 +50,8 @@ consensus protocols.
 ## Milestone blocks
 
 In public networks, the milestone blocks specify the blocks at which the network changed protocol.
+See a [full list of Ethereum protocol releases](https://github.com/ethereum/execution-specs#ethereum-protocol-releases)
+and their corresponding milestone blocks.
 
 !!! example "Ethereum MainNet milestone blocks"
 

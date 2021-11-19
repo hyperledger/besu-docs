@@ -33,10 +33,6 @@ When submitting a private transaction using [`eea_sendRawTransaction`](../../Ref
 the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which
 [privacy precompiled contract](../Privacy/Private-Transaction-Processing.md) is being used.
 
-When submitting a private transaction using [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction),
-the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate the
-[privacy precompiled contract](../Privacy/Private-Transaction-Processing.md) being used.
-
 The transaction flow is as follows:
 
 1. The JSON-RPC endpoint passes the private transaction to the private transaction manager (for example Tessera).

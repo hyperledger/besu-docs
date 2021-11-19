@@ -256,8 +256,12 @@ To add or remove validators without voting:
 
 ## QBFT
 
-Add and remove validators by [voting](#adding-and-removing-validators-by-voting) or if network
-conditions require it, [without voting](#adding-and-removing-validators-without-voting).
+QBFT provides two methods (modes) to manage validators:
+
+* [Block header validator selection](#adding-and-removing-validators-by-voting) - Existing validators propose
+    and vote to  add or remove validators, or if network conditions require it, [without voting](#adding-and-removing-validators-without-voting).
+* [Contract validator selection](#adding-and-removing-validators-using-a-smart-contract) - Use a smart contract
+    to add or remove validators.
 
 ### Adding and removing validators by voting
 
@@ -419,3 +423,179 @@ To add or remove validators without voting:
 !!! caution
     Do not specify a transition block in the past. Specifying a transition block in the past could
     result in unexpected behaviour, such as causing the network to fork.
+
+### Adding and removing validators using a smart contract
+
+Users can create their own smart contracts to add or remove validators based on their organizational requirements.
+[View the example smart contract] for more information on how to create and deploy the smart contract.
+
+You can pre-deploy the validator smart contract in a new QBFT network by specifying the contract details in the
+[genesis file](QBFT.md#genesis-file). For existing QBFT networks you need to compile and deploy the contract
+using a transaction, then obtain the contract address from the receipt and use that in a [transition].
+
+!!! important
+
+    You cannot use the JSON-RPC calls to add or remove validators when using a smart contract to manage nodes.
+    You must interact with the contract functions using transactions.
+
+### Overriding smart contract validators
+
+If you can't manage your validators using the smart contract due to network conditions, you can bypass the
+smart contract and specify new validators in the genesis file. For example, you lose quorum for your
+current list of contract validators, and you can't perform a transaction to vote more in.
+
+This requires temporarily [switching to block header validator selection mode](QBFT.md#swap-validator-management-methods).
+
+To bypass the smart contract and specify new validators:
+
+1. Stop all nodes in the network.
+1. In the genesis file, add a `transitions` configuration item where:
+
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to the
+        `blockheader` mode temporarily.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
+        of the validators after `<BlockNumber>`. These validators only need to be sufficient to progress
+        the chain and allow a new contract to be deployed.
+
+    === "Syntax"
+
+        ```bash
+        {
+          "config": {
+             ...
+             "qbft": {
+               "blockperiodseconds": 2,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 4,
+               “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
+             },
+             "transitions": {
+               "qbft": [
+               {
+                 "block": <BlockNumber>,
+                 "validatorselectionmode": <SelectionMode>,
+                 "validators": [
+                    <ValidatorAddressX>,
+                    ...
+                    <ValidatorAddressZ>
+                 ]
+               }
+               ]
+             }
+          },
+          ...
+        }
+        ```
+
+    === "Example"
+
+        ```bash
+        {
+          "config": {
+             ...
+             "qbft": {
+               "blockperiodseconds": 2,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 4,
+               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
+             },
+             "transitions": {
+               "qbft": [
+               {
+                 "block": 2555,
+                 "validatorselectionmode": "blockheader",
+                 "validators": [
+                    "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                    "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                 ]
+               }
+               ]
+             }
+          },
+          ...
+        }
+        ```
+
+1. Restart all nodes in the network using the updated genesis file.
+1. Deploy a new contract to the blockchain containing the desired list of validators.
+1. Stop all nodes in the network.
+1. In the genesis file, add another `transitions` configuration item where:
+
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to
+        `contract` mode.
+    * `<NewValidatorContractAddress>` is the address of the new smart contract.
+
+    === "Syntax"
+
+        ```bash
+        {
+          "config": {
+             ...
+             "qbft": {
+               "blockperiodseconds": 2,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 4,
+               “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
+             },
+             "transitions": {
+               "qbft": [
+               {
+                "block": 2555,
+                "validatorselectionmode": "blockheader",
+                "validators": [
+                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                  ]
+                },
+               {
+                 "block": <BlockNumber>,
+                 "validatorselectionmode": <SelectionMode>,
+                 "validatorcontractaddress": <NewValidatorContractAddress>
+               }
+               ]
+             }
+          },
+          ...
+        }
+        ```
+
+    === "Example"
+
+        ```bash
+        {
+          "config": {
+             ...
+             "qbft": {
+               "blockperiodseconds": 2,
+               "epochlength": 30000,
+               "requesttimeoutseconds": 4,
+               “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
+             },
+             "transitions": {
+               "qbft": [
+               {
+                "block": 2555,
+                "validatorselectionmode": "blockheader",
+                "validators": [
+                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                  ]
+                },
+               {
+                 "block": 2755,
+                 "validatorselectionmode": "contract",
+                 "validatorcontractaddress": “0x0000000000000000000000000000000000009999”
+               }
+               ]
+             }
+          },
+          ...
+        }
+        ```
+
+1. Restart all nodes in the network using the updated genesis file.
+
+[View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts
+[transition]: QBFT.md#swap-validator-management-methods

@@ -415,10 +415,10 @@ The default is `true`.
     ethstats="Dev-Node-1:secret@127.0.0.1:3001"
     ```
 
-Reporting URL of an [EthStats](../../HowTo/Deploy/Ethstats.md) server.
+Reporting URL of an [Ethstats](../../HowTo/Deploy/Ethstats.md) server.
 
-### `ethstats-contact
-`
+### `ethstats-contact`
+
 === "Syntax"
 
     ```bash
@@ -443,7 +443,7 @@ Reporting URL of an [EthStats](../../HowTo/Deploy/Ethstats.md) server.
     ethstats-contact="contact@mail.com"
     ```
 
-Contact email address to send to the EthStats server specified by [`--ethstats`](#ethstats).
+Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
 !!! note
 

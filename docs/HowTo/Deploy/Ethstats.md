@@ -36,10 +36,10 @@ for installing those components and connecting to a dashboard.
 
 Use the [`ethstats` command line options](../../Reference/CLI/CLI-Syntax.md#ethstats) to connect a node directly to a [dashboard](https://github.com/goerli/ethstats-client#available-dashboards), bypassing the need for a client.
 
-Start a node using `--ethstats` command to specify the Ethstats server url.
+Start a node using `--ethstats` command to specify the Ethstats server URL.
 You can specify a contact email to send to the server using `--ethstats-contact`.
 
-!!! example 
+!!! example
 
     === "Syntax"
 
@@ -69,6 +69,6 @@ You can specify a contact email to send to the server using `--ethstats-contact`
 
     A server must be specified by `--ethstats` in order to use `--ethstats-contact`.
 
-Open the selected dashboard website.  Find your node under the list of nodes to see the statistics for the node and the network.
+Open the selected dashboard website. Find your node under the list of nodes to see the statistics for the node and the network.
 
 ![dashboard](../../images/dashboard.png)

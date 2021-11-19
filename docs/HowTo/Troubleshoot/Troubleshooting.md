@@ -137,10 +137,9 @@ To fix the branch reference and repair Homebrew, use the command `brew tap --rep
 
 ## Thread blocked due to lack of entropy in the system random number generator
 
-If a thread is being reported as blocked and the top of the stack
-contains `sun.security.provider.NativePRNG$RandomIO.readFully` as in
-the example shown below, then the operating system Besu is running on
-is out of entropy.
+If a thread is being reported as blocked, and the top of the stack contains
+`sun.security.provider.NativePRNG$RandomIO.readFully` as in the following example, then the operating system Besu is
+running on is out of entropy.
 
 ```bash
 2021-11-06 11:28:05.971+00:00 | vertx-blocked-thread-checker | WARN  | BlockedThreadChecker | Thread Thread[vert.x-worker-thread-2,5,main]=Thread[vert.x-worker-thread-2,5,main] has been blocked for 60387 ms, time limit is 60000 ms
@@ -156,18 +155,16 @@ io.vertx.core.VertxException: Thread blocked
 
 If this happens, the Besu node can become unresponsive.
 
-The occurrence of this problem and the possible solutions are system
-dependent. The issue itself is rare, but would be more likely to occur
+The occurrence of this problem and the possible solutions are system-dependent.
+The issue itself is rare, but would most likely occur:
 
-* on Linux, or
-* using virtual machines without randomness source, or
-* early after computer startup.
+* On Linux.
+* Using virtual machines without randomness source.
+* Early after computer startup.
 
-The solution to this depends on the specific situation. A good
-starting point would be reading about [blocking random number
-generation in
-Linux](https://man7.org/linux/man-pages/man4/random.4.html). A quick,
-non-persistent workaround would be to run
+The solution to this depends on the situation.
+A good starting point is to read about [blocking random number generation in Linux](https://man7.org/linux/man-pages/man4/random.4.html).
+A quick, non-persistent workaround is to run
 
 ```bash
 sudo mount /dev/urandom /dev/random -o bind

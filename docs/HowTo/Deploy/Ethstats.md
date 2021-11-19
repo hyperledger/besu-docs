@@ -4,12 +4,20 @@ description: Ethstats network monitor
 
 # Ethstats network monitor
 
-Connect to an [Ethstats server](https://github.com/goerli/ethstats-server) to have a live view of private network health by displaying real time and historical statistics about the network and nodes.
-Connect to a server using the [`--ethstats` CLI option](../../Reference/CLI/CLI-Syntax.md#ethstats).
+Connect to [Ethstats](https://ethstats.net) to display real time and historical [statistics](#statistics) about the network and nodes.
+You can connect to the Ethstats dashboard by [connecting to a client and server](#connecting-through-a-client-and-server) or by [connecting through the command line](#connecting-through-the-command-line).
+
+## Components
+
+Ethstats consists of the following:
+
+- [Server](https://github.com/goerli/ethstats-server). The server consumes node data received from the client.
+- [Client](https://github.com/goerli/ethstats-client). The client extracts data from the node and sends it to the server.
+- [Dashboard](https://github.com/goerli/ethstats-client#available-dashboards). The dashboard displays statistics.
 
 ## Statistics
 
-Statistics displayed by EthStats include:
+Statistics displayed by Ethstats include:
 
 - Nodes in the network. Metrics for nodes include:
     - Information about the last received block such as block number, block hash, transaction count, uncle count, block time and propagation time.
@@ -19,18 +27,48 @@ Statistics displayed by EthStats include:
 - Node logs, which display the data sent by a node.
 - Block history, which provides the ability to go back in time and playback the block propagation through the nodes.
 
-## Components
+## Connecting through a client and server
 
-Ethstats consists of the following:
+Refer to the external [Ethstats client](https://github.com/goerli/ethstats-client) and [Ethstats server](https://github.com/goerli/ethstats-server) documentation
+for installing those components and connecting to a dashboard.
 
-- [Server](https://github.com/goerli/ethstats-server). The server consumes node data received from the client.
-- [Client](https://github.com/goerli/ethstats-client). Each node in the network requires you to start a client. The client extracts data from the node and sends it to the server.
-- [Dashboard](https://ethstats.net). The dashboard displays statistics.
+## Connecting through the command line
 
-## Running Ethstats on a Besu node
+Use the [`ethstats` command line options](../../Reference/CLI/CLI-Syntax.md#ethstats) to connect a node directly to a [dashboard](https://github.com/goerli/ethstats-client#available-dashboards), bypassing the need for a client.
 
-### Server
+Start a node using `--ethstats` command to specify the Ethstats server url.
+You can specify a contact email to send to the server using `--ethstats-contact`.
 
-### Client
+!!! example 
 
-### Dashboard
+    === "Syntax"
+
+        ```bash
+        --ethstats=<nodename:secret@host:port> --ethstats-contact=<CONTACT>
+        ```
+
+    === "Example"
+
+        ```bash
+        --ethstats=Dev-Node-1:secret@127.0.0.1:3001 --ethstats-contact=contact@mail.com
+        ```
+
+    === "Environment variable"
+
+        ```bash
+        BESU_ETHSTATS=Dev-Node-1:secret@127.0.0.1:3001 BESU_ETHSTATS_CONTACT=contact@mail.com
+        ```
+
+    === "Configuration file"
+
+        ```bash
+        ethstats="Dev-Node-1:secret@127.0.0.1:3001" ethstats-contact="contact@mail.com"
+        ```
+
+!!! note
+
+    A server must be specified by `--ethstats` in order to use `--ethstats-contact`.
+
+Open the selected dashboard website.  Find your node under the list of nodes to see the statistics for the node and the network.
+
+![dashboard](../../images/dashboard.png)

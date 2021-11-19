@@ -134,3 +134,40 @@ Reset taps to point to the correct remote branches by running `brew tap --repair
 
 This error is caused by the branch name being updated from `master` to `main` but a reference to `master` still remains.
 To fix the branch reference and repair Homebrew, use the command `brew tap --repair`.
+
+## Thread blocked due to lack of entropy in the system random number generator
+
+If a thread is being reported as blocked, and the top of the stack contains
+`sun.security.provider.NativePRNG$RandomIO.readFully` as in the following example, then the operating system Besu is
+running on is out of entropy.
+
+```bash
+2021-11-06 11:28:05.971+00:00 | vertx-blocked-thread-checker | WARN  | BlockedThreadChecker | Thread Thread[vert.x-worker-thread-2,5,main]=Thread[vert.x-worker-thread-2,5,main] has been blocked for 60387 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+        at java.base@11.0.11/java.io.FileInputStream.readBytes(Native Method)
+        at java.base@11.0.11/java.io.FileInputStream.read(FileInputStream.java:279)
+        at java.base@11.0.11/java.io.FilterInputStream.read(FilterInputStream.java:133)
+        at java.base@11.0.11/sun.security.provider.NativePRNG$RandomIO.readFully(NativePRNG.java:424)
+        at java.base@11.0.11/sun.security.provider.NativePRNG$RandomIO.implGenerateSeed(NativePRNG.java:441)
+        at java.base@11.0.11/sun.security.provider.NativePRNG.engineGenerateSeed(NativePRNG.java:226)
+        ...
+```
+
+If this happens, the Besu node can become unresponsive.
+
+The occurrence of this problem and the possible solutions are system-dependent.
+The issue itself is rare, but would most likely occur:
+
+* On Linux.
+* Using virtual machines without randomness source.
+* Early after computer startup.
+
+The solution to this depends on the situation.
+A good starting point is to read about [blocking random number generation in Linux](https://man7.org/linux/man-pages/man4/random.4.html).
+A quick, non-persistent workaround is to run
+
+```bash
+sudo mount /dev/urandom /dev/random -o bind
+```
+
+to use the non-blocking random generator instead of the blocking one.

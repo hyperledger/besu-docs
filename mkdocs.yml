@@ -135,6 +135,7 @@ nav:
           - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           - Use flexible privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
           - Use GoQuorum-compatible privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
+          - Private transaction performance best practices: HowTo/Use-Privacy/Performance-Best-Practices.md
         - Deploy for production:
           - Deploy to the cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to deploy Besu: HowTo/Deploy/Ansible.md

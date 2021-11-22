@@ -17,6 +17,7 @@ BlockScout
 Cakeshop
 [cC]lasspath(s)?
 Codefi
+[cC]olocate
 [cC]oinbase
 [cC]onfigurability
 ConsenSys
@@ -92,6 +93,7 @@ Nodejs
 [oO]ffchain
 [oO]nboard(ing)?
 [oO]nchain
+Optane
 Orion
 [oO]wnable
 [pP]arallelization
@@ -124,6 +126,7 @@ Mordor
 Slack
 [sS]lashable
 Splunk
+statefully
 [sS]ubcommand(s)?
 [sS]ubnet(s)?
 [sS]uborganization(s)?

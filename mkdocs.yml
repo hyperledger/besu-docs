@@ -143,6 +143,7 @@ nav:
           - Configure bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure validators: HowTo/Deploy/Validators.md
           - Deploy permissioning management dapp: HowTo/Deploy/Production.md
+          - Use Ethstats network monitor: HowTo/Deploy/Ethstats.md
         - Backup and restore: HowTo/Backup/Backup.md
         - Upgrade:
           - Upgrade node: HowTo/Upgrade/Upgrade-Node.md

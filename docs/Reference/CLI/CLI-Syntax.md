@@ -425,19 +425,19 @@ Reporting URL of an [Ethstats](../../HowTo/Deploy/Ethstats.md) server.
     --ethstats-contact=<CONTACT>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --ethstats-contact=contact@mail.com
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     BESU_ETHSTATS_CONTACT=contact@mail.com
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     ethstats-contact="contact@mail.com"

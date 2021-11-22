@@ -52,18 +52,18 @@ The properties specific to Clique are:
 
 * `blockperiodseconds` - The block time, in seconds.
 * `epochlength` - The number of blocks after which to reset all votes.
-* `extraData` - Vanity data takes up the first 32 bytes, followed by the initial signers.
+* `extraData` - [Extra data](#extra-data) including the initial signers.
 
 ### Extra data
 
-The `extraData` field consists of:
+The `extraData` property consists of:
 
 * 0x prefix.
-* 32 bytes (64 hex characters) of vanity data.
-* A concatenated list of initial signer addresses (at least one initial signer required). 20 bytes
-  (40 hex characters) for each signer.
-* 65 bytes (130 hex characters) for the proposer signature. In the genesis block there is no
-  initial proposer so the proposer signature is all zeros.
+* 32 bytes of vanity data.
+* A list of initial signer addresses (at least one initial signer is required).
+  20 bytes for each signer.
+* 65 bytes for the proposer signature.
+  In the genesis block there is no initial proposer, so the proposer signature is all zeros.
 
 !!! example "One initial signer"
 

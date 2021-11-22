@@ -259,7 +259,7 @@ To add or remove validators without voting:
 QBFT provides two methods (modes) to manage validators:
 
 * [Block header validator selection](#adding-and-removing-validators-by-voting) - Existing validators propose
-    and vote to  add or remove validators, or if network conditions require it, [without voting](#adding-and-removing-validators-without-voting).
+    and vote to add or remove validators, or if network conditions require it, [without voting](#adding-and-removing-validators-without-voting).
 * [Contract validator selection](#adding-and-removing-validators-using-a-smart-contract) - Use a smart contract
     to add or remove validators.
 

@@ -71,9 +71,9 @@ The properties specific to IBFT 2.0 are:
     nodes on the network must use the identical value.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
-* `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+* `extraData` - RLP encoded [extra data](#extra-data).
 
-!!!caution
+!!! caution
 
     The `blockreward` and  `miningbeneficiary` properties
     cannot be updated once your network is started.
@@ -94,9 +94,27 @@ genesis file.
 
 ### Extra data
 
-The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization
-scheme used in Ethereum. To generate the `extraData` RLP string for inclusion in the genesis file,
-use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
+The `extraData` property is an RLP encoding of:
+
+* 32 bytes of vanity data.
+* A list of validator addresses.
+* Any validator votes. No vote is included in the genesis block.
+* The round the block was created on. The round in the genesis block is 0.
+* A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
+  
+In the genesis block, the important information in the extra data is the list of validators.
+All other details have empty values.
+Formally, `extraData` in the genesis block contains
+`RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+
+!!! info
+
+    RLP encoding is a space-efficient object serialization scheme used in Ethereum.
+
+#### Generating extra data
+  
+To generate the `extraData` RLP string for inclusion in the genesis file, use the
+[`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
 
 !!! example
 
@@ -104,10 +122,10 @@ use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subco
     besu rlp encode --from=toEncode.json
     ```
 
-Where the `toEncode.json` file contains a list of the initial validators, in ascending order. To
-write the validator address and copy it to the `toEncode.json` file, use the
-[`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu
-subcommand. For example:
+Where the `toEncode.json` file contains a list of the initial validators, in ascending order.
+To write the validator address and copy it to the `toEncode.json` file, use the
+[`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu subcommand.
+For example:
 
 !!! example "One initial validator in `toEncode.json` file"
 
@@ -236,5 +254,5 @@ To update an existing network with a new `blockperiodseconds`:
 
 <!-- Acronyms and Definitions -->
 
-*[Vanity]: Validators can include anything they like as vanity data.
-*[RLP]: Recursive Length Prefix.
+*[vanity data]: Validators can include anything they like as vanity data.
+*[RLP]: Recursive Length Prefix

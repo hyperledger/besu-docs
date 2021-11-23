@@ -14,6 +14,7 @@ However the following item is of such outstanding impact to performance that it 
 
 Running EVM transactions creates a lot of random reads that are executed sequentially.
 The Besu data folder should be located on the fastest possible storage media.
+
 * Prefer NVMe attached SLC flash or Intel Optane.
 * Avoid network attached SSDs or cloud storage with limited IOPs.
 * Do not use spinning disks under any circumstances.

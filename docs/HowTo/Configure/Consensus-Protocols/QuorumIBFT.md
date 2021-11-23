@@ -9,8 +9,10 @@ Besu nodes can operate (that is, submit transactions and receive blocks) in a Qu
 
 To connect to a Quorum IBFT 1.0 network:
 
-1. In the Quorum IBFT 1.0 [genesis file](https://docs.goquorum.consensys.net/en/stable/HowTo/Configure/Consensus-Protocols/IBFT/#genesis-file), update the consensus protocol specified in the `config`
-   property from `istanbul` to `ibft`.
+1. In the Quorum IBFT 1.0 [genesis file](https://docs.goquorum.consensys.net/en/stable/HowTo/Configure/Consensus-Protocols/IBFT/#genesis-file):
+   
+    - Update the consensus protocol specified in the `config` property from `istanbul` to `ibft`.
+    - Remove the configuration item `isQuorum: true`.
 
     ```json
         "config": {

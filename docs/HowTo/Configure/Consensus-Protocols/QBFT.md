@@ -203,9 +203,6 @@ The QBFT properties are:
 
 !!! caution
 
-    The `blockreward` and  `miningbeneficiary` properties
-    cannot be updated once your network is started.
-
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
 
@@ -404,6 +401,95 @@ To update an existing network with a new `blockperiodseconds`:
 3. Restart all nodes in the network using the updated genesis file.
 4. To verify the changes after the transition block, call
    [`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+
+### Update block rewards on an existing network deployment
+
+To update an existing network with a new `blockreward` and `miningbeneficiary`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
+    * `<NewValue>` is the updated value for `blockreward`.
+    * `<NewBeneficiary>` is the updated value for `miningbeneficiary`.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                   "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                     "miningbeneficiary": <NewBeneficiary>
+                   }
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   }
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   }
+                   ]
+                }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "qbft": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                   "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+                 },
+                 "transitions": {
+                   "qbft": [
+                   {
+                     "block": 10,
+                     "blockreward": "6000000000000000"
+                     "miningbeneficiary": "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                   },
+                   {
+                     "block": 15,
+                     "blockreward": "75000000000000000"
+                   },
+                   {
+                     "block": 20,
+                     "blockreward": "0"
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+    !!! note
+
+        You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
+
+3. Restart all nodes in the network using the updated genesis file.
 
 ### Swap validator management methods
 

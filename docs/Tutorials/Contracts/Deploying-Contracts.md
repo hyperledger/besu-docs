@@ -6,15 +6,12 @@ description: deploying smart contracts
 
 This tutorial shows you how to deploy smart contracts as transactions to a network.
 
-You can use the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate local blockchain
-networks.
-
 ## Prerequisites
 
-* A [private network](../Examples/Private-Network-Example.md) if deploying a public contract.
-
-* A [privacy-enabled network](../Privacy/Configuring-Privacy.md) if deploying a private contract
-    (Public contracts can also be deployed on privacy-enabled networks).
+This tutorial requires a local blockchain network.
+You can use the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate one.
+If deploying a private contract, enable privacy on the network (public contracts can also be deployed on privacy-enabled
+networks).
 
 ## Using `eth_sendSignedTransaction`
 
@@ -63,7 +60,7 @@ smart contract as an example, create a new file called `compile.js` with the fol
     main().then(() => process.exit(0));
     ```
 
-Run the compile code to get the smart contract's output JSON:
+Run `compile.js` to get the smart contract's output JSON:
 
 ```bash
 node compile.js
@@ -124,7 +121,7 @@ The Developer Quickstart provides an [example of a public transaction script](ht
 `rawTxOptions` contains the following fields:
 
 * `nonce` - the number of transactions sent from an address.
-* `from` - address of the EthSigner account. For example `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`.
+* `from` - address of the sending account. For example `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 * `to` - address of the receiver. To deploy a contract, set to `null`.
 * `gas` - amount of gas provided by the sender for the transaction.
 * `gasPrice` - price for each unit of gas the sender is willing to pay.
@@ -132,7 +129,7 @@ The Developer Quickstart provides an [example of a public transaction script](ht
     so we append that to the binary value).
 * `value` - amount of Ether/Wei transferred from the sender to the recipient.
 
-Run the JavaScript code to send the transaction:
+Run the `public_tx.js` to send the transaction:
 
 ```bash
 node public_tx.js
@@ -146,12 +143,11 @@ This example code creates the transaction `tx`, signs it with the private key of
 You can use [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) as an alternative to `eth_sendSignedTransaction`.
 However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
 stronger security.
-Instead, Besu uses [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
+Configure [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) with your Besu node to make the
+`eth_sendTransaction` API call.
 
-An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPC node
-is paired with EthSigner.
-Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/) for
-configuration details.
+An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPC node is paired with EthSigner.
+Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/) for configuration details.
 
 Pass the following parameters to the
 [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods/#eth_sendtransaction) call
@@ -159,7 +155,7 @@ to EthSigner; EthSigner then converts the request to an
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) call that Besu uses:
 
 * `to` - address of the receiver. To deploy a contract, set to `null`.
-* `from` - address of the EthSigner account. For example `0x9b790656b9ec0db1936ed84b3bea605873558198`.
+* `from` - address of the sender account. For example `0x9b790656b9ec0db1936ed84b3bea605873558198`.
 * `gas` - amount of gas provided by the sender for the transaction
 * `gasPrice` - price for each unit of gas the sender is willing to pay
 * `data` - one of the following:

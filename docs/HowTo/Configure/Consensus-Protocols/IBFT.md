@@ -266,7 +266,7 @@ To update an existing network with a new `blockreward` and `miningbeneficiary`:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     * `<NewValue>` is the updated value for `blockreward`.
-    * `<NewBeneficiary>` is the updated value for `miningbeneficiary`. 
+    * `<NewBeneficiary>` is the updated value for `miningbeneficiary`.
 
     !!! example "Transitions configuration"
 

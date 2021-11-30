@@ -138,6 +138,7 @@ Anything listed in the configuration file also takes precedence.
               ],
               "dns": "enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org"
           }
+      }
     }
     ```
 

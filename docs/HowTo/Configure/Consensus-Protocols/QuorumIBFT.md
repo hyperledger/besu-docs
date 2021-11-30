@@ -16,8 +16,8 @@ To connect to a Quorum IBFT 1.0 network:
         - Change `epoch` to `epochlength`.
         - Add `blockperiodseconds`, the minimum block time in seconds.
         - Add `requesttimeoutseconds`, the timeout for each consensus round before a round change, in seconds.
-        - Set `policy` to 0.
-          Besu doesn't support sticky validator nodes.
+        - Remove `policy`.
+          Besu always uses a round-robin validator selection policy.
     - Remove the configuration item `isQuorum: true`.
 
     ```json

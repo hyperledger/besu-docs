@@ -75,6 +75,8 @@ The properties specific to IBFT 2.0 are:
 
 !!! caution
 
+    The `miningbeneficiary` property cannot be updated once your network is started.
+
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
 
@@ -223,7 +225,7 @@ To update an existing network with a new `blockperiodseconds`:
                      "blockperiodseconds": <NewValue>
                    }
                    ]
-                }
+                 }
               },
               ...
             }
@@ -257,16 +259,15 @@ To update an existing network with a new `blockperiodseconds`:
 4. To verify the changes after the transition block, call
    [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
-### Update block rewards on an existing network deployment
+### Configure block rewards on an existing network deployment
 
-To update an existing network with a new `blockreward` and `miningbeneficiary`:
+To update an existing network with a new `blockreward`:
 
 1. Stop all nodes in the network.
 2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     * `<NewValue>` is the updated value for `blockreward`.
-    * `<NewBeneficiary>` is the updated value for `miningbeneficiary`.
 
     !!! example "Transitions configuration"
 
@@ -281,25 +282,23 @@ To update an existing network with a new `blockreward` and `miningbeneficiary`:
                    "epochlength": 30000,
                    "requesttimeoutseconds": 4
                    "blockreward": "5000000000000000"
-                   "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
                  },
                  "transitions": {
                    "ibft2": [
                    {
                      "block": <FutureBlockNumber>,
                      "blockreward": <NewValue>
-                     "miningbeneficiary": <NewBeneficiary>
-                   }
+                   },
                    {
                      "block": <FutureBlockNumber>,
                      "blockreward": <NewValue>
-                   }
+                   },
                    {
                      "block": <FutureBlockNumber>,
                      "blockreward": <NewValue>
                    }
                    ]
-                }
+                 }
               },
               ...
             }
@@ -316,14 +315,12 @@ To update an existing network with a new `blockreward` and `miningbeneficiary`:
                    "epochlength": 30000,
                    "requesttimeoutseconds": 4
                    "blockreward": "5000000000000000"
-                   "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
                  },
                  "transitions": {
                    "ibft2": [
                    {
                      "block": 10,
                      "blockreward": "6000000000000000"
-                     "miningbeneficiary": "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
                    },
                    {
                      "block": 15,

@@ -24,7 +24,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                     |
 | `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                  |
 | `ecCurve`           | Specifies [the elliptic curve to use](../HowTo/Configure/Alternative-EC-Curves.md). Default is `secp256k1`.                                                                                 |
-| `discovery`         | Specifies the discovery options and contains the [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                             |
+| `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                        |
 
 ## Genesis block parameters
 

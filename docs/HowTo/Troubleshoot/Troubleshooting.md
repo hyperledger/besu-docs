@@ -29,8 +29,8 @@ or [QFBT genesis file](../Configure/Consensus-Protocols/QBFT.md#genesis-file) to
     decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
 
 After you have updated the new genesis file, if the imported chain has a `blockperiodseconds` value set lower than you prefer, you can adjust it by configuring the block time on an
-[existing IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#block-time)
-or [existing QBFT](../Configure/Consensus-Protocols/QBFT.md#block-time) network.
+[existing IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#configure-block-time-on-an-existing-network-deployment)
+or [existing QBFT](../Configure/Consensus-Protocols/QBFT.md#configure-block-time-on-an-existing-network) network.
 
 ## Host not authorized
 

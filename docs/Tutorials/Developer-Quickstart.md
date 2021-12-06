@@ -57,14 +57,13 @@ Choose **ELK** to use the default monitoring tools and [ELK logging](../HowTo/Mo
 
 ### Block explorer
 
-At the prompt **Do you wish to enable support for monitoring your network with Blockscout?**, enter `Y` to start
-BlockScout at [`http://localhost:26000`](http://localhost:26000) 
+At the prompt **Do you wish to enable support for monitoring your network with BlockScout?**, enter `Y` to start
+BlockScout at [`http://localhost:26000`](http://localhost:26000).
 
 !!! note
 
     BlockScout's Docker image is resource heavy when running.
     Ensure you have adequate CPU resources dedicated to the container.
-
 
 The [quickstart BlockScout configuration](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/templates/besu/docker-compose.yml)
 is available as a reference for your own network.

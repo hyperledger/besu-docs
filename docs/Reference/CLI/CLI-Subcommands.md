@@ -39,7 +39,7 @@ Provides blocks related actions.
 Imports a block or range of blocks from the specified file into the blockchain database.
 
 You can specify the starting index of the block range to import with `--start-block`.
-If omitted, the start block defaults to 0 (the beginning of the chain).
+If omitted, the default start block is 0 (the beginning of the chain).
 
 You can specify the ending index (exclusive) of the block range to import with `--end-block`.
 If omitted, all blocks after the start block will be imported.
@@ -66,8 +66,8 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
 
 Exports a block or range of blocks from storage to a file in RLP format.
 
-If you omit `--start-block`, the start block defaults to 0 (the beginning of the chain), and if you
-omit `--end-block`, the end block defaults to the end of the chain.
+If you omit `--start-block`, the default start block is 0 (the beginning of the chain), and if you
+omit `--end-block`, the default end block is the end of the chain.
 
 If you are not running the command against the default network (MainNet), specify the `--network`
 or `--genesis-file` parameter.
@@ -234,7 +234,7 @@ Provides RLP related actions.
     cat extra_data.json | besu rlp encode > rlp.txt
     ```
 
-Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. Defaults to
+Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. The default is
 `IBFT_EXTRA_DATA`.
 
 Supported types are:

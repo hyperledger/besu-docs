@@ -392,7 +392,7 @@ The default is `true`.
 !!! note
 
     You can override the default DNS server if it's unreliable or doesn't serve TCP DNS requests, using the
-    [experimental option](#Xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
+    [experimental option](#xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
 
 ### `ethstats`
 

@@ -75,8 +75,7 @@ The properties specific to IBFT 2.0 are:
 
 !!! caution
 
-    The `blockreward` and  `miningbeneficiary` properties
-    cannot be updated once your network is started.
+    The `miningbeneficiary` property cannot be updated once your network is started.
 
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
@@ -181,12 +180,27 @@ To tune the block timeout for your network deployment:
     View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
     log messages.
 
-#### Configure block time on an existing network deployment
+Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
+
+{!global/Config-Options.md!}
+
+## Transitions
+
+The `transitions` genesis configuration item allows you to specify a future block number at which to change IBFT 2.0
+network configuration in an existing network. For example, you can update the [block time](#block-time) or update the block reward.
+
+!!! caution
+
+    Do not specify a transition block in the past.
+    Specifying a transition block in the past could result in unexpected behavior, such as causing
+    the network to fork.
+
+### Configure block time on an existing network deployment
 
 To update an existing network with a new `blockperiodseconds`:
 
 1. Stop all nodes in the network.
-1. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     * `<NewValue>` is the updated value for `blockperiodseconds`.
@@ -211,7 +225,7 @@ To update an existing network with a new `blockperiodseconds`:
                      "blockperiodseconds": <NewValue>
                    }
                    ]
-                }
+                 }
               },
               ...
             }
@@ -241,16 +255,93 @@ To update an existing network with a new `blockperiodseconds`:
             }
             ```
 
-1. Restart all nodes in the network using the updated genesis file.
-1. To verify the changes after the transition block, call
+3. Restart all nodes in the network using the updated genesis file.
+4. To verify the changes after the transition block, call
    [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
-!!! caution
+### Configure block rewards on an existing network deployment
 
-    Do not specify a transition block in the past.
-    Specifying a transition block in the past could result in unexpected behavior, such as causing
-    the network to fork.
-{!global/Config-Options.md!}
+To update an existing network with a new `blockreward`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
+    * `<NewValue>` is the updated value for `blockreward`.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   },
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   },
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": 10,
+                     "blockreward": "6000000000000000"
+                   },
+                   {
+                     "block": 15,
+                     "blockreward": "75000000000000000"
+                   },
+                   {
+                     "block": 20,
+                     "blockreward": "0"
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+    !!! note
+
+        You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
+
+3. Restart all nodes in the network using the updated genesis file.
 
 <!-- Acronyms and Definitions -->
 

@@ -71,7 +71,7 @@ To start BlockScout, run the following command after the quickstart is already r
 ./run-blockscout.sh
 ```
 
-The [quickstart BlockScout configuration](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/templates/goquorum/docker-compose.blockscout.yml)
+The [quickstart BlockScout configuration](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/templates/goquorum/docker-compose.yml)
 is available as a reference for your own network.
 
 ## Smart contracts and dapps

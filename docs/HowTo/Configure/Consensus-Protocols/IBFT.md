@@ -25,11 +25,19 @@ Existing validators propose and vote to
 [add or remove validators](Add-Validators.md#ibft-20). Adding or removing a validator
 requires a majority vote (greater than 50%) of validators.
 
-## Minimum number of validators
+## Validators
+
+### Minimum number of validators
 
 IBFT 2.0 requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
 ability for a blockchain network to function correctly and reach consensus despite nodes failing or
 propagating incorrect information to peers.
+
+### Maximum number of validators
+
+As the number of validators increase, the message complexity increases as well, which can cause a loss of performance.
+In [network tests](https://wiki.hyperledger.org/display/BESU/Maximum+Validator+count+for+an+IBFT2+Network), IBFT 2.0 handles up to 30 validators safely with no loss of performance.
+After 35 validators, transaction pool time grows exponentially. 
 
 ## Genesis file
 

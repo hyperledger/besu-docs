@@ -39,7 +39,7 @@ Provides blocks related actions.
 Imports a block or range of blocks from the specified file into the blockchain database.
 
 You can specify the starting index of the block range to import with `--start-block`.
-If omitted, the start block defaults to 0 (the beginning of the chain).
+If omitted, the default start block is 0 (the beginning of the chain).
 
 You can specify the ending index (exclusive) of the block range to import with `--end-block`.
 If omitted, all blocks after the start block will be imported.
@@ -66,15 +66,15 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
 
 Exports a block or range of blocks from storage to a file in RLP format.
 
-If you omit `--start-block`, the start block defaults to 0 (the beginning of the chain), and if you
-omit `--end-block`, the end block defaults to the end of the chain.
+If you omit `--start-block`, the default start block is 0 (the beginning of the chain), and if you
+omit `--end-block`, the default end block is the current chain head.
 
 If you are not running the command against the default network (MainNet), specify the `--network`
 or `--genesis-file` parameter.
 
 ## `public-key`
 
-This command provides node public key related actions.
+Provides node public key related actions.
 
 !!!caution
 
@@ -136,10 +136,6 @@ Provides password related actions.
 
 ### `hash`
 
-This command generates the hash of a given password. Include the hash in the
-[credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
-[authentication](../../HowTo/Interact/APIs/Authentication.md).
-
 === "Syntax"
 
     ```bash
@@ -152,15 +148,15 @@ This command generates the hash of a given password. Include the hash in the
     besu password hash --password=myPassword123
     ```
 
+Generates the hash of a given password. Include the hash in the
+[credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
+[authentication](../../HowTo/Interact/APIs/Authentication.md).
+
 ## `operator`
 
 Provides operator actions.
 
 ### `generate-blockchain-config`
-
-This command generates an
-[IBFT 2.0](../../Tutorials/Private-Network/Create-IBFT-Network.md) or
-[QBFT](../../Tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
 
 === "Syntax"
 
@@ -173,14 +169,29 @@ This command generates an
     ```bash
     besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
     ```
+Generates an
+[IBFT 2.0](../../Tutorials/Private-Network/Create-IBFT-Network.md) or
+[QBFT](../../Tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
 
-The configuration file has 2 nested JSON nodes. The first is the `genesis` property defining the
+The configuration file has two nested JSON nodes. The first is the `genesis` property defining the
 [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) or
 [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) genesis file, except for
 the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
 generate.
 
 ### `generate-log-bloom-cache`
+
+=== "Syntax"
+
+    ```bash
+    besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
+    ```
+
+=== "Example"
+
+    ```bash
+    besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
+    ```
 
 !!! tip
 
@@ -199,26 +210,11 @@ performance.
 To generate cached log bloom indexes while the node is running, use the
 [`admin_generateLogBloomCache`](../API-Methods.md#admin_generatelogbloomcache) API.
 
-=== "Syntax"
-
-    ```bash
-    besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
-    ```
-
-=== "Example"
-
-    ```bash
-    besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
-    ```
-
 ## `rlp`
 
 Provides RLP related actions.
 
 ### `encode`
-
-Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. Defaults to
-`IBFT_EXTRA_DATA`.
 
 === "Syntax"
 
@@ -237,6 +233,9 @@ Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. D
     ```bash
     cat extra_data.json | besu rlp encode > rlp.txt
     ```
+
+Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. The default type is
+`IBFT_EXTRA_DATA`.
 
 Supported types are:
 
@@ -298,6 +297,18 @@ the `IBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-
 
 ## `retesteth`
 
+=== "Syntax"
+
+    ```bash
+    besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-allowlist=<hostname>[,<hostname>…]… or * or all]
+    ```
+
+=== "Example"
+
+    ```bash
+    besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-allowlist=*
+    ```
+
 Runs a Retesteth-compatible server. [Retesteth](https://github.com/ethereum/retesteth/wiki) is a
 developer tool that can generate and run consensus tests against any Ethereum client running such a
 server.
@@ -310,14 +321,21 @@ The command accepts the following command line options:
 * [\--rpc-http-port](./CLI-Syntax.md#rpc-http-port)
 * [\--logging](./CLI-Syntax.md#logging)
 
+## `validate-config`
+
 === "Syntax"
 
     ```bash
-    besu retesteth [--data-path=<PATH>] [--rpc-http-host=<HOST>] [--rpc-http-port=<PORT>] [-l=<LOG VERBOSITY LEVEL>] [--host-allowlist=<hostname>[,<hostname>…]… or * or all]
+    besu validate-config --config-file <PATH-TO-CONFIG-FILE>
     ```
 
 === "Example"
 
     ```bash
-    besu retesteth --data-path=/home/me/me_node --rpc-http-port=8590 --host-allowlist=*
+    besu validate-config --config-file ../besu-local-nodes/config/besu/besu1.conf
     ```
+
+Performs basic syntax validation of the specified
+[TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
+Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options.
+Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

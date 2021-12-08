@@ -11,7 +11,7 @@ This tutorial configures permissioning on a [Clique proof of authority (PoA)] ne
 
 !!! note
 
-    Production environments require a web server to [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
+    Production environments require a Web server to [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
 
 ## Prerequisites
 
@@ -271,10 +271,10 @@ The migration logs the addresses of the Admin and Rules contracts.
 
 !!! note
 
-    Production environments require a web server to
+    Production environments require a Web server to
     [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
 
-1. In the `permissioning-smart-contracts` directory, start the web server serving the dapp:
+1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
 
     ```bash
     yarn start

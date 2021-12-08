@@ -38,12 +38,21 @@ If you set up your own VM locally using a VM manager such as [VirtualBox](https:
 
 We recommend you create a VM with the following attributes:
 
-* Memory Size: Set to 6 GB (recommended)
+* Memory size: Set to 6 GB (recommended)
 * Create a virtual hard disk with at least 10 GB (20 GB recommended)
 * Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)
 * (Optional) You can create a shared directory to copy block files or genesis files from the host
   computer to the VM. For details on how to create a shared directory, see "Share Folders" in the
   [Oracle VirtualBox documentation].
+  
+## Disk type
+
+Use [local SSD storage](https://cloud.google.com/compute/docs/disks) for high throughput nodes (validators and RPC nodes).
+Read-only nodes can use a lower performance setup.
+
+You can use local SSDs through [SCSI interfaces](https://en.wikipedia.org/wiki/SCSI).
+For higher performance in production settings, we recommend upgrading to
+[NVMe interfaces](https://cloud.google.com/compute/docs/disks/local-ssd#performance).
 
 <!-- Links -->
 [Oracle VirtualBox documentation]: https://www.virtualbox.org/manual/UserManual.html#sharedfolders

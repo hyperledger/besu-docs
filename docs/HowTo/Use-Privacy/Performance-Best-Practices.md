@@ -1,21 +1,20 @@
 # Private transaction performance best practices
 
-This document collects deployment and usage hints to help achieving high performance for private transactions.
+This document collects deployment and usage tips to help you achieve high performance for private transactions.
 If transaction throughput or latency is not meeting your expectations, please consider the following before raising an issue.
 
 ## General performance
 
 Private transactions use the same facilities as public ones.
 General Besu performance tunings apply.
-Specific approaches are out of scope of this document.
-However the following item is of such outstanding impact to performance that it is  mentioned here:
+Specific approaches are out of scope of this document, except for the following, which strongly impacts performance:
 
 ### Use fast, local, solid state storage
 
 Running EVM transactions creates a lot of random reads that are executed sequentially.
-The Besu data folder should be located on the fastest possible storage media.
+The Besu data folder for high throughput nodes should be located on the fastest possible storage media.
 
-* Prefer NVMe attached SLC flash or Intel Optane.
+* Prefer [NVMe](https://cloud.google.com/compute/docs/disks/local-ssd#performance) attached SLC flash or Intel Optane.
 * Avoid network attached SSDs or cloud storage with limited IOPs.
 * Do not use spinning disks under any circumstances.
 

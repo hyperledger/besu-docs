@@ -67,7 +67,7 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
 Exports a block or range of blocks from storage to a file in RLP format.
 
 If you omit `--start-block`, the default start block is 0 (the beginning of the chain), and if you
-omit `--end-block`, the default end block is the end of the chain.
+omit `--end-block`, the default end block is the current chain head.
 
 If you are not running the command against the default network (MainNet), specify the `--network`
 or `--genesis-file` parameter.
@@ -234,7 +234,7 @@ Provides RLP related actions.
     cat extra_data.json | besu rlp encode > rlp.txt
     ```
 
-Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. The default is
+Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. The default type is
 `IBFT_EXTRA_DATA`.
 
 Supported types are:
@@ -337,3 +337,5 @@ The command accepts the following command line options:
 
 Performs basic syntax validation of the specified
 [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
+Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options.
+Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

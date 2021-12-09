@@ -7,11 +7,14 @@ description: Rapidly generate local blockchain networks.
 
 ## Prerequisites
 
+- One of the following operating systems is required:
+    - Linux on x86_64 architecture
+    - macOS on an Intel processor (M1 processor not supported yet)
+    - Windows 64-bit edition, with:
+        - Windows Subsystem for Linux 2
+        - Docker desktop configured to use the WSL2-based engine
 - [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 - [Node.js](https://nodejs.org/en/download/) version 12 or higher
-- On Windows:
-    - Windows Subsystem for Linux 2
-    - Docker desktop configured to use the WSL2-based engine
 
 !!! important
 

@@ -2876,6 +2876,34 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
     You must specify [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or
     [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file).
 
+### `rpc-http-tls-cipher-suite`, `rpc-http-tls-cipher-suites`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-http-tls-cipher-suite=<cipherSuiteName>[, <cipherSuiteName>...]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-tls-cipher-suite=TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_CIPHER_SUITE= TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    rpc-http-tls-cipher-suite="TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    ```
+
+A list of comma separated TLS cipher suites to support.
+
 ### `rpc-http-tls-enabled`
 
 === "Syntax"
@@ -2996,6 +3024,34 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
 
     You must enable client authentication using the
     [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
+
+### `rpc-http-tls-protocol`, `rpc-http-tls-protocols`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-http-tls-protocol=<protocolName>[, <protocolName>...]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-tls-protocol=TLSv1.3,TLSv1.2
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_HTTP_TLS_PROTOCOL=TLSv1.3,TLSv1.2
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    rpc-http-tls-protocol="TLSv1.3,TLSv1.2"
+    ```
+
+A list of comma separated TLS protocols to support. Defaults to `DEFAULT_TLS_PROTOCOLS`, a list which includes `TLSv1.3` and `TLSv1.2`.
 
 ### `rpc-tx-feecap`
 

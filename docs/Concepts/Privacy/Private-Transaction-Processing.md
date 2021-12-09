@@ -47,7 +47,7 @@ Private transaction processing is illustrated and described in the following dia
    The Private Transaction Handler propagates the PMT using devP2P in the same way as a public Ethereum transaction.
 
     !!! tip
-   
+
         If you want to sign the PMT outside of Besu, use
         [`priv_distributeRawTransaction`](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
         instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
@@ -60,7 +60,7 @@ Private transaction processing is illustrated and described in the following dia
    precompile contract.
 
     !!! note
-   
+
         Nodes receiving the PMT that don't contain the privacy precompile contract specified in the PMT ignore the PMT.
 
 1. The privacy precompile contract queries Tessera for the private transaction and privacy group ID using the

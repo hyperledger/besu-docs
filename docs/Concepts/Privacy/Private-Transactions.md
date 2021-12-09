@@ -97,20 +97,20 @@ previous transaction is processed, you can get the same nonce again.
 
 You can manage private nonces in multiple ways:
 
-- Let Besu handle it.
+* Let Besu handle it.
   You just need to wait long enough between calls to `sendRawTransaction` for the transactions to process.
   The current window is around 1.5 seconds, depending on block time.
-   
+
     Public transactions deal with this issue, but the window is shorter, since you can use the transaction pool to take
     into account pending transactions (by using `eth_getTransactionCount("pending")`).
-   
+
     For private transactions, the window is longer because private transactions aren't submitted to the transaction pool.
     You must wait until the private transaction's corresponding PMT is included in a block.
-   
-- Manage the nonce yourself, by keeping track of and providing the nonce at each call.
+
+* Manage the nonce yourself, by keeping track of and providing the nonce at each call.
   We recommend this if you're sending many transactions that are independent of each other.
-   
-- Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
+
+* Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
   We recommend this for enterprise use.
 
 !!! tip

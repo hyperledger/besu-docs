@@ -60,11 +60,6 @@ Besu maintains separate private states for each [privacy group](../../Concepts/P
 The private transaction nonce for an account is specific to the privacy group.
 That is, the nonce for account A for privacy group ABC is different to the nonce for account A for privacy group AB.
 
-!!! note
-
-    If sending more than one transaction for mining in the same block (that is, you aren't waiting for the transaction
-    receipt), you must calculate the private transaction nonce outside Besu.
-
 ### Private nonce validation
 
 Unlike public transactions, private transactions are not submitted to the [transaction pool](../Transactions/Transaction-Pool.md).
@@ -76,12 +71,6 @@ validated when the private transaction is submitted.
 If a private transaction has an incorrect nonce, the PMT is still valid and is added to a block.
 The private transaction execution fails when [processing the PMT](Private-Transaction-Processing.md) for the private
 transaction with the incorrect nonce.
-
-!!! tip
-
-    The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
-    of nonce management when sending multiple private transactions.
-    The example calculates the correct nonces for the private transactions and PMTs outside of Besu.
 
 The following private transaction flow illustrates when nonce validation occurs:
 
@@ -99,6 +88,33 @@ The following private transaction flow illustrates when nonce validation occurs:
 
 ### Private nonce management
 
-You can call [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount) to get the nonce, then
-use that nonce with [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/stable/Reference/API-Methods/#eea_sendtransaction)
-to send a private transaction.
+In Besu, you call [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount) to get a nonce,
+then use that nonce with [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) to send a
+private transaction.
+
+However, when you send multiple transactions in row, if a subsequent call to `getTransactionCount` happens before a
+previous transaction is processed, you can get the same nonce again.
+
+You can manage private nonces in multiple ways:
+
+- Let Besu handle it.
+  You just need to wait long enough between calls to `sendRawTransaction` for the transactions to process.
+  The current window is around 1.5 seconds, depending on block time.
+   
+    Public transactions deal with this issue, but the window is shorter, since you can use the transaction pool to take
+    into account pending transactions (by using `eth_getTransactionCount("pending")`).
+   
+    For private transactions, the window is longer because private transactions aren't submitted to the transaction pool.
+    You must wait until the private transaction's corresponding PMT is included in a block.
+   
+- Manage the nonce yourself, by keeping track of and providing the nonce at each call.
+  We recommend this if you're sending many transactions that are independent of each other.
+   
+- Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
+  We recommend this for enterprise use.
+
+!!! tip
+
+    The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    of nonce management when sending multiple private transactions.
+    The example calculates the correct nonces for the private transactions and PMTs outside of Besu.

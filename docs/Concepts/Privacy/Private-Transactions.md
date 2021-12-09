@@ -52,6 +52,7 @@ A nonce is the number of previous transactions made by the sender.
 the private transaction distributed to involved participants, and the privacy marker transaction (PMT) included on the
 public blockchain.
 Each of these transactions has its own nonce.
+The PMT nonce is the public nonce for the account.
 
 ### Private transaction nonce
 
@@ -64,11 +65,7 @@ That is, the nonce for account A for privacy group ABC is different to the nonce
     If sending more than one transaction for mining in the same block (that is, you aren't waiting for the transaction
     receipt), you must calculate the private transaction nonce outside Besu.
 
-### Privacy marker transaction nonce
-
-The PMT nonce is the public nonce for the account.
-
-### Nonce validation
+### Private nonce validation
 
 Unlike public transactions, private transactions are not submitted to the [transaction pool](../Transactions/Transaction-Pool.md).
 The private transaction is distributed directly to the participants in the transaction, and the PMT is submitted to the
@@ -99,3 +96,9 @@ The following private transaction flow illustrates when nonce validation occurs:
 
     If the private transaction was submitted with a correct nonce in step 1, the nonce is validated as correct.
     If an incorrect nonce was submitted, the private transaction execution fails.
+
+### Private nonce management
+
+You can call [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount) to get the nonce, then
+use that nonce with [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/stable/Reference/API-Methods/#eea_sendtransaction)
+to send a private transaction.

@@ -18,12 +18,12 @@ Besu creates JWTs internally with
 [username and password authentication](#username-and-password-authentication), and externally with
 [JWT public key authentication](#jwt-public-key-authentication).
 
-Using JSON-RPC authentication and authorization with [MetaMask](https://metamask.io/) is not supported.
+!!! note
+    Using JSON-RPC authentication and authorization with [MetaMask](https://metamask.io/) is not supported.
 
 !!! important
-
     To prevent interception of authentication credentials and authenticated tokens, make
-    authenticated requests over HTTPS. We recommended production deployments run behind a network
+    authenticated requests over HTTPS. We recommend running production deployments behind a network
     layer that provides SSL termination. Besu does not provide a HTTPS connection natively.
 
 ## Username and password authentication
@@ -38,7 +38,7 @@ Using [public key authentication](#jwt-public-key-authentication) disables the `
 
 The `toml` credentials file defines user details and the JSON-RPC methods they can access.
 
-!!! example "Sample credentials file"
+!!! example "Sample `auth.toml` credentials file"
 
     ```toml
     [Users.username1]
@@ -65,9 +65,17 @@ Each user requiring JSON-RPC access the configuration file lists the:
 
 !!! example "Password hash subcommand"
 
-    ```bash
-    besu password hash --password=pegasys
-    ```
+    === "Command"
+    
+        ```bash
+        besu password hash --password=MyPassword
+        ```
+
+    === "Hash output"
+
+        ```text
+        $2a$10$L3Xb5G/AJOsEK5SuOn9uzOhpCCfuVWTajc5hwWerY6N5xBM/xlrMK
+        ```
 
 ### 2. Enable authentication
 
@@ -92,25 +100,25 @@ respectively. HTTP and WS requires a different token.
     === "Generate a token for HTTP"
 
         ```bash
-        curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-http-hostname:http-port>/login
+        curl -X POST --data '{"username":"username1","password":"MyPassword"}' <JSON-RPC-http-hostname:http-port>/login
         ```
 
     === "Example for HTTP"
 
         ```bash
-        curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8545/login
+        curl -X POST --data '{"username":"username1","password":"MyPassword"}' http://localhost:8545/login
         ```
 
     === "Generate a token for WS"
 
         ```bash
-        curl -X POST --data '{"username":"username1","password":"pegasys"}' <JSON-RPC-ws-hostname:ws-port>/login
+        curl -X POST --data '{"username":"username1","password":"MyPassword"}' <JSON-RPC-ws-hostname:ws-port>/login
         ```
 
     === "Example for WS"
 
         ```bash
-        curl -X POST --data '{"username":"username1","password":"pegasys"}' http://localhost:8546/login
+        curl -X POST --data '{"username":"username1","password":"MyPassword"}' http://localhost:8546/login
         ```
 
     === "JSON result"
@@ -126,34 +134,59 @@ expires, you need to generate a new token.
 
 Enable authentication from the command line and supply the external JWT provider's public key.
 
-JWT public authentication disables the Besu `/login` endpoint, meaning
-[username and password authentication](#username-and-password-authentication) will not work.
+!!! important
+    JWT public authentication disables the Besu `/login` endpoint, meaning
+    [username and password authentication](#username-and-password-authentication) will not work.
 
 ### 1. Generate a private and public key pair
 
 !!!note
-
     This step is for demonstration or testing purposes only. In a production environment the
     external JWT provider supplies the public key file.
 
 The private and accompanying public key files must be in `.pem` format.
 
-The key must use an RSA private key of at least 2048 bits.
+The key can be:
 
-!!! example "Sample using OpenSSL"
+- an RSA private key of at least 2048 bits algorithm also named `RS256`. This is the Besu default algorithm.
+- an ECDSA private key, algorithm also named `secp256r1` or `ES256`.
 
-    ```bash
-    openssl genrsa -out privateKey.pem 2048
-    openssl rsa -pubout -in privateKey.pem -pubout -out publicKey.pem
-    ```
+!!! example "Example of key generation using OpenSSL"
+
+    === "`RS256` RSA Keys"
+
+        1. Generate the private key:
+
+            ```bash
+            openssl genrsa -out privateRSAKey.pem 2048
+            ```
+
+        1. Generate the public key:
+
+            ```bash
+            openssl rsa -pubout -in privateRSAKey.pem -pubout -out publicRSAKey.pem
+            ```
+
+    === "`ES256` ECDSA Keys"
+
+         1. Generate the private key:
+
+            ```bash
+            openssl ecparam -name secp256r1 -genkey -out privateECDSAKey.pem
+            ```
+
+        1. Generate the public key:
+
+            ```bash
+            openssl ec -in privateECDSAKey.pem -pubout -out publicECDSAKey.pem
+            ```
 
 ### 2. Create the JWT
 
 Create the JWT using an external tool.
 
 !!! important
-
-    The JWT must use the `RS256` algorithm
+    The JWT must use the `RS256` or `ES256` algorithm.
 
 Each payload for the JWT contains:
 
@@ -176,6 +209,21 @@ The following example uses the [JWT.io](https://jwt.io/) website to create a JWT
 purposes.
 
 ![Create a JSON Web Token](../../../images/JWT.png)
+
+!!! critical
+
+    This website requires you to paste your private key to generate the JWT.
+
+    For your safety, never disclose a production private key to anyone, even this site.
+
+    The safe way to generate you JWT is to do it locally on a secured computer, using any JWT compatible tool.
+
+    ---------
+
+    See for example our [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/).
+
+    IMPORTANT: ^^ is to be moved to Consensys repos if you think it's fine. Or add the zip archive to the doc. But I would prefer a repos.
+    ----------
 
 ### 3. Enable authentication
 
@@ -229,3 +277,5 @@ Specify the `Bearer` in the header.
         ```bash
         curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
         ```
+
+*[JWT]: JSON Web Token

@@ -76,7 +76,7 @@ The following private transaction flow illustrates when nonce validation occurs:
 
 1. Submit a private transaction with a [nonce value](#private-transaction-nonce).
 1. The private transaction is distributed to all participants in the privacy group.
-1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one time accounts.
+1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one-time accounts.
    If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file),
    the public nonce for that account is obtained and used for the PMT.
 1. The PMT is mined and included in the block.

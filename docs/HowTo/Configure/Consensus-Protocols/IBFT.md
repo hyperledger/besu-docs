@@ -37,6 +37,7 @@ propagating incorrect information to peers.
 
 As the number of validators increase, the message complexity increases as well, which can cause a loss of performance.
 In [network tests](https://wiki.hyperledger.org/display/BESU/Maximum+Validator+count+for+an+IBFT2+Network), IBFT 2.0 handles up to 30 validators safely with no loss of performance.
+Non-validator nodes do not affect performance and do not count towards the maximum limit.
 
 ## Genesis file
 

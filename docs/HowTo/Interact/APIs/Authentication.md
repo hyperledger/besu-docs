@@ -148,8 +148,8 @@ The private and accompanying public key files must be in `.pem` format.
 
 The key can be:
 
-- an RSA private key of at least 2048 bits algorithm also named `RS256`. This is the Besu default algorithm.
-- an ECDSA private key, algorithm also named `secp256r1` or `ES256`.
+* an RSA private key of at least 2048 bits algorithm also named `RS256`. This is the Besu default algorithm.
+* an ECDSA private key, algorithm also named `secp256r1` or `ES256`.
 
 !!! example "Example of key generation using OpenSSL"
 
@@ -212,17 +212,17 @@ purposes.
 
 !!! critical
 
-    This website requires you to paste your private key to generate the JWT.
+    [JWT.io](https://jwt.io/) requires you to paste your private key to generate the JWT.
 
     For your safety, never disclose a production private key to anyone, even this site.
 
-    The safe way to generate you JWT is to do it locally on a secured computer, using any JWT compatible tool.
+    The safe way to generate you JWT is to do it locally on a secured computer, using a JWT compatible tool.
 
     ---------
 
     See for example our [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/).
 
-    IMPORTANT: ^^ is to be moved to Consensys repos if you think it's fine. Or add the zip archive to the doc. But I would prefer a repos.
+    TODO: ^^ is to be moved to Consensys repos if you think it's fine. Or add the zip archive to the doc. But I would prefer a repos.
     ----------
 
 ### 3. Enable authentication

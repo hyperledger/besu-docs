@@ -1,4 +1,3 @@
-[aA]busable
 Alethio
 [aA]llowlist(s)?
 Ansible
@@ -11,13 +10,14 @@ BerkeleyDB
 Besu
 Bintray
 [bB]lockchain(s)?
-Blockscout
+BlockScout
 [bB]oolean(s)?
 [bB]ootnode(s)?
 [bB]roadcast(ing|ed)
 Cakeshop
 [cC]lasspath(s)?
 Codefi
+[cC]olocate
 [cC]oinbase
 [cC]onfigurability
 ConsenSys
@@ -37,6 +37,7 @@ Ethereum
 Etherscan
 Ethminer
 EthSigner
+[eE]thstats
 Filebeat
 Filecoin
 Filestore(s)?
@@ -90,8 +91,10 @@ MkDocs
 Nginx
 Nodejs
 [nN]once(s)?
+[oO]ffchain
 [oO]nboard(ing)?
 [oO]nchain
+Optane
 Orion
 [oO]wnable
 [pP]arallelization
@@ -124,6 +127,7 @@ Mordor
 Slack
 [sS]lashable
 Splunk
+statefully
 [sS]ubcommand(s)?
 [sS]ubnet(s)?
 [sS]uborganization(s)?

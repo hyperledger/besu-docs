@@ -24,6 +24,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                     |
 | `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                  |
 | `ecCurve`           | Specifies [the elliptic curve to use](../HowTo/Configure/Alternative-EC-Curves.md). Default is `secp256k1`.                                                                                 |
+| `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                        |
 
 ## Genesis block parameters
 
@@ -50,6 +51,8 @@ consensus protocols.
 ## Milestone blocks
 
 In public networks, the milestone blocks specify the blocks at which the network changed protocol.
+See a [full list of Ethereum protocol releases](https://github.com/ethereum/execution-specs#ethereum-protocol-releases)
+and their corresponding milestone blocks.
 
 !!! example "Ethereum MainNet milestone blocks"
 
@@ -115,6 +118,29 @@ the network's difficulty constant and override the `difficulty` parameter from t
     Using `fixeddifficulty` is not recommended for use with Ethash outside of test environments.
     For production networks using Ethash, we recommend setting a low `difficulty` value in the genesis file instead.
     Ethash will adjust the difficulty of the network based on hashrate to produce blocks at the targeted frequency.
+
+## Discovery configuration items
+
+Use the `discovery` configuration items to specify the [`bootnodes`](CLI/CLI-Syntax.md#bootnodes) and [`discovery-dns-url`](CLI/CLI-Syntax.md#discovery-dns-url)
+in the genesis file, in place of using CLI options or listing them in the configuration file.
+If either CLI option is used, it takes precedence over the genesis file.
+Anything listed in the configuration file also takes precedence.
+
+!!! example
+
+    ```json
+    {
+      "config": {
+          "discovery" : {
+              "bootnodes": [
+                  "enode://c35c3...d615f@1.2.3.4:30303",
+                  "enode://f42c13...fc456@1.2.3.5:30303"
+              ],
+              "dns": "enrtree://AM5FCQLWIZX2QFPNJAP7VUERCCRNGRHWZG3YYHIUV7BVDQ5FDPRT2@nodes.example.org"
+          }
+      }
+    }
+    ```
 
 <!--links-->
 [GoQuorum clients]: https://docs.goquorum.consensys.net/

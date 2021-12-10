@@ -71,11 +71,11 @@ The properties specific to IBFT 2.0 are:
     nodes on the network must use the identical value.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
-* `extraData` - `RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+* `extraData` - RLP encoded [extra data](#extra-data).
 
-!!!caution
-    The `blockperiodseconds`, `blockreward`, and  `miningbeneficiary` properties
-    cannot be updated once your network is started.
+!!! caution
+
+    The `miningbeneficiary` property cannot be updated once your network is started.
 
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
@@ -93,9 +93,27 @@ genesis file.
 
 ### Extra data
 
-The `extraData` property is RLP encoded. RLP encoding is a space efficient object serialization
-scheme used in Ethereum. To generate the `extraData` RLP string for inclusion in the genesis file,
-use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
+The `extraData` property is an RLP encoding of:
+
+* 32 bytes of vanity data.
+* A list of validator addresses.
+* Any validator votes. No vote is included in the genesis block.
+* The round the block was created on. The round in the genesis block is 0.
+* A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
+  
+In the genesis block, the important information in the extra data is the list of validators.
+All other details have empty values.
+Formally, `extraData` in the genesis block contains
+`RLP([32 bytes Vanity, List<Validators>, No Vote, Round=Int(0), 0 Seals])`.
+
+!!! info
+
+    RLP encoding is a space-efficient object serialization scheme used in Ethereum.
+
+#### Generating extra data
+  
+To generate the `extraData` RLP string for inclusion in the genesis file, use the
+[`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
 
 !!! example
 
@@ -103,10 +121,10 @@ use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subco
     besu rlp encode --from=toEncode.json
     ```
 
-Where the `toEncode.json` file contains a list of the initial validators, in ascending order. To
-write the validator address and copy it to the `toEncode.json` file, use the
-[`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu
-subcommand. For example:
+Where the `toEncode.json` file contains a list of the initial validators, in ascending order.
+To write the validator address and copy it to the `toEncode.json` file, use the
+[`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu subcommand.
+For example:
 
 !!! example "One initial validator in `toEncode.json` file"
 
@@ -135,7 +153,7 @@ expires, the protocol proposes the next new block.
 
 !!! warning
 
-    If more than 1/3 of validators stop participating, new blocks can no longer be created and 
+    If more than 1/3 of validators stop participating, new blocks can no longer be created and
     `requesttimeoutseconds` doubles with each round change. The quickest method
     to resume block production is to restart all validators, which resets `requesttimeoutseconds` to
     its genesis value.
@@ -161,9 +179,171 @@ To tune the block timeout for your network deployment:
 
     View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
     log messages.
+
+Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
+
 {!global/Config-Options.md!}
+
+## Transitions
+
+The `transitions` genesis configuration item allows you to specify a future block number at which to change IBFT 2.0
+network configuration in an existing network. For example, you can update the [block time](#block-time) or update the block reward.
+
+!!! caution
+
+    Do not specify a transition block in the past.
+    Specifying a transition block in the past could result in unexpected behavior, such as causing
+    the network to fork.
+
+### Configure block time on an existing network deployment
+
+To update an existing network with a new `blockperiodseconds`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
+    * `<NewValue>` is the updated value for `blockperiodseconds`.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockperiodseconds": <NewValue>
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": 1240,
+                     "blockperiodseconds": 4
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+3. Restart all nodes in the network using the updated genesis file.
+4. To verify the changes after the transition block, call
+   [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+
+### Configure block rewards on an existing network deployment
+
+To update an existing network with a new `blockreward`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
+    * `<NewValue>` is the updated value for `blockreward`.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   },
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   },
+                   {
+                     "block": <FutureBlockNumber>,
+                     "blockreward": <NewValue>
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                   "blockreward": "5000000000000000"
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": 10,
+                     "blockreward": "6000000000000000"
+                   },
+                   {
+                     "block": 15,
+                     "blockreward": "75000000000000000"
+                   },
+                   {
+                     "block": 20,
+                     "blockreward": "0"
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+    !!! note
+
+        You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
+
+3. Restart all nodes in the network using the updated genesis file.
 
 <!-- Acronyms and Definitions -->
 
-*[Vanity]: Validators can include anything they like as vanity data.
-*[RLP]: Recursive Length Prefix.
+*[vanity data]: Validators can include anything they like as vanity data.
+*[RLP]: Recursive Length Prefix

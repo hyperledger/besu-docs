@@ -13,6 +13,25 @@ matching the genesis block of the data directory, or use the
 [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option to specify a different data
 directory.
 
+## Invalid block header
+
+If a `TimeStampMoreRecentThanParent | Invalid block header` error occurs, the [genesis file](../Configure/Genesis-File.md) of the new node is specifying a higher
+[`blockperiodseconds`](../Configure/Consensus-Protocols/IBFT.md#block-time) than the imported chain.
+The imported chain makes new blocks faster than the genesis file allows and Besu rejects them with this error.
+This error most often occurs when importing chains from older versions of Besu.
+
+To correct this error, decrease the `blockperiodseconds` in the new [IBFT 2.0 genesis file](../Configure/Consensus-Protocols/IBFT.md#genesis-file)
+or [QFBT genesis file](../Configure/Consensus-Protocols/QBFT.md#genesis-file) to a lower value that satisfies the block header validation.
+
+!!! example
+
+    If the error reads `| TimestampMoreRecentThanParent | Invalid block header: timestamp 1619660141 is only 3 seconds newer than parent timestamp 1619660138. Minimum 4 seconds`,
+    decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
+
+After you have updated the new genesis file, if the imported chain has a `blockperiodseconds` value set lower than you prefer, you can adjust it by configuring the block time on an
+[existing IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#configure-block-time-on-an-existing-network-deployment)
+or [existing QBFT](../Configure/Consensus-Protocols/QBFT.md#configure-block-time-on-an-existing-network) network.
+
 ## Host not authorized
 
 If a `Host not authorized` error occurs when attempting to access the JSON-RPC API, ensure
@@ -115,3 +134,54 @@ Reset taps to point to the correct remote branches by running `brew tap --repair
 
 This error is caused by the branch name being updated from `master` to `main` but a reference to `master` still remains.
 To fix the branch reference and repair Homebrew, use the command `brew tap --repair`.
+
+## Thread blocked due to lack of entropy in the system random number generator
+
+If a thread is reported as blocked, and the top of the stack contains
+`sun.security.provider.NativePRNG$RandomIO.readFully` as in the following example, then the operating
+system is out of entropy.
+
+```bash
+2021-11-06 11:28:05.971+00:00 | vertx-blocked-thread-checker | WARN  | BlockedThreadChecker | Thread Thread[vert.x-worker-thread-2,5,main]=Thread[vert.x-worker-thread-2,5,main] has been blocked for 60387 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+        at java.base@11.0.11/java.io.FileInputStream.readBytes(Native Method)
+        at java.base@11.0.11/java.io.FileInputStream.read(FileInputStream.java:279)
+        at java.base@11.0.11/java.io.FilterInputStream.read(FilterInputStream.java:133)
+        at java.base@11.0.11/sun.security.provider.NativePRNG$RandomIO.readFully(NativePRNG.java:424)
+        at java.base@11.0.11/sun.security.provider.NativePRNG$RandomIO.implGenerateSeed(NativePRNG.java:441)
+        at java.base@11.0.11/sun.security.provider.NativePRNG.engineGenerateSeed(NativePRNG.java:226)
+        ...
+```
+
+If this happens, the Besu node can become unresponsive.
+
+The occurrence of this problem and the possible solutions are system-dependent.
+The issue itself is rare, but would most likely occur:
+
+* On Linux.
+* Using virtual machines without randomness source.
+* Early after computer startup.
+
+The solution to this depends on the situation.
+A good starting point is to read about [blocking random number generation in Linux](https://man7.org/linux/man-pages/man4/random.4.html).
+A quick, non-persistent workaround is to use the non-blocking random generator instead of the blocking one:
+
+```bash
+sudo mount /dev/urandom /dev/random -o bind
+```
+
+## Quorum Developer Quickstart not working on Apple M1 chip
+
+The [Quorum Developer Quickstart](../../Tutorials/Developer-Quickstart.md) does not currently support
+the Apple M1 chip. The quickstart starts up on machines that use the chip, but may show the
+following symptoms:
+
+* All JSON-RPC calls return an empty reply from the server
+* The Grafana dashboard shows no data
+* The `docker ps` command displays an AMD message about the containers:
+
+    ```bash
+    Image may have poor performance, or fail, if run via emulation
+    ```
+
+* No logs can be downloaded

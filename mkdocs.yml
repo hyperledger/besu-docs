@@ -135,6 +135,7 @@ nav:
           - Run Tessera with Besu: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
           - Use flexible privacy: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
           - Use GoQuorum-compatible privacy: HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
+          - Private transaction performance best practices: HowTo/Use-Privacy/Performance-Best-Practices.md
         - Deploy for production:
           - Deploy to the cloud: HowTo/Deploy/Cloud.md
           - Use Ansible to deploy Besu: HowTo/Deploy/Ansible.md
@@ -142,8 +143,7 @@ nav:
           - Configure bootnodes: HowTo/Deploy/Bootnodes.md
           - Configure validators: HowTo/Deploy/Validators.md
           - Deploy permissioning management dapp: HowTo/Deploy/Production.md
-          - Use Alethio Lite Explorer: HowTo/Deploy/Lite-Block-Explorer.md
-          - Use Alethio EthStats Lite network monitor: HowTo/Deploy/Lite-Network-Monitor.md
+          - Use Ethstats network monitor: HowTo/Deploy/Ethstats.md
         - Backup and restore: HowTo/Backup/Backup.md
         - Upgrade:
           - Upgrade node: HowTo/Upgrade/Upgrade-Node.md
@@ -303,3 +303,5 @@ plugins:
           Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
           Tutorials/Privacy/web3js-eea-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
           HowTo/Configure/Configure-TLS.md: HowTo/Configure/TLS/Configure-TLS.md
+          HowTo/Deploy/Lite-Block-Explorer.md: https://github.com/Alethio/ethereum-lite-explorer
+          HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard

@@ -37,18 +37,26 @@ genesis block.
 
 !!! important
 
-    Fast synchronization is the default for named networks specified with
-    the [`--network` option](../Reference/CLI/CLI-Syntax.md#network), except for the `dev` development
-    network.
-
-    Fast synchronization is also the default if Ethereum mainnet is being connected to by not specifying
-    the [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
+    Fast synchronization is the default for named networks specified using the
+    [`--network`](../Reference/CLI/CLI-Syntax.md#network) option, except for the `dev` development network.
+    It's also the default if connecting to Ethereum MainNet by not specifying the
+    [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
     options.
 
 !!! note
 
-    To improve performance, or if the fast sync is taking a long time to complete, use
-    [`--fast-sync-min-peers`](../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) to increase the number of peers to at least 8.
+    When fast synchronizing, block numbers increase until close to the head block, then the process pauses while the
+    world state download completes.
+    This may take a significant amount of time depending on world state size, during which the current head block
+    doesn't increase.
+    For example, MainNet may take several days or more to fast synchronize.
+    Fast synchronization time may increase because Besu picks new pivot blocks, or because peers prune the world state
+    before it completes downloading.
+
+!!! tip
+
+    You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
+    [metrics](../HowTo/Monitor/Metrics.md#metrics-list) to monitor fast synchronization.
 
 ## Run an archive node
 

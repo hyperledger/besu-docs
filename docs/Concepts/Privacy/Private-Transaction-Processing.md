@@ -44,7 +44,7 @@ Private transaction processing is illustrated and described in the following dia
 1. Tessera returns the transaction hash to the Private Transaction Handler.
 
 1. The Private Transaction Handler creates a PMT for the private transaction.
-   The Private Transaction Handler propagates the PMT using devP2P in the same way as a public Ethereum transaction.
+   The Private Transaction Handler propagates the PMT using devP2P in the same way as any other public Ethereum transaction.
 
     !!! tip
 
@@ -61,7 +61,7 @@ Private transaction processing is illustrated and described in the following dia
 
     !!! note
 
-        Nodes receiving the PMT that don't contain the privacy precompile contract specified in the PMT ignore the PMT.
+        Nodes receiving the PMT that don't contain the privacy precompile contract ignore the PMT.
 
 1. The privacy precompile contract queries Tessera for the private transaction and privacy group ID using the
    transaction hash.

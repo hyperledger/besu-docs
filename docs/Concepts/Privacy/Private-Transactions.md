@@ -52,7 +52,7 @@ A nonce is the number of previous transactions made by the sender.
 the private transaction distributed to involved participants, and the privacy marker transaction (PMT) included on the
 public blockchain.
 Each of these transactions has its own nonce.
-The PMT nonce is the public nonce for the account.
+Since the PMT is a public transaction, the PMT nonce is the public nonce for the account.
 
 ### Private transaction nonce
 
@@ -69,8 +69,8 @@ transaction pool.
 Unlike [public transaction nonces](../Transactions/Transaction-Validation.md), private transaction nonces aren't
 validated when the private transaction is submitted.
 If a private transaction has an incorrect nonce, the PMT is still valid and is added to a block.
-The private transaction execution fails when [processing the PMT](Private-Transaction-Processing.md) for the private
-transaction with the incorrect nonce.
+However, in this scenario, the private transaction execution fails when [processing the PMT](Private-Transaction-Processing.md)
+for the private transaction with the incorrect nonce.
 
 The following private transaction flow illustrates when nonce validation occurs:
 
@@ -78,7 +78,7 @@ The following private transaction flow illustrates when nonce validation occurs:
 1. The private transaction is distributed to all participants in the privacy group.
 1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one time accounts.
    If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file),
-   the nonce for that account is obtained and used for the PMT.
+   the public nonce for that account is obtained and used for the PMT.
 1. The PMT is mined and included in the block.
 1. After the block containing the PMT is imported, and the PMT is processed, the private transaction is retrieved from
    the private transaction manager and executed.

@@ -168,14 +168,14 @@ Use the following command:
 
 The command line allows you to enable:
 
-* Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
+- Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
   and [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled).
-* The JSON-RPC API using [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled).
-* The `ADMIN`, `ETH`, `NET`, `PERM`, and `CLIQUE` APIs using
+- The JSON-RPC API using [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled).
+- The `ADMIN`, `ETH`, `NET`, `PERM`, and `CLIQUE` APIs using
   [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
-* All-host access to the HTTP JSON-RPC API using
+- All-host access to the HTTP JSON-RPC API using
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist).
-* All-domain access to the node through the HTTP JSON-RPC API using
+- All-domain access to the node through the HTTP JSON-RPC API using
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. You need the
@@ -202,10 +202,10 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 
 The command line specifies:
 
-* A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
-* A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A data directory for Node-2 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
-* Other options as for [Node-1](#5-start-node-1).
+- A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+- A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+- A data directory for Node-2 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
+- Other options as for [Node-1](#5-start-node-1).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displays. You need
 the enode URL to update the permissions configuration file in the following steps.
@@ -228,10 +228,10 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
-* A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A data directory for Node-3 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
-* Other options as for [Node-1](#5-start-node-1).
+- A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+- A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+- A data directory for Node-3 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
+- Other options as for [Node-1](#5-start-node-1).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displays. You need
 the enode URL to update the permissions configuration file in the following steps.

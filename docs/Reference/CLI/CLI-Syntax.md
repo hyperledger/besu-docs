@@ -2989,7 +2989,7 @@ The path to the file used to
 [authenticate clients](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
-Must contain the certificates's Common Name, and SHA-256 fingerprint in the format
+Must contain the certificate's Common Name, and SHA-256 fingerprint in the format
 `<CommonName> <hex-string>`.
 
 !!! note

@@ -108,7 +108,7 @@ You can manage private nonces in multiple ways:
     You must wait until the private transaction's corresponding PMT is included in a block.
 
 * Manage the nonce yourself, by keeping track of and providing the nonce at each call.
-  We recommend this if you're sending many transactions that are independent of each other.
+  We recommend this if you're [sending many transactions that are independent of each other](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
 
 * Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
   We recommend this for enterprise use.
@@ -116,5 +116,5 @@ You can manage private nonces in multiple ways:
 !!! tip
 
     The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
-    of nonce management when sending multiple private transactions.
+    of nonce management when [sending concurrent private transactions](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
     The example calculates the correct nonces for the private transactions and PMTs outside of Besu.

@@ -4,29 +4,30 @@ description: Onchain permissioning
 
 # Onchain permissioning
 
-Onchain permissioning uses smart contracts to store and administer the node, account, and admin
+Onchain [permissioning](Permissioning-Overview.md) uses smart contracts to store and administer the node, account, and admin
 allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single
 source, the blockchain.
 
 !!! important
 
-    When using Onchain Account Permissioning, a node checks permissions when importing blocks.
+    When using onchain account permissioning, a node checks permissions when importing blocks.
     Meaning, a node only imports blocks in which all transactions are from authorized senders. If
-    you disable Onchain Account Permissioning and your node accepts blocks without enforcing this rule,
-    your node cannot resync with other nodes that are enforcing Onchain Account Permissioning rules
+    you disable onchain account permissioning and your node accepts blocks without enforcing this rule,
+    your node cannot re-synchronize with other nodes that enforce onchain account permissioning rules
     (your node goes into forked state).
 
 !!! note
 
-    The permissioning smart contracts and permissioning management dapp are a separate product to
-    Hyperledger Besu, located in the [ConsenSys/permissioning-smart-contracts] repository.
+    The permissioning smart contracts and [permissioning management dapp] are a separate product to Hyperledger Besu,
+    located in the
+    [`ConsenSys/permissioning-smart-contracts`]https://github.com/ConsenSys/permissioning-smart-contracts repository.
 
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts
 
-The permissioning smart contracts provided in the [ConsenSys/permissioning-smart-contracts]
-repository are:
+The permissioning smart contracts provided in the
+[`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts) repository are:
 
 * Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
   the permissioning logic to the Node Rules and Account Rules contracts. The Ingress contracts deploy
@@ -41,7 +42,7 @@ repository are:
 !!! important
 
     The permissioning contract has multiple interfaces, and each interface maps to a specific
-    version of the Enterprise [Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
+    version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
     Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
     being used when starting Besu.
 
@@ -79,8 +80,8 @@ Permissioning implements three allowlists:
 
 ## Bootnodes
 
-When a node joins the network, the node connects to the bootnodes until it synchronizes to
-the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
+When a node joins the network, the node connects to the [bootnodes](../../HowTo/Find-and-Connect/Bootnodes.md) until it
+synchronizes to the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
 Rules smart contracts apply the permissioning rules.
 
 If a synchronized node loses all peer connections (that is, it has zero peers), it reconnects to the
@@ -91,6 +92,5 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[ConsenSys/permissioning-smart-contracts]: https://github.com/ConsenSys/permissioning-smart-contracts
 [permissioning management dapp]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
 [`--privacy-marker-transaction-signing-key-file`]: ../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file

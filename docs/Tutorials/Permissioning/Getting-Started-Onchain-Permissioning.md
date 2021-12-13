@@ -306,12 +306,9 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 E
 
 The command line specifies:
 
-* A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
-* A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The enode URL of Node-1 using the
-  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+* A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
 * Other options as for [Node-1](#6-start-node-1).
 
 ### 12. Start Node-3
@@ -324,12 +321,9 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 E
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P discovery using the
-  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
-* A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* The enode URL of Node-1 using the
-  [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+* A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+* A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
 * Other options as for [Node-1](#6-start-node-1).
 
 ### 13. Add nodes to the allowlist

@@ -110,6 +110,12 @@ You can manage private nonces in multiple ways:
 * Manage the nonce yourself, by keeping track of and providing the nonce at each call.
   We recommend this if you're [sending many transactions that are independent of each other](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
 
+    !!! note
+
+        You can use [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
+        [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get the nonce for
+        an account for the specified privacy group or participants.
+
 * Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
   We recommend this for enterprise use.
 

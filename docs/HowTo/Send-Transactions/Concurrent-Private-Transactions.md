@@ -13,10 +13,19 @@ private transaction to be mined, using [`eth_getTransactionCount`](../../Referen
 and [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) may result in
 [incorrect nonces](../../Concepts/Privacy/Private-Transactions.md#private-nonce-management).
 
-In this case, use [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction),
+In this case, use [`priv_distributeRawTransaction`](Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
+
+!!! note
+
+    You can use [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
+    [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get the nonce for
+    an account for the specified privacy group or participants.
+
+Send the corresponding PMT using [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction),
 specifying the public PMT nonce.
-You create and send the PMT yourself rather than [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction)
-handling the PMT.
+This method allows you to create and send the PMT yourself rather than
+[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) handling the PMT.
 
 The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum/tree/master/example/concurrentPrivateTransactions)
 includes an example of how to send concurrent private transactions.

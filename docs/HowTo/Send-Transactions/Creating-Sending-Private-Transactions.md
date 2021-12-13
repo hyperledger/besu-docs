@@ -17,7 +17,7 @@ distributed. If any participants are offline when submitting the private transac
 transaction is not attempted and you must resubmit the transaction.
 
 The `gas` and `gasPrice` specified when sending a private transaction are used by the
-[privacy marker transaction] not the private transaction itself.
+[privacy marker transaction (PMT)](../../Concepts/Privacy/Private-Transaction-Processing.md), not the private transaction itself.
 
 !!! note
 
@@ -27,27 +27,23 @@ The `gas` and `gasPrice` specified when sending a private transaction are used b
 ## `eea_sendRawTransaction`
 
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) distributes the
-private transaction to the participating nodes, and signs and submits the
-[privacy marker transaction], as described in
+private transaction to the participating nodes, and signs and submits the PMT, as described in
 [Private transaction processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
 
 !!! note
-    If sending more than one transaction for mining in the same block (that is, you are not waiting
-    for the transaction receipt), you must calculate the private transaction nonce outside Besu.
 
-    Use
-    [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
-    [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get
-    the nonce for an account for the specified privacy group or participants.
+    If [sending concurrent transactions](Concurrent-Private-Transactions.md), you must use
+    [`priv_distributeRawTransaction`](#priv_distributerawtransaction) instead of
+    [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
 
 ## `priv_distributeRawTransaction`
 
+Use [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction) instead of
+[`eea_sendRawTransaction`](#eea_sendrawtransaction) when sending [concurrent private transactions](Concurrent-Private-Transactions.md).
+
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
-distributes the private transaction to the participating nodes but does not sign and submit the
-[privacy marker transaction]. That is,
-[`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
-performs steps 1 to 5 of
-[Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
+distributes the private transaction to the participating nodes but does not sign and submit the PMT.
+That is, it performs steps 1 to 5 of [Private Transaction Processing](../../Concepts/Privacy/Private-Transaction-Processing.md).
 
 If using
 [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
@@ -64,17 +60,12 @@ field of the call.
 
 By using the [public Ethereum transaction](Transactions.md),
 [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction), you are signing
-and submitting the
-[privacy marker transaction] yourself instead of having it signed by the Besu node, giving you
-greater control over the [privacy marker transaction].
-
-Use [`priv_distributeRawTransaction`](../../Reference/API-Methods.md#priv_distributerawtransaction)
-to send [concurrent private transactions](Concurrent-Private-Transactions.md).
+and submitting the PMT yourself instead of having it signed by the Besu node, giving you greater control over the PMT.
 
 !!! warning
 
-    If the [privacy marker transaction] is not sent after distributing the private transaction, the
-    distributed private transaction is not executed and the private states are not updated.
+    If the PMT is not sent after distributing the private transaction, the distributed private transaction is not
+    executed and the private states are not updated.
 
 !!! example
 
@@ -172,6 +163,5 @@ private transactions to create a contract.
 
 <!-- links ---->
 
-[privacy marker transaction]: ../../Concepts/Privacy/Private-Transaction-Processing.md
 [EEA-compliant private transaction]: ../../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
 [Besu-extended private transaction]: ../../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy

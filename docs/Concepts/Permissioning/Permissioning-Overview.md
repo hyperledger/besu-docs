@@ -7,7 +7,7 @@ description: Besu permissioning feature
 A permissioned network enables node permissioning and account permissioning, allowing only
 specified nodes and accounts to access the network.
 
-!!! important "Permissioning is not Privacy"
+!!! important "Permissioning is not privacy"
 
     In peer-to-peer networks, node permissioning enforces rules on nodes you control.
 
@@ -28,9 +28,9 @@ Use node permissioning to restrict access to known participants only.
 
 Use account permissioning to:
 
-* Enforce onboarding or identity requirements
-* Suspend accounts
-* Exclude broken contracts using a deny-list
+* Enforce onboarding or identity requirements.
+* Suspend accounts.
+* Exclude broken contracts using a denylist.
 * Restrict the actions an account can perform.
 
 ![Account Permissioning](../../images/enterprise-ethereum-account-permissioning.png)
@@ -48,7 +48,7 @@ Local permissioning affects your node but not the rest of the network. Use local
 restrict use of your node (that is, the resources under your control). For example, customers able
 to access your node.
 
-Local permissioning does not require co-ordination with the rest of the network and you can act
+Local permissioning does not require coordination with the rest of the network and you can act
 immediately to protect your node. Your rules are not enforced in blocks produced by other nodes.
 
 ### Onchain
@@ -57,7 +57,7 @@ immediately to protect your node. Your rules are not enforced in blocks produced
 Specifying permissioning onchain enables all nodes to read and update permissioning configuration
 from one location.
 
-Onchain permissioning requires co-ordination to update the rules. The network might not be able to
+Onchain permissioning requires coordination to update the rules. The network might not be able to
 act immediately (for example, the smart contract might enforce a minimum of number of votes before
 changing permissioning rules).
 

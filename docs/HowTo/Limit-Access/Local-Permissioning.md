@@ -4,7 +4,7 @@ description: Hyperledger Besu local permissioning
 
 # Local permissioning
 
-Local permissioning supports node and account allowlisting.
+[Local permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#local) supports node and account allowlisting.
 
 ## Node allowlisting
 
@@ -28,14 +28,14 @@ Node allowlisting is at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) file in the
 [data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
 
-Local permissioning does not check that the node using the permissions configuration file is listed in the
+Local permissioning doesn't check that the node using the permissions configuration file is listed in the
 allowlist, it only checks that the remote end of the connection is in the allowlist. Use [onchain permissioning] if you
 need to check both ends of the connection.
 
 ### Specifying bootnodes in the allowlist
 
-The nodes permissions list must include the bootnodes or Hyperledger Besu does not start with
-node permissions enabled.
+The nodes permissions list must include the [bootnodes](../Find-and-Connect/Bootnodes.md) or Hyperledger Besu doesn't
+start with node permissions enabled.
 
 !!! example
 
@@ -60,10 +60,10 @@ The `PERM` API methods are not enabled by default. To enable the `PERM` API meth
 
 ### Updating the node allowlist
 
-To update the nodes allowlist while the node is running, use the JSON-RPC API methods:
+To update the nodes allowlist while the node is running, use the following JSON-RPC API methods:
 
 * [perm_addNodesToAllowlist](../../Reference/API-Methods.md#perm_addnodestoallowlist)
-* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist).
+* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist)
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
 and then update the allowlist using the
@@ -122,7 +122,7 @@ Transaction validation against the accounts allowlist occurs at the following po
 * Submitted by JSON-RPC API method
   [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction)
 * Received via propagation from another node
-* Added to a block by a mining node.
+* Added to a block by a mining node
 
 After adding transactions to a block, the transactions are not validated against the allowlist
 when received by another node. That is, a node can synchronize and add blocks containing
@@ -132,7 +132,7 @@ The following diagram illustrates applying local and onchain permissioning rules
 
 ![Permissioning Flow](../../images/PermissioningFlow.png)
 
-!!! example "An Example of different account allowlists"
+!!! example "Example of different account allowlists"
 
     Node 1 Allowlist = [Account A, Account B]
 

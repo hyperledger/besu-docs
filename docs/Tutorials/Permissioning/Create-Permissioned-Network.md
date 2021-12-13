@@ -14,20 +14,17 @@ uses the [Clique Proof of Authority consensus protocol].
 
 ## Prerequisites
 
-[Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
-
-[Curl (or similar webservice client)](https://curl.haxx.se/download.html)
+- [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+- [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps
-
-Listed on the right-hand side of the page are the steps to create a permissioned network.
 
 ### 1. Create folders
 
 Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
 [node key](../../Concepts/Node-Keys.md) in this directory.
 
-Create directories for your permissioned network, each of the three nodes, and a data directory for
+Create directories for your permissioned network and each of the three nodes, and a data directory for
 each node:
 
 ```bash
@@ -116,7 +113,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 ```
 
 In `extraData`, replace `<Node 1 Address>` with the
-[address for Node-1](#3-get-address-for-node-1), excluding the 0x prefix.
+[address for Node-1](#2-get-the-address-of-node-1), excluding the `0x` prefix.
 
 !!! example
 
@@ -128,19 +125,20 @@ In `extraData`, replace `<Node 1 Address>` with the
     }
     ```
 
-!!! warning
+!!! critical "Security warning"
 
-    Do not use the accounts in the genesis file on MainNet or any public network except for
+    Don't use the accounts in the genesis file on MainNet or any public network except for
     testing. The private keys display, which means the accounts are not secure.
 
 ### 4. Create the permissions configuration file
 
-The permissions configuration file defines the nodes and accounts allowlists.
+The [permissions configuration file](../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file)
+defines the nodes and accounts allowlists.
 
-Copy the following permissions configuration to a file called `permissions_config.toml` and save a
-copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
+Copy the following permissions configuration to a file called `permissions_config.toml` and save a copy in the
+`Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
 
-!!! example "permissions_config.toml"
+!!! example "`permissions_config.toml`"
 
     ```toml
     accounts-allowlist=["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "0x627306090abaB3A6e1400e9345bC60c78a8BEf57"]
@@ -151,11 +149,6 @@ copy in the `Node-1/data`, `Node-2/data`, and `Node-3/data` directories:
 The permissions configuration file includes the first two accounts from the genesis file.
 
 Use the JSON-RPC API to add permissioned nodes after starting the nodes.
-
-!!! note
-
-    You specify permissions at the node level. Save the [`permissions_config.toml`] file in the
-    data directory for each node.
 
 ### 5. Start Node-1
 
@@ -175,16 +168,15 @@ Use the following command:
 
 The command line allows you to enable:
 
-* Nodes and accounts permissions using the [`--permissions-nodes-config-file-enabled`] and
-  [`--permissions-accounts-config-file-enabled`] options
-* The JSON-RPC API using the
-  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
-* The ADMIN, ETH, NET, PERM, and CLIQUE APIs using the
-  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
-* All-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option
-* All-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
+* Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
+  and [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled).
+* The JSON-RPC API using [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled).
+* The `ADMIN`, `ETH`, `NET`, `PERM`, and `CLIQUE` APIs using
+  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
+* All-host access to the HTTP JSON-RPC API using
+  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist).
+* All-domain access to the node through the HTTP JSON-RPC API using
+  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. You need the
 enode URL to specify Node-1 as a peer and update the permissions configuration file in the
@@ -210,13 +202,10 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 
 The command line specifies:
 
-* A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option
-* A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option
-* A data directory for Node-2 using the
-  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option
-* Other options as for as for Node-1.
+* A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+* A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+* A data directory for Node-2 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
+* Other options as for [Node-1](#5-start-node-1).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displays. You need
 the enode URL to update the permissions configuration file in the following steps.
@@ -239,13 +228,10 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P discovery using the
-  [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option
-* A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option
-* A data directory for Node-3 using the
-  [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option
-* Other options as for as for Node-1.
+* A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+* A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+* A data directory for Node-3 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
+* Other options as for [Node-1](#5-start-node-1).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) is displays. You need
 the enode URL to update the permissions configuration file in the following steps.
@@ -259,27 +245,27 @@ method to add the nodes to the permissions configuration file for each node.
 Replace `<EnodeNode1>`, `<EnodeNode2>`, and `<EnodeNode3>` with the enode URL displayed when
 starting each node.
 
-Node-1:
+=== "Node-1"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8545
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8545
+    ```
 
-Node-2:
+=== "Node-2"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8546
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8546
+    ```
 
-Node 3:
+=== "Node 3"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8547
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>"]], "id":1}' http://127.0.0.1:8547
+    ```
 
 !!! tip
 
-    The cURL call is the same for each node except for the JSON-RPC endpoint.
+    The curl call is the same for each node except for the JSON-RPC endpoint.
 
 ### 9. Add nodes as peers
 
@@ -288,43 +274,42 @@ Node-1 as a peer for Node-2 and Node-3.
 
 Replace `<EnodeNode1>` with the enode URL displayed when starting Node-1.
 
-Node 2:
+=== "Node 2"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode1>"],"id":1}' http://127.0.0.1:8546
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode1>"],"id":1}' http://127.0.0.1:8546
+    ```
 
-Node 3:
+=== "Node 3"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode1>"],"id":1}' http://127.0.0.1:8547
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode1>"],"id":1}' http://127.0.0.1:8547
+    ```
 
 !!! tip
 
-    The cURL call is the same for both nodes except for the JSON-RPC endpoint.
+    The curl call is the same for both nodes except for the JSON-RPC endpoint.
 
 Replace `<EnodeNode2>` with the enode URL displayed when starting Node-2.
 
-Node 3:
+=== "Node 3"
 
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode2>"],"id":1}' http://127.0.0.1:8547
-```
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode2>"],"id":1}' http://127.0.0.1:8547
+    ```
 
 ### 10. Confirm permissioned network is working
 
 #### Check peer count
 
-Use cURL to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount)
-method and confirm the nodes are functioning as peers:
+Use curl to call the JSON-RPC API [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method and confirm the
+nodes are functioning as peers:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
 ```
 
-The result confirms Node-1 (the node running the JSON-RPC service) has two peers (Node-2 and
-Node-3):
+The result confirms Node-1 (the node running the JSON-RPC service) has two peers (Node-2 and Node-3):
 
 ```json
 {
@@ -358,8 +343,8 @@ described in [Private Network Example Tutorial]:
 !!! example "Account 3"
 
     * Address: `0xf17f52151EbEF6C7334FAD080c5704D77216b732`
-    * Private key : `0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f`
-    * Initial balance : `0x90000000000000000000000` (2785365088392105618523029504 in decimal)
+    * Private key: `0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f`
+    * Initial balance: `0x90000000000000000000000` (2785365088392105618523029504 in decimal)
 
 ### Start a node not on the nodes allowlist
 
@@ -380,7 +365,7 @@ Change to the `Node-4` directory and start Node-4 specifying the Node-1 enode UR
     besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
     ```
 
-Start another terminal and use cURL to call the JSON-RPC API
+Start another terminal and use curl to call the JSON-RPC API
 [`net_peerCount`](../../Reference/API-Methods.md#net_peercount) method:
 
 ```bash
@@ -404,12 +389,8 @@ window.
 
 !!!tip
 
-    To restart the permissioned network in the future, start from
-    [5. Start Node-1](#5-start-node-1).
+    To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
 [Clique Proof of Authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
-[`permissions_config.toml`]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
-[`--permissions-nodes-config-file-enabled`]: ../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled
-[`--permissions-accounts-config-file-enabled`]: ../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled
 [Private network example tutorial]: ../Examples/Private-Network-Example.md#create-a-transaction-using-metamask

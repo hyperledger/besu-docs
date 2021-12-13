@@ -211,19 +211,13 @@ purposes.
 ![Create a JSON Web Token](../../../images/JWT.png)
 
 !!! critical
-
     [JWT.io](https://jwt.io/) requires you to paste your private key to generate the JWT.
 
     For your safety, never disclose a production private key to anyone, even this site.
 
     The safe way to generate you JWT is to do it locally on a secured computer, using a JWT compatible tool.
 
-    ---------
-
-    See for example our [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/).
-
-    TODO: ^^ is to be moved to Consensys repos if you think it's fine. Or add the zip archive to the doc. But I would prefer a repos.
-    ----------
+    See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/) for an example of implementing JWT generation in your Java code.
 
 ### 3. Enable authentication
 

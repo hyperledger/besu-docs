@@ -201,7 +201,7 @@ See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMas
 for an example implementation.
 
 !!! important
-    The JWT must use one of the `RS256`, `RS384`, `RS512`, `ES256`, `ES384` or `ES512` algorithm.
+    The JWT must use one of the `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, or `ES512` algorithms.
 
 Each payload for the JWT must contain:
 
@@ -257,7 +257,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 
 ### Postman
 
-In the _Authorization_ tab in the _TYPE_ drop-down list, select `Bearer Token` and specify the
+In the **Authorization** tab in the **TYPE** drop-down list, select **Bearer Token** and specify the
 token (generated either [externally](#2-create-the-jwt) or by the
 [`login` request](#3-generate-an-authentication-token)).
 

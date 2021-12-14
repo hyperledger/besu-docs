@@ -4,8 +4,7 @@ description: Hyperledger Besu private network example on Azure
 
 # Deploy private network example on Azure
 
-The [Quorum Dev Quickstart on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.quorum-dev-quickstart)
-enables deploying a private IBFT 2.0 network, which includes:
+The [Quorum Dev Quickstart on Azure Marketplace] enables deploying a private IBFT 2.0 network, which includes:
 
 * A bootnode.
 * An RPC node.
@@ -30,7 +29,7 @@ To deploy the private network example on Azure:
 
 1. Create a Resource Group in the [Azure Portal](https://portal.azure.com).
 
-1. Go to the [Quorum Dev Quickstart marketplace page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.quorum-dev-quickstart).
+1. Go to the [Quorum Dev Quickstart on Azure Marketplace].
 
 1. Click **Get It Now** and **Continue**.
    The Quickstart landing page is displayed.
@@ -104,3 +103,5 @@ To list all containers running, run `docker ps`.
 Find the complete setup in `/home/<username>/besu-quickstart`.
 
 ![Image ssh](../../images/mp_10_ssh.png)
+
+[Quorum Dev Quickstart on Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.quorum-dev-quickstart

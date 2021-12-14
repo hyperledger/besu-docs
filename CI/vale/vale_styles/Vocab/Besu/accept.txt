@@ -69,6 +69,7 @@ JMeter
 jnacl
 Kafka
 kalium
+Keycloak
 [kK]eystore(s)?
 [kK]eytool(s)?
 Kibana

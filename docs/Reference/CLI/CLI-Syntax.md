@@ -2893,13 +2893,13 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
 === "Environment variable"
 
     ```bash
-    BESU_RPC_HTTP_TLS_CIPHER_SUITE= TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    BESU_RPC_HTTP_TLS_CIPHER_SUITE=TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     ```
 
 === "Configuration file"
 
     ```bash
-    rpc-http-tls-cipher-suite="TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    rpc-http-tls-cipher-suite=["TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"]
     ```
 
 A list of comma separated TLS cipher suites to support.
@@ -3048,7 +3048,7 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
 === "Configuration file"
 
     ```bash
-    rpc-http-tls-protocol="TLSv1.3,TLSv1.2"
+    rpc-http-tls-protocol=["TLSv1.3,TLSv1.2"]
     ```
 
 A list of comma separated TLS protocols to support. Defaults to `DEFAULT_TLS_PROTOCOLS`, a list which includes `TLSv1.3` and `TLSv1.2`.

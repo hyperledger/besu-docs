@@ -6,7 +6,7 @@ description: Hyperledger Besu authentication and authorization for JSON-RPC
 
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC
 methods. Hyperledger Besu verifies users using
-[JSON Web Tokens (JWTs)](https://jwt.io/introduction/). JWTs are also used in
+[JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in
 [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
@@ -14,7 +14,7 @@ Besu supports two mutually exclusive authentication methods:
 * [Username and password](#username-and-password-authentication)
 * [JWT public key](#jwt-public-key-authentication).
 
-Besu creates JWTs internally with
+Besu creates JWT internally with
 [username and password authentication](#username-and-password-authentication), and externally with
 [JWT public key authentication](#jwt-public-key-authentication).
 
@@ -140,16 +140,14 @@ Enable authentication from the command line and supply the external JWT provider
 
 ### 1. Generate a private and public key pair
 
-!!!note
-    This step is for demonstration or testing purposes only. In a production environment the
-    external JWT provider supplies the public key file.
-
 The private and accompanying public key files must be in `.pem` format.
 
-The key can be:
+The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) can be:
 
-* an RSA private key of at least 2048 bits algorithm also named `RS256`. This is the Besu default algorithm.
-* an ECDSA private key, algorithm also named `secp256r1` or `ES256`.
+* RSA with private key length of at least 2048 bits using algorithm `RS256`, `RS384` or `RS512`.
+* ECDSA private key, using `ES256` (`secp256r1` or `secp256k1`), `ES384` or `ES512`.
+
+Besu default is `RS256`.
 
 !!! example "Example of key generation using OpenSSL"
 
@@ -167,7 +165,7 @@ The key can be:
             openssl rsa -pubout -in privateRSAKey.pem -pubout -out publicRSAKey.pem
             ```
 
-    === "`ES256` ECDSA Keys"
+    === "`ES256` `secp256r1` ECDSA Keys"
 
          1. Generate the private key:
 
@@ -181,43 +179,52 @@ The key can be:
             openssl ec -in privateECDSAKey.pem -pubout -out publicECDSAKey.pem
             ```
 
+!!! critical "Private key security"
+    The private key must be kept secret. Never share private keys publicly or on a Web site,
+    even if advertised as secure.
+
+    Always keep your private keys safe -- ideally using 
+    [harware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or 
+    [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- 
+    and define a strong security policy and
+    [best practices](https://auth0.com/docs/best-practices/token-best-practices).
+
+    Compromised keys can provide attackers access to you nodes RPC-API.
+
 ### 2. Create the JWT
 
-Create the JWT using an external tool.
+Create the JWT using a trusted authentication provider[^1] or [library](https://jwt.io/libraries) in your own code.
+
+[^1]: for example [Auth0](https://auth0.com/) or [Keycloak](https://www.keycloak.org/)
+
+See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/)
+for an example implementation.
 
 !!! important
-    The JWT must use the `RS256` or `ES256` algorithm.
+    The JWT must use one of the `RS256`, `RS384`, `RS512`, `ES256`, `ES384` or `ES512` algorithm.
 
-Each payload for the JWT contains:
+Each payload for the JWT must contain:
 
 * [JSON-RPC permissions](#json-rpc-permissions)
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
 * Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for
   [multi-tenancy](../../../Concepts/Privacy/Multi-Tenancy.md).
 
-!!! example "Example payload"
+!!! example "JWT generation example"
 
-    ```json
-    {
-      "permissions": ["*:*"],
-      "privacyPublicKey": "2UKH3VJThkOoKskrLFpwoxCnnRARyobV1bEdgseFHTs=",
-      "exp": 1600899999002
-    }
-    ```
+    === "Example JSON Payload"
 
-The following example uses the [JWT.io](https://jwt.io/) website to create a JWT for testing
-purposes.
+        ```json
+        {
+          "permissions": ["*:*"],
+          "privacyPublicKey": "2UKH3VJThkOoKskrLFpwoxCnnRARyobV1bEdgseFHTs=",
+          "exp": 1600899999002
+        }
+        ```
 
-![Create a JSON Web Token](../../../images/JWT.png)
+    === "Example JWT result"
 
-!!! critical
-    [JWT.io](https://jwt.io/) requires you to paste your private key to generate the JWT.
-
-    For your safety, never disclose a production private key to anyone, even this site.
-
-    The safe way to generate you JWT is to do it locally on a secured computer, using a JWT compatible tool.
-
-    See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/) for an example of implementing JWT generation in your Java code.
+        ![eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6Iio6KiIsInByaXZhY3lQdWJsaWNLZXkiOiIyVUtIM1ZKVGhrT29Lc2tyTEZwd294Q25uUkFSeW9iVjFiRWRnc2VGSFRzPSIsImV4cCI6IjE2MDA4OTk5OTkwMDIiLCJpYXQiOjE2MzkxNTc2Mjd9.FGf-FmfDQlIPCRDGmNnsHZWlwrUr69d7AIDqQrIrUrSJLiwGpR3NCUhVHIDMpQvDHQYf-sFMZTYvZGrvztYRuBKWMbTfIZKN74onzNJbFIPBVQuUX2HMXmI4VQ3UFB11LShiUJHKLna13qdbqfbgJIO3HetxJhJQxTiwtixfHwyPXl-Nx8HbQy_AWH58lLAUeaoLzN7QIA9kborthBpvfK9C7Sv1lXT1cdCDC4oRKBoiMg2RWFZtGtxFsnWyloangwbhCB6Bc_elqY5nd9WkF4ix95xsP_HgBcouy1sDw6jxn5_LveX53H8owczVWP6S1e6hv6hq2fs6YkSntKMK2g](jwt.png){: style='width:15rem' }
 
 ### 3. Enable authentication
 
@@ -250,7 +257,7 @@ Specify the authentication token as a `Bearer` token in the JSON-RPC request hea
 
 ### Postman
 
-In the _Authorization_ tab in the _TYPE_ drop-down list, select *Bearer Token* and specify the
+In the _Authorization_ tab in the _TYPE_ drop-down list, select `Bearer Token` and specify the
 token (generated either [externally](#2-create-the-jwt) or by the
 [`login` request](#3-generate-an-authentication-token)).
 
@@ -271,5 +278,3 @@ Specify the `Bearer` in the header.
         ```bash
         curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
         ```
-
-*[JWT]: JSON Web Token

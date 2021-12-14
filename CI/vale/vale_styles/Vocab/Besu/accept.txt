@@ -26,6 +26,7 @@ ConsenSys
 [cC]ryptocurrenc(y|ies)
 ctrl
 Dapp(s)?
+[dD]enylist(s)?
 Dev
 [dD]atatype(s)?
 [dD]eauthoriz(e|ing)

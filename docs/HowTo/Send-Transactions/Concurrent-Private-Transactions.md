@@ -27,12 +27,16 @@ specifying the public PMT nonce.
 This method allows you to create and send the PMT yourself rather than
 [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) handling the PMT.
 
-The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum/tree/master/example/concurrentPrivateTransactions)
-includes an example of how to send concurrent private transactions.
+!!! important
 
-!!! tip
+    When using `priv_distributeRawTransaction` to distribute private transactions with consecutive nonces using one
+    account, the corresponding PMTs must use one account with the nonces in the same order as the private transactions.
+    This is to ensure that the private transactions are executed in the right order.
 
-    [The example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
-    uses [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
-    Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress)
-    to get the precompile address to specify in the `to` field when creating the PMT.
+!!! example
+
+    The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum/tree/master/example/concurrentPrivateTransactions)
+    includes an example of how to send concurrent private transactions.
+    The example uses [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
+    Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) to get the
+    precompile address to specify in the `to` field when creating the PMT.

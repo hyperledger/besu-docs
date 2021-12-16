@@ -29,9 +29,9 @@ This method allows you to create and send the PMT yourself rather than
 
 !!! important
 
-    When using `priv_distributeRawTransaction` to distribute private transactions with consecutive nonces using one
-    account, the corresponding PMTs must use one account with the nonces in the same order as the private transactions.
-    This is to ensure that the private transactions are executed in the right order.
+    When using `priv_distributeRawTransaction` to distribute transactions with consecutive nonces for the same account,
+    the corresponding PMTs must use one account with the nonces in the same order as the private transactions.
+    This is to ensure that the private transactions are executed in the correct order.
 
 !!! example
 

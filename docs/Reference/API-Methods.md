@@ -5957,7 +5957,7 @@ Distributes a signed, RLP encoded
 
 !!! tip
 
-    If you want to sign the Privacy Marker Transaction outside of Besu,
+    If you want to sign the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md) outside of Besu,
     use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
     instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
 

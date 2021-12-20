@@ -56,7 +56,7 @@ the SHA256 fingerprint.
 ### Start Besu
 
 ```bash
-besu --rpc-http-enabled --rpc-http-tls-enabled --rpc-http-tls-client-auth-enabled --rpc-http-tls-keystore-file=/Users/me/my_node/keystore.pfx --rpc-http-tls-keystore-password-file=/Users/me/my_node/keystorePassword --rpc-http-tls-known-clients-file=/Users/me/my_node/knownClients
+besu --rpc-http-enabled --rpc-http-tls-enabled --rpc-http-tls-client-auth-enabled --rpc-http-tls-keystore-file=/Users/me/my_node/keystore.pfx --rpc-http-tls-keystore-password-file=/Users/me/my_node/keystorePassword --rpc-http-tls-known-clients-file=/Users/me/my_node/knownClients --rpc-http-tls-cipher-suite=TLS_AES_256_GCM_SHA384 --rpc-http-tls-protocol=TLSv1.3,TLSv1.2
 ```
 
 The command line:
@@ -74,6 +74,10 @@ The command line:
   [`--rpc-http-tls-keystore-password-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-password-file) option.
 * [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the
   [`--rpc-http-tls-known-clients-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
+* specifies the Java cipher suites using the
+  [`--rpc-http-tls-cipher-suite`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-cipher-suite) option.
+* specifies the TLS protocol version using the
+  [`--rpc-http-tls-protocol`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-protocol) option.
 
 !!! note
 

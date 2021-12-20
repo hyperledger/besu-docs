@@ -5,7 +5,7 @@ description: Hyperledger Besu create a permissioned network
 # Create a permissioned network
 
 The following steps set up a permissioned network with local node and account permissions. The network
-uses the [Clique Proof of Authority consensus protocol].
+uses the [Clique proof of authority consensus protocol].
 
 !!!important
 
@@ -392,5 +392,5 @@ window.
     To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
-[Clique Proof of Authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
+[Clique proof of authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
 [Private network example tutorial]: ../Examples/Private-Network-Example.md#create-a-transaction-using-metamask

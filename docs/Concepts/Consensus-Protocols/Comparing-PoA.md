@@ -1,15 +1,15 @@
 ---
-description: Besu  Proof of Authority consensus protocols comparison
+description: Besu proof of authority consensus protocols comparison
 ---
 
-# Comparing Proof of Authority consensus protocols
+# Comparing proof of authority consensus protocols
 
-Besu implements the Clique, IBFT 2.0, and QBFT Proof of Authority consensus protocols. Proof of
-Authority consensus protocols work when participants know each other and there is a level of trust
+Besu implements the Clique, IBFT 2.0, and QBFT proof of authority consensus protocols. Proof of
+authority consensus protocols work when participants know each other and there is a level of trust
 between them. For example, in a permissioned consortium network.
 
-Proof of Authority consensus protocols have faster block times and a much greater transaction
-throughput than the Ethash Proof of Work consensus protocol used on the Ethereum MainNet.
+Proof of authority consensus protocols have faster block times and a much greater transaction
+throughput than the Ethash proof of work consensus protocol used on the Ethereum MainNet.
 
 In Clique, IBFT 2.0, or QBFT, a group of nodes in the network act as signers (Clique) or validators
 (IBFT 2.0 and QBFT). The existing nodes in the signer/validator pool vote to add nodes to or remove

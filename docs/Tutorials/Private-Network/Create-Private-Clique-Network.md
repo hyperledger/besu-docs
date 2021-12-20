@@ -1,11 +1,11 @@
 ---
-description: Hyperledger Besu private network using the Clique (Proof of Authority) consensus protocol
+description: Hyperledger Besu private network using the Clique (proof of authority) consensus protocol
 ---
 
-# Create a private network using the Clique (Proof of Authority) consensus protocol
+# Create a private network using the Clique (proof of authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[Clique (Proof of Authority) consensus protocol].
+[Clique (proof of authority) consensus protocol].
 
 !!!important
 
@@ -268,6 +268,6 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode).
 
 <!-- Links -->
-[Clique (Proof of Authority) consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
+[Clique (proof of authority) consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
 [Clique API to add]: ../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
 [private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask

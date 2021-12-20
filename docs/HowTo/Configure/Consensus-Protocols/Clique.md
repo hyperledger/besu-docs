@@ -1,12 +1,12 @@
 ---
-description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
+description: Hyperledger Besu Clique proof of authority (PoA) consensus protocol implementation
 path: blob/master/config/src/main/resources/
 source: rinkeby.json
 ---
 
 # Clique
 
-Besu implements the Clique Proof-of-Authority (PoA) consensus protocol. The Rinkeby testnet uses
+Besu implements the Clique proof of authority (PoA) consensus protocol. The Rinkeby testnet uses
 Clique and private networks can also use Clique.
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers

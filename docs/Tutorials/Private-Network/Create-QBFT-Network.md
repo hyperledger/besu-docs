@@ -1,8 +1,8 @@
 ---
-description: Hyperledger Besu private network using the QBFT (Proof of Authority) consensus protocol
+description: Hyperledger Besu private network using the QBFT (proof of authority) consensus protocol
 ---
 
-# Create a private network using the QBFT (Proof of Authority) consensus protocol
+# Create a private network using the QBFT (proof of authority) consensus protocol
 
 !!! warning
 
@@ -10,7 +10,7 @@ description: Hyperledger Besu private network using the QBFT (Proof of Authority
     business critical impact.
 
 A private network provides a configurable network for testing. This private network uses the
-[QBFT (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/QBFT.md).
+[QBFT (proof of authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/QBFT.md).
 
 The QBFT network in this tutorial implements the [block header validator selection method] to manage
 validators. For a tutorial on how to implement the [contract validator selection method], follow the

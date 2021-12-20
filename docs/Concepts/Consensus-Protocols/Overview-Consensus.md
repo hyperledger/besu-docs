@@ -6,11 +6,11 @@ description: Besu consensus protocols
 
 Besu implements the following consensus protocols:
 
-* Ethash (Proof of Work)
-* [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (Proof of Authority)
-* [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (Proof of Authority)
-* [Quorum IBFT 1.0](../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.md) (Proof of Authority).
-* [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) (Proof of Authority).
+* Ethash (proof of work)
+* [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (proof of authority)
+* [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (proof of authority)
+* [Quorum IBFT 1.0](../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.md) (proof of authority).
+* [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) (proof of authority).
 
 !!! warning
 

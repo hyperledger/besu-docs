@@ -75,9 +75,9 @@ The command line:
 * [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the
   [`--rpc-http-tls-known-clients-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
 * specifies the Java cipher suites using the
-  [`--rpc-http-tls-cipher-suite`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-cipher-suite-rpc-http-tls-cipher-suites) option.
+  [`--rpc-http-tls-cipher-suite`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-cipher-suite) option.
 * specifies the TLS protocol version using the
-  [`--rpc-http-tls-protocol`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-protocol-rpc-http-tls-protocols) option.
+  [`--rpc-http-tls-protocol`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-protocol) option.
 
 !!! note
 

@@ -2876,7 +2876,7 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
     You must specify [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-enabled) and/or
     [`rpc-http-tls-known-clients-file`](#rpc-http-tls-known-clients-file).
 
-### `rpc-http-tls-cipher-suite`, `rpc-http-tls-cipher-suites`
+### `rpc-http-tls-cipher-suite`
 
 === "Syntax"
 
@@ -3030,7 +3030,7 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
     You must enable client authentication using the
     [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
-### `rpc-http-tls-protocol`, `rpc-http-tls-protocols`
+### `rpc-http-tls-protocol`
 
 === "Syntax"
 

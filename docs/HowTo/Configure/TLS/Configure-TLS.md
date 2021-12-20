@@ -74,9 +74,9 @@ The command line:
   [`--rpc-http-tls-keystore-password-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-keystore-password-file) option.
 * [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the
   [`--rpc-http-tls-known-clients-file`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-known-clients-file) option.
-* specify the Java cipher suites using the
+* specifies the Java cipher suites using the
   [`--rpc-http-tls-cipher-suite`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-cipher-suite-rpc-http-tls-cipher-suites) option.
-* specify the TLS protocol version using the
+* specifies the TLS protocol version using the
   [`--rpc-http-tls-protocol`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-protocol-rpc-http-tls-protocols) option.
 
 !!! note

@@ -2902,7 +2902,12 @@ Enables TLS client authentication for the JSON-RPC HTTP service. The default is 
     rpc-http-tls-cipher-suite=["TLS_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"]
     ```
 
-A list of comma separated TLS cipher suites to support.
+A list of comma-separated TLS cipher suites to support.
+
+!!!tip
+
+    The singular `--rpc-http-tls-cipher-suite` and plural `--rpc-http-tls-cipher-suites` are available and are two names for
+    the same option.
 
 ### `rpc-http-tls-enabled`
 
@@ -3051,7 +3056,12 @@ Must contain the certificates's Common Name, and SHA-256 fingerprint in the form
     rpc-http-tls-protocol=["TLSv1.3","TLSv1.2"]
     ```
 
-A list of comma separated TLS protocols to support. Defaults to `DEFAULT_TLS_PROTOCOLS`, a list which includes `TLSv1.3` and `TLSv1.2`.
+A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_PROTOCOLS`, a list which includes `TLSv1.3` and `TLSv1.2`.
+
+!!!tip
+
+    The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are available and are two names for
+    the same option.
 
 ### `rpc-tx-feecap`
 

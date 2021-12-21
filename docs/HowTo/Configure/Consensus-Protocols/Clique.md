@@ -85,7 +85,7 @@ genesis file.
 
 In Clique, blocks created by in-turn validators are published immediately.
 Out-of-turn validators create blocks that are published after a short delay.
-Out-of-turn blocks have a lower difficulty than in-turn blocks, which allows small forks to resolve to the chain with
+In-turn blocks have a higher difficulty than out-of-turn blocks, which allows small forks to resolve to the chain with
 more in-turn blocks.
 
 However, when the out-of-turn delay is shorter than the block propagation delay, out-of-turn blocks may be published

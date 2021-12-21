@@ -7,7 +7,7 @@ source: rinkeby.json
 # Clique
 
 Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) consensus protocol.
-The Rinkeby testnet uses Clique and private networks can also use Clique.
+The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.

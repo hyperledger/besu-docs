@@ -2,10 +2,10 @@
 description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 ---
 
-# Create a private network using the IBFT 2.0 (Proof of Authority) consensus protocol
+# Create a private network using the IBFT 2.0 (proof of authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[IBFT 2.0 (Proof of Authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+[IBFT 2.0 (proof of authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
 
 !!!important
 
@@ -372,7 +372,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[IBFT 2.0 (Proof of Authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
+[IBFT 2.0 (proof of authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
 [private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
 
 <!-- Acronyms and Definitions -->

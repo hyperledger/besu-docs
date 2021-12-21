@@ -163,7 +163,7 @@ nav:
         - Configure Kubernetes mode in NAT Manager : Tutorials/Examples/Nat-Manager-Kubernetes.md
         - Deploy on Microsoft Azure: Tutorials/Examples/Private-Network-Example-Azure.md
       - Create a private network:
-        - Using Ethash (Pow): Tutorials/Private-Network/Create-Private-Network.md
+        - Using Ethash (PoW): Tutorials/Private-Network/Create-Private-Network.md
         - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
         - Using IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
         - Using QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md

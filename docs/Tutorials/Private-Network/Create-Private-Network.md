@@ -1,8 +1,8 @@
 ---
-description: Hyperledger Besu private network using Ethash (Proof of Work) Consensus Protocol tutorial
+description: Hyperledger Besu private network using Ethash (proof of work) Consensus Protocol tutorial
 ---
 
-# Create a private network using the Ethash (Proof of Work) consensus protocol
+# Create a private network using the Ethash (proof of work) consensus protocol
 
 A private network provides a configurable network for testing. By configuring a low difficulty and
 enabling mining, this allows for fast block creation.

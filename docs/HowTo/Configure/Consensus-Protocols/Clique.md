@@ -92,7 +92,9 @@ However, when the out-of-turn delay is shorter than the block propagation delay,
 before in-turn blocks.
 This may cause large, irresolvable forks in a network.
 
-We recommend using a more updated consensus protocol such as [IBFT 2.0](IBFT.md) or [QBFT](QBFT.md).
+!!! important
+
+    We recommend using a more updated consensus protocol such as [IBFT 2.0](IBFT.md) or [QBFT](QBFT.md).
 
 <!-- Acronyms and Definitions -->
 

@@ -11,7 +11,7 @@ description: Besu is an open-source Enterprise Ethereum client developed under t
 
 Hyperledger Besu is an open-source Ethereum client developed under the Apache 2.0 license and
 written in Java. It runs on the Ethereum public network, private networks, and test networks such
-as Rinkeby, Ropsten, and Görli. Besu implements Proof of Work (Ethash) and Proof of Authority (IBFT
+as Rinkeby, Ropsten, and Görli. Besu implements proof of work (Ethash) and proof of authority (IBFT
 2.0, Clique, and QBFT) consensus mechanisms.
 
 You can use Besu to develop enterprise applications requiring secure, high-performance transaction

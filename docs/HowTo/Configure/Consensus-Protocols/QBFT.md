@@ -1,10 +1,10 @@
 ---
-description: Hyperledger Besu QBFT Proof-of-Authority (PoA) consensus protocol implementation
+description: Hyperledger Besu QBFT proof of authority (PoA) consensus protocol implementation
 ---
 
 # QBFT
 
-Hyperledger Besu implements the QBFT Proof-of-Authority (PoA) consensus protocol. Private networks
+Hyperledger Besu implements the QBFT proof of authority (PoA) consensus protocol. Private networks
 can use QBFT.
 
 !!! warning

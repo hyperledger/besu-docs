@@ -1,13 +1,13 @@
 ---
-description: Hyperledger Besu Clique proof of authority (PoA) consensus protocol implementation
+description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
 path: blob/master/config/src/main/resources/
 source: rinkeby.json
 ---
 
 # Clique
 
-Besu implements the Clique proof of authority (PoA) consensus protocol. The Rinkeby testnet uses
-Clique and private networks can also use Clique.
+Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) consensus protocol.
+The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.
@@ -80,6 +80,21 @@ To connect to the Rinkeby testnet, start Besu with the
 node on a Clique private network, use the
 [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
 genesis file.
+
+## Limitations
+
+In Clique, blocks created by in-turn validators are published immediately.
+Out-of-turn validators create blocks that are published after a short delay.
+In-turn blocks have a higher difficulty than out-of-turn blocks, which allows small forks to resolve to the chain with
+more in-turn blocks.
+
+However, when the out-of-turn delay is shorter than the block propagation delay, out-of-turn blocks may be published
+before in-turn blocks.
+This may cause large, irresolvable forks in a network.
+
+!!! important
+
+    We recommend using a more updated consensus protocol such as [IBFT 2.0](IBFT.md) or [QBFT](QBFT.md).
 
 <!-- Acronyms and Definitions -->
 

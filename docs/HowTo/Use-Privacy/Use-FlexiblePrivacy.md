@@ -19,14 +19,15 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
     privacy groups are also known as onchain privacy groups.
 
 !!! important
+
     [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
-    feature. Do not use in production networks.
+    feature. Don't use in production networks.
 
     The flexible privacy group interfaces may change between releases. There may not be an
     upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
 
-    We do not recommend creating flexible privacy groups in a chain with existing
+    We don't recommend creating flexible privacy groups in a chain with existing
     [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
 
 ## Enabling flexible privacy groups
@@ -70,5 +71,5 @@ client library.
 !!! note
 
     When adding a member, Besu pushes all existing group transactions to the new member and
-    processes them. If there are a large number of existing transactions, adding the member might
+    processes them. If there are a large number of existing transactions, adding the member may
     take some time.

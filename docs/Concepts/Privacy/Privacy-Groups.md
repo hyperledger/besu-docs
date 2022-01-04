@@ -98,3 +98,8 @@ transactions sent to the privacy group ID.
     To send private transactions between A, C, and D, A creates a privacy group consisting of A, C,
     and D. The privacy group ID of this group is specified when sending private transactions with A,
     C, and D as recipients.
+
+## Multi-tenancy
+
+When using [multi-tenancy](Multi-Tenancy.md) with privacy groups, each user provides a JSON Web Token (JWT) which
+allows Besu to check that the user has access to functionality and data associated with a privacy group.

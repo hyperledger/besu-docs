@@ -32,10 +32,10 @@ is a _tenant_, and the operator is the _owner_ of the Besu and Tessera node.
     including other Besu nodes, might be able to access tenant data.
 
     To secure access, you can [configure TLS between Besu and Tessera](../TLS.md) with the
-    [`whitelist`](https://docs.orion.consensys.net/en/latest/Tutorials/TLS/#clientconnectiontlsservertrust)
+    [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist)
     trust mode.
 
-Multi-tenancy validates that tenants have permission to use the specified HTTP or Websocket
+Multi-tenancy validates that tenants have permission to use the specified HTTP or WebSocket
 JSON-RPC requests, and the tenant has access to the requested privacy data.
 Private data is isolated and each tenant uses a JSON Web Token (JWT) for authentication.
 

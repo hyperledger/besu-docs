@@ -73,7 +73,7 @@ When a user is added to a privacy group, they get access to all existing data in
 After being removed from a privacy group, a user retains access to already existing data in the privacy group, up to the
 block containing the [privacy marker transaction (PMT)](Private-Transaction-Processing.md) that removed them (the
 removal block).
-A removed user doesn't have access to data in the privacy that happens after they were removed.
+A removed user doesn't have access to data in the privacy group that happens after they were removed.
 
 In particular, when multi-tenancy is enabled and a user requests access to a privacy group they were once a member of
 but later removed from, Besu allows the user access to the following functionality and data associated with the privacy

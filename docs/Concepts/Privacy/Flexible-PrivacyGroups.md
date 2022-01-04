@@ -68,36 +68,35 @@ When using [multi-tenancy](Multi-Tenancy.md) with flexible privacy groups, each 
 which allows Besu to check that the user has access to functionality and data associated with a privacy group.
 
 Using multi-tenancy with flexible privacy groups is more complex than with [offchain privacy groups](Privacy-Groups.md)
-because users may try to access a privacy group they were once a member of but later removed from.
+because users may be added and removed from flexible privacy groups.
+When a user is added to a privacy group, they get access to all existing data in the privacy group.
+After being removed from a privacy group, a user retains access to already existing data in the privacy group, up to the
+block containing the [privacy marker transaction (PMT)](Private-Transaction-Processing.md) that removed them (the
+removal block).
+A removed user doesn't have access to data in the privacy that happens after they were removed.
 
-When multi-tenancy is enabled and a user requests access to a privacy group they were once a member of but later
-removed from, Besu allows the user access to the following functionality and data associated with the privacy group:
+In particular, when multi-tenancy is enabled and a user requests access to a privacy group they were once a member of
+but later removed from, Besu allows the user access to the following functionality and data associated with the privacy
+group:
 
 - Private transactions using `priv_getTransaction` and private transaction receipts using
   [`priv_getTransactionReceipt`](../../Reference/API-Methods.md#priv_gettransactionreceipt) from blocks up to (and
-  including) the block containing the [privacy marker transaction (PMT)](Private-Transaction-Processing.md) that removed
-  the user.
+  including) the removal block.
   
     !!! note
 
-        A removed group member may have access to some private transactions in the same block after the removal PMT.
-        There may be more private transactions sent to that privacy group version in later blocks, but all of these
-        transactions fail to execute because the version is incremented after the removal.
+        A removed group member may have access to some private transactions after the removal PMT in the same block.
   
-- Using [`priv_call`](../../Reference/API-Methods.md#priv_call) on blocks up to (and including) the block containing the
-  PMT that removed the user.
+- Using [`priv_call`](../../Reference/API-Methods.md#priv_call) on blocks up to (and including) the removal block.
   
 - Private logs using [`priv_getLogs`](../../Reference/API-Methods.md#priv_getlogs) for blocks up to (and including) the
-  block containing the PMT that removed the user.
-  When the `toBlock` is greater than the removal block, `priv_getLogs` returns logs only up to the removal block.
+  removal block.
+  When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
   
     !!! note
 
-        A user can only create and access log filters (using [`priv_newFilter`](../../Reference/API-Methods.md#priv_newfilter),
-        [`priv_getFilterLogs`](../../Reference/API-Methods.md#priv_getfilterlogs),
-        [`priv_getFilterChanges`](../../Reference/API-Methods.md#priv_getfilterchanges),
-        [`priv_uninstallFilter`](../../Reference/API-Methods.md#priv_uninstallfilter), and
-        [`priv_subscribe`](../../HowTo/Interact/APIs/RPC-PubSub.md)) for a privacy group they are currently a member of.
-        When they are removed from the group, the filters they created are removed.
+        When a user is removed from a privacy group, any [log filters](../../HowTo/Interact/Filters#filters-for-private-contracts)
+        they've created are also removed and can't be accessed.
+        A user can only create and access filters for a privacy group they are currently a member of.
 
 All other [`PRIV` API methods](../../Reference/API-Methods.md#priv-methods) fail for the removed group member.

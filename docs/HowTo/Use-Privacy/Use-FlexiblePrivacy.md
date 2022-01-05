@@ -23,7 +23,7 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
     [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
     feature. Don't use in production networks.
 
-    The flexible privacy group interfaces may change between releases. There may not be an
+    The flexible privacy group interfaces may change between releases. There might not be an
     upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
 

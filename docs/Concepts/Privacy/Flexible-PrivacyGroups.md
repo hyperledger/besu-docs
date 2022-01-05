@@ -22,7 +22,7 @@ You can [add and remove members to and from flexible privacy groups](../../HowTo
 
     Flexible privacy groups are an early access feature. Don't use in production networks.
 
-    The flexible privacy group interfaces might change between releases. There may not be an
+    The flexible privacy group interfaces might change between releases. There might not be an
     upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy
     group functionality in future versions.
 

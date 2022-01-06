@@ -181,8 +181,6 @@ nav:
         - Configure a multi-tenant network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3js-quorum multinode example: Tutorials/Privacy/web3js-quorum-Multinode-example.md
       - Developer Quickstart: Tutorials/Developer-Quickstart.md
-      - Deploy to Kubernetes: 
-        - Introduction: Tutorials/Kubernetes/Introduction.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus protocols:

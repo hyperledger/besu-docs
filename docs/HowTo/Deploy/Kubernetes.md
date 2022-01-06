@@ -10,7 +10,7 @@ private networks using Kubernetes(K8s). Reference implementations are available 
 
 * [Helm](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev)
 * [Helmfile](https://github.com/roboll/helmfile)
-* [kubectl](https://github.com/ConsenSys/besu-kubernetes/tree/master/playground/kubectl).
+* [`kubectl`](https://github.com/ConsenSys/besu-kubernetes/tree/master/playground/kubectl).
 
 Familiarize yourself with the reference implementations and customize them for your requirements.
 
@@ -42,7 +42,7 @@ file by setting `provider` to `local`, `aws`, or `azure`.
 You can also pass in extra configuration such as a KeyVault name.
 
 The repository also contains [Azure ARM templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure) and
-[AWS eksctl templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the required base infrastructure.
+[AWS `eksctl` templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the required base infrastructure.
 
 ## Limitations
 
@@ -50,14 +50,14 @@ When using multi-clusters, Kubernetes load balancers disallow TCP and UDP traffi
 discovery working natively for each pod.
 Use the following solutions to mitigate this limitation:
 
-- Disallow discovery and use static nodes to allow only TCP traffic.
+* Disallow discovery and use static nodes to allow only TCP traffic.
   This isn't an issue for load balancers or exposing nodes publicly.
-- If you need to use discovery, use something such as [CNI](#CNI) which is supported by all major cloud providers, and
+* If you need to use discovery, use something such as [CNI](#CNI) which is supported by all major cloud providers, and
   the cloud templates already have CNI implemented.
 
 ### CNI
 
-With the traditional Kubelet networking mode, nodes get an IP from the virtual network subnet.
+With the traditional `kubelet` networking mode, nodes get an IP from the virtual network subnet.
 Each node in turn uses NAT to configure the pods so that they reach other pods on the virtual network.
 This limits where they can reach but also more specifically what can reach them.
 For example, an external VM which must have custom routes does not scale well.

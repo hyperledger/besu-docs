@@ -36,7 +36,7 @@ minikube start --cpus 2 --memory 16384 --cni auto
 ### [kind](https://kind.sigs.k8s.io)
 
 Kind (Kubernetes in Docker) is another lightweight tool for running local K8s clusters and the
-[installation](https://kind.sigs.k8s.io/docs/user/quick-start#installation) is simlilar to Minikube above.
+[installation](https://kind.sigs.k8s.io/docs/user/quick-start#installation) is similar to Minikube above.
 Once installed, a cluster can be started like so:
 
 ```bash
@@ -45,11 +45,15 @@ kind create cluster
 
 ### [Rancher](https://github.com/rancher-sandbox/rancher-desktop/)
 
-Rancher
+Rancher is a light-weight open-source desktop application for Mac, Windows and Linux. It provides Kubernetes and container management. Allows you to choose the version of Kubernetes to run on. Can build, push, pull and run container images. Built container images can be run without needing a registry.
 
-```bash
-kind create cluster
-```
+!!!note
+    The official Docker-CLI is not supported but rather uses [nerdctl](https://github.com/containerd/nerdctl) which is a Docker-CLI compatible tool for containerd and is automatically installed with Rancher Desktop. 
+
+!!!note
+    For Windows, the Windows Subsystem for Linux (WSL) is required for Rancher Desktop to be installed. You may find installation instructions for WSL [here](https://docs.microsoft.com/en-us/windows/wsl/install).
+
+Please refer to the official [documentation](https://github.com/rancher-sandbox/rancher-desktop/blob/main/docs/installing.md) for system requirements and installation instructions.
 
 
 ## Cloud Clusters

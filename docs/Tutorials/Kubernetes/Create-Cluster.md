@@ -45,7 +45,7 @@ kind create cluster
 
 ### [Rancher](https://github.com/rancher-sandbox/rancher-desktop/)
 
-Rancher is a light-weight open-source desktop application for Mac, Windows and Linux. It provides Kubernetes and container management. Allows you to choose the version of Kubernetes to run on. Can build, push, pull and run container images. Built container images can be run without needing a registry.
+Rancher is a light-weight open-source desktop application for Mac, Windows and Linux. It provides Kubernetes and container management. It also allows you to choose the version of Kubernetes to run on. It can build, push, pull and run container images. Built container images can be run without needing a registry.
 
 !!!note
     The official Docker-CLI is not supported but rather uses [nerdctl](https://github.com/containerd/nerdctl) which is a Docker-CLI compatible tool for containerd and is automatically installed with Rancher Desktop. 

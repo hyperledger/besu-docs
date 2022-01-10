@@ -12,16 +12,15 @@ description: Deploying Besu Helm Charts for a Kubernetes cluster
 
 ## Provisioning with Helm charts
 
-Helm Is a method of packaging a collection of objects into a chart which can then be deployed to the cluster. For the
+Helm is a method of packaging a collection of objects into a chart which can then be deployed to the cluster. For the
 rest of this tutorial we use the **[Dev](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev)** Helm charts.
 After you have cloned the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository, change
-directory to `dev` for the rest of this tutorial
+the directory to `dev` for the rest of this tutorial.
 ```bash
 cd dev/helm
 ```
 
-You are also free to customize any of the charts in this repo to suit your requirements, and encouraged to send pull
-requests to add functionality.
+You are also free to customize any of the charts in this repo to suit your requirements and pull requests are encouraged to extend functionality.
 
 ### 1. Check that you can connect to the cluster with `kubectl`
 
@@ -35,11 +34,11 @@ Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCom
 
 ### 2. Create a Namespace `quorum`
 
-Namespaces provides a mechanism for isolating groups of resources (for example Statefulsets, Services, etc) within a
+Namespaces provides a mechanism for isolating groups of resources (for example StatefulSets, Services, etc) within a
 single cluster. For the rest of this tutorial we will use `quorum` as the namespace and you are free to pick any name
-when deploying but is must be consistent across the [infrastructure scripts](./Create-Cluster.md) as well as the charts.
+when deploying, but it must be consistent across the [infrastructure scripts](./Create-Cluster.md) as well as the charts.
 
-To create a namespace called `quorum` run the following in a terminal window,
+To create a namespace called `quorum` run the following in a terminal window:
 
 ```bash
 kubectl create namespace quorum
@@ -47,7 +46,7 @@ kubectl create namespace quorum
 
 ### 3. Deploy the `monitoring` chart 
 
-This is the first chart we will deploy which will deploy Prometheus and Grafana to monitor the cluster, nodes and the
+This is the first chart we will deploy, which will deploy Prometheus and Grafana to monitor the cluster, nodes and the
 state of the network. Each Besu pod has a few
 [`annotations`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) which tell Prometheus
 it can scrape metrics from the pod at a given port and path, as can be seen in the snippet below
@@ -72,7 +71,7 @@ helm install monitoring ./charts/quorum-monitoring --namespace quorum --values .
 
 !!! warning
 
-     For production use cases, please configure grafana with one of the 
+     For production use cases, please configure Grafana with one of the 
      [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/) supported.
 
 Once complete, you should see a couple of deployments in the Kubernetes dashboard (or equivalent) like so:
@@ -92,24 +91,24 @@ helm install blockscout ./charts/blockscout --namespace quorum --values ./values
 
 ### 4. Deploy the Genesis chart 
 
-This is the most important charts that gets deployed because it creates the genesis file and keys for the validators and
+This is the most important chart that gets deployed because it creates the genesis file and keys for the validators and
 bootnodes. 
 
 !!! warning
 
     It is important to keep the release names of the bootnodes and validators as per this tutorial i.e. bootnode-n and
-    validator-n (for the initial validator pool), where `n` is the node number. Any validators created after the initail
-    pool can be named anything that you would like to
+    validator-n (for the initial validator pool), where `n` is the node number. Any validators created after the initial
+    pool can be named to anything that you would like.
 
 Update the number of validators, accounts, chainId and any parameters in the genesis file in the genesis-besu
-[values](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-besu.yml) file. Then deploy
-the chart
+[values](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-besu.yml) file. Then, deploy
+the chart:
 
 ```bash
 helm install genesis ./charts/besu-genesis --namespace quorum --create-namespace --values ./values/genesis-besu.yml
 ```
 
-Once complete, you should see the genesis and enodes (the list of static nodes) configmaps that every Besu node uses and
+Once complete, you should see the genesis and enodes (the list of static nodes) ConfigMaps that every Besu node uses and
 validator and bootnodes nodekeys saves as secrets.
 
 ![k8s-genesis-configmaps](../../images/kubernetes-genesis-configmaps.png)
@@ -118,9 +117,9 @@ validator and bootnodes nodekeys saves as secrets.
 
 ### 5. Deploy the Bootnodes
 
-This is the set of running nodes that we will deploy. The dev charts use two bootnodes to replicate what would happen on
-a production network. Each Besu node has a few flags that tell the statefulset what to deploy and how to cleanup etc.
-The default values.yml for the statetful set define the following flags and this dictionary is present in all the
+This is the set of running nodes that we will deploy. The dev charts use two bootnodes to replicate best practices on
+a production network. Each Besu node has a few flags that tell the StatefulSet what to deploy and how to cleanup, etc.
+The default `values.yml` for the StatefulSet define the following flags and this dictionary is present in all the
 override values files.
 ```bash
 nodeFlags:
@@ -130,13 +129,13 @@ nodeFlags:
   removeKeysOnDeletion: false
 ```
 
-Where we do not generate keys for the bootnodes and only the initial validator pool, but we set to `true` for everything
+We do not generate keys for the bootnodes and only the initial validator pool; therefore, we set to `true` for everything
 else. To create a Tessera pod paired to Besu for private transactions, set the `privacy` flag to `true`. You can
-optionally remove the secrets for the node if you delete the stateful set (for example removing a member node) by
+optionally remove the secrets for the node if you delete the StatefulSet (for example removing a member node) by
 setting the `removeKeysOnDeletion` flag to `true`. 
 
 
-For the bootnodes we set `bootnode: true` flag set to indicate they are bootnodes and then deploy. All the other nodes
+For the bootnodes we set `bootnode: true` flag to indicate they are bootnodes and then deploy. All the other nodes
 (validators, members etc) will wait for the bootnodes to be up before proceeding and have this flag set to `false`.
 
 ```bash
@@ -179,14 +178,12 @@ validator was spun up and then the logs should show blocks being created
 
 ![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
 
-To add a validator in, deploy a normal RPC node (step 7) and then
-[vote](../../HowTo/Configure/Consensus-Protocols/IBFT/#adding-and-removing-validators) into the validator pool
+To add a validator into the network, deploy a normal RPC node (step 7) and then
+[vote](../../HowTo/Configure/Consensus-Protocols/IBFT/#adding-and-removing-validators) into the validator pool.
 
 ### 7. Deploy RPC or Transaction nodes 
 
-This is the next set of nodes that we will deploy and we need these to create their own nodekeys so we set the
-`generateKeys: true` for a standard RPC node. For a Transaction node (Besu paired with Tessera for private
-transactions) we also set the `privacy: true` flag and deploy in the same manner as before
+These nodes need their own nodekeys so we set the `generateKeys: true` for a standard RPC node. For a Transaction node (Besu paired with Tessera for private transactions) we also set the `privacy: true` flag and deploy in the same manner as before.
 
 For an RPC node with the release name `rpc-1`:
 ```bash
@@ -197,11 +194,11 @@ For a Transaction node release name `tx-1`:
 ```bash
 helm install tx-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
 ```
-and logs for tx-1 would resemble the following for Tessera
+and logs for tx-1 would resemble the following for Tessera:
 
 ![k8s-tx-tessera-logs](../../images/kubernetes-tx-tessera-logs.png)
 
-and logs for Besu
+and logs for Besu:
 
 ![k8s-tx-besu-logs](../../images/kubernetes-tx-besu-logs.png)
 
@@ -224,12 +221,12 @@ helm install besu-ingress ingress-nginx/ingress-nginx \
     --set controller.service.externalTrafficPolicy=Local
 ```
 
-We then have some pre-defined
+We have some pre-defined
 [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) that you can use to
-test functionality and then alter to suit your requirements (for example connect to multiple nodes via different paths)
+test functionality and alter to suit your requirements (for example connect to multiple nodes via different paths).
 
 Edit the [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) file so the
-service names match your release name. In the example we deployed a transaction node with the release name `member-1` so
+service names match your release name. In the example, we deployed a transaction node with the release name `member-1` so
 the corresponding service is called `besu-node-member-1` for the `rpc` and `ws` path prefixes. Once you have settings
 that match your deployments, deploy the rules like so:
 
@@ -237,20 +234,21 @@ that match your deployments, deploy the rules like so:
 kubectl apply -f ../../ingress/ingress-rules-besu.yml
 ```
 
-Once complete you should see an IP address listed under the `Services` section if you are using the Kubernetes Dashboard
-or equivalent kubectl command 
+Once complete, you should see an IP address listed under the `Services` section if you are using the Kubernetes Dashboard
+or equivalent kubectl command.
 
-and you can view the dashboard by going to
+The dashboard can be viewed by going to:
 
 ```bash
 # For Besu's grafana address:
 http://<INGRESS_IP>/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s
 ```
 
-Or for RPC calls 
+Or for RPC calls:
 ```bash
 curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://<INGRESS_IP>/rpc
-
+```
+```json
 # which should return (confirming that the node running the JSON-RPC service is syncing):
 {
 "jsonrpc" : "2.0",

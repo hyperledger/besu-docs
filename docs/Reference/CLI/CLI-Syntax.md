@@ -2390,8 +2390,8 @@ impenetrable peer groups forming. The default is `false`.
     remote-connections-limit-enabled=false
     ```
 
-Enables or disables limiting the percentage of remote P2P connections initiated by peers. The
-default is true.
+Enables or disables [limiting the percentage of remote P2P connections initiated by peers](#remote-connections-max-percentage).
+The default is `true`.
 
 !!! tip
 

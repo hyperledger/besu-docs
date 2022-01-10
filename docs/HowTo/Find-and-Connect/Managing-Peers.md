@@ -2,72 +2,91 @@
 description: Managing Hyperledger Besu peers
 ---
 
-# Managing peers
+# Manage peers
 
-## Limiting peers
+Hyperledger Besu peer-to-peer (P2P) discovery happens periodically based on the number of peers in a network and the
+node's [peer limit](#limit-peers).
 
-Limiting peers reduces the bandwidth used by Hyperledger Besu. Limiting peers also reduces the CPU
+The frequency of discovery isn't configurable, but you can [limit remote connections](#limit-remote-connections) in
+public networks and [randomly prioritize connections](../../Reference/CLI/CLI-Syntax.md#random-peer-priority-enabled)
+in small, stable networks.
+
+!!! info
+
+    You can use [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer) to attempt a specific connection, but
+    this isn't P2P discovery.
+
+We recommend [using bootnodes](Bootnodes.md) to initially discover peers.
+
+## Limit peers
+
+Limiting peers reduces the bandwidth used by Besu. Limiting peers also reduces the CPU
 time and disk access used to manage and respond to peers.
 
 To reduce the maximum number of peers, use the
 [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers) option. The default is 25.
 
-## No discovery
+## Limit remote connections
 
-To disable P2P discovery, use the
-[`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) option.
+In public networks, enabling the [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
+is necessary to prevent eclipse attacks, especially when using [`--sync-mode`](../../Reference/CLI/CLI-Syntax.md#sync-mode)
+and [`--fast-sync-min-peers`](../../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers).
 
-With discovery disabled, peers that have already discovered or are otherwise configured to connect
-to the local node (for example, using
-[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)) can open connections.
-[Static nodes](Static-Nodes.md) can also open connections.
+In private and permissioned networks with a level of trust between peers, enabling the remote connection limits is
+unnecessary and might adversely affect the speed at which nodes can join the network.
+Limiting remote connections may cause a clique of nodes to form when the number of nodes in the network is slightly
+higher than [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers).
+The nodes in this clique are all connected to each other and can't accept more connections.
 
-## Monitoring peer connections
+!!! tip
+
+    You can use [`--random-peer-priority-enabled`](../../Reference/CLI/CLI-Syntax.md#random-peer-priority-enabled) to
+    help prevent cliques in small, stable networks.
+
+## Monitor peer connections
 
 JSON-RPC API methods to monitor peer connections include:
 
-* [`net_peerCount`](../../Reference/API-Methods.md#net_peercount)
-* [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
+* [`net_peerCount`](../../Reference/API-Methods.md#net_peercount).
+* [`admin_peers`](../../Reference/API-Methods.md#admin_peers).
 * [`debug_metrics`](../../Reference/API-Methods.md#debug_metrics).
 
 Each peer entry returned by [`admin_peers`](../../Reference/API-Methods.md#admin_peers) includes a
 `protocols` section. Use the information in the `protocols` section to:
 
-* Determine health of peers. For example, an external process could use [`admin_peers`](../../Reference/API-Methods.md#admin_peers)
-and [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) to disconnect from peers that
-are stalled at a single difficulty for an extended period of time.
+* Determine the health of peers.
+  For example, an external process can use [`admin_peers`](../../Reference/API-Methods.md#admin_peers) and
+  [`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) to disconnect from peers that are stalled at a
+  single difficulty for an extended period of time.
 
-* Monitor node health. For example, if peers are reporting increasing difficulties but node
-is stuck at the same block number, the node may be on a different fork to most peers.
+* Monitor node health.
+  For example, if peers report increasing difficulties but the node is stuck at the same block number, the node may be
+  on a different fork to most peers.
 
-* Determine which protocol level peers are communicating with. For example, to see if `"version": 65`
-is being used to reduce transaction sharing traffic.
+* Determine which protocol level peers are communicating with.
+  For example, you can see if `"version": 65` is being used to reduce transaction sharing traffic.
 
-## Node connections
+## List node connections
 
-The default logging configuration does not list node connection and disconnection messages.
+The default logging configuration doesn't list node connection and disconnection messages.
+To enable listing them, set the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option to `DEBUG`.
+For more verbosity, set the option to `TRACE`.
 
-To enable listing of node connection and disconnection messages, specify the
-[`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option `--logging=DEBUG`. For more
-verbosity, specify `--logging=TRACE`.
-
-The console logs connection and disconnection events when the log level is `DEBUG` or higher. If
-the message `Successfully accepted connection from ...` displays, connections are getting through
-the firewalls.
+The console logs connection and disconnection events when the log level is `DEBUG` or higher.
+If the message `Successfully accepted connection from ...` displays, connections are getting through the firewalls.
 
 !!! example "Sample log output"
 
-    `2018-10-16 12:37:35.479-04:00 | nioEventLoopGroup-3-1 | INFO | NettyP2PNetwork | Successfully accepted connection from 0xa979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c`
+    ```bash
+    2018-10-16 12:37:35.479-04:00 | nioEventLoopGroup-3-1 | INFO | NettyP2PNetwork | Successfully accepted connection from 0xa979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c
+    ```
 
-## Limiting remote connections
+## Disable discovery
 
-In private and permissioned networks with a level of trust between peers, enabling the
-[remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
-is unnecessary and might adversely affect the speed at which nodes can join the network.
-Limiting remote connections may cause a clique of nodes to form when the number of nodes in the network is slightly
-higher than [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers).
-The nodes in this clique are all connected to each other and cannot accept more connections.
+To disable P2P discovery, set the
+[`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) option to `false`.
 
-In public networks, enabling the remote connections limit is necessary to prevent eclipse attacks, especially when
-using [`--sync-mode`](../../Reference/CLI/CLI-Syntax.md#sync-mode) and
-[`--fast-sync-min-peers`](../../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers).
+With discovery disabled, peers that have already discovered or are otherwise configured to connect
+to the local node (for example, using
+[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)) can open connections.
+[Static nodes](Static-Nodes.md) can also open connections.

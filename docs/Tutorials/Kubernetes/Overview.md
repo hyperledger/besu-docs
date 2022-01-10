@@ -58,7 +58,7 @@ Use the following solutions to mitigate this limitation:
 
 ### CNI
 
-With the traditional `kubelet` networking mode, nodes get an IP from the virtual network subnet.
+With the traditional `kubenet` networking mode, nodes get an IP from the virtual network subnet.
 Each node in turn uses NAT to configure the pods so that they reach other pods on the virtual network.
 This limits where they can reach but also more specifically what can reach them.
 For example, an external VM which must have custom routes does not scale well.
@@ -68,7 +68,7 @@ For example, an external VM which must have custom routes does not scale well.
 CNI, on the other hand, allows every pod to get a unique IP directly from the virtual subnet which removes this restriction.
 Therefore, it has a limit on the maximum number of pods that can be spun up, so you must plan ahead to avoid IP exhaustion.
 
-![with-CNI](../../images/kubernetes-1.jpeg)
+![with-CNI](../../images/kubernetes-2.jpeg)
 
 ## Multi-Cluster
 
@@ -94,8 +94,8 @@ to keep costs low and it is much easier to grow a volume rather than creating ne
 ### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
 In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster. Both
-namespaces and resources (for example Statefulsets, Services, etc) within a namespaces need to be unique, but not
+namespaces and resources (for example StatefulSets, Services, etc) within a namespaces need to be unique, but not
 resources across namespaces.
 
 !!!note
-Namespace-based scoping is not applicable for cluster-wide objects (e.g. StorageClass, PersistentVolumes, etc).
+    Namespace-based scoping is not applicable for cluster-wide objects (e.g. StorageClass, PersistentVolumes, etc).

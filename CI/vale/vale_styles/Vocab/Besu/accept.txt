@@ -74,7 +74,15 @@ Keycloak
 [kK]eytool(s)?
 Kibana
 Kotti
-kubectl
+[kK]ubenet
+[mM]inikube
+[kK]ubectl
+[kK]ubernetes
+[eE]ksctl
+[nN]erdctl
+RBAC
+rbac
+containerd
 libsodium
 [lL]iveness
 Logback

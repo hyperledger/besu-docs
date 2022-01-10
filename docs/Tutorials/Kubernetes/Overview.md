@@ -36,10 +36,11 @@ In addition, there's an example configuration for ingress and routes that you ca
 
 ### Cloud support
 
-The repository currently supports AWS EKS and Azure AKS natively.
-You can configure the provider in the [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-goquorum.yml)
+The repositories' `dev` charts support on premise and cloud providers like AWS, Azure, GCP, IBM etc. The `prod` charts
+currently only supports AWS EKS and Azure AKS natively. You can configure the provider in
+the [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-goquorum.yml)
 file by setting `provider` to `local`, `aws`, or `azure`.
-You can also pass in extra configuration such as a KeyVault name.
+You can also pass in extra configuration such as a KeyVault name (Azure only).
 
 The repository also contains [Azure ARM templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure) and
 [AWS `eksctl` templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the required base infrastructure.
@@ -80,3 +81,21 @@ The same setup also works to connect external nodes and business applications fr
 cloud or on premise.
 
 ![multi-cluster](../../images/kubernetes-3.png)
+
+## Concepts
+
+### Storage
+
+Where possible we recommend you use [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
+[Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims). In
+particular when using persistent volume claims ensure that you set the `allowVolumeExpansion` to `true`. This will help
+to keep costs low and it is much easier to grow a volume rather than creating new volumes and copying data across
+
+### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+
+In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster. Both
+namespaces and resources (for example Statefulsets, Services, etc) within a namespaces need to be unique, but not
+resources across namespaces.
+
+!!!note
+Namespace-based scoping is not applicable for cluster-wide objects (e.g. StorageClass, PersistentVolumes, etc).

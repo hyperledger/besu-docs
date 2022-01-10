@@ -6,7 +6,7 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 
 ## Blog posts
 
-[Consensys Quorum Blog]
+[ConsenSys Quorum Blog]
 
 [Understanding Proof of Authority via Clique and IBFT 2.0 Private Networks]
 

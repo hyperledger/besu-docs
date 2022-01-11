@@ -32,19 +32,19 @@ Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.1", GitCom
 Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCommit:"c92036820499fedefec0f847e2054d824aea6cd1", GitTreeState:"clean", BuildDate:"2021-10-27T18:35:25Z", GoVersion:"go1.16.9", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
-### 2. Create a Namespace `quorum`
+### 2. Create a namespace `besu`
 
 Namespaces provides a mechanism for isolating groups of resources (for example StatefulSets, Services, etc) within a
-single cluster. For the rest of this tutorial we will use `quorum` as the namespace and you are free to pick any name
+single cluster. For the rest of this tutorial we will use `besu` as the namespace, but you are free to pick any name
 when deploying, but it must be consistent across the [infrastructure scripts](./Create-Cluster.md) as well as the charts.
 
-To create a namespace called `quorum` run the following in a terminal window:
+To create a namespace called `besu` run the following in a terminal window:
 
 ```bash
-kubectl create namespace quorum
+kubectl create namespace besu
 ```
 
-### 3. Deploy the `monitoring` chart 
+### 3. Deploy the Monitoring chart 
 
 This is the first chart we will deploy, which will deploy Prometheus and Grafana to monitor the cluster, nodes and the
 state of the network. Each Besu pod has a few
@@ -66,7 +66,7 @@ the chart
 
 ```bash
 cd dev/helm
-helm install monitoring ./charts/quorum-monitoring --namespace quorum --values ./values/monitoring.yaml
+helm install monitoring ./charts/quorum-monitoring --namespace besu --values ./values/monitoring.yaml
 ```
 
 !!! warning
@@ -86,7 +86,7 @@ the chart.
 
 ```bash
 helm dependency update ./charts/blockscout
-helm install blockscout ./charts/blockscout --namespace quorum --values ./values/blockscout-besu.yaml
+helm install blockscout ./charts/blockscout --namespace besu --values ./values/blockscout-besu.yaml
 ```
 
 ### 4. Deploy the Genesis chart 
@@ -105,7 +105,7 @@ Update the number of validators, accounts, chainId and any parameters in the gen
 the chart:
 
 ```bash
-helm install genesis ./charts/besu-genesis --namespace quorum --create-namespace --values ./values/genesis-besu.yml
+helm install genesis ./charts/besu-genesis --namespace besu --create-namespace --values ./values/genesis-besu.yml
 ```
 
 Once complete, you should see the genesis and enodes (the list of static nodes) ConfigMaps that every Besu node uses and
@@ -139,8 +139,8 @@ For the bootnodes we set `bootnode: true` flag to indicate they are bootnodes an
 (validators, members etc) will wait for the bootnodes to be up before proceeding and have this flag set to `false`.
 
 ```bash
-helm install bootnode-1 ./charts/besu-node --namespace quorum --values ./values/bootnode.yml
-helm install bootnode-2 ./charts/besu-node --namespace quorum --values ./values/bootnode.yml
+helm install bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml
+helm install bootnode-2 ./charts/besu-node --namespace besu --values ./values/bootnode.yml
 ```
 
 !!! warning
@@ -162,10 +162,10 @@ majority of the validators have peered, blocks are proposed and created on the c
 For the initial validator pool we set all the nodeflags to `false` and then deploy. 
 
 ```bash
-helm install validator-1 ./charts/besu-node --namespace quorum --values ./values/validator.yml
-helm install validator-2 ./charts/besu-node --namespace quorum --values ./values/validator.yml
-helm install validator-3 ./charts/besu-node --namespace quorum --values ./values/validator.yml
-helm install validator-4 ./charts/besu-node --namespace quorum --values ./values/validator.yml
+helm install validator-1 ./charts/besu-node --namespace besu --values ./values/validator.yml
+helm install validator-2 ./charts/besu-node --namespace besu --values ./values/validator.yml
+helm install validator-3 ./charts/besu-node --namespace besu --values ./values/validator.yml
+helm install validator-4 ./charts/besu-node --namespace besu --values ./values/validator.yml
 ```
 
 !!! warning
@@ -187,12 +187,12 @@ These nodes need their own nodekeys so we set the `generateKeys: true` for a sta
 
 For an RPC node with the release name `rpc-1`:
 ```bash
-helm install rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+helm install rpc-1 ./charts/besu-node --namespace besu --values ./values/reader.yml
 ```
 
 For a Transaction node release name `tx-1`:
 ```bash
-helm install tx-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+helm install tx-1 ./charts/besu-node --namespace besu --values ./values/txnode.yml
 ```
 and logs for tx-1 would resemble the following for Tessera:
 
@@ -203,17 +203,17 @@ and logs for Besu:
 ![k8s-tx-besu-logs](../../images/kubernetes-tx-besu-logs.png)
 
 
-### 8. Connecting to the node from local machine via an Ingress 
+### 8. Connecting to the node from your local machine via an Ingress 
 
 In order to view the Grafana dashboards or connect to the nodes to make transactions from your local machine you can
 deploy an ingress controller with rules. We use the `ingress-nginx` ingress controller which can be deployed like so:
 
-Update the `namespace` to match your settings if you have used something other than `quorum`
+Update the `namespace` to match your settings if you have used something other than `besu`
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install besu-ingress ingress-nginx/ingress-nginx \
-    --namespace quorum \
+    --namespace besu \
     --set controller.replicaCount=1 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \

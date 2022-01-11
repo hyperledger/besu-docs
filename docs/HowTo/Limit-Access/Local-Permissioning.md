@@ -48,6 +48,12 @@ start with node permissions enabled.
     The `nodes-allowlist` in the [permissions configuration file](#permissions-configuration-file)
     must contain the specified bootnodes.
 
+!!! tip
+
+    If your node has two different IP addresses for ingress and egress
+    (for example, if you use Kuberetes implementing a load balancer for ingress and a NAT gateway IP address for egress),
+    add both addresses to the allowlist, using the same public key for each IP address. This will allow the node to connect.
+
 ### Enabling node allowlisting
 
 To enable node allowlisting, specify the

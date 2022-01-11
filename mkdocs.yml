@@ -185,9 +185,8 @@ nav:
           - Overview: Tutorials/Kubernetes/Overview.md
           - Create a cluster: Tutorials/Kubernetes/Create-Cluster.md
           - Deploy charts: Tutorials/Kubernetes/Deploy-Charts.md
-          - Production: Tutorials/Kubernetes/Production.md
           - Maintenance: Tutorials/Kubernetes/Maintenance.md
-
+          - Production: Tutorials/Kubernetes/Production.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus protocols:

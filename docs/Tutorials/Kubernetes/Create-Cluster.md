@@ -13,7 +13,7 @@ locally and in cloud.
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [Helm3](https://helm.sh/docs/intro/install/)
-* [AWS CLI](https://aws.amazon.com/cli/) and [eksctl](https://eksctl.io/) for AWS EKS clusters
+* [AWS CLI](https://aws.amazon.com/cli/) and [`eksctl`](https://eksctl.io/) for AWS EKS clusters
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for Azure AKS clusters
 * Cloud specific CLI
 
@@ -59,8 +59,8 @@ Please refer to the official [documentation](https://github.com/rancher-sandbox/
 
 ### [AWS EKS](https://aws.amazon.com/eks/)
 
-AWS Elastic Kubernetes Service is one of the most popular platforms that you can use to deploy Hyperleger Besu. To create a cluster in AWS, you need to install the [AWS CLI](https://aws.amazon.com/cli/) and
-[eksctl](https://eksctl.io/).
+AWS Elastic Kubernetes Service is one of the most popular platforms that you can use to deploy Hyperledger Besu. To create a cluster in AWS, you need to install the [AWS CLI](https://aws.amazon.com/cli/) and
+[`eksctl`](https://eksctl.io/).
 
 We have a [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) that comprises base
 infrastructure that is used to build the cluster & other resources in AWS. We also make use of AWS native
@@ -110,7 +110,7 @@ commands below to match your settings from step 2.
 
     ```bash
     helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
-    helm install --namespace quorum --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver 
+    helm install --namespace quorum --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
     kubectl apply --namespace quorum -f templates/secrets-manager/aws-provider-installer.yml
 
     POLICY_ARN=$(aws --region AWS_REGION --query Policy.Arn --output text iam create-policy --policy-name quorum-node-secrets-mgr-policy --policy-document '{
@@ -141,10 +141,10 @@ services and features after the cluster is created. These include:
 * [Secrets Store CSI drivers](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-integrate-kubernetes)
 * Data is stored using dynamic StorageClasses backed by Azure Files. Please note the
   [Volume Claims](https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv) are fixed sizes and can be updated
-  as you grow via a helm update, and will not need reprovisioning of the underlying storage class.
+  as you grow via a helm update, and will not need re provisioning of the underlying storage class.
 * [CNI](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni) networking mode for AKS. By default, AKS
   clusters use **kubenet**, and a virtual network and subnet are created for you. With kubenet, nodes get an IP address
-  from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive 
+  from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive
   an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve
   in your network space for pods to use, however places constraints on what can connect to the nodes from outside the
   cluster (for example on prem nodes or other cloud providers)
@@ -195,8 +195,8 @@ identity. This is in preview so you need to enable this feature by registering t
     * Navigate to the [Azure portal](https://portal.azure.com), click `+ Create a resource` in the upper left corner.
     * Search for `Template deployment (deploy using custom templates)` and click Create.
     * Click on `Build your own template in the editor`.
-    * Remove the contents (json) in the editor and paste in the contents of
-      [azuredeploy.json](https://github.com/ConsenSys/quorum-kubernetes/blob/master/azure/arm/azuredeploy.json)
+    * Remove the contents (JSON) in the editor and paste in the contents of
+      [`azuredeploy.json`](https://github.com/ConsenSys/quorum-kubernetes/blob/master/azure/arm/azuredeploy.json)
     * Click Save.
     * The template will be parsed and a UI will be shown to allow you to input parameters to provision.
 

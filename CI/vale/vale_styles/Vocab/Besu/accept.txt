@@ -1,3 +1,4 @@
+[aA]lertmanager
 Alethio
 [aA]llowlist(s)?
 Ansible
@@ -16,10 +17,13 @@ BlockScout
 [bB]roadcast(ing|ed)
 Cakeshop
 [cC]lasspath(s)?
+Cloudwatch
 Codefi
 [cC]olocate
 [cC]oinbase
+[cC]onfig
 [cC]onfigurability
+containerd
 ConsenSys
 [cC]ounterpart(y|ies)
 [cC]rafter
@@ -66,6 +70,7 @@ Italiane
 Jasypt
 Javadoc
 JMeter
+JSON
 jnacl
 Kafka
 kalium
@@ -75,14 +80,8 @@ Keycloak
 Kibana
 Kotti
 [kK]ubenet
-[mM]inikube
 [kK]ubectl
 [kK]ubernetes
-[eE]ksctl
-[nN]erdctl
-RBAC
-rbac
-containerd
 libsodium
 [lL]iveness
 Logback
@@ -94,10 +93,12 @@ Medalla
 Merkle
 MetaMask
 Metricbeat
+[mM]inikube
 MkDocs
 [mM]ultiaddresse(s)?
 [mM]ultikey(s)?
 [nN]amespace(s)?
+[nN]erdctl
 Nginx
 Nodejs
 [nN]once(s)?
@@ -124,6 +125,8 @@ Pushgateway
 Pyrmont
 [qQ]uorum
 Raft
+RBAC
+rbac
 ReadTheDocs
 Redis
 [rR]edistributable(s)?

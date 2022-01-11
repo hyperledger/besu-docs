@@ -13,7 +13,7 @@ To deploy the permissioning management dapp for production:
 1. In the root of the unpack directory, add a file called `config.json` replacing the placeholders
    shown below.
 
-    !!!example "config.json"
+    !!!example "`config.json`"
 
          ```json
 

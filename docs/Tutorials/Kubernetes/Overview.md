@@ -98,4 +98,4 @@ namespaces and resources (for example StatefulSets, Services, etc) within a name
 resources across namespaces.
 
 !!!note
-    Namespace-based scoping is not applicable for cluster-wide objects (e.g. StorageClass, PersistentVolumes, etc).
+    Namespace-based scoping is not applicable for cluster-wide objects (for example StorageClass, PersistentVolumes, etc).

@@ -6,7 +6,7 @@ description: Deploying Hyperledger Besu with Kubernetes
 # Deploying Hyperledger Besu with Kubernetes
 
 Use the [reference implementations](https://github.com/ConsenSys/besu-kubernetes) to install
-private networks using Kubernetes(K8s). Reference implementations are available using:
+private networks using Kubernetes (K8s). Reference implementations are available using:
 
 * [Helm](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev)
 * [Helmfile](https://github.com/roboll/helmfile)
@@ -86,14 +86,13 @@ cloud or on premise.
 
 ### Storage
 
-Where possible we recommend you use [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
+We recommend you use [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
 [Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims). In
-particular when using persistent volume claims ensure that you set the `allowVolumeExpansion` to `true`. This will help
-to keep costs low and it is much easier to grow a volume rather than creating new volumes and copying data across
+particular, when using Persistent Volume Claims (PVCs) ensure that you set the `allowVolumeExpansion` to `true`. This will help keep costs low and enables growing the volume over time rather than creating new volumes and copying data across.
 
 ### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
-In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster. Both
+In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Both
 namespaces and resources (for example StatefulSets, Services, etc) within a namespaces need to be unique, but not
 resources across namespaces.
 

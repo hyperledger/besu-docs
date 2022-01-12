@@ -17,10 +17,10 @@ Over time, as the chain grows so will the amount of space used by the PVC. As of
 allow volume resizing. Our production charts for Azure use Azure Files and on AWS use EBS Block Store which allow for
 volume expansion.
 
-To update the volume size, add the following to the override values file. For example to increase the size on the
+To update the volume size, add the following to the override values file. For example, to increase the size on the
 transaction nodes volumes, add the following snippet to the
 [`txnode values.yml`](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/txnode.yml) file, with
-appropriate size you would like (for example 50Gi below)
+appropriate size you would like (for example 50Gi below):
 
 ```bash
 storage:
@@ -40,23 +40,23 @@ The most important thing to remember when updating Besu nodes across a cluster i
 rolling update and not all at once, especially for the validator pool. If all the validators are taken offline, the
 chain will halt and you will have to wait till for round changes to expire before blocks are created again.
 
-Updates for Besu can be done via Helm in exactly the same manner as other applications. Alternatively this can be done
-via `kubectl` and for this example we will update a node called `besu-validator-3` like so:
+Updates for Besu can be done via Helm in exactly the same manner as other applications. Alternatively, this can be done
+via `kubectl` and, for this example, we will update a node called `besu-validator-3`:
 
 1. Set the update policy to use rolling updates (if not done already)
 
-```bash
-kubectl patch statefulset besu-validator-3 --namespace besu -p '{"spec":{"updateStrategy":{"type":"RollingUpdate"}}}'
-```
+    ```bash
+    kubectl patch statefulset besu-validator-3 --namespace besu -p '{"spec":{"updateStrategy":{"type":"RollingUpdate"}}}'
+    ```
 
-Once complete, update the Besu version via Helm:
+2. Update the Besu version via Helm:
 
-```bash
-helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
-```
+    ```bash
+    helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
+    ```
 
-Or via kubectl:
+    Or via `kubectl`:
 
-```bash
-kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
-```
+      ```bash
+      kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
+      ```

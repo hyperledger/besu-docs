@@ -122,7 +122,7 @@ your VPC details.
 [kubernetes dashboard](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws/templates/k8s-dashboard)
 
 1. Provision the drivers. After the deployment completes, provision the secrets manager, identity, and
-CSI drivers. Use `besu` or `quorum` for `EKS_NAMESPACE` and update `AWS_REGION` and `EKS_CLUSTER_NAME` in the
+CSI drivers. Use `besu` for `EKS_NAMESPACE` and update `AWS_REGION` and `EKS_CLUSTER_NAME` in the
 commands below to match your settings from step 2.
 
     ```bash
@@ -222,7 +222,7 @@ To provision the cluster:
 
 1. Provision the drivers:
     1. Run the [bootstrap](https://github.com/ConsenSys/quorum-kubernetes/blob/master/azure/scripts/bootstrap.sh) script.
-    1. Use `besu` or `quorum` for `AKS_NAMESPACE`, and update `AKS_RESOURCE_GROUP`, `AKS_CLUSTER_NAME`, and `AKS_MANAGED_IDENTITY`
+    1. Use `besu` for `AKS_NAMESPACE`, and update `AKS_RESOURCE_GROUP`, `AKS_CLUSTER_NAME`, and `AKS_MANAGED_IDENTITY`
         in the commands below to match your settings and deployed resources from step 3.
 
         ```bash

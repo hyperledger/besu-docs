@@ -176,10 +176,10 @@ helm install validator-4 ./charts/besu-node --namespace besu --values ./values/v
 !!! warning
 
     As with the bootnodes, it is important to keep the release names of the initial validators the same as it is tied
-    to the keys that the genesis chart creates. So we use `validator-1`, `validator-2` and so on in the command above
+    to the keys that the genesis chart creates. So we use `validator-1`, `validator-2` and so on in the command above.
 
 Once complete, you may need to give the validators a few minutes to peer and for round changes depending when the first
-validator was spun up and then the logs should show blocks being created
+validator was spun up before the logs should show blocks being created.
 
 ![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
 
@@ -242,10 +242,12 @@ that match your deployments, deploy the rules like so:
 kubectl apply -f ../../ingress/ingress-rules-besu.yml
 ```
 
-Once complete, you should see an IP address listed under the `Services` section if you are using the Kubernetes Dashboard
-or equivalent kubectl command.
+Once complete, you should see an IP address listed under the `Ingress` section if you are using the Kubernetes Dashboard
+or equivalent `kubectl` command.
 
-The dashboard can be viewed by going to:
+![`k8s-ingress`](../../images/kubernetes-ingress-ip.png)
+
+The Grafana dashboard can be viewed by going to:
 
 ```bash
 # For Besu's grafana address:

@@ -40,23 +40,23 @@ The most important thing to remember when updating Besu nodes across a cluster i
 rolling update and not all at once, especially for the validator pool. If all the validators are taken offline, the
 chain will halt and you will have to wait till for round changes to expire before blocks are created again.
 
-Updates for Besu can be done via Helm in exactly the same manner as other applications. Alternatively this can be done
-via `kubectl` and for this example we will update a node called `besu-validator-3` like so:
+Updates for Besu can be done via Helm in exactly the same manner as other applications. Alternatively, this can be done
+via `kubectl` and, for this example, we will update a node called `besu-validator-3`:
 
 1. Set the update policy to use rolling updates (if not done already)
 
-```bash
-kubectl patch statefulset besu-validator-3 --namespace besu -p '{"spec":{"updateStrategy":{"type":"RollingUpdate"}}}'
-```
+    ```bash
+    kubectl patch statefulset besu-validator-3 --namespace besu -p '{"spec":{"updateStrategy":{"type":"RollingUpdate"}}}'
+    ```
 
-Once complete, update the Besu version via Helm:
+2. Update the Besu version via Helm:
 
-```bash
-helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
-```
+    ```bash
+    helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
+    ```
 
-Or via kubectl:
+    Or via `kubectl`:
 
-```bash
-kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
-```
+      ```bash
+      kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
+      ```

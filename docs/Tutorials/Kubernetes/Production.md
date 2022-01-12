@@ -12,23 +12,23 @@ description: Deploying Besu Helm Charts for production on a Kubernetes cluster
 
 ## Overview
 
-By and large the charts in the `prod` folder are similar to those of the `dev` folder but use cloud native services for
+The charts in the `prod` folder are similar to those of the `dev` folder but use cloud native services for
 **identities** (IAM on AWS and a Managed Identity on Azure) and **secrets** (Secrets Manager on AWS or Key Vault on
 Azure). Any keys or secrets are created directly in Secrets Manager or Key Vault and the Identity is given permission to
-retrieve those secrets are runtime. Please note there are no kubernetes secrets objects created.
+retrieve those secrets at runtime. Please note that no kubernetes secrets objects are created.
 
-Also note access to these secrets is done on the least privileges policy and access to them is denied for
-users. If you or any admins need access to them, you will need to update the IAM policy.
-
-!!!warning
-
-    The following tutorial ONLY supports AWS and Azure currently. Other cloud providers will be added in time
+Access to these secrets are done on the least privileges policy and access to them is denied for
+users. If any admins need access to them, you will need to update the IAM policy.
 
 !!!warning
 
-    You are encouraged to use AWS RDS or Azure Postgresql in High Availability mode for any Tessera nodes that you use.
-    The templates do not have these templates and they can be provisioned with Cloudformation or Azure Resource Manager,
-    respectively. Once created, please specify the connection details to the values.yml 
+    The following tutorial ONLY supports AWS and Azure currently. Other cloud providers will be added in time.
+
+!!!warning
+
+    You are encouraged to use AWS RDS or Azure PostgreSQL in High Availability mode for any Tessera nodes that you use.
+    The templates do not include that functionality. They can be provisioned with CloudFormation or Azure Resource Manager,
+    respectively. Once created, please specify the connection details to the `values.yml`.
 
 ## Deploy
 
@@ -56,8 +56,8 @@ cd prod/helm
 
     Please update all the [values files](https://github.com/ConsenSys/quorum-kubernetes/tree/master/prod/helm/values)
     with your choice of cloud provider, that is AWS or Azure and set `provider: aws` or `provider: azure` as required.
-    Depending on the provider you may also need to update the `azure:` or `aws:` dictionaries with specifics of your
-    cluster and account
+    Depending on the provider, you may also need to update the `azure:` or `aws:` dictionaries with specifics of your
+    cluster and account.
 
 Follow the steps outlined in the [deploy charts](./Deploy-Charts.md) tutorial to deploy the network.
 
@@ -65,32 +65,32 @@ Follow the steps outlined in the [deploy charts](./Deploy-Charts.md) tutorial to
 
 The most important thing is to plan your network out on paper first and then test it out in a Dev cluster to make sure
 connectivity works with your applications and you get the required throughput in transactions per second (TPS). In
-addition to this we also recommend you test the entire process from provisioning infrastructure to updates nodes on a
+addition to this, we also recommend you test the entire process from provisioning infrastructure to updating nodes on a
 Dev cluster prior to launching your production network.
 
 By default, the Kubernetes clusters in cloud should take care of availability and do multi zones within a region. The
 scheduler will also ensure that deployments are spread out across zones. Where possible we recommend you use multiple
 bootnodes and static nodes to speed up peering.
 
-If you need to connect to API's and services outside the cluster this should work as normal, however connectivity into
-your network (such as adding an on premise node to the network) is generally going to be involved. Please check the
+If you need to connect to APIs and services outside the cluster this should work as normal, however connectivity into
+your network (such as adding an on-premise node to the network) may require more configuration. Please check the
 [limitations](./Overview.md#limitations) and use CNI where possible. To connect an external node to your cluster, the
-easiest way is to use a VPN and details outlined in the multi cluster setup below
+easiest way is to use a VPN as seen in the [multi-cluster](#multi-cluster-support) setup below.
 
 The last thing we recommend is to setup monitoring and alerting right from the beginning so you can get early warnings
-of issues rather than after failure. We have a monitoring chart which uses Grafana and you can that in conjunction with
+of issues rather than after failure. We have a monitoring chart which uses Grafana and you can use it in conjunction with
 Alertmanager to create alerts or alternatively alert via Cloudwatch or Azure Monitoring.
 
-## Multi Cluster Support
+## Multi-Cluster Support
 
-When CNI is used multi cluster support is simple enough but you have to cater for cross cluster DNS names. Ideally,
+When CNI is used, multi-cluster support is simple enough but you have to cater for cross-cluster DNS names. Ideally,
 what you are looking to do is to create two separate VPCs (or VNets) and make sure they have different base CIDR blocks
 so that IPs will not conflict. Once done, peer the VPCs together and update the subnet route table, so they are
 effectively a giant single network.
 
 ![multi-cluster](../../images/kubernetes-3.png)
 
-When you [spin up clusters](./Create-Cluster.md) use [CNI](./Overview.md#limitations) and CIDR blocks to match the
+When you [spin up clusters](./Create-Cluster.md), use [CNI](./Overview.md#limitations) and CIDR blocks to match the
 subnet's CIDR settings. Then deploy the genesis chart on one cluster and copy across the genesis file and static nodes
 config maps. Depending on your DNS settings they may be fine as is or they make need to be actual IPs - that is you can
 provision cluster B only after cluster A has Besu nodes up and running. Deploy the network on cluster A, and then on

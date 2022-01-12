@@ -20,28 +20,27 @@ We recommend [using bootnodes](Bootnodes.md) to initially discover peers.
 
 ## Limit peers
 
-Limiting peers reduces the bandwidth used by Besu. Limiting peers also reduces the CPU
-time and disk access used to manage and respond to peers.
+You can limit peers to reduce the bandwidth, CPU time, and disk access Besu uses to manage and respond to peers.
 
 To reduce the maximum number of peers, use the
 [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers) option. The default is 25.
 
 ## Limit remote connections
 
-In public networks, enabling the [remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled)
-is necessary to prevent eclipse attacks, especially when using [`--sync-mode`](../../Reference/CLI/CLI-Syntax.md#sync-mode)
-and [`--fast-sync-min-peers`](../../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers).
+Prevent eclipse attacks when using [`--sync-mode`](../../Reference/CLI/CLI-Syntax.md#sync-mode) and
+[`--fast-sync-min-peers`](../../Reference/CLI/CLI-Syntax.md#fast-sync-min-peers) on public networks by enabling the
+[remote connection limits](../../Reference/CLI/CLI-Syntax.md#remote-connections-limit-enabled).
 
-In private and permissioned networks with a level of trust between peers, enabling the remote connection limits is
+In private and permissioned networks with only trusted peers, enabling the remote connection limits is
 unnecessary and might adversely affect the speed at which nodes can join the network.
-Limiting remote connections may cause a clique of nodes to form when the number of nodes in the network is slightly
-higher than [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers).
-The nodes in this clique are all connected to each other and can't accept more connections.
+Limiting remote connections can cause a closed group of peers to form when the number of nodes in the network is
+slightly higher than [`--max-peers`](../../Reference/CLI/CLI-Syntax.md#max-peers).
+The nodes in this closed group are all connected to each other and can't accept more connections.
 
 !!! tip
 
     You can use [`--random-peer-priority-enabled`](../../Reference/CLI/CLI-Syntax.md#random-peer-priority-enabled) to
-    help prevent cliques in small, stable networks.
+    help prevent closed groups of peers in small, stable networks.
 
 ## Monitor peer connections
 
@@ -86,7 +85,6 @@ If the message `Successfully accepted connection from ...` displays, connections
 To disable P2P discovery, set the
 [`--discovery-enabled`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled) option to `false`.
 
-With discovery disabled, peers that have already discovered or are otherwise configured to connect
-to the local node (for example, using
-[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)) can open connections.
+With discovery disabled, peers can't open connections with the node unless they were previously discovered or manually
+peered (for example, using [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer)).
 [Static nodes](Static-Nodes.md) can also open connections.

@@ -6,11 +6,11 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 
 ## Blog posts
 
-[Privacy in Pantheon: How It Works and Why Your Enterprise Should Care]
+[ConsenSys Quorum Blog]
 
-[Permissioning Features in Pantheon]
+[Understanding Proof of Authority via Clique and IBFT 2.0 Private Networks]
 
-[Another day, another consensus algorithm. Why IBFT 2.0?]
+[Security Challenges for Enterprise Blockchain Solutions]
 
 [Why We Rebuilt Ethereum from Scratch]
 
@@ -33,9 +33,9 @@ description: Hyperledger Besu resources including blog posts, webinars, and meet
 [Getting Started with Besu]
 
 <!-- Links -->
-[Privacy in Pantheon: How It Works and Why Your Enterprise Should Care]: https://pegasys.tech/privacy-in-pantheon-how-it-works-and-why-your-enterprise-should-care/
-[Permissioning Features in Pantheon]: https://pegasys.tech/protecting-the-enterprise-permissioning-features-in-pantheon/
-[Another day, another consensus algorithm. Why IBFT 2.0?]: https://pegasys.tech/another-day-another-consensus-algorithm-why-ibft-2-0/
+[Consensys Quorum Blog]: https://consensys.net/quorum/blog/
+[Understanding Proof of Authority via Clique and IBFT 2.0 Private Networks]: https://consensys.net/blog/quorum/hyperledger-besu-understanding-proof-of-authority-via-clique-and-ibft-2-0-private-networks-part-1/
+[Security Challenges for Enterprise Blockchain Solutions]: https://consensys.net/blog/enterprise-blockchain/how-pegasys-orchestrate-solves-4-key-security-challenges-for-enterprise-blockchain-solutions/
 [Why We Rebuilt Ethereum from Scratch]: https://media.consensys.net/why-we-rebuilt-ethereum-from-scratch-9e38b6ebd4a2
 [Why Java for Blockchain]: https://media.consensys.net/why-java-for-blockchain-73f1b444c2d
 [Besu Plugin API: Learn How to Leverage Plugin APIs on Hyperledger Besu]: https://youtu.be/78sa2WuA1rg

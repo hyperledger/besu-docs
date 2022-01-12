@@ -2362,7 +2362,7 @@ Defaults to `false`.
     ```
 
 Allows for incoming connections to be prioritized randomly. Enable in small, stable networks to prevent
-impenetrable peer groups forming. The default is `false`.
+closed groups of peers forming. The default is `false`.
 
 ### `remote-connections-limit-enabled`
 
@@ -2390,8 +2390,9 @@ impenetrable peer groups forming. The default is `false`.
     remote-connections-limit-enabled=false
     ```
 
-Enables or disables limiting the percentage of remote P2P connections initiated by peers. The
-default is true.
+Enables or disables using the [`--remote-connections-max-percentage`](#remote-connections-max-percentage) option to
+limit the percentage of remote P2P connections initiated by peers.
+The default is `true`.
 
 !!! tip
 

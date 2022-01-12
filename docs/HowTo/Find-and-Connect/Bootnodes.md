@@ -4,8 +4,8 @@ description: Configuring bootnodoes
 
 # Bootnodes
 
-Using Bootnodes is a method for initially discovering peers. Bootnodes are regular nodes used to
-discover other nodes.
+You can use bootnodes to initially discover peers.
+Bootnodes are regular nodes used to discover other nodes.
 
 !!! tip
 

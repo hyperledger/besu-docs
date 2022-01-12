@@ -35,7 +35,7 @@ Use account permissioning to:
 
 ![Account Permissioning](../../images/enterprise-ethereum-account-permissioning.png)
 
-## Specifying permissioning
+## Specify permissioning
 
 You can specify permissioning [locally](#local) or [onchain](#onchain).
 
@@ -67,6 +67,11 @@ by the updated rules. For example, blocked accounts can no longer add transactio
 The following diagram illustrates applying local and onchain permissioning rules.
 
 ![Permissioning Flow](../../images/PermissioningFlow.png)
+
+## Interoperable permissioning
+
+You can [use interoperable permissioning](../../HowTo/Limit-Access/Interop-Permissioning.md) in a network of Besu and
+GoQuorum nodes.
 
 <!-- Links -->
 [permissions configuration file]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file

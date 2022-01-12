@@ -124,6 +124,7 @@ nav:
            - Include revert reason: HowTo/Send-Transactions/Revert-Reason.md
         - Limit access to node:
           - Use local permissioning: HowTo/Limit-Access/Local-Permissioning.md
+          - Use permissioning with Besu and GoQuorum: HowTo/Limit-Access/Interop-Permissioning.md
           - Update onchain allowlists: HowTo/Limit-Access/Updating-Permission-Lists.md
           - Specify interface version: HowTo/Limit-Access/Specify-Perm-Version.md
         - Use privacy features:

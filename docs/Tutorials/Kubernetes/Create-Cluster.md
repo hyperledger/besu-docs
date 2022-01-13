@@ -18,7 +18,7 @@ The first thing required is a cluster to deploy the network, there are options l
 
 ## Local Clusters
 
-There are several options to create a local cluster. Select one listed below, or another that you
+Use one of several options to create a local cluster. Select one listed below, or another that you
 are comfortable with.
 
 ### Minikube
@@ -80,7 +80,7 @@ The [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) c
 infrastructure used to build the cluster and other resources in AWS. We also use AWS native
 services and features after the cluster is created. These include:
 
-* [Pod identities](hhttps://github.com/aws/amazon-eks-pod-identity-webhook)
+* [Pod identities](https://github.com/aws/amazon-eks-pod-identity-webhook)
 * [Secrets Store CSI drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
 * Dynamic storage classes backed by AWS EBS. The
     [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) are fixed

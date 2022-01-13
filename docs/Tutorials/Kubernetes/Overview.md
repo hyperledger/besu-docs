@@ -70,7 +70,7 @@ Therefore, it has a limit on the maximum number of pods that can be spun up, so 
 
 ![with-CNI](../../images/kubernetes-2.jpeg)
 
-## Multi-Cluster
+## Multi-cluster
 
 You must enable [CNI](#cni) to use multi-cluster, or to connect external nodes to an existing Kubernetes cluster.
 To connect multiple clusters, they must each have different CIDR blocks to ensure no conflicts, and the first step is to
@@ -86,15 +86,19 @@ cloud or on premise.
 
 ### Storage
 
-We recommend you use [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
-[Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims). In
-particular, when using Persistent Volume Claims (PVCs) ensure that you set the `allowVolumeExpansion` to `true`. This will help keep costs low and enables growing the volume over time rather than creating new volumes and copying data across.
+We recommend you use [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
+[persistent volume claims (PVCs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
 
-### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+When using PVCs ensure you set `allowVolumeExpansion` to `true` to keep costs
+low and enable growing the volume over time, rather than creating new volumes and copying data across.
 
-In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Both
-namespaces and resources (for example StatefulSets, Services, etc) within a namespaces need to be unique, but not
+### Namespaces
+
+[Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) provide
+a mechanism for isolating groups of resources within a single cluster. Both namespaces and
+resources (for example, StatefulSets and services) within a namespace need to be unique, but not
 resources across namespaces.
 
-!!!note
-    Namespace-based scoping is not applicable for cluster-wide objects (for example StorageClass, PersistentVolumes, etc).
+!!! note
+
+    Namespace-based scoping is not applicable for cluster-wide objects (for example, storage classes and persistent volumes claims).

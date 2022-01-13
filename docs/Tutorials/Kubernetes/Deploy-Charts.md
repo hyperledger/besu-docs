@@ -238,9 +238,8 @@ helm install besu-ingress ingress-nginx/ingress-nginx \
     --set controller.service.externalTrafficPolicy=Local
 ```
 
-There are [pre-defined rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml)
-that you can use to test functionality, and alter to suit your requirements
-(for example, to connect to multiple nodes via different paths).
+Use [pre-defined rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml)
+to test functionality, and alter to suit your requirements (for example, to connect to multiple nodes via different paths).
 
 Edit the [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) file so that the
 service names match your release name. In the example, we deployed a transaction node with the release name `member-1`
@@ -269,7 +268,7 @@ Or for RPC calls:
 curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://<INGRESS_IP>/rpc
 ```
 
-Wich returns the following to confirm that the node running the JSON-RPC service is syncing:
+The call returns the following to confirm that the node running the JSON-RPC service is syncing:
 
 ```json
 {

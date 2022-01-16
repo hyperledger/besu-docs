@@ -61,7 +61,7 @@ cd prod/helm
 
 Follow the steps outlined in the [deploy charts](./Deploy-Charts.md) tutorial to deploy the network.
 
-## Best Practices
+## Best practices
 
 The most important thing is to plan your network out on paper first and then test it out in a Dev cluster to make sure
 connectivity works with your applications and you get the required throughput in transactions per second (TPS). In
@@ -81,7 +81,7 @@ The last thing we recommend is to setup monitoring and alerting right from the b
 of issues rather than after failure. We have a monitoring chart which uses Grafana and you can use it in conjunction with
 Alertmanager to create alerts or alternatively alert via Cloudwatch or Azure Monitoring.
 
-## Multi-Cluster Support
+## Multi-cluster support
 
 When CNI is used, multi-cluster support is simple enough but you have to cater for cross-cluster DNS names. Ideally,
 what you are looking to do is to create two separate VPCs (or VNets) and make sure they have different base CIDR blocks

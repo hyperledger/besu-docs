@@ -5,7 +5,7 @@ description: Create a cluster for deployment
 
 # Create a cluster
 
-The first thing required is a cluster to deploy the network, there are options locally and in cloud.
+Create a cluster before you deploy the network, there are options locally and in cloud.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ The first thing required is a cluster to deploy the network, there are options l
 * Install [Helm3](https://helm.sh/docs/intro/install/)
 * Install [AWS CLI](https://aws.amazon.com/cli/) and [`eksctl`](https://eksctl.io/) for AWS EKS clusters
 * Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for Azure AKS clusters
-* Install the Cloud-specific CLI
+* Install the cloud-specific CLI
 
 ## Local Clusters
 
@@ -30,7 +30,7 @@ based on your architecture.
 !!! note
     We recommend at least 2 CPUs and 16GB of RAM.
 
-To start the cluster run the following command:
+To start the cluster, run the following command:
 
 ```bash
 minikube start --cpus 2 --memory 16384 --cni auto
@@ -41,7 +41,7 @@ minikube start --cpus 2 --memory 16384 --cni auto
 [kind (Kubernetes in Docker)](https://kind.sigs.k8s.io) is a lightweight tool for running local Kubernetes clusters. The
 [installation](https://kind.sigs.k8s.io/docs/user/quick-start#installation) is similar to [Minikube](#minikube).
 
-To start the cluster run the following command:
+To start the cluster, run the following command:
 
 ```bash
 kind create cluster
@@ -63,7 +63,7 @@ It can build, push, pull and run container images. Built container images can be
     For Windows, you need to [install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
     to install Rancher Desktop.
 
-Refer to the [official documentation](https://github.com/rancher-sandbox/rancher-desktop/blob/main/docs/installing.md)
+Refer to the [official documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io/blob/main/docs/installation.md)
 for system requirements and installation instructions.
 
 ## Cloud Clusters

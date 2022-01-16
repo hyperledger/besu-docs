@@ -34,7 +34,7 @@ All setups use monitoring and we recommend deploying the monitoring manifests or
 network, nodes, and volumes, and you can create alerts accordingly.
 In addition, there's an example configuration for ingress and routes that you can customize to suit your requirements.
 
-### Cloud Support
+### Cloud support
 
 The repository's `dev` charts support on premise and cloud providers like AWS, Azure, GCP, IBM etc. The `prod` charts
 currently only supports AWS EKS and Azure AKS natively. You can configure the provider in

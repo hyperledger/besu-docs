@@ -10,7 +10,7 @@ description: Maintenance for Besu on a Kubernetes cluster
 * Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Install [Helm3](https://helm.sh/docs/intro/install/)
 
-## Updating a Persistent Volume Claim (PVC) size
+## Update a persistent volume claim (PVC) size
 
 As the chain grows so does the amount of space used by the PVC. As of Kubernetes v1.11,
 [certain types of Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/#allow-volume-expansion)
@@ -34,7 +34,7 @@ Once complete, update the node via helm:
 helm upgrade tx-1 ./charts/besu-node --namespace besu --values ./values/txnode.yml
 ```
 
-## Updating Besu Versions
+## Update Besu versions
 
 !!! important
 

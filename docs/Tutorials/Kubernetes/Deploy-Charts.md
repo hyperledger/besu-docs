@@ -10,7 +10,7 @@ description: Deploying Besu Helm Charts for a Kubernetes cluster
 * Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Install [Helm3](https://helm.sh/docs/intro/install/)
 
-## Provisioning with Helm charts
+## Provision with Helm charts
 
 Helm allows you to package a collection of objects into a chart which can be deployed to the cluster. For the
 rest of this tutorial we use the **[Dev](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev)** Helm charts.
@@ -221,7 +221,7 @@ Logs for Besu resembles the following:
 
 ![`k8s-tx-Besu-logs`](../../images/kubernetes-tx-Besu-logs.png)
 
-### 8. Connecting to the node from your local machine via an ingress
+### 8. Connect to the node from your local machine via an ingress
 
 To view Grafana dashboards or connect to the nodes to make transactions from your local machine, you can
 deploy an ingress controller with rules. We use the `ingress-nginx` ingress controller which can be deployed as follows:

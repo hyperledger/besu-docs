@@ -127,10 +127,10 @@ commands below to match your settings from step 2.
 
     ```bash
     helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
-    helm install --namespace quorum --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-    kubectl apply --namespace quorum -f templates/secrets-manager/aws-provider-installer.yml
+    helm install --namespace besu --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+    kubectl apply --namespace besu -f templates/secrets-manager/aws-provider-installer.yml
 
-    POLICY_ARN=$(aws --region AWS_REGION --query Policy.Arn --output text iam create-policy --policy-name quorum-node-secrets-mgr-policy --policy-document '{
+    POLICY_ARN=$(aws --region AWS_REGION --query Policy.Arn --output text iam create-policy --policy-name besu-node-secrets-mgr-policy --policy-document '{
         "Version": "2012-10-17",
         "Statement": [ {
             "Effect": "Allow",
@@ -139,7 +139,7 @@ commands below to match your settings from step 2.
         } ]
     }')
 
-    eksctl create iamserviceaccount --name quorum-node-secrets-sa --namespace EKS_NAMESPACE --region=AWS_REGION --cluster EKS_CLUSTER_NAME --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
+    eksctl create iamserviceaccount --name besu-node-secrets-sa --namespace EKS_NAMESPACE --region=AWS_REGION --cluster EKS_CLUSTER_NAME --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
     ```
 
 1. You can now use your cluster and you can deploy [Helm charts](./Deploy-Charts.md) to it.

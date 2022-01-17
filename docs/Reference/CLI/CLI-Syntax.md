@@ -1375,6 +1375,7 @@ Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/
 The options are:
 
 * [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
+* [`UPNPP2PONLY`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
 * [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
 * [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
 * [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
@@ -1386,6 +1387,10 @@ The default is `AUTO`. `NONE` disables NAT functionality.
 
     UPnP support is often disabled by default in networking firmware. If disabled by default,
     explicitly enable UPnP support.
+
+!!!tip
+
+    Use `UPNPP2PONLY` if you wish to enable UPnP for p2p traffic but not JSON-RPC.
 
 !!!notes
 

@@ -54,6 +54,8 @@ UPnP automatically detects if a node is running in a UPnP environment and provid
 UPnP might introduce delays during node startup, especially on networks without a UPnP gateway
 device.
 
+Use `UPNPP2PONLY` if you wish to enable UPnP only for p2p traffic.
+
 !!! tip
 
     UPnP support is often disabled by default in networking firmware. If disabled by default, you

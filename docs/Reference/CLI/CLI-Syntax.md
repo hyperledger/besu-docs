@@ -1375,6 +1375,7 @@ Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/
 The options are:
 
 * [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
+* [`UPNPP2PONLY`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
 * [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
 * [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
 * [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
@@ -1386,6 +1387,10 @@ The default is `AUTO`. `NONE` disables NAT functionality.
 
     UPnP support is often disabled by default in networking firmware. If disabled by default,
     explicitly enable UPnP support.
+
+!!!tip
+
+    Use `UPNPP2PONLY` if you wish to enable UPnP for p2p traffic but not JSON-RPC.
 
 !!!notes
 
@@ -2362,7 +2367,7 @@ Defaults to `false`.
     ```
 
 Allows for incoming connections to be prioritized randomly. Enable in small, stable networks to prevent
-impenetrable peer groups forming. The default is `false`.
+closed groups of peers forming. The default is `false`.
 
 ### `remote-connections-limit-enabled`
 
@@ -2390,8 +2395,9 @@ impenetrable peer groups forming. The default is `false`.
     remote-connections-limit-enabled=false
     ```
 
-Enables or disables limiting the percentage of remote P2P connections initiated by peers. The
-default is true.
+Enables or disables using the [`--remote-connections-max-percentage`](#remote-connections-max-percentage) option to
+limit the percentage of remote P2P connections initiated by peers.
+The default is `true`.
 
 !!! tip
 

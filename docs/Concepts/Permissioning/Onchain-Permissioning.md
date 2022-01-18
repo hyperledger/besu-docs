@@ -78,6 +78,8 @@ Permissioning implements three allowlists:
     correctly configured for all nodes with the
     externally accessible address.
 
+    If you change your network configuration, you may need to update the node allowlist.
+
 ## Bootnodes
 
 When a node joins the network, the node connects to the [bootnodes](../../HowTo/Find-and-Connect/Bootnodes.md) until it

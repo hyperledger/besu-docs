@@ -14,7 +14,13 @@ To add a node to the Hyperledger Besu nodes allowlist:
 1. On the **Nodes** tab of the [permissioning management dapp](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
    select **Add Node**.
    The **Add Node** window displays.
-1. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and select **Add Node**.
+2. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and select **Add Node**.
+
+!!! tip
+
+    If your node has two different IP addresses for ingress and egress
+    (for example, if you use Kubernetes implementing a load balancer for ingress and a NAT gateway IP address for egress),
+    add both addresses to the allowlist, using the same public key for each IP address. This will allow the node to connect.
 
 !!! important
 
@@ -48,6 +54,8 @@ To remove a node from the nodes allowlist:
     Ensure the [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) command line option has been
     correctly configured for all nodes with the
     externally accessible address.
+
+    If you change your network configuration, you may need to update the node allowlist.
 
 ## Update accounts allowlist
 

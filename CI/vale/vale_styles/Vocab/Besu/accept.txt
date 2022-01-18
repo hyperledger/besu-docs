@@ -75,6 +75,7 @@ Keycloak
 Kibana
 Kotti
 kubectl
+Kubernetes
 libsodium
 [lL]iveness
 Logback

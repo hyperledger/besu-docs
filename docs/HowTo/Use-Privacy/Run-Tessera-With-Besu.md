@@ -45,4 +45,4 @@ and Tessera in the same instance, restrict the amount of memory used by each JVM
 enough memory.
 
 <!-- links -->
-[configure Tessera for high availability]: https://docs.goquorum.consensys.net/HowTo/Configure/HighAvailability/#tessera-node-configuration-requirements
+[configure Tessera for high availability]: https://consensys.net/docs/goquorum//en/latest/configure-and-manage/configure/high-availability/

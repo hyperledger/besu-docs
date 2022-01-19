@@ -3406,6 +3406,29 @@ Defaults to using the node's local private key file specified using
 Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
 connect to. Defaults to `datapath/static-nodes.json`.
 
+### `strict-tx-replay-protection-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --strict-tx-replay-protection-enabled=false
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    STRICT_TX_REPLAY_PROTECTION_ENABLED=false
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    strict-tx-replay-protection-enabled=false
+    ```
+
+Requires transactions submitted via JSON-RPC to use replay protection in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155).
+The default is `false`.
+
 ### `sync-mode`
 
 === "Syntax"

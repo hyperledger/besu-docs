@@ -185,3 +185,16 @@ following symptoms:
     ```
 
 * No logs can be downloaded
+
+## Unsupported address exception while running from Docker
+
+While [running Besu from a Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md), you might get the following exception:
+
+```bash
+Unsupported address type exception when connecting to peer {}, this is likely due to ipv6 not being enabled at runtime.
+```
+
+This happens when the IPv6 support in Docker is disabled while connecting to an IPv6 peer, preventing outbound communication.
+IPv6 is disabled by default in Docker.
+
+[Enable IPv6 support in Docker](https://docs.docker.com/config/daemon/ipv6/) to allow outbound IPv6 traffic and allow connection with IPv6 peers.

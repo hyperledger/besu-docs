@@ -18,12 +18,12 @@ should suffice.
 1. Ensure that your system meets the requirements specified.
 1. Choose your Ethereum client (Hyperledger Besu or GoQuorum): `quorum-besu` or `quorum-go`.
 1. Choose your consensus algorithm.
-   The playground supports Clique, Ethhash (PoW), and IBFT2 for Besu, and IBFT for GoQuorum.
+   The playground supports Clique, Ethash (PoW), and IBFT2 for Besu, and IBFT for GoQuorum.
 1. Follow the instructions from the `README` for the chosen client and consensus algorithm folder.
 
 ## Important notes
 
-There are some disclaimers and notes that should be taken into account when deploying and developing with the playground:
+Consider the following when deploying and developing with the playground:
 
 * The playground is created specifically for developers and operators to become familiar with the deployment of Besu in
   a Kubernetes environment in preparation for going into a cloud or on-premise environment.

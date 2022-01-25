@@ -146,7 +146,7 @@ commands below to match your settings from step 2.
 
 ### Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-au/services/kubernetes-service/) is also a popular cloud
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) is another popular cloud
 platform that you can use to deploy Besu. To create a cluster in
 Azure, you must install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and have admin
 rights on your Azure subscription to enable some preview features on AKS.

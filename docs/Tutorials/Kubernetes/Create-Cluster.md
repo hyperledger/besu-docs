@@ -5,7 +5,8 @@ description: Create a cluster for deployment
 
 # Create a cluster
 
-Create a cluster before you deploy the network, there are options locally and in cloud.
+You can create a [local](#local-clusters) or [cloud](#cloud-clusters) cluster to deploy a Besu network using
+Kubernetes.
 
 ## Prerequisites
 
@@ -18,8 +19,7 @@ Create a cluster before you deploy the network, there are options locally and in
 
 ## Local Clusters
 
-Use one of several options to create a local cluster. Select one listed below, or another that you
-are comfortable with.
+Use one of several options to create a local cluster. Select one listed below, or another that you're comfortable with.
 
 ### Minikube
 
@@ -49,42 +49,42 @@ kind create cluster
 
 ### Rancher
 
-[Rancher](https://github.com/rancher-sandbox/rancher-desktop/) is a light-weight open source desktop application
-for Mac, Windows and Linux. It provides Kubernetes and container management, and allows you to choose the
+[Rancher](https://github.com/rancher-sandbox/rancher-desktop/) is a lightweight open source desktop application
+for Mac, Windows, and Linux. It provides Kubernetes and container management, and allows you to choose the
 version of Kubernetes to run.
 
-It can build, push, pull and run container images. Built container images can be run without needing a registry.
+It can build, push, pull, and run container images. Built container images can be run without needing a registry.
 
 !!!note
     The official Docker-CLI is not supported but rather uses [nerdctl](https://github.com/containerd/nerdctl) which is
     a Docker-CLI compatible tool for containerd, and is automatically installed with Rancher Desktop.
 
 !!!note
-    For Windows, you need to [install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
+    For Windows, you must [install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
     to install Rancher Desktop.
 
 Refer to the [official documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io/blob/main/docs/installation.md)
 for system requirements and installation instructions.
 
-## Cloud Clusters
+## Cloud clusters
 
 ### AWS EKS
 
 [AWS Elastic Kubernetes Service (AWS EKS)](https://aws.amazon.com/eks/) is one of the most popular platforms
 to deploy Hyperledger Besu.
 
-To create a cluster in AWS, you need to install the [AWS CLI](https://aws.amazon.com/cli/) and
+To create a cluster in AWS, you must install the [AWS CLI](https://aws.amazon.com/cli/) and
 [`eksctl`](https://eksctl.io/).
 
 The [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) comprises the base
 infrastructure used to build the cluster and other resources in AWS. We also use AWS native
 services and features after the cluster is created. These include:
 
-* [Pod identities](https://github.com/aws/amazon-eks-pod-identity-webhook)
-* [Secrets Store CSI drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
+* [Pod identities](https://github.com/aws/amazon-eks-pod-identity-webhook).
+* [Secrets Store CSI drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html).
 * Dynamic storage classes backed by AWS EBS. The
     [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) are fixed
-    sizes and can be updated as you grow via helm updates, and will not need to re-provision the underlying storage
+    sizes and can be updated as you grow via helm updates, and won't need to re-provision the underlying storage
     class.
 * [CNI](https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html) networking mode for EKS. By default,
     EKS clusters use `kubenet` to create a virtual network and subnet. Nodes get an IP
@@ -92,9 +92,9 @@ services and features after the cluster is created. These include:
     receive an IP address "hidden" behind the node IP.
 
     !!! note
-        This approach reduces the number of IP addresses that you need
-        to reserve in your network space for pods, but places constraints on what can connect to the nodes from
-        outside the cluster (for example on premises nodes or those on another cloud provider).
+        This approach reduces the number of IP addresses that you must reserve in your network space for pods, but
+        constrains what can connect to the nodes from
+        outside the cluster (for example, on-premise nodes or those on another cloud provider).
 
 AWS Container Networking Interface (CNI) provides each pod with an IP address from the subnet, and can be accessed
 directly. The IP addresses must be unique across your network space, and must be planned in advance. Each node has
@@ -119,7 +119,7 @@ your VPC details.
     ```
 
 1. Optionally, deploy the
-[kubernetes dashboard](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws/templates/k8s-dashboard)
+[kubernetes dashboard](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws/templates/k8s-dashboard).
 
 1. Provision the drivers. After the deployment completes, provision the secrets manager, identity, and
 CSI drivers. Use `besu` for `EKS_NAMESPACE` and update `AWS_REGION` and `EKS_CLUSTER_NAME` in the
@@ -144,30 +144,31 @@ commands below to match your settings from step 2.
 
 1. You can now use your cluster and you can deploy [Helm charts](./Deploy-Charts.md) to it.
 
-### [Azure AKS](https://azure.microsoft.com/en-au/services/kubernetes-service/)
+### Azure Kubernetes Service
 
-Azure Kubernetes Service is also a popular cloud platform that you can use to deploy Besu. To create a cluster in
-Azure, you need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and you
-must have admin rights on your Azure subscription to enable some preview features on AKS.
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-au/services/kubernetes-service/) is also a popular cloud
+platform that you can use to deploy Besu. To create a cluster in
+Azure, you must install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and have admin
+rights on your Azure subscription to enable some preview features on AKS.
 
 The [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure) comprises the base
 infrastructure used to build the cluster and other resources in Azure. We also make use Azure native
 services and features after the cluster is created. These include:
 
 * [AAD pod identities](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity).
-* [Secrets Store CSI drivers](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-integrate-kubernetes)
+* [Secrets Store CSI drivers](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-integrate-kubernetes).
 * Dynamic storage classes backed by Azure Files. The
     [volume claims](https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv) are fixed sizes and can be updated
-    as you grow via helm updates, and will not need to re-provision the underlying storage class.
+    as you grow via helm updates, and won't need to re-provision the underlying storage class.
 * [CNI](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni) networking mode for AKS. By default, AKS
     clusters use `kubenet`, to create a virtual network and subnet. Nodes get an IP address
     from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive
     an IP address "hidden" behind the node IP.
 
     !!! note
-        This approach reduces the number of IP addresses that you need to reserve
-        in your network space for pods to use, however places constraints on what can connect to the nodes from outside the
-        cluster (for example on prem nodes or other cloud providers)
+        This approach reduces the number of IP addresses you must reserve
+        in your network space for pods to use, but constrains what can connect to the nodes from outside the
+        cluster (for example, on-premise nodes or other cloud providers).
 
 AKS Container Networking Interface (CNI) provides each pod with an IP address from the subnet, and can be accessed
 directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has
@@ -177,15 +178,15 @@ exhaustion as your application demands grow, however makes it easier for externa
 
 !!!warning
 
-    Please do not create more than one AKS cluster in the same subnet. AKS clusters may not use 169.254.0.0/16,
-    172.30.0.0/16, 172.31.0.0/16, or 192.0.2.0/24 for the Kubernetes service address range.
+    Please do not create more than one AKS cluster in the same subnet. AKS clusters may not use `169.254.0.0/16`,
+    `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range.
 
 To provision the cluster:
 
 1. Enable the preview features that allow you to use AKS with CNI, and a managed identity to authenticate and
     run cluster operations with other services. We also enable
     [AAD pod identities](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity) which use the managed
-    identity. This is in preview so you need to enable this feature by registering the `EnablePodIdentityPreview` feature:
+    identity. This is in preview, so you must enable this feature by registering the `EnablePodIdentityPreview` feature:
 
     ```bash
     az feature register --name EnablePodIdentityPreview --namespace Microsoft.ContainerService

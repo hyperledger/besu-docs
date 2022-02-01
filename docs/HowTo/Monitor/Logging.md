@@ -18,7 +18,7 @@ Hyperledger Besu uses Log4J2 for logging and provides two methods to configure l
 
 Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify logging verbosity.
 The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes the volume of events displayed in the log.
-Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+Valid log levels are `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
 The default level is `INFO`.
 
 For most use cases, the basic method provides enough configurability.

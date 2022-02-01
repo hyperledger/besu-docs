@@ -219,8 +219,7 @@ Parameter for [`eth_call`](API-Methods.md#eth_call) and
 
 !!! note
 
-    All transaction call object parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas).
-    Only the `to` parameter is required for [`eth_call`](API-Methods.md#eth_call).
+    All transaction call object parameters are optional for [`eth_estimateGas`](API-Methods.md#eth_estimategas) and [`eth_call`](API-Methods.md#eth_call).
 
 | Key | Type | Value |
 |-----|:----:|-------|

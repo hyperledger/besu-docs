@@ -15,7 +15,7 @@ Archive nodes have all of this and they also store the intermediary state of eve
 contract for every block since the genesis block. An archive node can do everything a full node
 does, and it can access historical state data.
 
-For Besu on MainNet, archive nodes require significantly more disk space (approximately 3TB) than
+For Besu on Mainnet, archive nodes require significantly more disk space (approximately 3TB) than
 full nodes (approximately 750GB).
 
 !!! note
@@ -39,7 +39,7 @@ genesis block.
 
     Fast synchronization is the default for named networks specified using the
     [`--network`](../Reference/CLI/CLI-Syntax.md#network) option, except for the `dev` development network.
-    It's also the default if connecting to Ethereum MainNet by not specifying the
+    It's also the default if connecting to Ethereum Mainnet by not specifying the
     [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
     options.
 
@@ -49,7 +49,7 @@ genesis block.
     world state download completes.
     This may take a significant amount of time depending on world state size, during which the current head block
     doesn't increase.
-    For example, MainNet may take several days or more to fast synchronize.
+    For example, Mainnet may take several days or more to fast synchronize.
     Fast synchronization time may increase because Besu picks new pivot blocks, or because peers prune the world state
     before it completes downloading.
 

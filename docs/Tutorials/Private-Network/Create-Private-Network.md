@@ -84,7 +84,7 @@ the `Private-Network` directory:
 
 !!! warning
 
-    Do not use the accounts in `alloc` in the genesis file on MainNet or any public network except
+    Do not use the accounts in `alloc` in the genesis file on Mainnet or any public network except
     for testing. The private keys display, which means the accounts are not secure.
 
 ### 3. Start the first node as a bootnode

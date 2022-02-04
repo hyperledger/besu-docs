@@ -69,7 +69,7 @@ Exports a block or range of blocks from storage to a file in RLP format.
 If you omit `--start-block`, the default start block is 0 (the beginning of the chain), and if you
 omit `--end-block`, the default end block is the current chain head.
 
-If you are not running the command against the default network (MainNet), specify the `--network`
+If you are not running the command against the default network (Mainnet), specify the `--network`
 or `--genesis-file` parameter.
 
 ## `public-key`

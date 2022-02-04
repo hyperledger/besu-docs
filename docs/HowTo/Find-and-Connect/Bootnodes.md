@@ -11,15 +11,15 @@ Bootnodes are regular nodes used to discover other nodes.
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
     you can use only bootnodes, only static nodes, or both bootnodes and statics nodes. For
-    example, you run multiple nodes on MainNet (discovery using bootnodes), but want to ensure your
+    example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
     To find peers, configure one or more bootnodes as described below. To configure a specific set
     of peer connections, use [static nodes](Static-Nodes.md).
 
-## MainNet and public testnets
+## Mainnet and public testnets
 
-For MainNet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu has an internal list of
+For Mainnet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu has an internal list of
 enode URLs and uses this list automatically when you specify the
 [`--network`](../../Reference/CLI/CLI-Syntax.md#network) option.
 

@@ -15,7 +15,7 @@ any unconnected static node.
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
     you can use only bootnodes, only static nodes, or both bootnodes and statics nodes. For
-    example, you run multiple nodes on MainNet (discovery using bootnodes), but want to ensure your
+    example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
     To find peers, configure one or more [bootnodes](Bootnodes.md). To configure a specific set of

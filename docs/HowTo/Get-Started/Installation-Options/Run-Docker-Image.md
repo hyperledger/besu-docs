@@ -18,9 +18,9 @@ Use this Docker image to run a single Besu node without installing Besu.
 
     The Docker image does not run on Windows.
 
-## Default node for MainNet
+## Default node for Mainnet
 
-To run a Besu node in a container connected to the Ethereum MainNet:
+To run a Besu node in a container connected to the Ethereum Mainnet:
 
 ```bash
 docker run hyperledger/besu:latest
@@ -100,9 +100,9 @@ To run a node on Rinkeby:
 docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu hyperledger/besu:latest --network=rinkeby --data-path=/var/lib/besu
 ```
 
-### Run a node on Ethereum MainNet
+### Run a node on Ethereum Mainnet
 
-To run a node on Ethereum MainNet with the HTTP JSON-RPC service enabled:
+To run a node on Ethereum Mainnet with the HTTP JSON-RPC service enabled:
 
 ```bash
 docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu  -p 30303:30303 hyperledger/besu:latest --rpc-http-enabled --data-path=/var/lib/besu

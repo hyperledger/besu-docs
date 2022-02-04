@@ -20,7 +20,7 @@ The simplest way to transfer funds between externally-owned accounts is using
 This example uses `eth_sendSignedTransaction` and one of the [test accounts](../../Reference/Accounts-for-Testing.md)
 to transfer funds to a newly created account.
 
-!!! critical "Do not use the test accounts on Ethereum MainNet or any production network."
+!!! critical "Do not use the test accounts on Ethereum Mainnet or any production network."
 
     The private key is publicly displayed, which means the account is not secure.
 

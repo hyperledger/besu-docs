@@ -16,7 +16,7 @@ process uses the _chain ID_.
     the chain ID as part of the transaction signing process to protect against transaction
     replay attacks.
 
-For most networks, including MainNet and the public testnets, the network ID and the chain ID are
+For most networks, including Mainnet and the public testnets, the network ID and the chain ID are
 the same, with the network ID defaulting to the chain ID, as specified in the genesis file.
 
 !!! example "Chain ID in the genesis file"

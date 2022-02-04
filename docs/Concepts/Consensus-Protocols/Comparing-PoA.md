@@ -9,7 +9,7 @@ authority consensus protocols work when participants know each other and there i
 between them. For example, in a permissioned consortium network.
 
 Proof of authority consensus protocols have faster block times and a much greater transaction
-throughput than the Ethash proof of work consensus protocol used on the Ethereum MainNet.
+throughput than the Ethash proof of work consensus protocol used on the Ethereum Mainnet.
 
 In Clique, IBFT 2.0, or QBFT, a group of nodes in the network act as signers (Clique) or validators
 (IBFT 2.0 and QBFT). The existing nodes in the signer/validator pool vote to add nodes to or remove

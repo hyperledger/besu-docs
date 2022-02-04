@@ -69,7 +69,7 @@ besu --help
 
 !!! note "Linux open file limit"
 
-    If synchronizing to MainNet on Linux or other chains with large data requirements, increase the
+    If synchronizing to Mainnet on Linux or other chains with large data requirements, increase the
     maximum number of open files allowed using `ulimit`. If the open files limit is not high
     enough, a `Too many open files` RocksDB exception occurs.
 

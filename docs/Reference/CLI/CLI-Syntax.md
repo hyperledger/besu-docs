@@ -223,7 +223,7 @@ You can specify the banned node IDs with or without the `0x` prefix.
 A list of comma-separated [enode URLs](../../Concepts/Node-Keys.md#enode-url) for
 [P2P discovery bootstrap](../../HowTo/Find-and-Connect/Bootnodes.md).
 
-When connecting to MainNet or public testnets, the default is a predefined list of enode URLs.
+When connecting to Mainnet or public testnets, the default is a predefined list of enode URLs.
 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using
 [`--network=dev`](#network), the default is an empty list of bootnodes.
@@ -3463,7 +3463,7 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#run-a-full-no
   option and specifying the [`--genesis-file`](#genesis-file) option.
 * The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev`
   development network.
-  `FAST` is also the default if connecting to Ethereum MainNet by not specifying the [`--network`](#network) and
+  `FAST` is also the default if connecting to Ethereum Mainnet by not specifying the [`--network`](#network) and
   [`--genesis-file`](#genesis-file) options.
 
 !!! note

@@ -11,7 +11,7 @@ GPU mining support testing used [Ethminer](https://github.com/ethereum-mining/et
 `stratum+tcp` and `getwork` schemes.
 
 Ethminer has been used with Hyperledger Besu to mine blocks on the [Ropsten testnet](https://ropsten.etherscan.io/address/0x2f14582947E292a2eCd20C430B46f2d27CFE213c#mine),
-[ETC mainnet (uncle block only)](https://etc.tokenview.com/en/uncleblock/10555173) and Mordor ETC testnet.
+[ETC Mainnet (uncle block only)](https://etc.tokenview.com/en/uncleblock/10555173) and Mordor ETC testnet.
 
 !!! note
     Some mining software supports the `getwork` scheme as the `http` scheme.

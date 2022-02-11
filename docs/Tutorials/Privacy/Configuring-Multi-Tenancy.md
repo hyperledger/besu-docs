@@ -130,6 +130,12 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 }
 ```
 
+!!! note
+
+    If you are running Besu in [GoQuorum-compatible privacy mode](../../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md),
+    disable [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/) by removing the line
+    `"mode": "orion",` from the Tessera configuration file.
+
 ## 4. Start Tessera
 
 [Start the Tessera nodes](Configuring-Privacy.md#4-start-the-tessera-nodes) and specify

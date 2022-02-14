@@ -2,9 +2,9 @@
 description: Run Hyperledger Besu using the official docker image
 ---
 
-# Running Hyperledger Besu from a Docker image
+# Run Besu from a Docker image
 
-Besu provides a Docker image to run a Besu node in a Docker container.
+Hyperledger Besu provides a Docker image to run a Besu node in a Docker container.
 
 Use this Docker image to run a single Besu node without installing Besu.
 
@@ -36,7 +36,7 @@ docker run hyperledger/besu:latest
 
 ## Exposing ports
 
-Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSockets JSON-RPC. You need
+Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSocket JSON-RPC. You need
 to expose the ports to use the default ports or the ports specified using
 [`--rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-port),
 [`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port),
@@ -51,7 +51,18 @@ To run Besu exposing local ports for access:
 docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:30303 hyperledger/besu:latest --rpc-http-enabled --rpc-ws-enabled
 ```
 
-!!!example
+!!! note
+
+    The examples on this page expose TCP ports only.
+    To expose UDP ports, specify `/udp` at the end of the argument for the `-p` Docker subcommand option:
+
+    ```bash
+    docker run -p <port>:<port>/udp
+    ```
+
+    See the [`docker run -p` documentation](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose).
+
+!!! example
 
     To enable JSON-RPC HTTP calls to `127.0.0.1:8545` and P2P discovery on `127.0.0.1:13001`:
 
@@ -63,7 +74,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
 
 !!! important
 
-    Do not mount a volume at the default data path (`/opt/besu`). Mounting a volume at the default
+    Don't mount a volume at the default data path (`/opt/besu`). Mounting a volume at the default
     data path interferes with the operation of Besu and prevents Besu from safely launching.
 
     To run a node that maintains the node state (key and database),
@@ -71,12 +82,12 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     than `/opt/besu` and a storage volume mounted at that location.
 
     When running in a Docker container, [`--nat-method`](../../Find-and-Connect/Specifying-NAT.md)
-    must be set to `DOCKER` or `AUTO` (default). Do not set
+    must be set to `DOCKER` or `AUTO` (default). Don't set
     [`--nat-method`](../../Find-and-Connect/Specifying-NAT.md) to `NONE` or `UPNP`.
 
 You can specify
 [Besu environment variables](../../../Reference/CLI/CLI-Syntax.md#besu-environment-variables) with the
-docker image instead of the command line options.
+Docker image instead of the command line options.
 
 !!! example
 

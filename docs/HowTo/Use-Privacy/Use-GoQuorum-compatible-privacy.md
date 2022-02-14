@@ -22,7 +22,7 @@ The following documentation explains [the transaction lifecycle] in GoQuorum-com
 !!! note
 
     If you intend to use this privacy mode for a production use case, please contact us on
-    [Rocket Chat](https://chat.hyperledger.org/channel/besu) or by [email](mailto:besu@lists.hyperledger.org).
+    [Hyperledger Besu Chat](https://discord.gg/hyperledger) or by [email](mailto:besu@lists.hyperledger.org).
 
 <!--links-->
 [GoQuorum clients]: https://docs.goquorum.consensys.net/

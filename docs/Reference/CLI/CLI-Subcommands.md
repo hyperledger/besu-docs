@@ -89,46 +89,50 @@ Provides node public key related actions.
 === "Syntax"
 
     ```bash
-    besu public-key export [--node-private-key-file=<file>] [--to=<key-file>]
+    besu public-key export [--node-private-key-file=<file>] [--to=<key-file>] [--ec-curve=<ec-curve-name>]
     ```
 
 === "Example (to standard output)"
 
     ```bash
-    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey
+    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey --ec-curve=secp256k1
     ```
 
 === "Example (to file)"
 
     ```bash
-    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/not_precious_pub_key
+    besu --data-path=<node data path> public-key export --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/not_precious_pub_key --ec-curve=secp256k1
     ```
 
 Outputs the node public key to standard output or to the file specified by `--to=<key-file>`.
 You can output the public key associated with a specific private key file using the [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option.
+The default elliptic curve used for the key is `secp256k1`. Use the `--ec-curve` option to choose between
+`secp256k1` or `secp256r1`.
 
 ### `export-address`
 
 === "Syntax"
 
     ```bash
-    besu public-key export-address [--node-private-key-file=<file>] [--to=<address-file>]
+    besu public-key export-address [--node-private-key-file=<file>] [--to=<address-file>] [--ec-curve=<ec-curve-name>]
     ```
 
 === "Example (to standard output)"
 
     ```bash
-    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey
+    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey --ec-curve=secp256k1
     ```
 
 === "Example (to file)"
 
     ```bash
-    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/me_node_address
+    besu --data-path=<node data path> public-key export-address --node-private-key-file=/home/me/me_node/myPrivateKey --to=/home/me/me_project/me_node_address --ec-curve=secp256k1
     ```
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`.
 You can output the address associated with a specific private key file using the [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option.
+The default elliptic curve used for the key is `secp256k1`. Use the `--ec-curve` option to choose between
+`secp256k1` or `secp256r1`.
 
 ## `password`
 

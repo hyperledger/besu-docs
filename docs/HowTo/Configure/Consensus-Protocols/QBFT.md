@@ -558,5 +558,5 @@ To swap between block header validator selection and contract validator selectio
 *[vanity data]: Validators can include anything they like as vanity data.
 *[RLP]: Recursive Length Prefix
 
-[GoQuorum]: https://docs.goquorum.consensys.net/en/stable/
+[GoQuorum]: https://consensys.net/docs/goquorum/en/stable/
 [View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts

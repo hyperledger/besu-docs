@@ -7,7 +7,7 @@ guidelines (not rules) for contributing to this repository. Use your best judgem
 to propose changes to this document in a pull request.
 
 * [Hyperledger Besu documentation](http://besu.hyperledger.org/)
-* [Hyperledger Besu chat](https://chat.hyperledger.org/channel/besu)
+* [Hyperledger Besu community](https://discord.gg/hyperledger)
 * [Hyperledger Besu Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
 
 ### Useful docs contributing links

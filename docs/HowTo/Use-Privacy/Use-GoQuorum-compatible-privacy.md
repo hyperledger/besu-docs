@@ -25,6 +25,6 @@ The following documentation explains [the transaction lifecycle] in GoQuorum-com
     [Besu channel on Hyperledger Discord](https://discord.gg/hyperledger) or by [email](mailto:besu@lists.hyperledger.org).
 
 <!--links-->
-[GoQuorum clients]: https://docs.goquorum.consensys.net/
+[GoQuorum clients]: https://consensys.net/docs/goquorum/en/stable/
 [QBFT]: ../Configure/Consensus-Protocols/QBFT.md
-[the transaction lifecycle]: https://docs.goquorum.consensys.net/Concepts/Privacy/PrivateTransactionLifecycle/
+[the transaction lifecycle]: https://consensys.net/docs/goquorum/en/stable/concepts/privacy/private-transaction-lifecycle/

@@ -26,7 +26,7 @@ extra:
     some displayed features may not be available in the stable release.
     You can switch to stable version using the version box at screen bottom.'
   support:
-    chat: https://discord.gg/hyperledger
+    community: https://discord.gg/hyperledger
     email: besu@lists.hyperledger.org
     website: https://www.hyperledger.org/projects/besu
     issues: https://github.com/hyperledger/besu/issues

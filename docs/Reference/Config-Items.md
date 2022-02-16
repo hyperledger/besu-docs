@@ -143,5 +143,5 @@ Anything listed in the configuration file also takes precedence.
     ```
 
 <!--links-->
-[GoQuorum clients]: https://docs.goquorum.consensys.net/
+[GoQuorum clients]: https://consensys.net/docs/goquorum/en/stable/
 [interoperable private transactions]: ../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md

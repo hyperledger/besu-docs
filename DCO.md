@@ -13,5 +13,5 @@ command, providing your `user.name` and `user.email` are setup correctly.
 
 For more information about DCO, see the
 [Besu wiki](https://wiki.hyperledger.org/pages/viewpage.action?pageId=24772914).
-If you have any questions, you can reach us on
-[Besu chat](https://chat.hyperledger.org/channel/besu).
+If you have any questions, you can reach us on the
+[Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

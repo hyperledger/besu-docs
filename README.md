@@ -19,16 +19,16 @@ This repository only contains the sources for
 * How to contribute to the
   [Besu codebase](https://github.com/hyperledger/besu/blob/master/CONTRIBUTING.md).
 
-## Linux Foundation / GitHub accounts
+## GitHub/Discord/Linux Foundation accounts
 
 Having the following accounts is necessary for contributing code/issues to Besu:
 
 * If you want to contribute code, create a [Linux Foundation (LF) account] and a [GitHub account].
 * If you want to raise an issue, login to your [GitHub account].
-* [chat] also requires a [Linux Foundation (LF) account].
+* [Hyperledger Discord] also requires a Discord account.
 
 <!-- Links -->
 [Besu User Documentation]: https://besu.hyperledger.org
 [Linux Foundation (LF) account]: https://wiki.hyperledger.org/display/CA/Setting+up+an+LFID
 [GitHub account]: https://www.github.com/
-[chat]: https://chat.hyperledger.org/
+[Hyperledger Discord]: https://discord.gg/hyperledger

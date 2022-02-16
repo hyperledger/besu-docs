@@ -468,7 +468,7 @@ To bypass the smart contract and specify new validators:
                "blockperiodseconds": 2,
                "epochlength": 30000,
                "requesttimeoutseconds": 4,
-               "validatorcontractaddress”: “0x0000000000000000000000000000000000007777"
+               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
              },
              "transitions": {
                "qbft": [
@@ -571,7 +571,7 @@ To bypass the smart contract and specify new validators:
                "blockperiodseconds": 2,
                "epochlength": 30000,
                "requesttimeoutseconds": 4,
-               “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
+               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
              },
              "transitions": {
                "qbft": [
@@ -586,7 +586,7 @@ To bypass the smart contract and specify new validators:
                {
                  "block": 2755,
                  "validatorselectionmode": "contract",
-                 "validatorcontractaddress": “0x0000000000000000000000000000000000009999”
+                 "validatorcontractaddress": "0x0000000000000000000000000000000000009999"
                }
                ]
              }

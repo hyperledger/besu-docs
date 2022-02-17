@@ -5,7 +5,13 @@ description: System requirements to sync and run Besu
 
 # System requirements for private networks
 
-The system requirements for private networks depend on different factors, including the:
+A Hyperledger Besu private network is a network not connected to Ethereum Mainnet or an Ethereum testnet.
+Private networks typically use a different [chain ID](../../../Concepts/NetworkID-And-ChainID.md) and
+[consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
+Participation in private networks is typically restricted in some way, so the volume of traffic is
+much lower than Mainnet, resulting in lower system requirements.
+
+Private network system requirements depend on many factors, including:
 
 * Size of the world state for the network.
 * Number of transactions submitted to the network.

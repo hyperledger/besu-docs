@@ -7,7 +7,7 @@ description: Protocol upgrades
 Network upgrades are the mechanism for upgrading the Ethereum protocol. The time when the protocol
 upgrade occurs is the network upgrade.
 
-For the Ethereum MainNet and public testnets (for example, Rinkeby), the milestone block
+For the Ethereum Mainnet and public testnets (for example, Rinkeby), the milestone block
 definitions are in Hyperledger Besu. Upgrading your Besu client applies the network upgrade.
 
 For private networks, all network participants must agree on the protocol upgrades and then

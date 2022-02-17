@@ -5,7 +5,7 @@ description: Starting Hyperledger Besu
 # Starting Hyperledger Besu
 
 You can use Besu nodes for varying purposes, as described in the [Overview](../../index.md). Nodes
-can connect to the Ethereum MainNet, public testnets such as Ropsten, or private networks.
+can connect to the Ethereum Mainnet, public testnets such as Ropsten, or private networks.
 
 Use the [`besu`](../../Reference/CLI/CLI-Syntax.md) command with the required command line options
 to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
@@ -27,7 +27,7 @@ To delete the local block data, delete the `database` directory in the
 ## Genesis configuration
 
 Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to
-[MainNet](#run-a-node-on-ethereum-mainnet), [Goerli](#run-a-node-on-goerli-testnet),
+[Mainnet](#run-a-node-on-ethereum-mainnet), [Goerli](#run-a-node-on-goerli-testnet),
 [Rinkeby](#run-a-node-on-rinkeby-testnet), and [Ropsten](#run-a-node-on-ropsten-testnet).
 
 When you specify [`--network=dev`](../../Reference/CLI/CLI-Syntax.md#network), Besu uses the
@@ -62,7 +62,7 @@ confirm the node is running.
         curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
         ```
 
-        For example, after connecting to mainnet `eth_syncing` will return something similar to:
+        For example, after connecting to Mainnet, `eth_syncing` will return something similar to:
 
         ```json
         {
@@ -147,15 +147,15 @@ besu --network=goerli --data-path=<path>/<goerlidata-path>
 
 Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
 
-## Run a node on Ethereum MainNet
+## Run a node on Ethereum Mainnet
 
-To run a node on the Ethereum MainNet:
+To run a node on the Ethereum Mainnet:
 
 ```bash
 besu
 ```
 
-To run a node on MainNet with the HTTP JSON-RPC service enabled and available for localhost only:
+To run a node on Mainnet with the HTTP JSON-RPC service enabled and available for localhost only:
 
 ```bash
 besu --rpc-http-enabled

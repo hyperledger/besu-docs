@@ -127,7 +127,7 @@ In `extraData`, replace `<Node 1 Address>` with the
 
 !!! critical "Security warning"
 
-    Don't use the accounts in the genesis file on MainNet or any public network except for
+    Don't use the accounts in the genesis file on Mainnet or any public network except for
     testing. The private keys display, which means the accounts are not secure.
 
 ### 4. Create the permissions configuration file

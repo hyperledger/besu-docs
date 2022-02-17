@@ -1,17 +1,17 @@
 !!! critical "Security warning"
-    **Do not use the test accounts on Ethereum mainnet or any production network.**
+    **Do not use the test accounts on Ethereum Mainnet or any production network.**
 
     The following accounts are test accounts and their private keys are publicly visible in this
     documentation and in publicly available source code.
 
     They are not secure and everyone can use them.
 
-    **Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.**
+    **Using test accounts on Ethereum Mainnet and production networks can lead to loss of funds and identity fraud.**
 
     In this documentation, we only provide test accounts for ease of testing and learning purposes;
     never use them for other purposes. 
 
-    **Always secure your Ethereum mainnet and any production account properly.**
+    **Always secure your Ethereum Mainnet and any production account properly.**
 
     See for instance [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
 

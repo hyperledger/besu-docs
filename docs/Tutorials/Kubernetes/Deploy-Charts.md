@@ -21,7 +21,7 @@ to the `dev` directory for the rest of this tutorial.
 cd dev/helm
 ```
 
-If you are running the cluster on AWS or Azure, update the `values.yml` with `provider: aws` or
+If you're running the cluster on AWS or Azure, update the `values.yml` with `provider: aws` or
 `provider: azure` as well.
 
 !!! note
@@ -51,7 +51,7 @@ This tutorial isolates groups of resources (for example, StatefulSets and Servic
 !!! note
 
     The rest of this tutorial uses `besu` as the namespace,
-    but you are free to pick any name when deploying, but it must be consistent across the
+    but you're free to pick any name when deploying, as long as it's consistent across the
     [infrastructure scripts](./Create-Cluster.md) and charts.
 
 Run the following in a terminal window:
@@ -124,8 +124,8 @@ deploy the chart using:
 helm install genesis ./charts/besu-genesis --namespace besu --create-namespace --values ./values/genesis-besu.yml
 ```
 
-Once completed, view the genesis and enodes (the list of static nodes) config maps that every Besu node uses. and
-validator and bootnodes node keys saves as secrets.
+Once completed, view the genesis and enodes (the list of static nodes) configuration maps that every Besu node uses, and
+the validator and bootnode node keys as secrets.
 
 ![k8s-genesis-configmaps](../../images/kubernetes-genesis-configmaps.png)
 
@@ -133,8 +133,8 @@ validator and bootnodes node keys saves as secrets.
 
 ### 5. Deploy the bootnodes
 
-The Dev charts uses two bootnodes to replicate best practices for a production network. Each Besu node has flags
-that tell the StatefulSet what to deploy and how to cleanup.
+The Dev charts use two bootnodes to replicate best practices for a production network. Each Besu node has flags
+that tell the StatefulSet what to deploy and how to clean up.
 The default `values.yml` for the StatefulSet define the following flags which are present in all the
 override values files.
 
@@ -146,12 +146,12 @@ nodeFlags:
   removeKeysOnDeletion: false
 ```
 
-We do not generate keys for the bootnodes and initial validator pool. To create a Tessera pod paired to Besu
+We don't generate keys for the bootnodes and initial validator pool. To create a Tessera pod paired to Besu
 for private transactions, set the `privacy` flag to `true`. Optionally remove the secrets for the node if you
 delete the StatefulSet (for example removing a member node) by setting the `removeKeysOnDeletion` flag to `true`.
 
-For the bootnodes set `bootnode: true` flag to indicate they are bootnodes. All the other nodes
-(for example, validators and members) wait for the bootnodes to be up before proceeding, and have this flag set to `false`.
+For the bootnodes, set the `bootnode` flag to `true` to indicate they are bootnodes. All the other nodes
+(for example, validators, and members) wait for the bootnodes to be up before proceeding, and have this flag set to `false`.
 
 ```bash
 helm install bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml
@@ -160,11 +160,11 @@ helm install bootnode-2 ./charts/besu-node --namespace besu --values ./values/bo
 
 !!! warning
 
-    It is important to keep the release names of the bootnodes the same as it is tied to the keys that the genesis chart
-    creates. So we use `bootnode-1` and `bootnode-2` in the command above.
+    It's important to keep the release names of the bootnodes the same as it is tied to the keys that the genesis chart
+    creates. So we use `bootnode-1` and `bootnode-2` in the previous command.
 
-Once complete, you will see two StatefulSets, and the two bootnodes will discover themselves and peer. However because
-there are no validators present yet, there will be no blocks created as can be seen in the logs below.
+Once complete, you see two StatefulSets, and the two bootnodes discover themselves and peer.
+Because there are no validators present yet, there are no blocks created, as seen in the following logs.
 
 ![k8s-bootnode-logs](../../images/kubernetes-bootnode-logs.png)
 
@@ -184,11 +184,11 @@ helm install validator-4 ./charts/besu-node --namespace besu --values ./values/v
 
 !!! warning
 
-    As with the bootnodes, it is important to keep the release names of the initial validators the same as it is tied
-    to the keys that the genesis chart creates. So we use `validator-1`, `validator-2` and so on in the command above.
+    As with the bootnodes, it's important to keep the release names of the initial validators the same as it is tied
+    to the keys that the genesis chart creates. So we use `validator-1`, `validator-2`, etc. in the previous command.
 
-Once completed, you may need to give the validators a few minutes to peer and for round changes, depending when the first
-validator was spun up, before the logs display blocks being created.
+Once completed, you may need to give the validators a few minutes to peer and for round changes, depending on when the
+first validator was spun up, before the logs display blocks being created.
 
 ![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
 
@@ -197,9 +197,9 @@ To add a validator into the network, deploy a normal RPC node (step 7) and then
 
 ### 7. Deploy RPC or transaction nodes
 
-These nodes need their own node keys, so we set the `generateKeys: true` for a standard RPC node. For a Transaction node
-(Besu paired with Tessera for private transactions) we also set the `privacy: true` flag and deploy in the same manner
-as before.
+These nodes need their own node keys, so set the `generateKeys` flag to `true` for a standard RPC node.
+For a transaction node (Besu paired with Tessera for private transactions), set the `privacy` flag to `true` and
+deploy in the same manner as before.
 
 For an RPC node with the release name `rpc-1`:
 
@@ -213,11 +213,11 @@ For a transaction node release name `tx-1`:
 helm install tx-1 ./charts/besu-node --namespace besu --values ./values/txnode.yml
 ```
 
-Logs for `tx-1` would resemble the following for Tessera:
+Logs for `tx-1` resemble the following for Tessera:
 
 ![`k8s-tx-tessera-logs`](../../images/kubernetes-tx-tessera-logs.png)
 
-Logs for Besu resembles the following:
+Logs for Besu resemble the following:
 
 ![`k8s-tx-Besu-logs`](../../images/kubernetes-tx-Besu-logs.png)
 
@@ -250,30 +250,32 @@ that match your deployments, deploy the rules as follows:
 kubectl apply -f ../../ingress/ingress-rules-besu.yml
 ```
 
-Once complete, view the IP address under the `Ingress` section if you are using the Kubernetes Dashboard
+Once complete, view the IP address under the `Ingress` section if you're using the Kubernetes Dashboard
 or equivalent `kubectl` command.
 
 ![`k8s-ingress`](../../images/kubernetes-ingress-ip.png)
 
-The Grafana dashboard can be viewed by going to:
+You can view the Grafana dashboard by going to:
 
 ```bash
 # For Besu's grafana address:
 http://<INGRESS_IP>/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s
 ```
 
-Or for RPC calls:
+The following is an example RPC call, which confirms that the node running the JSON-RPC service is syncing:
 
-```bash
-curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://<INGRESS_IP>/rpc
-```
+=== "curl HTTP request"
 
-The call returns the following to confirm that the node running the JSON-RPC service is syncing:
+    ```bash
+    curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://<INGRESS_IP>/rpc
+    ```
 
-```json
-{
-"jsonrpc" : "2.0",
-"id" : 1,
-"result" : "0x4e9"
-}
-```
+=== "JSON result"
+
+    ```json
+    {
+    "jsonrpc" : "2.0",
+    "id" : 1,
+    "result" : "0x4e9"
+    }
+    ```

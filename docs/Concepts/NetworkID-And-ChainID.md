@@ -56,13 +56,13 @@ the rest of the network so they can't connect or synchronize with other nodes, y
 default network ID for those nodes using the
 [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.
 
-## Starting a new chain with a new chain ID
+## Start a new chain with a new chain ID
 
 If you update the chain ID (or network ID) of existing nodes, they can no longer peer with other nodes in the network.
 Nodes need to have a matching [genesis file](../HowTo/Configure/Genesis-File.md), including the chain ID, in order to peer.
-In this case, you are effectively running two chains that are unable to communicate with each other.
+In this case, you are effectively running two chains that can't communicate with each other.
 
-To change a chain ID and start a new chain, do the following:
+To change a chain ID and start a new chain:
 
 1. Stop all your nodes using ++ctrl+c++ in each terminal window.
 2. Update the [genesis file](../HowTo/Configure/Genesis-File.md) with the new chain ID.

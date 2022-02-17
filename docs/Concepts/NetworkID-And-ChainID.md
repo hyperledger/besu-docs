@@ -60,7 +60,7 @@ default network ID for those nodes using the
 
 If you update the chain ID (or network ID) of existing nodes, they can no longer peer with other nodes in the network.
 Nodes need to have a matching [genesis file](../HowTo/Configure/Genesis-File.md), including the chain ID, in order to peer.
-In this case, you are effectively running two chains that can't communicate with each other.
+In this case, you're effectively running two chains that can't communicate with each other.
 
 To change a chain ID and start a new chain:
 

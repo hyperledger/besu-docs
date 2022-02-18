@@ -5,9 +5,11 @@ description: System requirements to sync and run Besu
 
 # System requirements for public networks
 
-To determine system requirements, check CPU and disk space requirements using
-[Prometheus](../../Monitor/Metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
-[sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
+You can use Hyperledger Besu on Ethereum Mainnet and public Ethereum testnets.
+
+Determine public network system requirements by checking CPU and disk space requirements using
+[Prometheus](../../Monitor/Metrics.md#monitor-node-performance-using-prometheus).
+Grafana provides a [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
 !!! tip
 

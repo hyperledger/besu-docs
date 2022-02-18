@@ -1100,25 +1100,25 @@ default is `9001`. Ports must be
 === "Syntax"
 
     ```bash
-    --metrics-prometheus-job=<metricsPrometheusJob>
+    --metrics-push-prometheus-job=<metricsPrometheusJob>
     ```
 
 === "Example"
 
     ```bash
-    --metrics-prometheus-job="my-custom-job"
+    --metrics-push-prometheus-job="my-custom-job"
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_METRICS_PROMETHEUS_JOB="my-custom-job"
+    BESU_METRICS_PUSH_PROMETHEUS_JOB="my-custom-job"
     ```
 
 === "Configuration file"
 
     ```bash
-    metrics-prometheus-job="my-custom-job"
+    metrics-push-prometheus-job="my-custom-job"
     ```
 
 The job name when in `push` mode. The default is `besu-client`.

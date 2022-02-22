@@ -787,6 +787,59 @@ We recommend using the [`TRACE` API](#trace-methods) for production use over the
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
+### `debug_accountAt`
+
+Returns an account information at the given specified index in the specified block.
+
+#### Parameters
+
+* `blockHashOrNumber`: *string* - block hash or number
+
+* `txIndex`: *number* - transaction index from which to start
+
+* `address`: *string* - address hash from which to start
+
+#### Returns
+
+`result`: *object* - account details object with the following fields:
+
+* `code`: *data* - code for the account
+
+* `nonce`: *quantity* - number of transactions made by the sender before this one.
+
+* `balance`: *quantity* - balance of the account in Wei.
+
+* `codehash`: *data* - code hash for the account
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountAt","params":["0xc8df1f061abb4d0c107b2b1a794ade8780b3120e681f723fe55a7be586d95ba6", 0, "0xbcde5374fce5edbc8e2a8697c15331677e6ebf0b"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_accountAt","params":[""0xc8df1f061abb4d0c107b2b1a794ade8780b3120e681f723fe55a7be586d95ba6", 0, "0xbcde5374fce5edbc8e2a8697c15331677e6ebf0b"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "code": "0x0",
+            "nonce": "0x0",
+            "balance": "0x340aad21b3b70000",
+            "codehash" : "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+          }
+        }
+        ```
+
 ### `debug_accountRange`
 
 [Retesteth](https://github.com/ethereum/retesteth/wiki/Retesteth-Overview) uses
@@ -5105,10 +5158,49 @@ command line option.
         }
         ```
 
+### `miner_setCoinbase`
+Sets the coinbase, the address for the mining rewards.
+
+!!! note
+
+    You can also use `miner_setEtherbase` as an alternative method. They both work the same way.
+
+#### Parameters
+
+`coinbase`: *string* - address where to send mining rewards
+
+#### Returns
+
+`result`: *boolean* - `true` when address is set.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": true
+        }
+        ```
+
 ### `miner_start`
 
 Starts the mining process. To start mining, you must first specify a miner coinbase using the
-[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option.
+[`--miner-coinbase`](CLI/CLI-Syntax.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
 
 #### Parameters
 
@@ -7050,6 +7142,152 @@ the returned list items include the [revert reason](../HowTo/Send-Transactions/R
             ],
             "id": 1
           }
+        ```
+
+### `trace_call`
+
+Executes the given call and returns a number of possible traces for it.
+
+#### Parameters
+
+* `call`: *object* - [transaction call object](API-Objects.md#transaction-call-object)
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+* `options`: *array* of *strings* - list of tracing options; tracing options are
+[`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
+combination of the three options including none of them.
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in transaction execution order
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"}["trace"],"latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"}["trace"],"latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": {
+              "output" : "0x",
+              "stateDiff" : null,
+              "trace" : [ {
+                "action" : {
+                  "callType" : "call",
+                  "from" : "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas" : "0xffabba",
+                  "input" : "0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002",
+                  "to" : "0x0010000000000000000000000000000000000000",
+                  "value" : "0x0"
+              },
+              "result" : {
+                "gasUsed" : "0x9c58",
+                "output" : "0x"
+              },
+              "subtraces" : 0,
+              "traceAddress" : [ ],
+              "type" : "call"
+            } ],
+            "vmTrace" : null
+            },
+        "id" : 2
+        },
+        ```
+
+### `trace_filter`
+
+Returns traces matching the specified filter.
+
+#### Parameters
+
+`traceFilterOptions`: *object* - [trace filter options object](API-Objects.md#trace-filter-options-object)
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in transaction execution order
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": [
+              {
+                "action": {
+                  "callType": "call",
+                  "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas": "0xffad82",
+                  "input": "0x0000000000000000000000000000000000000999",
+                  "to": "0x0020000000000000000000000000000000000000",
+                  "value": "0x0"
+                },
+                "blockHash": "0xcd5d9c7acdcbd3fb4b24a39e05a38e32235751bb0c9e4f1aa16dc598a2c2a9e4",
+                "blockNumber": 6,
+                "result": {
+                  "gasUsed": "0x7536",
+                  "output": "0x"
+                },
+                "subtraces": 1,
+                "traceAddress": [],
+                "transactionHash": "0x91eeabc671e2dd2b1c8ddebb46ba59e8cb3e7d189f80bcc868a9787728c6e59e",
+                "transactionPosition": 0,
+                "type": "call"
+              },
+              {
+                "action": {
+                  "callType": "call",
+                  "from": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas": "0xffad52",
+                  "input": "0xf000000000000000000000000000000000000000000000000000000000000001",
+                  "to": "0x0030000000000000000000000000000000000000",
+                  "value": "0x0"
+                },
+                "blockHash": "0xeed85fe57db751442c826cfe4fdf43b10a5c2bc8b6fd3a8ccced48eb3fb35885",
+                "blockNumber": 7,
+                "result": {
+                  "gasUsed": "0x1b",
+                  "output": "0xf000000000000000000000000000000000000000000000000000000000000002"
+                },
+                "subtraces": 0,
+                "traceAddress": [],
+                "transactionHash": "0x47f4d445ea1812cb1ddd3464ab23d2bfc6ed408a8a9db1c497f94e8e06e85286",
+                "transactionPosition": 0,
+                "type": "call"
+              }
+            ],
+            "id": 415
+        }
         ```
 
 ### `trace_replayBlockTransactions`

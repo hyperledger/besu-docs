@@ -27,6 +27,6 @@ to propose changes to this document in a pull request.
 
 <!-- Links -->
 [I just have a quick question]: https://wiki.hyperledger.org/display/BESU/I+just+have+a+quick+question
-[Reporting bugs in the documentation]: https://wiki.hyperledger.org/display/BESU/Reporting+Bugs+in+the+Doc
+[Reporting bugs in the documentation]: https://wiki.hyperledger.org/display/BESU/Reporting+Bugs+in+the+Documentation
 [Submitting a documentation enhancement suggestion]: https://wiki.hyperledger.org/display/BESU/Suggesting+Documentation+Enhancements
 [Documentation style guide]: https://wiki.hyperledger.org/display/BESU/Besu+Documentation+Style+Guide

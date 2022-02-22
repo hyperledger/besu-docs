@@ -20,7 +20,7 @@ source, the blockchain.
 
     The permissioning smart contracts and [permissioning management dapp] are a separate product to Hyperledger Besu,
     located in the
-    [`ConsenSys/permissioning-smart-contracts`]https://github.com/ConsenSys/permissioning-smart-contracts repository.
+    [`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts) repository.
 
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 

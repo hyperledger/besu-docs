@@ -5159,11 +5159,13 @@ command line option.
         ```
 
 ### `miner_setCoinbase`
+
 Sets the coinbase, the address for the mining rewards.
 
 !!! note
 
     You can also use `miner_setEtherbase` as an alternative method. They both work the same way.
+    Etherbase is a historic name for coinbase.
 
 #### Parameters
 

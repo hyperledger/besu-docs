@@ -63,8 +63,8 @@ It can build, push, pull, and run container images. Built container images can b
     For Windows, you must [install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
     to install Rancher Desktop.
 
-Refer to the [official documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io/blob/main/docs/installation.md)
-for system requirements and installation instructions.
+Refer to the [official Rancher Desktop documentation](https://docs.rancherdesktop.io/) for system
+requirements and installation instructions.
 
 ## Cloud clusters
 

@@ -4,11 +4,6 @@ description: Hyperledger Besu private network using the QBFT (proof of authority
 
 # Create a private network using the QBFT (proof of authority) consensus protocol
 
-!!! warning
-
-    QBFT is currently an early access feature. It is not recommended for production networks with
-    business critical impact.
-
 A private network provides a configurable network for testing. This private network uses the
 [QBFT (proof of authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/QBFT.md).
 

@@ -48,11 +48,11 @@ new transaction has a gas price higher than the existing gas price by the percen
 If sending an [`EIP1559` transaction](Transaction-Types.md#eip1559-transactions), the old transaction is replaced if
 one of the following is true:
 
-- The new transaction's effective gas price is higher than the existing gas price by the percentage specified by
+* The new transaction's effective gas price is higher than the existing gas price by the percentage specified by
   [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) AND the new effective priority fee is
   greater than or equal to the existing priority fee.
   
-- The new transaction's effective gas price is the equal to the existing gas price AND the new effective priority fee is
+* The new transaction's effective gas price is the equal to the existing gas price AND the new effective priority fee is
   higher than the existing priority fee by the percentage specified by
   [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump).
 

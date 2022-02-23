@@ -789,7 +789,7 @@ We recommend using the [`TRACE` API](#trace-methods) for production use over the
 
 ### `debug_accountAt`
 
-Returns an account information at the given specified index in the specified block.
+Returns account information at the given specified index in the specified block.
 
 #### Parameters
 
@@ -797,7 +797,7 @@ Returns an account information at the given specified index in the specified blo
 
 * `txIndex`: *number* - transaction index from which to start
 
-* `address`: *string* - address hash from which to start
+* `address`: *string* - account address for which to retrieve information
 
 #### Returns
 
@@ -7230,7 +7230,7 @@ one object per call, in transaction execution order
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"

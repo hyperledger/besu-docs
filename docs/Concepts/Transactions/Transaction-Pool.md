@@ -58,7 +58,6 @@ one of the following is true:
 
 The default value for [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) is 10%.
 
-
 ## Size of the transaction pool
 
 Decreasing the maximum size of the transaction pool reduces memory use. If the network is busy and

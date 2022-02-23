@@ -4,7 +4,7 @@ description: Send Hyperledger Besu logs to Splunk
 
 # Splunk
 
-[Splunk](https://splunkbase.splunk.com/app/4866/#/details) is a third-party monitoring solution compatible with Besu.
+[Splunk](https://splunkbase.splunk.com/app/4866/) is a third-party monitoring solution compatible with Besu.
 A Splunk server can receive Besu logs and enable complex search, visualization, and analysis.
 
 Splunk can aggregate multiple logs in one place and run complex queries without being connected to the machine running

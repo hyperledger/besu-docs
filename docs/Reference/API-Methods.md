@@ -797,17 +797,17 @@ Returns account information at the given specified index in the specified block.
 
 * `txIndex`: *number* - transaction index from which to start
 
-* `address`: *string* - account address for which to retrieve information
+* `address`: *string* - contract address for which to retrieve information
 
 #### Returns
 
 `result`: *object* - account details object with the following fields:
 
-* `code`: *data* - code for the account
+* `code`: *data* - code for the account. Displays `0x0` if the address is an externally owned account.
 
-* `nonce`: *quantity* - number of transactions made by the sender before this one.
+* `nonce`: *quantity* - number of transactions made by the account before this one
 
-* `balance`: *quantity* - balance of the account in Wei.
+* `balance`: *quantity* - balance of the account in Wei
 
 * `codehash`: *data* - code hash for the account
 
@@ -5169,7 +5169,7 @@ Sets the coinbase, the address for the mining rewards.
 
 #### Parameters
 
-`coinbase`: *string* - address where to send mining rewards
+`coinbase`: *string* - The account address you pay mining rewards to
 
 #### Returns
 

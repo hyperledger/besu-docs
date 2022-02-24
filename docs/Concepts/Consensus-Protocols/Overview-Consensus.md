@@ -12,11 +12,6 @@ Besu implements the following consensus protocols:
 * [Quorum IBFT 1.0](../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.md) (proof of authority).
 * [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) (proof of authority).
 
-!!! warning
-
-    QBFT is currently an early access feature. It is not recommended for production networks with
-    business critical impact.
-
 The `config` property in the genesis file specifies the consensus protocol for a chain.
 
 !!! example

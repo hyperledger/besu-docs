@@ -7,11 +7,6 @@ description: Hyperledger Besu QBFT proof of authority (PoA) consensus protocol i
 Hyperledger Besu implements the QBFT proof of authority (PoA) consensus protocol. Private networks
 can use QBFT.
 
-!!! warning
-
-    QBFT is currently an early access feature. It is not recommended for production networks with
-    business critical impact.
-
 In QBFT networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.

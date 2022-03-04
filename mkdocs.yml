@@ -311,3 +311,4 @@ plugins:
           HowTo/Configure/Configure-TLS.md: HowTo/Configure/TLS/Configure-TLS.md
           HowTo/Deploy/Lite-Block-Explorer.md: https://github.com/Alethio/ethereum-lite-explorer
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
+          HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md

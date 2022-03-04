@@ -75,7 +75,6 @@ nav:
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
-            - Quorum IBFT 1.0 network: HowTo/Configure/Consensus-Protocols/QuorumIBFT.md
             - Add and remove validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
           - Create a genesis file: HowTo/Configure/Genesis-File.md
           - Specify options in a configuration file: HowTo/Configure/Using-Configuration-File.md

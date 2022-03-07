@@ -4,8 +4,8 @@ description: Hyperledger Besu QBFT proof of authority (PoA) consensus protocol i
 
 # QBFT
 
-Hyperledger Besu implements the QBFT proof of authority (PoA) consensus protocol. Private networks
-can use QBFT.
+Hyperledger Besu implements the QBFT proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
+QBFT is the recommended enterprise-grade consensus protocol for private networks.
 
 In QBFT networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
@@ -547,6 +547,12 @@ To swap between block header validator selection and contract validator selectio
             ```
 
 3. Restart all nodes in the network using the updated genesis file.
+
+## Migrate from IBFT 2.0 to QBFT
+
+You can migrate an existing [IBFT 2.0](IBFT.md) network to use QBFT with the following steps:
+
+1. 
 
 <!-- Acronyms and Definitions -->
 

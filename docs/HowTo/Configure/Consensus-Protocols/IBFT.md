@@ -4,8 +4,10 @@ description: Hyperledger Besu IBFT 2.0 proof of authority (PoA) consensus protoc
 
 # IBFT 2.0
 
-Besu implements the IBFT 2.0 proof of authority (PoA) consensus protocol. Private networks can use
-IBFT 2.0.
+Besu implements the IBFT 2.0 proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
+IBFT 2.0 is supported for existing users for private networks, but [QBFT](QBFT.md) is the recommended enterprise-grade
+consensus protocol for private networks.
+You can [migrate an existing network using IBFT 2.0 to QBFT](QBFT.md#migrate-from-ibft-20-to-qbft).
 
 !!! warning
 

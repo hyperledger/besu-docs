@@ -4,16 +4,15 @@ description: Besu proof of authority consensus protocols comparison
 
 # Comparing proof of authority consensus protocols
 
-Besu implements the Clique, IBFT 2.0, and QBFT proof of authority consensus protocols. Proof of
-authority consensus protocols work when participants know each other and there is a level of trust
+Besu implements the QBFT, IBFT 2.0, and Clique proof of authority (PoA) [consensus protocols](Overview-Consensus.md).
+PoA consensus protocols work when participants know each other and there is a level of trust
 between them. For example, in a permissioned consortium network.
 
-Proof of authority consensus protocols have faster block times and a much greater transaction
+PoA consensus protocols have faster block times and a much greater transaction
 throughput than the Ethash proof of work consensus protocol used on the Ethereum Mainnet.
 
-In Clique, IBFT 2.0, or QBFT, a group of nodes in the network act as signers (Clique) or validators
-(IBFT 2.0 and QBFT). The existing nodes in the signer/validator pool vote to add nodes to or remove
-nodes from the pool.
+In QBFT, IBFT 2.0, or Clique, a group of nodes in the network act as validators (IBFT 2.0 and QBFT) or signers (Clique).
+The existing nodes in the signer/validator pool vote to add nodes to or remove nodes from the pool.
 
 !!! note
 
@@ -26,7 +25,7 @@ Properties to consider when comparing Clique, IBFT 2.0, and QBFT are:
 * Immediate finality
 * Minimum number of validators
 * Liveness
-* Speed.
+* Speed
 
 ### Immediate finality
 
@@ -54,7 +53,7 @@ Clique is more fault tolerant than IBFT 2.0 and QBFT. Clique tolerates up to hal
 failing. IBFT 2.0 and QBFT networks require greater than or equal to two-thirds of validators to be
 operating to create blocks. For example, an IBFT 2.0 or QBFT network of:
 
-* Four to five validators tolerates one unresponsive validator
+* Four to five validators tolerates one unresponsive validator.
 * Six to eight validators tolerates two unresponsive validators.
 
 Networks with three or less validators can produce blocks but do not guarantee finality when

@@ -6,8 +6,15 @@ source: rinkeby.json
 
 # Clique
 
-Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) consensus protocol.
+Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
 The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
+
+!!! important
+
+    Clique is not recommended for production use.
+    If you use Clique in production and encounter issues, you must create a new network and either duplicate the current
+    state or replay all transactions on the new network.
+    You can ask for migration support on [Discord](https://discord.gg/hyperledger).
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.

@@ -72,8 +72,8 @@ nav:
             - Start Besu: HowTo/Get-Started/Starting-node.md
         - Configure Besu:
           - Consensus protocols:
-            - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
+            - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
             - Add and remove validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
           - Create a genesis file: HowTo/Configure/Genesis-File.md

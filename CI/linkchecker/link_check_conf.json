@@ -17,6 +17,9 @@
         },
         {
             "pattern": "^http(s)?://.+.zendesk.com"
+        },
+        {
+            "pattern": "^http(s)?://consensys.net"
         }
     ],
     "aliveStatusCodes":[200, 206],

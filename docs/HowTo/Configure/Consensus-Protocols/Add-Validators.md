@@ -111,11 +111,11 @@ To add or remove validators without voting:
 1. Stop all nodes in the network.
 1. In the genesis file, add the `transitions` configuration item where:
 
-   * `<BlockNumber>` is the upcoming block at which to change validators.
-   * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
-     of the validators after `<BlockNumber>`.
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
+      of the validators after `<BlockNumber>`.
 
-   !!! example "Transitions object in the genesis file"
+    !!! example "Transitions object in the genesis file"
 
         === "Syntax"
 
@@ -178,8 +178,9 @@ To add or remove validators without voting:
    specifying `latest`.
 
 !!! caution
-Do not specify a transition block in the past. Specifying a transition block in the past could
-result in unexpected behaviour, such as causing the network to fork.
+
+    Do not specify a transition block in the past. Specifying a transition block in the past could
+    result in unexpected behaviour, such as causing the network to fork.
 
 ### Add and remove validators using a smart contract
 
@@ -208,14 +209,14 @@ To bypass the smart contract and specify new validators:
 1. Stop all nodes in the network.
 1. In the genesis file, add a `transitions` configuration item where:
 
-   * `<BlockNumber>` is the upcoming block at which to change validators.
-   * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to the
-     `blockheader` mode temporarily.
-   * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
-     of the validators after `<BlockNumber>`. These validators only need to be sufficient to progress
-     the chain and allow a new contract to be deployed.
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to the
+      `blockheader` mode temporarily.
+    * `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses
+      of the validators after `<BlockNumber>`. These validators only need to be sufficient to progress
+      the chain and allow a new contract to be deployed.
 
-   === "Syntax"
+    === "Syntax"
 
         ```bash
         {
@@ -245,7 +246,7 @@ To bypass the smart contract and specify new validators:
         }
         ```
 
-   === "Example"
+    === "Example"
 
         ```bash
         {
@@ -279,12 +280,12 @@ To bypass the smart contract and specify new validators:
 1. Stop all nodes in the network.
 1. In the genesis file, add another `transitions` configuration item where:
 
-   * `<BlockNumber>` is the upcoming block at which to change validators.
-   * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to
-     `contract` mode.
-   * `<NewValidatorContractAddress>` is the address of the new smart contract.
+    * `<BlockNumber>` is the upcoming block at which to change validators.
+    * `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to
+      `contract` mode.
+    * `<NewValidatorContractAddress>` is the address of the new smart contract.
 
-   === "Syntax"
+    === "Syntax"
 
         ```bash
         {
@@ -318,7 +319,7 @@ To bypass the smart contract and specify new validators:
         }
         ```
 
-   === "Example"
+    === "Example"
 
         ```bash
         {

@@ -162,11 +162,11 @@ nav:
         - Configure Kubernetes mode in NAT Manager : Tutorials/Examples/Nat-Manager-Kubernetes.md
         - Deploy on Microsoft Azure: Tutorials/Examples/Private-Network-Example-Azure.md
       - Create a private network:
-        - Using QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md
-        - Using IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
-        - Using Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
-        - Using Ethash (PoW): Tutorials/Private-Network/Create-Private-Network.md
-        - Adding and removing IBFT 2.0 validators: Tutorials/Private-Network/Adding-removing-IBFT-validators.md
+        - Use QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md
+        - Use IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
+        - Use Clique (PoA): Tutorials/Private-Network/Create-Private-Clique-Network.md
+        - Use Ethash (PoW): Tutorials/Private-Network/Create-Private-Network.md
+        - Add and remove IBFT 2.0 validators: Tutorials/Private-Network/Adding-removing-IBFT-validators.md
       - Permissioning:
         - Create a permissioned network: Tutorials/Permissioning/Create-Permissioned-Network.md
         - Get started with onchain permissioning: Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

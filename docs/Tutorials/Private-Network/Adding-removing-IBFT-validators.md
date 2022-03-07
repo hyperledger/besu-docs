@@ -2,16 +2,16 @@
 description: Adding and removing IBFT 2.0 validators
 ---
 
-# Adding and removing IBFT 2.0 validators
+# Add and remove IBFT 2.0 validators
 
 This example walks through
-[adding and removing an IBFT 2.0 validator by voting](../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting).
+[adding and removing an IBFT 2.0 validator by voting](../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#ibft-20).
 
 ## Prerequisites
 
 * [IBFT 2.0 network as configured in the IBFT 2.0 tutorial](Create-IBFT-Network.md)
 
-## Adding a validator
+## Add a validator
 
 ### 1. Create directories
 
@@ -116,8 +116,8 @@ Verify that the new validator is now in the list of validators using
 
 The list of validators contains 5 addresses now.
 
-## Removing a validator
+## Remove a validator
 
-The process for removing a validator is similar to [adding a validator](#adding-a-validator) starting from step 2,
+The process for removing a validator is similar to [adding a validator](#add-a-validator) starting from step 2,
 except you specify `false` as the second parameter of
 [`ibft_proposeValidatorVote`](../../Reference/API-Methods.md#ibft_proposevalidatorvote).

@@ -181,6 +181,19 @@ Returned by [`debug_traceBlock`](API-Methods.md#debug_traceblock),
 | **returnValue** | String  | Bytes returned from transaction execution (without a `0x` prefix). |
 | **structLogs**  | Array   | Array of structured log objects.                                   |
 
+## Trace filter options object
+
+Parameter for [`trace_filter`](API-Methods.md#trace_filter). All parameters are optional.
+
+| Key | Type | Value |
+|-----|:----:|-------|
+| **fromBLock**   | String &#124; Tag | Trace starts at this block.                        |
+| **toBlock**     | String &#124; Tag | Trace stops at this block.                         |
+| **fromAddress** | String            | Include only traces sent from this address.        |
+| **toAddress**   | String            | Include only traces with this destination address. |
+| **after**       | Quantity          | The offset trace number.                           |
+| **count**       | Integer           | Number of traces to display in a batch.            |
+
 ## Transaction object
 
 Returned by [`eth_getTransactionByHash`](API-Methods.md#eth_gettransactionbyhash),

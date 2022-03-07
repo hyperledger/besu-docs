@@ -54,13 +54,14 @@ Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#p
 
 To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSockets connections, and GraphQL
 requests.
-The API accepts requests only when hostnames specified using the
+Besu accepts requests only when hostnames specified using the
 [`--host-allowlist`](../../../Reference/CLI/CLI-Syntax.md#host-allowlist) option matches the request host headers.
-Besu accepts incoming requests and connections to `localhost` and `127.0.0.1` by default.
+By default, Besu accepts requests and connections from `localhost` and `127.0.0.1`.
 
-!!! tip
+!!! important
 
-    If you want to control access to the API, we recommend using the [Besu authentication mechanism](Authentication.md)
+    This isn't a permissioning feature.
+    If you want to restrict access to the API, we recommend using the [Besu authentication mechanism](Authentication.md)
     with username and password authentication or JWT public key authentication.
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.

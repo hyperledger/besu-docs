@@ -551,12 +551,6 @@ To swap between block header validator selection and contract validator selectio
 
 3. Restart all nodes in the network using the updated genesis file.
 
-## Migrate from IBFT 2.0 to QBFT
-
-You can migrate an existing [IBFT 2.0](IBFT.md) network to use QBFT with the following steps:
-
-1. 
-
 <!-- Acronyms and Definitions -->
 
 *[vanity data]: Validators can include anything they like as vanity data.

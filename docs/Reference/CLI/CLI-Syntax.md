@@ -698,8 +698,8 @@ By default, Besu accepts requests from `localhost` and `127.0.0.1`.
 
 !!! tip
 
-    - To allow all hostnames, use `"*"`.
-      We don't recommend allowing all hostnames for production environments.
+    To allow all hostnames, use `"*"`.
+    We don't recommend allowing all hostnames for production environments.
 
 ### `identity`
 

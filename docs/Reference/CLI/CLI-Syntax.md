@@ -394,6 +394,145 @@ The default is `true`.
     You can override the default DNS server if it's unreliable or doesn't serve TCP DNS requests, using the
     [experimental option](#xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
 
+### `engine-rpc-http-port`
+
+=== "Syntax"
+
+    ```bash
+    --engine-rpc-http-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-rpc-http-port=8550
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_RPC_HTTP_PORT=8550
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-rpc-http-port=8550
+    ```
+
+Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over HTTP.
+
+### `engine-rpc-ws-port`
+
+=== "Syntax"
+
+    ```bash
+    --engine-rpc-ws-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-rpc-ws-port=8551
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_RPC_WS_PORT=8551
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-rpc-ws-port=8551
+    ```
+
+Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over WebSockets.
+
+### `engine-host-allowlist`
+
+=== "Syntax"
+
+    ```bash
+    --engine-host-allowlist=<hostname>[,<hostname>...]... or "*"
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-host-allowlist=localhost,127.0.0.1
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_HOST_ALLOWLIST=localhost,127.0.0.1
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-host-allowlist=localhost,127.0.0.1
+    ```
+
+Comma separated list of hostnames to allow for ENGINE API access (applies to both HTTP and WebSockets), or * to accept any host
+
+### `engine-jwt-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --engine-jwt-enabled
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-jwt-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_JWT_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-jwt-enabled=true
+    ```
+Whether to require authentication for Engine APIs. Defaults to `false`
+
+### `engine-jwt-secret`
+
+=== "Syntax"
+
+    ```bash
+    --engine-jwt-secret=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-jwt-secret=jwt.hex
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_JWT_SECRET="publicKey.pem"
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-jwt-secret="jwt.hex"
+    ```
+
+The shared secret used for JSON-RPC (both HTTP and WebSocket) authentication of Engine API clients. Contents of file must be at least 32 hex encoded bytes, no leading `0x`. May be a relative or absolute path.
+
 ### `ethstats`
 
 === "Syntax"

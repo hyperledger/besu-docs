@@ -116,7 +116,7 @@ of the following:
   The historical transactions will be at different block heights, but the transactions and state history will
   be the same on the new network as on the Clique network.
 
-You can ask for migration support on [Discord](https://discord.gg/hyperledger).
+You can request migration support on [Discord](https://discord.gg/hyperledger).
 
 <!-- Acronyms and Definitions -->
 

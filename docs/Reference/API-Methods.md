@@ -789,13 +789,13 @@ We recommend using the [`TRACE` API](#trace-methods) for production use over the
 
 ### `debug_accountAt`
 
-Returns account information at the given specified index of the specified block.
+Returns account information at the specified index of the specified block.
 
 #### Parameters
 
-* `blockHashOrNumber`: *string* - block hash or number
+* `blockHashOrNumber`: *string* - block hash or number at which to retrieve account information
 
-* `txIndex`: *number* - transaction index from which to start
+* `txIndex`: *number* - transaction index at which to retrieve account information
 
 * `address`: *string* - contract or account address for which to retrieve information
 
@@ -5200,11 +5200,11 @@ Sets the coinbase, the address for the mining rewards.
 
 #### Parameters
 
-`coinbase`: *string* - The account address you pay mining rewards to
+`coinbase`: *string* - Account address you pay mining rewards to
 
 #### Returns
 
-`result`: *boolean* - `true` when address is set.
+`result`: *boolean* - `true` when address is set
 
 !!! example
 

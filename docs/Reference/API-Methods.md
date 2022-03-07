@@ -880,9 +880,9 @@ Returns the accounts for a specified block.
 
 #### Parameters
 
-* `blockHashOrNumber`: *string* - block hash or number
+* `blockHashOrNumber`: *string* - block hash or number at which to retrieve account information
 
-* `txIndex`: *number* - transaction index from which to start
+* `txIndex`: *number* - transaction index at which to retrieve account information
 
 * `address`: *string* - address hash from which to start
 

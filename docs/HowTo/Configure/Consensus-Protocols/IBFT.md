@@ -9,23 +9,26 @@ IBFT 2.0 is supported for existing users for private networks, but [QBFT](QBFT.m
 consensus protocol for private networks.
 You can [migrate an existing network using IBFT 2.0 to QBFT](QBFT.md#migrate-from-ibft-20-to-qbft).
 
-!!! warning
+In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
+Validators take turns to create the next block. Before inserting the block onto the chain, a
+super-majority (greater than 66%) of validators must first sign the block.
+
+Existing validators propose and vote to
+[add or remove validators](Add-Validators.md#ibft-20). Adding or removing a validator
+requires a majority vote (greater than 50%) of validators.
+
+You can [create a private network using IBFT](../../../Tutorials/Private-Network/Create-IBFT-Network.md).
+
+!!! important
 
     Configure your network to ensure you never lose 1/3 or more of your validators. If more
     than 1/3 of validators stop participating, new blocks are no longer created, and the
     network stalls. It may take significant time to recover once nodes are restarted.
 
-In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
-Validators take turns to create the next block. Before inserting the block onto the chain, a
-super-majority (greater than 66%) of validators must first sign the block.
-
 !!! tip
+
     You can use a plugin to securely store a validator's key using the
     [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
-
-Existing validators propose and vote to
-[add or remove validators](Add-Validators.md#ibft-20). Adding or removing a validator
-requires a majority vote (greater than 50%) of validators.
 
 ## Validators
 

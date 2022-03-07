@@ -9,16 +9,17 @@ source: rinkeby.json
 Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
 The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
 
-!!! important
+!!! warning
 
-    Clique is not recommended for production use.
-    If you use Clique in production and encounter issues, you must create a new network and either duplicate the current
-    state or replay all transactions on the new network.
-    You can ask for migration support on [Discord](https://discord.gg/hyperledger).
+    Clique is not suitable for production environments.
+    Use only in development environments.
+    You can [migrate a Clique network to another consensus protocol](#migrate-from-clique-to-another-consensus-protocol).
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.
 Existing signers propose and vote to [add or remove signers](Add-Validators.md#clique).
+
+You can [create a private network using Clique](../../../Tutorials/Private-Network/Create-Private-Clique-Network.md).
 
 ## Genesis file
 
@@ -102,6 +103,20 @@ This may cause large, irresolvable forks in a network.
 !!! important
 
     We recommend using a more updated consensus protocol such as [IBFT 2.0](IBFT.md) or [QBFT](QBFT.md).
+
+## Migrate from Clique to another consensus protocol
+
+Migrating a network using Clique to a consensus mechanism suitable for production such as [QBFT](QBFT.md) requires one
+of the following:
+
+* Stopping the Clique network and starting the new network with the state at the time of migration.
+  That is, historical transactions and state history are lost.
+
+* Replaying the historical transactions on the new network.
+  The historical transactions will be at different block heights, but the transactions and state history will
+  be the same on the new network as on the Clique network.
+
+You can ask for migration support on [Discord](https://discord.gg/hyperledger).
 
 <!-- Acronyms and Definitions -->
 

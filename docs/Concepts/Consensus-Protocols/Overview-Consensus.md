@@ -12,10 +12,9 @@ Besu implements the following consensus protocols:
   users for private networks, but you can [migrate a network using IBFT 2.0 to QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md#migrate-from-ibft-20-to-qbft).
 * [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (proof of authority): Clique is not recommended for
   production use.
-  If you use Clique in production and encounter issues, you must create a new network and either duplicate the current
-  state or replay all transactions on the new network.
-  You can ask for migration support on [Discord](https://discord.gg/hyperledger).
-* Ethash (proof of work)
+  You can [migrate a network using Clique to another consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md#migrate-from-clique-to-another-consensus-protocol).
+* Ethash (proof of work): Ethash is used on Ethereum Mainnet and can also be used in a
+  [small, development network](../../Tutorials/Private-Network/Create-Private-Network.md).
 
 You can view a [comparison of the proof of authority consensus protocols](Comparing-PoA.md).
 

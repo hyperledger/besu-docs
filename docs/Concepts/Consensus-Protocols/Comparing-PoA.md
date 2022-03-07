@@ -11,7 +11,7 @@ between them. For example, in a permissioned consortium network.
 PoA consensus protocols have faster block times and a much greater transaction
 throughput than the Ethash proof of work consensus protocol used on the Ethereum Mainnet.
 
-In QBFT, IBFT 2.0, or Clique, a group of nodes in the network act as validators (IBFT 2.0 and QBFT) or signers (Clique).
+In QBFT, IBFT 2.0, or Clique, a group of nodes in the network act as validators (QBFT and IBFT 2.0) or signers (Clique).
 The existing nodes in the signer/validator pool vote to add nodes to or remove nodes from the pool.
 
 !!! note

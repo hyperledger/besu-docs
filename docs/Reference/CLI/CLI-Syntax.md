@@ -420,7 +420,7 @@ The default is `true`.
     engine-rpc-http-port=8550
     ```
 
-Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over HTTP.
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
 
 ### `engine-rpc-ws-port`
 
@@ -448,7 +448,7 @@ Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over HTTP.
     engine-rpc-ws-port=8551
     ```
 
-Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over WebSockets.
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSockets.
 
 ### `engine-host-allowlist`
 
@@ -476,7 +476,12 @@ Listen port for the Engine API calls (ENGINE, ETH) for JSON-RPC over WebSockets.
     engine-host-allowlist=localhost,127.0.0.1
     ```
 
-Comma separated list of hostnames to allow for ENGINE API access (applies to both HTTP and WebSockets), or * to accept any host
+A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSockets).
+
+!!!tip
+
+    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames in production
+    environments.
 
 ### `engine-jwt-enabled`
 
@@ -503,7 +508,7 @@ Comma separated list of hostnames to allow for ENGINE API access (applies to bot
     ```bash
     engine-jwt-enabled=true
     ```
-Whether to require authentication for Engine APIs. Defaults to `false`
+Enables or disables authentication for Engine APIs. The default is `false`.
 
 ### `engine-jwt-secret`
 
@@ -531,7 +536,8 @@ Whether to require authentication for Engine APIs. Defaults to `false`
     engine-jwt-secret="jwt.hex"
     ```
 
-The shared secret used for JSON-RPC (both HTTP and WebSocket) authentication of Engine API clients. Contents of file must be at least 32 hex encoded bytes, no leading `0x`. May be a relative or absolute path.
+The shared secret used for JSON-RPC (both HTTP and WebSocket) authentication of Engine API clients.
+Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path.
 
 ### `ethstats`
 

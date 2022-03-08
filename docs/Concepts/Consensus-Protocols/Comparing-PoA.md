@@ -61,7 +61,7 @@ operating in adversarial environments.
 
 !!! important
 
-    We don't recommend using QBFT or IBFT 2.0 networks with three nodes for production purposes.
+    We recommend using QBFT or IBFT 2.0 networks with at least four nodes in production environments.
 
 ### Speed
 

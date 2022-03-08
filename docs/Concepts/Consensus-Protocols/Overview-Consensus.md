@@ -8,8 +8,7 @@ Besu implements the following consensus protocols:
 
 * [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) (proof of authority) - The recommended
   enterprise-grade consensus protocol for private networks.
-* [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (proof of authority) - Supported for existing
-  users for private networks.
+* [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (proof of authority) - Supported for existing private networks.
 * [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (proof of authority) - Not recommended for
   production use.
   You can [migrate a network using Clique to another consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md#migrate-from-clique-to-another-consensus-protocol).

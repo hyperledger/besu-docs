@@ -4,7 +4,7 @@ description: Transaction trace types
 
 # Transaction trace types
 
-When [tracing transactions](../HowTo/Troubleshoot/Trace-Transactions.md) the trace type options are
+When [tracing transactions](../HowTo/Troubleshoot/Trace-Transactions.md), the trace type options are
 [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
 ## trace

@@ -1,21 +1,17 @@
 ---
-description: Tracing transactions
+description: Transaction trace types
 ---
 
 # Transaction trace types
 
-When using
-[`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktransactions) the
-trace options are [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
-
-[`trace_block`](API-Methods.md#trace_block) and [`trace_transaction`](API-Methods.md#trace_transaction)
-retrieve only the [`trace`](#trace) option.
+There are three transaction tracing options when [tracing transactions](../HowTo/Troubleshoot/Trace-Transactions.md);
+[`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
 ## trace
 
 An ordered list of calls to other contracts, excluding precompiled contracts.
 
-!!!example "trace Example"
+!!!example "`trace` example"
 
     ```json
     "trace":[
@@ -73,7 +69,7 @@ For out of gas operations, `vmTrace` reports the operation that caused the out o
 including the calculated gas cost. `vmTrace` does not report `ex` values because the operation is
 not executed.
 
-!!!example "vmTrace Example"
+!!!example "`vmTrace` example"
 
     ```json
     "vmTrace":{
@@ -122,7 +118,7 @@ transaction to after the transaction. For the `key:value` pairs:
 
 An absent value is distinct from zero when creating accounts or clearing storage.
 
-!!!example "stateDiff Example"
+!!!example "`stateDiff` example"
 
     ```json
     "stateDiff":{
@@ -156,3 +152,21 @@ An absent value is distinct from zero when creating accounts or clearing storage
 | `nonce.from`   | Nonce before the transaction.
 | `nonce.to`     | Nonce after the transaction.
 | `storage`      | Changes to storage. None in this example.
+
+## Applicable API methods
+
+The trace options `trace`, `vmTrace`, and `stateDiff` are available for the following
+[ad-hoc tracing API methods](../HowTo/Troubleshoot/Trace-Transactions.md#ad-hoc-tracing-apis):
+
+* [`trace_call`](API-Methods.md#trace_call)
+* [`trace_callMany`](API-Methods.md#trace_callmany)
+* [`trace_rawTransaction`](API-Methods.md#trace_rawtransaction)
+* [`trace_replayBlockTransactions`](API-Methods.md#trace_replayblocktransactions)
+
+Only the `trace` option is available for the following
+[transaction-trace filtering API methods](../HowTo/Troubleshoot/Trace-Transactions.md#transaction-trace-filtering-apis):
+
+* [`trace_block`](API-Methods.md#trace_block)
+* [`trace_filter`](API-Methods.md#trace_filter)
+* [`trace_get`](API-Methods.md#trace_get)
+* [`trace_transaction`](API-Methods.md#trace_transaction)

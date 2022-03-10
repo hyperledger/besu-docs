@@ -5,7 +5,7 @@ description: Including revert reason in transactions with Hyperledger Besu
 # Revert reason
 
 In smart contracts, the
-[`revert`](https://solidity.readthedocs.io/en/v0.8.12/control-structures.html#revert) operation
+[`revert`](https://docs.soliditylang.org/en/v0.8.12/control-structures.html#revert) operation
 triggers an exception to flag an error and revert the current call. The EVM passes back to the
 client an optional string message containing information about the error.
 

@@ -10,7 +10,7 @@ Enable the `TRACE` API using the
 [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
 
-There are two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-tracing-apis) and
+The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-tracing-apis) and
 [transaction-trace filtering APIs](#transaction-trace-filtering-apis).
 
 ## Ad-hoc tracing APIs
@@ -22,7 +22,7 @@ To use the ad-hoc tracing APIs, your node must be within the
 [the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
 (by default, 1024).
 
-The ad-hoc tracing APIs are: 
+The ad-hoc tracing APIs are:
 
 * [trace_call](../../Reference/API-Methods.md#trace_call)
 * [trace_callMany](../../Reference/API-Methods.md#trace_callmany)

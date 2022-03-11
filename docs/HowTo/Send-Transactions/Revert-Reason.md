@@ -16,6 +16,9 @@ client an optional string message containing information about the error.
 
     contract VendingMachine {
         address owner;
+        constructor() {
+            owner = msg.sender;
+        }
         error Unauthorized();
         function buy(uint amount) public payable {
             if (amount > msg.value / 2 ether)

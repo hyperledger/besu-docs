@@ -200,7 +200,10 @@ Use a [transition](#transitions) to update the `blockperiodseconds` in an existi
 ## Transitions
 
 The `transitions` genesis configuration item allows you to specify a future block number at which to change IBFT 2.0
-network configuration in an existing network. For example, you can update the [block time](#block-time) or update the block reward.
+network configuration in an existing network.
+For example, you can update the [block time](#configure-block-time-on-an-existing-network-deployment),
+[block reward](#configure-block-rewards-on-an-existing-network-deployment), or
+[mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network-deployment).
 
 !!! caution
 
@@ -353,6 +356,88 @@ To update an existing network with a new `blockreward`:
     !!! note
 
         You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
+
+3. Restart all nodes in the network using the updated genesis file.
+
+### Configure the mining beneficiary on an existing network deployment
+
+To update an existing network with a new mining beneficiary:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
+    * `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`.
+     Starting at `<FutureBlockNumber>`, block rewards go to this address.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                "chainId": 999,
+                "byzantiumBlock": 0,
+                "ibft2": {
+                  "blockperiodseconds": 1,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 5,
+                  "blockreward": "5000000000000000000",
+                  "miningbeneficiary": "0x0000000000000000000000000000000000000001"
+                },
+                "transitions": {
+                  "ibft2": [
+                      {
+                          "block": <FutureBlockNumber>, 
+                          "miningbeneficiary": <NewAddress>
+                      },
+                      {
+                          "block": <FutureBlockNumber>, 
+                          "miningbeneficiary": <NewAddress>
+                      }
+                  ]
+                }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                "chainId": 999,
+                "byzantiumBlock": 0,
+                "ibft2": {
+                  "blockperiodseconds": 1,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 5,
+                  "blockreward": "5000000000000000000",
+                  "miningbeneficiary": "0x0000000000000000000000000000000000000001"
+                },
+                "transitions": {
+                  "ibft2": [
+                  {
+                    "block": 10000, 
+                    "miningbeneficiary": "",
+                  },
+                  {
+                    "block": 20000, 
+                    "miningbeneficiary": "0x0000000000000000000000000000000000000002",
+                  }
+                  ]
+                }
+              },
+              ...
+            }
+            ```
+
+    !!! note
+
+        Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the
+        miner rather than a global override address.
 
 3. Restart all nodes in the network using the updated genesis file.
 

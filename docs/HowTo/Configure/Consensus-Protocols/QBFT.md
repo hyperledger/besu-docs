@@ -329,8 +329,11 @@ Use a [transition](#transitions) to update the `blockperiodseconds` in an existi
 ## Transitions
 
 The `transitions` genesis configuration item allows you to specify a future block number at which to change QBFT
-network configuration in an existing network. For example, you can update the [block time](#block-time), or swap
-the [validator management methods](#validator-management).
+network configuration in an existing network.
+For example, you can update the [block time](#configure-block-time-on-an-existing-network),
+[block reward](#configure-block-rewards-on-an-existing-network-deployment),
+[validator management method](#swap-validator-management-methods), or
+[mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network-deployment).
 
 !!! caution
 
@@ -515,7 +518,7 @@ To swap between block header validator selection and contract validator selectio
                    {
                      "block": <FutureBlockNumber>,
                      "validatorselectionmode": <SelectionMode>,
-                     "validatorcontractaddress": <ContractAddress>"
+                     "validatorcontractaddress": <ContractAddress>
                    }
                    ]
                  }
@@ -548,6 +551,82 @@ To swap between block header validator selection and contract validator selectio
               ...
             }
             ```
+
+3. Restart all nodes in the network using the updated genesis file.
+
+### Configure the mining beneficiary on an existing network deployment
+
+To update an existing network with a new mining beneficiary:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    * `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
+    * `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`.
+      Starting at `<FutureBlockNumber>`, block rewards go to this address.
+
+    !!! example "Transitions configuration"
+
+        === "Syntax"
+
+            ```bash
+            {
+              "config": {
+                ...
+                "qbft": {
+                  "blockperiodseconds": 5,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 10
+                },
+                "transitions": {
+                  "qbft": [
+                  {
+                    "block": <FutureBlockNumber>, 
+                    "miningbeneficiary": <NewAddress>
+                  },
+                  {
+                    "block": <FutureBlockNumber>, 
+                    "miningbeneficiary": <NewAddress>
+                  }
+                  ]
+                }
+              },
+              ...
+            }
+            ```
+
+        === "Example"
+
+            ```bash
+            {
+              "config": {
+                ...
+                "qbft": {
+                  "blockperiodseconds": 5,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 10
+                },
+                "transitions": {
+                  "qbft": [
+                  {
+                    "block": 10000, 
+                    "miningbeneficiary": "",
+                  },
+                  {
+                    "block": 20000, 
+                    "miningbeneficiary": "0x0000000000000000000000000000000000000002",
+                  }
+                  ]
+                }
+              },
+              ...
+            }
+            ```
+
+    !!! note
+
+        Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the
+        miner rather than a global override address.
 
 3. Restart all nodes in the network using the updated genesis file.
 

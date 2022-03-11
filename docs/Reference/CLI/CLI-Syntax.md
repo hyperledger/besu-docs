@@ -680,20 +680,26 @@ Show the help message and exit.
     host-allowlist=["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to
-[access to the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
-[pull Besu metrics](../../HowTo/Monitor/Metrics.md). By
-default, Besu accepts access from `localhost` and `127.0.0.1`.
+A comma-separated list of hostnames to [access the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
+[pull Besu metrics](../../HowTo/Monitor/Metrics.md).
+By default, Besu accepts requests from `localhost` and `127.0.0.1`.
 
-!!!note
+!!! important
+
+    This isn't a permissioning feature.
+    If you want to restrict access to the API, we recommend using the
+    [Besu authentication mechanism](../../HowTo/Interact/APIs/Authentication.md) with username and password
+    authentication or JWT public key authentication.
+
+!!! note
 
     If using [Prometheus](https://prometheus.io/) to pull metrics from a node, you must specify all
     the other nodes you want to pull metrics from in the list of allowed hostnames.
 
-!!!tip
+!!! tip
 
-    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
-    environments.
+    To allow all hostnames, use `"*"`.
+    We don't recommend allowing all hostnames for production environments.
 
 ### `identity`
 

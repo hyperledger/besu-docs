@@ -437,7 +437,7 @@ To update an existing network with a new mining beneficiary:
     !!! note
 
         Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the
-        miner rather than a global override address.
+        block producer rather than a global override address.
 
 3. Restart all nodes in the network using the updated genesis file.
 

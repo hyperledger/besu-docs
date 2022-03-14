@@ -26,8 +26,8 @@ Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and
 nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSockets. Besu also
 supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
-* Ether mining
-* Smart contract development
+* Ether mining.
+* Smart contract development.
 * Decentralized application (dapp) development.
 
 ## New to Ethereum?
@@ -35,7 +35,7 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 Get started with the [Developer Quickstart](Tutorials/Developer-Quickstart.md). Use the quickstart
 to rapidly generate local blockchain networks.
 
-Learn more about [use cases for Ethereum blockchain](https://consensys.net/blockchain-use-cases/case-studies/).
+Learn more about [use cases for Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).
 
 ## What does Besu support?
 

@@ -59,10 +59,10 @@ the `Private-Network` directory:
 {
   "config": {
     "londonBlock": 0,
-      "ethash": {
-        "fixeddifficulty": 1000
-      },
-       "chainID": 1337
+    "ethash": {
+      "fixeddifficulty": 1000
+    },
+      "chainID": 1337
    },
   "nonce": "0x42",
   "gasLimit": "0x1000000",

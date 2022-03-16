@@ -18,11 +18,7 @@ and stored by hash, which increases the size of the database and increases the r
 
 ## Bonsai Tries
 
-!!! caution
-
-    Bonsai Tries is an experimental feature.
-
-Bonsai Tries is an experimental data storage layout policy designed to reduce storage requirements and increase
+Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase
 read performance.
 
 Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the

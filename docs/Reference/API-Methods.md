@@ -7083,7 +7083,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
+    requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7184,7 +7184,7 @@ Executes the given call and returns a number of possible traces for it.
 !!! important
 
     The requested transaction must be contained in a block within the number of
-    [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
+    [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7255,8 +7255,8 @@ Performs multiple call traces on top of the same block. You can trace dependent 
 
 !!! important
 
-    The requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
-    with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
+    The requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained)
+    with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7350,7 +7350,7 @@ Returns traces matching the specified filter.
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
+    requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7437,7 +7437,7 @@ Returns trace at given position.
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7503,7 +7503,7 @@ Traces a call to `eth_sendRawTransaction` without making the call, returning the
 !!! important
 
     The requested transaction must be contained in a block within 
-    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7563,7 +7563,7 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    The requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
+    The requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7680,7 +7680,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 

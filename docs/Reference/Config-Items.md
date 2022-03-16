@@ -83,7 +83,7 @@ In private networks, the milestone block defines the protocol version for the ne
     {
       "config": {
         ...
-        "constantinopleFixBlock": 0,
+        "londonBlock": 0,
         ...
       },
     }
@@ -91,8 +91,9 @@ In private networks, the milestone block defines the protocol version for the ne
 
 !!! tip
 
-    When specifying the milestone block for private networks, you only need to specify the latest
+    When specifying the milestone block for private networks, we recommend specifying the latest
     milestone. It is implied this includes the preceding milestones.
+    Specifying the latest milestone ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 ## Fixed difficulty
 

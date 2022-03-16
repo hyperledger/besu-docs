@@ -55,7 +55,7 @@ specific to IBFT 2.0.
       {
         "config": {
           "chainId": 1981,
-          "muirglacierblock": 0,
+          "londonBlock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,

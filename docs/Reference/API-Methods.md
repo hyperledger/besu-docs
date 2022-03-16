@@ -7523,7 +7523,7 @@ one object per call, in the order called by the transaction
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",["trace"]],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"

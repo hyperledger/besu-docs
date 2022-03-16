@@ -7083,7 +7083,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7183,7 +7183,8 @@ Executes the given call and returns a number of possible traces for it.
 
 !!! important
 
-    The requested transaction must be contained in a block  within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    The requested transaction must be contained in a block within the number of
+    [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7208,13 +7209,13 @@ one object per call, in transaction execution order
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"}["trace"],"latest"],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"},["trace"],"latest"],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"}["trace"],"latest"],"id":1}
+        {"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"},["trace"],"latest"],"id":1}
         ```
 
     === "JSON result"
@@ -7254,7 +7255,8 @@ Performs multiple call traces on top of the same block. You can trace dependent 
 
 !!! important
 
-    The requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    The requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
+    with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7348,7 +7350,7 @@ Returns traces matching the specified filter.
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7435,7 +7437,7 @@ Returns trace at given position.
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7501,7 +7503,7 @@ Traces a call to `eth_sendRawTransaction` without making the call, returning the
 !!! important
 
     The requested transaction must be contained in a block within 
-    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7521,13 +7523,13 @@ one object per call, in the order called by the transaction
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}
+        {"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",["trace"]],"id":1}
         ```
 
     === "JSON result"
@@ -7536,27 +7538,20 @@ one object per call, in the order called by the transaction
         {
             "jsonrpc": "2.0",
             "result": {
-              "action" : {
-                "callType" : "call",
-                "from" : "0x1c39ba39e4735cb65978d4db400ddd70a72dc750",
-                "gas" : "0x13e99",
-                "input" : "0x16c72721",
-                "to" : "0x2bd2326c993dfaef84f696526064ff22eba5b362",
-                "value" : "0x0"
-              },
-              "blockHash" : "0x7eb25504e4c202cf3d62fd585d3e238f592c780cca82dacb2ed3cb5b38883add"
-              "blockNumber": 3068185,
-              "result": {
-                "gasUsed": "0x183",
-                "output" : "0x0000000000000000000000000000000000000000000000000000000000000001"
-              },
-              "subtraces" : 0,
-              "traceAddress" : [ 
-                0
-              ],
-              "transactionHash": "0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",
-              "transactionPosition": 2,
-              "type" : "call"
+              "output" : "0x"
+              "stateDiff": null,
+              "from" : "0x1c39ba39e4735cb65978d4db400ddd70a72dc750",
+              "trace": [{
+                "action": { ... },
+                "result": {
+                  "gasUsed": "0x0",
+                  "output": "0x"
+                }
+              "subtraces": 0,
+              "traceAddress": [],
+              "type": "call"
+            }],
+            "vmTrace": null
             },
         "id" : 1
         },
@@ -7568,7 +7563,7 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    The requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    The requested block must be within the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7685,7 +7680,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+    the number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 

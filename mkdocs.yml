@@ -90,7 +90,6 @@ nav:
           - Pass JVM options: HowTo/Configure/Passing-JVM-Options.md
           - Alternative elliptic curves: HowTo/Configure/Alternative-EC-Curves.md
           - Block proposal permissioning: HowTo/Configure/Block-Proposal-Permissioning.md
-          - Configure the data storage format: HowTo/Configure/Configure-Data-Storage.md
         - Interact with node:
             - Besu APIs:
               - Access Besu APIs: HowTo/Interact/APIs/API.md
@@ -312,3 +311,4 @@ plugins:
           HowTo/Deploy/Lite-Block-Explorer.md: https://github.com/Alethio/ethereum-lite-explorer
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
           HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md
+          HowTo/Configure/Configure-Data-Storage.md: Concepts/Data-Storage-Formats.md

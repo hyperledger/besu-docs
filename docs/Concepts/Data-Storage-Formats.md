@@ -5,7 +5,6 @@ description: Data storage formats
 # Data storage formats
 
 Besu offers two formats for storing the world state, [Forest of Tries](#forest-of-tries) and [Bonsai Tries](#bonsai-tries).
-You can [configure the data storage format](../HowTo/Configure/Configure-Data-Storage.md) when starting Besu.
 
 ## Forest of Tries
 
@@ -19,11 +18,7 @@ and stored by hash, which increases the size of the database and increases the r
 
 ## Bonsai Tries
 
-!!! caution
-
-    Bonsai Tries is an experimental feature.
-
-Bonsai Tries is an experimental data storage layout policy designed to reduce storage requirements and increase
+Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase
 read performance.
 
 Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the
@@ -31,8 +26,8 @@ location of the node instead of the hash of the node. Bonsai can access the leaf
 account key. This greatly reduces the disk space needed for storage and allows for less resource-demanding
 and faster read performance. Bonsai inherently [prunes](Pruning.md) orphaned nodes and old branches.
 
-To run a node with Bonsai Tries data storage format, use the experimental command line option
-[`--Xdata-storage-format=BONSAI`](../HowTo/Configure/Configure-Data-Storage.md).
+To run a node with Bonsai Tries data storage format, use the command line option
+[`--data-storage-format=BONSAI`](../Reference/CLI/CLI-Syntax.md#data-storage-format).
 
 ![Bonsai_tries](../images/Bonsai_tries.png)
 
@@ -52,7 +47,7 @@ particularly if the blocks are more recent.
 However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data.
 To prevent this, you can limit how far Bonsai looks back while reconstructing data.
 The default limit Bonsai looks back is 512. To change the parameter, use the
-[`--Xbonsai-maximum-back-layers-to-load`](../HowTo/Configure/Configure-Data-Storage.md#configuring-the-number-of-layers-loaded-with-bonsai) option.
+[`--bonsai-maximum-back-layers-to-load`](../Reference/CLI/CLI-Syntax.md#bonsai-maximum-back-layers-to-load) option.
 
 ### Fast syncing nodes
 

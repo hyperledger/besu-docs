@@ -194,6 +194,37 @@ You can specify the banned node IDs with or without the `0x` prefix.
     The singular `--banned-node-id` and plural `--banned-node-ids` are available and are two names
     for the same option.
 
+### `bonsai-maximum-back-layers-to-load`
+
+=== "Syntax"
+
+    ```bash
+    --bonsai-maximum-back-layers-to-load=256
+    ```
+
+=== "Example"
+
+    ```bash
+    --bonsai-maximum-back-layers-to-load=256
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_BONSAI_MAXIMUM_BACK_LAYERS_TO_LOAD=256
+    ```
+
+=== "Example configuration file"
+
+    ```bash
+    bonsai-maximum-back-layers-to-load=256
+    ```
+
+When using [Bonsai Tries](../../Concepts/Data-Storage-Formats.md#bonsai-tries), the
+[maximum number of layers back](../../Concepts/Data-Storage-Formats.md#accessing-data) Bonsai can go to reconstruct a
+historical state.
+The default is 512.
+
 ### `bootnodes`
 
 === "Syntax"
@@ -342,6 +373,36 @@ The default is `none`.
 
 The path to the Besu data directory. The default is the directory you installed Besu in, or
 `/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
+
+### `data-storage-format`
+
+=== "Syntax"
+
+    ```bash
+    --data-storage-format=<FORMAT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --data-storage-format=BONSAI
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_DATA_STORAGE_FORMAT=BONSAI
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    data-storage-format="BONSAI"
+    ```
+
+The [data storage format](../../Concepts/Data-Storage-Formats.md) to use.
+Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries.
+The default is `FOREST`.
 
 ### `discovery-dns-url`
 
@@ -974,9 +1035,8 @@ default is `9545`. Ports must be
     metrics-protocol="OPENTELEMETRY"
     ```
 
-Metrics protocol to use.
-One of `PROMETHEUS`, `OPENTELEMETRY`, or `NONE`.
-Defaults to `PROMETHEUS`.
+Metrics protocol to use: `PROMETHEUS`, `OPENTELEMETRY`, or `NONE`.
+The default is `PROMETHEUS`.
 
 ### `metrics-push-enabled`
 
@@ -2335,7 +2395,7 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     ```
 
 Enables [pruning](../../Concepts/Pruning.md) to reduce storage required for the world state.
-Defaults to `false`.
+The default is `false`.
 
 !!! important
 
@@ -3106,8 +3166,8 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
     rpc-tx-feecap=1200000000000000000
     ```
 
-Sets the maximum transaction fee (in Wei) accepted for transactions submitted through the
-[`eth_sendRawTransaction`](../API-Methods.md#eth_sendrawtransaction) RPC. Defaults to 1000000000000000000 (1 ether).
+The maximum transaction fee (in Wei) accepted for transactions submitted through the
+[`eth_sendRawTransaction`](../API-Methods.md#eth_sendrawtransaction) RPC. The default is 1000000000000000000 (1 ether).
 
 If set to 0, then this option is ignored and no cap is applied.
 
@@ -3380,7 +3440,7 @@ The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
 Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
 plugin
 
-Defaults to using the node's local private key file specified using
+The default is the node's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).
 
 ### `static-nodes-file`
@@ -3410,7 +3470,7 @@ Defaults to using the node's local private key file specified using
     ```
 
 Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
-connect to. Defaults to `datapath/static-nodes.json`.
+connect to. The default is `datapath/static-nodes.json`.
 
 ### `strict-tx-replay-protection-enabled`
 

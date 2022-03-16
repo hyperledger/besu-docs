@@ -7181,6 +7181,11 @@ the returned list items include the [revert reason](../HowTo/Send-Transactions/R
 
 Executes the given call and returns a number of possible traces for it.
 
+!!! important
+
+    The requested transaction must be contained in a block  within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
+
 #### Parameters
 
 * `call`: *object* - [transaction call object](API-Objects.md#transaction-call-object)
@@ -7243,9 +7248,108 @@ one object per call, in transaction execution order
         },
         ```
 
+### `trace_callMany`
+
+Performs multiple call traces on top of the same block. You can trace dependent transactions.
+
+!!! important
+
+    The requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
+
+#### Parameters
+
+* `options`: *array* of *strings* - list of tracing options; tracing options are
+  [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
+  combination of the three options including none of them.
+
+* `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+  `earliest`, or `pending`, as described in
+  [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in transaction execution order
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]],[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]]],"latest"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]],[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]]],"latest"],"latest"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": [
+              {
+              "output" : "0x",
+              "stateDiff" : null,
+              "trace" : [ {
+                "action" : {
+                  "callType" : "call",
+                  "from" : "0x407d73d8a49eeb85d32cf465507dd71d507100c1",
+                  "gas" : "0x1dcd12f8",
+                  "input" : "0x",
+                  "to" : "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+                  "value" : "0x186a0"
+              },
+              "result" : {
+                "gasUsed" : "0x0",
+                "output" : "0x"
+              },
+              "subtraces" : 0,
+              "traceAddress" : [ ],
+              "type" : "call"
+            } ],
+            "vmTrace" : null
+            },
+            {
+              "output" : "0x",
+              "stateDiff" : null,
+              "trace" : [ {
+                "action" : {
+                  "callType" : "call",
+                  "from" : "0x407d73d8a49eeb85d32cf465507dd71d507100c1",
+                  "gas" : "0x1dcd12f8",
+                  "input" : "0x",
+                  "to" : "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+                  "value" : "0x186a0"
+              },
+              "result" : {
+                "gasUsed" : "0x0",
+                "output" : "0x"
+              },
+              "subtraces" : 0,
+              "traceAddress" : [ ],
+              "type" : "call"
+            } ],
+            "vmTrace" : null
+            },
+          ],
+        "id" : 1
+        },
+        ```
+
 ### `trace_filter`
 
 Returns traces matching the specified filter.
+
+!!! important
+
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    (by default, 1024).
 
 #### Parameters
 
@@ -7323,14 +7427,148 @@ one object per call, in transaction execution order
         }
         ```
 
+### `trace_get`
+
+Returns trace at given position.
+
+!!! important
+
+    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
+    requested transaction must be contained in a block within
+    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+
+#### Parameters
+
+* `transaction`: *string* - transaction hash
+
+* `indexPositions`: *array* - Index positions of the traces
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in the order called by the transaction
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": {
+              "action" : {
+                "callType" : "call",
+                "from" : "0x1c39ba39e4735cb65978d4db400ddd70a72dc750",
+                "gas" : "0x13e99",
+                "input" : "0x16c72721",
+                "to" : "0x2bd2326c993dfaef84f696526064ff22eba5b362",
+                "value" : "0x0"
+              },
+              "blockHash" : "0x7eb25504e4c202cf3d62fd585d3e238f592c780cca82dacb2ed3cb5b38883add"
+              "blockNumber": 3068185,
+              "result": {
+                "gasUsed": "0x183",
+                "output" : "0x0000000000000000000000000000000000000000000000000000000000000001"
+              },
+              "subtraces" : 0,
+              "traceAddress" : [ 
+                0
+              ],
+              "transactionHash": "0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",
+              "transactionPosition": 2,
+              "type" : "call"
+            },
+        "id" : 1
+        },
+        ```
+
+### `trace_rawTransaction`
+
+Traces a call to `eth_sendRawTransaction` without making the call, returning the traces.
+
+!!! important
+
+    The requested transaction must be contained in a block within 
+    [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained) (by default, 1024).
+
+#### Parameters
+
+* `data` - *string* - Raw transaction data
+
+* `options`: *array* of *strings* - list of tracing options; tracing options are
+  [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
+  combination of the three options including none of them.
+
+#### Returns
+
+`result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
+one object per call, in the order called by the transaction
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "result": {
+              "action" : {
+                "callType" : "call",
+                "from" : "0x1c39ba39e4735cb65978d4db400ddd70a72dc750",
+                "gas" : "0x13e99",
+                "input" : "0x16c72721",
+                "to" : "0x2bd2326c993dfaef84f696526064ff22eba5b362",
+                "value" : "0x0"
+              },
+              "blockHash" : "0x7eb25504e4c202cf3d62fd585d3e238f592c780cca82dacb2ed3cb5b38883add"
+              "blockNumber": 3068185,
+              "result": {
+                "gasUsed": "0x183",
+                "output" : "0x0000000000000000000000000000000000000000000000000000000000000001"
+              },
+              "subtraces" : 0,
+              "traceAddress" : [ 
+                0
+              ],
+              "transactionHash": "0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",
+              "transactionPosition": 2,
+              "type" : "call"
+            },
+        "id" : 1
+        },
+        ```
+
 ### `trace_replayBlockTransactions`
 
 Provides transaction processing tracing per block.
 
 !!! important
 
-    Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
+    The requested block must be within [the number of pruning blocks retained](../CLI/CLI-Syntax#pruning-blocks-retained)
     (by default, 1024).
 
 #### Parameters

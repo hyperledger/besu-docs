@@ -25,7 +25,7 @@ file.
     {
       "config": {
         "chainId": 2018,
-        "muirglacierblock": 0,
+        "londonBlock": 0,
         "ibft2": {
           "blockperiodseconds": 2,
           "epochlength": 30000,

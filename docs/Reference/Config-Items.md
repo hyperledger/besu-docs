@@ -89,11 +89,11 @@ In private networks, the milestone block defines the protocol version for the ne
     }
     ```
 
-!!! tip
+!!! note
 
     We recommend specifying the latest milestone block for private networks.
     It is implied this includes the preceding milestones.
-    Specifying the latest milestone ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
+    This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 ## Fixed difficulty
 

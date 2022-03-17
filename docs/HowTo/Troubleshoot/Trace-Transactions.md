@@ -18,8 +18,8 @@ The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-traci
 These APIs allow different diagnostic options when tracing calls or transactions.
 The options are [`trace`, `vmTrace`, or `stateDiff`](../../Reference/Trace-Types.md).
 
-To use the ad-hoc tracing APIs, your node must be within the
-[the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
+To use the ad-hoc tracing APIs, the requested block or transaction must be within the
+number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
 (by default, 1024).
 
 The ad-hoc tracing APIs are:
@@ -37,7 +37,7 @@ These APIs only use the [`trace` type](../../Reference/Trace-Types.md#trace).
 To use the transaction-trace filtering APIs, your node must be an archive node
 (that is, synchronized without pruning or fast sync) or the
 requested block or transaction must be within the
-[the number of pruning blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained)
+number of [blocks retained](../../Reference/CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](../../Reference/CLI/CLI-Syntax.md#pruning-enabled)
 (by default, 1024).
 
 The transaction-trace filtering APIs are:

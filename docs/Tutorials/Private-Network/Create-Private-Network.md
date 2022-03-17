@@ -58,11 +58,11 @@ the `Private-Network` directory:
 ```json
 {
   "config": {
-      "constantinoplefixblock": 0,
-      "ethash": {
-        "fixeddifficulty": 1000
-      },
-       "chainID": 1337
+    "londonBlock": 0,
+    "ethash": {
+      "fixeddifficulty": 1000
+    },
+      "chainID": 1337
    },
   "nonce": "0x42",
   "gasLimit": "0x1000000",
@@ -81,6 +81,11 @@ the `Private-Network` directory:
   }
 }
 ```
+
+!!! note
+
+    We recommend specifying the latest [milestone](../../Reference/Config-Items.md#milestone-blocks) when creating the configuration file for a private network.
+    This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 !!! warning
 

@@ -88,8 +88,6 @@ The properties specific to IBFT 2.0 are:
 
 !!! caution
 
-    The `miningbeneficiary` property cannot be updated once your network is started.
-
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
 

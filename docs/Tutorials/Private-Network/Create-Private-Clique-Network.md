@@ -77,7 +77,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 {
   "config":{
     "chainId":1337,
-    "constantinoplefixblock": 0,
+    "londonBlock": 0,
     "clique":{
       "blockperiodseconds":15,
       "epochlength":30000
@@ -110,6 +110,11 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
    }
 }
 ```
+
+!!! note
+
+    We recommend specifying the latest [milestone](../../Reference/Config-Items.md#milestone-blocks) when creating the configuration file for a private network.
+    This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 In `extraData`, replace `<Node 1 Address>` with the
 [address for Node-1](#2-get-address-for-node-1), excluding the 0x prefix.

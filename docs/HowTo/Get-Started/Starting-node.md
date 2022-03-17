@@ -27,8 +27,9 @@ To delete the local block data, delete the `database` directory in the
 ## Genesis configuration
 
 Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to
-[Mainnet](#run-a-node-on-ethereum-mainnet), [Goerli](#run-a-node-on-goerli-testnet),
-[Rinkeby](#run-a-node-on-rinkeby-testnet), and [Ropsten](#run-a-node-on-ropsten-testnet).
+[Ropsten](#run-a-node-on-ropsten-testnet), [Rinkeby](#run-a-node-on-rinkeby-testnet),
+[Goerli](#run-a-node-on-goerli-testnet), [Kiln](#run-a-node-on-kiln-testnet), and
+[Mainnet](#run-a-node-on-ethereum-mainnet).
 
 When you specify [`--network=dev`](../../Reference/CLI/CLI-Syntax.md#network), Besu uses the
 development mode genesis configuration with a fixed low difficulty. A node started with
@@ -146,6 +147,40 @@ besu --network=goerli --data-path=<path>/<goerlidata-path>
 ```
 
 Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
+
+## Run a node on Kiln testnet
+
+You can test Besu as an [execution client](../../Concepts/Merge.md) on the
+[Kiln testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
+
+To run a node on Kiln:
+
+1. Download the [configuration files](https://github.com/eth-clients/merge-testnets/tree/main/kiln).
+
+    ```bash
+    git clone https://github.com/eth-clients/merge-testnets.git
+    cd merge-testnets/kiln
+    ```
+
+1. Generate the JWT secret with `openssl rand -hex 32 | tr -d "\n" > "/tmp/jwtsecret"`.
+   You must pass this file to both Besu and the [consensus client](../../Concepts/Merge.md#execution-and-consensus-clients).
+
+1. Run the following command:
+
+    ```bash
+    besu \
+      --network=kiln              \
+      --rpc-http-enabled=true     \
+      --rpc-http-host="0.0.0.0"   \
+      --rpc-http-cors-origins="*" \
+      --rpc-ws-enabled=true       \
+      --rpc-ws-host="0.0.0.0"     \
+      --host-allowlist="*"        \
+      --engine-host-allowlist="*" \
+      --engine-jwt-enabled=true   \
+      --Xmerge-support=true       \
+      --engine-jwt-secret=<path_to_your_JWT_secret_file>
+    ```
 
 ## Run a node on Ethereum Mainnet
 

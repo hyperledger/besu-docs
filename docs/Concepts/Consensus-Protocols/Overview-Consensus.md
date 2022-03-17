@@ -12,7 +12,8 @@ Besu implements the following consensus protocols:
 * [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (proof of authority) - Not recommended for
   production use.
   You can [migrate a network using Clique to another consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md#migrate-from-clique-to-another-consensus-protocol).
-* Ethash (proof of work) - Used on Ethereum Mainnet and can also be used in
+* [Proof of stake](../Merge.md#proof-of-stake) - Used on Ethereum Mainnet.
+* [Ethash](https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/) (proof of work) - Can be used in
   [small development networks](../../Tutorials/Private-Network/Create-Private-Network.md).
 
 See a [comparison of the proof of authority consensus protocols](Comparing-PoA.md).

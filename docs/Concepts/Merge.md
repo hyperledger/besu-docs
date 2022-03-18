@@ -4,7 +4,7 @@ description: What is the Merge?
 
 # The Merge
 
-The Ethereum upgrade known as "[The Merge](https://ethereum.org/en/upgrades/merge/)" will merge the [Beacon Chain] into
+The Ethereum upgrade known as [The Merge](https://ethereum.org/en/upgrades/merge/) will merge the [Beacon Chain] into
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
 The merge will transition Mainnet from proof of work to [proof of stake consensus](#merge-consensus).
@@ -57,8 +57,8 @@ In Ethereum's PoS, you must run a [full node](#execution-and-consensus-clients) 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain] (consensus blocks) in
 defined time-frames (slots).
 
-Proposing validators are responsible for proposing new consensus blocks, and non-proposing validators are responsible
-for validating (attesting to) proposed blocks.
+Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
+validating (attesting to) proposed blocks.
 Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 their stake is slashed if they fail to validate or if they attest to malicious blocks, incentivizing good behavior.
 

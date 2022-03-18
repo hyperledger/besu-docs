@@ -157,7 +157,7 @@ For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 
 To run Besu on Kiln:
 
-1. Download the [configuration files](https://github.com/eth-clients/merge-testnets/tree/main/kiln).
+1. Download the [configuration files](https://github.com/eth-clients/merge-testnets/tree/main/kiln):
 
     ```bash
     git clone https://github.com/eth-clients/merge-testnets.git

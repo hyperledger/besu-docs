@@ -163,11 +163,11 @@ To run a node on Kiln:
     ```
 
 1. Generate the JWT secret:
-   
+
     ```bash
     openssl rand -hex 32 | tr -d "\n" > "/tmp/jwtsecret"`
     ```
-   
+
     You must pass this file to both Besu and the [consensus client](../../Concepts/Merge.md#execution-and-consensus-clients).
 
 1. Run the following command:

@@ -20,7 +20,7 @@ Consensus clients, such as [Teku](https://docs.teku.consensys.net/en/stable/), m
 the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus layer).
 Execution and consensus clients communicate with each other using the
 [Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
-Execution clients serve [JSON-RPC APIs](../Reference/API-Methods.md) requests.
+Execution clients serve [JSON-RPC](../Reference/API-Methods.md) requests.
 
 ### Run a node
 
@@ -52,7 +52,7 @@ In Ethereum's PoS, you must run a [full node](#execution-and-consensus-clients) 
 
 !!! important
 
-    Withdrawing staked ETH isn't yet supported and will be in a separate upgrade following The Merge.
+    Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain] (consensus blocks) in
 defined time-frames (slots).
@@ -80,5 +80,5 @@ state storage.
 If at least 128 validators attest to a consensus block within a slot, it's included in the Beacon Chain.
 
 <!-- links -->
-[Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/)
-[Teku](https://docs.teku.consensys.net/en/stable/)
+[Beacon Chain]: https://ethereum.org/en/upgrades/beacon-chain/
+[Teku]: https://docs.teku.consensys.net/en/stable/

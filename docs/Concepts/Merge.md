@@ -24,14 +24,14 @@ Execution clients serve [JSON-RPC](../Reference/API-Methods.md) requests.
 
 ### Run a node
 
-After The Merge, Mainnet node operators must run both an execution client and a consensus client at the same time.
+After The Merge, a Mainnet node operator must run both an execution client and a consensus client at the same time.
 You must run a node to become a Mainnet [validator](#merge-consensus), but you can also run a non-validator node.
 
-You can currently
+You can
 [test Besu as an execution client on the Kiln testnet](../HowTo/Get-Started/Starting-node.md#run-a-node-on-kiln-testnet).
 You must test it with a consensus client, for example, [Teku].
 
-After The Merge, you can run Besu as an execution client on Ethereum Mainnet using the same
+You can run Besu as an execution client on Ethereum Mainnet using the same
 [installation options](../HowTo/Get-Started/Installation-Options).
 
 Consensus clients compatible with Besu include:
@@ -55,7 +55,7 @@ In Ethereum's PoS, you must run a [full node](#execution-and-consensus-clients) 
     Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain] (consensus blocks) in
-defined time-frames (slots).
+defined time frames (slots).
 
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
 validating (attesting to) proposed blocks.

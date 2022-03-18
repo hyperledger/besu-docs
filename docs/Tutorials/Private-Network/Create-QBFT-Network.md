@@ -67,7 +67,7 @@ in the `QBFT-Network` directory:
  "genesis": {
    "config": {
       "chainId": 1337,
-      "muirglacierblock": 0,
+     "londonBlock": 0,
       "qbft": {
         "blockperiodseconds": 2,
         "epochlength": 30000,
@@ -106,6 +106,11 @@ in the `QBFT-Network` directory:
  }
 }
 ```
+
+!!! note
+
+    We recommend specifying the latest [milestone](../../Reference/Config-Items.md#milestone-blocks) when creating the configuration file for a private network.
+    This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 !!! warning
 

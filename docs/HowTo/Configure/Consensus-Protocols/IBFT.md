@@ -55,7 +55,7 @@ specific to IBFT 2.0.
       {
         "config": {
           "chainId": 1981,
-          "muirglacierblock": 0,
+          "londonBlock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
@@ -87,8 +87,6 @@ The properties specific to IBFT 2.0 are:
 * `extraData` - RLP encoded [extra data](#extra-data).
 
 !!! caution
-
-    The `miningbeneficiary` property cannot be updated once your network is started.
 
     We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.

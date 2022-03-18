@@ -193,7 +193,7 @@ nav:
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
         - Data storage formats: Concepts/Data-Storage-Formats.md
         - Events and logs: Concepts/Events-and-Logs.md
-        - The Merge: Concepts/merge.md
+        - The Merge: Concepts/Merge.md
         - Mining: Concepts/Mining.md
         - Monitoring: Concepts/Monitoring.md
         - Network ID and chain ID: Concepts/NetworkID-And-ChainID.md

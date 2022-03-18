@@ -150,7 +150,7 @@ Where `<path>` and `<goerlidata-path>` are the path and directory to save the Go
 
 ## Run a node on Kiln testnet
 
-You can test Besu as an [execution client](../../Concepts/Merge.md) on the
+You can test Besu as an [execution client](../../Concepts/Merge.md#execution-and-consensus-clients) on the
 [Kiln testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
 
 To run a node on Kiln:
@@ -162,8 +162,13 @@ To run a node on Kiln:
     cd merge-testnets/kiln
     ```
 
-1. Generate the JWT secret with `openssl rand -hex 32 | tr -d "\n" > "/tmp/jwtsecret"`.
-   You must pass this file to both Besu and the [consensus client](../../Concepts/Merge.md#execution-and-consensus-clients).
+1. Generate the JWT secret:
+   
+    ```bash
+    openssl rand -hex 32 | tr -d "\n" > "/tmp/jwtsecret"`
+    ```
+   
+    You must pass this file to both Besu and the [consensus client](../../Concepts/Merge.md#execution-and-consensus-clients).
 
 1. Run the following command:
 
@@ -181,6 +186,9 @@ To run a node on Kiln:
       --Xmerge-support=true       \
       --engine-jwt-secret=<path_to_your_JWT_secret_file>
     ```
+
+You must also run a consensus client with Besu on Kiln.
+For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 
 ## Run a node on Ethereum Mainnet
 

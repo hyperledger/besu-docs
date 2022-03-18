@@ -15,12 +15,12 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 [Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a consensus client (sometimes
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
-Execution clients such as Besu manage state and execute transactions on the execution layer.
-Consensus clients such as [Teku](https://docs.teku.consensys.net/en/stable/) maintain [consensus](#merge-consensus) on
+Execution clients, such as Besu, manage state and execute transactions on the execution layer.
+Consensus clients, such as [Teku](https://docs.teku.consensys.net/en/stable/), maintain [consensus](#merge-consensus) on
 the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus layer).
 Execution and consensus clients communicate with each other using the
 [Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
-Execution clients continue to serve [JSON-RPC](../Reference/API-Methods.md) requests.
+Execution clients serve [JSON-RPC APIs](../Reference/API-Methods.md) requests.
 
 ### Run a node
 
@@ -52,29 +52,30 @@ In Ethereum's PoS, you must run a [full node](#execution-and-consensus-clients) 
 
 !!! important
 
-    Withdrawing staked ETH isn't yet supported and is planned to be in a separate upgrade following The Merge.
+    Withdrawing staked ETH isn't yet supported and will be in a separate upgrade following The Merge.
 
-The PoS mechanism randomly chooses validators to propose and attest to (validate) blocks on the [Beacon Chain]
-(consensus blocks) in defined time-frames (slots).
+The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain] (consensus blocks) in
+defined time-frames (slots).
 
-Proposers are responsible for creating new consensus blocks, and non-proposing validators are responsible for attesting
-to proposed blocks.
+Proposing validators are responsible for proposing new consensus blocks, and non-proposing validators are responsible
+for validating (attesting to) proposed blocks.
 Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 their stake is slashed if they fail to validate or if they attest to malicious blocks, incentivizing good behavior.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to
 execute and validate the payload.
 
-When a node validates a consensus block, its [consensus client](#execution-and-consensus-clients) processes the block and
-sends the execution payload to the [execution client](#execution-and-consensus-clients), which:
+When a node validates a consensus block, its [consensus client](#execution-and-consensus-clients) processes the block
+and sends the execution payload to the [execution client](#execution-and-consensus-clients), which:
 
 1. Assembles a block on the execution layer (execution block).
 1. Verifies pre-conditions.
 1. Executes transactions.
 1. Verifies post-conditions.
+1. Sends the validity result back to the consensus client.
 
-The execution client includes an executed block in the execution chain, stores the new state in execution state storage,
-and sends the validity result back to the consensus client.
+If the block is valid, the execution client includes it in the execution chain and stores the new state in execution
+state storage.
 
 If at least 128 validators attest to a consensus block within a slot, it's included in the Beacon Chain.
 

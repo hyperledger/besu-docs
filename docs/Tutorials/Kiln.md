@@ -50,7 +50,7 @@ besu \
 
 See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) CLI options for more information on running
 Besu as an execution client.
-   
+
 ## Start Teku
 
 Run the following command:

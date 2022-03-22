@@ -67,7 +67,7 @@ teku \
   --validators-proposer-default-fee-recipient=<eth_address_of_fee_recipient>
 ```
 
-This runs Teku without validator duties (as a Beacon Chain client).
+This runs Teku as a beacon node (without validator duties).
 See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys) CLI
 options for information on running Teku as a validator.
 

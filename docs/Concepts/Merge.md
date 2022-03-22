@@ -26,7 +26,10 @@ Execution clients serve [JSON-RPC](../Reference/API-Methods.md) requests.
 
 After The Merge, a Mainnet node operator must run both an execution client and a consensus client at the same time.
 You must run a node to become a Mainnet [validator](#merge-consensus), but you can also run a non-validator node.
-Consensus clients that don't perform validator duties are referred to as Beacon Chain clients.
+
+!!! note
+
+    Consensus clients that don't perform validator duties are referred to as "beacon nodes" or "Beacon Chain clients."
 
 You can
 [test Besu as an execution client on the Kiln testnet](../Tutorials/Kiln.md).

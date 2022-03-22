@@ -29,7 +29,7 @@ You must run a node to become a Mainnet [validator](#merge-consensus), but you c
 Consensus clients that don't perform validator duties are referred to as Beacon Chain clients.
 
 You can
-[test Besu as an execution client on the Kiln testnet](../HowTo/Get-Started/Starting-node.md#run-a-node-on-kiln-testnet).
+[test Besu as an execution client on the Kiln testnet](../Tutorials/Kiln.md).
 You must test it with a consensus client, for example, [Teku].
 
 You can run Besu as an execution client on Ethereum Mainnet using the same

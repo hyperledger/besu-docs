@@ -1,31 +1,29 @@
 ---
-Description: How to run Besu and Teku on Kiln
+Description: How to run Besu and Teku on the Merge Testnet
 ---
 
-# Test Besu and Teku on Kiln
+# Run clients on the Merge Testnet
 
 You can test Besu as an [execution client](../Concepts/Merge.md) and [Teku](https://docs.teku.consensys.net/en/stable/)
-as a [consensus client](../Concepts/Merge.md) on the [Kiln testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
+as a [consensus client](../Concepts/Merge.md) on the [Kiln Merge Testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
 
 ## Prerequisites
 
-1. Install [Besu](../HowTo/Get-Started/Installation-Options/Options.md) and
+- Install [Besu](../HowTo/Get-Started/Installation-Options/Options.md) and
    [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
-1. Download the [configuration files](https://github.com/eth-clients/merge-testnets/tree/main/kiln):
-
-    ```bash
-    git clone https://github.com/eth-clients/merge-testnets.git
-    cd merge-testnets/kiln
-    ```
-
-1. Generate the JWT secret:
+- Generate the JWT secret:
 
     ```bash
     openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
     ```
 
     You must pass this file to both Besu and Teku.
+    This is a shared secret the clients use to authenticate each other when using the Engine API.
+
+- Create a test Ethereum address to use as the
+  [default fee recipient](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
+  when starting Teku.
 
 ## Start Besu
 
@@ -64,7 +62,7 @@ teku \
   --Xee-version kilnv2                     \
   --ee-jwt-secret-file <path_to_jwtsecret> \
   --log-destination console                \
-  --validators-proposer-default-fee-recipient=<eth_address_of_fee_recipient>
+  --validators-proposer-default-fee-recipient=<eth_address_of_default_fee_recipient>
 ```
 
 This runs Teku as a beacon node (without validator duties).

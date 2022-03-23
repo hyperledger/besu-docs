@@ -481,7 +481,7 @@ The default is `true`.
     engine-host-allowlist=localhost,127.0.0.1
     ```
 
-A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSockets).
+A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSocket).
 
 !!!tip
 
@@ -541,8 +541,11 @@ Enables or disables authentication for Engine APIs. The default is `false`.
     engine-jwt-secret="jwt.hex"
     ```
 
-The shared secret used for JSON-RPC (both HTTP and WebSocket) authentication of Engine API clients.
-Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path.
+Shared secret used to authenticate [consensus clients](../../Concepts/Merge.md) when using the Engine JSON-RPC API (both
+HTTP and WebSocket).
+Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
+May be a relative or absolute path.
+See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prerequisites).
 
 ### `engine-rpc-http-port`
 
@@ -598,7 +601,7 @@ The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over 
     engine-rpc-ws-port=8551
     ```
 
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSockets.
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSocket.
 
 ### `ethstats`
 

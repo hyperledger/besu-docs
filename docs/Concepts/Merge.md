@@ -15,7 +15,7 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 [Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a consensus client (previously
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
-Execution clients, such as Besu, manage state and execute transactions on the execution layer.
+Execution clients, such as Besu, manage the state and execute transactions on the execution layer.
 Consensus clients, such as [Teku](https://docs.teku.consensys.net/en/stable/), maintain [consensus](#merge-consensus) on
 the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus layer).
 Execution and consensus clients communicate with each other using the
@@ -32,7 +32,7 @@ You must run a node to become a Mainnet [validator](#merge-consensus), but you c
     Consensus clients that don't perform validator duties are referred to as "beacon nodes" or "Beacon Chain clients."
 
 You can
-[test Besu as an execution client on the Kiln testnet](../Tutorials/Kiln.md).
+[test Besu as an execution client on the Merge Testnet](../Tutorials/Merge-Testnet.md).
 You must test it with a consensus client, for example, [Teku].
 
 You can run Besu as an execution client on Ethereum Mainnet using the same

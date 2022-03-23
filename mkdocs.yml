@@ -186,7 +186,7 @@ nav:
           - Deploy charts: Tutorials/Kubernetes/Deploy-Charts.md
           - Maintenance: Tutorials/Kubernetes/Maintenance.md
           - Production: Tutorials/Kubernetes/Production.md
-      - Test Besu and Teku on Kiln: Tutorials/Kiln.md
+      - Run clients on the Merge Testnet: Tutorials/Merge-Testnet.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus protocols:

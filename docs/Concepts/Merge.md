@@ -18,9 +18,14 @@ called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-ren
 Execution clients, such as Besu, manage the state and execute transactions on the execution layer.
 Consensus clients, such as [Teku](https://docs.teku.consensys.net/en/stable/), maintain [consensus](#merge-consensus) on
 the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus layer).
+
 Execution and consensus clients communicate with each other using the
 [Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
-Execution clients serve [JSON-RPC](../Reference/API-Methods.md) requests.
+Execution clients serve [JSON-RPC API](../Reference/API-Methods.md) requests and consensus clients serve
+[REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests.
+Execution clients communicate among each other in a peer-to-peer network, and consensus clients do the same.
+
+![Ethereum Merge node](../images/Execution-Consensus-Clients.png)
 
 ### Run a node
 

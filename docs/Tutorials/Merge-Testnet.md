@@ -1,11 +1,11 @@
 ---
-Description: How to run Besu and Teku on the Merge Testnet
+Description: How to run Besu and Teku on the Merge testnet
 ---
 
-# Run clients on the Merge Testnet
+# Run clients on the Merge testnet
 
 You can test Besu as an [execution client](../Concepts/Merge.md) and [Teku](https://docs.teku.consensys.net/en/stable/)
-as a [consensus client](../Concepts/Merge.md) on the [Kiln Merge Testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
+as a [consensus client](../Concepts/Merge.md) on the [Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ description: What is the Merge?
 The Ethereum upgrade known as [The Merge](https://ethereum.org/en/upgrades/merge/) will merge the [Beacon Chain] into
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
-The merge will transition Mainnet from proof of work to [proof of stake consensus](Consensus-Protocols/Proof-of-Stake.md).
+The Merge will transition Mainnet from proof of work to [proof of stake consensus](Consensus-Protocols/Proof-of-Stake.md).
 
 ## Execution and consensus clients
 

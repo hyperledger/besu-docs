@@ -116,10 +116,12 @@ P[oO]A
 Poste
 Postgres
 P[oO]W
+[pP]re
 [pP]recompile(d)?
 [pP]reidentif(y|ied)
 Prometheus
 Protobuf
+Prysm
 Prysmatic
 Pushgateway
 Pyrmont

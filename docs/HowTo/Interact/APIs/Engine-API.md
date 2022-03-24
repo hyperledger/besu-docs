@@ -4,7 +4,7 @@ description: How to enable and use the Engine API
 
 # Engine API
 
-The Engine API allows communication between consensus and execution layers of the [post-Merge]() Ethereum Client.
+The Engine API allows communication between [consensus and execution layers](../../../Concepts/Merge.md#execution-and-consensus-clients) of the [post-Merge](../../../Concepts/Merge.md) Ethereum Client.
 These [API methods](../../../Reference/Engine-API-Methods.md) are a separate subsection of the [JSON-RPC API](API.md).
 
 ## Configuring the Engine API

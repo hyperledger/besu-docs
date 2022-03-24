@@ -20,8 +20,8 @@ Consensus clients, such as [Teku], maintain [consensus](Consensus-Protocols/Proo
 (consensus layer).
 
 Execution and consensus clients communicate with each other using the
-[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
-Execution clients serve [JSON-RPC API](../Reference/API-Methods.md) requests and consensus clients serve
+[Engine API](../HowTo/Interact/APIs/Engine-API.md).
+Execution clients serve [JSON-RPC API](../Reference/Engine-API-Methods.md) requests and consensus clients serve
 [REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests.
 Execution clients communicate among each other in a peer-to-peer network, and consensus clients do the same.
 

@@ -482,6 +482,7 @@ The default is `true`.
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
+The default is `8550`.
 
 ### `engine-rpc-ws-port`
 
@@ -510,6 +511,7 @@ The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over 
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSockets.
+The default is `8551`.
 
 ### `engine-host-allowlist`
 

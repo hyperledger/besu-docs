@@ -320,6 +320,12 @@ In each `Tessera` directory, start Tessera specifying the
 tessera -configfile tessera.conf
 ```
 
+!!! note
+
+    After starting the first Tessera node and before starting the other nodes, the log message `failed to connect to node` displays.
+    This is normal behavior. Until the other peer nodes have started, your node is not connected and displays this warning.
+    You can continue to start the other nodes.
+
 ## 5. Start Besu Node-1
 
 In the `Node-1` directory, start Besu Node-1:

@@ -21,12 +21,6 @@ Options and methods for configuring and monitoring the transaction pool include:
   [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
   RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
 
-Deprecated options:
-
-* [`--tx-pool-hashes-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-hashes-max-size) command
-    line option to specify the maximum number of transaction hashes in the transaction pool. Should
-    be greater than or equal to the value specified for `--tx-pool-max-size`.
-
 !!! important
     When submitting [private transactions](../Privacy/Private-Transactions.md#nonce-validation), the
     [privacy marker transaction](../Privacy/Private-Transaction-Processing.md) is submitted to the

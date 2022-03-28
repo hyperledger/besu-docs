@@ -12,9 +12,6 @@ Options and methods for configuring and monitoring the transaction pool include:
   method to list transactions in the transaction pool.
 * [`--tx-pool-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-max-size) command line option to
   specify the maximum number of transactions in the transaction pool.
-* [`--tx-pool-hashes-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-hashes-max-size) command
-  line option to specify the maximum number of transaction hashes in the transaction pool. Should
-  be greater than or equal to the value specified for `--tx-pool-max-size`.
 * [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) command line
   option to specify the price bump percentage to replace an existing transaction.
 * [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command
@@ -23,6 +20,12 @@ Options and methods for configuring and monitoring the transaction pool include:
 * [`newPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#pending-transactions) and
   [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
   RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
+
+Deprecated options:
+
+* [`--tx-pool-hashes-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-hashes-max-size) command
+    line option to specify the maximum number of transaction hashes in the transaction pool. Should
+    be greater than or equal to the value specified for `--tx-pool-max-size`.
 
 !!! important
     When submitting [private transactions](../Privacy/Private-Transactions.md#nonce-validation), the

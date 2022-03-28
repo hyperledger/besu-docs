@@ -67,4 +67,3 @@ Parameter for and returned by [`engine_exchangeTransitionConfigurationV1`](Engin
 | `terminalTotalDifficulty` | *Quantity*, 256 Bits | Maps on the `TERMINAL_TOTAL_DIFFICULTY` parameter of [EIP-3675](https://eips.ethereum.org/EIPS/eip-3675#client-software-configuration). |
 | `terminalBlockHash`       | *Data*, 32 Bytes     | Maps on the `TERMINAL_BLOCK_HASH` parameter of [EIP-3675](https://eips.ethereum.org/EIPS/eip-3675#client-software-configuration). |
 | `terminalBlockNumber`     | *Quantity*, 64 Bits  | Maps on the `TERMINAL_BLOCK_NUMBER` parameter of [EIP-3675](https://eips.ethereum.org/EIPS/eip-3675#client-software-configuration). |
-

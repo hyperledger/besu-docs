@@ -36,6 +36,7 @@ Dev
 [dD]eauthoriz(e|ing)
 [eE]ncryptor(s)?
 [eE]node(s)?
+enum
 etcd
 Ethash
 Ethereum

@@ -16,7 +16,7 @@ Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-b
 ### Service ports
 
 To specify the port the Engine API service listens on, use the
-[`--engine-rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port) or 
+[`--engine-rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port) or
 [`--engine-rpc-ws-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-ws-port) options.
 
 The default ports are:

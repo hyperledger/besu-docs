@@ -192,7 +192,6 @@ nav:
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
-          - Proof of stake: Concepts/Consensus-Protocols/Proof-of-Stake.md
         - Data storage formats: Concepts/Data-Storage-Formats.md
         - Events and logs: Concepts/Events-and-Logs.md
         - The Merge: Concepts/Merge.md
@@ -315,3 +314,4 @@ plugins:
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
           HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md
           HowTo/Configure/Configure-Data-Storage.md: Concepts/Data-Storage-Formats.md
+          Concepts/Consensus-Protocols/Proof-of-Stake.md: Concepts/Merge.md

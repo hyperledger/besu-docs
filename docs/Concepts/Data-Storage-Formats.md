@@ -36,7 +36,7 @@ To run a node with Bonsai Tries data storage format, use the command line option
 ### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai. With full archives, forest mode uses an estimated 12 TB of storage,
-while Bonsai with full archives uses an estimated 800 GB of storage.
+while Bonsai with full archives uses an estimated 1100 GB of storage.
 
 ### Accessing data
 
@@ -48,6 +48,11 @@ However, Bonsai becomes increasingly more resource-intensive the further in hist
 To prevent this, you can limit how far Bonsai looks back while reconstructing data.
 The default limit Bonsai looks back is 512. To change the parameter, use the
 [`--bonsai-maximum-back-layers-to-load`](../Reference/CLI/CLI-Syntax.md#bonsai-maximum-back-layers-to-load) option.
+
+!!! note
+
+    Using `--bonsai-maximum-back-layers-to-load` does not affect the size of the date being stored, only how far back to load.
+    This means there is no "safe minimum" value to use with this option.
 
 ### Fast syncing nodes
 

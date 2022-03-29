@@ -99,13 +99,13 @@ Start Node-1:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --engine-host-allowlist="*"
     ```
 
 The command line enables:
@@ -119,6 +119,8 @@ The command line enables:
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option.
 * All-domain access to the node through the HTTP JSON-RPC API using the
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
+* All-host access to the node through the Engine API using the
+  [`--engine-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) option.
 
 !!! info
 
@@ -137,19 +139,20 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 * A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
+* A different port to Node-1 for Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * A data directory for Node-2 using the
@@ -164,18 +167,19 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+    besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+    besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 * A different port to Node-1 and Node-2 for P2P discovery.
+* A different port to Node-1 and Node-2 for Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * A data directory for Node-3 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * A bootnode and genesis file as for Node-2.

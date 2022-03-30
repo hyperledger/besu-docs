@@ -184,13 +184,13 @@ In the `Node-1` directory, start Node-1:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
     ```
 
 The command line:
@@ -205,8 +205,6 @@ The command line:
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option.
 * Enables all-domain access to the node through the HTTP JSON-RPC API using the
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
-* Enables all-host access to the node through the Engine API using the
-  [`--engine-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) option.
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
@@ -221,13 +219,13 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
     ```
 
 The command line specifies:
@@ -238,8 +236,6 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* A different port to Node-1 for the Engine API using the
-  [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
@@ -252,13 +248,13 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
     ```
 
 The command line specifies:
@@ -269,8 +265,6 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* A different port to Node-1 and Node-2 for the Engine API using the
-  [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
@@ -282,13 +276,13 @@ enode URL copied when starting Node-1 as the bootnode:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --engine-rpc-http-port=8553 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --engine-rpc-http-port=8553 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
     ```
 
 The command line specifies:
@@ -299,8 +293,6 @@ The command line specifies:
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
-* A different port to Node-1, Node-2, and Node-3 for the Engine API using the
-  [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 

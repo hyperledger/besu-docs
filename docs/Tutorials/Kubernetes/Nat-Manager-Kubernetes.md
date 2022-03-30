@@ -34,7 +34,7 @@ Follow 3 steps to configure Besu for automatic IP address and ports detection on
 1. [Check if the load balancer is properly deployed](#2---check-if-the-load-balancer-is-properly-deployed)
 1. [Deploy Besu](#3---deploy-besu)
 
-### 1 - Create a load balancer
+### 1. Create a load balancer
 
 Deploy a `LoadBalancer` service for Besu to recover IP address and ports.
 
@@ -68,7 +68,7 @@ Deploy a `LoadBalancer` service for Besu to recover IP address and ports.
     This service example lists the rules for the different ports used by Besu (`json-rpc` and` rlpx`).
     The default value is used for `discovery`.
 
-### 2 - Check if the load balancer is properly deployed
+### 2. Check if the load balancer is properly deployed
 
 Verify the load balancer readiness before launching Besu.
 
@@ -93,7 +93,7 @@ Run `kubectl describe services besu` to check the service status.
 
 Run the `kubectl describe services besu` command again until the load balancer IP address appears in the output.
 
-### 3 - Deploy Besu
+### 3. Deploy Besu
 
 When steps 1 and 2 are completed, deploy Besu using the following YAML example:
 

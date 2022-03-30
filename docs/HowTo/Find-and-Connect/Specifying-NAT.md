@@ -75,7 +75,7 @@ Kubernetes APIs as required to determine external IP addresses and exposed ports
 In Kubernetes, the Ingress IP of the load balancer will be used as the external IP for Besu.
 A load balancer service can map any incoming port to a target port. These mapping rules will be the one retrieved by Besu.
 
-A tutorial to [Configure the Nat Manager for Kubernetes](../../Tutorials/Examples/Nat-Manager-Kubernetes.md) is available.
+A tutorial to [Configure the Nat Manager for Kubernetes](../../Tutorials/Kubernetes/Nat-Manager-Kubernetes.md) is available.
 
 ## Docker
 

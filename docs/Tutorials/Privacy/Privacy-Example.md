@@ -4,15 +4,16 @@ description: Hyperledger Besu privacy-enabled private network tutorial
 
 # Privacy-enabled Quorum Developer Quickstart tutorial
 
-The privacy-enabled private network example is an expanded version of the
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md). It runs a private Hyperledger Besu network that
+You can create a privacy-enabled network using the
+[Quorum Developer Quickstart tutorial](../Developer-Quickstart.md).
+It runs a private Hyperledger Besu network that
 uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 
-You can use the [Block Explorer](Private-Network-Example.md#block-explorer), make
-[JSON-RPC requests](Private-Network-Example.md#run-json-rpc-requests), and
-[create transactions using MetaMask] as described in the
-[Quorum Developer Quickstart tutorial](Private-Network-Example.md). This tutorial describes how to make private
-transactions between nodes, and perform read and write operations on private contracts.
+You can use the [Block Explorer](../Developer-Quickstart.md#block-explorer), make
+[JSON-RPC requests](../Developer-Quickstart.md#run-json-rpc-requests), and
+[create transactions using MetaMask](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+This tutorial describes how to make private transactions between nodes, and perform read and write operations on private
+contracts.
 
 !!! important
 
@@ -150,7 +151,7 @@ The general contract deployment flow is:
 
 ## Further examples
 
-View the [web3js-quorum client library example](../Privacy/web3js-quorum-Multinode-example.md) and view the
+View the [web3js-quorum client library example](web3js-quorum-Multinode-example.md) and view the
 [sample code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
 
 You can also test the erc20 token example by executing `erc20.js` which deploys
@@ -173,6 +174,3 @@ Do one of the following to stop the network:
     ```bash
     ./remove.sh
     ```
-
-<!-- Links -->
-[create transactions using MetaMask]: Private-Network-Example.md#create-a-transaction-using-metamask

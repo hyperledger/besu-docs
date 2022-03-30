@@ -4,7 +4,7 @@ description: Upgrade Besu
 
 # Upgrading your Besu node
 
-We recommend:
+When upgrading your Besu node, we recommend:
 
 * Using an orchestration method (for example, Ansible or Chef) to keep all nodes in sync with your
   desired configuration.
@@ -16,14 +16,14 @@ You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/h
 directly or customize it to suit your needs.
 
 Upgrade the Besu version on nodes by running the play with the new version. For more information,
-For more information, see the "Read Me" button on the
-[Ansible Galaxy Besu page](https://galaxy.ansible.com/pegasyseng/hyperledger_besu).
+For more information, select **Read Me** on the
+[Ansible Galaxy Besu page](https://galaxy.ansible.com/consensys/hyperledger_besu).
 
-The play-book:
+The playbook:
 
-1. Stops Besu
-1. Downloads the updated version
-1. Applies any new configuration
+1. Stops Besu.
+1. Downloads the updated version.
+1. Applies any new configuration.
 1. Starts Besu.
 
 ## Finding peers on restarting

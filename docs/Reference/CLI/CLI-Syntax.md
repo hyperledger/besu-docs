@@ -455,62 +455,6 @@ The default is `true`.
     You can override the default DNS server if it's unreliable or doesn't serve TCP DNS requests, using the
     [experimental option](#xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
 
-### `engine-rpc-http-port`
-
-=== "Syntax"
-
-    ```bash
-    --engine-rpc-http-port=<PORT>
-    ```
-
-=== "Example"
-
-    ```bash
-    --engine-rpc-http-port=8550
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    BESU_ENGINE_RPC_HTTP_PORT=8550
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    engine-rpc-http-port=8550
-    ```
-
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
-
-### `engine-rpc-ws-port`
-
-=== "Syntax"
-
-    ```bash
-    --engine-rpc-ws-port=<PORT>
-    ```
-
-=== "Example"
-
-    ```bash
-    --engine-rpc-ws-port=8551
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    BESU_ENGINE_RPC_WS_PORT=8551
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    engine-rpc-ws-port=8551
-    ```
-
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSockets.
-
 ### `engine-host-allowlist`
 
 === "Syntax"
@@ -537,7 +481,7 @@ The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over 
     engine-host-allowlist=localhost,127.0.0.1
     ```
 
-A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSockets).
+A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSocket).
 
 !!!tip
 
@@ -597,8 +541,67 @@ Enables or disables authentication for Engine APIs. The default is `false`.
     engine-jwt-secret="jwt.hex"
     ```
 
-The shared secret used for JSON-RPC (both HTTP and WebSocket) authentication of Engine API clients.
-Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path.
+Shared secret used to authenticate [consensus clients](../../Concepts/Merge.md) when using the Engine JSON-RPC API (both
+HTTP and WebSocket).
+Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
+May be a relative or absolute path.
+See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prerequisites).
+
+### `engine-rpc-http-port`
+
+=== "Syntax"
+
+    ```bash
+    --engine-rpc-http-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-rpc-http-port=8550
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_RPC_HTTP_PORT=8550
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-rpc-http-port=8550
+    ```
+
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
+
+### `engine-rpc-ws-port`
+
+=== "Syntax"
+
+    ```bash
+    --engine-rpc-ws-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-rpc-ws-port=8551
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_RPC_WS_PORT=8551
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-rpc-ws-port=8551
+    ```
+
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSocket.
 
 ### `ethstats`
 
@@ -1645,7 +1648,8 @@ Possible values are:
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
 |:----------|:------|:------------|:-------------------|:---------------------------------------------------------------|
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoW network similar to the current main Ethereum network     |
+| `kiln`    | ETH   | Test        | [FAST](#sync-mode) | A PoS network similar to the main Ethereum network post-[Merge](../../Concepts/Merge.md) |
+| `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoW network similar to the main Ethereum network pre-[Merge](../../Concepts/Merge.md) |
 | `rinkeby` | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 | `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
@@ -3792,6 +3796,10 @@ The maximum number of transactions kept in the transaction pool. The default is 
     ```bash
     tx-pool-hashes-max-size="2000"
     ```
+
+!!! important
+
+    `tx-pool-hashes-max-size` is deprecated. The option will be removed in a future release.
 
 The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 

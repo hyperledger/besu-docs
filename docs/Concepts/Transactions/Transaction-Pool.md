@@ -12,9 +12,6 @@ Options and methods for configuring and monitoring the transaction pool include:
   method to list transactions in the transaction pool.
 * [`--tx-pool-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-max-size) command line option to
   specify the maximum number of transactions in the transaction pool.
-* [`--tx-pool-hashes-max-size`](../../Reference/CLI/CLI-Syntax.md#tx-pool-hashes-max-size) command
-  line option to specify the maximum number of transaction hashes in the transaction pool. Should
-  be greater than or equal to the value specified for `--tx-pool-max-size`.
 * [`--tx-pool-price-bump`](../../Reference/CLI/CLI-Syntax.md#tx-pool-price-bump) command line
   option to specify the price bump percentage to replace an existing transaction.
 * [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command

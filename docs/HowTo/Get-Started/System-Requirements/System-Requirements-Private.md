@@ -36,7 +36,7 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 
 ## VM requirements
 
-If you set up your own VM locally using a VM manager such as [VirtualBox](https://www.virtualbox.org/):
+If you set up your own VM locally using a VM manager such as [VirtualBox](https://www.oracle.com/virtualization/virtualbox/):
 
 * Ensure you enable Intel Virtualization Technology (VTx) and Virtualization Technology for
   Directed I/O (VT-d) in the BIOS settings.
@@ -61,4 +61,4 @@ For higher performance in production settings, we recommend upgrading to
 [NVMe interfaces](https://cloud.google.com/compute/docs/disks/local-ssd#performance).
 
 <!-- Links -->
-[Oracle VirtualBox documentation]: https://www.virtualbox.org/manual/UserManual.html#sharedfolders
+[Oracle VirtualBox documentation]: https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/

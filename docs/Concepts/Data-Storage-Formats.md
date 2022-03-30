@@ -51,7 +51,7 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 
 !!! note
 
-    Using `--bonsai-maximum-back-layers-to-load` does not affect the size of the database being stored, only how far back to load.
+    Using `--bonsai-maximum-back-layers-to-load` doesn't affect the size of the database being stored, only how far back to load.
     This means there is no "safe minimum" value to use with this option.
 
 ### Fast syncing nodes

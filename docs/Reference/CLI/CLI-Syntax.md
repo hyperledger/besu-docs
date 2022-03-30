@@ -3797,6 +3797,10 @@ The maximum number of transactions kept in the transaction pool. The default is 
     tx-pool-hashes-max-size="2000"
     ```
 
+!!! important
+
+    `tx-pool-hashes-max-size` is deprecated. The option will be removed in a future release.
+
 The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
 
 ### `tx-pool-price-bump`

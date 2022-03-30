@@ -6,7 +6,7 @@ description: Rapidly generate local blockchain networks.
 # Developer Quickstart
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
-[IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
+[IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
 
 !!! warning
 
@@ -131,8 +131,8 @@ in the top left-hand corner.
 The sample network also includes Prometheus and Grafana monitoring tools to let you visualize node health and usage.
 You can directly access these tools from your browser at the addresses displayed in the endpoint list.
 
-* [Prometheus dashboard](http://localhost:9090/graph)
-* [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
+- [Prometheus dashboard](http://localhost:9090/graph)
+- [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
 
 For more details on how to configure and use these tools for your own nodes, see the
 [performances monitoring documentation](../HowTo/Monitor/Metrics.md),
@@ -145,8 +145,8 @@ and [Grafana documentation](https://grafana.com/docs/).
 
 You can run JSON-RPC requests on:
 
-* HTTP with `http://localhost:8545`.
-* WebSockets with `ws://localhost:8546`.
+- HTTP with `http://localhost:8545`.
+- WebSockets with `ws://localhost:8546`.
 
 ### Run with `cURL`
 
@@ -250,7 +250,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 !!! note
 
     Besu doesn't incorporate
-    [account management](../../HowTo/Send-Transactions/Account-Management.md).
+    [account management](../HowTo/Send-Transactions/Account-Management.md).
     To create your own account, you have to use a third-party tool, such as MetaMask.
 
 1. After importing an existing test account, [create another test account from scratch] to use as the recipient for a
@@ -268,7 +268,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
     from the first test account (containing test Ether) to the new test account (which has a zero balance).
 
     !!! tip
-    
+
         You can use a zero gas price here as this private test network is a [free gas network](../HowTo/Configure/FreeGas.md),
         but the maximum amount of gas that can be used (the gas limit) for a value transaction must be at least 21000.
 
@@ -415,15 +415,15 @@ When you select **Adopt**, a MetaMask window pops up and requests your permissio
 
 After the transaction is complete and successful, the status of the pet you adopted shows **Success**.
 
-![Dapp UI](../../images/dapp-ui.png)
+![Dapp UI](../images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
-![Dapp UI](../../images/dapp-explorer-tx.png)
+![Dapp UI](../images/dapp-explorer-tx.png)
 
 The MetMask UI also keeps a record of the transaction.
 
-![Dapp UI](../../images/dapp-metamask-tx.png)
+![Dapp UI](../images/dapp-metamask-tx.png)
 
 ## Stop and restart the private network without removing containers
 
@@ -563,4 +563,3 @@ or via [RPC API calls](../Reference/API-Methods.md#perm_addnodestoallowlist).
 [allow list]: ../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
 [create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-
-

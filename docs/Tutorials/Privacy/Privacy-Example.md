@@ -2,10 +2,10 @@
 description: Hyperledger Besu privacy-enabled private network tutorial
 ---
 
-# Privacy-enabled Quorum Developer Quickstart tutorial
+# Create a privacy-enabled network using the Quorum Developer Quickstart
 
 You can create a privacy-enabled network using the
-[Quorum Developer Quickstart tutorial](../Developer-Quickstart.md).
+[Quorum Developer Quickstart](../Developer-Quickstart.md).
 It runs a private Hyperledger Besu network that
 uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 

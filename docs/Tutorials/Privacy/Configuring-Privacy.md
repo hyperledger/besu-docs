@@ -2,7 +2,7 @@
 description: Configure Hyperledger Besu privacy
 ---
 
-# Configure a network for private transactions
+# Create a privacy-enabled network
 
 !!! warning
 

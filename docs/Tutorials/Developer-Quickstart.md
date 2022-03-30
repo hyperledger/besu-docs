@@ -48,7 +48,7 @@ Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/sta
 !!! note
 
     If you enter `y` for private transactions, you get three Besu nodes with corresponding Tessera nodes for privacy.
-    You can follow the [privacy walk-through](./Examples/Privacy-Example.md), which details how to send private
+    You can follow the [privacy walk-through](Privacy/Privacy-Example.md), which details how to send private
     transactions and interact with deployed private contracts.
 
 ## Start the network

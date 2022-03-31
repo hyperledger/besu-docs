@@ -322,7 +322,7 @@ The result confirms Node-1 (the node running the JSON-RPC service) has two peers
 #### Send a transaction from an account in the allowlist
 
 Import the first account from the genesis file into MetaMask and send transactions, as described in
-[Private network example tutorial]:
+[Quickstart tutorial]:
 
 !!! example "Account 1"
 
@@ -338,7 +338,7 @@ Import the first account from the genesis file into MetaMask and send transactio
 ### Try sending a transaction from an account not in the accounts allowlist
 
 Import the last account from the genesis file into MetaMask and try to send a transactions, as
-described in [Private Network Example Tutorial]:
+described in [Quickstart tutorial]:
 
 !!! example "Account 3"
 
@@ -393,4 +393,4 @@ window.
 
 <!-- Links -->
 [Clique proof of authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
-[Private network example tutorial]: ../Examples/Private-Network-Example.md#create-a-transaction-using-metamask
+[Private network example tutorial]: ../Developer-Quickstart.md#create-a-transaction-using-metamask

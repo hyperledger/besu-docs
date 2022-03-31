@@ -11,7 +11,7 @@ This tutorial shows you how to transfer funds (ETH) between accounts in a transa
 
 ## Prerequisites
 
-* A [private network](../Examples/Private-Network-Example.md)
+* A [private network](../Developer-Quickstart.md)
 
 ## Using `eth_sendSignedTransaction`
 

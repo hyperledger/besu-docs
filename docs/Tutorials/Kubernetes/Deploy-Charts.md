@@ -75,8 +75,8 @@ which allow Prometheus to scrape metrics from the pod at a specified port and pa
         prometheus.io/path: "/metrics"
 ```
 
-Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/monitoring.yml),
-then deploy the chart using:
+Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/monitoring.yml).
+Also remember to configure alerts to the receiver of your choice, that is email, Slack etc and then deploy the chart using:
 
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -87,8 +87,7 @@ kubectl --namespace quorum apply -f  ./values/monitoring/
 
 !!! warning
 
-     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/). Also remember to
-     configure alerts to the receiver of your choice i.e. email, slack etc
+     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
 
 Optionally you can also deploy the [Elastic Stack](https://www.elastic.co/elastic-stack/) to view logs (and metrics).
 

@@ -60,7 +60,7 @@ Run the following in a terminal window:
 kubectl create namespace besu
 ```
 
-### 3. Deploy the monitoring chart
+### 3. Deploy the metrics chart
 
 This chart deploys Prometheus and Grafana to monitor the cluster, nodes, and state of the network.
 Each Besu pod has [`annotations`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
@@ -79,17 +79,29 @@ Update the admin `username` and `password` in the [monitoring values file](https
 then deploy the chart using:
 
 ```bash
-cd dev/helm
-helm install monitoring ./charts/quorum-monitoring --namespace besu --values ./values/monitoring.yaml
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install monitoring prometheus-community/kube-prometheus-stack --version 34.6.0 --namespace=quorum --create-namespace --values ./values/monitoring.yml --wait
+kubectl --namespace quorum apply -f  ./values/monitoring/
 ```
 
 !!! warning
 
-     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
+     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/). Also remember to
+     configure alerts to the receiver of your choice i.e. email, slack etc
 
-Once complete, you can view deployments in the Kubernetes dashboard (or equivalent).
+Optionally you can also deploy the [Elastic Stack](https://www.elastic.co/elastic-stack/) to view logs (and metrics).
 
-![k8s-monitoring](../../images/kubernetes-monitoring.png)
+```bash
+helm repo add elastic https://helm.elastic.co
+helm repo update
+helm install elasticsearch --version 7.16.3 elastic/elasticsearch --namespace quorum --create-namespace --values ./values/elasticsearch.yml
+helm install kibana --version 7.16.3 elastic/kibana --namespace quorum --values ./values/kibana.yml
+helm install filebeat elastic/filebeat  --namespace quorum --values ./values/filebeat.yml
+# to get metrics, please install metricbeat with config that is similar to filebeat and once complete create a `metricbeat` index in kibana
+```
+
+If you install `filebeat`, please create a `filebeat-*` index pattern in `kibana`. All the logs from the nodes are sent to the `filebeat` index.
 
 You can optionally deploy BlockScout to aid with monitoring the network. To do this, update the
 [BlockScout values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/blockscout-besu.yml)
@@ -192,7 +204,7 @@ first validator was spun up, before the logs display blocks being created.
 
 ![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
 
-To add a validator into the network, deploy a normal RPC node (step 7) and then
+**To add a validator into the network**, deploy a normal RPC node (step 7) and then
 [vote](../../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) it into the validator pool.
 
 ### 7. Deploy RPC or transaction nodes

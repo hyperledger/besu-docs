@@ -75,7 +75,6 @@ nav:
             - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md
             - IBFT 2.0: HowTo/Configure/Consensus-Protocols/IBFT.md
             - Clique: HowTo/Configure/Consensus-Protocols/Clique.md
-            - Add and remove validators: HowTo/Configure/Consensus-Protocols/Add-Validators.md
           - Create a genesis file: HowTo/Configure/Genesis-File.md
           - Specify options in a configuration file: HowTo/Configure/Using-Configuration-File.md
           - Configure a free gas network: HowTo/Configure/FreeGas.md
@@ -150,6 +149,7 @@ nav:
           - Use Truffle: HowTo/Develop-Dapps/Truffle.md
           - Use client libraries: HowTo/Develop-Dapps/Client-Libraries.md
         - Troubleshoot:
+          - Add and remove validators without voting: HowTo/Troubleshoot/Add-Validators-Without-Voting.md
           - Use EVM tool: HowTo/Troubleshoot/Use-EVM-Tool.md
           - Collect Java runtime data: HowTo/Troubleshoot/Java-Flight-Recording.md
           - Trace transactions: HowTo/Troubleshoot/Trace-Transactions.md
@@ -317,3 +317,4 @@ plugins:
           Tutorials/Examples/Privacy-Example.md: Tutorials/Privacy/Privacy-Example.md
           Tutorials/Examples/Nat-Manager-Kubernetes.md: Tutorials/Kubernetes/Nat-Manager-Kubernetes.md
           Tutorials/Examples/Private-Network-Example-Azure.md: Tutorials/Private-Network-Example-Azure.md
+          HowTo/Configure/Consensus-Protocols/Add-Validators.md: HowTo/Configure/Consensus-Protocols/QBFT.md

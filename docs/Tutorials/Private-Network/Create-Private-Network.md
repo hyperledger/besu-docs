@@ -204,7 +204,7 @@ Node-3):
 ## Next steps
 
 Import accounts to MetaMask and send transactions as described in the
-[private network example tutorial].
+[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
@@ -227,6 +227,3 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
     To restart the private network in the future, start from
     [3. Start the first node as a bootnode](#3-start-the-first-node-as-a-bootnode).
-
-<!-- Links -->
-[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask

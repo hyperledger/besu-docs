@@ -156,11 +156,7 @@ nav:
           - Trace transactions: HowTo/Troubleshoot/Trace-Transactions.md
           - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Tutorials:
-      - Examples:
-        - Private network example: Tutorials/Examples/Private-Network-Example.md
-        - Private network example for private transactions: Tutorials/Examples/Privacy-Example.md
-        - Configure Kubernetes mode in NAT Manager : Tutorials/Examples/Nat-Manager-Kubernetes.md
-        - Deploy on Microsoft Azure: Tutorials/Examples/Private-Network-Example-Azure.md
+      - Quorum Developer Quickstart: Tutorials/Developer-Quickstart.md
       - Create a private network:
         - Use QBFT (PoA): Tutorials/Private-Network/Create-QBFT-Network.md
         - Use IBFT 2.0 (PoA): Tutorials/Private-Network/Create-IBFT-Network.md
@@ -177,9 +173,9 @@ nav:
         - Transfer account funds: Tutorials/Contracts/Account-Funds-Transfers.md
       - Privacy:
         - Create a privacy-enabled network: Tutorials/Privacy/Configuring-Privacy.md
+        - Create a privacy-enabled network using the Quickstart: Tutorials/Privacy/Privacy-Example.md
         - Configure a multi-tenant network: Tutorials/Privacy/Configuring-Multi-Tenancy.md
         - Use web3js-quorum multinode example: Tutorials/Privacy/web3js-quorum-Multinode-example.md
-      - Developer Quickstart: Tutorials/Developer-Quickstart.md
       - Kubernetes:
           - Overview: Tutorials/Kubernetes/Overview.md
           - Local playground: Tutorials/Kubernetes/Playground.md
@@ -187,6 +183,8 @@ nav:
           - Deploy charts: Tutorials/Kubernetes/Deploy-Charts.md
           - Maintenance: Tutorials/Kubernetes/Maintenance.md
           - Production: Tutorials/Kubernetes/Production.md
+          - Configure Kubernetes mode in NAT Manager : Tutorials/Kubernetes/Nat-Manager-Kubernetes.md
+      - Deploy on Microsoft Azure: Tutorials/Private-Network-Example-Azure.md
       - Run clients on the Merge testnet: Tutorials/Merge-Testnet.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
@@ -307,7 +305,7 @@ plugins:
           Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
-          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Examples/Private-Network-Example-Azure.md
+          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Private-Network-Example-Azure.md
           HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
           HowTo/Interact/Client-Libraries/web3js-eea.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
           Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
@@ -318,3 +316,7 @@ plugins:
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
           HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md
           HowTo/Configure/Configure-Data-Storage.md: Concepts/Data-Storage-Formats.md
+          Tutorials/Examples/Private-Network-Example.md: Tutorials/Developer-Quickstart.md
+          Tutorials/Examples/Privacy-Example.md: Tutorials/Privacy/Privacy-Example.md
+          Tutorials/Examples/Nat-Manager-Kubernetes.md: Tutorials/Kubernetes/Nat-Manager-Kubernetes.md
+          Tutorials/Examples/Private-Network-Example-Azure.md: Tutorials/Private-Network-Example-Azure.md

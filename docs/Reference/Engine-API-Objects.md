@@ -54,7 +54,7 @@ Returned by [`engine_newPayloadV1`](Engine-API-Methods.md#engine_newpayloadv1) a
 
 | Key | Type | Value |
 |-----|:----:|-------|
-| `status`          | *enum*           | Either `"VALID"`, `"INVALID"`, `"SYNCING"`, `"ACCEPTED"`, `"INVALID_BLOCK_HASH"`, or `"INVALID_TERMINAL_BLOCK"`. |
+| `status`          | *Enumeration*    | Either `"VALID"`, `"INVALID"`, `"SYNCING"`, `"ACCEPTED"`, `"INVALID_BLOCK_HASH"`, or `"INVALID_TERMINAL_BLOCK"`. |
 | `latestValidHash` | *Data*, 32 Bytes | Hash of the most recent valid block in the branch defined by payload and its ancestors. |
 | `validationError` | *String*         | Message providing additional details on the validation error if the payload is classified as `INVALID`, `INVALID_BLOCK_HASH` or `INVALID_TERMINAL_BLOCK`. |
 

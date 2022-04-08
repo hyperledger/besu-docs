@@ -45,7 +45,7 @@ To specify the port the API service listens on, use the
 The default ports are:
 
 * 8545 for JSON-RPC over HTTP.
-* 8546 for JSON-RPC over WebSockets.
+* 8546 for JSON-RPC over WebSocket.
 * 8547 for GraphQL over HTTP.
 
 Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#port-configuration).

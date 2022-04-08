@@ -11,7 +11,7 @@ These [API methods](../../../Reference/Engine-API-Methods.md) are a separate sub
 
 To configure the Engine API, specify the [service ports](#service-ports) and [host allowlist](#host-allowlist).
 Also [enable the JSON-RPC](API.md#enabling-api-access).
-Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (It's enabled by default).
+Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (it's enabled by default).
 
 ### Service ports
 
@@ -22,7 +22,7 @@ To specify the port the Engine API service listens on, use the
 The default ports are:
 
 * 8550 over HTTP.
-* 8551 over WebSockets.
+* 8551 over WebSocket.
 
 ### Host allowlist
 
@@ -165,7 +165,7 @@ Execute the payload using [`engine_newPayloadV1`](../../../Reference/Engine-API-
 
 ### 4. Update the fork choice
 
-Update the fork choice  using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1) again.
+Update the fork choice using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1) again.
 
 !!! example
 

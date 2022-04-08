@@ -97,7 +97,7 @@ nav:
               - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/APIs/RPC-PubSub.md
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
               - Authenticate JSON-RPC requests: HowTo/Interact/APIs/Authentication.md
-              - Use Engine API: HowTo/Interact/APIs/Engine-API.md
+              - Use the Engine API: HowTo/Interact/APIs/Engine-API.md
             - Client libraries:
               - Use the web3js-quorum client library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:

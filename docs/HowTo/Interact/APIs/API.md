@@ -12,7 +12,7 @@ Access the [Hyperledger Besu API](../../../Reference/API-Methods.md) using:
 
 The following sections provide information about JSON-RPC, RPC Pub/Sub, and GraphQL.
 
-## Enabling API access
+## Enable API access
 
 To enable API access, use the
 [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled),
@@ -44,15 +44,15 @@ To specify the port the API service listens on, use the
 
 The default ports are:
 
-* 8545 for JSON-RPC over HTTP
-* 8546 for JSON-RPC over WebSockets
+* 8545 for JSON-RPC over HTTP.
+* 8546 for JSON-RPC over WebSockets.
 * 8547 for GraphQL over HTTP.
 
 Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#port-configuration).
 
 ## Host allowlist
 
-To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSockets connections, and GraphQL
+To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSocket connections, and GraphQL
 requests.
 Besu accepts requests only when hostnames specified using the
 [`--host-allowlist`](../../../Reference/CLI/CLI-Syntax.md#host-allowlist) option matches the request host headers.

@@ -2,16 +2,16 @@
 description: How to enable and use the Engine API
 ---
 
-# Engine API
+# Use the Engine API
 
-The Engine API allows communication between [consensus and execution layers](../../../Concepts/Merge.md#execution-and-consensus-clients) of the [post-Merge](../../../Concepts/Merge.md) Ethereum Client.
+After [The Merge](../../../Concepts/Merge.md), consensus and execution clients communicate with each other using the Engine API.
 These [API methods](../../../Reference/Engine-API-Methods.md) are a separate subsection of the [JSON-RPC API](API.md).
 
-## Configuring the Engine API
+## Configure the Engine API
 
-To configure the Engine API for use, specify the [service ports](#service-ports) and [host allowlist](#host-allowlist).
-You must also [enable the JSON-RPC](API.md#enabling-api-access).
-Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (It is enabled by default).
+To configure the Engine API, specify the [service ports](#service-ports) and [host allowlist](#host-allowlist).
+Also [enable the JSON-RPC](API.md#enabling-api-access).
+Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (It's enabled by default).
 
 ### Service ports
 
@@ -21,12 +21,12 @@ To specify the port the Engine API service listens on, use the
 
 The default ports are:
 
-* 8550 over HTTP
-* 8551 over WebSockets
+* 8550 over HTTP.
+* 8551 over WebSockets.
 
 ### Host allowlist
 
-To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSockets connections, and GraphQL
+To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSocket connections, and GraphQL
 requests.
 Besu accepts requests only when hostnames specified using the
 [`--engine-host-allowlist`](../../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) option matches the request host headers.
@@ -47,16 +47,16 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 
 ## Authentication
 
-By default, [Authentication](Authentication.md) for the Engine API is disabled.
+By default, [authentication](Authentication.md) for the Engine API is disabled.
 To enable, set the [`--engine-jwt-enabled`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) to `true`.
 
 Set the [JWT secret](Authentication.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
 
-## Sending a payload using the Engine API
+## Send a payload using the Engine API
 
 ### 1. Prepare a payload
 
-Prepare to send a payload by using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1).
+Prepare to send a payload using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1).
 
 !!! example
 
@@ -85,7 +85,7 @@ Prepare to send a payload by using [`engine_forkchoiceUpdatedV1`](../../../Refer
 
 ### 2. Get the payload
 
-Get the payload with [`engine_getPayloadV1`](../../../Reference/Engine-API-Methods.md#engine_getpayloadv1)
+Get the payload using [`engine_getPayloadV1`](../../../Reference/Engine-API-Methods.md#engine_getpayloadv1)
 
 !!! example
 
@@ -122,7 +122,7 @@ Get the payload with [`engine_getPayloadV1`](../../../Reference/Engine-API-Metho
 
 ### 3. Execute the payload
 
-Execute the payload with [`engine_newPayloadV1`](../../../Reference/Engine-API-Methods.md#engine_newpayloadv1)
+Execute the payload using [`engine_newPayloadV1`](../../../Reference/Engine-API-Methods.md#engine_newpayloadv1)
 
 !!! example
 
@@ -165,7 +165,7 @@ Execute the payload with [`engine_newPayloadV1`](../../../Reference/Engine-API-M
 
 ### 4. Update the fork choice
 
-Update the fork choice by using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1) again.
+Update the fork choice  using [`engine_forkchoiceUpdatedV1`](../../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1) again.
 
 !!! example
 

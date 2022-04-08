@@ -8,19 +8,22 @@ description: How to add or remove validators without voting
 conditions might not allow voting to change validators.
 For example, if a majority of the current validators are no longer participating in the network, a vote to add or
 remove validators won't be successful.
-You can bypass voting and specify new validators in the genesis file.
+You can bypass voting and specify new validators using a transition in the genesis file.
 
 !!! warning
 
-    In most cases, use the voting method to add or remove validators.
-    Only use the without-voting method when voting isn't possible.
-    Using this method requires coordinating restarting all the nodes in order to pick up the configuration at the
-    correct block height.
-    Using this method also leaves the validator overrides permanently in your genesis configuration.
+    - In most cases, add or remove validators
+      [by voting or smart contract for QBFT](../Configure/Consensus-Protocols/QBFT.md#add-and-remove-validators);
+      or [by voting for IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators).
+      Use transitions (non-voting method) only when voting isn't possible.
+      Using transitions requires coordinating a rolling update of all the nodes in order to pick up the configuration at
+      the correct block height.
+      Using transitions also leaves the validator overrides permanently in your genesis configuration.
+    - Transitions are a Besu-specific feature.
+      If you run a mixed-client QBFT network, you can't use transitions to change the validators.
 
 To add or remove validators without voting:
 
-1. Stop all nodes in the network.
 1. In the genesis file, add the `transitions` configuration item where:
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
@@ -85,6 +88,7 @@ To add or remove validators without voting:
             ```
 
 1. Restart all nodes in the network using the updated genesis file.
+   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 1. To verify the changes after the transition block, call
    [`qbft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#qbft_getvalidatorsbyblocknumber) or
    [`ibft_getValidatorsByBlockNumber`](../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber),
@@ -108,7 +112,6 @@ This requires temporarily
 
 To bypass the smart contract and specify new validators:
 
-1. Stop all nodes in the network.
 1. In the genesis file, add a `transitions` configuration item where:
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
@@ -178,8 +181,8 @@ To bypass the smart contract and specify new validators:
         ```
 
 1. Restart all nodes in the network using the updated genesis file.
+   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 1. Deploy a new contract to the blockchain containing the desired list of validators.
-1. Stop all nodes in the network.
 1. In the genesis file, add another `transitions` configuration item where:
 
     * `<BlockNumber>` is the upcoming block at which to change validators.
@@ -256,3 +259,4 @@ To bypass the smart contract and specify new validators:
         ```
 
 1. Restart all nodes in the network using the updated genesis file.
+   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.

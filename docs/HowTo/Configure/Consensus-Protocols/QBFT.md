@@ -30,7 +30,7 @@ You can [create a private network using QBFT](../../../Tutorials/Private-Network
 
 To use QBFT, define a [genesis file](../Genesis-File.md) that contains the QBFT properties.
 
-The genesis file differs depending on the [validator management method](#validator-management) you intend to use.
+The genesis file differs depending on the [validator management method](#add-and-remove-validators) you intend to use.
 
 !!! note
 
@@ -155,7 +155,7 @@ The QBFT properties are:
 * `validatorcontractaddress` - Address of the validator smart contract. Required only if using a contract validator
      selection. The address must be identical to the address in the `alloc` section. This option can also be
      used in the [transitions](#transitions) configuration item if swapping
-     [validator management methods](#validator-management) in an existing network.
+     [validator management methods](#add-and-remove-validators) in an existing network.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
 * [`extraData`](#extra-data) - RLP encoded [extra data](#extra-data).

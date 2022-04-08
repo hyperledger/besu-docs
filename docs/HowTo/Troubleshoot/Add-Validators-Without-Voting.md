@@ -15,7 +15,7 @@ You can bypass voting and specify new validators using a transition in the genes
     - In most cases, add or remove validators
       [by voting or smart contract for QBFT](../Configure/Consensus-Protocols/QBFT.md#add-and-remove-validators);
       or [by voting for IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators).
-      Use transitions (non-voting method) only when voting isn't possible.
+      Use transitions only when voting isn't possible.
       Using transitions requires coordinating a rolling update of all the nodes in order to pick up the configuration at
       the correct block height.
       Using transitions also leaves the validator overrides permanently in your genesis configuration.
@@ -32,19 +32,19 @@ To add or remove validators without voting:
 
     !!! example "Transitions object in the genesis file"
 
-        === "Syntax"
+        === "QBFT syntax"
 
             ```bash
             {
               "config": {
                  ...
-                 "qbft": {  // or "ibft2"
+                 "qbft": {
                    "blockperiodseconds": 2,
                    "epochlength": 30000,
                    "requesttimeoutseconds": 4
                  },
                  "transitions": {
-                   "qbft": [  // or "ibft2"
+                   "qbft": [
                    {
                      "block": <BlockNumber>,
                      "validators": [
@@ -60,19 +60,74 @@ To add or remove validators without voting:
             }
             ```
 
-        === "Example"
+        === "QBFT example"
 
             ```bash
             {
               "config": {
                 ...
-                "qbft": {  // or "ibft2"
+                "qbft": {
                   "blockperiodseconds": 2,
                   "epochlength": 30000,
                   "requesttimeoutseconds": 4
                 },
                 "transitions": {
-                   "qbft": [  // or "ibft2"
+                   "qbft": [
+                   {
+                    "block": 25,
+                    "validators": [
+                      "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                      "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                      ]
+                    }
+                   ]
+                }
+              },
+              ...
+            }
+            ```
+
+        === "IBFT 2.0 syntax"
+
+            ```bash
+            {
+              "config": {
+                 ...
+                 "ibft2": {
+                   "blockperiodseconds": 2,
+                   "epochlength": 30000,
+                   "requesttimeoutseconds": 4
+                 },
+                 "transitions": {
+                   "ibft2": [
+                   {
+                     "block": <BlockNumber>,
+                     "validators": [
+                        <ValidatorAddressX>,
+                        ...
+                        <ValidatorAddressZ>
+                     ]
+                   }
+                   ]
+                 }
+              },
+              ...
+            }
+            ```
+
+        === "IBFT 2.0 example"
+
+            ```bash
+            {
+              "config": {
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                   "ibft2": [
                    {
                     "block": 25,
                     "validators": [

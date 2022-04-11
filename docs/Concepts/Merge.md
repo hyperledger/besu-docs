@@ -7,7 +7,8 @@ description: What is the Merge?
 The Ethereum upgrade known as [The Merge](https://ethereum.org/en/upgrades/merge/) will merge the [Beacon Chain] into
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
-The Merge transitions Mainnet from proof of work to [proof of stake consensus](POS-LINK).
+The Merge transitions Mainnet from proof of work to
+[proof of stake consensus](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/).
 
 ## Execution and consensus clients
 
@@ -18,7 +19,8 @@ called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-ren
 Execution clients, such as Besu, manage the state and execute transactions on the execution layer.
 Consensus clients, such as [Teku], contain beacon node and validator client implementations.
 The beacon node is the primary link to the [Beacon Chain] (consensus layer).
-The validator client performs [validator duties](POS-LINK) on the consensus layer.
+The validator client performs [validator duties](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/) on
+the consensus layer.
 
 Execution and consensus clients communicate with each other using the
 [Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).

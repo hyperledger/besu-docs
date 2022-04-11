@@ -2,7 +2,7 @@
 description: Configure Hyperledger Besu privacy
 ---
 
-# Configure a network for private transactions
+# Create a privacy-enabled network
 
 !!! warning
 
@@ -319,6 +319,12 @@ In each `Tessera` directory, start Tessera specifying the
 ```bash
 tessera -configfile tessera.conf
 ```
+
+!!! note
+
+    After starting the first Tessera node and before starting the other nodes, the log message `failed to connect to node` displays.
+    This is normal behavior. Until you start the other peer nodes, your node is not connected and displays this warning.
+    You can continue to start the other nodes.
 
 ## 5. Start Besu Node-1
 

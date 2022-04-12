@@ -256,7 +256,7 @@ Use the [Clique API to add] Node-2 or Node-3 as a signer.
     [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer.
 
 Import accounts to MetaMask and send transactions, as described in the
-[private network example tutorial].
+[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
@@ -275,4 +275,3 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 <!-- Links -->
 [Clique (proof of authority) consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
 [Clique API to add]: ../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
-[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask

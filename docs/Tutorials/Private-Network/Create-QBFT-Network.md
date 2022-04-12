@@ -353,7 +353,8 @@ Look at the logs to confirm Besu is producing blocks:
 ## Next steps
 
 Use the [QBFT API](../../Reference/API-Methods.md#qbft-methods) to remove or add validators, or import accounts
-to MetaMask and send transactions as described in the [private network example tutorial].
+to MetaMask and send transactions as described in the
+[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
 
 !!! note
 
@@ -377,7 +378,6 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
 [block header validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting_1
 [contract validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-using-a-smart-contract
 [example smart contract repository]: https://github.com/ConsenSys/validator-smart-contracts

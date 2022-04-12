@@ -360,7 +360,7 @@ Use the [IBFT API](../../Reference/API-Methods.md#ibft-20-methods) to remove or 
     2.0 requires four validators to be Byzantine fault tolerant.
 
 Import accounts to MetaMask and send transactions as described in the
-[private network example tutorial].
+[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
@@ -378,7 +378,6 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 
 <!-- Links -->
 [IBFT 2.0 (proof of authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
-[private network example tutorial]: ../Examples/Private-Network-Example.md#creating-a-transaction-using-metamask
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

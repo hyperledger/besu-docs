@@ -97,6 +97,7 @@ nav:
               - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/APIs/RPC-PubSub.md
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
               - Authenticate JSON-RPC requests: HowTo/Interact/APIs/Authentication.md
+              - Use the Engine API: HowTo/Interact/APIs/Engine-API.md
             - Client libraries:
               - Use the web3js-quorum client library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
@@ -226,6 +227,8 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API methods: Reference/API-Methods.md
         - Besu API objects: Reference/API-Objects.md
+        - Engine API methods: Reference/Engine-API-Methods.md
+        - Engine API objects: Reference/Engine-API-Objects.md
         - Transaction trace types: Reference/Trace-Types.md
         - Genesis file items: Reference/Config-Items.md
         - Web3js-quorum reference: Reference/web3js-quorum.md

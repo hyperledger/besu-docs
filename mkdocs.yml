@@ -96,6 +96,7 @@ nav:
               - Use RPC Pub/Sub API over WebSockets: HowTo/Interact/APIs/RPC-PubSub.md
               - Use GraphQL over HTTP: HowTo/Interact/APIs/GraphQL.md
               - Authenticate JSON-RPC requests: HowTo/Interact/APIs/Authentication.md
+              - Use the Engine API: HowTo/Interact/APIs/Engine-API.md
             - Client libraries:
               - Use the web3js-quorum client library: HowTo/Interact/Client-Libraries/web3js-quorum.md
             - Filters:
@@ -190,7 +191,6 @@ nav:
         - Consensus protocols:
           - Overview: Concepts/Consensus-Protocols/Overview-Consensus.md
           - Comparing PoA consensus protocols: Concepts/Consensus-Protocols/Comparing-PoA.md
-          - Proof of stake: Concepts/Consensus-Protocols/Proof-of-Stake.md
         - Data storage formats: Concepts/Data-Storage-Formats.md
         - Events and logs: Concepts/Events-and-Logs.md
         - The Merge: Concepts/Merge.md
@@ -227,6 +227,8 @@ nav:
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - Besu API methods: Reference/API-Methods.md
         - Besu API objects: Reference/API-Objects.md
+        - Engine API methods: Reference/Engine-API-Methods.md
+        - Engine API objects: Reference/Engine-API-Objects.md
         - Transaction trace types: Reference/Trace-Types.md
         - Genesis file items: Reference/Config-Items.md
         - Web3js-quorum reference: Reference/web3js-quorum.md
@@ -313,6 +315,7 @@ plugins:
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
           HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md
           HowTo/Configure/Configure-Data-Storage.md: Concepts/Data-Storage-Formats.md
+          Concepts/Consensus-Protocols/Proof-of-Stake.md: Concepts/Merge.md
           Tutorials/Examples/Private-Network-Example.md: Tutorials/Developer-Quickstart.md
           Tutorials/Examples/Privacy-Example.md: Tutorials/Privacy/Privacy-Example.md
           Tutorials/Examples/Nat-Manager-Kubernetes.md: Tutorials/Kubernetes/Nat-Manager-Kubernetes.md

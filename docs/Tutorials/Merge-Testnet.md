@@ -21,14 +21,14 @@ Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Start
 
 ## 2. Generate the shared secret
 
-Generate the JWT secret:
+Run the following command:
 
 ```bash
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-You must pass this file to both Besu and Teku.
-This is a shared secret the clients use to authenticate each other when using the
+You will specify `jwtsecret.hex` when starting both Besu and Teku.
+This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../HowTo/Interact/APIs/Engine-API.md).
   
 ## 3. Generate validator keys and stake ETH

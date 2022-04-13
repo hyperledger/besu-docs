@@ -2,30 +2,48 @@
 Description: How to run Besu and Teku on the Merge testnet
 ---
 
-# Run clients on the Merge testnet
+# Run Besu and Teku on the Merge testnet
 
-You can test Besu as an [execution client](../Concepts/Merge.md) and [Teku](https://docs.teku.consensys.net/en/stable/)
-as a [consensus client](../Concepts/Merge.md) on the [Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
+You can test Besu as an [execution client](../Concepts/Merge.md#execution-clients) and
+[Teku](https://docs.teku.consensys.net/en/stable/)
+as a [consensus client](../Concepts/Merge.md#consensus-clients) on the
+[Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
 
-## Prerequisites
+## 1. Install Besu and Teku
 
-- Install [Besu](../HowTo/Get-Started/Installation-Options/Options.md) and
-   [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
+Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) and
+[Teku](https://docs.teku.consensys.net/en/latest/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
-- Generate the JWT secret:
+Ensure you meet the prerequisites for the option you use.
+For example, you must Java version 11-16 if using the Besu and Teku binary distributions.
 
-    ```bash
-    openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
-    ```
+Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
 
-    You must pass this file to both Besu and Teku.
-    This is a shared secret the clients use to authenticate each other when using the Engine API.
+## 2. Generate the shared secret
 
-- Create a test Ethereum address to use as the
-  [default fee recipient](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
-  when starting Teku.
+Generate the JWT secret:
 
-## Start Besu
+```bash
+openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
+```
+
+You must pass this file to both Besu and Teku.
+This is a shared secret the clients use to authenticate each other when using the
+[Engine API](../HowTo/Interact/APIs/Engine-API.md).
+  
+## 3. Generate validator keys and stake ETH
+
+If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
+this in
+[MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+Fund this address with testnet ETH using the [Kiln Faucet](https://faucet.kiln.themerge.dev/).
+
+Generate validator keys and stake your testnet ETH for one or more validators using the
+[Kiln Staking Launchpad](https://kiln.launchpad.ethereum.org/en/).
+Save your mnemonic for each validator in a `.txt` file.
+You should also have a `.json` file for each validator key pair.
+
+## 4. Start Besu
 
 Run the following command:
 
@@ -43,31 +61,66 @@ besu \
   --engine-rpc-http-port=8550 \
   --engine-rpc-ws-port=8551   \
   --Xmerge-support=true       \
-  --engine-jwt-secret=<path_to_jwtsecret>
+  --engine-jwt-secret=<path to jwtsecret.hex>
 ```
+
+Specify the path to `jwtsecret.hex` using [`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret).
 
 See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) CLI options for more information on running
 Besu as an execution client.
 
-## Start Teku
+## 5. Start Teku
 
-Run the following command:
+### Beacon node only
+
+To run Teku as a beacon node (without validator duties), run the following command:
 
 ```bash
 teku \
-  --data-path "datadir-teku"               \
-  --network kiln                           \
-  --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk" \
-  --ee-endpoint http://localhost:8550      \
-  --Xee-version kilnv2                     \
-  --ee-jwt-secret-file <path_to_jwtsecret> \
-  --log-destination console                \
-  --validators-proposer-default-fee-recipient=<eth_address_of_default_fee_recipient>
+  --data-path "datadir-teku"                   \
+  --network kiln                               \
+  --ee-endpoint http://localhost:8550          \
+  --Xee-version kilnv2                         \
+  --ee-jwt-secret-file <path to jwtsecret.hex> \
+  --log-destination console                    \
+  --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
 ```
 
-This runs Teku as a beacon node (without validator duties).
+Specify the path to `jwtsecret.hex` using
+[`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+
+### Beacon node and validator client
+
+To run Teku as a beacon node and validator in a single process, run the following command:
+
+```bash
+teku \
+  --data-path "datadir-teku"                                \
+  --network kiln                                            \
+  --ee-endpoint http://localhost:8550                       \
+  --Xee-version kilnv2                                      \
+  --ee-jwt-secret-file <path to jwtsecret.hex>              \
+  --log-destination console                                 \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
+  --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
+```
+
+Specify:
+
+- The path to `jwtsecret.hex` using
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+- The test Ethereum address created in [step 3](#3-generate-validator-keys-and-stake-eth) as the default fee recipient
+  using
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient).
+- The paths to the keystore `.json` file and mnemonic `.txt` file generated in
+  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+
 See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys) CLI
-options for information on running Teku as a validator.
+options for more information on running Teku as a validator.
+
+## 6. Confirm your node is syncing
 
 After starting Besu and Teku, your node should start syncing and connecting to peers.
 

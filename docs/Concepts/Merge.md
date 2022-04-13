@@ -25,7 +25,7 @@ Execution and consensus clients communicate with each other using the
 
 Execution clients, such as Besu, manage the state and execute transactions on the execution layer.
 Execution clients serve [JSON-RPC API](../Reference/Engine-API-Methods.md) requests and communicate with each other in a
-peer-to-peer network
+peer-to-peer network.
 
 ### Consensus clients
 

@@ -12,10 +12,10 @@ as a [consensus client](../Concepts/Merge.md#consensus-clients) on the
 ## 1. Install Besu and Teku
 
 Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) and
-[Teku](https://docs.teku.consensys.net/en/latest/HowTo/Get-Started/Installation-Options/Install-Binaries/).
+[Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the option you use.
-For example, you must Java version 11-16 if using the Besu and Teku binary distributions.
+For example, you must have Java version 11-16 if using the Besu and Teku binary distributions.
 
 Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
 
@@ -64,7 +64,8 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-Specify the path to `jwtsecret.hex` using [`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret).
+Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
+[`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret).
 
 See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) CLI options for more information on running
 Besu as an execution client.
@@ -86,8 +87,8 @@ teku \
   --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
 ```
 
-Specify the path to `jwtsecret.hex` using
-[`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
+[`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
 
 ### Beacon node and validator client
 
@@ -108,13 +109,14 @@ teku \
 
 Specify:
 
-- The path to `jwtsecret.hex` using
-  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
 - The test Ethereum address created in [step 3](#3-generate-validator-keys-and-stake-eth) as the default fee recipient
   using
-  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient).
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient).
 - The paths to the keystore `.json` file and mnemonic `.txt` file generated in
-  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator.
+  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator using
+  [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys).
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
 See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys) CLI

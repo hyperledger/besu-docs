@@ -12,9 +12,7 @@ In IBFT 2.0 networks, approved accounts, known as validators, validate transacti
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
 
-Existing validators propose and vote to
-[add or remove validators](Add-Validators.md#ibft-20). Adding or removing a validator
-requires a majority vote (greater than 50%) of validators.
+Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
 You can [create a private network using IBFT](../../../Tutorials/Private-Network/Create-IBFT-Network.md).
 
@@ -28,21 +26,6 @@ You can [create a private network using IBFT](../../../Tutorials/Private-Network
 
     You can use a plugin to securely store a validator's key using the
     [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
-
-## Validators
-
-### Minimum number of validators
-
-IBFT 2.0 requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
-ability for a blockchain network to function correctly and reach consensus despite nodes failing or
-propagating incorrect information to peers.
-
-### Maximum number of validators
-
-As the number of validators increase, the message complexity increases, which can decrease performance.
-In [network tests](https://wiki.hyperledger.org/display/BESU/Maximum+Validator+count+for+an+IBFT2+Network), IBFT 2.0 handles up to 30 validators with no loss of performance.
-
-Non-validator nodes don't affect performance and don't count towards the maximum limit.
 
 ## Genesis file
 
@@ -121,7 +104,7 @@ Formally, `extraData` in the genesis block contains
 
     RLP encoding is a space-efficient object serialization scheme used in Ethereum.
 
-#### Generating extra data
+#### Generate extra data
   
 To generate the `extraData` RLP string for inclusion in the genesis file, use the
 [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
@@ -177,7 +160,7 @@ small (usually around one second) even in networks with geographically dispersed
     Sydney, and two in North Virginia. With a `blockperiodseconds` of 5 and a `requesttimeoutseconds`
     of 10, the testnet consistently created blocks with a five second block time.
 
-#### Tuning block timeout
+#### Tune block timeout
 
 To tune the block timeout for your network deployment:
 
@@ -194,6 +177,102 @@ To tune the block timeout for your network deployment:
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
 {!global/Config-Options.md!}
+
+## Add and remove validators
+
+Existing validators propose and vote to add or remove validators using the IBFT 2.0 JSON-RPC API methods.
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
+WebSocket interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+
+The IBFT 2.0 API methods are disabled by default.
+To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
+
+The methods to add or remove validators are:
+
+* [`ibft_getPendingVotes`](../../../Reference/API-Methods.md#ibft_getPendingVotes).
+* [`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposeValidatorVote).
+* [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardValidatorVote).
+
+To view validator metrics for a specified block range, use
+[`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
+
+!!! tip
+
+    You can use `ibft_getSignerMetrics` to identify inactive validators.
+    An inactive validator's `lastProposedBlockNumber` is `0x0`.
+
+!!! note
+
+    If network conditions render it impossible to add and remove validators by voting, you can
+    [add and remove validators without voting](../../Troubleshoot/Add-Validators-Without-Voting.md).
+
+### Add a validator
+
+To propose adding a validator to an IBFT 2.0 network, call
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
+proposed validator and `true`.
+A majority of validators must execute the call.
+
+!!! example "JSON-RPC `ibft_proposeValidatorVote` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+When the validator proposes the next block, the protocol inserts one proposal received from
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote) into the block.
+If blocks include all proposals, subsequent blocks proposed by the validator will not contain a vote.
+
+When more than 50% of the existing validators have published a matching proposal, the protocol adds the proposed
+validator to the validator pool and the validator can begin validating blocks.
+
+To return a list of validators and confirm the addition of a proposed validator, use
+[`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
+
+!!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+To discard your proposal after confirming the addition of a validator, call
+[`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardvalidatorvote),
+specifying the address of the proposed validator.
+
+!!! example "JSON-RPC `ibft_discardValidatorVote` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+### Remove a validator
+
+The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#add-a-validator)
+except you specify `false` as the second parameter of
+[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote).
+
+### Epoch transition
+
+At each epoch transition, IBFT 2.0 discards all pending votes collected from received blocks.
+Existing proposals remain in effect and validators re-add their vote the next time they create a
+block.
+
+An epoch transition occurs every `epochLength` blocks.
+Define `epochlength` in the [IBFT 2.0 genesis file](#genesis-file).
+
+### Minimum number of validators
+
+IBFT 2.0 requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
+ability for a blockchain network to function correctly and reach consensus despite nodes failing or
+propagating incorrect information to peers.
+
+### Maximum number of validators
+
+As the number of validators increase, the message complexity increases, which can decrease performance.
+In [network tests](https://wiki.hyperledger.org/display/BESU/Maximum+Validator+count+for+an+IBFT2+Network), IBFT 2.0 handles up to 30 validators with no loss of performance.
+
+Non-validator nodes don't affect performance and don't count towards the maximum limit.
 
 ## Transitions
 

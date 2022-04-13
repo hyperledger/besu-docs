@@ -17,7 +17,7 @@ The Rinkeby and Goerli testnets uses Clique and private networks can also use Cl
 
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers
 take turns to create the next block.
-Existing signers propose and vote to [add or remove signers](Add-Validators.md#clique).
+Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
 
 You can [create a private network using Clique](../../../Tutorials/Private-Network/Create-Private-Clique-Network.md).
 
@@ -81,13 +81,84 @@ The `extraData` property consists of:
 
     ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 
-## Connecting to a Clique network
+## Connect to a Clique network
 
 To connect to the Rinkeby testnet, start Besu with the
 [`--network=rinkeby`](../../../Reference/CLI/CLI-Syntax.md#network) command line option. To start a
 node on a Clique private network, use the
 [`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
 genesis file.
+
+## Add and remove signers
+
+Existing signers propose and vote to add or remove validators using the Clique JSON-RPC API methods.
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
+WebSocket interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+
+The Clique API methods are disabled by default.
+To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
+
+The methods to add or remove signers are:
+
+* [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
+* [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
+* [`clique_discard`](../../../Reference/API-Methods.md#clique_discard).
+
+To view signer metrics for a specified block range, call
+[`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
+
+!!! tip
+
+    You can use `clique_getSignerMetrics` to identify inactive validators.
+    An inactive validator's `lastProposedBlockNumber` is `0x0`.
+
+### Add a signer
+
+To propose adding a signer to a Clique network, call
+[`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the proposed signer and `true`.
+A majority of signers must execute the call.
+
+!!! example "JSON-RPC `clique_propose` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+When the signer creates the next block, the signer adds a vote to the block for the proposed signer.
+
+When more than 50% of the existing signers propose adding the signer, with their votes distributed in blocks, the
+signer can begin signing blocks.
+
+To return a list of signers and confirm the addition of a proposed signer, call
+[`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
+
+!!! example "JSON-RPC `clique_getSigners` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+To discard your proposal after confirming the addition of a signer, call
+[`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the proposed signer.
+
+!!! example "JSON-RPC `clique_discard` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+### Remove a signer
+
+The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you
+specify `false` as the second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
+
+### Epoch transition
+
+At each epoch transition, Clique discards all pending votes collected from received blocks.
+Existing proposals remain in effect and signers re-add their vote the next time they create a block.
+
+Define the number of blocks between epoch transitions in the [Clique genesis file](#genesis-file).
 
 ## Limitations
 

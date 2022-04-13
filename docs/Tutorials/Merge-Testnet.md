@@ -14,7 +14,7 @@ as a [consensus client](../Concepts/Merge.md#consensus-clients) on the
 Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) and
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
-Ensure you meet the prerequisites for the option you use.
+Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java version 11–16 if using the Besu and Teku binary distributions.
 
 Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
@@ -37,6 +37,11 @@ If you're running a [validator client](#beacon-node-and-validator-client), creat
 this in
 [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
 Fund this address with testnet ETH using the [Kiln Faucet](https://faucet.kiln.themerge.dev/).
+
+!!! note
+
+    If you're unable to get ETH using the faucet, you can ask for help on the
+    [EthStaker Discord](https://discord.io/ethstaker).
 
 Generate validator keys and stake your testnet ETH for one or more validators using the
 [Kiln Staking Launchpad](https://kiln.launchpad.ethereum.org/en/).
@@ -74,6 +79,8 @@ See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) CLI
 Besu as an execution client.
 
 ## 5. Start Teku
+
+Open a new terminal window.
 
 ### Beacon node only
 
@@ -153,5 +160,6 @@ After starting Besu and Teku, your node should start syncing and connecting to p
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-You can check your validator status on the [Kiln Beacon Chain explorer](https://beaconchain.kiln.themerge.dev/).
+You can check your validator status by searching your Ethereum address on the
+[Kiln Beacon Chain explorer](https://beaconchain.kiln.themerge.dev/).
 It may take up to multiple days for your validator to reach `active` status.

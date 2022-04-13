@@ -378,8 +378,8 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[block header validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-by-voting_1
-[contract validator selection method]: ../../HowTo/Configure/Consensus-Protocols/Add-Validators.md#adding-and-removing-validators-using-a-smart-contract
+[block header validator selection method]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md#add-and-remove-validators-using-block-headers
+[contract validator selection method]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md#add-and-remove-validators-using-a-smart-contract
 [example smart contract repository]: https://github.com/ConsenSys/validator-smart-contracts
 [configuring a transition]: ../../HowTo/Configure/Consensus-Protocols/QBFT.md#transitions
 <!-- Acronyms and Definitions -->

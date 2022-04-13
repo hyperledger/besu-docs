@@ -40,8 +40,11 @@ Fund this address with testnet ETH using the [Kiln Faucet](https://faucet.kiln.t
 
 Generate validator keys and stake your testnet ETH for one or more validators using the
 [Kiln Staking Launchpad](https://kiln.launchpad.ethereum.org/en/).
-Save your mnemonic for each validator in a `.txt` file.
-You should also have a `.json` file for each validator key pair.
+
+!!! important
+
+    Save the password you use to generate each key pair in a `.txt` file.
+    You should also have a `.json` file for each validator key pair.
 
 ## 4. Start Besu
 
@@ -84,6 +87,7 @@ teku \
   --Xee-version kilnv2                         \
   --ee-jwt-secret-file <path to jwtsecret.hex> \
   --log-destination console                    \
+  --rest-api-enabled=true                      \
   --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
 ```
 
@@ -102,6 +106,7 @@ teku \
   --Xee-version kilnv2                                      \
   --ee-jwt-secret-file <path to jwtsecret.hex>              \
   --log-destination console                                 \
+  --rest-api-enabled=true                                   \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
   --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
@@ -114,7 +119,7 @@ Specify:
 - The test Ethereum address created in [step 3](#3-generate-validator-keys-and-stake-eth) as the default fee recipient
   using
   [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient).
-- The paths to the keystore `.json` file and mnemonic `.txt` file generated in
+- The paths to the keystore `.json` file and password `.txt` file created in
   [step 3](#3-generate-validator-keys-and-stake-eth) for each validator using
   [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys).
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
@@ -122,7 +127,7 @@ Specify:
 See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys) CLI
 options for more information on running Teku as a validator.
 
-## 6. Confirm your node is syncing
+## 6. Check validator status
 
 After starting Besu and Teku, your node should start syncing and connecting to peers.
 
@@ -147,3 +152,6 @@ After starting Besu and Teku, your node should start syncing and connecting to p
         2022-03-21 20:44:00.339 INFO  - Syncing     *** Target slot: 76095, Head slot: 3317, Remaining slots: 72778, Connected peers: 6
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
+
+You can check your validator status on the [Kiln Beacon Chain explorer](https://beaconchain.kiln.themerge.dev/).
+It may take up to multiple days for your validator to reach `active` status.

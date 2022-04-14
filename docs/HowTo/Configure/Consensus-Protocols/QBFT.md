@@ -320,11 +320,6 @@ The methods to add or remove validators are:
 To view validator metrics for a specified block range, use
 [`qbft_getSignerMetrics`](../../../Reference/API-Methods.md#qbft_getsignermetrics).
 
-!!! tip
-
-    You can use `qbft_getSignerMetrics` to identify inactive validators.
-    The validator's `lastProposedBlockNumber` is `0x0`.
-
 !!! note
 
     If network conditions render it impossible to add and remove validators by voting, you can

@@ -197,11 +197,6 @@ The methods to add or remove validators are:
 To view validator metrics for a specified block range, use
 [`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
 
-!!! tip
-
-    You can use `ibft_getSignerMetrics` to identify inactive validators.
-    An inactive validator's `lastProposedBlockNumber` is `0x0`.
-
 !!! note
 
     If network conditions render it impossible to add and remove validators by voting, you can

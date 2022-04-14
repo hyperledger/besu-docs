@@ -72,10 +72,10 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
-[`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret).
+Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+[`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
 
-See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) CLI options for more information on running
+See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) options for more information on running
 Besu as an execution client.
 
 ## 5. Start Teku
@@ -99,7 +99,8 @@ teku \
 ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
-[`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file)
+option.
 
 ### Beacon node and validator client
 
@@ -121,17 +122,18 @@ teku \
 
 Specify:
 
-- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
-  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file).
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 - The test Ethereum address created in [step 3](#3-generate-validator-keys-and-stake-eth) as the default fee recipient
-  using
-  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient).
+  using the
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
+  option.
 - The paths to the keystore `.json` file and password `.txt` file created in
-  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator using
-  [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys).
+  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator using the
+  [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys) option.
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
-See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys) CLI
+See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys)
 options for more information on running Teku as a validator.
 
 ## 6. Check validator status

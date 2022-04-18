@@ -81,6 +81,25 @@ The `extraData` property consists of:
 
     ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 
+!!! note
+
+    For blocks synced after [the Merge](../../../Concepts/Merge.md), `extraData` is limited to only the 32 bytes of vanity data.
+
+### Post-Merge configuration
+
+After [The Merge](../../../Concepts/Merge.md), the following block fields are modified or deprecated.
+Their fields **must** contain only the constant values from the following chart.
+
+| Field | Constant value | Comment |
+|-------|----------------|---------|
+| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))` |
+| **`difficulty`** | `0` | Replaced with `prevrandao` |
+| **`mixHash`**    | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
+| **`nonce`**      | `0x0000000000000000` |  |
+| **`ommers`**     | `[]` | `RLP([]) = 0xc0`  |
+
+Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data after The Merge.
+
 ## Connect to a Clique network
 
 To connect to the Rinkeby testnet, start Besu with the

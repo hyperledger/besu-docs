@@ -94,7 +94,11 @@ The `extraData` property is an RLP encoding of:
 * Any validator votes. No vote is included in the genesis block.
 * The round the block was created on. The round in the genesis block is 0.
 * A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
-  
+
+!!! note
+
+    For blocks synced after [the Merge](../../../Concepts/Merge.md), `extraData` is limited to only the 32 bytes of vanity data.
+
 In the genesis block, the important information in the extra data is the list of validators.
 All other details have empty values.
 Formally, `extraData` in the genesis block contains
@@ -177,6 +181,21 @@ To tune the block timeout for your network deployment:
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
 {!global/Config-Options.md!}
+
+### Post-Merge configuration
+
+After [The Merge](../../../Concepts/Merge.md), the following block fields are modified or deprecated.
+Their fields **must** contain only the constant values from the following chart.
+
+| Field | Constant value | Comment |
+|-------|----------------|---------|
+| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))` |
+| **`difficulty`** | `0` | Replaced with `prevrandao` |
+| **`mixHash`**    | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
+| **`nonce`**      | `0x0000000000000000` |  |
+| **`ommers`**     | `[]` | `RLP([]) = 0xc0`  |
+
+Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data after The Merge.
 
 ## Add and remove validators
 

@@ -108,11 +108,6 @@ The methods to add or remove signers are:
 To view signer metrics for a specified block range, call
 [`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
 
-!!! tip
-
-    You can use `clique_getSignerMetrics` to identify inactive validators.
-    An inactive validator's `lastProposedBlockNumber` is `0x0`.
-
 ### Add a signer
 
 To propose adding a signer to a Clique network, call

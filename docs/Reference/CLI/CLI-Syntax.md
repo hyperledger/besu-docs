@@ -3553,7 +3553,7 @@ The maximum number of WebSocket connections allowed for JSON-RPC. Once this limi
 === "Configuration file"
 
     ```toml
-    rpc-ws-max-FRAME-SIZE=1024 * 1024
+    rpc-ws-max-frame-size=1024 * 1024
     ```
 
 The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceeded, the WebSocket disconnects. The default is 1024 * 1024 (or 1 MB).

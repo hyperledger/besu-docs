@@ -33,7 +33,7 @@ Consensus clients, such as [Teku], contain beacon node and validator client impl
 The beacon node is the primary link to the [Beacon Chain] (consensus layer).
 The validator client performs [validator duties](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/) on
 the consensus layer.
-Consensus clients serve [REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests  and
+Consensus clients serve [REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests and
 communicate with each other in a peer-to-peer network.
 
 ### Run a node

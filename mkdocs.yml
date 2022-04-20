@@ -185,7 +185,7 @@ nav:
           - Production: Tutorials/Kubernetes/Production.md
           - Configure Kubernetes mode in NAT Manager : Tutorials/Kubernetes/Nat-Manager-Kubernetes.md
       - Deploy on Microsoft Azure: Tutorials/Private-Network-Example-Azure.md
-      - Run clients on the Merge testnet: Tutorials/Merge-Testnet.md
+      - Run Besu and Teku on the Merge testnet: Tutorials/Merge-Testnet.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
         - Consensus protocols:

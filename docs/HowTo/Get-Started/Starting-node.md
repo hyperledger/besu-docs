@@ -152,7 +152,7 @@ Where `<path>` and `<goerlidata-path>` are the path and directory to save the Go
 
 You can [test Besu as an execution client](../../Tutorials/Merge-Testnet.md#start-besu) on the
 [Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
-You must also run a [consensus client](../../Concepts/Merge.md#execution-and-consensus-clients) with Besu on the Merge
+You must also run a [consensus client](../../Concepts/Merge.md#consensus-clients) with Besu on the Merge
 testnet.
 For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 

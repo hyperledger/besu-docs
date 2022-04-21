@@ -11,8 +11,7 @@ In QBFT networks, approved accounts, known as validators, validate transactions 
 Validators take turns to create the next block. Before inserting the block onto the chain, a
 super-majority (greater than 66%) of validators must first sign the block.
 
-Existing validators propose and vote to [add or remove validators](Add-Validators.md#qbft).
-Adding or removing a validator requires a majority vote (greater than 50%) of validators.
+Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
 You can [create a private network using QBFT](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
 
@@ -27,49 +26,11 @@ You can [create a private network using QBFT](../../../Tutorials/Private-Network
     You can use a plugin to securely store a validator's key using the
     [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
 
-## Validators
-
-### Minimum number of validators
-
-QBFT requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
-ability for a blockchain network to function correctly and reach consensus despite nodes failing or
-propagating incorrect information to peers.
-
-### Validator management
-
-QBFT provides two methods (modes) to manage validators:
-
-* [Block header validator selection](Add-Validators.md#qbft) - Existing validators propose and vote to add or remove validators
-    using the JSON-RPC calls. Adding or removing a validator requires a majority vote (greater than 50%) of validators.
-
-* [Contract validator selection](Add-Validators.md#adding-and-removing-validators-using-a-smart-contract) - Use a smart contract to specify the validators used to propose and
-    validate blocks.
-
-Users can create their own smart contracts to manage validators based on their organizational
-requirements. [View the example smart contract] for more information on how to create one.
-
-!!! important
-
-    You cannot use the JSON-RPC calls to add or remove validators when using a smart contract to manage nodes.
-    You must interact with the contract functions using transactions.
-
-You can pre-deploy the validator smart contract in a new QBFT network by specifying the
-contract details in the [genesis file](#genesis-file). For existing QBFT networks you need to compile
-and deploy the contract using a transaction, then obtain the contract address from the receipt and
-use that in a [transition](#swap-validator-management-methods).
-
-You can use [transitions](#transitions) to swap between block header validator selection and contract
-validator selection in an existing network.
-
-For block header validator selection, initial validators are configured in the genesis file's
-[`extraData`](#extra-data) property, whereas the initial validators when using the contract validator selection
-method are configured in the genesis file's `storage` section.
-
 ## Genesis file
 
 To use QBFT, define a [genesis file](../Genesis-File.md) that contains the QBFT properties.
 
-The genesis file differs depending on the [validator management method](#validator-management) you intend to use.
+The genesis file differs depending on the [validator management method](#add-and-remove-validators) you intend to use.
 
 !!! note
 
@@ -194,7 +155,7 @@ The QBFT properties are:
 * `validatorcontractaddress` - Address of the validator smart contract. Required only if using a contract validator
      selection. The address must be identical to the address in the `alloc` section. This option can also be
      used in the [transitions](#transitions) configuration item if swapping
-     [validator management methods](#validator-management) in an existing network.
+     [validator management methods](#add-and-remove-validators) in an existing network.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
 * [`extraData`](#extra-data) - RLP encoded [extra data](#extra-data).
@@ -220,8 +181,8 @@ The `extraData` property is an RLP encoding of:
 
 * 32 bytes of vanity data.
 * If using:
-    * [Block header validator selection](Add-Validators.md#qbft), a list of validator addresses.
-    * [Contract validator selection](Add-Validators.md#adding-and-removing-validators-using-a-smart-contract), no validators.
+    * [Block header validator selection](#add-and-remove-validators-using-block-headers), a list of validator addresses.
+    * [Contract validator selection](#add-and-remove-validators-using-a-smart-contract), no validators.
 * Any validator votes. No vote is included in the genesis block.
 * The round the block was created on. The round in the genesis block is 0.
 * A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
@@ -244,7 +205,7 @@ Formally, `extraData` in the genesis block contains:
 
     RLP encoding is a space-efficient object serialization scheme used in Ethereum.
 
-#### Generating extra data
+#### Generate extra data
 
 To generate the `extraData` RLP string for inclusion in the genesis file,
 use the [`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
@@ -306,7 +267,7 @@ expires, the protocol proposes the next new block.
 Once `blockperiodseconds` is over, the time from proposing a block to adding the block is
 small (usually around one second) even in networks with geographically dispersed validators.
 
-#### Tuning block timeout
+#### Tune block timeout
 
 To tune the block timeout for your network deployment:
 
@@ -323,6 +284,128 @@ To tune the block timeout for your network deployment:
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
 {!global/Config-Options.md!}
+
+## Add and remove validators
+
+QBFT provides two methods to manage validators:
+
+* [Block header validator selection](#add-and-remove-validators-using-block-headers) - Existing validators propose and
+  vote to add or remove validators using the QBFT JSON-RPC API methods.
+
+* [Contract validator selection](#add-and-remove-validators-using-a-smart-contract) - Use a smart contract to specify
+  the validators used to propose and validate blocks.
+
+You can use [transitions](#transitions) to swap between block header validator selection and contract
+validator selection in an existing network.
+
+For block header validator selection, initial validators are configured in the genesis file's
+[`extraData`](#extra-data) property, whereas the initial validators when using the contract validator selection
+method are configured in the genesis file's `storage` section.
+
+### Add and remove validators using block headers
+
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
+WebSockets interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+
+The QBFT API methods are disabled by default.
+To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `QBFT`.
+
+The methods to add or remove validators are:
+
+* [`qbft_getPendingVotes`](../../../Reference/API-Methods.md#qbft_getpendingvotes).
+* [`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote).
+* [`qbft_discardValidatorVote`](../../../Reference/API-Methods.md#qbft_discardvalidatorvote).
+
+To view validator metrics for a specified block range, use
+[`qbft_getSignerMetrics`](../../../Reference/API-Methods.md#qbft_getsignermetrics).
+
+!!! note
+
+    If network conditions render it impossible to add and remove validators by voting, you can
+    [add and remove validators without voting](../../Troubleshoot/Add-Validators-Without-Voting.md).
+
+#### Add a validator
+
+To propose adding a validator, call
+[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote),
+specifying the address of the proposed validator and `true`. A majority of validators must execute
+the call.
+
+!!! example "JSON-RPC `qbft_proposeValidatorVote` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+When the validator proposes the next block, the protocol inserts one proposal received from
+[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote) into the
+block. If blocks include all proposals, subsequent blocks proposed by the validator will not
+contain a vote.
+
+When more than 50% of the existing validators have published a matching proposal, the protocol
+adds the proposed validator to the validator pool and the validator can begin validating blocks.
+
+To return a list of validators and confirm the addition of a proposed validator, use
+[`qbft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#qbft_getvalidatorsbyblocknumber).
+
+!!! example "JSON-RPC `qbft_getValidatorsByBlockNumber` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+To discard your proposal after confirming the addition of a validator, call
+[`qbft_discardValidatorVote`](../../../Reference/API-Methods.md#qbft_discardvalidatorvote),
+specifying the address of the proposed validator.
+
+!!! example "JSON-RPC `qbft_discardValidatorVote` request example"
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_discardValidatorVote","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
+    ```
+
+#### Remove a validator
+
+The process for removing a validator is the same as adding a validator except you specify `false`
+as the second parameter of
+[`qbft_proposeValidatorVote`](../../../Reference/API-Methods.md#qbft_proposevalidatorvote).
+
+#### Epoch transition
+
+At each epoch transition, QBFT discards all pending votes collected from received blocks.
+Existing proposals remain in effect and validators re-add their vote the next time they create a
+block.
+
+An epoch transition occurs every `epochLength` blocks. Define `epochlength` in the QBFT genesis
+file.
+
+### Add and remove validators using a smart contract
+
+Users can create their own smart contracts to add or remove validators based on their organizational requirements.
+View the [example smart contract](https://github.com/ConsenSys/validator-smart-contracts) for more information on how to
+create and deploy the smart contract.
+
+You can pre-deploy the validator smart contract in a new QBFT network by specifying the contract details in the
+[genesis file](QBFT.md#genesis-file). For existing QBFT networks you need to compile and deploy the contract
+using a transaction, then obtain the contract address from the receipt and use that in a
+[transition](#swap-validator-management-methods).
+
+!!! important
+
+    You can't use the JSON-RPC methods to add or remove validators when using a smart contract to manage nodes.
+    You must interact with the contract functions using transactions.
+
+!!! note
+
+    If network conditions render it impossible to add and remove validators using a smart contract, you can
+    [override smart contract validators](../../Troubleshoot/Add-Validators-Without-Voting.md#override-smart-contract-validators).
+
+### Minimum number of validators
+
+QBFT requires four validators to be Byzantine fault tolerant. Byzantine fault tolerance is the
+ability for a blockchain network to function correctly and reach consensus despite nodes failing or
+propagating incorrect information to peers.
 
 ## Transitions
 

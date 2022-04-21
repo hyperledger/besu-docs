@@ -8115,9 +8115,9 @@ None
 [schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
 [eth_sendRawTransaction or eth_call]: ../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction
 [transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6
-[add or remove a signer with the specified address]: ../HowTo/Configure/Consensus-Protocols/Add-Validators.md#clique
+[add or remove a signer with the specified address]: ../HowTo/Configure/Consensus-Protocols/Clique.md#add-and-remove-signers
 [signers for the specified block]: ../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
-[add or remove a validator]: ../HowTo/Configure/Consensus-Protocols/Add-Validators.md#ibft-20
+[add or remove a validator]: ../HowTo/Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators
 [permissions configuration file]: ../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
 [group of sender and recipients]: ../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
 

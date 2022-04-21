@@ -3541,22 +3541,22 @@ The maximum number of WebSocket connections allowed for JSON-RPC. Once this limi
 === "Example"
 
     ```bash
-    --rpc-ws-max-frame-size=1024 * 1024
+    --rpc-ws-max-frame-size=1048576
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_RPC_WS_MAX_FRAME_SIZE=1024 * 1024
+    BESU_RPC_WS_MAX_FRAME_SIZE=1048576
     ```
 
 === "Configuration file"
 
     ```toml
-    rpc-ws-max-frame-size=1024 * 1024
+    rpc-ws-max-frame-size=1048576
     ```
 
-The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceeded, the WebSocket disconnects. The default is 1024 * 1024 (or 1 MB).
+The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceeded, the WebSocket disconnects. The default is 1048576 (or 1 MB).
 
 ### `rpc-ws-port`
 

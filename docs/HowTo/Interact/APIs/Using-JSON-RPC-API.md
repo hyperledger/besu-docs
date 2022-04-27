@@ -2,11 +2,18 @@
 description: How to access the Hyperledger Besu API using JSON-RPC
 ---
 
-# JSON-RPC over HTTP and WebSockets
+# JSON-RPC over HTTP, WebSockets and IPC
 
 To enable JSON-RPC over HTTP or WebSockets, use the
 [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) and
 [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) options.
+
+To enable JSON-RPC over an IPC socket, use the
+`--Xrpc-ipc-enabled` option. 
+
+!!! caution
+
+    `--Xrpc-ipc-enabled` is an experimental option.
 
 {!global/Postman.md!}
 
@@ -18,14 +25,24 @@ supported by geth and Hyperledger Besu directly in the console.
 To use the geth console with Besu:
 
 1. Start Besu with the
-   [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
+   [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
 1. Specify which APIs to enable using the
-   [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option.
+   [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 1. Start the geth console specifying the JSON-RPC endpoint:
 
-   ```bash
-    geth attach http://localhost:8545
-   ```
+!!! example
+
+    === "HTTP endpoint"
+
+        ```bash
+        geth attach http://localhost:8545
+        ```
+
+    === "IPC endpoint"
+
+        ```bash
+        geth attach /path/to/besu.ipc
+        ```
 
 Use the geth console to call [JSON-RPC API methods](../../../Reference/API-Methods.md) that geth
 and Besu share.
@@ -219,8 +236,13 @@ Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
 To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`,
 `TRACE`, and `TXPOOL` API methods, use the
-[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+[`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api),
+[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api), or
+`--Xrpc-ipc-api` options.
+
+!!! caution
+
+    `--Xrpc-ipc-api` is an experimental option.
 
 ## Block parameter
 

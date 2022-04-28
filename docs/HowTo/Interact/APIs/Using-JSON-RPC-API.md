@@ -8,7 +8,7 @@ To enable JSON-RPC over HTTP or WebSockets, use the
 [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) and
 [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) options.
 
-To enable JSON-RPC over an IPC socket, use the
+To enable JSON-RPC over an [IPC socket](API.md#socket-path), use the
 `--Xrpc-ipc-enabled` option.
 
 !!! caution

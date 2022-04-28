@@ -28,10 +28,10 @@ Consider the following when deploying and developing with the playground:
 * The playground is created specifically for developers and operators to become familiar with the deployment of Besu in
   a Kubernetes environment in preparation for going into a cloud or on-premise environment.
   Thus, it should **not** be deployed into a production environment.
-* The playground is not a complete reflection of the `dev` and `prod` charts as it does not use `Helm`, but rather
+* The playground is not a complete reflection of the `helm` charts as it does not use Helm, but rather
   static or non-templated code that is deployed through `kubectl apply -f`.
-  This means that without `Helm` there's a significant amount of repeated code.
+  This means that without Helm there's a significant amount of repeated code.
   This is fine for development but not ideal for a production environment.
 * The playground uses static/hard-coded keys.
-  Automatic key generation is only supported in `dev` and `prod` charts.
+  Automatic key generation is only supported in `helm` charts.
 * As the playground is for local development, no cloud integration or lifecycle support is offered.

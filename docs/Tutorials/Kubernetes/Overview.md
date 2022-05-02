@@ -8,7 +8,7 @@ description: Deploying Hyperledger Besu with Kubernetes
 Use the [reference implementations](https://github.com/ConsenSys/besu-kubernetes) to install
 private networks using Kubernetes (K8s). Reference implementations are available using:
 
-* [Helm](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev).
+* [Helm](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm).
 * [Helmfile](https://github.com/roboll/helmfile).
 * [`kubectl`](https://github.com/ConsenSys/besu-kubernetes/tree/master/playground/kubectl).
 
@@ -23,22 +23,20 @@ Helm charts that you can customize and deploy on a local cluster or in the cloud
 
     We recommend starting with the [playground](https://github.com/ConsenSys/quorum-kubernetes/tree/master/playground)
     directory and working through the example setups before moving to the
-    [`dev`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev) directory, and finally to the
-    [`prod`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/prod) directory.
+    [`Helm charts`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm/) directory.
 
-The `dev` and `prod` directories are identical in terms of what gets deployed, but differ in that the `prod` folder uses
-best practices to manage identity (Managed Identities in Azure and IAM in AWS), vaults (KeyVault in Azure and Secrets
-Manager in AWS), and CSI drivers.
+The Helm charts follow best practices to manage identity (Managed Identities in Azure and IAM in AWS),
+vaults (KeyVault in Azure and Secrets Manager in AWS), and CSI drivers.
 
-All setups use monitoring and we recommend deploying the monitoring manifests or charts to get an overview of the
-network, nodes, and volumes, and you can create alerts accordingly.
-In addition, there's an example configuration for ingress and routes that you can customize to suit your requirements.
+Provided Helm charts use monitoring, and we recommend deploying the monitoring manifests or charts
+to get an overview of the network, nodes, and volumes, and you can create alerts accordingly.
+
+An example configuration is available for ingress and routes that you can customize to suit your requirements.
 
 ### Cloud support
 
-The repository's `dev` charts support on premise and cloud providers like AWS, Azure, GCP, IBM etc. The `prod` charts
-currently only supports AWS EKS and Azure AKS natively. You can configure the provider in
-the [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-goquorum.yml)
+The charts support on premise AWS EKS and Azure AKS cloud providers natively. You can configure the provider in
+the [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-goquorum.yml)
 file by setting `provider` to `local`, `aws`, or `azure`.
 You can also pass in extra configuration such as a KeyVault name (Azure only).
 

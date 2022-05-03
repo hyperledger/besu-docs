@@ -13,12 +13,12 @@ description: Deploying Besu Helm Charts for a Kubernetes cluster
 ## Provision with Helm charts
 
 Helm allows you to package a collection of objects into a chart which can be deployed to the cluster. For the
-rest of this tutorial we use the **[Dev](https://github.com/ConsenSys/quorum-kubernetes/tree/master/dev)** Helm charts.
+rest of this tutorial we use the [**Helm charts**](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm).
 After cloning the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository, change
 to the `dev` directory for the rest of this tutorial.
 
 ```bash
-cd dev/helm
+cd helm
 ```
 
 If you're running the cluster on AWS or Azure, update the `values.yml` with `provider: aws` or
@@ -75,7 +75,7 @@ which allow Prometheus to scrape metrics from the pod at a specified port and pa
         prometheus.io/path: "/metrics"
 ```
 
-Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/monitoring.yml).
+Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/monitoring.yml).
 Configure alerts to the receiver of your choice (for example, email or Slack), then deploy the chart using:
 
 ```bash
@@ -103,7 +103,7 @@ helm install filebeat elastic/filebeat  --namespace quorum --values ./values/fil
 If you install `filebeat`, please create a `filebeat-*` index pattern in `kibana`. All the logs from the nodes are sent to the `filebeat` index.
 
 You can optionally deploy BlockScout to aid with monitoring the network. To do this, update the
-[BlockScout values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/blockscout-besu.yml)
+[BlockScout values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/blockscout-besu.yml)
 and set the `database` and `secret_key_base` values.
 
 !!! important
@@ -128,7 +128,7 @@ The genesis chart creates the genesis file and keys for the validators and bootn
     pool can be named to anything you like.
 
 Update the number of validators, accounts, chain ID, and any parameters for the genesis file in the
-[`genesis-besu` values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/dev/helm/values/genesis-besu.yml), then
+[`genesis-besu` values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-besu.yml), then
 deploy the chart using:
 
 ```bash
@@ -204,7 +204,7 @@ first validator was spun up, before the logs display blocks being created.
 ![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
 
 **To add a validator into the network**, deploy a normal RPC node (step 7) and then
-[vote](../../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) it into the validator pool.
+[vote](../../HowTo/Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators) it into the validator pool.
 
 ### 7. Deploy RPC or transaction nodes
 

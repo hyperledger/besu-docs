@@ -44,17 +44,16 @@ Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCom
 
 ### Deploy the network
 
-For the rest of this tutorial we use the **[Prod](https://github.com/ConsenSys/quorum-kubernetes/tree/master/prod)**
-Helm charts. After you have cloned the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository,
+For the rest of this tutorial we use the [**Helm charts**](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm). After you have cloned the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository,
 change the directory to `prod` for the rest of this tutorial.
 
 ```bash
-cd prod/helm
+cd helm
 ```
 
 !!!attention
 
-    Please update all the [values files](https://github.com/ConsenSys/quorum-kubernetes/tree/master/prod/helm/values)
+    Please update all the [values files](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm/values)
     with your choice of cloud provider (AWS or Azure) and set `provider: aws` or `provider: azure` as required.
     Depending on the provider, you may also need to update the `azure:` or `aws:` dictionaries with specifics of your
     cluster and account.
@@ -78,9 +77,9 @@ Please check the [limitations](./Overview.md#limitations) and use CNI where poss
 To connect an external node to your cluster, the easiest way is to use a VPN as seen in the
 following [multi-cluster](#multi-cluster-support) setup.
 
-Finally, we recommend setting up monitoring and alerting from the beginning so you can get early warnings of issues
+Finally, we recommend setting up monitoring and alerting from the beginning, so you can get early warnings of issues
 rather than after failure.
-We have a monitoring chart which uses Grafana and you can use it in conjunction with Alertmanager to create alerts or
+We have a monitoring chart which uses Grafana and you can use it with Alertmanager to create alerts or
 alternatively alert via Cloudwatch or Azure Monitoring.
 
 ## Multi-cluster support

@@ -12,13 +12,8 @@ description: Deploying Besu Helm Charts for production on a Kubernetes cluster
 
 ## Overview
 
-The charts in the `prod` folder are similar to those in the `dev` folder but use cloud native services for
-**identities** (IAM on AWS and a Managed Identity on Azure) and **secrets** (Secrets Manager on AWS and Key Vault on
-Azure). Any keys or secrets are created directly in Secrets Manager or Key Vault, and the Identity is given permission to
-retrieve those secrets at runtime. No Kubernetes secrets objects are created.
-
-Access to these secrets are done on the least privileges policy and access to them is denied for
-users. If any admins need access to them, they must update the IAM policy.
+To get things ready for production we will use the same charts and we need to set a few of
+the values in the `cluster` map as seen in the [Deploy](#deploy-the-network) section.
 
 !!!warning
 
@@ -44,19 +39,37 @@ Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCom
 
 ### Deploy the network
 
-For the rest of this tutorial we use the [**Helm charts**](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm). After you have cloned the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository,
-change the directory to `prod` for the rest of this tutorial.
+#### Check that you can connect to the cluster with `kubectl`
+
+Once you have a [cluster running](./Create-Cluster.md), verify `kubectl` is connected to cluster with:
+
+```bash
+kubectl version
+Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.1", GitCommit:"86ec240af8cbd1b60bcc4c03c20da9b98005b92e", GitTreeState:"clean", BuildDate:"2021-12-16T11:41:01Z", GoVersion:"go1.17.5", Compiler:"gc", Platform:"linux/amd64"}
+Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCommit:"c92036820499fedefec0f847e2054d824aea6cd1", GitTreeState:"clean", BuildDate:"2021-10-27T18:35:25Z", GoVersion:"go1.16.9", Compiler:"gc", Platform:"linux/amd64"}
+```
+
+#### Deploy the network
+
+For the rest of this tutorial we use Helm charts. After you have cloned the
+[Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository, change the directory to `helm` for
+the rest of this tutorial.
 
 ```bash
 cd helm
 ```
 
-!!!attention
+Each helm chart that you can use has the following keys and you need to set them.
 
-    Please update all the [values files](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm/values)
-    with your choice of cloud provider (AWS or Azure) and set `provider: aws` or `provider: azure` as required.
-    Depending on the provider, you may also need to update the `azure:` or `aws:` dictionaries with specifics of your
-    cluster and account.
+Please specify either `aws` or `azure` for the `cluster.provider`. Additionally, set the `cloudNativeServices: true` and
+`reclaimPolicy: Retain` so it looks like below for AWS
+
+```bash
+cluster:
+  provider: aws  # choose from: aws | azure
+  cloudNativeServices: true # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
+  reclaimPolicy: Retain # set to either Retain or Delete; note that PVCs and PVs will still exist after a 'helm delete'. Setting to Retain will keep volumes even if PVCs/PVs are deleted in kubernetes. Setting to Delete will remove volumes from EC2 EBS when PVC is deleted
+```
 
 Follow the steps outlined in the [deploy charts](./Deploy-Charts.md) tutorial to deploy the network.
 

@@ -157,13 +157,13 @@ Use the following command:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*"
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
     ```
 
 The command line allows you to enable:
@@ -177,6 +177,8 @@ The command line allows you to enable:
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist).
 - All-domain access to the node through the HTTP JSON-RPC API using
   [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins).
+- All host access to the Engine API using
+  [`--engine-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. You need the
 enode URL to specify Node-1 as a peer and update the permissions configuration file in the
@@ -191,19 +193,20 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 - A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 - A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+- A different port to Node-1 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 - A data directory for Node-2 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
 - Other options as for [Node-1](#5-start-node-1).
 
@@ -217,19 +220,20 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 - A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 - A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+- A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 - A data directory for Node-3 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
 - Other options as for [Node-1](#5-start-node-1).
 

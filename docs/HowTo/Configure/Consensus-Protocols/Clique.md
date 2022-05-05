@@ -81,10 +81,6 @@ The `extraData` property consists of:
 
     ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
 
-!!! note
-
-    For blocks synced after [the Merge](../../../Concepts/Merge.md), `extraData` is limited to only the 32 bytes of vanity data.
-
 ### Post-Merge configuration
 
 After [The Merge](../../../Concepts/Merge.md), the following block fields are modified or deprecated.

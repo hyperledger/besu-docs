@@ -95,10 +95,6 @@ The `extraData` property is an RLP encoding of:
 * The round the block was created on. The round in the genesis block is 0.
 * A list of seals of the validators (signed block hashes). No seals are included in the genesis block.
 
-!!! note
-
-    For blocks synced after [the Merge](../../../Concepts/Merge.md), `extraData` is limited to only the 32 bytes of vanity data.
-
 In the genesis block, the important information in the extra data is the list of validators.
 All other details have empty values.
 Formally, `extraData` in the genesis block contains

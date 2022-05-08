@@ -198,13 +198,13 @@ The command line:
 * Specifies the data directory for Node-1 using the
   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option.
 * Enables the JSON-RPC API using the
-  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option
+  [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option.
 * Enables the ETH, NET, and IBFT APIs using the
-  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option
+  [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) option.
 * Enables all-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option
+  [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option.
 * Enables all-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option
+  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.

@@ -78,7 +78,7 @@ To create a cluster in AWS, you must install the [AWS CLI](https://aws.amazon.co
 
 The [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) comprises the base
 infrastructure used to build the cluster and other resources in AWS. We also use some native
-services along with the cluster for performance and best practices, these include:
+services with the cluster for performance and best practices, these include:
 
 * [Pod identities](hhttps://github.com/aws/amazon-eks-pod-identity-webhook).
 * [Secrets Store CSI drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html).
@@ -117,7 +117,7 @@ To provision the cluster:
     eksctl create cluster -f ./templates/cluster.yml
     ```
 
-1. Your `.kube/config` should be connected to the cluster automatically, but if not please run the commands below
+1. Your `.kube/config` should be connected to the cluster automatically, but if not, run the commands below
 and replace `AWS_REGION` and `CLUSTER_NAME` with details that are specific to your deployment.
 
     ```bash
@@ -126,13 +126,12 @@ and replace `AWS_REGION` and `CLUSTER_NAME` with details that are specific to yo
     ```
 
 1. After the deployment completes, provision the EBS drivers for the volumes. While it is possible to use the
-in-tree `aws-ebs` driver natively supported by Kubernetes, it is no longer being updated and does not support
-newer EBS features such as the
-[cheaper and better gp3 volumes](https://stackoverflow.com/questions/68359043/whats-the-difference-between-ebs-csi-aws-com-vs-kubernetes-io-aws-ebs-for-provi). The cluster.yml file
-(from the steps above) that is included in this folder will automatically deploy the cluster with the EBS IAM
-policies, but you still need to install the EBS CSI drivers. This can be done through the AWS Management
-Console for simplicity or via a CLI command as below and replace `CLUSTER_NAME`, `AWS_REGION` and `AWS_ACCOUNT`
-with details that are specific to your deployment.
+in-tree `aws-ebs` driver that's natively supported by Kubernetes, it is no longer being updated and does not support
+newer EBS features such as the [cheaper and better gp3 volumes](https://stackoverflow.com/questions/68359043/whats-the-difference-between-ebs-csi-aws-com-vs-kubernetes-io-aws-ebs-for-provi).
+The `cluster.yml` file (from the steps above) that is included in this folder automatically deploys the
+cluster with the EBS IAM policies, but you need to install the EBS CSI drivers. This can be done through
+the AWS Management Console for simplicity, or via a CLI command as below. Replace `CLUSTER_NAME`,
+`AWS_REGION` and `AWS_ACCOUNT` with details that are specific to your deployment.
 
     ```bash
     eksctl create iamserviceaccount --name ebs-csi-controller-sa --namespace kube-system --cluster CLUSTER_NAME --region AWS_REGION --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy --approve --role-only --role-name AmazonEKS_EBS_CSI_DriverRole
@@ -140,7 +139,7 @@ with details that are specific to your deployment.
     eksctl create addon --name aws-ebs-csi-driver --cluster CLUSTER_NAME --region AWS_REGION --service-account-role-arn arn:aws:iam::AWS_ACCOUNT:role/AmazonEKS_EBS_CSI_DriverRole --force
     ```
 
-1. Once the deployment is completed, please provision the Secrets Manager IAM and CSI driver.
+1. Once the deployment is completed, provision the Secrets Manager IAM and CSI driver.
 Use `besu` (or equivalent) for `NAMESPACE` and replace `CLUSTER_NAME`, `AWS_REGION` and `AWS_ACCOUNT` with details
 that are specific to your deployment.
 
@@ -169,8 +168,8 @@ that are specific to your deployment.
 
     !!!warning
 
-        Please note that the above command creates a service account called `quorum-node-secrets-sa` and is
-        preconfigured in the helm charts override values.yml files, for ease of use.
+        The above command creates a service account called `quorum-node-secrets-sa` and is
+        preconfigured in the helm charts override `values.yml` files, for ease of use.
 
 1. Optionally, deploy the
 [kubernetes dashboard](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws/templates/k8s-dashboard).

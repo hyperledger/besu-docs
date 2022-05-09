@@ -34,16 +34,16 @@ cluster:
   cloudNativeServices: false # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
 ```
 
-Setting `cluster.cloudNativeServices: true` stores keys in AWS Secrets Manager or Azure Key Vault in lieu of Kubernetes
-Secrets and will also make use of AWS IAM or Azure Managed Identities for the pods
+Setting `cluster.cloudNativeServices: true` stores keys in AWS Secrets Manager or Azure Key Vault instead of Kubernetes
+Secrets, and will also make use of AWS IAM or Azure Managed Identities for the pods.
 
 ### Cloud support
 
 The repository's `helm` charts support on-premise and cloud providers such as AWS, Azure, GCP, IBM etc. You can
 configure the provider in the
 [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-besu.yml) file of
-the respective charts by setting `cluster.provider` to `local`, `aws`, or `azure`. Please note that if you use
-GCP, IBM etc please set `cluster.provider: local` and set `cluster.cloudNativeServices: false`.
+the respective charts by setting `cluster.provider` to `local`, `aws`, or `azure`. If you use
+GCP, IBM etc., please set `cluster.provider: local` and `cluster.cloudNativeServices: false`.
 
 The repository also contains [Azure ARM templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure)
 and [AWS `eksctl` templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the
@@ -101,28 +101,30 @@ across namespaces don't need to be.
 
 ### Nodes
 
-Consider the use of StatefulSets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
-and member/RPC nodes. For configuration of Besu nodes, we only use CLI arguments to keep things consistent.
+Consider using StatefulSets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
+and member/RPC nodes. For Besu nodes, we only use CLI arguments to keep things consistent.
 
 ### Role Based Access Controls
 
-We encourage the use of RBACs for access to the private key of each node, that is only a specific pod or statefulset is
+We encourage using RBACs for access to the private key of each node, that is, only a specific pod or statefulset is
 allowed to access a specific secret.
 
-If you need to specify a Kube config file to each pod please use the KUBE_CONFIG_PATH variable.
+If you need to specify a Kube configuration file for each pod, use the KUBE_CONFIG_PATH variable.
 
 ### Storage
 
-We use separate data volumes to store the blockchain data, over the default of the host nodes. This is similar to
-using separate volumes to store data when using docker containers natively or via docker-compose. This is done for
-a couple of reasons:
+We use separate data volumes to store the blockchain data. This is similar to using separate volumes
+to store data when using docker containers natively or docker-compose. This is done for
+a few reasons:
 
-* Firstly, containers are mortal and we do not want to store data on them.
-* Secondly, kubernetes host nodes can fail and we would like the chain data to persist.
+* Containers are mortal and we do not want to store data on them.
+* Kubernetes host nodes can fail and we want the chain data to persist.
 
-Please ensure that you provide enough capacity for data storage for all nodes that are going to be on the cluster.
+Ensure that you provide enough data storage capacity for all nodes on the cluster.
 Select the appropriate type of [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) based
-on your cloud provider. In the templates, the size of the [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) has been set to 20Gb by default; you may change this depending on your needs. If you have a different storage account than the one in the charts, you may edit those
+on your cloud provider. In the templates, the size of the [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+is set to 20Gb by default; you can change this depending on your needs. If you have a different storage
+account than the one in the charts, you may edit those
 [storageClasses](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/charts/besu-node/templates/node-storage.yaml).
 
 When using PVCs, set the `allowVolumeExpansion` to `true`. This helps keep costs low and enables growing the volume
@@ -130,25 +132,25 @@ over time rather than creating new volumes and copying data across.
 
 ### Monitoring
 
-and we recommend deploying the metrics and the monitoring or charts to get an overview of the
-network, nodes, and volumes, and you can create alerts accordingly.
+We recommend deploying metrics to get an overview of the network, nodes, and volumes. You can also create alerts.
 
-Besu publishes metrics to Prometheus and metrics can be configured using the kubernetes scraper config. We also
-also have a custom Grafana dashboards to make monitoring of the blockchain easier. We recommend deploying the
-metrics and the monitoring or charts to get an overview of the network, nodes, volumes etc and you can create
-alerts accordingly.
+Besu publishes metrics to Prometheus, and you can configure metrics using the kubernetes scraper configuration. We
+also have custom Grafana dashboards to monitor the blockchain.
+
+!!! note
+
+    Refer to `values/monitoring.yml` to configure the alerts per your requirements (for example slack or email).
 
 ```bash
 cd helm
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
-# NOTE: please refer to values/monitoring.yml to configure the alerts per your requirements ie slack, email etc
 helm install monitoring prometheus-community/kube-prometheus-stack --version 34.10.0 --namespace=besu --create-namespace --values ./values/monitoring.yml --wait
 kubectl --namespace besu apply -f  ./values/monitoring/
 ```
 
-Besu logs can be configured to suit your environment. For example, if you would like to log to file
-and then have parsed via Logstash into an ELK cluster, please use the Elastic charts as well
+You can configure Besu to suit your environment. For example, use the Elastic charts to log to a file
+that you can parse using Logstash into an ELK cluster.
 
 ```bash
 cd helm
@@ -164,7 +166,7 @@ helm install filebeat --version 7.17.1 elastic/filebeat  --namespace besu --valu
 
 ### Ingress Controllers
 
-If you require the use of ingress controllers for the RPC calls or the monitoring dashboards, we have provided example
+If you require the ingress controllers for the RPC calls or the monitoring dashboards, we have provided example
 [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) that
-are pre-configured for common use cases. Please use these as a reference and develop solutions to match your network
+are pre-configured for common use cases. Use these as a reference and develop solutions to match your network
 topology and requirements.

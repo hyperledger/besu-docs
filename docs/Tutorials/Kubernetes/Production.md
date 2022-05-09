@@ -12,8 +12,8 @@ description: Deploying Besu Helm Charts for production on a Kubernetes cluster
 
 ## Overview
 
-To get things ready for production we will use the same charts and we need to set a few of
-the values in the `cluster` map as seen in the [Deploy](#deploy-the-network) section.
+To get things production-ready, we'll use the same charts, and set a few of
+the values in the `cluster` map as in the [Deploy](#deploy-the-network) section.
 
 !!!warning
 
@@ -59,10 +59,10 @@ the rest of this tutorial.
 cd helm
 ```
 
-Each helm chart that you can use has the following keys and you need to set them.
+Each helm chart has the following keys that must be set.
 
-Please specify either `aws` or `azure` for the `cluster.provider`. Additionally, set the `cloudNativeServices: true` and
-`reclaimPolicy: Retain` so it looks like below for AWS
+Specify either `aws` or `azure` for the `cluster.provider`. Additionally, set `cloudNativeServices: true` and
+`reclaimPolicy: Retain` so that it looks like the following for AWS:
 
 ```bash
 cluster:

@@ -409,11 +409,11 @@ making the API calls from your local machine or equivalent.
 ### 8. Deploy RPC or Transaction nodes
 
 An RPC node is simply a node that can be used to make public transactions or perform read heavy operations such
-as when connected to a chain explorer like [BlockScout](https://blockscout.com/xdai/mainnet/)
+as when connected to a chain explorer like [BlockScout](https://github.com/blockscout/blockscout).
 
 The RPC override
 [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/reader.yml) for the
-StatefulSet looks identical to that of the validators above, and will create it's own node keys before the node starts
+StatefulSet looks identical to that of the validators above, and will create it's own node keys before the node starts.
 
 To deploy an RPC node:
 

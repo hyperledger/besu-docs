@@ -39,18 +39,6 @@ Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCom
 
 ### Deploy the network
 
-#### Check that you can connect to the cluster with `kubectl`
-
-Once you have a [cluster running](./Create-Cluster.md), verify `kubectl` is connected to cluster with:
-
-```bash
-kubectl version
-Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.1", GitCommit:"86ec240af8cbd1b60bcc4c03c20da9b98005b92e", GitTreeState:"clean", BuildDate:"2021-12-16T11:41:01Z", GoVersion:"go1.17.5", Compiler:"gc", Platform:"linux/amd64"}
-Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.3", GitCommit:"c92036820499fedefec0f847e2054d824aea6cd1", GitTreeState:"clean", BuildDate:"2021-10-27T18:35:25Z", GoVersion:"go1.16.9", Compiler:"gc", Platform:"linux/amd64"}
-```
-
-#### Deploy the network
-
 For the rest of this tutorial we use Helm charts. After you have cloned the
 [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository, change the directory to `helm` for
 the rest of this tutorial.

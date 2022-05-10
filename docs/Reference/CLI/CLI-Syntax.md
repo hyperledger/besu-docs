@@ -3530,6 +3530,34 @@ To allow remote connections, set to `0.0.0.0`
 
 The maximum number of WebSocket connections allowed for JSON-RPC. Once this limit is reached, incoming connections are rejected. The default is 80.
 
+### `rpc-ws-max-frame-size`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-ws-max-frame-size=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-ws-max-frame-size=65536
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_WS_MAX_FRAME_SIZE=65536
+    ```
+
+=== "Configuration file"
+
+    ```toml
+    rpc-ws-max-frame-size=65536
+    ```
+
+The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceeded, the WebSocket disconnects. The default is 1048576 (or 1 MB).
+
 ### `rpc-ws-port`
 
 === "Syntax"

@@ -25,23 +25,29 @@ Helm charts that you can customize and deploy on a local cluster or in the cloud
     directory and working through the example setups before moving to the
     [`Helm charts`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/helm/) directory.
 
-The Helm charts follow best practices to manage identity (Managed Identities in Azure and IAM in AWS),
-vaults (KeyVault in Azure and Secrets Manager in AWS), and CSI drivers.
+The `helm` directory contains charts for the various components, and each chart has a `cluster` map with features that
+you can toggle.
 
-Provided Helm charts use monitoring, and we recommend deploying the monitoring manifests or charts
-to get an overview of the network, nodes, and volumes, and you can create alerts accordingly.
+```bash
+cluster:
+  provider: local  # choose from: local | aws | azure
+  cloudNativeServices: false # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
+```
 
-An example configuration is available for ingress and routes that you can customize to suit your requirements.
+Setting `cluster.cloudNativeServices: true` stores keys in AWS Secrets Manager or Azure Key Vault instead of Kubernetes
+Secrets, and will also make use of AWS IAM or Azure Managed Identities for the pods.
 
 ### Cloud support
 
-The charts support on premise AWS EKS and Azure AKS cloud providers natively. You can configure the provider in
-the [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-goquorum.yml)
-file by setting `provider` to `local`, `aws`, or `azure`.
-You can also pass in extra configuration such as a KeyVault name (Azure only).
+The repository's `helm` charts support on-premise and cloud providers such as AWS, Azure, GCP, IBM etc. You can
+configure the provider in the
+[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-besu.yml) file of
+the respective charts by setting `cluster.provider` to `local`, `aws`, or `azure`. If you use
+GCP, IBM etc., please set `cluster.provider: local` and `cluster.cloudNativeServices: false`.
 
-The repository also contains [Azure ARM templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure) and
-[AWS `eksctl` templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the required base infrastructure.
+The repository also contains [Azure ARM templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/azure)
+and [AWS `eksctl` templates](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) to deploy the
+required base infrastructure.
 
 ## Limitations
 
@@ -82,21 +88,85 @@ cloud or on premise.
 
 ## Concepts
 
-### Storage
-
-We recommend you use [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) and
-[persistent volume claims (PVCs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
-
-When using PVCs ensure you set `allowVolumeExpansion` to `true` to keep costs
-low and enable growing the volume over time, rather than creating new volumes and copying data across.
-
 ### Namespaces
 
-[Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) provide
-a mechanism for isolating groups of resources within a single cluster. Both namespaces and
-resources (for example, StatefulSets and services) within a namespace need to be unique, but not
-resources across namespaces.
+In Kubernetes, [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) provide a
+mechanism for isolating groups of resources within a single cluster.
+Both namespaces and resources (for example, StatefulSets or Services) within a namespace must be unique, but resources
+across namespaces don't need to be.
 
 !!! note
 
-    Namespace-based scoping is not applicable for cluster-wide objects (for example, storage classes and persistent volumes claims).
+    Namespace-based scoping is not applicable for cluster-wide objects (for example, StorageClass or PersistentVolumes).
+
+### Nodes
+
+Consider using StatefulSets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
+and member/RPC nodes. For Besu nodes, we only use CLI arguments to keep things consistent.
+
+### Role Based Access Controls
+
+We encourage using RBACs for access to the private key of each node, that is, only a specific pod or statefulset is
+allowed to access a specific secret.
+
+If you need to specify a Kube configuration file for each pod, use the KUBE_CONFIG_PATH variable.
+
+### Storage
+
+We use separate data volumes to store the blockchain data. This is similar to using separate volumes
+to store data when using docker containers natively or docker-compose. This is done for
+a few reasons:
+
+* Containers are mortal and we do not want to store data on them.
+* Kubernetes host nodes can fail and we want the chain data to persist.
+
+Ensure that you provide enough data storage capacity for all nodes on the cluster.
+Select the appropriate type of [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) based
+on your cloud provider. In the templates, the size of the [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+is set to 20Gb by default; you can change this depending on your needs. If you have a different storage
+account than the one in the charts, you may edit those
+[storageClasses](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/charts/besu-node/templates/node-storage.yaml).
+
+When using PVCs, set the `allowVolumeExpansion` to `true`. This helps keep costs low and enables growing the volume
+over time rather than creating new volumes and copying data across.
+
+### Monitoring
+
+We recommend deploying metrics to get an overview of the network, nodes, and volumes. You can also create alerts.
+
+Besu publishes metrics to Prometheus, and you can configure metrics using the kubernetes scraper configuration. We
+also have custom Grafana dashboards to monitor the blockchain.
+
+!!! note
+
+    Refer to `values/monitoring.yml` to configure the alerts per your requirements (for example slack or email).
+
+```bash
+cd helm
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install monitoring prometheus-community/kube-prometheus-stack --version 34.10.0 --namespace=besu --create-namespace --values ./values/monitoring.yml --wait
+kubectl --namespace besu apply -f  ./values/monitoring/
+```
+
+You can configure Besu to suit your environment. For example, use the Elastic charts to log to a file
+that you can parse using Logstash into an ELK cluster.
+
+```bash
+cd helm
+helm repo add elastic https://helm.elastic.co
+helm repo update
+# if on cloud
+helm install elasticsearch --version 7.17.1 elastic/elasticsearch --namespace besu --create-namespace --values ./values/elasticsearch.yml
+# if local - set the replicas to 1
+helm install elasticsearch --version 7.17.1 elastic/elasticsearch --namespace besu --create-namespace --values ./values/elasticsearch.yml --set replicas=1 --set minimumMasterNodes: 1
+helm install kibana --version 7.17.1 elastic/kibana --namespace besu --values ./values/kibana.yml
+helm install filebeat --version 7.17.1 elastic/filebeat  --namespace besu --values ./values/filebeat.yml
+```
+
+### Ingress Controllers
+
+If you require the ingress controllers for the RPC calls or the monitoring dashboards, we have provided example
+[rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) that
+are pre-configured for common use cases. Use these as a reference and develop solutions to match your network
+topology and requirements.

@@ -53,12 +53,12 @@ The default ports are:
 * 8546 for JSON-RPC over WebSocket.
 * 8547 for GraphQL over HTTP.
 
-Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#port-configuration).
+Ports must be [exposed appropriately](../../Find-and-Connect/Configuring-Ports.md).
 
 ## Socket path
 
 To specify the socket path for the IPC socket, use the `--Xrpc-ipc-path` option.
-The default path is `besu.ipc`.
+The default path is `besu.ipc` in the Besu data directory.
 
 !!! caution
 

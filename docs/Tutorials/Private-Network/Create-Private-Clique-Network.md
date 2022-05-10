@@ -159,7 +159,7 @@ The command line enables:
 * All-host access to the HTTP JSON-RPC API using the
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option
 * All-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option.
+  [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) option
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps.
@@ -185,9 +185,9 @@ enode URL copied when starting Node-1 as the bootnode:
 
 The command line specifies:
 
-* A Different port to Node-1 for P2P discovery using the
+* A different port to Node-1 for P2P discovery using the
   [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) option.
-* A Different port to Node-1 for HTTP JSON-RPC using the
+* A different port to Node-1 for HTTP JSON-RPC using the
   [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
   [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option.

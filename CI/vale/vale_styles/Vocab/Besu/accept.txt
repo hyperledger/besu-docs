@@ -79,6 +79,7 @@ Keycloak
 [kK]eytool(s)?
 Kibana
 Kotti
+[kK]ube
 [kK]ubenet
 [kK]ubectl
 [kK]ubernetes
@@ -143,6 +144,7 @@ Slack
 [sS]lashable
 Splunk
 statefully
+[sS]tatefulset
 [sS]ubcommand(s)?
 [sS]ubnet(s)?
 [sS]uborganization(s)?

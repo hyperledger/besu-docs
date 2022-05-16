@@ -25,7 +25,7 @@ Returned by [`eth_getBlockByHash`](API-Methods.md#eth_getblockbyhash) and
 | **miner**            | Data, 20&nbsp;bytes   | Address to pay mining rewards to.                                  |
 | **difficulty**       | Quantity, Integer     | Difficulty for this block.                                         |
 | **totalDifficulty**  | Quantity, Integer     | Total difficulty of the chain until this block.                    |
-| **extraData**        | Data                  | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../Reference/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores extra data when used with [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) and [IBFT](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
+| **extraData**        | Data                  | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../Reference/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores extra data when used with [IBFT](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
 | **size**             | Quantity, Integer     | Size of block in bytes.                                            |
 | **gasLimit**         | Quantity              | Maximum gas allowed in this block.                                 |
 | **gasUsed**          | Quantity              | Total gas used by all transactions in this block.                  |

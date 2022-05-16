@@ -5,7 +5,7 @@ description: Hyperledger Besu create a permissioned network
 # Create a permissioned network
 
 The following steps set up a permissioned network with local node and account permissions. The network
-uses the [Clique proof of authority consensus protocol].
+uses the [IBFT 2.0 proof of authority consensus protocol].
 
 !!!important
 
@@ -39,7 +39,7 @@ Permissioned-Network/
 
 ### 2. Get the address of Node-1
 
-In networks using Clique, you must include the address of at least one initial signer in the
+In networks using IBFT 2.0, you must include the address of at least one initial signer in the
 genesis file. For this network, we'll use Node-1 as the initial signer. This requires obtaining the
 address for Node-1.
 
@@ -63,12 +63,12 @@ node address to the specified file (`nodeAddress1` in this example).
 
 The genesis file defines the genesis block of the blockchain (that is, the start of the
 blockchain). The
-[Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes
+[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
 the address of Node-1 as the initial signer in the `extraData` field.
 
 All nodes in a network must use the same genesis file.
 
-Copy the following genesis definition to a file called `cliqueGenesis.json` and save it in the
+Copy the following genesis definition to a file called `ibftGenesis.json` and save it in the
 `Permissioned-Network` directory:
 
 ```json
@@ -76,7 +76,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
   "config":{
     "chainId":1981,
     "constantinoplefixblock": 0,
-    "clique":{
+    "ibft2":{
       "blockperiodseconds":15,
       "epochlength":30000
     }
@@ -157,13 +157,13 @@ Use the following command:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --engine-host-allowlist="*"
     ```
 
 The command line allows you to enable:
@@ -171,7 +171,7 @@ The command line allows you to enable:
 - Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
   and [`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled).
 - The JSON-RPC API using [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled).
-- The `ADMIN`, `ETH`, `NET`, `PERM`, and `CLIQUE` APIs using
+- The `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
   [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
 - All-host access to the HTTP JSON-RPC API using
   [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist).
@@ -193,13 +193,13 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
@@ -220,13 +220,13 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\cliqueGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\ibftGenesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
@@ -360,13 +360,13 @@ Change to the `Node-4` directory and start Node-4 specifying the Node-1 enode UR
 === "MacOS"
 
     ```bash
-    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=../ibftGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\cliqueGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+    besu --data-path=data --bootnodes="<EnodeNode1>" --genesis-file=..\ibftGenesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
     ```
 
 Start another terminal and use curl to call the JSON-RPC API
@@ -396,5 +396,5 @@ window.
     To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
-[Clique proof of authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
+[IBFT 2.0 proof of authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
 [Private network example tutorial]: ../Developer-Quickstart.md#create-a-transaction-using-metamask

@@ -70,8 +70,7 @@ On non-mining nodes, log messages indicate importing blocks.
 To confirm the block number is increasing, use the
 [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) JSON-RPC API method.
 
-If there is no block creating in [Clique](../Configure/Consensus-Protocols/Clique.md#extra-data)
-or [IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#extra-data) networks, ensure the validator
+If there is no block creating in a [IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#extra-data) network, ensure the validator
 addresses in the genesis file match running nodes.
 
 ## Transactions are not mined

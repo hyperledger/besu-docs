@@ -9,16 +9,18 @@ Besu supports the following consensus protocols:
 * [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) (proof of authority) - The recommended
   enterprise-grade consensus protocol for private networks.
 * [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) (proof of authority) - Supported for existing private networks.
-* [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) (proof of authority) - Not recommended for
-  production use.
-  You can [migrate a network using Clique to another consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md#migrate-from-clique-to-another-consensus-protocol).
 * [Proof of stake](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/) - Used on Ethereum Mainnet
   post-[Merge](../../Concepts/Merge.md) and can also be used on the [Merge testnet](../../Tutorials/Merge-Testnet.md).
 * [Ethash](https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/) (proof of work) - Used on Ethereum Mainnet
   pre-[Merge](../../Concepts/Merge.md) and can also be used in
   [small development networks](../../Tutorials/Private-Network/Create-Private-Network.md).
 
-See a [comparison of the proof of authority consensus protocols](Comparing-PoA.md).
+See the [properties of the proof of authority consensus protocols](Comparing-PoA.md).
+
+!!! note
+
+    The Clique PoA consensus protocol is deprecated and no longer supported by Besu.
+    If you previously used Clique, [migrate to another consensus protocol](../../HowTo/Configure/Consensus-Protocols/Clique.md#migrate-from-clique-to-another-consensus-protocol). 
 
 The `config` property in the genesis file specifies the consensus protocol for a chain.
 
@@ -31,20 +33,6 @@ The `config` property in the genesis file specifies the consensus protocol for a
           "config": {
            ...
             "ethash": {
-             ...
-           }
-          },
-          ...
-        }
-        ```
-
-    === "Clique"
-
-        ```json
-        {
-          "config": {
-           ...
-            "clique": {
              ...
            }
           },

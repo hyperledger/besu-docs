@@ -16,7 +16,6 @@ Network configuration items are specified in the genesis file in the `config` ob
 | Milestone blocks    | [Milestone blocks for the network](#milestone-blocks).                                                                                                                                      |
 | `chainID`           | [Chain ID for the network](../Concepts/NetworkID-And-ChainID.md).                                                                                                                           |
 | `ethash`            | Specifies network uses [Ethash](../Concepts/Consensus-Protocols/Overview-Consensus.md) and contains [`fixeddifficulty`](#fixed-difficulty).                                                 |
-| `clique`            | Specifies network uses [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file). |
 | `ibft2`             | Specifies network uses [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
 | `qbft`              | Specifies network uses [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) and contains [QBFT configuration items](../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file).         |
 | `transitions`       | Specifies block at which to [change IBFT 2.0 or QBFT validators](../HowTo/Troubleshoot/Add-Validators-Without-Voting.md).                                                                   |
@@ -29,7 +28,6 @@ Network configuration items are specified in the genesis file in the `config` ob
 ## Genesis block parameters
 
 The purpose of some genesis block parameters varies depending on the consensus protocol (Ethash,
-[Clique](../HowTo/Configure/Consensus-Protocols/Clique.md),
 [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md), or
 [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md)). These parameters include:
 

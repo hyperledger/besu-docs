@@ -217,7 +217,7 @@ The liveness check requires the JSON-RPC server to be up.
 
 Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
-To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`,
+To enable the `ADMIN`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`,
 `TRACE`, and `TXPOOL` API methods, use the
 [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
 [`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.

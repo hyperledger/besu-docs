@@ -1400,7 +1400,6 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 !!!note
 
     Besu ignores this option in networks using
-    [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) or
     [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus protocols.
 
 ### `miner-enabled`
@@ -2775,7 +2774,7 @@ The default is `false`.
 
 A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option
 you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`,
-`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
+`DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
 `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip
@@ -3348,7 +3347,7 @@ If set to 0, then this option is ignored and no cap is applied.
 
 A comma-separated list of APIs to enable on the WebSockets channel. When you use this option
 you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`,
-`CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
+`DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`,
 `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 !!!tip

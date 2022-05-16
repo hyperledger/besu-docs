@@ -47,7 +47,7 @@ node.
 ## Reorg-compatible privacy
 
 In v1.4, using private transactions in a network using a consensus mechanism where forks occur
-(that is, PoW algorithms or Clique) is an early access feature. For example, using private
+(that is, PoW algorithms) is an early access feature. For example, using private
 transactions on Ropsten.
 
 Do not use private transactions in production environments using consensus mechanisms where forks

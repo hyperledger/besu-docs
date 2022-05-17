@@ -71,10 +71,14 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     This may take a significant amount of time depending on world state size, during which the current head block
     doesn't increase.
     For example, Mainnet may take several days or more to fast sync.
-    Fast synch time may increase because Besu picks new pivot blocks, or because peers prune the world state before it
+    Fast sync time may increase because Besu picks new pivot blocks, or because peers prune the world state before it
     completes downloading.
 
 ### Snap synchronization
+
+!!! caution
+
+    Snap sync is an experimental feature.
 
 Enable snap sync using [`--sync-mode=X_SNAP`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
@@ -85,8 +89,8 @@ of useful state data, and reconstructs the Merkle trie locally.
 Nodes can't fast sync to a [Bonsai](Data-Storage-Formats.md#bonsai-tries) node, but can snap sync to a Bonsai node.
 
 You can't switch from fast sync to snap sync.
-If you are in the middle of a fast sync, you can use snap sync instead by deleting the data directory and starting over
-using snap sync.
+If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
+deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
 ## Run an archive node
 

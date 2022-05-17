@@ -3710,6 +3710,10 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchron
   `FAST` is also the default if connecting to Ethereum Mainnet by not specifying the [`--network`](#network) and
   [`--genesis-file`](#genesis-file) options.
 
+!!! caution
+
+    Snap sync using `X_SNAP` is an experimental feature.
+
 ### `target-gas-limit`
 
 === "Syntax"

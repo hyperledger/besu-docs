@@ -3699,8 +3699,9 @@ The default is `false`.
     ```
 
 The synchronization mode.
-Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node) and `FULL` for
-[full synchronization](../../Concepts/Node-Types.md#run-an-archive-node).
+Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchronization), `FULL` for
+[full synchronization](../../Concepts/Node-Types.md#run-an-archive-node), and `X_SNAP` for
+[snap synchronization](../../Concepts/Node-Types.md#snap-synchronization).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.
@@ -3708,28 +3709,6 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#run-a-full-no
   development network.
   `FAST` is also the default if connecting to Ethereum Mainnet by not specifying the [`--network`](#network) and
   [`--genesis-file`](#genesis-file) options.
-
-!!! note
-
-    When running Besu on some cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435)
-    issue causes fast sync to fail occasionally. The following error is displayed repeatedly:
-
-    ```
-    ...
-    EthScheduler-Services-1 (importBlock) | ERROR | PipelineChainDownloader | Chain download failed. Restarting after short delay.
-    java.util.concurrent.CompletionException: org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: block checksum mismatch:
-    ....
-    ```
-
-    The failure has been seen on AWS and Digital Ocean.
-    On AWS, A full restart of the VM is required to restart the fast synchronization.
-    Fast synchronization is not [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#143).
-
-!!! important
-
-    Using fast synchronization with
-    [private transactions](../../Concepts/Privacy/Privacy-Overview.md) or on Digital Ocean Droplets
-    is not supported.
 
 ### `target-gas-limit`
 

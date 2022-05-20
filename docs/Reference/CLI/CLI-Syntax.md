@@ -3710,9 +3710,12 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchron
   `FAST` is also the default if connecting to Ethereum Mainnet by not specifying the [`--network`](#network) and
   [`--genesis-file`](#genesis-file) options.
 
-!!! caution
+!!! important
 
-    Snap sync using `X_SNAP` is an experimental feature.
+    Snap sync is an experimental feature.
+    However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
+    because snap sync can be faster by several days.
+    If your snap sync completes successfully, you should have the correct world state.
 
 ### `target-gas-limit`
 

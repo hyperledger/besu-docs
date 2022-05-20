@@ -76,9 +76,12 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
 
 ### Snap synchronization
 
-!!! caution
+!!! important
 
     Snap sync is an experimental feature.
+    However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
+    because snap sync can be faster by several days.
+    If your snap sync completes successfully, you should have the correct world state.
 
 Enable snap sync using [`--sync-mode=X_SNAP`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.

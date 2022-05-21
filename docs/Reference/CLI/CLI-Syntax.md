@@ -591,7 +591,7 @@ See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prereq
     engine-rpc-port=true
     ```
 
-Enables or disables the Engine JSON-RPC API service.
+Enables or disables the Engine JSON-RPC service.
 The default is `false`.
 
 !!! important

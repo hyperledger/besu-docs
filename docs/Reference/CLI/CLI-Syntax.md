@@ -591,7 +591,13 @@ See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prereq
     engine-rpc-port=true
     ```
 
-Enables or disables using Besu as an [execution client](../../Concepts/Merge.md#execution-clients) on Ethereum Mainnet.
+Enables or disables the Engine JSON-RPC API service.
+The default is `false`.
+
+!!! important
+
+    You must enable the Engine API to use Besu as an [execution client](../../Concepts/Merge.md#execution-clients) on
+    Ethereum Mainnet.
 
 ### `engine-rpc-port`
 

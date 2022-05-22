@@ -193,7 +193,7 @@ You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/j
 keeps account management separate for stronger security.
 
 The Developer Quickstart provides an
-[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js).
+[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b8f7e3bc1d5f773b823c5e9983e9da11bb552ed7/files/besu/smart_contracts/privacy/scripts/private_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 

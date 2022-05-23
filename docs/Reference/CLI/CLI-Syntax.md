@@ -3707,15 +3707,15 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchron
   option and specifying the [`--genesis-file`](#genesis-file) option.
 * The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev`
   development network.
-  `FAST` is also the default if connecting to Ethereum Mainnet by not specifying the [`--network`](#network) and
-  [`--genesis-file`](#genesis-file) options.
+  `FAST` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither
+  [network](#network) nor [genesis file](#genesis-file).
 
 !!! important
 
     Snap sync is an experimental feature.
     However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
     because snap sync can be faster by several days.
-    If your snap sync completes successfully, you should have the correct world state.
+    If your snap sync completes successfully, you have the correct world state.
 
 ### `target-gas-limit`
 

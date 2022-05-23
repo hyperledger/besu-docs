@@ -81,12 +81,12 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     Snap sync is an experimental feature.
     However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
     because snap sync can be faster by several days.
-    If your snap sync completes successfully, you should have the correct world state.
+    If your snap sync completes successfully, you have the correct world state.
 
 Enable snap sync using [`--sync-mode=X_SNAP`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
 
-Instead of downloading the [state trie](Data-Storage-Formats.md) node by node, snap sync downloads the contiguous chunks
+Instead of downloading the [state trie](Data-Storage-Formats.md) node by node, snap sync downloads contiguous chunks
 of useful state data, and reconstructs the Merkle trie locally.
 
 Nodes can't fast sync to a [Bonsai](Data-Storage-Formats.md#bonsai-tries) node, but can snap sync to a Bonsai node.

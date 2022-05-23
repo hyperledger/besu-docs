@@ -77,7 +77,7 @@ console.log("Account B has an updatedbalance of: " + accountBBalance);
 }
 ```
 
-A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/eth_tx.js)
+A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/eth_tx.js)
 can be found in the Developer Quickstart.
 
 ## Using `eth_sendTransaction`

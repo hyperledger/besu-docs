@@ -44,7 +44,7 @@ It's also the default if connecting to Ethereum Mainnet by not specifying the
 [`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
 options.
 
-Using fast sync with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) isn't supported.
+Using fast sync with [private transactions](../Concepts/Privacy/Privacy-Overview.md) isn't supported.
 
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
 [metrics](../HowTo/Monitor/Metrics.md#metrics-list) to monitor fast sync.

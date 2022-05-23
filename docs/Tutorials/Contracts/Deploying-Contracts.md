@@ -22,7 +22,7 @@ account's private key to sign and serialize the transaction, and send the API re
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
 Using the
-[`SimpleStorage.sol`](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b8f7e3bc1d5f773b823c5e9983e9da11bb552ed7/files/common/smart_contracts/privacy/contracts/SimpleStorage.sol)
+[`SimpleStorage.sol`](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/common/smart_contracts/privacy/contracts/SimpleStorage.sol)
 smart contract as an example, create a new file called `compile.js` with the following content:
 
 !!! example "`compile.js`"
@@ -76,7 +76,7 @@ Once you have the bytecode and ABI, you can rename the output files to make them
 this tutorial refers to them as `SimpleStorage.bin` and `SimpleStorage.abi`.
 
 Create a new file named `public_tx.js` to send the transaction (or run the following commands in a JavaScript console).
-The Developer Quickstart provides an [example of a public transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b8f7e3bc1d5f773b823c5e9983e9da11bb552ed7/files/besu/smart_contracts/privacy/scripts/public_tx.js).
+The Developer Quickstart provides an [example of a public transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/public_tx.js).
 
 !!! example "`public_tx.js`"
 
@@ -193,7 +193,7 @@ You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/j
 keeps account management separate for stronger security.
 
 The Developer Quickstart provides an
-[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b8f7e3bc1d5f773b823c5e9983e9da11bb552ed7/files/besu/smart_contracts/privacy/scripts/private_tx.js).
+[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/private_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 
@@ -265,7 +265,7 @@ You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/j
 keeps account management separate for stronger security.
 
 The Developer Quickstart provides an
-[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b8f7e3bc1d5f773b823c5e9983e9da11bb552ed7/files/besu/smart_contracts/privacy/scripts/private_tx.js).
+[example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/private_tx.js).
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls.
 

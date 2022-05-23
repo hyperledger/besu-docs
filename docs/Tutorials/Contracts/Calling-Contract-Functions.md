@@ -16,7 +16,7 @@ This tutorial shows you how to interact with smart contracts that have been depl
 ## Interact with public contracts
 
 This tutorial uses the
-[`SimpleStorage.sol`](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/smart_contracts/contracts/SimpleStorage.sol)
+[`SimpleStorage.sol`](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/common/smart_contracts/privacy/contracts/SimpleStorage.sol)
 contract:
 
 ```js
@@ -42,7 +42,7 @@ contract SimpleStorage {
 Once the contract is deployed, you can perform a read operation using the `get` function call and a
 write operation using the `set` function call.
 This tutorial uses the [web3js](https://www.npmjs.com/package/web3) library to interact with the contract.
-A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/public_tx.js)
+A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/public_tx.js)
 of these calls can be found in the [Developer Quickstart].
 
 ### 1. Perform a read operation
@@ -96,7 +96,7 @@ This private contracts example uses the same `SimpleStorage.sol` contract as in 
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the
 [`generateAndSendRawTransaction`](https://consensys.github.io/web3js-quorum/latest/module-priv.html#~generateAndSendRawTransaction) method to interact with the contract.
 Both read and write operations are performed using the `generateAndSendRawTransaction` API call.
-A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx.js)
+A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/private_tx.js)
 can be found in the [Developer Quickstart].
 
 ### 1. Perform a read operation

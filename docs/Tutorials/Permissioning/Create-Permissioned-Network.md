@@ -110,9 +110,9 @@ In the `Permissioned-Network` directory, generate the node key and genesis file:
 
 Besu creates the following in the `networkFiles` directory:
 
-- `genesis.json` - The genesis file including the `extraData` property specifying the four nodes
+* `genesis.json` - The genesis file including the `extraData` property specifying the four nodes
   are validators.
-- A directory for each node named using the node address and containing the public and private key
+* A directory for each node named using the node address and containing the public and private key
   for each node.
 
 ```bash
@@ -180,7 +180,7 @@ Copy the following permissions configuration to a file called `permissions_confi
 
 The permissions configuration file includes the first two accounts from the genesis file.
 
-Use the [`perm_addNodesToAllowlist`](../../Reference/API-Methods.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
+Use the [`perm_addNodesToAllowlist`](../../Reference/API-Methods.md#perm_addnodestoallowlist) JSON-RPC API meothod to add permissioned nodes after starting the nodes.
 
 ### 7. Start Node-1
 
@@ -225,20 +225,20 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-port=8552 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 - A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 - A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-- A different port to Node-1 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port).
+- A different port to Node-1 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 - A data directory for Node-2 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 
@@ -252,20 +252,20 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-port=8553 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-port=8553 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 - A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 - A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-- A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
+- A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 - A data directory for Node-3 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 
@@ -279,20 +279,20 @@ Start another terminal, change to the `Node-4` directory, and start Node-4:
 === "MacOS"
 
     ```bash
-    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-port=8554 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-http-port=8553 --engine-host-allowlist="*"
     ```
 
 === "Windows"
 
     ```bash
-    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-port=8554 --engine-host-allowlist="*"
+    besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-http-port=8553 --engine-host-allowlist="*"
     ```
 
 The command line specifies:
 
 - A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 - A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-- A different port to Node-1, Node-2, and Node-3 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port).
+- A different port to Node-1, Node-2, and Node-3 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 - A data directory for Node-4 using [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 

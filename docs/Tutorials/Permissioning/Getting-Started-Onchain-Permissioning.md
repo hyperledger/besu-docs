@@ -351,14 +351,14 @@ The migration logs the addresses of the Admin and Rules contracts.
 Use the following command to start Node-2:
 
 ```cmd
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-port=8552 --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
 ```
 
 The command line specifies:
 
 * A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 * A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A different port to Node-1 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port).
+* A different port to Node-1 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 
@@ -367,14 +367,14 @@ The command line specifies:
 Use the following command to start Node-3:
 
 ```cmd
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-port=8553 --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
 ```
 
 The command line specifies:
 
 * A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port).
+* A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 
@@ -383,14 +383,14 @@ The command line specifies:
 Use the following command to start Node-4:
 
 ```cmd
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-port=8554 --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30306 --rpc-http-port=8548 --engine-rpc-http-port=8553 --engine-host-allowlist="*"
 ```
 
 The command line specifies:
 
 * A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A different port to Node-1, Node-2, and Node-3 for the Engine API using [`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port).
+* A different port to Node-1, Node-2, and Node-3 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 

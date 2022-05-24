@@ -63,7 +63,7 @@ configuration (Bellatrix) comes online.
 ## Update Besu
 
 Once Bellatrix is scheduled for activation on Mainnet, Besu will be released with updated configuration for Mainnet.
-Ensure your Beku node and consensus client are up to date before Bellatrix is enabled.
+Ensure your Besu node and consensus client are up to date before Bellatrix is enabled.
 
 You can follow Besu notifications by:
 

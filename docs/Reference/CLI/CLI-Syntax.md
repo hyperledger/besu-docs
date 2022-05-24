@@ -588,7 +588,7 @@ See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prereq
 === "Configuration file"
 
     ```bash
-    engine-rpc-port=true
+    engine-rpc-enabled=true
     ```
 
 Enables or disables the Engine JSON-RPC service.
@@ -610,19 +610,19 @@ The default is `false`.
 === "Example"
 
     ```bash
-    --engine-rpc-port=8550
+    --engine-rpc-port=8551
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_RPC_PORT=8550
+    BESU_ENGINE_RPC_PORT=8551
     ```
 
 === "Configuration file"
 
     ```bash
-    engine-rpc-port=8550
+    engine-rpc-port=8551
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.

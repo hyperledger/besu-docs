@@ -626,6 +626,7 @@ The default is `false`.
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.
+The default is `8551`.
 
 ### `ethstats`
 

@@ -575,33 +575,33 @@ See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prereq
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
 
-### `engine-rpc-ws-port`
+### `engine-rpc-port`
 
 === "Syntax"
 
     ```bash
-    --engine-rpc-ws-port=<PORT>
+    --engine-rpc-port=<PORT>
     ```
 
 === "Example"
 
     ```bash
-    --engine-rpc-ws-port=8551
+    --engine-rpc-port=8551
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_RPC_WS_PORT=8551
+    BESU_ENGINE_RPC_PORT=8551
     ```
 
 === "Configuration file"
 
     ```bash
-    engine-rpc-ws-port=8551
+    engine-rpc-port=8551
     ```
 
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSocket.
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.
 
 ### `ethstats`
 

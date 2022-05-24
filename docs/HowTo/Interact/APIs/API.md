@@ -6,7 +6,7 @@ description: Hyperledger Besu API
 
 Access the [Hyperledger Besu API](../../../Reference/API-Methods.md) using:
 
-* [JSON-RPC over HTTP, WebSockets or IPC](Using-JSON-RPC-API.md)
+* [JSON-RPC over HTTP, WebSocket, or IPC](Using-JSON-RPC-API.md)
 * [RPC Pub/Sub over WebSockets](RPC-PubSub.md)
 * [GraphQL over HTTP](GraphQL.md).
 

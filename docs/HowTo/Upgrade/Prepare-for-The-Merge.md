@@ -26,12 +26,12 @@ Service providers that provide execution layer access, such as Infura, won't be 
 [beacon node](../../Concepts/Merge.md#consensus-clients) to continue to function on the network.
 
 You must configure an execution client for each beacon node you maintain.
-Configure Besu using the following steps.
+Configure Besu as an execution client using the following steps.
 You can use Besu with any consensus client.
 
 ### 1. Configure the Engine API
 
-The beacon node and execution client communicate using the [Engine API](../Interact/APIs/Engine-API.md).
+The beacon node and Besu communicate using the [Engine API](../Interact/APIs/Engine-API.md).
 Configure the Engine API by setting [`engine-rpc-enabled`], [`engine-rpc-port`], and
 [`engine-jwt-enabled`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) in the Besu configuration file.
 
@@ -54,7 +54,7 @@ configuration option, and to the consensus client using its configuration option
 For example, provide the JWT to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 
-### 3. Sync the execution client
+### 3. Sync Besu
 
 Validators can't produce attestations or blocks without a fully synced execution endpoint.
 To expedite network participation, [sync Besu](../../Concepts/Node-Types.md) on Ethereum Mainnet before the Merge

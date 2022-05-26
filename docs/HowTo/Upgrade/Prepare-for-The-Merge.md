@@ -70,7 +70,7 @@ You can follow Besu notifications by:
 - Joining the [Besu mailing list](https://lists.hyperledger.org/g/besu).
 - Following Besu on [Twitter](https://twitter.com/HyperledgerBesu).
 - Following the Besu channel in the Hyperledger [Discord](https://discord.gg/hyperledger).
-- Subscribing to release notifications on GitHub for [Teku](https://github.com/hyperledger/besu/).
+- Subscribing to release notifications on GitHub for [Besu](https://github.com/hyperledger/besu/).
 
 <!-- links -->
 [Teku]: https://docs.teku.consensys.net/en/stable/

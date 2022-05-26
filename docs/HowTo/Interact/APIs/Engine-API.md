@@ -11,7 +11,6 @@ These [API methods](../../../Reference/Engine-API-Methods.md) are a separate sub
 
 To configure the Engine API:
 
-- Enable the Engine API using the [`--engine-rpc-enabled`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-enabled) option.
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).
 - [Enable the JSON-RPC API](API.md#enable-api-access).

@@ -565,40 +565,6 @@ Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
 May be a relative or absolute path.
 See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prerequisites).
 
-### `engine-rpc-enabled`
-
-=== "Syntax"
-
-    ```bash
-    --engine-rpc-enabled[=<true|false>]
-    ```
-
-=== "Example"
-
-    ```bash
-    ---engine-rpc-enabled=true
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    BESU_ENGINE_RPC_ENABLED=true
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    engine-rpc-enabled=true
-    ```
-
-Enables or disables the Engine JSON-RPC service.
-The default is `false`.
-
-!!! important
-
-    You must enable the Engine API to use Besu as an [execution client](../../Concepts/Merge.md#execution-clients) on
-    Ethereum Mainnet.
-
 ### `engine-rpc-port`
 
 === "Syntax"

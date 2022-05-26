@@ -83,13 +83,14 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     because snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
+    We recommend using [Bonsai mode](Data-Storage-Formats.md#bonsai-tries) with snap sync for the fastest sync and
+    lowest storage requirements.
+
 Enable snap sync using [`--sync-mode=X_SNAP`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
 
-Instead of downloading the [state trie](Data-Storage-Formats.md) node by node, snap sync downloads contiguous chunks
-of useful state data, and reconstructs the Merkle trie locally.
-
-Nodes can't fast sync to a [Bonsai](Data-Storage-Formats.md#bonsai-tries) node, but can snap sync to a Bonsai node.
+Instead of downloading the [state trie](Data-Storage-Formats.md) node by node, snap sync downloads as many leaves of the
+trie as possible, and reconstructs the trie locally.
 
 You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,

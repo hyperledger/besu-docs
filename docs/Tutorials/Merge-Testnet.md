@@ -66,7 +66,6 @@ besu \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-jwt-enabled=true   \
-  --engine-rpc-enabled=true   \
   --engine-rpc-port=8550      \
   --Xmerge-support=true       \
   --engine-jwt-secret=<path to jwtsecret.hex>

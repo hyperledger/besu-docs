@@ -32,7 +32,7 @@ You can use Besu with any consensus client.
 ### 1. Configure the Engine API
 
 The beacon node and Besu communicate using the [Engine API](../Interact/APIs/Engine-API.md).
-Configure the Engine API by setting [`engine-rpc-enabled`], [`engine-rpc-port`], and
+Configure the Engine API by setting [`engine-rpc-port`] and
 [`engine-jwt-enabled`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) in the Besu configuration file.
 
 Specify the Besu Engine API endpoint in the consensus client using the consensus client's configuration options.

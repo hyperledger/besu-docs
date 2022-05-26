@@ -170,22 +170,6 @@ A quick, non-persistent workaround is to use the non-blocking random generator i
 sudo mount /dev/urandom /dev/random -o bind
 ```
 
-## Quorum Developer Quickstart not working on Apple M1 chip
-
-The [Quorum Developer Quickstart](../../Tutorials/Developer-Quickstart.md) does not currently support
-the Apple M1 chip. The quickstart starts up on machines that use the chip, but may show the
-following symptoms:
-
-* All JSON-RPC calls return an empty reply from the server
-* The Grafana dashboard shows no data
-* The `docker ps` command displays an AMD message about the containers:
-
-    ```bash
-    Image may have poor performance, or fail, if run via emulation
-    ```
-
-* No logs can be downloaded
-
 ## Unsupported address exception while running from Docker
 
 While [running Besu from a Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md), you might get the following exception:

@@ -17,7 +17,7 @@ The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a 
 
 - One of the following operating systems:
     - Linux on x86_64 architecture
-    - macOS on an Intel processor (M1 processor not supported yet)
+    - macOS
     - Windows 64-bit edition, with:
         - Windows Subsystem for Linux 2
         - Docker desktop configured to use the WSL2-based engine

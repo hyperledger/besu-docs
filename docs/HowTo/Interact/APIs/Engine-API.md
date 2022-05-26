@@ -11,14 +11,14 @@ These [API methods](../../../Reference/Engine-API-Methods.md) are a separate sub
 
 To configure the Engine API:
 
-- Specify the [service ports](#service-ports).
-- Specify the [host allowlist](#host-allowlist).
 - [Enable the JSON-RPC API](API.md#enable-api-access).
   Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (it's enabled by default).
+- Specify the [service ports](#service-ports).
+- Specify the [host allowlist](#host-allowlist).
 
 ### Service ports
 
-To specify the port the Engine API service listens on over HTTP and WebSocket, use the
+To specify the port the Engine API service listens on for HTTP and WebSocket, use the
 [`--engine-rpc-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) option.
 The default is `8551`.
 

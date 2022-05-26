@@ -58,7 +58,8 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 
 !!! important
 
-    We recommend using Bonsai with snap sync for the fastest sync and lowest storage requirements.
+    We recommend using Bonsai with [snap sync](Node-Types.md#snap-synchronization) for the fastest sync and lowest
+    storage requirements.
 
 With forest or Bonsai mode, you can use [fast](Node-Types.md#fast-synchronization) or
 [snap](Node-Types.md#snap-synchronization) sync to run a full node.

@@ -54,6 +54,8 @@ configuration option, and to the consensus client using its configuration option
 For example, provide the JWT to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 
+If no token is provided to Besu when `engine-jwt-enabled` is true, a new token will be generated called `jwt.hex` and stored in the configured datadir.
+
 ### 3. Sync Besu
 
 Validators can't produce attestations or blocks without a fully synced execution endpoint.

@@ -531,7 +531,7 @@ A comma-separated list of hostnames to allow for Engine API access (applies to b
     ```bash
     engine-jwt-enabled=true
     ```
-Enables or disables authentication for Engine APIs. The default is `false`.
+Enables or disables authentication for Engine APIs. The default is `true`.
 
 ### `engine-jwt-secret`
 

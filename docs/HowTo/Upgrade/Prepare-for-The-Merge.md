@@ -32,8 +32,8 @@ You can use Besu with any consensus client.
 ### 1. Configure the Engine API
 
 The beacon node and Besu communicate using the [Engine API](../Interact/APIs/Engine-API.md).
-Configure the Engine API by setting [`engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) and
-[`engine-jwt-enabled`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) in the Besu configuration file.
+Configure the Engine API by setting [`engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) in the Besu
+configuration file.
 
 Specify the Besu Engine API endpoint in the consensus client using the consensus client's configuration options.
 For example, if you use [Teku] as the consensus client, you can specify the endpoint using
@@ -54,7 +54,8 @@ configuration option, and to the consensus client using its configuration option
 For example, provide the JWT to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 
-If no token is provided to Besu when `engine-jwt-enabled` is true, a new token will be generated called `jwt.hex` and stored in the configured datadir.
+If you don't provide a token to Besu, Besu will automatically generate a new token called `jwt.hex` and store it in the
+configured data directory.
 
 ### 3. Sync Besu
 

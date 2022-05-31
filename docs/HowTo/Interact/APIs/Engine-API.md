@@ -46,11 +46,12 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 ## Authentication
 
 By default, [authentication](Authentication.md) for the Engine API is enabled.
-To disable, set the [`--engine-jwt-enabled`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) option to `false`.
+To disable, set the [`--engine-jwt-disabled`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-disabled) option to `true`.
 
 !!! warning
 
-    Disabling JWT authentication should only be used in testing scenarios, never in production deployments.
+    Don't disable JWT authentication in production environments.
+    Disable only for testing purposes.
 
 Set the [JWT secret](Authentication.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
 

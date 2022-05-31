@@ -64,7 +64,8 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 With forest or Bonsai mode, you can use [fast](Node-Types.md#fast-synchronization) or
 [snap](Node-Types.md#snap-synchronization) sync to run a full node.
 
-With forest mode, your node can fast or snap sync to other nodes and other nodes can fast or snap sync to your node.
+With forest mode, your node can fast or snap sync to other nodes, and other nodes can fast or snap sync to a fast synced
+forest node.
 
 With Bonsai mode, your node can fast or snap sync to other nodes, but other nodes can't fast or snap sync to a fast
 synced Bonsai node.
@@ -73,5 +74,5 @@ Bonsai stores data at a point-in-time.
 Fast sync messages request node data by-hash at a point-in-time (pivot block), thousands of blocks back
 during the sync.
 
-After Bonsai as a snap sync server is implemented, other nodes will be able to fast or snap sync to a snap synced Bonsai
-node.
+After Bonsai as a snap sync server is implemented, other nodes will be able to fast or snap sync to a snap synced forest
+or Bonsai node.

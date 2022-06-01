@@ -146,6 +146,7 @@ nav:
         - Upgrade:
           - Upgrade node: HowTo/Upgrade/Upgrade-Node.md
           - Upgrade protocol: HowTo/Upgrade/Upgrade-Protocol.md
+          - Prepare for The Merge: HowTo/Upgrade/Prepare-for-The-Merge.md
         - Develop dapps on Besu:
           - Use Truffle: HowTo/Develop-Dapps/Truffle.md
           - Use client libraries: HowTo/Develop-Dapps/Client-Libraries.md

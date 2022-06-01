@@ -15,7 +15,7 @@ Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) an
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.
-For example, you must have Java version 11–16 if using the Besu and Teku binary distributions.
+For example, you must have Java 11+ if using the Besu and Teku binary distributions.
 
 Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
 
@@ -65,9 +65,7 @@ besu \
   --rpc-ws-host="0.0.0.0"     \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
-  --engine-jwt-enabled=true   \
-  --engine-rpc-http-port=8550 \
-  --engine-rpc-ws-port=8551   \
+  --engine-rpc-port=8550      \
   --Xmerge-support=true       \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```

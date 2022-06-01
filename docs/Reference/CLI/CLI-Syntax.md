@@ -506,32 +506,33 @@ A comma-separated list of hostnames to allow for Engine API access (applies to b
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames in production
     environments.
 
-### `engine-jwt-enabled`
+### `engine-jwt-disabled`
 
 === "Syntax"
 
     ```bash
-    --engine-jwt-enabled[=<true|false>]
+    --engine-jwt-disabled[=<true|false>]
     ```
 
 === "Example"
 
     ```bash
-    --engine-jwt-enabled=true
+    --engine-jwt-disabled=true
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_JWT_ENABLED=true
+    BESU_ENGINE_JWT_DISABLED=true
     ```
 
 === "Configuration file"
 
     ```bash
-    engine-jwt-enabled=true
+    engine-jwt-disabled=true
     ```
-Enables or disables authentication for Engine APIs. The default is `false`.
+Disables or enables [authentication](../../HowTo/Interact/APIs/Engine-API.md#authentication) for Engine APIs.
+The default is `false` (authentication is enabled by default).
 
 ### `engine-jwt-secret`
 

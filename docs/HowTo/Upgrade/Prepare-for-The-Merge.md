@@ -21,8 +21,8 @@ Before The Merge, [validators](../../Concepts/Merge.md#consensus-clients) requir
 [execution client](../../Concepts/Merge.md#execution-clients) to get deposits for block proposals.
 Block proposals are intermittent, and a validator can get the data from other blocks if its execution client is offline.
 
-After The Merge, execution clients will play a more crucial role in executing transactions.
-Service providers that provide execution layer access, such as Infura, won't be adequate for a
+After The Merge, execution clients will play a more crucial role in producing blocks and executing transactions.
+Service providers that provide execution layer access but don't produce blocks, such as Infura, won't be adequate for a
 [beacon node](../../Concepts/Merge.md#consensus-clients) to continue to function on the network.
 
 You must configure an execution client for each beacon node you maintain.

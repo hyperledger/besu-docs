@@ -83,8 +83,8 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     because snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
-    We recommend using [Bonsai mode](Data-Storage-Formats.md#bonsai-tries) with snap sync for the fastest sync and
-    lowest storage requirements.
+    We recommend using snap sync with the [Bonsai](Data-Storage-Formats.md#bonsai-tries) data storage format for the
+    fastest sync and lowest storage requirements.
 
 Enable snap sync using [`--sync-mode=X_SNAP`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.

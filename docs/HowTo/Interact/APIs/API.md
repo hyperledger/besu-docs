@@ -6,7 +6,7 @@ description: Hyperledger Besu API
 
 Access the [Hyperledger Besu API](../../../Reference/API-Methods.md) using:
 
-* [JSON-RPC over HTTP or WebSockets](Using-JSON-RPC-API.md)
+* [JSON-RPC over HTTP, WebSocket, or IPC](Using-JSON-RPC-API.md)
 * [RPC Pub/Sub over WebSockets](RPC-PubSub.md)
 * [GraphQL over HTTP](GraphQL.md).
 
@@ -16,8 +16,13 @@ The following sections provide information about JSON-RPC, RPC Pub/Sub, and Grap
 
 To enable API access, use the
 [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled),
-[`--ws-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled), and
-[`--graphql-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#graphql-http-enabled) options.
+[`--ws-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled),
+[`--graphql-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#graphql-http-enabled), and
+`--Xrpc-ipc-enabled` options.
+
+!!! caution
+
+    `--Xrpc-ipc-enabled` is an experimental option.
 
 ## Service hosts
 
@@ -48,7 +53,16 @@ The default ports are:
 * 8546 for JSON-RPC over WebSocket.
 * 8547 for GraphQL over HTTP.
 
-Ports must be [exposed appropriately](../../Find-and-Connect/Managing-Peers.md#port-configuration).
+Ports must be [exposed appropriately](../../Find-and-Connect/Configuring-Ports.md).
+
+## Socket path
+
+To specify the socket path for the IPC socket, use the `--Xrpc-ipc-path` option.
+The default path is `besu.ipc` in the Besu data directory.
+
+!!! caution
+
+    `--Xrpc-ipc-path` is an experimental option.
 
 ## Host allowlist
 

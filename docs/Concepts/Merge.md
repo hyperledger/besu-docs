@@ -4,11 +4,14 @@ description: What is the Merge?
 
 # The Merge
 
-The Ethereum upgrade known as [The Merge](https://ethereum.org/en/upgrades/merge/) will merge the [Beacon Chain] into
+[The Merge](https://ethereum.org/en/upgrades/merge/) is an Ethereum upgrade that merges the [Beacon Chain] into
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
 The Merge transitions Mainnet from proof of work to
-[proof of stake consensus](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/).
+[proof of stake consensus](https://docs.teku.consensys.net/en/stable/Concepts/Proof-of-Stake/).
+
+Update and configure Besu to be [ready for The Merge](../HowTo/Upgrade/Prepare-for-The-Merge.md).
+You can also test Besu with a consensus client such as [Teku] on the [Kiln Merge testnet](../Tutorials/Merge-Testnet.md).
 
 ## Execution and consensus clients
 
@@ -23,7 +26,7 @@ Execution and consensus clients communicate with each other using the
 
 ### Execution clients
 
-Execution clients, such as Besu, manage the state and execute transactions on the execution layer.
+Execution clients, such as Besu, manage the execution layer, including executing transactions and updating the world state.
 Execution clients serve [JSON-RPC API](../Reference/Engine-API-Methods.md) requests and communicate with each other in a
 peer-to-peer network.
 
@@ -36,26 +39,32 @@ the consensus layer.
 Consensus clients serve [REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests and
 communicate with each other in a peer-to-peer network.
 
-### Run a node
+## What happens during The Merge
+
+Before The Merge, the execution and consensus clients' configurations will be
+[updated](../HowTo/Upgrade/Prepare-for-The-Merge.md#update-besu) to listen for a certain total terminal difficulty (TTD)
+to be reached.
+
+!!! info
+
+    The TTD is a specific value for the total difficulty, which is the sum of the proof-of-work mining difficulty for
+    all blocks up to some point in the blockchain.
+
+The consensus layer will enable the Merge configuration (Bellatrix) before reaching the TTD.
+Once the execution layer blocks reach the TTD, the Beacon Chain will merge into Ethereum Mainnet, and Ethereum will move
+to a proof of stake network.
 
 After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time.
 To become a validator, you must also run a validator client (either
 [in the same process as the beacon node](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#start-the-clients-in-a-single-process)
 or [separately](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#run-the-clients-separately).
 
-You can
-[test Besu as an execution client on the Merge testnet with Teku](../Tutorials/Merge-Testnet.md).
+After The Merge, validators earn rewards for performing
+[validator duties](https://docs.teku.consensys.net/en/stable/Concepts/Proof-of-Stake/), and
+[fee recipients](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient)
+will also earn rewards for the inclusion of execution layer transactions.
 
-You can
-[run Besu as an execution client on Ethereum Mainnet with Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Connect/Connect-To-Mainnet/).
-
-Consensus clients compatible with Besu include:
-
-- [Teku] (recommended)
-- [Lighthouse](https://lighthouse.sigmaprime.io/)
-- [Lodestar](https://lodestar.chainsafe.io/)
-- [Prysm](https://github.com/prysmaticlabs/prysm)
-- [Nimbus](https://nimbus.team/)
+Update and configure Besu to be [ready for The Merge](../HowTo/Upgrade/Prepare-for-The-Merge.md).
 
 <!-- links -->
 [Beacon Chain]: https://ethereum.org/en/upgrades/beacon-chain/

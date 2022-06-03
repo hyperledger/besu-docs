@@ -134,6 +134,12 @@ For [`eth_gasPrice`](../API-Methods.md#eth_gasprice), to return the:
 === "Syntax"
 
     ```bash
+    ---auto-log-bloom-caching-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --auto-log-bloom-caching-enabled=false
     ```
 
@@ -264,6 +270,12 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 === "Syntax"
 
     ```bash
+    --color-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --color-enabled=false
     ```
 
@@ -308,7 +320,7 @@ The default is `true`.
     compatibility-eth64-forkid-enabled=true
     ```
 
-Enables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes
+Enables or disables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes
 using Besu v20.10.1 or later, either:
 
 * All nodes must be upgraded to v20.10.1 or later.
@@ -432,6 +444,12 @@ The default is `null`.
 === "Syntax"
 
     ```bash
+    --discovery-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --discovery-enabled=false
     ```
 
@@ -488,32 +506,33 @@ A comma-separated list of hostnames to allow for Engine API access (applies to b
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames in production
     environments.
 
-### `engine-jwt-enabled`
+### `engine-jwt-disabled`
 
 === "Syntax"
 
     ```bash
-    --engine-jwt-enabled
+    --engine-jwt-disabled[=<true|false>]
     ```
 
 === "Example"
 
     ```bash
-    --engine-jwt-enabled=true
+    --engine-jwt-disabled=true
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_JWT_ENABLED=true
+    BESU_ENGINE_JWT_DISABLED=true
     ```
 
 === "Configuration file"
 
     ```bash
-    engine-jwt-enabled=true
+    engine-jwt-disabled=true
     ```
-Enables or disables authentication for Engine APIs. The default is `false`.
+Disables or enables [authentication](../../HowTo/Interact/APIs/Engine-API.md#authentication) for Engine APIs.
+The default is `false` (authentication is enabled by default).
 
 ### `engine-jwt-secret`
 
@@ -547,61 +566,34 @@ Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
 May be a relative or absolute path.
 See an [example of how to generate this](../../Tutorials/Merge-Testnet.md#prerequisites).
 
-### `engine-rpc-http-port`
+### `engine-rpc-port`
 
 === "Syntax"
 
     ```bash
-    --engine-rpc-http-port=<PORT>
+    --engine-rpc-port=<PORT>
     ```
 
 === "Example"
 
     ```bash
-    --engine-rpc-http-port=8550
+    --engine-rpc-port=8551
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_RPC_HTTP_PORT=8550
+    BESU_ENGINE_RPC_PORT=8551
     ```
 
 === "Configuration file"
 
     ```bash
-    engine-rpc-http-port=8550
+    engine-rpc-port=8551
     ```
 
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP.
-
-### `engine-rpc-ws-port`
-
-=== "Syntax"
-
-    ```bash
-    --engine-rpc-ws-port=<PORT>
-    ```
-
-=== "Example"
-
-    ```bash
-    --engine-rpc-ws-port=8551
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    BESU_ENGINE_RPC_WS_PORT=8551
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    engine-rpc-ws-port=8551
-    ```
-
-The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over WebSocket.
+The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.
+The default is `8551`.
 
 ### `ethstats`
 
@@ -770,6 +762,12 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 === "Syntax"
 
     ```bash
+    ---graphql-http-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --graphql-http-enabled
     ```
 
@@ -785,7 +783,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
     graphql-http-enabled=true
     ```
 
-Enables the GraphQL HTTP service. The default is `false`.
+Enables or disables the GraphQL HTTP service. The default is `false`.
 
 The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
@@ -817,10 +815,10 @@ The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if 
     graphql-http-host="0.0.0.0"
     ```
 
-Host for GraphQL HTTP to listen on.
-The default is 127.0.0.1.
+The host on which GraphQL HTTP listens.
+The default is `127.0.0.1`.
 
-To allow remote connections, set to `0.0.0.0`
+To allow remote connections, set to `0.0.0.0`.
 
 ### `graphql-http-port`
 
@@ -850,7 +848,7 @@ To allow remote connections, set to `0.0.0.0`
     graphql-http-port="6175"
     ```
 
-The GraphQL HTTP listening port (TCP). The default is 8547. Ports must be
+The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must be
 [exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### `help`
@@ -1072,6 +1070,12 @@ Categories containing `PRIVATE` track metrics when you enable
 === "Syntax"
 
     ```bash
+    ---metrics-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --metrics-enabled
     ```
 
@@ -1087,11 +1091,11 @@ Categories containing `PRIVATE` track metrics when you enable
     metrics-enabled=true
     ```
 
-Enables the
+Enables or disables the
 [metrics exporter](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
 default is `false`.
 
-You cannot specify `--metrics-enabled` with `--metrics-push-enabled`. That is, you can enable
+You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable
 either Prometheus polling or Prometheus push gateway support, but not both at once.
 
 ### `metrics-host`
@@ -1197,7 +1201,7 @@ The default is `PROMETHEUS`.
 === "Example"
 
     ```bash
-    --metrics-push-enabled
+    --metrics-push-enabled=true
     ```
 
 === "Environment variable"
@@ -1214,7 +1218,7 @@ The default is `PROMETHEUS`.
 
 Enables or disables [push gateway integration].
 
-You cannot specify `--metrics-push-enabled` with `--metrics-enabled`. That is, you can enable
+You can't specify `--metrics-push-enabled` with [`--metrics-enabled`](#metrics-enabled). That is, you can enable
 either Prometheus polling or Prometheus push gateway support, but not both at once.
 
 ### `metrics-push-host`
@@ -1407,7 +1411,13 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 === "Syntax"
 
     ```bash
-    --miner-enabled
+    --miner-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --miner-enabled=true
     ```
 
 === "Environment variable"
@@ -1422,7 +1432,7 @@ using the [`--miner-enabled`](#miner-enabled) option or the
     miner-enabled=true
     ```
 
-Enables mining when you start the node.
+Enables or disables mining when you start the node.
 The default is `false`.
 
 ### `miner-extra-data`
@@ -1739,7 +1749,7 @@ a non-default value.
 === "Syntax"
 
     ```bash
-    --p2p-enabled=<true|false>
+    --p2p-enabled[=<true|false>]
     ```
 
 === "Example"
@@ -1761,7 +1771,7 @@ a non-default value.
     ```
 
 Enables or disables all P2P communication.
-The default is true.
+The default is `true`.
 
 ### `p2p-host`
 
@@ -1793,7 +1803,7 @@ The default is true.
 
 The advertised host that can be used to access the node from outside the network in
 [P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
-The default is 127.0.0.1.
+The default is `127.0.0.1`.
 
 !!! info
 
@@ -1859,7 +1869,7 @@ multiple network interfaces. The default is 0.0.0.0 (all interfaces).
     p2p-port="1789"
     ```
 
-The P2P listening ports (UDP and TCP). The default is 30303. You must
+The P2P listening ports (UDP and TCP). The default is `30303`. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### `permissions-accounts-config-file`
@@ -1907,7 +1917,7 @@ the [data directory](#data-path).
 === "Example"
 
     ```bash
-    --permissions-accounts-config-file-enabled
+    --permissions-accounts-config-file-enabled=true
     ```
 
 === "Environment variable"
@@ -1964,7 +1974,7 @@ The contract address for
 === "Example"
 
     ```bash
-    --permissions-accounts-contract-enabled
+    --permissions-accounts-contract-enabled=true
     ```
 
 === "Environment variable"
@@ -2029,7 +2039,7 @@ the [data directory](#data-path).
 === "Example"
 
     ```bash
-    --permissions-nodes-config-file-enabled
+    --permissions-nodes-config-file-enabled=true
     ```
 
 === "Environment variable"
@@ -2086,7 +2096,7 @@ The contract address for
 === "Example"
 
     ```bash
-    --permissions-nodes-contract-enabled
+    --permissions-nodes-contract-enabled=true
     ```
 
 === "Environment variable"
@@ -2161,7 +2171,7 @@ The default is 1.
     ```
 
 Enables or disables [private transactions](../../Concepts/Privacy/Privacy-Overview.md). The default
-is false.
+is `false`.
 
 !!! important
 
@@ -2266,7 +2276,7 @@ transactions. The default is `false`.
     privacy-flexible-groups-enabled=true
     ```
 
-Set to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). Default is `false`.
+Enables or disables [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md). The default is `false`.
 
 Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
@@ -2580,7 +2590,7 @@ The default is `false`.
     random-peer-priority-enabled=true
     ```
 
-Allows for incoming connections to be prioritized randomly. Enable in small, stable networks to prevent
+Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent
 closed groups of peers forming. The default is `false`.
 
 ### `remote-connections-limit-enabled`
@@ -2736,7 +2746,7 @@ rejects that peer.
     revert-reason-enabled=true
     ```
 
-Enables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
+Enables or disables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
 transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response,
 [`eth_call`](../API-Methods.md#eth_call) error response, and [`trace`](../Trace-Types.md#trace) response.
 The default is `false`.
@@ -2816,13 +2826,13 @@ API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 === "Syntax"
 
     ```bash
-    --rpc-http-authentication-enabled
+    --rpc-http-authentication-enabled[=<true|false>]
     ```
 
 === "Example"
 
     ```bash
-    --rpc-http-authentication-enabled
+    --rpc-http-authentication-enabled=true
     ```
 
 === "Environment variable"
@@ -2837,7 +2847,7 @@ API [authentication](../../HowTo/Interact/APIs/Authentication.md).
     rpc-http-authentication-enabled=true
     ```
 
-Enables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC
+Enables or disables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC
 service.
 
 ### `rpc-http-authentication-jwt-public-key-file`
@@ -2934,7 +2944,13 @@ with your Besu node.
 === "Syntax"
 
     ```bash
-    --rpc-http-enabled
+    --rpc-http-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-enabled=true
     ```
 
 === "Environment variable"
@@ -2949,7 +2965,7 @@ with your Besu node.
     rpc-http-enabled=true
     ```
 
-Enables the HTTP JSON-RPC service.
+Enables or disables the HTTP JSON-RPC service.
 The default is `false`.
 
 ### `rpc-http-host`
@@ -2979,7 +2995,7 @@ The default is `false`.
     rpc-http-host="0.0.0.0"
     ```
 
-Specifies the host on which HTTP JSON-RPC listens. The default is 127.0.0.1.
+The host on which HTTP JSON-RPC listens. The default is `127.0.0.1`.
 
 To allow remote connections, set to `0.0.0.0`.
 
@@ -3044,7 +3060,7 @@ The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reac
     rpc-http-port="3435"
     ```
 
-The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
+The port (TCP) on which HTTP JSON-RPC listens. The default is `8545`. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### `rpc-http-tls-ca-clients-enabled`
@@ -3053,6 +3069,12 @@ The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
 
     ```bash
     --rpc-http-tls-ca-clients-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-tls-ca-clients-enabled=true
     ```
 
 === "Environment variable"
@@ -3067,7 +3089,7 @@ The HTTP JSON-RPC listening port (TCP). The default is 8545. You must
     rpc-http-tls-ca-clients-enabled=true
     ```
 
-Enables clients with trusted CA certificates to connect. The default is `false`.
+Enables or disables clients with trusted CA certificates to connect. The default is `false`.
 
 !!! note
 
@@ -3079,7 +3101,13 @@ Enables clients with trusted CA certificates to connect. The default is `false`.
 === "Syntax"
 
     ```bash
-    --rpc-http-tls-client-auth-enabled
+    --rpc-http-tls-client-auth-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-tls-client-auth-enabled=true
     ```
 
 === "Environment variable"
@@ -3094,7 +3122,7 @@ Enables clients with trusted CA certificates to connect. The default is `false`.
     rpc-http-tls-client-auth-enabled=true
     ```
 
-Enables TLS client authentication for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS client authentication for the JSON-RPC HTTP service. The default is `false`.
 
 !!! note
 
@@ -3139,7 +3167,13 @@ A list of comma-separated TLS cipher suites to support.
 === "Syntax"
 
     ```bash
-    --rpc-http-tls-enabled
+    --rpc-http-tls-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-tls-enabled=true
     ```
 
 === "Environment variable"
@@ -3154,7 +3188,7 @@ A list of comma-separated TLS cipher suites to support.
     rpc-http-tls-enabled=true
     ```
 
-Enables TLS for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS for the JSON-RPC HTTP service. The default is `false`.
 
 !!! note
 
@@ -3389,13 +3423,13 @@ for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
 === "Syntax"
 
     ```bash
-    --rpc-ws-authentication-enabled
+    --rpc-ws-authentication-enabled[=<true|false>]
     ```
 
 === "Example"
 
     ```bash
-    --rpc-ws-authentication-enabled
+    --rpc-ws-authentication-enabled=true
     ```
 
 === "Environment variable"
@@ -3410,7 +3444,7 @@ for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
     rpc-ws-authentication-enabled=true
     ```
 
-Enables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the WebSockets JSON-RPC
+Enables or disables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the WebSocket JSON-RPC
 service.
 
 !!! note
@@ -3445,7 +3479,7 @@ service.
     rpc-http-authentication-jwt-public-key-file="publicKey.pem"
     ```
 
-The [JWT provider's public key file] used for JSON-RPC Websocket authentication with an external
+The [JWT provider's public key file] used for JSON-RPC WebSocket authentication with an external
 JWT.
 
 ### `rpc-ws-enabled`
@@ -3453,7 +3487,13 @@ JWT.
 === "Syntax"
 
     ```bash
-    --rpc-ws-enabled
+    --rpc-ws-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-ws-enabled=true
     ```
 
 === "Environment variable"
@@ -3468,7 +3508,7 @@ JWT.
     rpc-ws-enabled=true
     ```
 
-Enables the WebSockets JSON-RPC service. The default is `false`.
+Enables or disables the WebSocket JSON-RPC service. The default is `false`.
 
 ### `rpc-ws-host`
 
@@ -3497,7 +3537,7 @@ Enables the WebSockets JSON-RPC service. The default is `false`.
     rpc-ws-host="0.0.0.0"
     ```
 
-The host for Websocket WS-RPC to listen on. The default is 127.0.0.1.
+The host on which WebSocket JSON-RPC listens. The default is `127.0.0.1`.
 
 To allow remote connections, set to `0.0.0.0`
 
@@ -3584,7 +3624,7 @@ The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceed
     rpc-ws-port="6174"
     ```
 
-The Websockets JSON-RPC listening port (TCP). The default is 8546. You must
+The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must
 [expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
 
 ### `security-module`
@@ -3653,6 +3693,12 @@ connect to. The default is `datapath/static-nodes.json`.
 === "Syntax"
 
     ```bash
+    --strict-tx-replay-protection-enabled[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
     --strict-tx-replay-protection-enabled=false
     ```
 
@@ -3668,7 +3714,8 @@ connect to. The default is `datapath/static-nodes.json`.
     strict-tx-replay-protection-enabled=false
     ```
 
-Requires transactions submitted via JSON-RPC to use replay protection in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155).
+Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on
+transactions submitted using JSON-RPC.
 The default is `false`.
 
 ### `sync-mode`
@@ -3895,7 +3942,7 @@ The maximum period, in hours, to hold pending transactions in the transaction po
     -X, --Xhelp
     ```
 
-Display the experimental options and their descriptions, and exit.
+Displays the experimental options and their descriptions, and exit.
 
 !!! warning
 
@@ -3909,7 +3956,7 @@ Display the experimental options and their descriptions, and exit.
     -V, --version
     ```
 
-Print version information and exit.
+Prints version information and exit.
 
 <!-- Links -->
 [push gateway integration]: ../../HowTo/Monitor/Metrics.md#running-prometheus-with-besu-in-push-mode

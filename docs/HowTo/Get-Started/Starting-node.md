@@ -45,9 +45,9 @@ the file using the [`--genesis-file`](../../Reference/CLI/CLI-Syntax.md#genesis-
 ## Syncing and storage
 
 By default, Besu syncs to the current state of the blockchain using
-[fast sync](../../Concepts/Node-Types.md#fast-synchronization) for:
+[fast sync](../../Concepts/Node-Types.md#fast-synchronization) in:
 
-- Named networks specified using [`--network`](../../Reference/CLI/CLI-Syntax.md#network) except for the `dev`
+- Networks specified using [`--network`](../../Reference/CLI/CLI-Syntax.md#network) except for the `dev`
   development network.
 - Ethereum Mainnet.
 

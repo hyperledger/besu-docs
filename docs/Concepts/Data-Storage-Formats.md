@@ -56,15 +56,15 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 
 ### Syncing nodes
 
-The following table shows the ways you can run a full node with the different data storage formats using
-[fast](Node-Types.md#fast-synchronization) and [snap](Node-Types.md#snap-synchronization) sync.
+The following table shows the ways you can [sync a full node](Node-Types.md#run-a-full-node) with the different data
+storage formats using [fast](Node-Types.md#fast-synchronization) and [snap](Node-Types.md#snap-synchronization) sync.
 
-| Data storage format | Sync mode | Can other nodes sync to your node? |
-|---------------------|-----------|------------------------------------|
-| Bonsai              | Fast      | No                                 |
-| Bonsai              | Snap      | To be implemented                  |
-| Forest              | Fast      | Yes                                |
-| Forest              | Snap      | To be implemented                  |
+| Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
+|---------------------|-----------|------------------|------------------------------------|
+| Bonsai              | Fast      | 1100 GB          | No                                 |
+| Bonsai              | Snap      | 1100 GB          | To be implemented                  |
+| Forest              | Fast      | 12 TB            | Yes                                |
+| Forest              | Snap      | 12 TB            | To be implemented                  |
 
 !!! important
 

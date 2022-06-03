@@ -41,7 +41,7 @@ pivot block), and then begins fast sync from the genesis block.
 Fast sync is the default for named networks specified using the [`--network`](../Reference/CLI/CLI-Syntax.md#network)
 option, except for the `dev` development network.
 It's also the default if connecting to Ethereum Mainnet by not specifying the
-[`--network`](../Reference/CLI/CLI-Syntax.md#network) and [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
+[`--network`](../Reference/CLI/CLI-Syntax.md#network) or [`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file)
 options.
 
 Using fast sync with [private transactions](../Concepts/Privacy/Privacy-Overview.md) isn't supported.

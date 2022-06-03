@@ -3724,25 +3724,25 @@ The default is `false`.
 === "Syntax"
 
     ```bash
-    --sync-mode=FAST
+    --sync-mode=X_SNAP
     ```
 
 === "Example"
 
     ```bash
-    --sync-mode=FAST
+    --sync-mode=X_SNAP
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_SYNC_MODE=FAST
+    BESU_SYNC_MODE=X_SNAP
     ```
 
 === "Configuration file"
 
     ```bash
-    sync-mode="FAST"
+    sync-mode="X_SNAP"
     ```
 
 The synchronization mode.

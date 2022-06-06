@@ -9,20 +9,18 @@ These [API methods](../../../Reference/Engine-API-Methods.md) are a separate sub
 
 ## Configure the Engine API
 
-To configure the Engine API, specify the [service ports](#service-ports) and [host allowlist](#host-allowlist).
-Also [enable the JSON-RPC](API.md#enabling-api-access).
-Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (it's enabled by default).
+To configure the Engine API:
+
+- [Enable the JSON-RPC API](API.md#enable-api-access).
+  Ensure the [`ETH` method is enabled](Using-JSON-RPC-API.md#api-methods-enabled-by-default) (it's enabled by default).
+- Specify the [service ports](#service-ports).
+- Specify the [host allowlist](#host-allowlist).
 
 ### Service ports
 
-To specify the port the Engine API service listens on, use the
-[`--engine-rpc-http-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port) or
-[`--engine-rpc-ws-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-ws-port) options.
-
-The default ports are:
-
-* 8550 over HTTP.
-* 8551 over WebSocket.
+To specify the port the Engine API service listens on for HTTP and WebSocket, use the
+[`--engine-rpc-port`](../../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) option.
+The default is `8551`.
 
 ### Host allowlist
 
@@ -47,8 +45,13 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 
 ## Authentication
 
-By default, [authentication](Authentication.md) for the Engine API is disabled.
-To enable, set the [`--engine-jwt-enabled`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-enabled) to `true`.
+By default, [authentication](Authentication.md) for the Engine API is enabled.
+To disable, set the [`--engine-jwt-disabled`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-disabled) option to `true`.
+
+!!! warning
+
+    Don't disable JWT authentication in production environments.
+    Disable only for testing purposes.
 
 Set the [JWT secret](Authentication.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
 

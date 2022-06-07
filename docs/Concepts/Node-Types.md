@@ -108,7 +108,7 @@ You need Besu version 22.4.3 or later to use checkpoint sync.
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the genesis block, it syncs
 from a specific checkpoint configured in the [Besu genesis file](../HowTo/Configure/Genesis-File.md).
-There are currently checkpoints in the network configurations for Ethereum Mainnet and the Ropsten and Goerli testnets.
+Checkpoints are currently defined in the network configurations for Ethereum Mainnet and the Ropsten and Goerli testnets.
 
 !!! example "Ethereum Mainnet checkpoint configuration"
 

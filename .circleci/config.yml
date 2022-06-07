@@ -17,7 +17,7 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - deps-{{ checksum "package-lock.json" }}
+            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
       - run:
           name: update-npm
           command: 'npm install -g npm@latest'
@@ -64,7 +64,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - deps-{{ checksum "CI/requirements.txt" }}
+            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: install dependencies
           command: |

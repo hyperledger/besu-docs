@@ -16,6 +16,12 @@ To configure the Engine API:
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).
 
+!!! example "Example Engine API configuration"
+
+    ```bash
+    besu --rpc-http-enabled --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine-jwt-secret=jwt.hex
+    ```
+
 ### Service ports
 
 To specify the port the Engine API service listens on for HTTP and WebSocket, use the

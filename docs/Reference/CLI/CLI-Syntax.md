@@ -1404,8 +1404,9 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 !!!note
 
     Besu ignores this option in networks using
-    [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md) or
-    [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus protocols.
+    [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md),
+    [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md) or
+    [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) consensus protocols.
 
 ### `miner-enabled`
 

@@ -32,7 +32,7 @@ commands:
       - save_cache:
           paths:
             - ./node_modules
-          key: deps-{{ checksum "package-lock.json" }}
+          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
 
 jobs:
   dco:
@@ -74,7 +74,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: deps-{{ checksum "CI/requirements.txt" }}
+          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: Run MkDocs
           command: |

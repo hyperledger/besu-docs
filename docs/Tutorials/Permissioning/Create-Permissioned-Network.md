@@ -421,7 +421,7 @@ Import the first account from the genesis file into MetaMask and send transactio
 
 ### Try sending a transaction from an account not in the accounts allowlist
 
-Import the third account from the genesis file into MetaMask and try to send a transactions, as
+Import the third account from the genesis file into MetaMask and try to send a transaction, as
 described in [Quickstart tutorial]:
 
 !!! example "Account 3"
@@ -435,7 +435,7 @@ described in [Quickstart tutorial]:
 In your `Permissioned-Network` directory, create a `Node-5` directory and `data` directory inside
 it.
 
-Change to the `Node-5` directory and start Node-4 specifying the Node-1 enode URL as the bootnode:
+Change to the `Node-5` directory and start Node-5 specifying the Node-1 enode URL as the bootnode:
 
 === "MacOS"
 

@@ -3746,9 +3746,10 @@ The default is `false`.
     ```
 
 The synchronization mode.
-Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchronization), `FULL` for
-[full synchronization](../../Concepts/Node-Types.md#run-an-archive-node), and `X_SNAP` for
-[snap synchronization](../../Concepts/Node-Types.md#snap-synchronization).
+Use `FAST` for [fast sync](../../Concepts/Node-Types.md#fast-synchronization), `FULL` for
+[full sync](../../Concepts/Node-Types.md#run-an-archive-node), `X_SNAP` for
+[snap sync](../../Concepts/Node-Types.md#snap-synchronization), and `X_CHECKPOINT` for
+[checkpoint sync](../../Concepts/Node-Types.md#checkpoint-synchronization).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.
@@ -3759,9 +3760,10 @@ Use `FAST` for [fast synchronization](../../Concepts/Node-Types.md#fast-synchron
 
 !!! important
 
-    Snap sync is an experimental feature.
-    However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
-    because snap sync can be faster by several days.
+    Snap sync and checkpoint sync are experimental features.
+
+    We recommend using snap sync over fast sync even in certain production environments (for example, staking), because
+    snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
 ### `target-gas-limit`

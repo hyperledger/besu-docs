@@ -25,8 +25,9 @@ full nodes (approximately 750GB).
 
 ## Run a full node
 
-You can run a full node using [fast synchronization (fast sync)](#fast-synchronization) or
-[snap synchronization (snap sync)](#snap-synchronization).
+You can run a full node using [fast synchronization (fast sync)](#fast-synchronization),
+[snap synchronization (snap sync)](#snap-synchronization), or
+[checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization).
 
 ### Fast synchronization
 
@@ -95,6 +96,32 @@ trie as possible, and reconstructs the trie locally.
 You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
 deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
+
+### Checkpoint synchronization
+
+!!! important
+
+    Checkpoint sync is an experimental feature.
+
+Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../Reference/CLI/CLI-Syntax.md#sync-mode).
+You need Besu version 22.4.3 or later to use checkpoint sync.
+
+Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the genesis block, it syncs
+from a specific checkpoint configured in the [Besu genesis file](../HowTo/Configure/Genesis-File.md).
+There are currently checkpoints in the network configurations for Ethereum Mainnet and the Ropsten and Goerli testnets.
+
+!!! example "Ethereum Mainnet checkpoint configuration"
+
+    ```json
+    "checkpoint": {
+      "hash": "0x844d581cb00058d19f0584fb582fa2de208876ee56bbae27446a679baf4633f4",
+      "number": 14700000,
+      "totalDifficulty": "0xA2539264C62BF98CFC6"
+    }
+    ```
+
+If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap sync from the
+genesis block.
 
 ## Run an archive node
 

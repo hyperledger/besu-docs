@@ -273,7 +273,7 @@ On the command line:
     [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
-enode URL to use when starting Node-2, Node-3 and Node-4.
+enode URL to use when starting Node-2, Node-3, and Node-4.
 
 ### 9. Clone the contracts and install dependencies
 

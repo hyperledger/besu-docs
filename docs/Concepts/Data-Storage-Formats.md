@@ -54,12 +54,18 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
     Using `--bonsai-maximum-back-layers-to-load` doesn't affect the size of the database being stored, only how far back to load.
     This means there is no "safe minimum" value to use with this option.
 
-### Fast syncing nodes
+### Syncing nodes
 
-With forest mode, your node can use [fast synchronization](Node-Types.md#run-a-full-node) as normal.
-Your node can fast sync from other nodes and other nodes can fast sync to your node.
+The following table shows the ways you can [sync a full node](Node-Types.md#run-a-full-node) with the different data
+storage formats using [fast](Node-Types.md#fast-synchronization) and [snap](Node-Types.md#snap-synchronization) sync.
 
-You can fast sync from other nodes using Bonsai, but other nodes cannot fast sync
-to a Bonsai node. Bonsai stores data at a point-in-time. Fast synchronization messages request node data by-hash at a
-point-in-time (pivot block), thousands of blocks back during the sync. This limitation will be addressed
-once the [snap-sync protocol](https://github.com/ethereum/devp2p/blob/master/caps/snap.md) is implemented.
+| Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
+|---------------------|-----------|------------------|------------------------------------|
+| Bonsai              | Fast      | 1100 GB          | No                                 |
+| Bonsai              | Snap      | 1100 GB          | To be implemented                  |
+| Forest              | Fast      | 12 TB            | Yes                                |
+| Forest              | Snap      | 12 TB            | To be implemented                  |
+
+!!! important
+
+    We recommend using snap sync with Bonsai for the fastest sync and lowest storage requirements.

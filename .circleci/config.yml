@@ -20,7 +20,7 @@ commands:
             - deps-{{ checksum "package-lock.json" }}
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'npm install -g npm@latest'
       - run:
           name: Install dependencies
           command: |

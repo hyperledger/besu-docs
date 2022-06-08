@@ -26,8 +26,14 @@ Private transactions have the same parameters as public Ethereum transactions, w
 
         Besu implements `restricted` private transactions only.
 
-The `gas` and `gasPrice` are used by the [privacy marker transaction (PMT)](Private-Transactions.md), not the private
-transaction itself.
+The `gas` and `gasPrice` are used by the [privacy marker transaction (PMT)](Private-Transaction-Processing.md),
+not the private transaction itself.
+
+!!! warning
+
+    Because gas isn't included in private transactions, inefficient contracts, either accidentally
+    or deliberately deployed, can cause performance problems for privacy-enabled networks.
+    Ensure your network has a mechanism to [establish trust offchain](Privacy-Overview.md#privacy-enabled-networks).
 
 You can [create and send private transactions](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
 

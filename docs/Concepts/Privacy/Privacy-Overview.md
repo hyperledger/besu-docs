@@ -27,8 +27,9 @@ participants. Other participants cannot access the transaction content or list o
 ## Private transaction manager
 
 Besu uses a private transaction manager, [Tessera](https://docs.tessera.consensys.net/), to implement
-privacy. Each Besu node sending or receiving private transactions requires an associated Tessera
-node.
+privacy.
+Each Besu node sending or receiving [private transactions](Private-Transactions.md) requires an
+associated Tessera node.
 
 ![Tessera Nodes](../../images/TesseraNodes.png)
 
@@ -36,7 +37,7 @@ Private transactions pass from the Besu node to the associated Tessera node. The
 encrypts and directly distributes (that is, point-to-point) the private transaction to the Tessera
 nodes participating in the transaction.
 
-By default, each participant in a privacy network uses its own Besu and Tessera node.
+By default, each participant in a privacy-enabled network uses its own Besu and Tessera node.
 [Multi-tenancy](Multi-Tenancy.md) allows more than one participant to use the same Besu and Tessera
 node.
 
@@ -44,11 +45,33 @@ node.
 
     Private Transaction Managers are also known as Enclaves.
 
+## Privacy-enabled networks
+
+When enabling privacy in a [private network](../../HowTo/Get-Started/System-Requirements/System-Requirements-Private.md),
+there's an assumed level of trust among the node operators, since all are members of the private
+network.
+
+Because gas isn't included in private transactions, inefficient contracts, either accidentally or
+deliberately deployed, can cause performance problems for privacy-enabled networks.
+
+In contrast, gas is required in Ethereum Mainnet and public testnets because they are trustless
+environments.
+
+Privacy-enabled networks should have a mechanism to establish trust offchain.
+Node operators should be informed on:
+
+- Guidelines for use, responsibilities, and good behavior.
+- Smart contract security, so contracts deployed on the network use resources efficiently.
+- Consequences for malicious activity.
+
+Privacy-enabled networks should run development and test environments that closely resemble
+production, so contracts can be tested, and potential issues can be found before they're deployed in
+production.
+
 ## Reorg-compatible privacy
 
 In v1.4, using private transactions in a network using a consensus mechanism where forks occur
-(that is, PoW algorithms or Clique) is an early access feature. For example, using private
-transactions on Ropsten.
+(that is, PoW algorithms or Clique) is an early access feature.
 
 Do not use private transactions in production environments using consensus mechanisms where forks
 occur.

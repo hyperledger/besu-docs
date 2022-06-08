@@ -3,22 +3,13 @@ version: 2.1
 executors:
   python_executor:
     docker:
-      - image: circleci/python:3.7.4
-        auth:
-          username: $DOCKER_USER_RO
-          password: $DOCKER_PASSWORD_RO
+      - image: cimg/python:3.7.4
   node_executor:
     docker:
-      - image: circleci/node:lts-buster
-        auth:
-          username: $DOCKER_USER_RO
-          password: $DOCKER_PASSWORD_RO
+      - image: cimg/node:lts
   shell_executor:
     docker:
-      - image: circleci/buildpack-deps:buster-scm
-        auth:
-          username: $DOCKER_USER_RO
-          password: $DOCKER_PASSWORD_RO
+      - image: cimg/base:2022.06
 
 commands:
   install_node:
@@ -26,10 +17,10 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - deps-{{ checksum "package-lock.json" }}
+            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'npm install -g npm@latest'
       - run:
           name: Install dependencies
           command: |
@@ -41,7 +32,7 @@ commands:
       - save_cache:
           paths:
             - ./node_modules
-          key: deps-{{ checksum "package-lock.json" }}
+          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
 
 jobs:
   dco:
@@ -73,7 +64,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - deps-{{ checksum "CI/requirements.txt" }}
+            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: install dependencies
           command: |
@@ -83,7 +74,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: deps-{{ checksum "CI/requirements.txt" }}
+          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: Run MkDocs
           command: |

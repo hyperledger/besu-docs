@@ -106,11 +106,14 @@ deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../Reference/CLI/CLI-Syntax.md#sync-mode).
 You need Besu version 22.4.3 or later to use checkpoint sync.
 
-Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the genesis block, it syncs
-from a specific checkpoint configured in the [Besu genesis file](../HowTo/Configure/Genesis-File.md).
-Checkpoints are currently defined in the network configurations for Ethereum Mainnet and the Ropsten and Goerli testnets.
+Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
+genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
+file](../HowTo/Configure/Genesis-File.md).
 
-!!! example "Ethereum Mainnet checkpoint configuration"
+You can configure a checkpoint in the genesis file by specifying the block hash, number, and total
+difficulty as in the following example.
+
+!!! example "Checkpoint configuration example"
 
     ```json
     "checkpoint": {
@@ -120,8 +123,11 @@ Checkpoints are currently defined in the network configurations for Ethereum Mai
     }
     ```
 
-If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap sync from the
-genesis block.
+Defined checkpoints are currently included in the network configurations for Ethereum Mainnet and
+the Ropsten and Goerli testnets.
+
+If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
+sync from the genesis block.
 
 ## Run an archive node
 

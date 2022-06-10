@@ -123,7 +123,7 @@ difficulty as in the following example.
     }
     ```
 
-Defined checkpoints are currently included in the network configurations for Ethereum Mainnet and
+Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
 the Ropsten and Goerli testnets.
 
 If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap

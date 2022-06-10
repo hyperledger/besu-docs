@@ -28,7 +28,7 @@ participants. Other participants cannot access the transaction content or list o
 
 Besu uses a private transaction manager, [Tessera](https://docs.tessera.consensys.net/), to implement
 privacy.
-Each Besu node sending or receiving [private transactions](Private-Transactions.md) requires an
+Each Besu node that sends or receives [private transactions](Private-Transactions.md) requires an
 associated Tessera node.
 
 ![Tessera Nodes](../../images/TesseraNodes.png)
@@ -51,8 +51,10 @@ When enabling privacy in a [private network](../../HowTo/Get-Started/System-Requ
 there's an assumed level of trust among the node operators, since all are members of the private
 network.
 
-Because gas isn't included in private transactions, inefficient contracts, either accidentally or
-deliberately deployed, can cause performance problems for privacy-enabled networks.
+!!! important
+
+    Inefficient contracts deployed accidentally or deliberately can cause performance issues in
+    privacy-enabled networks because gas isn't required in private transactions.
 
 In contrast, gas is required in Ethereum Mainnet and public testnets because they are trustless
 environments.

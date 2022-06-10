@@ -31,8 +31,8 @@ not the private transaction itself.
 
 !!! warning
 
-    Because gas isn't included in private transactions, inefficient contracts, either accidentally
-    or deliberately deployed, can cause performance problems for privacy-enabled networks.
+    Because gas isn't required in private transactions, inefficient contracts deployed accidentally
+    or deliberately can cause performance issues in privacy-enabled networks.
     Ensure your network has a mechanism to [establish trust offchain](Privacy-Overview.md#privacy-enabled-networks).
 
 You can [create and send private transactions](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).

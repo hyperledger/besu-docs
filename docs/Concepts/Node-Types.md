@@ -123,6 +123,11 @@ difficulty as in the following example.
     }
     ```
 
+!!! note
+
+    If using [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus, the checkpoint
+    must be the beginning of an epoch.
+
 Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
 the Ropsten and Goerli testnets.
 

@@ -17,7 +17,7 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
+            - deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
       - run:
           name: update-npm
           command: 'npm install -g npm@latest'
@@ -32,7 +32,7 @@ commands:
       - save_cache:
           paths:
             - ./node_modules
-          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
+          key: deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
 
 jobs:
   dco:
@@ -64,7 +64,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
+            - deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: install dependencies
           command: |
@@ -74,7 +74,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: deps-{{ .Branch }}-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
+          key: deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "CI/requirements.txt" }}
       - run:
           name: Run MkDocs
           command: |
@@ -150,24 +150,12 @@ workflows:
   version: 2
   default:
     jobs:
-      - dco:
-          context:
-            - besu-dockerhub-ro
-      - build:
-          context:
-            - besu-dockerhub-ro
-      - vale:
-          context:
-            - besu-dockerhub-ro
-      - markdownlint:
-          context:
-            - besu-dockerhub-ro
-      - linkchecker:
-          context:
-            - besu-dockerhub-ro
-      - repolint:
-          context:
-            - besu-dockerhub-ro
+      - dco
+      - build
+      - vale
+      - markdownlint
+      - linkchecker
+      - repolint
 
   nightly:
     triggers:
@@ -178,9 +166,7 @@ workflows:
               only:
                 - main
     jobs:
-      - linkchecker:
-          context:
-            - besu-dockerhub-ro
+      - linkchecker
 
   weekly:
     triggers:
@@ -191,6 +177,4 @@ workflows:
               only:
                 - main
     jobs:
-      - repolint:
-          context:
-            - besu-dockerhub-ro
+      - repolint

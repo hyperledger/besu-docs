@@ -88,7 +88,7 @@ For more information on the endpoints and services, refer to README.md in the in
 To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
-You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
+You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, the example

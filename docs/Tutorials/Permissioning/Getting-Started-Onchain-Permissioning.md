@@ -7,7 +7,7 @@ description: Setting up and using Hyperledger Besu onchain permissioning
 The following steps describe bootstrapping a permissioned network using a Hyperledger Besu
 node and a development server to run the permissioning management dapp.
 
-This tutorial configures permissioning on a [Clique proof of authority (PoA)] network.
+This tutorial configures permissioning on a [IBFT 2.0 proof of authority (PoA)] network.
 
 !!! note
 
@@ -25,8 +25,7 @@ For the development server to run the dapp:
 
 ### 1. Create folders
 
-Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
-[node key](../../Concepts/Node-Keys.md) in this directory.
+Each node requires a data directory for the blockchain data.
 
 Create directories for your permissioned network and each of the three nodes, and a data directory for
 each node:
@@ -38,49 +37,31 @@ Permissioned-Network/
 ├── Node-2
 │   ├── data
 └── Node-3
+│   ├── data
+└── Node-4
     ├── data
 ```
 
-### 2. Get the address of Node-1
+### 2. Create the configuration file
 
-In networks using Clique, you must include the address of at least one initial signer in the
-genesis file. For this network, we'll use Node-1 as the initial signer. This requires obtaining the
-address for Node-1.
+The configuration file defines the
+[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+number of node key pairs to generate.
 
-To retrieve the address for Node-1, in the `Node-1` directory, use the
-[`public-key export-address`](../../Reference/CLI/CLI-Syntax.md#public-key) subcommand to write the
-node address to the specified file (`nodeAddress1` in this example).
+The configuration file has two nested JSON nodes. The first is the `genesis` property defining
+the IBFT 2.0 genesis file, except for the `extraData` string, which Besu generates automatically in
+the resulting genesis file. The second is the `blockchain` property defining the number of key
+pairs to generate.
 
-=== "MacOS"
-
-    ```bash
-    besu --data-path=data public-key export-address --to=data/nodeAddress1
-    ```
-
-=== "Windows"
-
-    ```bash
-    besu --data-path=data public-key export-address --to=data\nodeAddress1
-    ```
-
-### 3. Create the genesis file
-
-The genesis file defines the genesis block of the blockchain (that is, the start of the
-blockchain). The
-[Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes
-the address of Node-1 as the initial signer in the `extraData` field.
-
-All nodes in a network must use the same genesis file.
-
-Copy the following genesis definition to a file called `cliqueGenesis.json` and save it in the
-`Permissioned-Network` directory:
+Copy the following configuration file definition to a file called `ibftConfigFile.json` and save it
+in the `Permissioned-Network` directory:
 
 ```json
 {
   "config":{
     "chainId":1981,
     "constantinoplefixblock": 0,
-    "clique":{
+    "ibft2":{
       "blockperiodseconds":15,
       "epochlength":30000
     }
@@ -116,7 +97,49 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 }
 ```
 
-### 4. Add the Ingress contracts to the genesis file
+!!! critical "Security warning"
+
+    Don't use the accounts in the genesis file on Mainnet or any public network except for
+    testing. The private keys display, which means the accounts are not secure.
+
+### 3. Generate node keys and a genesis file
+
+In the `Permissioned-Network` directory, generate the node key and genesis file:
+
+```bash
+besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
+```
+
+Besu creates the following in the `networkFiles` directory:
+
+* `genesis.json` - The genesis file including the `extraData` property specifying the four nodes
+  are validators.
+* A directory for each node named using the node address and containing the public and private key
+  for each node.
+
+```bash
+networkFiles/
+├── genesis.json
+└── keys
+    ├── 0x438821c42b812fecdcea7fe8235806a412712fc0
+    │   ├── key
+    │   └── key.pub
+    ├── 0xca9c2dfa62f4589827c0dd7dcf48259aa29f22f5
+    │   ├── key
+    │   └── key.pub
+    ├── 0xcd5629bd37155608a0c9b28c4fd19310d53b3184
+    │   ├── key
+    │   └── key.pub
+    └── 0xe96825c5ab8d145b9eeca1aba7ea3695e034911a
+        ├── key
+        └── key.pub
+```
+
+### 4. Copy the genesis file to the Permissioned-Network directory
+
+Copy the `genesis.json` file to the `Permisssioned-Network` directory.
+
+### 5. Add the Ingress contracts to the genesis file
 
 !!! tip
 
@@ -158,7 +181,32 @@ the `alloc` section of the contract:
     Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
     being used when starting Besu.
 
-### 5. Set the environment variables
+### 6. Copy the node private keys to the node directories
+
+For each node, copy the key files to the `data` directory for that node
+
+```bash
+Permissioned-Network/
+├── genesis.json
+├── Node-1
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-2
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-3
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-4
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+```
+
+### 7. Set the environment variables
 
 Create the following environment variables and set to the specified values:
 
@@ -185,7 +233,7 @@ Create the following environment variables and set to the specified values:
     CHAIN_ID=2018
     ```
 
-### 6. Start Node-1
+### 8. Start Node-1
 
 !!! important
 
@@ -200,7 +248,7 @@ Start the first node with command line options to enable onchain permissioning a
 the **data** folder and genesis file:
 
 ```cmd
-besu --data-path=data --genesis-file=../cliqueGenesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*"
 ```
 
 On the command line:
@@ -217,19 +265,17 @@ On the command line:
     using [`--permissions-nodes-contract-version`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-contract-version).
 * Enable the JSON-RPC API using
     [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled).
-* Enable the `ADMIN`, `ETH`, `NET`, `PERM`, and `CLIQUE` APIs using
+* Enable the `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
     [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
 * Allow all-host access to the HTTP JSON-RPC API using
     [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist).
 * Allow all-domain access to the node through the HTTP JSON-RPC API using
     [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins).
-* Allow all host access to the Engine API using
-  [`--engine-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist).
 
 When the node starts, the [enode URL](../../Concepts/Node-Keys.md#enode-url) displays. Copy the
-enode URL to use when starting Node-2 and Node-3.
+enode URL to use when starting Node-2, Node-3, and Node-4.
 
-### 7. Clone the contracts and install dependencies
+### 9. Clone the contracts and install dependencies
 
 1. Clone the `permissioning-smart-contracts` repository:
 
@@ -243,7 +289,7 @@ enode URL to use when starting Node-2 and Node-3.
     yarn install
     ```
 
-### 8. Build the project
+### 10. Build the project
 
 In the `permissioning-smart-contracts` directory, build the project:
 
@@ -251,9 +297,9 @@ In the `permissioning-smart-contracts` directory, build the project:
 yarn run build
 ```
 
-### 9. Deploy the contracts
+### 11. Deploy the contracts
 
-If using a `.env` file to configure [environment variables](#5-set-the-environment-variables), then
+If using a `.env` file to configure [environment variables](#7-set-the-environment-variables), then
 copy the file to the `permissioning-smart-contracts` directory.
 
 In the `permissioning-smart-contracts` directory, deploy the Admin and Rules contracts:
@@ -269,7 +315,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     The account that deploys the contracts is automatically an [admin account].
 
-### 10. Start the permissioning management dapp
+### 12. Start the permissioning management dapp
 
 !!! note
 
@@ -298,44 +344,57 @@ The migration logs the addresses of the Admin and Rules contracts.
 
     Only an [admin account] can add or remove nodes from the allowlist.
 
-### 11. Start Node-2
+### 13. Start Node-2
 
 Use the following command to start Node-2:
 
 ```cmd
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --p2p-port=30304 --rpc-http-port=8546 --engine-rpc-http-port=8551 --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30304 --rpc-http-port=8546
 ```
 
 The command line specifies:
 
 * A different port to Node-1 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 * A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A different port to Node-1 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
-* Other options as for [Node-1](#6-start-node-1).
+* Other options as for [Node-1](#8-start-node-1).
 
-### 12. Start Node-3
+### 14. Start Node-3
 
 Use the following command to start Node-3:
 
 ```cmd
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,CLIQUE --host-allowlist="*" --p2p-port=30305 --rpc-http-port=8547 --engine-rpc-http-port=8552 --engine-host-allowlist="*"
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30305 --rpc-http-port=8547
 ```
 
 The command line specifies:
 
 * A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
-* A different port to Node-1 and Node-2 for the Engine API using [`--engine-rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-http-port).
 * The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
-* Other options as for [Node-1](#6-start-node-1).
+* Other options as for [Node-1](#8-start-node-1).
 
-### 13. Add nodes to the allowlist
+### 15. Start Node-4
 
-In the [permissioning management dapp started in step 10](#10-start-the-permissioning-management-dapp),
-add [Node-1, Node-2, and Node-3 to the allowlist].
+Use the following command to start Node-4:
+
+```cmd
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --permissions-accounts-contract-enabled --permissions-accounts-contract-address "0x0000000000000000000000000000000000008888" --permissions-nodes-contract-enabled  --permissions-nodes-contract-address "0x0000000000000000000000000000000000009999" --permissions-nodes-contract-version=2 --rpc-http-enabled --rpc-http-cors-origins="*" --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --p2p-port=30306 --rpc-http-port=8548
+```
+
+The command line specifies:
+
+* A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+* A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes).
+* Other options as for [Node-1](#8-start-node-1).
+
+### 16. Add nodes to the allowlist
+
+In the [permissioning management dapp started in step 12](#12-start-the-permissioning-management-dapp),
+add [Node-1, Node-2, Node-3, and Node-4 to the allowlist].
 
 <!-- Links -->
-[Node-1, Node-2, and Node-3 to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
 [admin account]: ../../HowTo/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
-[Clique proof of authority (PoA)]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
+[IBFT 2.0 proof of authority (PoA)]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md

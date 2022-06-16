@@ -5483,7 +5483,7 @@ None
 | Network ID | Chain | Network | Description
 |------------|-------|---------|-------------------------------|
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `3`        | ETH   | Ropsten | PoW test network              |
+| `3`        | ETH   | Ropsten | PoS test network              |
 | `4`        | ETH   | Rinkeby | PoA test network using Clique |
 | `5`        | ETH   | Goerli  | PoA test network using Clique |
 | `2018`     | ETH   | Dev     | PoW development network       |

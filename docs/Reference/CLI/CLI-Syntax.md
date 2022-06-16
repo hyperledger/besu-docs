@@ -2933,7 +2933,7 @@ with your Besu node.
 
     Remember to also include the dapp domain MetaMask interacts with, for example if your app is deployed 
     on Remix and you're using MetaMask to interact with the contract, use 
-    `--rpc-http-cors-origins="chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn", "http://remix.ethereum.org"`
+    `--rpc-http-cors-origins="chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn","http://remix.ethereum.org"`
 
 !!!tip
 

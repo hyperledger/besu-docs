@@ -259,6 +259,10 @@ The block parameter can have the following values:
 * `latest` : `tag` - The last block mined.
 * `pending` : `tag` - The last block mined plus pending transactions. Use only with
   [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount).
+* `finalized` : `tag` - The most recent crypto-economically secure block.
+  It cannot be reorganized outside manual intervention driven by community coordination.
+* `safe` : `tag` - The most recent block that is safe from reorganization under
+  honest majority and certain synchronicity assumptions.
 
 !!! note
 

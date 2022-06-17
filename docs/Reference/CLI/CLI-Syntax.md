@@ -2894,13 +2894,13 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 
     $# You can allow one or more domains with a comma-separated list.
 
-    --rpc-http-cors-origins="http://medomain.com","https://meotherdomain.com"
+    --rpc-http-cors-origins=http://medomain.com,https://meotherdomain.com
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_RPC_HTTP_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    BESU_RPC_HTTP_CORS_ORIGINS=http://medomain.com,https://meotherdomain.com
     ```
 
 === "Configuration file"
@@ -2915,11 +2915,10 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 
     $# The following allows Remix to interact with your Besu node.
 
-    --rpc-http-cors-origins="http://remix.ethereum.org"
+    --rpc-http-cors-origins=http://remix.ethereum.org
     ```
 
-A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate
-them with commas.
+A list of domain URLs for CORS validation.
 
 Listed domains can access the node using JSON-RPC. If your client interacts with Besu using a
 browser app (such as Remix or a block explorer), add the client domain to the list.
@@ -2933,8 +2932,8 @@ with your Besu node.
     `chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn`.
 
     Remember to also include the dapp domain MetaMask interacts with, for example if your app is deployed 
-    on Remix and you're using MetaMask to interact with the contract the config option should be 
-    `--rpc-http-cors-origins=["chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn", "http://remix.ethereum.org"]`
+    on Remix and you're using MetaMask to interact with the contract, use 
+    `--rpc-http-cors-origins=chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn,http://remix.ethereum.org`
 
 !!!tip
 

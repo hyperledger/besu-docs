@@ -96,7 +96,7 @@ public class TestPrivacyPlugin implements BesuPlugin {
             @Override
             public Bytes generateMarkerPayload(PrivateTransaction privateTransaction, String privacyUserId) {
                 // perform logic to serialize the payload of the marker transaction
-                // in this example we are serialising the private transaction using rlp https://eth.wiki/en/fundamentals/rlp
+                // in this example we are serialising the private transaction using rlp https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/
                 return org.hyperledger.besu.ethereum.privacy.PrivateTransaction.serialize(privateTransaction).encoded();
             }
 

@@ -2473,7 +2473,7 @@ Returns information about the block matching the specified block number.
 #### Parameters
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
+`earliest`, `pending`, `finalized`, or `safe` as described in
 [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 * `verbose`: *boolean* - if `true`, returns the full [transaction objects](API-Objects.md#transaction-object);

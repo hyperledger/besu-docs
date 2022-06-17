@@ -140,7 +140,7 @@ This example code creates the transaction `tx`, signs it with the private key of
 
 ## Using `eth_sendTransaction`
 
-You can use [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) as an alternative to `eth_sendSignedTransaction`.
+You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) as an alternative to `eth_sendSignedTransaction`.
 However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
 stronger security.
 Configure [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) with your Besu node to make the
@@ -189,7 +189,7 @@ Make the request using `eth_sendTransaction`:
 To deploy a private contract to another node or [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
 [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
 the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
-You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
+You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
 The Developer Quickstart provides an
@@ -261,7 +261,7 @@ the contract's address.
 To deploy a private contract to another [privacy group](../../Concepts/Privacy/Privacy-Groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) API call.
-You must use this API call instead of [`eth_sendTransaction`](https://eth.wiki/json-rpc/API) because Hyperledger Besu
+You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
 The Developer Quickstart provides an

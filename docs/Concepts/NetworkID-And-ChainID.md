@@ -43,6 +43,7 @@ table lists the available networks and their chain and network IDs.
 | `ropsten` | ETH   | 3        | 3          | Test        |
 | `rinkeby` | ETH   | 4        | 4          | Test        |
 | `goerli`  | ETH   | 5        | 5          | Test        |
+| `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
 | `classic` | ETC   | 61       | 1          | Production  |
 | `mordor`  | ETC   | 63       | 7          | Test        |

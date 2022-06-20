@@ -19,7 +19,7 @@ Bootnodes are regular nodes used to discover other nodes.
 
 ## Mainnet and public testnets
 
-For Mainnet and the Rinkeby, Ropsten, and Görli testnets, Hyperledger Besu has an internal list of
+For Mainnet and the Rinkeby, Ropsten, Sepolia, and Goerli testnets, Hyperledger Besu has an internal list of
 enode URLs and uses this list automatically when you specify the
 [`--network`](../../Reference/CLI/CLI-Syntax.md#network) option.
 

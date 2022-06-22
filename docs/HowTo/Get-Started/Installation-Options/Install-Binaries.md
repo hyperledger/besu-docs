@@ -9,7 +9,7 @@ description: Install or upgrade Hyperledger Besu from binary distribution
 ### Prerequisites
 
 * [Homebrew](https://brew.sh/)
-* Java JDK.
+* Java JDK
 
 !!!important
 
@@ -63,10 +63,6 @@ besu --help
 ### Prerequisites
 
 * [Java JDK](https://www.oracle.com/java/technologies/downloads/)
-
-!!!attention
-
-    Besu supports Java 11-16.
 
 !!! note "Linux open file limit"
 

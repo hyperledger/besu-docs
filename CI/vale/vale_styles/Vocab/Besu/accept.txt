@@ -140,6 +140,7 @@ Rinkeby
 Ropsten
 Mordor
 [sS]andbox(ed|ing)
+[sS]epolia
 Slack
 [sS]lashable
 Splunk

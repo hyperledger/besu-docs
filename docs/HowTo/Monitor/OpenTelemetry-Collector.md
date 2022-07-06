@@ -7,8 +7,7 @@ description: Collect Besu information with the OpenTelemetry Collector
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces.
 To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 and [`--metrics-protocol=opentelemetry`](../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
-Use [Splunk APM](https://www.splunk.com/en_us/software/splunk-apm.html) or [Splunk](https://splunk.com) to visualize the
-collected data.
+Use [Splunk](https://splunk.com) to visualize the collected data.
 A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
 
 !!! example

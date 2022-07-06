@@ -9,7 +9,7 @@ QBFT is the recommended enterprise-grade consensus protocol for private networks
 
 In QBFT networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
-super-majority (greater than 66%) of validators must first sign the block.
+super-majority (greater than or equal to 2/3) of validators must first sign the block.
 
 Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
@@ -17,7 +17,7 @@ You can [create a private network using QBFT](../../../Tutorials/Private-Network
 
 !!! important
 
-    Configure your network to ensure you never lose 1/3 or more of your validators. If more
+    Configure your network to ensure you never lose more than 1/3 your validators. If more
     than 1/3 of validators stop participating, new blocks are no longer created, and the
     network stalls. It may take significant time to recover once nodes are restarted.
 

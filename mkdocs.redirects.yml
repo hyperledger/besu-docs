@@ -1,0 +1,52 @@
+---
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations under the License.
+INHERIT: mkdocs.navigation.yml # DO NOT MODIFY THIS LINE
+
+# Configure redirects.
+# All page removed or with changed path (moved in another directory) has to be redirected here.
+plugins:
+  redirects:
+    redirect_maps:
+      # Configure redirects using key:value pairs:
+      # old_path.md: new_path.md
+      # you can't use an already redirected path as an old_path.
+      # new_path can be a file inside the docs/ folder or any URL (http://...)
+      HowTo/Get-Started/System-Requirements-Private.md: HowTo/Get-Started/System-Requirements/System-Requirements-Private.md
+      HowTo/Get-Started/System-Requirements-Public.md: HowTo/Get-Started/System-Requirements/System-Requirements-Public.md
+      HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+      HowTo/Get-Started/Build-from-source.md: HowTo/Get-Started/Installation-Options/Build-from-source.md
+      HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
+      HowTo/Deploy/High-Availability.md: HowTo/Configure/Configure-HA/High-Availability.md
+      HowTo/Deploy/Monitoring-Performance.md: HowTo/Monitor/Metrics.md
+      HowTo/Upgrade/Upgrade-Network.md: HowTo/Upgrade/Upgrade-Node.md
+      HowTo/Find-and-Connect/Using-UPnP.md: HowTo/Find-and-Connect/Specifying-NAT.md
+      HowTo/Use-Privacy/Run-Orion-With-Besu.md: HowTo/Use-Privacy/Run-Tessera-With-Besu.md
+      Concepts/Transactions/Trace-Types.md: Reference/Trace-Types.md
+      HowTo/Develop-Dapps/Use-web3js.md: HowTo/Develop-Dapps/Client-Libraries.md
+      Concepts/Client-Libraries.md: HowTo/Develop-Dapps/Client-Libraries.md
+      Concepts/Privacy/Onchain-PrivacyGroups.md: Concepts/Privacy/Flexible-PrivacyGroups.md
+      HowTo/Use-Privacy/Use-OnChainPrivacy.md: HowTo/Use-Privacy/Use-FlexiblePrivacy.md
+      Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: Tutorials/Private-Network-Example-Azure.md
+      HowTo/Interact/Client-Libraries/eeajs.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
+      HowTo/Interact/Client-Libraries/web3js-eea.md: HowTo/Interact/Client-Libraries/web3js-quorum.md
+      Privacy/Explanation/Privacy-Groups.md: Concepts/Privacy/Privacy-Groups.md
+      Tutorials/Privacy/eeajs-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
+      Tutorials/Privacy/web3js-eea-Multinode-example.md: Tutorials/Privacy/web3js-quorum-Multinode-example.md
+      HowTo/Configure/Configure-TLS.md: HowTo/Configure/TLS/Configure-TLS.md
+      HowTo/Deploy/Lite-Block-Explorer.md: https://github.com/Alethio/ethereum-lite-explorer
+      HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
+      HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: HowTo/Configure/Consensus-Protocols/QBFT.md
+      HowTo/Configure/Configure-Data-Storage.md: Concepts/Data-Storage-Formats.md
+      Concepts/Consensus-Protocols/Proof-of-Stake.md: Concepts/Merge.md
+      Tutorials/Examples/Private-Network-Example.md: Tutorials/Developer-Quickstart.md
+      Tutorials/Examples/Privacy-Example.md: Tutorials/Privacy/Privacy-Example.md
+      Tutorials/Examples/Nat-Manager-Kubernetes.md: Tutorials/Kubernetes/Nat-Manager-Kubernetes.md
+      Tutorials/Examples/Private-Network-Example-Azure.md: Tutorials/Private-Network-Example-Azure.md
+      HowTo/Configure/Consensus-Protocols/Add-Validators.md: HowTo/Configure/Consensus-Protocols/QBFT.md

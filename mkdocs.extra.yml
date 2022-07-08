@@ -1,0 +1,42 @@
+---
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations under the License.
+INHERIT: mkdocs.extension_and_plugins.yml # DO NOT MODIFY THIS LINE
+
+#extra project info and template customisation
+extra:
+  # Doc Repository
+  code_repo_name: hyperledger/besu
+  code_repo_url: https://github.com/hyperledger/besu/
+  latest_version_warning:
+    url_contains: /latest/
+    text: 'You are reading Hyperledger Besu development version documentation and
+    some displayed features may not be available in the stable release.
+    You can switch to stable version using the version box at screen bottom.'
+  page_edit_button: yes
+  support:
+    chat: https://discord.gg/hyperledger
+    email: besu@lists.hyperledger.org
+    website: https://www.hyperledger.org/projects/besu
+    issues: https://github.com/hyperledger/besu/issues
+    doc_issues: https://github.com/hyperledger/besu-docs/issues/new/choose
+  analytics:
+    provider: tag_manager
+    site_verification:
+      - 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
+    tag_manager: 'GTM-TS3WLJM'
+  logo_regular: logo.svg
+  logo_reversed: logo-reversed.svg
+
+extra_css:
+  - assets/stylesheets/custom_theme.css
+  - assets/stylesheets/zoomify.min.css
+extra_javascript:
+  - assets/javascripts/custom_theme.js
+  - assets/javascripts/zoomify.min.js

@@ -83,7 +83,7 @@ In private networks, the milestone block defines the protocol version for the ne
     {
       "config": {
         ...
-        "londonBlock": 0,
+        "berlinBlock": 0,
         ...
       },
     }

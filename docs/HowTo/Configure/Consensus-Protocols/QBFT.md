@@ -45,11 +45,7 @@ The genesis file differs depending on the [validator management method](#add-and
         {
         "config": {
             "chainid": 1337,
-            "homesteadBlock": 0,
-            "eip150Block": 0,
-            "eip155Block": 0,
-            "eip158Block": 0,
-            "byzantiumBlock": 0,
+            "berlinBlock": 0,
             "qbft": {
                 "epochlength": 30000,
                 "blockperiodseconds": 5,
@@ -89,11 +85,7 @@ The genesis file differs depending on the [validator management method](#add-and
         {
         "config": {
             "chainid": 1337,
-            "homesteadBlock": 0,
-            "eip150Block": 0,
-            "eip155Block": 0,
-            "eip158Block": 0,
-            "byzantiumBlock": 0,
+            "berlinBlock": 0,
             "qbft": {
                 "epochlength": 30000,
                 "blockperiodseconds": 5,

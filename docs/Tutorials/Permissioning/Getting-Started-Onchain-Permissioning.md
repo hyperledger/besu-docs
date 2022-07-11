@@ -58,23 +58,23 @@ in the `Permissioned-Network` directory:
 
 ```json
 {
-  "config":{
-    "chainId":1981,
-    "constantinoplefixblock": 0,
-    "ibft2":{
-      "blockperiodseconds":15,
-      "epochlength":30000
-    }
-  },
-  "coinbase":"0x0000000000000000000000000000000000000000",
-  "difficulty":"0x1",
-
-"extraData":"0x0000000000000000000000000000000000000000000000000000000000000000<Node 1 Address>0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  "gasLimit":"0xa00000",
-  "mixHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
-  "nonce":"0x0",
-  "timestamp":"0x5c51a607",
-  "alloc": {
+  "genesis": {
+    "config": {
+      "chainId": 1337,
+      "berlinBlock": 0,
+      "ibft2": {
+        "blockperiodseconds": 2,
+        "epochlength": 30000,
+        "requesttimeoutseconds": 4
+      }
+    },
+    "nonce": "0x0",
+    "timestamp": "0x58ee40ba",
+    "gasLimit": "0x47b760",
+    "difficulty": "0x1",
+    "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+    "coinbase": "0x0000000000000000000000000000000000000000",
+    "alloc": {
       "fe3b557e8fb62b89f4916b721be55ceb828dbd73": {
         "privateKey": "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
@@ -90,10 +90,14 @@ in the `Permissioned-Network` directory:
         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
         "balance": "90000000000000000000000"
       }
-   },
-  "number":"0x0",
-  "gasUsed":"0x0",
-  "parentHash":"0x0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "blockchain": {
+    "nodes": {
+      "generate": true,
+      "count": 4
+    }
+  }
 }
 ```
 

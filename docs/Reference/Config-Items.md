@@ -70,6 +70,11 @@ and their corresponding milestone blocks.
         "byzantiumBlock": 4370000,
         "constantinopleBlock": 7280000,
         "constantinopleFixBlock": 7280000,
+        "muirGlacierBlock": 9200000,
+        "berlinBlock": 12244000,
+        "londonBlock": 12965000,
+        "arrowGlacierBlock": 13773000,
+        "grayGlacierBlock": 15050000,
         ...
       },
     }

@@ -11,7 +11,7 @@ description: Flexible privacy groups
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 Flexible [privacy groups](Privacy-Groups.md) use smart contracts to store and maintain the group membership.
-You can [add and remove members to and from flexible privacy groups](../../HowTo/Use-Privacy/Use-FlexiblePrivacy.md).
+You can [add and remove members to and from flexible privacy groups](../../how-to/Use-Privacy/Use-FlexiblePrivacy.md).
 
 !!! tip
 
@@ -51,7 +51,7 @@ the management contract, must be signed by the same key that signed the group cr
 When creating a flexible privacy group, generate the privacy group ID for the group outside of Besu
 and pass the ID as a parameter.
 
-The [web3js-quorum library](../../HowTo/Use-Privacy/Use-FlexiblePrivacy.md) generates a unique privacy
+The [web3js-quorum library](../../how-to/Use-Privacy/Use-FlexiblePrivacy.md) generates a unique privacy
 group ID and passes the ID to Besu when creating a privacy group.
 
 !!! caution

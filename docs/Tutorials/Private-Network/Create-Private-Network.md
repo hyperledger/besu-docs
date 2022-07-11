@@ -17,7 +17,7 @@ public testnets.
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -212,12 +212,12 @@ Import accounts to MetaMask and send transactions as described in the
     [private key management](../../HowTo/Send-Transactions/Account-Management.md).
 
 Send transactions using `eth_sendRawTransaction` to
-[send ether or, deploy or invoke contracts](../../HowTo/Send-Transactions/Transactions.md).
+[send ether or, deploy or invoke contracts](../../how-to/send-transactions.md).
 
-Use the [JSON-RPC API](../../HowTo/Interact/APIs/Using-JSON-RPC-API.md).
+Use the [JSON-RPC API](../../how-to/use-besu-api/json-rpc.md).
 
 Start a node with the [`--rpc-ws-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option
-and use the [RPC Pub/Sub API](../../HowTo/Interact/APIs/RPC-PubSub.md).
+and use the [RPC Pub/Sub API](../../how-to/use-besu-api/rpc-pubsub.md).
 
 ## Stop the nodes
 

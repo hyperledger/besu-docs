@@ -26,7 +26,7 @@ authorized nodes in the network.
 When receiving connection requests, the incoming connection must be from another authorized node. Similarly, when
 connecting to a node the initiator ensures that the remote node is authorized to participate in the network.
 
-[Configure TLS for the P2P communication using the Besu command line options](../HowTo/Configure/TLS/P2P-TLS.md).
+[Configure TLS for the P2P communication using the Besu command line options](../how-to/configure/TLS/P2P-TLS.md).
 
 ## Block proposal permissioning
 
@@ -39,7 +39,7 @@ network. The block hash is signed by the validator private certificate and inclu
 as a [CMS (Cryptographic Message Syntax)]. This is used by other validators to verify that the proposer is authorized
 to create a block in the network.
 
-[Configure block proposal permissioning using the Besu command line options](../HowTo/Configure/Block-Proposal-Permissioning.md).
+[Configure block proposal permissioning using the Besu command line options](../how-to/configure/Block-Proposal-Permissioning.md).
 
-[QBFT consensus protocol]: ../HowTo/Configure/Consensus-Protocols/QBFT.md
+[QBFT consensus protocol]: ../how-to/configure/Consensus-Protocols/QBFT.md
 [CMS (Cryptographic Message Syntax)]: https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax

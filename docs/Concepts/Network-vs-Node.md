@@ -11,6 +11,6 @@ include `evmStackSize` or specify the
 [consensus mechanism](Consensus-Protocols/Overview-Consensus.md).
 
 Specify node settings on the command line or in the
-[node configuration file](../HowTo/Configure/Using-Configuration-File.md). For example, enable
+[node configuration file](../how-to/configure/configuration-file.md). For example, enable
 [JSON-RPC API methods](../Reference/API-Methods.md) or specify the
 [data directory](../Reference/CLI/CLI-Syntax.md#data-path) for the node.

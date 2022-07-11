@@ -4,19 +4,19 @@ description: Tutorial to configure Kubernetes mode for Hyperledger Besu Nat Mana
 
 # Configure Kubernetes mode in NAT Manager
 
-Use [`--nat-method=AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto) or
-[`--nat-method=KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
+Use [`--nat-method=AUTO`](../../how-to/connect/specify-nat.md#auto) or
+[`--nat-method=KUBERNETES`](../../how-to/connect/specify-nat.md#kubernetes)
 CLI options to let the Besu node automatically configure its IP address and ports.
 
-Use mode [`--nat-method=NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none) to be able to
+Use mode [`--nat-method=NONE`](../../how-to/connect/specify-nat.md#none) to be able to
 set your Besu ports and IP address manually.
 
-Default mode is [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto) but Besu will
-fallback to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none)
+Default mode is [`AUTO`](../../how-to/connect/specify-nat.md#auto) but Besu will
+fallback to [`NONE`](../../how-to/connect/specify-nat.md#none)
 mode if automatic configuration fails.
 
 !!!example
-    The following log shows fallback to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none)
+    The following log shows fallback to [`NONE`](../../how-to/connect/specify-nat.md#none)
     mode after an automatic detection failure.
 
     ```
@@ -184,7 +184,7 @@ Possible errors messages for Kubernetes automatic detection failure:
     to retrieve IP address and ports from the load balancer.
 - **Fix:** Give it the required permissions using [Role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-    If you can't manage permissions, define the IP address and ports manually with [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none) mode
+    If you can't manage permissions, define the IP address and ports manually with [`NONE`](../../how-to/connect/specify-nat.md#none) mode
 
 !!!example "Example error log"
 

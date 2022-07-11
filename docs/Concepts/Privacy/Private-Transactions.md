@@ -35,7 +35,7 @@ not the private transaction itself.
     or deliberately can cause performance issues in privacy-enabled networks.
     Ensure your network has a mechanism to [establish trust offchain](Privacy-Overview.md#privacy-enabled-networks).
 
-You can [create and send private transactions](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+You can [create and send private transactions](../../private-networks/how-to/send-transactions/private-transactions.md).
 
 ## Besu and Tessera keys
 
@@ -114,7 +114,7 @@ You can manage private nonces in multiple ways:
     You must wait until the private transaction's corresponding PMT is included in a block.
 
 * Manage the nonce yourself, by keeping track of and providing the nonce at each call.
-  We recommend this if you're [sending many transactions that are independent of each other](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
+  We recommend this if you're [sending many transactions that are independent of each other](../../private-networks/how-to/send-transactions/concurrent-private-transactions.md).
 
     !!! note
 

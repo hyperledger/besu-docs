@@ -47,7 +47,7 @@ node.
 
 ## Privacy-enabled networks
 
-When enabling privacy in a [private network](../../HowTo/Get-Started/System-Requirements/System-Requirements-Private.md),
+When enabling privacy in a [private network](../../private-networks/get-started/system-requirements.md),
 there's an assumed level of trust among the node operators, since all are members of the private
 network.
 
@@ -79,4 +79,4 @@ Do not use private transactions in production environments using consensus mecha
 occur.
 
 <!-- Links -->
-[highly available and run in a separate instance to Besu]: ../../HowTo/Use-Privacy/Run-Tessera-With-Besu.md
+[highly available and run in a separate instance to Besu]: ../../how-to/Use-Privacy/Run-Tessera-With-Besu.md

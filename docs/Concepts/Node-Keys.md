@@ -94,7 +94,7 @@ The enode URL displays when starting a Besu node. Use the
 the node.
 
 The enode advertised to other nodes during discovery is the external IP address and port, as
-defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
+defined by [`--nat-method`](../how-to/connect/specify-nat.md).
 
 ### Domain name support
 

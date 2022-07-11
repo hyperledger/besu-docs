@@ -40,4 +40,4 @@ JSON-RPC requests, and the tenant has access to the requested privacy data.
 Private data is isolated and each tenant uses a JSON Web Token (JWT) for authentication.
 
 You can
-[create the JWT either externally or internally](../../HowTo/Interact/APIs/Authentication.md).
+[create the JWT either externally or internally](../../how-to/use-besu-api/authenticate.md).

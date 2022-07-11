@@ -82,7 +82,7 @@ Permissioning implements three allowlists:
 
 ## Bootnodes
 
-When a node joins the network, the node connects to the [bootnodes](../../HowTo/Find-and-Connect/Bootnodes.md) until it
+When a node joins the network, the node connects to the [bootnodes](../../private-networks/how-to/connect/bootnodes.md) until it
 synchronizes to the chain head, regardless of node permissions. After synchronization, the Account Rules and Node
 Rules smart contracts apply the permissioning rules.
 

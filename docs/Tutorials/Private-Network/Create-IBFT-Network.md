@@ -5,7 +5,7 @@ description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Autho
 # Create a private network using the IBFT 2.0 (proof of authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[IBFT 2.0 (proof of authority) consensus protocol](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+[IBFT 2.0 (proof of authority) consensus protocol](../../how-to/configure/Consensus-Protocols/IBFT.md).
 
 !!!important
 
@@ -17,7 +17,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -47,7 +47,7 @@ IBFT-Network/
 ### 2. Create a configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -377,7 +377,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[IBFT 2.0 (proof of authority)consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
+[IBFT 2.0 (proof of authority)consensus protocol]: ../../how-to/configure/Consensus-Protocols/IBFT.md
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

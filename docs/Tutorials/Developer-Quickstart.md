@@ -6,7 +6,7 @@ description: Rapidly generate local blockchain networks.
 # Developer Quickstart
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
-[IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
+[IBFT 2.0](../how-to/configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
 
 !!! warning
 
@@ -41,7 +41,7 @@ To create the tutorial `docker-compose` files and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../HowTo/Monitor/Elastic-Stack.md).
+Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../private-networks/how-to/monitor/elastic-stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and
 [private transactions](../Concepts/Privacy/Privacy-Overview.md).
 
@@ -92,13 +92,13 @@ When execution is successfully finished, the process lists the available service
 - Use the **Web block explorer address** to display the [block explorer Web application](http://localhost:25000).
 - Use the **Prometheus address** to access the
   [Prometheus dashboard](http://localhost:9090/graph).
-  [Read more about metrics](../HowTo/Monitor/Metrics.md).
+  [Read more about metrics](../how-to/monitor/metrics.md).
 - Use the **Grafana address** to access the
   [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All).
-  [Read more about metrics](../HowTo/Monitor/Metrics.md).
+  [Read more about metrics](../how-to/monitor/metrics.md).
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
-  [Read more about log management](../HowTo/Monitor/Elastic-Stack.md).
+  [Read more about log management](../private-networks/how-to/monitor/elastic-stack.md).
 
 To display the list of endpoints again, run:
 
@@ -135,7 +135,7 @@ You can directly access these tools from your browser at the addresses displayed
 - [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
 
 For more details on how to configure and use these tools for your own nodes, see the
-[performances monitoring documentation](../HowTo/Monitor/Metrics.md),
+[performances monitoring documentation](../how-to/monitor/metrics.md),
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
@@ -599,9 +599,9 @@ or via [RPC API calls](../Reference/API-Methods.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 
-[bootnodes]: ../HowTo/Deploy/Bootnodes.md
-[permissions file]: ../HowTo/Limit-Access/Local-Permissioning.md
-[static nodes]: ../HowTo/Find-and-Connect/Static-Nodes.md
-[allow list]: ../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting
+[bootnodes]: ../how-to/Deploy/Bootnodes.md
+[permissions file]: ../how-to/Limit-Access/Local-Permissioning.md
+[static nodes]: ../how-to/connect/static-nodes.md
+[allow list]: ../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
 [create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-

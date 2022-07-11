@@ -56,8 +56,8 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 
 ### Syncing nodes
 
-The following table shows the ways you can [sync a full node](Node-Types.md#run-a-full-node) with the different data
-storage formats using [fast](Node-Types.md#fast-synchronization) and [snap](Node-Types.md#snap-synchronization) sync.
+The following table shows the ways you can [sync a full node](../public-networks/how-to/connect/sync-node.md#run-a-full-node) with the different data
+storage formats using [fast](../public-networks/how-to/connect/sync-node.md#fast-synchronization) and [snap](../public-networks/how-to/connect/sync-node.md#snap-synchronization) sync.
 
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 |---------------------|-----------|------------------|------------------------------------|

@@ -24,7 +24,7 @@ You can specify Besu options:
 
     For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-* In a [configuration file](../../HowTo/Configure/Using-Configuration-File.md).
+* In a [configuration file](../../how-to/configure/configuration-file.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment
 variable, configuration file.
@@ -258,7 +258,7 @@ The default is 512.
     ```
 
 A list of comma-separated [enode URLs](../../Concepts/Node-Keys.md#enode-url) for
-[P2P discovery bootstrap](../../HowTo/Find-and-Connect/Bootnodes.md).
+[P2P discovery bootstrap](../../private-networks/how-to/connect/bootnodes.md).
 
 When connecting to Mainnet or public testnets, the default is a predefined list of enode URLs.
 
@@ -354,7 +354,7 @@ The default is `false`.
     BESU_CONFIG_FILE=/home/me/me_node/config.toml
     ```
 
-The path to the [TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
+The path to the [TOML configuration file](../../how-to/configure/configuration-file.md).
 The default is `none`.
 
 ### `data-path`
@@ -384,7 +384,7 @@ The default is `none`.
     ```
 
 The path to the Besu data directory. The default is the directory you installed Besu in, or
-`/opt/besu/database` if using the [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
+`/opt/besu/database` if using the [Besu Docker image](../../get-started/install/run-docker-image.md).
 
 ### `data-storage-format`
 
@@ -531,7 +531,7 @@ A comma-separated list of hostnames to allow for Engine API access (applies to b
     ```bash
     engine-jwt-disabled=true
     ```
-Disables or enables [authentication](../../HowTo/Interact/APIs/Engine-API.md#authentication) for Engine APIs.
+Disables or enables [authentication](../../public-networks/how-to/use-engine-api.md#authentication) for Engine APIs.
 The default is `false` (authentication is enabled by default).
 
 ### `engine-jwt-secret`
@@ -621,7 +621,7 @@ The default is `8551`.
     ethstats="Dev-Node-1:secret@127.0.0.1:3001"
     ```
 
-Reporting URL of an [Ethstats](../../HowTo/Deploy/Ethstats.md) server.
+Reporting URL of an [Ethstats](../../how-to/Deploy/Ethstats.md) server.
 
 ### `ethstats-contact`
 
@@ -681,7 +681,7 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting [fast synchronization](../../Concepts/Node-Types.md#run-a-full-node).
+The minimum number of peers required before starting [fast synchronization](../../public-networks/how-to/connect/sync-node.md#run-a-full-node).
 The default is 5.
 
 !!! note
@@ -849,7 +849,7 @@ To allow remote connections, set to `0.0.0.0`.
     ```
 
 The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[exposed appropriately](../../how-to/connect/configure-ports.md).
 
 ### `help`
 
@@ -887,8 +887,8 @@ Show the help message and exit.
     host-allowlist=["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to [access the JSON-RPC API](../../HowTo/Interact/APIs/API.md#host-allowlist) and
-[pull Besu metrics](../../HowTo/Monitor/Metrics.md).
+A comma-separated list of hostnames to [access the JSON-RPC API](../../how-to/use-besu-api/index.md#host-allowlist) and
+[pull Besu metrics](../../how-to/monitor/metrics.md).
 By default, Besu accepts requests from `localhost` and `127.0.0.1`.
 
 !!! important
@@ -1092,7 +1092,7 @@ Categories containing `PRIVATE` track metrics when you enable
     ```
 
 Enables or disables the
-[metrics exporter](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
+[metrics exporter](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The
 default is `false`.
 
 You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable
@@ -1125,7 +1125,7 @@ either Prometheus polling or Prometheus push gateway support, but not both at on
     ```
 
 The host on which [Prometheus](https://prometheus.io/) accesses
-[Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
+[Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The
 metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 The default is `127.0.0.1`.
@@ -1157,9 +1157,9 @@ The default is `127.0.0.1`.
     ```
 
 The port (TCP) on which [Prometheus](https://prometheus.io/) accesses
-[Besu metrics](../../HowTo/Monitor/Metrics.md#monitor-node-performance-using-prometheus). The
+[Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The
 default is `9545`. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[exposed appropriately](../../how-to/connect/configure-ports.md).
 
 ### `metrics-protocol`
 
@@ -1311,7 +1311,7 @@ The interval, in seconds, to push metrics when in `push` mode. The default is 15
 
 The port (TCP) of the [Prometheus Push Gateway](https://github.com/prometheus/pushgateway). The
 default is `9001`. Ports must be
-[exposed appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[exposed appropriately](../../how-to/connect/configure-ports.md).
 
 ### `metrics-push-prometheus-job`
 
@@ -1545,7 +1545,7 @@ The default is `0.0.0.0`.
     ```
 
 The port of the stratum mining service. The default is `8008`. You must
-[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `min-gas-price`
 
@@ -1578,7 +1578,7 @@ lowest value [`eth_gasPrice`](../API-Methods.md#eth_gasprice) can return. The de
 Wei.
 
 !!! important
-    In a [free gas network](../../HowTo/Configure/FreeGas.md), ensure the minimum gas price is set to zero for every node.
+    In a [free gas network](../../how-to/configure/FreeGas.md), ensure the minimum gas price is set to zero for every node.
     Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
     You can query a node's gas configuration using [`eth_gasPrice`](../API-Methods.md#eth_gasprice).
 
@@ -1596,15 +1596,15 @@ Wei.
     nat-method="UPNP"
     ```
 
-Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+Specify the method for handling [NAT environments](../../how-to/connect/specify-nat.md).
 The options are:
 
-* [`UPNP`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
-* [`UPNPP2PONLY`](../../HowTo/Find-and-Connect/Specifying-NAT.md#upnp)
-* [`KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes)
-* [`DOCKER`](../../HowTo/Find-and-Connect/Specifying-NAT.md#docker)
-* [`AUTO`](../../HowTo/Find-and-Connect/Specifying-NAT.md#auto)
-* [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none).
+* [`UPNP`](../../how-to/connect/specify-nat.md#upnp)
+* [`UPNPP2PONLY`](../../how-to/connect/specify-nat.md#upnp)
+* [`KUBERNETES`](../../how-to/connect/specify-nat.md#kubernetes)
+* [`DOCKER`](../../how-to/connect/specify-nat.md#docker)
+* [`AUTO`](../../how-to/connect/specify-nat.md#auto)
+* [`NONE`](../../how-to/connect/specify-nat.md#none).
 
 The default is `AUTO`. `NONE` disables NAT functionality.
 
@@ -1805,7 +1805,7 @@ The default is `true`.
     ```
 
 The advertised host that can be used to access the node from outside the network in
-[P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking).
+[P2P communication](../../how-to/connect/configure-ports.md#p2p-networking).
 The default is `127.0.0.1`.
 
 !!! info
@@ -1840,7 +1840,7 @@ The default is `127.0.0.1`.
     ```
 
 The network interface on which the node listens for
-[P2P communication](../../HowTo/Find-and-Connect/Configuring-Ports.md#p2p-networking). Use the
+[P2P communication](../../how-to/connect/configure-ports.md#p2p-networking). Use the
 option to specify the required network interface when the device that Besu is running on has
 multiple network interfaces. The default is 0.0.0.0 (all interfaces).
 
@@ -1873,7 +1873,7 @@ multiple network interfaces. The default is 0.0.0.0 (all interfaces).
     ```
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must
-[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `permissions-accounts-config-file`
 
@@ -2144,7 +2144,7 @@ Enables or disables contract-based
     permissions-nodes-contract-version=2
     ```
 
-Version of the EEA [node permissioning interface](../../HowTo/Limit-Access/Specify-Perm-Version.md).
+Version of the EEA [node permissioning interface](../../how-to/Limit-Access/Specify-Perm-Version.md).
 The default is 1.
 
 ### `privacy-enabled`
@@ -2208,7 +2208,7 @@ is `false`.
     ```
 
 `<FILE>` is the name of the private key file used to
-[sign Privacy Marker Transactions](../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
+[sign Privacy Marker Transactions](../../how-to/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
 
 !!! note
 
@@ -2432,7 +2432,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
-[authorized privacy enclave](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-servers-file).
+[authorized privacy enclave](../../how-to/configure/TLS/Configure-TLS.md#create-the-known-servers-file).
 
 ### `privacy-url`
 
@@ -2749,7 +2749,7 @@ rejects that peer.
     revert-reason-enabled=true
     ```
 
-Enables or disables including the [revert reason](../../HowTo/Send-Transactions/Revert-Reason.md) in the
+Enables or disables including the [revert reason](../../private-networks/how-to/send-transactions/revert-reason.md) in the
 transaction receipt, [`eth_estimateGas`](../API-Methods.md#eth_estimategas) error response,
 [`eth_call`](../API-Methods.md#eth_call) error response, and [`trace`](../Trace-Types.md#trace) response.
 The default is `false`.
@@ -2821,8 +2821,8 @@ you must also specify the `--rpc-http-enabled` option. The available API options
     rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
     ```
 
-The [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC
-API [authentication](../../HowTo/Interact/APIs/Authentication.md).
+The [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC
+API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-http-authentication-enabled`
 
@@ -2850,7 +2850,7 @@ API [authentication](../../HowTo/Interact/APIs/Authentication.md).
     rpc-http-authentication-enabled=true
     ```
 
-Enables or disables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the HTTP JSON-RPC
+Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the HTTP JSON-RPC
 service.
 
 ### `rpc-http-authentication-jwt-public-key-file`
@@ -3063,7 +3063,7 @@ The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reac
     ```
 
 The port (TCP) on which HTTP JSON-RPC listens. The default is `8545`. You must
-[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `rpc-http-tls-ca-clients-enabled`
 
@@ -3280,7 +3280,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file used to
-[authenticate clients](../../HowTo/Configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
+[authenticate clients](../../how-to/configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format
@@ -3417,8 +3417,8 @@ you must also specify the `--rpc-ws-enabled` option. The available API options a
     rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
     ```
 
-The path to the [credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file)
-for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
+The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file)
+for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-ws-authentication-enabled`
 
@@ -3446,7 +3446,7 @@ for JSON-RPC API [authentication](../../HowTo/Interact/APIs/Authentication.md).
     rpc-ws-authentication-enabled=true
     ```
 
-Enables or disables [authentication](../../HowTo/Interact/APIs/Authentication.md) for the WebSocket JSON-RPC
+Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the WebSocket JSON-RPC
 service.
 
 !!! note
@@ -3627,7 +3627,7 @@ The maximum size in bytes for JSON-RPC WebSocket frames. If this limit is exceed
     ```
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must
-[expose ports appropriately](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+[expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `security-module`
 
@@ -3687,7 +3687,7 @@ The default is the node's local private key file specified using
     static-nodes-file="~/besudata/static-nodes.json"
     ```
 
-Static nodes JSON file containing the [static nodes](../../HowTo/Find-and-Connect/Static-Nodes.md) for this node to
+Static nodes JSON file containing the [static nodes](../../how-to/connect/static-nodes.md) for this node to
 connect to. The default is `datapath/static-nodes.json`.
 
 ### `strict-tx-replay-protection-enabled`
@@ -3747,10 +3747,10 @@ The default is `false`.
     ```
 
 The synchronization mode.
-Use `FAST` for [fast sync](../../Concepts/Node-Types.md#fast-synchronization), `FULL` for
-[full sync](../../Concepts/Node-Types.md#run-an-archive-node), `X_SNAP` for
-[snap sync](../../Concepts/Node-Types.md#snap-synchronization), and `X_CHECKPOINT` for
-[checkpoint sync](../../Concepts/Node-Types.md#checkpoint-synchronization).
+Use `FAST` for [fast sync](../../public-networks/how-to/connect/sync-node.md#fast-synchronization), `FULL` for
+[full sync](../../public-networks/how-to/connect/sync-node.md#run-an-archive-node), `X_SNAP` for
+[snap sync](../../public-networks/how-to/connect/sync-node.md#snap-synchronization), and `X_CHECKPOINT` for
+[checkpoint sync](../../public-networks/how-to/connect/sync-node.md#checkpoint-synchronization).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.
@@ -3949,10 +3949,10 @@ Displays the experimental options and their descriptions, and exit.
 Prints version information and exit.
 
 <!-- Links -->
-[push gateway integration]: ../../HowTo/Monitor/Metrics.md#running-prometheus-with-besu-in-push-mode
-[accounts permissions configuration file]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
-[nodes permissions configuration file]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
+[push gateway integration]: ../../how-to/monitor/metrics.md#running-prometheus-with-besu-in-push-mode
+[accounts permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
+[nodes permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
 [account permissioning]: ../../Concepts/Permissioning/Permissioning-Overview.md#account-permissioning
 [TLS on communication with the Private Transaction Manager]: ../../Concepts/Privacy/Privacy-Overview.md#private-transaction-manager
-[JWT provider's public key file]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
+[JWT provider's public key file]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
 [plugin]: ../Plugin-API-Interfaces.md

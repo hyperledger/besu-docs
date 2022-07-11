@@ -12,8 +12,8 @@ gas) so storing and accessing the required data in logs reduces the cost. For ex
 display all transfers made using a specific contract, but not the current state of the contract.
 
 A Dapp front end can either access logs using the
-[JSON-RPC API filter methods](../HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md) or
-subscribe to logs using the [RPC Pub/Sub API](../HowTo/Interact/APIs/RPC-PubSub.md#logs).
+[JSON-RPC API filter methods](../how-to/use-besu-api/access-logs.md) or
+subscribe to logs using the [RPC Pub/Sub API](../how-to/use-besu-api/rpc-pubsub.md#logs).
 
 Use [`admin_generateLogBloomCache`](../Reference/API-Methods.md#admin_generatelogbloomcache) to
 improve log retrieval performance.

@@ -17,8 +17,8 @@ Options and methods for configuring and monitoring the transaction pool include:
 * [`--tx-pool-retention-hours`](../../Reference/CLI/CLI-Syntax.md#tx-pool-retention-hours) command
   line option to specify the maximum number of hours to keep pending transactions in the transaction
   pool.
-* [`newPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#pending-transactions) and
-  [`droppedPendingTransactions`](../../HowTo/Interact/APIs/RPC-PubSub.md#dropped-transactions)
+* [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions) and
+  [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions)
   RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
 
 !!! important

@@ -23,7 +23,7 @@ Besu supports enterprise features including privacy and permissioning.
 ## What can you do with Besu?
 
 Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and
-[JSON-RPC API](HowTo/Interact/APIs/API.md) for running, maintaining, debugging, and monitoring
+[JSON-RPC API](how-to/use-besu-api/index.md) for running, maintaining, debugging, and monitoring
 nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSockets. Besu also
 supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
@@ -45,6 +45,6 @@ use cases, using tools such as [Truffle](http://truffleframework.com/),
 [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports
 common JSON-RPC API methods such as `eth`, `net`, `web3`, `debug`, and `miner`.
 
-Besu doesn't support [key management](HowTo/Send-Transactions/Account-Management.md) inside the
+Besu doesn't support [key management](how-to/Send-Transactions/Account-Management.md) inside the
 client. You can use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu to access
 your key store and sign transactions.

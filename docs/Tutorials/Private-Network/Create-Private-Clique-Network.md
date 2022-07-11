@@ -14,7 +14,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -65,7 +65,7 @@ write the node address to the specified file (`node1Address` in this example).
 
 The genesis file defines the genesis block of the blockchain (that is, the start of the
 blockchain). The
-[Clique genesis file](../../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file) includes
+[Clique genesis file](../../how-to/configure/Consensus-Protocols/Clique.md#genesis-file) includes
 the address of Node-1 as the initial signer in the `extraData` field.
 
 All nodes in a network must use the same genesis file.
@@ -273,5 +273,5 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode).
 
 <!-- Links -->
-[Clique (proof of authority) consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/Clique.md
-[Clique API to add]: ../../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
+[Clique (proof of authority) consensus protocol]: ../../how-to/configure/Consensus-Protocols/Clique.md
+[Clique API to add]: ../../how-to/configure/Consensus-Protocols/Clique.md#adding-and-removing-signers

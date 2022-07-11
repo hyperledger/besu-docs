@@ -27,7 +27,7 @@ The `ADMIN` API methods provide administrative functionality to manage your node
 
 ### `admin_addPeer`
 
-Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
+Adds a [static node](../how-to/connect/static-nodes.md).
 
 !!! caution
 
@@ -41,7 +41,7 @@ Adds a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 #### Returns
 
 `result`: *boolean* - `true` if peer added or `false` if peer already a
-[static node](../HowTo/Find-and-Connect/Static-Nodes.md)
+[static node](../how-to/connect/static-nodes.md)
 
 !!! example
 
@@ -208,11 +208,11 @@ Removes cache files for the specified range of blocks.
 
 * `fromBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `toBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 You can skip a parameter by using an empty string, `""`.
 If you specify:
@@ -313,7 +313,7 @@ None
 * `id`: *string* - [node public key](../Concepts/Node-Keys.md#node-public-key)
   
 * `ports`: *object* - peer discovery and listening
-  [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration)
+  [ports](../how-to/connect/manage-peers.md#port-configuration)
   
 * `protocols`: *object* - list of objects containing information for each Ethereum sub-protocol
 
@@ -406,7 +406,7 @@ None
 * `id`: *string* - node public key (excluding the `0x` prefix, the node public key is the ID in the
   [enode URL](../Concepts/Node-Keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.)
   
-* `protocols`: *object* - [current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+* `protocols`: *object* - [current state of peer](../how-to/connect/manage-peers.md#monitoring-peer-connections)
 including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
   
 * `enode`: *string* - enode URL of the remote node
@@ -463,7 +463,7 @@ including `difficulty` and `head` (`head` is the hash of the highest known block
 
 ### `admin_removePeer`
 
-Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
+Removes a [static node](../how-to/connect/static-nodes.md).
 
 #### Parameters
 
@@ -472,7 +472,7 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 #### Returns
 
 `result`: *boolean* - `true` if peer removed or `false` if peer not a
-[static node](../HowTo/Find-and-Connect/Static-Nodes.md)
+[static node](../how-to/connect/static-nodes.md)
 
 !!! example
 
@@ -500,7 +500,7 @@ Removes a [static node](../HowTo/Find-and-Connect/Static-Nodes.md).
 
 ## `CLIQUE` methods
 
-The `CLIQUE` API methods provide access to the [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus engine.
+The `CLIQUE` API methods provide access to the [Clique](../how-to/configure/Consensus-Protocols/Clique.md) consensus engine.
 
 !!! note
 
@@ -552,7 +552,7 @@ Lists [signers for the specified block].
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -596,11 +596,11 @@ Provides the following validator metrics for the specified range:
 #### Parameters
 
 * `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest`, as described
-in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+in [Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
 `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 
@@ -697,7 +697,7 @@ Lists signers for the specified block.
 ### `clique_proposals`
 
 Returns
-[current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+[current proposals](../how-to/configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -932,7 +932,7 @@ Returns the accounts for a specified block.
 
 ### `debug_batchSendRawTransaction`
 
-Sends a list of [signed transactions](../HowTo/Send-Transactions/Transactions.md).
+Sends a list of [signed transactions](../how-to/send-transactions.md).
 This is used to quickly load a network with a lot of transactions.
 This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
 
@@ -1594,7 +1594,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
@@ -1665,13 +1665,13 @@ The `EEA` API methods provide functionality for [private transactions](../Concep
 ### `eea_sendRawTransaction`
 
 Distributes the
-[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
+[private transaction](../private-networks/how-to/send-transactions/private-transactions.md),
 generates the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
 and submits it to the transaction pool, and returns the transaction hash of the
 [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 The signed transaction passed as an input parameter includes the `privateFrom`,
-[`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
+[`privateFor` or `privacyGroupId`](../private-networks/how-to/send-transactions/private-transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
 
 The `gas` and `gasPrice` are used by the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
@@ -1861,7 +1861,7 @@ Invokes a contract function locally and does not change the state of the blockch
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the `eth_call` error response includes the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the `eth_call` error response includes the [revert reason](../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
@@ -1869,7 +1869,7 @@ the `eth_call` error response includes the [revert reason](../HowTo/Send-Transac
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 !!! note
 
@@ -2053,7 +2053,7 @@ The `eth_estimateGas` call does not send a transaction. You must call
 [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
 If revert reason is enabled with [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the `eth_estimateGas` error response includes the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the `eth_estimateGas` error response includes the [revert reason](../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
@@ -2166,7 +2166,7 @@ If blocks in the specified block range are not available, then only the fee hist
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
  `earliest`, or `pending`, as described in
- [Block parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+ [Block parameter](../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 #### Returns
 
@@ -2281,7 +2281,7 @@ Returns the account balance of the specified address.
 
 * `blockNumber`: *string*  - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2474,7 +2474,7 @@ Returns information about the block matching the specified block number.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, `pending`, `finalized`, or `safe` as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `verbose`: *boolean* - if `true`, returns the full [transaction objects](API-Objects.md#transaction-object);
 if `false`, returns only the hashes of the transactions.
@@ -2692,7 +2692,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2762,7 +2762,7 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3165,7 +3165,7 @@ Returns miner data for the specified block.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3225,7 +3225,7 @@ from untrusted sources, by using a trusted block hash.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3300,7 +3300,7 @@ from untrusted sources, by using a trusted block hash.
 
 ### `eth_getQuorumPayload`
 
-When using [GoQuorum-compatible privacy](../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md), returns the
+When using [GoQuorum-compatible privacy](../how-to/Use-Privacy/Use-GoQuorum-compatible-privacy.md), returns the
 [unencrypted payload from Tessera](https://docs.tessera.consensys.net/Concepts/Transaction-manager/#private-transaction-flow).
 
 #### Parameters
@@ -3347,7 +3347,7 @@ Returns the value of a storage position at a specified address.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3510,7 +3510,7 @@ Returns transaction information for the specified block number and transaction i
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 `index`: *string* - transaction index position
 
@@ -3725,7 +3725,7 @@ next account nonce not used by any pending transactions.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3788,7 +3788,7 @@ next account nonce not used by any pending transactions.
 Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not
 available.
 
-If you enabled [revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt includes
+If you enabled [revert reason](../private-networks/how-to/send-transactions/revert-reason.md), the receipt includes
 available revert reasons in the response.
 
 #### Parameters
@@ -4029,7 +4029,7 @@ Returns uncle specified by block number and index.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `uncleIndex`: *string* - index of the uncle
 
@@ -4200,7 +4200,7 @@ Returns the number of uncles in a block matching the specified block number.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -4561,7 +4561,7 @@ None
 
 ### `eth_sendRawTransaction`
 
-Sends a [signed transaction](../HowTo/Send-Transactions/Transactions.md).
+Sends a [signed transaction](../how-to/send-transactions.md).
 A transaction can send ether, deploy a contract, or interact with a contract.
 Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
 
@@ -4860,7 +4860,7 @@ Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterch
 
 ## `IBFT` 2.0 methods
 
-The `IBFT` API methods provide access to the [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) consensus engine.
+The `IBFT` API methods provide access to the [IBFT 2.0](../how-to/configure/Consensus-Protocols/IBFT.md) consensus engine.
 
 !!! note
 
@@ -4906,8 +4906,8 @@ Discards a proposal to [add or remove a validator] with the specified address.
 
 ### `ibft_getPendingVotes`
 
-Returns [votes](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) cast in the current
-[epoch](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file).
+Returns [votes](../how-to/configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) cast in the current
+[epoch](../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file).
 
 #### Parameters
 
@@ -4960,11 +4960,11 @@ Provides the following validator metrics for the specified range:
 #### Parameters
 
 * `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest` as described
-in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+in [Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
 `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 
@@ -5070,7 +5070,7 @@ Lists the validators defined in the specified block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -5536,7 +5536,7 @@ None
 ## `PERM` (Permissioning) methods
 
 The `PERM` API methods provide permissioning functionality.
-Use these methods for [local permissioning](../HowTo/Limit-Access/Local-Permissioning.md) only.
+Use these methods for [local permissioning](../how-to/Limit-Access/Local-Permissioning.md) only.
 
 !!! important
 
@@ -5547,7 +5547,7 @@ Use these methods for [local permissioning](../HowTo/Limit-Access/Local-Permissi
 ### `perm_addAccountsToAllowlist`
 
 Adds accounts (participants) to the
-[accounts permission list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permission list](../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5590,7 +5590,7 @@ allowlist and including invalid account addresses.)
 ### `perm_addNodesToAllowlist`
 
 Adds nodes to the
-[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 To use domain names in enode URLs, ensure you [enable DNS support](../Concepts/Node-Keys.md#domain-name-support) to
 avoid receiving a `request contains an invalid node` error.
@@ -5640,7 +5640,7 @@ including invalid enode URLs.
 ### `perm_getAccountsAllowlist`
 
 Lists accounts (participants) in the
-[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permissions list](../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5680,7 +5680,7 @@ None
 ### `perm_getNodesAllowlist`
 
 Lists nodes in the
-[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -5756,7 +5756,7 @@ None
 ### `perm_removeAccountsFromAllowlist`
 
 Removes accounts (participants) from the
-[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permissions list](../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5799,7 +5799,7 @@ and including invalid account addresses.)
 ### `perm_removeNodesFromAllowlist`
 
 Removes nodes from the
-[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -5910,7 +5910,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -6029,7 +6029,7 @@ Returns the state root of the specified privacy group at the specified block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -6099,7 +6099,7 @@ Deletes the specified privacy group.
 ### `priv_distributeRawTransaction`
 
 Distributes a signed, RLP encoded
-[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+[private transaction](../private-networks/how-to/send-transactions/private-transactions.md).
 
 !!! tip
 
@@ -6206,7 +6206,7 @@ is stored as a hexadecimal value.
 * `address`: *string* - 20-byte contract address
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`, `earliest`,
-or `pending`, as described in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+or `pending`, as described in [Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -6782,7 +6782,7 @@ for public contracts.
 
 ## `QBFT` methods
 
-The `QBFT` API methods provide access to the [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) consensus engine.
+The `QBFT` API methods provide access to the [QBFT](../how-to/configure/Consensus-Protocols/QBFT.md) consensus engine.
 
 !!! note
 
@@ -6793,7 +6793,7 @@ The `QBFT` API methods provide access to the [QBFT](../HowTo/Configure/Consensus
 ### `qbft_discardValidatorVote`
 
 Discards a proposal to
-[add or remove a validator](../HowTo/Configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
+[add or remove a validator](../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
 
 #### Parameters
 
@@ -6829,8 +6829,8 @@ Discards a proposal to
 
 ### `qbft_getPendingVotes`
 
-Returns [votes](../HowTo/Configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) cast in the current
-[epoch](../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file).
+Returns [votes](../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) cast in the current
+[epoch](../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file).
 
 #### Parameters
 
@@ -6883,11 +6883,11 @@ Provides the following validator metrics for the specified range:
 #### Parameters
 
 * `fromBlockNumber`: *string* - integer representing a block number or the string tag `earliest` as described
-in [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+in [Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `toBlockNumber`: *string* - integer representing a block number or one of the string tags `latest` or
 `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 
@@ -6993,7 +6993,7 @@ Lists the validators defined in the specified block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -7030,7 +7030,7 @@ Lists the validators defined in the specified block.
 ### `qbft_proposeValidatorVote`
 
 Proposes to
-[add or remove a validator](../HowTo/Configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
+[add or remove a validator](../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
 
 #### Parameters
 
@@ -7090,14 +7090,14 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
 `result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
 one object per call, in transaction execution order; if revert reason is enabled with
 [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the returned list items include the [revert reason](../private-networks/how-to/send-transactions/revert-reason.md).
 
 !!! example
 
@@ -7193,7 +7193,7 @@ Executes the given call and returns a number of possible traces for it.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
@@ -7267,7 +7267,7 @@ Performs multiple call traces on top of the same block. You can trace dependent 
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
   `earliest`, or `pending`, as described in
-  [Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+  [Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -7570,7 +7570,7 @@ Provides transaction processing tracing per block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+[Block Parameter](../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
@@ -7582,7 +7582,7 @@ combination of the three options including none of them.
 one object per transaction, in transaction execution order; if revert reason is enabled with
 [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
 the [`trace`](Trace-Types.md#trace) list items in the returned transaction trace object include the
-[revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+[revert reason](../private-networks/how-to/send-transactions/revert-reason.md).
 
 !!! example
 
@@ -7691,7 +7691,7 @@ Provides transaction processing of [type `trace`](Trace-Types.md#trace) for the 
 `result`: *array* of *objects* - list of [calls to other contracts](Trace-Types.md#trace) containing
 one object per call, in the order called by the transaction; if revert reason is enabled with
 [`--revert-reason-enabled`](CLI/CLI-Syntax.md#revert-reason-enabled),
-the returned list items include the [revert reason](../HowTo/Send-Transactions/Revert-Reason.md).
+the returned list items include the [revert reason](../private-networks/how-to/send-transactions/revert-reason.md).
 
 !!! example
 
@@ -8072,7 +8072,7 @@ The result value is a [Keccak-256](https://keccak.team/keccak.html) hash, not th
 
 ### `rpc_modules`
 
-Lists [enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
+Lists [enabled APIs](../how-to/use-besu-api/json-rpc.md#api-methods-enabled-by-default)
 and the version of each.
 
 #### Parameters
@@ -8113,12 +8113,12 @@ None
 
 <!-- Links -->
 [schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
-[eth_sendRawTransaction or eth_call]: ../HowTo/Send-Transactions/Transactions.md#eth_call-or-eth_sendrawtransaction
+[eth_sendRawTransaction or eth_call]: ../how-to/send-transactions.md#eth_call-or-eth_sendrawtransaction
 [transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6
-[add or remove a signer with the specified address]: ../HowTo/Configure/Consensus-Protocols/Clique.md#add-and-remove-signers
-[signers for the specified block]: ../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
-[add or remove a validator]: ../HowTo/Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators
-[permissions configuration file]: ../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
+[add or remove a signer with the specified address]: ../how-to/configure/Consensus-Protocols/Clique.md#add-and-remove-signers
+[signers for the specified block]: ../how-to/configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
+[add or remove a validator]: ../how-to/configure/Consensus-Protocols/IBFT.md#add-and-remove-validators
+[permissions configuration file]: ../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
 [group of sender and recipients]: ../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
 
 *[EEA]: Enterprise Ethereum Alliance

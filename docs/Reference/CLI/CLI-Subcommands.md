@@ -153,8 +153,8 @@ Provides password related actions.
     ```
 
 Generates the hash of a given password. Include the hash in the
-[credentials file](../../HowTo/Interact/APIs/Authentication.md#credentials-file) for JSON-RPC API
-[authentication](../../HowTo/Interact/APIs/Authentication.md).
+[credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API
+[authentication](../../how-to/use-besu-api/authenticate.md).
 
 ## `operator`
 
@@ -178,8 +178,8 @@ Generates an
 [QBFT](../../Tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining the
-[IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) or
-[QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) genesis file, except for
+[IBFT 2.0](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) or
+[QBFT](../../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file) genesis file, except for
 the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
 generate.
 
@@ -243,11 +243,11 @@ Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. T
 
 Supported types are:
 
-* `IBFT_EXTRA_DATA` - The [IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) includes
-the `IBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-Protocols/IBFT.md#extra-data) property.
+* `IBFT_EXTRA_DATA` - The [IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) includes
+the `IBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/Consensus-Protocols/IBFT.md#extra-data) property.
 
-* `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file) includes
-       the `QBFT_EXTRA_DATA` type in the [`extraData`](../../HowTo/Configure/Consensus-Protocols/QBFT.md#extra-data) property.
+* `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file) includes
+       the `QBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/Consensus-Protocols/QBFT.md#extra-data) property.
 
 ???+ summary "IBFT 2.0 extra data"
 
@@ -340,6 +340,6 @@ The command accepts the following command line options:
     ```
 
 Performs basic syntax validation of the specified
-[TOML configuration file](../../HowTo/Configure/Using-Configuration-File.md).
+[TOML configuration file](../../how-to/configure/configuration-file.md).
 Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options.
 Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

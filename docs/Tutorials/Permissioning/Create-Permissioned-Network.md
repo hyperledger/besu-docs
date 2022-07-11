@@ -14,7 +14,7 @@ uses the [IBFT 2.0 proof of authority consensus protocol].
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 - [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps
@@ -41,7 +41,7 @@ Permissioned-Network/
 ### 2. Create the configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -164,7 +164,7 @@ Permissioned-Network/
 
 ### 6. Create the permissions configuration file
 
-The [permissions configuration file](../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file)
+The [permissions configuration file](../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file)
 defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a copy in the
@@ -476,5 +476,5 @@ window.
     To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
-[IBFT 2.0 proof of authority consensus protocol]: ../../HowTo/Configure/Consensus-Protocols/IBFT.md
+[IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/Consensus-Protocols/IBFT.md
 [Private network example tutorial]: ../Developer-Quickstart.md#create-a-transaction-using-metamask

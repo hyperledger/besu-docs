@@ -11,13 +11,13 @@ as a [consensus client](../Concepts/Merge.md#consensus-clients) on the
 
 ## 1. Install Besu and Teku
 
-Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) and
+Install [Besu](../get-started/install/binary-distribution.md) and
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java 11+ if using the Besu and Teku binary distributions.
 
-Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
+Ensure you meet the [system requirements for Besu on Mainnet](../get-started/System-Requirements).
 
 ## 2. Generate the shared secret
 
@@ -29,7 +29,7 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 
 You will specify `jwtsecret.hex` when starting both Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
-[Engine API](../HowTo/Interact/APIs/Engine-API.md).
+[Engine API](../public-networks/how-to/use-engine-api.md).
   
 ## 3. Generate validator keys and stake ETH
 

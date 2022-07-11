@@ -72,7 +72,7 @@ The extension allows you to use a more dynamic approach, for example different k
 Your plugin needs to register the `PrivateMarkerTransactionFactory` interface which is called before submitting a PMT
 to the transaction pool. The responsibility then lies with the plugin to sign and serialize the PMT.
 
-[privacy marker transaction (PMT)]: ../../HowTo/Use-Privacy/Access-Private-Transactions.md
+[privacy marker transaction (PMT)]: ../../how-to/Use-Privacy/Access-Private-Transactions.md
 
 ## Registering your plugin
 

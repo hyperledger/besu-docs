@@ -41,7 +41,7 @@ You can specify permissioning [locally](#local) or [onchain](#onchain).
 
 ### Local
 
-[Local permissioning](../../HowTo/Limit-Access/Local-Permissioning.md) works at the node level.
+[Local permissioning](../../how-to/Limit-Access/Local-Permissioning.md) works at the node level.
 Each node in the network has a [permissions configuration file].
 
 Local permissioning affects your node but not the rest of the network. Use local permissioning to
@@ -69,4 +69,4 @@ The following diagram illustrates applying local and onchain permissioning rules
 ![Permissioning Flow](../../images/PermissioningFlow.png)
 
 <!-- Links -->
-[permissions configuration file]: ../../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file
+[permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file

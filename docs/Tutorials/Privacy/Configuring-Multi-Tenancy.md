@@ -176,12 +176,12 @@ The command line specifies privacy options:
 
 ## 6. Generate the tenant JWTs
 
-[Generate the JWT](../../HowTo/Interact/APIs/Authentication.md#2-create-the-jwt) for each tenant
+[Generate the JWT](../../how-to/use-besu-api/authenticate.md#2-create-the-jwt) for each tenant
 and specify the [tenant's Tessera public key](#2-generate-tessera-keys) in the `privacyPublicKey`
 field.
 
 Ensure you apply the appropriate
-[JSON-RPC API permissions](../../HowTo/Interact/APIs/Authentication.md#json-rpc-permissions) to the
+[JSON-RPC API permissions](../../how-to/use-besu-api/authenticate.md#json-rpc-permissions) to the
 token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 
 !!! note
@@ -192,10 +192,10 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 [Use the authentication token to make requests].
 
 <!-- Links -->
-[JWT public key authentication]: ../../HowTo/Interact/APIs/Authentication.md#jwt-public-key-authentication
-[username and password authentication]: ../../HowTo/Interact/APIs/Authentication.md#username-and-password-authentication
-[generate the private and public key pair]: ../../HowTo/Interact/APIs/Authentication.md#1-generate-a-private-and-public-key-pair
-[Use the authentication token to make requests]: ../../HowTo/Interact/APIs/Authentication.md#using-an-authentication-token-to-make-requests
+[JWT public key authentication]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
+[username and password authentication]: ../../how-to/use-besu-api/authenticate.md#username-and-password-authentication
+[generate the private and public key pair]: ../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
+[Use the authentication token to make requests]: ../../how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
 [Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Concepts/TesseraAPI/#quorum-to-tessera-api
 <!-- Abbreviations -->
 *[JWT]: JSON Web Token

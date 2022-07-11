@@ -4,7 +4,7 @@ description: Configuration items specified in the Hyperledger Besu genesis file
 
 # Genesis file items
 
-The [Besu genesis file](../HowTo/Configure/Genesis-File.md) contains [network configuration items](#configuration-items)
+The [Besu genesis file](../how-to/configure/Genesis-File.md) contains [network configuration items](#configuration-items)
 and [genesis block parameters](#genesis-block-parameters).
 
 ## Configuration items
@@ -16,22 +16,22 @@ Network configuration items are specified in the genesis file in the `config` ob
 | Milestone blocks    | [Milestone blocks for the network](#milestone-blocks).                                                                                                                                      |
 | `chainID`           | [Chain ID for the network](../Concepts/NetworkID-And-ChainID.md).                                                                                                                           |
 | `ethash`            | Specifies network uses [Ethash](../Concepts/Consensus-Protocols/Overview-Consensus.md) and contains [`fixeddifficulty`](#fixed-difficulty).                                                 |
-| `clique`            | Specifies network uses [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../HowTo/Configure/Consensus-Protocols/Clique.md#genesis-file). |
-| `ibft2`             | Specifies network uses [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../HowTo/Configure/Consensus-Protocols/IBFT.md#genesis-file). |
-| `qbft`              | Specifies network uses [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) and contains [QBFT configuration items](../HowTo/Configure/Consensus-Protocols/QBFT.md#genesis-file).         |
-| `transitions`       | Specifies block at which to [change IBFT 2.0 or QBFT validators](../HowTo/Troubleshoot/Add-Validators-Without-Voting.md).                                                                   |
-| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../HowTo/Configure/FreeGas.md). The default is `24576` and the maximum size is `2147483647`.                                 |
+| `clique`            | Specifies network uses [Clique](../how-to/configure/Consensus-Protocols/Clique.md) and contains [Clique configuration items](../how-to/configure/Consensus-Protocols/Clique.md#genesis-file). |
+| `ibft2`             | Specifies network uses [IBFT 2.0](../how-to/configure/Consensus-Protocols/IBFT.md) and contains [IBFT 2.0 configuration items](../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file). |
+| `qbft`              | Specifies network uses [QBFT](../how-to/configure/Consensus-Protocols/QBFT.md) and contains [QBFT configuration items](../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file).         |
+| `transitions`       | Specifies block at which to [change IBFT 2.0 or QBFT validators](../how-to/Troubleshoot/Add-Validators-Without-Voting.md).                                                                   |
+| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../how-to/configure/FreeGas.md). The default is `24576` and the maximum size is `2147483647`.                                 |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                     |
 | `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                  |
-| `ecCurve`           | Specifies [the elliptic curve to use](../HowTo/Configure/Alternative-EC-Curves.md). Default is `secp256k1`.                                                                                 |
+| `ecCurve`           | Specifies [the elliptic curve to use](../how-to/configure/Alternative-EC-Curves.md). Default is `secp256k1`.                                                                                 |
 | `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                        |
 
 ## Genesis block parameters
 
 The purpose of some genesis block parameters varies depending on the consensus protocol (Ethash,
-[Clique](../HowTo/Configure/Consensus-Protocols/Clique.md),
-[IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md), or
-[QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md)). These parameters include:
+[Clique](../how-to/configure/Consensus-Protocols/Clique.md),
+[IBFT 2.0](../how-to/configure/Consensus-Protocols/IBFT.md), or
+[QBFT](../how-to/configure/Consensus-Protocols/QBFT.md)). These parameters include:
 
 * `difficulty`.
 * `extraData`.
@@ -46,7 +46,7 @@ consensus protocols.
 | `gasLimit`          | Block gas limit. Total gas limit for all transactions in a block.                                                                       |
 | `nonce`             | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`).                                               |
 | `timestamp`         | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.                |
-| `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../HowTo/Configure/Contracts-in-Genesis.md).                   |
+| `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../how-to/configure/Contracts-in-Genesis.md).                   |
 
 ## Milestone blocks
 
@@ -145,4 +145,4 @@ Anything listed in the configuration file also takes precedence.
 
 <!--links-->
 [GoQuorum clients]: https://consensys.net/docs/goquorum/en/stable/
-[interoperable private transactions]: ../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md
+[interoperable private transactions]: ../how-to/Use-Privacy/Use-GoQuorum-compatible-privacy.md

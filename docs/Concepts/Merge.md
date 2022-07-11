@@ -10,7 +10,7 @@ Ethereum Mainnet, turning Mainnet into a combination of an
 The Merge transitions Mainnet from proof of work to
 [proof of stake consensus](https://docs.teku.consensys.net/en/stable/Concepts/Proof-of-Stake/).
 
-Update and configure Besu to be [ready for The Merge](../HowTo/Upgrade/Prepare-for-The-Merge.md).
+Update and configure Besu to be [ready for The Merge](../public-networks/how-to/prepare-for-the-merge.md).
 You can also test Besu with a consensus client such as [Teku] on the [Kiln Merge testnet](../Tutorials/Merge-Testnet.md).
 
 ## Execution and consensus clients
@@ -20,7 +20,7 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
 Execution and consensus clients communicate with each other using the
-[Engine API](../HowTo/Interact/APIs/Engine-API.md).
+[Engine API](../public-networks/how-to/use-engine-api.md).
 
 ![Ethereum Merge node](../images/Execution-Consensus-Clients.png)
 
@@ -42,7 +42,7 @@ communicate with each other in a peer-to-peer network.
 ## What happens during The Merge
 
 Before The Merge, the execution and consensus clients' configurations will be
-[updated](../HowTo/Upgrade/Prepare-for-The-Merge.md#update-besu) to listen for a certain total terminal difficulty (TTD)
+[updated](../public-networks/how-to/prepare-for-the-merge.md#update-besu) to listen for a certain total terminal difficulty (TTD)
 to be reached.
 
 !!! info
@@ -64,7 +64,7 @@ After The Merge, validators earn rewards for performing
 [fee recipients](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient)
 will also earn rewards for the inclusion of execution layer transactions.
 
-Update and configure Besu to be [ready for The Merge](../HowTo/Upgrade/Prepare-for-The-Merge.md).
+Update and configure Besu to be [ready for The Merge](../public-networks/how-to/prepare-for-the-merge.md).
 
 <!-- links -->
 [Beacon Chain]: https://ethereum.org/en/upgrades/beacon-chain/

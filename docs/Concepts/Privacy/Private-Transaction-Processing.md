@@ -82,5 +82,5 @@ Private transaction processing is illustrated and described in the following dia
     is not supported.
 
 <!-- Links -->
-[signed with a random key or the key specified on the command line]: ../../HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md
-[highly available and run in a separate instance to Besu]: ../../HowTo/Use-Privacy/Run-Tessera-With-Besu.md
+[signed with a random key or the key specified on the command line]: ../../how-to/Use-Privacy/Sign-Privacy-Marker-Transactions.md
+[highly available and run in a separate instance to Besu]: ../../how-to/Use-Privacy/Run-Tessera-With-Besu.md

@@ -5,7 +5,7 @@ description: Mining overview
 # Mining
 
 Hyperledger Besu supports CPU and GPU mining, which are
-[configured using command line options](../HowTo/Configure/Configure-Mining.md).
+[configured using command line options](../how-to/configure/mining.md).
 
 GPU mining support testing used [Ethminer](https://github.com/ethereum-mining/ethminer) with the
 `stratum+tcp` and `getwork` schemes.

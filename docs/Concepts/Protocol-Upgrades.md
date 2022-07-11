@@ -13,7 +13,7 @@ definitions are in Hyperledger Besu. Upgrading your Besu client applies the netw
 For private networks, all network participants must agree on the protocol upgrades and then
 coordinate the network upgrades. The genesis file specifies the
 [milestone block](../Reference/Config-Items.md#milestone-blocks) at which to apply the
-[protocol upgrade](../HowTo/Upgrade/Upgrade-Protocol.md).
+[protocol upgrade](../how-to/Upgrade/Upgrade-Protocol.md).
 
 ## Backward compatibility
 

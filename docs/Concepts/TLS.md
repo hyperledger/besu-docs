@@ -17,6 +17,6 @@ The following diagram displays an example client and server TLS configuration.
 
 You must store private keys and certificates in password-protected PKCS12 keystore files.
 
-Use the command line options to [enable and configure](../HowTo/Configure/TLS/Configure-TLS.md) TLS.
+Use the command line options to [enable and configure](../how-to/configure/TLS/Configure-TLS.md) TLS.
 
-[secure P2P communication]: ../HowTo/Configure/TLS/P2P-TLS.md
+[secure P2P communication]: ../how-to/configure/TLS/P2P-TLS.md

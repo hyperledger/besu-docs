@@ -36,7 +36,7 @@ A Clique genesis file defines properties specific to Clique.
     {
       "config":{
         "chainId":1981,
-        "londonBlock": 0,
+        "berlinBlock": 0,
         "clique":{
           "blockperiodseconds":15,
           "epochlength":30000

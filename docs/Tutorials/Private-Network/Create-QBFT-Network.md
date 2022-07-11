@@ -67,7 +67,7 @@ in the `QBFT-Network` directory:
  "genesis": {
    "config": {
       "chainId": 1337,
-     "londonBlock": 0,
+      "berlinBlock": 0,
       "qbft": {
         "blockperiodseconds": 2,
         "epochlength": 30000,

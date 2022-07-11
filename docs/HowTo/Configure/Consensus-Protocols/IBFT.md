@@ -38,7 +38,7 @@ specific to IBFT 2.0.
       {
         "config": {
           "chainId": 1981,
-          "londonBlock": 0,
+          "berlinBlock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
@@ -465,7 +465,7 @@ To update an existing network with a new mining beneficiary:
             {
               "config": {
                 "chainId": 999,
-                "byzantiumBlock": 0,
+                "berlinBlock": 0,
                 "ibft2": {
                   "blockperiodseconds": 1,
                   "epochlength": 30000,
@@ -496,7 +496,7 @@ To update an existing network with a new mining beneficiary:
             {
               "config": {
                 "chainId": 999,
-                "byzantiumBlock": 0,
+                "berlinBlock": 0,
                 "ibft2": {
                   "blockperiodseconds": 1,
                   "epochlength": 30000,

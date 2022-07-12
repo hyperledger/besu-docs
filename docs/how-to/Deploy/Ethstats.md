@@ -36,8 +36,8 @@ for installing those components and connecting to a dashboard.
 
 You can use command line options to connect a node directly to a [dashboard](https://github.com/goerli/ethstats-client#available-dashboards), without using a client.
 
-Start a node using the [`--ethstats`](../../Reference/CLI/CLI-Syntax.md#ethstats) option to specify the Ethstats server URL.
-You can specify a contact email to send to the server using [`--ethstats-contact`](../../Reference/CLI/CLI-Syntax.md#ethstats-contact).
+Start a node using the [`--ethstats`](../../reference/cli/options.md#ethstats) option to specify the Ethstats server URL.
+You can specify a contact email to send to the server using [`--ethstats-contact`](../../reference/cli/options.md#ethstats-contact).
 
 !!! example
 

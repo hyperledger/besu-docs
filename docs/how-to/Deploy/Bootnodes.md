@@ -8,14 +8,14 @@ A network must have at least one operating bootnode. To allow for continuity in 
 failure, configure two or more bootnodes.
 
 We do not recommend putting bootnodes behind a load balancer because the
-[enode](../../Concepts/Node-Keys.md#enode-url) relates to the node public key, IP address, and
+[enode](../../concepts/node-keys.md#enode-url) relates to the node public key, IP address, and
 discovery ports. Any changes to a bootnode enode prevents other nodes from being able to establish
 a connection with the bootnode. This is why we recommend putting more bootnodes on the network
 itself.
 
 To ensure that a bootnode enode does not change when recovering from a complete bootnode failure:
 
-1. Create the [node key pair](../../Concepts/Node-Keys.md) (that is, the private and public key)
+1. Create the [node key pair](../../concepts/node-keys.md) (that is, the private and public key)
    before starting the bootnode.
 1. When creating bootnodes in the cloud (for example, AWS and Azure), attempt to assign a static IP
    address to them. If your network is:
@@ -48,10 +48,10 @@ To allow for failure, specify all bootnodes on the command line (even to the boo
 ## Adding and removing bootnodes
 
 Adding new bootnodes is a similar process to creating bootnodes. After creating the bootnodes and
-adding them to the network,update the [`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes)
+adding them to the network,update the [`--bootnodes`](../../reference/cli/options.md#bootnodes)
 command line option for each node to include the new bootnodes.
 
 When adding bootnodes, you do not need to restart running nodes. By updating the
-[`--bootnodes`](../../Reference/CLI/CLI-Syntax.md#bootnodes) option, the next time you restart the
-nodes (for example, when [upgrading](../Upgrade/Upgrade-Node.md)), the nodes connect to the new
+[`--bootnodes`](../../reference/cli/options.md#bootnodes) option, the next time you restart the
+nodes (for example, when [upgrading](../upgrade/node.md)), the nodes connect to the new
 bootnodes.

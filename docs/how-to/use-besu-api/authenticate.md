@@ -7,7 +7,7 @@ description: Hyperledger Besu authentication and authorization for JSON-RPC
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC
 methods. Hyperledger Besu verifies users using
 [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in
-[multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
+[multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 
@@ -57,11 +57,11 @@ Each user requiring JSON-RPC access the configuration file lists the:
 * Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in
   `[Users.<username>]` with the username.
 * Hash of the user password. Use the
-  [`password hash`](../../Reference/CLI/CLI-Subcommands.md#password) subcommand to generate the
+  [`password hash`](../../reference/cli/subcommands.md#password) subcommand to generate the
   hash.
 * [JSON-RPC permissions](#json-rpc-permissions).
 * Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for
-  [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md).
+  [multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md).
 
 !!! example "Password hash subcommand"
 
@@ -80,13 +80,13 @@ Each user requiring JSON-RPC access the configuration file lists the:
 ### 2. Enable authentication
 
 To require authentication for the JSON-RPC API, use the
-[`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
-or [`--rpc-ws-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
+[`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled)
+or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled)
 options.
 
 To specify the [credentials file](#1-create-the-credentials-file), use the
-[`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
-and [`--rpc-ws-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-credentials-file)
+[`--rpc-http-authentication-credentials-file`](../../reference/cli/options.md#rpc-http-authentication-credentials-file)
+and [`--rpc-ws-authentication-credentials-file`](../../reference/cli/options.md#rpc-ws-authentication-credentials-file)
 options.
 
 ### 3. Generate an authentication token
@@ -208,7 +208,7 @@ Each payload for the JWT must contain:
 * [JSON-RPC permissions](#json-rpc-permissions)
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
 * Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for
-  [multi-tenancy](../../Concepts/Privacy/Multi-Tenancy.md).
+  [multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md).
 
 !!! example "JWT generation example"
 
@@ -229,13 +229,13 @@ Each payload for the JWT must contain:
 ### 3. Enable authentication
 
 To require authentication for the JSON-RPC API, use the
-[`--rpc-http-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-enabled)
-or [`--rpc-ws-authentication-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-enabled)
+[`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled)
+or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled)
 options.
 
 To specify the JWT provider's public key file to use with the externally created JWT, use the
-[`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
-or [`--rpc-ws-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-authentication-jwt-public-key-file)
+[`--rpc-http-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
+or [`--rpc-ws-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-ws-authentication-jwt-public-key-file)
 options.
 
 ## JSON-RPC permissions

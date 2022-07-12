@@ -25,9 +25,9 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 
 ## Disk space
 
-[Fast synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) with
-[pruning](../../Concepts/Pruning.md) enabled requires approximately 750 GB of disk space.
-[Full synchronization](../../Reference/CLI/CLI-Syntax.md#sync-mode) requires approximately 3 TB.
+[Fast synchronization](../../reference/cli/options.md#sync-mode) with
+[pruning](../../concepts/Pruning.md) enabled requires approximately 750 GB of disk space.
+[Full synchronization](../../reference/cli/options.md#sync-mode) requires approximately 3 TB.
 
 ## Disk type
 

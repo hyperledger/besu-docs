@@ -4,8 +4,8 @@ description: How to prepare for The Merge
 
 # Prepare for The Merge
 
-If you're running one or more [beacon nodes](../../Concepts/Merge.md#consensus-clients) with Besu on Ethereum Mainnet,
-prepare for [The Merge](../../Concepts/Merge.md) by
+If you're running one or more [beacon nodes](../concepts/the-merge.md#consensus-clients) with Besu on Ethereum Mainnet,
+prepare for [The Merge](../concepts/the-merge.md) by
 [configuring Besu as an execution client](#configure-besu-as-an-execution-client) and
 [staying up to date on Besu releases](#update-besu).
 
@@ -13,17 +13,17 @@ If you're using Besu with [Teku] as the consensus client,
 [prepare Teku for the Merge](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/).
 
 You can also
-[test Besu with Teku on the Kiln Merge testnet](../../Tutorials/Merge-Testnet.md).
+[test Besu with Teku on the Kiln Merge testnet](../tutorials/merge-testnet.md).
 
 ## Configure Besu as an execution client
 
-Before The Merge, [validators](../../Concepts/Merge.md#consensus-clients) require an
-[execution client](../../Concepts/Merge.md#execution-clients) to get deposits for block proposals.
+Before The Merge, [validators](../concepts/the-merge.md#consensus-clients) require an
+[execution client](../concepts/the-merge.md#execution-clients) to get deposits for block proposals.
 Block proposals are intermittent, and a validator can get the data from other blocks if its execution client is offline.
 
 After The Merge, execution clients will play a more crucial role in producing blocks and executing transactions.
 Service providers that provide execution layer access but don't produce blocks, such as Infura, won't be adequate for a
-[beacon node](../../Concepts/Merge.md#consensus-clients) to continue to function on the network.
+[beacon node](../concepts/the-merge.md#consensus-clients) to continue to function on the network.
 
 You must configure an execution client for each beacon node you maintain.
 Configure Besu as an execution client using the following steps.
@@ -32,7 +32,7 @@ You can use Besu with any consensus client.
 ### 1. Configure the Engine API
 
 The beacon node and Besu communicate using the [Engine API](use-engine-api.md).
-Configure the Engine API by setting [`engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) in the Besu
+Configure the Engine API by setting [`engine-rpc-port`](../../reference/cli/options.md#engine-rpc-port) in the Besu
 configuration file.
 
 Specify the Besu Engine API endpoint in the consensus client using the consensus client's configuration options.
@@ -49,7 +49,7 @@ You can generate a JWT using a command line tool, for example:
 openssl rand -hex 32 -out <file>
 ```
 
-Provide the JWT to Besu using the [`engine-jwt-secret`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-secret)
+Provide the JWT to Besu using the [`engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret)
 configuration option, and to the consensus client using its configuration options.
 For example, provide the JWT to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.

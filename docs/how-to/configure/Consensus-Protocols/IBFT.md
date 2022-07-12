@@ -4,7 +4,7 @@ description: Hyperledger Besu IBFT 2.0 proof of authority (PoA) consensus protoc
 
 # IBFT 2.0
 
-Besu implements the IBFT 2.0 proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
+Besu implements the IBFT 2.0 proof of authority (PoA) [consensus protocol](../../../concepts/Consensus-Protocols/Overview-Consensus.md).
 IBFT 2.0 is supported for existing private networks, but [QBFT](QBFT.md) is the recommended enterprise-grade
 consensus protocol for private networks.
 
@@ -14,7 +14,7 @@ super-majority (greater than 66%) of validators must first sign the block.
 
 Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
-You can [create a private network using IBFT](../../../Tutorials/Private-Network/Create-IBFT-Network.md).
+You can [create a private network using IBFT](../../../tutorials/Private-Network/Create-IBFT-Network.md).
 
 !!! important
 
@@ -29,7 +29,7 @@ You can [create a private network using IBFT](../../../Tutorials/Private-Network
 
 ## Genesis file
 
-To use IBFT 2.0, Besu requires an IBFT 2.0 [genesis file](../Genesis-File.md). The genesis file defines properties
+To use IBFT 2.0, Besu requires an IBFT 2.0 [genesis file](../../../concepts/genesis-file.md). The genesis file defines properties
 specific to IBFT 2.0.
 
 !!! example "Example IBFT 2.0 genesis file"
@@ -82,7 +82,7 @@ The properties with specific values in the IBFT 2.0 genesis files are:
   block identification.
 
 To start a node on an IBFT 2.0 private network, use the
-[`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
+[`--genesis-file`](../../../reference/cli/options.md#genesis-file) option to specify the custom
 genesis file.
 
 ### Extra data
@@ -107,7 +107,7 @@ Formally, `extraData` in the genesis block contains
 #### Generate extra data
   
 To generate the `extraData` RLP string for inclusion in the genesis file, use the
-[`rlp encode`](../../../Reference/CLI/CLI-Subcommands.md#rlp) Besu subcommand.
+[`rlp encode`](../../../reference/cli/subcommands.md#rlp) Besu subcommand.
 
 !!! example
 
@@ -117,7 +117,7 @@ To generate the `extraData` RLP string for inclusion in the genesis file, use th
 
 Where the `toEncode.json` file contains a list of the initial validators, in ascending order.
 To write the validator address and copy it to the `toEncode.json` file, use the
-[`public-key export-address`](../../../Reference/CLI/CLI-Subcommands.md#export-address) Besu subcommand.
+[`public-key export-address`](../../../reference/cli/subcommands.md#export-address) Besu subcommand.
 For example:
 
 !!! example "One initial validator in `toEncode.json` file"
@@ -180,7 +180,7 @@ Use a [transition](#transitions) to update the `blockperiodseconds` in an existi
 
 ### Post-Merge configuration
 
-After [The Merge](../../../Concepts/Merge.md), the following block fields are modified or deprecated.
+After [The Merge](../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated.
 Their fields **must** contain only the constant values from the following chart.
 
 | Field | Constant value | Comment |
@@ -196,21 +196,21 @@ Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data a
 ## Add and remove validators
 
 Existing validators propose and vote to add or remove validators using the IBFT 2.0 JSON-RPC API methods.
-Enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
-WebSocket interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled) or the
+WebSocket interface with [`--rpc-ws-enabled`](../../../reference/cli/options.md#rpc-ws-enabled).
 
 The IBFT 2.0 API methods are disabled by default.
-To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `IBFT`.
+To enable them, specify the [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../reference/cli/options.md#rpc-ws-api) option and include `IBFT`.
 
 The methods to add or remove validators are:
 
-* [`ibft_getPendingVotes`](../../../Reference/API-Methods.md#ibft_getPendingVotes).
-* [`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposeValidatorVote).
-* [`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardValidatorVote).
+* [`ibft_getPendingVotes`](../../../reference/api/index.md#ibft_getPendingVotes).
+* [`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposeValidatorVote).
+* [`ibft_discardValidatorVote`](../../../reference/api/index.md#ibft_discardValidatorVote).
 
 To view validator metrics for a specified block range, use
-[`ibft_getSignerMetrics`](../../../Reference/API-Methods.md#ibft_getsignermetrics).
+[`ibft_getSignerMetrics`](../../../reference/api/index.md#ibft_getsignermetrics).
 
 !!! note
 
@@ -220,7 +220,7 @@ To view validator metrics for a specified block range, use
 ### Add a validator
 
 To propose adding a validator to an IBFT 2.0 network, call
-[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote), specifying the address of the
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the
 proposed validator and `true`.
 A majority of validators must execute the call.
 
@@ -231,14 +231,14 @@ A majority of validators must execute the call.
     ```
 
 When the validator proposes the next block, the protocol inserts one proposal received from
-[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote) into the block.
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote) into the block.
 If blocks include all proposals, subsequent blocks proposed by the validator will not contain a vote.
 
 When more than 50% of the existing validators have published a matching proposal, the protocol adds the proposed
 validator to the validator pool and the validator can begin validating blocks.
 
 To return a list of validators and confirm the addition of a proposed validator, use
-[`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber).
+[`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber).
 
 !!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` request example"
 
@@ -247,7 +247,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```
 
 To discard your proposal after confirming the addition of a validator, call
-[`ibft_discardValidatorVote`](../../../Reference/API-Methods.md#ibft_discardvalidatorvote),
+[`ibft_discardValidatorVote`](../../../reference/api/index.md#ibft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
 !!! example "JSON-RPC `ibft_discardValidatorVote` request example"
@@ -260,7 +260,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#add-a-validator)
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../../Reference/API-Methods.md#ibft_proposevalidatorvote).
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote).
 
 ### Epoch transition
 
@@ -360,7 +360,7 @@ To update an existing network with a new `blockperiodseconds`:
 
 3. Restart all nodes in the network using the updated genesis file.
 4. To verify the changes after the transition block, call
-   [`ibft_getValidatorsByBlockNumber`](../../../Reference/API-Methods.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+   [`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 ### Configure block rewards on an existing network deployment
 

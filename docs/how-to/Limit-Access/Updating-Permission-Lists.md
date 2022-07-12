@@ -4,17 +4,17 @@ description: Updating Hyperledger Besu onchain allowlists
 
 # Updating nodes and accounts allowlists
 
-When using [onchain permissioning](../../Concepts/Permissioning/Onchain-Permissioning.md), you can update
+When using [onchain permissioning](../../concepts/Permissioning/Onchain-Permissioning.md), you can update
 [nodes](#update-nodes-allowlist) and [accounts](#update-accounts-allowlist) allowlists.
 
 ## Update nodes allowlist
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
-1. On the **Nodes** tab of the [permissioning management dapp](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
+1. On the **Nodes** tab of the [permissioning management dapp](../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
    select **Add Node**.
    The **Add Node** window displays.
-2. Enter the [enode URL](../../Concepts/Node-Keys.md#enode-url) of the node you are adding and select **Add Node**.
+2. Enter the [enode URL](../../concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
 
 !!! tip
 
@@ -61,7 +61,7 @@ To remove a node from the nodes allowlist:
 
 To add an account to the accounts allowlist:
 
-1. On the **Accounts** tab of the [permissioning management dapp](../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
+1. On the **Accounts** tab of the [permissioning management dapp](../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
    select **Add Account**. The **Add Account** window displays.
 1. Enter the account address in the **Account Address** field and select **Add Account**.
 
@@ -75,4 +75,4 @@ To remove an account from the accounts allowlist:
 
 You can add or remove admins in the same way as [accounts](#update-accounts-allowlist), except on the **Admins** tab.
 
-[support domain names]: ../../Concepts/Node-Keys.md#domain-name-support
+[support domain names]: ../../concepts/node-keys.md#domain-name-support

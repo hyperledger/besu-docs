@@ -4,20 +4,20 @@ description: Configuring NAT with Hyperledger Besu
 
 # Configuring NAT
 
-Use the [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) option to specify the NAT
+Use the [`--nat-method`](../../reference/cli/options.md#nat-method) option to specify the NAT
 method. Options are: [`UPNP`](#upnp), [`KUBERNETES`](#kubernetes), [`DOCKER`](#docker),
 [`AUTO`](#auto), and [`NONE`](#none).
 
-The [enode](../../Concepts/Node-Keys.md#enode-url) advertised to other nodes during discovery is
+The [enode](../../concepts/node-keys.md#enode-url) advertised to other nodes during discovery is
 the external IP address and port. The
-[`admin_nodeInfo`](../../Reference/API-Methods.md#admin_nodeinfo) JSON-RPC API method returns the
+[`admin_nodeInfo`](../../reference/api/index.md#admin_nodeinfo) JSON-RPC API method returns the
 external address and port for the `enode` and `listenAddr` properties.
 
 While Hyperledger Besu is running, the following are not supported:
 
 * IP address changes
 * Changing NAT methods. To change the NAT method, restart the node with the
-  [`--nat-method`](../../Reference/CLI/CLI-Syntax.md#nat-method) option set.
+  [`--nat-method`](../../reference/cli/options.md#nat-method) option set.
 
 ## Auto
 
@@ -75,7 +75,7 @@ Kubernetes APIs as required to determine external IP addresses and exposed ports
 In Kubernetes, the Ingress IP of the load balancer will be used as the external IP for Besu.
 A load balancer service can map any incoming port to a target port. These mapping rules will be the one retrieved by Besu.
 
-A tutorial to [Configure the Nat Manager for Kubernetes](../../Tutorials/Kubernetes/Nat-Manager-Kubernetes.md) is available.
+A tutorial to [Configure the Nat Manager for Kubernetes](../../tutorials/Kubernetes/Nat-Manager-Kubernetes.md) is available.
 
 ## Docker
 
@@ -85,19 +85,19 @@ you specify `DOCKER`, you advertise the host IP address not the container IP add
 The host IP address is the advertised host specified in the
 [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
 If not specified in the `docker run` command, the advertised host defaults to the values for
-[`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
-[`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+[`--p2p-host`](../../reference/cli/options.md#p2p-host) and
+[`--p2p-port`](../../reference/cli/options.md#p2p-port).
 
 ## None
 
 Specify `NONE` to explicitly configure the external IP address and ports advertised using:
 
-* [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
+* [`--p2p-host`](../../reference/cli/options.md#p2p-host) and [`--p2p-port`](../../reference/cli/options.md#p2p-port)
   for the P2P service.
-* [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) and [`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port)
+* [`--rpc-http-host`](../../reference/cli/options.md#rpc-http-host) and [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port)
   for the JSON-RPC HTTP service.
   
-The P2P and JSON-RPC HTTP hosts and ports are advertised in the [`net_services`](../../Reference/API-Methods.md#net_services) method.
+The P2P and JSON-RPC HTTP hosts and ports are advertised in the [`net_services`](../../reference/api/index.md#net_services) method.
 
 !!! important
 

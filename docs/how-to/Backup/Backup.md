@@ -18,7 +18,7 @@ If installed locally, the default data location is the Besu installation directo
 
 We recommend mounting a
 [separate volume to store data](../../get-started/install/run-docker-image.md#starting-besu). Use the
-[`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) command line option to pass the path
+[`--data-path`](../../reference/cli/options.md#data-path) command line option to pass the path
 to Besu.
 
 The default data location is the Besu installation directory, or `/opt/besu/database` if using the
@@ -52,4 +52,4 @@ The process for finding peers after restarting is the same as for
 [finding peers after upgrading and restarting].
 
 <!-- Links -->
-[finding peers after upgrading and restarting]: ../Upgrade/Upgrade-Node.md#finding-peers-on-restarting
+[finding peers after upgrading and restarting]: ../upgrade/node.md#finding-peers-on-restarting

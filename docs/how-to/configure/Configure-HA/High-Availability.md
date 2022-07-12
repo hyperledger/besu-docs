@@ -41,13 +41,13 @@ determine when a node is ready.
 ## Transaction nonces
 
 Besu obtains the nonce for the next transaction using
-[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount). The nonce
+[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount). The nonce
 depends on the transactions in the
-[transaction pool](../../../Concepts/Transactions/Transaction-Pool.md). If sending
-[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) and
-[`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction) requests for a
+[transaction pool](../../../concepts/Transactions/Transaction-Pool.md). If sending
+[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount) and
+[`eth_sendRawTransaction`](../../../reference/api/index.md#eth_sendrawtransaction) requests for a
 specific account to more than one node, the
-[`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount) results
+[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount) results
 might be incorrect.
 
 !!! note
@@ -100,17 +100,17 @@ node. To recover dropped messages, create another subscription and follow the pr
 
 To request information on blocks from the last block before the subscription dropped to the first
 block received from the new subscription, use
-[`eth_getBlockByNumber`](../../../Reference/API-Methods.md#eth_getblockbynumber).
+[`eth_getBlockByNumber`](../../../reference/api/index.md#eth_getblockbynumber).
 
 ### Logs
 
 To request logs from the block number of the last log received before the subscription dropped to
-the current chain head, use [`eth_getLogs`](../../../Reference/API-Methods.md#eth_getlogs).
+the current chain head, use [`eth_getLogs`](../../../reference/api/index.md#eth_getlogs).
 
 ### New pending transactions
 
 To request all pending transactions for the new node, use
-[`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions).
+[`txpool_besuTransactions`](../../../reference/api/index.md#txpool_besutransactions).
 
 !!! note
 
@@ -119,7 +119,7 @@ To request all pending transactions for the new node, use
 ### Dropped pending transactions
 
 To request all pending transactions for the new node, use
-[`txpool_besuTransactions`](../../../Reference/API-Methods.md#txpool_besutransactions).
+[`txpool_besuTransactions`](../../../reference/api/index.md#txpool_besutransactions).
 
 !!! note
 
@@ -128,4 +128,4 @@ To request all pending transactions for the new node, use
 ### Syncing
 
 The syncing state of each node is specific to that node. To retrieve the syncing state of the new
-node, use [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing).
+node, use [`eth_syncing`](../../../reference/api/index.md#eth_syncing).

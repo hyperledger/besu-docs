@@ -15,7 +15,7 @@ subscribe to logs and receive notifications when a specific event occurs.
 Methods specific to RPC Pub/Sub are:
 
 * `eth_subscribe` and `eth_unsubscribe` - create or cancel a subscription for specific events.
-* `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../Concepts/Privacy/Privacy-Overview.md).
+* `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../concepts/Privacy/Privacy-Overview.md).
 
 !!!important
 
@@ -91,9 +91,9 @@ chain. This means the subscription can publish notifications for multiple blocks
 on the blockchain.
 
 The new headers notification returns
-[block objects](../../Reference/API-Objects.md#block-object). The second parameter is optional.
+[block objects](../../reference/api/objects.md#block-object). The second parameter is optional.
 If specified, the notifications include whole
-[transaction objects](../../Reference/API-Objects.md#transaction-object), Otherwise, the
+[transaction objects](../../reference/api/objects.md#transaction-object), Otherwise, the
 notifications include transaction hashes.
 
 !!!example
@@ -178,7 +178,7 @@ notifications include transaction hashes.
 
 ### Logs
 
-To notify you about [logs](../../Concepts/Events-and-Logs.md) included in new blocks, use the
+To notify you about [logs](../../concepts/events-and-logs.md) included in new blocks, use the
 `logs` parameter with `eth_subscribe` or `priv_subscribe`. Specify a filter object to receive
 notifications only for logs matching your filter.
 
@@ -187,7 +187,7 @@ Logs subscriptions have an filter object parameter with the following fields:
 * `address` - (optional) Either an address or an array of addresses. Returns only logs created from
   these addresses.
 * `topics` - (optional) Returns only logs that match the
-  [specified topics](../../Concepts/Events-and-Logs.md#topic-filters).
+  [specified topics](../../concepts/events-and-logs.md#topic-filters).
 * `fromBlock` - (optional) The earliest block from which to return logs.
 * `toBlock` - (optional) The last block from which to return logs.
 
@@ -196,11 +196,11 @@ logs for a private contract subscription. If you create a subscription for a pri
 not a member of, you will not receive any notifications.
 
 If a chain reorganization occurs, the subscription publishes notifications for logs from the old
-chain with the `removed` property in the [log object](../../Reference/API-Objects.md#log-object)
+chain with the `removed` property in the [log object](../../reference/api/objects.md#log-object)
 set to `true`. This means the subscription can publish notifications for multiple logs for the same
 transaction.
 
-The logs subscription returns [log objects](../../Reference/API-Objects.md#log-object).
+The logs subscription returns [log objects](../../reference/api/objects.md#log-object).
 
 !!!example "Public logs"
 

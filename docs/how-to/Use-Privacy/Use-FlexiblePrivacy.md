@@ -11,7 +11,7 @@ description: Use flexible privacy groups
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 Use the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum) to create and update
-membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
+membership of [flexible privacy groups](../../concepts/Privacy/Flexible-PrivacyGroups.md).
 
 !!! tip
 
@@ -32,16 +32,16 @@ membership of [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyG
 
 ## Enabling flexible privacy groups
 
-Use the [`--privacy-flexible-groups-enabled`](../../Reference/CLI/CLI-Syntax.md#privacy-flexible-groups-enabled)
-command line option to enable [flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md).
-When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup),
-[`priv_deletePrivacyGroup`](../../Reference/API-Methods.md#priv_deleteprivacygroup),
-and [`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup) methods for
-[offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md) are disabled.
+Use the [`--privacy-flexible-groups-enabled`](../../reference/cli/options.md#privacy-flexible-groups-enabled)
+command line option to enable [flexible privacy groups](../../concepts/Privacy/Flexible-PrivacyGroups.md).
+When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../reference/api/index.md#priv_createprivacygroup),
+[`priv_deletePrivacyGroup`](../../reference/api/index.md#priv_deleteprivacygroup),
+and [`priv_findPrivacyGroup`](../../reference/api/index.md#priv_findprivacygroup) methods for
+[offchain privacy groups](../../concepts/Privacy/Privacy-Groups.md) are disabled.
 
 ## Simple flexible privacy group example
 
-To create and find a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md) using
+To create and find a [flexible privacy group](../../concepts/Privacy/Flexible-PrivacyGroups.md) using
 the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 
 1. Update the `example/keys.js` file to match your network configuration.
@@ -64,7 +64,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
 
 ## Adding and removing members
 
-To add and remove members from a [flexible privacy group](../../Concepts/Privacy/Flexible-PrivacyGroups.md),
+To add and remove members from a [flexible privacy group](../../concepts/Privacy/Flexible-PrivacyGroups.md),
 use the `addTo` and `removeFrom` methods in the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)
 client library.
 

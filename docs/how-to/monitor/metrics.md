@@ -5,7 +5,7 @@ description: Monitoring and metrics
 # Use metrics to monitor node performance
 
 To enable the [Prometheus](https://prometheus.io/) monitoring and alerting service to access Hyperledger Besu metrics,
-use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option.
+use the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
 Use [Grafana](https://grafana.com/) to visualize the collected data.
 See the sample [Besu Grafana dashboard](https://grafana.com/dashboards/10273).
 
@@ -80,7 +80,7 @@ To configure Prometheus and run with Besu:
    
         Prometheus requires 3 MB of space per node per hour for metrics, with a `scrape_interval` of 15 seconds.
 
-1. Start Besu with the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option.
+1. Start Besu with the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
    To start a single node for testing with metrics enabled, run the following command:
 
     === "Syntax"
@@ -95,8 +95,8 @@ To configure Prometheus and run with Besu:
         besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
         ```
 
-    To specify the host and port on which Prometheus accesses Besu, use the [`--metrics-host`](../../Reference/CLI/CLI-Syntax.md#metrics-host)
-    and [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options.
+    To specify the host and port on which Prometheus accesses Besu, use the [`--metrics-host`](../../reference/cli/options.md#metrics-host)
+    and [`--metrics-port`](../../reference/cli/options.md#metrics-port) options.
     The default host and port are 127.0.0.1 (`localhost`) and 9545.
 
     !!! important
@@ -121,10 +121,10 @@ To configure Prometheus and run with Besu:
 
 ## Running Prometheus with Besu in push mode
 
-The [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option enables Prometheus polling of Besu,
+The [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option enables Prometheus polling of Besu,
 but sometimes metrics are hard to poll (for example, when running inside Docker containers with varying IP addresses).
 To enable Besu to push metrics to a [Prometheus Pushgateway](https://github.com/prometheus/pushgateway), use the
-[`--metrics-push-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-push-enabled) option.
+[`--metrics-push-enabled`](../../reference/cli/options.md#metrics-push-enabled) option.
 
 To configure Prometheus and run with Besu pushing to a push gateway:
 
@@ -189,17 +189,17 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 The following table lists available metrics.
 Each metric starts with a metric category prefix.
 Metrics specific to Besu use the `besu_` prefix, followed by another metric category.
-Metric categories can be enabled using the [`metrics-category`](../../Reference/CLI/CLI-Syntax.md#metrics-category) command line option.
+Metric categories can be enabled using the [`metrics-category`](../../reference/cli/options.md#metrics-category) command line option.
 If a metric has a JSON-RPC equivalent, it is included in the definition column.
 
 | Name | Metric type | Definition |
 | ---  | ---         | ---        |
 | `besu_blockchain_chain_head_gas_limit`                                    | Gauge   | Block gas limit of the current chain head block     |
 | `besu_blockchain_chain_head_gas_used`                                     | Gauge   | Gas used by the current chain head block            |
-| `besu_blockchain_chain_head_ommer_count`                                  | Gauge   | Number of uncles in the current chain head block (JSON-RPC equivalent: [`eth_getUncleCountByBlockHash`](../../Reference/API-Methods.md#eth_getunclecountbyblockhash) or [`eth_getUncleCountByBlockNumber`](../../Reference/API-Methods.md#eth_getunclecountbyblocknumber)) |
+| `besu_blockchain_chain_head_ommer_count`                                  | Gauge   | Number of uncles in the current chain head block (JSON-RPC equivalent: [`eth_getUncleCountByBlockHash`](../../reference/api/index.md#eth_getunclecountbyblockhash) or [`eth_getUncleCountByBlockNumber`](../../reference/api/index.md#eth_getunclecountbyblocknumber)) |
 | `besu_blockchain_chain_head_timestamp`                                    | Gauge   | Timestamp from the current chain head               |
-| `besu_blockchain_chain_head_transaction_count`                            | Gauge   | Number of transactions in the current chain head block (JSON-RPC equivalent: [`eth_getBlockTransactionCountByHash`](../../Reference/API-Methods.md#eth_getblocktransactioncountbyhash) or [`eth_getBlockTransactionCountByNumber`](../../Reference/API-Methods.md#eth_getblocktransactioncountbynumber)) |
-| `besu_blockchain_difficulty_total`                                        | Gauge   | Difficulty of the chain head (JSON-RPC equivalent: `difficulty` of [`admin_peers`](../../Reference/API-Methods.md#admin_peers)) |
+| `besu_blockchain_chain_head_transaction_count`                            | Gauge   | Number of transactions in the current chain head block (JSON-RPC equivalent: [`eth_getBlockTransactionCountByHash`](../../reference/api/index.md#eth_getblocktransactioncountbyhash) or [`eth_getBlockTransactionCountByNumber`](../../reference/api/index.md#eth_getblocktransactioncountbynumber)) |
+| `besu_blockchain_difficulty_total`                                        | Gauge   | Difficulty of the chain head (JSON-RPC equivalent: `difficulty` of [`admin_peers`](../../reference/api/index.md#admin_peers)) |
 | `besu_executors_ethscheduler_computation_active_threads_current`          | Gauge   | Current number of threads executing computation tasks |
 | `besu_executors_ethscheduler_computation_completed_tasks_total`           | Gauge   | Total number of computation tasks executed          |
 | `besu_executors_ethscheduler_computation_pool_size_current`               | Gauge   | Current number of threads in the computation thread pool |
@@ -258,12 +258,12 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
 | `besu_synchronizer_world_state_pipeline_processed_total`                  | Counter | Number of entries processed by each world state download pipeline stage |
 | `besu_synchronizer_world_state_retried_requests_total`                    | Counter | Total number of node data requests repeated as part of fast sync world state download |
 | `besu_transaction_pool_pending_transactions_messages_skipped_total`       | Counter | Total number of pending transactions messages skipped by the processor |
-| `besu_transaction_pool_transactions`                                      | Gauge   | Current size of the transaction pool (JSON-RPC equivalent: result number of [`txpool_besuTransactions`](../../Reference/API-Methods.md#txpool_besutransactions)) |
+| `besu_transaction_pool_transactions`                                      | Gauge   | Current size of the transaction pool (JSON-RPC equivalent: result number of [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions)) |
 | `besu_transaction_pool_transactions_added_total`                          | Counter | Count of transactions added to the transaction pool |
 | `besu_transaction_pool_transactions_messages_skipped_total`               | Counter | Total number of transactions messages skipped by the processor. |
-| `ethereum_best_known_block_number`                                        | Gauge   | Estimated highest block available (JSON-RPC equivalent: `highestBlock` of [`eth_syncing`](../../Reference/API-Methods.md#eth_syncing), or [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber) if not syncing) |
-| `ethereum_blockchain_height`                                              | Gauge   | Current height of the canonical chain (JSON-RPC equivalent: [`eth_blockNumber`](../../Reference/API-Methods.md#eth_blocknumber)) |
-| `ethereum_peer_count`                                                     | Gauge   | Current number of peers connected (JSON-RPC equivalent: [`net_peerCount`](../../Reference/API-Methods.md#net_peercount)) |
+| `ethereum_best_known_block_number`                                        | Gauge   | Estimated highest block available (JSON-RPC equivalent: `highestBlock` of [`eth_syncing`](../../reference/api/index.md#eth_syncing), or [`eth_blockNumber`](../../reference/api/index.md#eth_blocknumber) if not syncing) |
+| `ethereum_blockchain_height`                                              | Gauge   | Current height of the canonical chain (JSON-RPC equivalent: [`eth_blockNumber`](../../reference/api/index.md#eth_blocknumber)) |
+| `ethereum_peer_count`                                                     | Gauge   | Current number of peers connected (JSON-RPC equivalent: [`net_peerCount`](../../reference/api/index.md#net_peercount)) |
 | `ethereum_peer_limit`                                                     | Gauge   | Maximum number of peers this node allows to connect |
 | `jvm_buffer_pool_capacity_bytes`                                          | Gauge   | Bytes capacity of a given JVM buffer pool           |
 | `jvm_buffer_pool_used_buffers`                                            | Gauge   | Used buffers of a given JVM buffer pool             |
@@ -302,4 +302,4 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
       maximum number of P2P connections that can be established.
 
 <!-- Links -->
-[monitoring with Prometheus and Grafana configured]: ../../Tutorials/Developer-Quickstart.md#monitor-nodes-with-prometheus-and-grafana
+[monitoring with Prometheus and Grafana configured]: ../../tutorials/Developer-Quickstart.md#monitor-nodes-with-prometheus-and-grafana

@@ -15,8 +15,8 @@ besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
 Where `<account>` is the account you pay mining rewards to. For example,
 `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
 
-Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#miner_start) and
-[`miner_stop`](../../Reference/API-Methods.md#miner_stop) APIs.
+Start and stop mining using the [`miner_start`](../../reference/api/index.md#miner_start) and
+[`miner_stop`](../../reference/api/index.md#miner_stop) APIs.
 
 ## Configure GPU mining
 
@@ -34,9 +34,9 @@ Where `<account>` is the account you pay mining rewards to. For example,
 
 Optional command line options are:
 
-* [`--miner-stratum-host`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-host) to specify the
+* [`--miner-stratum-host`](../../reference/cli/options.md#miner-stratum-host) to specify the
   host of the mining service.
-* [`--miner-stratum-port`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-port) to specify the
+* [`--miner-stratum-port`](../../reference/cli/options.md#miner-stratum-port) to specify the
   port of the mining service.
 
 !!! note
@@ -47,26 +47,26 @@ Optional command line options are:
 
     The `getwork` scheme is supported as the `http` scheme in certain mining software.
 
-Start and stop mining using the [`miner_start`](../../Reference/API-Methods.md#miner_start) and
-[`miner_stop`](../../Reference/API-Methods.md#miner_stop) APIs.
+Start and stop mining using the [`miner_start`](../../reference/api/index.md#miner_start) and
+[`miner_stop`](../../reference/api/index.md#miner_stop) APIs.
 
 ## Mining APIs
 
 The JSON-RPC API methods for mining are:
 
-* [`miner_start`](../../Reference/API-Methods.md#miner_start) to start mining.
-* [`miner_stop`](../../Reference/API-Methods.md#miner_stop) to stop mining.
-* [`eth_mining`](../../Reference/API-Methods.md#eth_mining) to determine whether the client is
+* [`miner_start`](../../reference/api/index.md#miner_start) to start mining.
+* [`miner_stop`](../../reference/api/index.md#miner_stop) to stop mining.
+* [`eth_mining`](../../reference/api/index.md#eth_mining) to determine whether the client is
   actively mining new blocks.
-* [`eth_getMinerDataByBlockHash`](../../Reference/API-Methods.md#eth_getminerdatabyblockhash) and
-[`eth_getMinerDataByBlockNumber`](../../Reference/API-Methods.md#eth_getminerdatabyblocknumber) to
+* [`eth_getMinerDataByBlockHash`](../../reference/api/index.md#eth_getminerdatabyblockhash) and
+[`eth_getMinerDataByBlockNumber`](../../reference/api/index.md#eth_getminerdatabyblocknumber) to
 get the miner data for a specified block.
-* [`eth_hashrate`](../../Reference/API-Methods.md#eth_hashrate) to get the number of hashes per
+* [`eth_hashrate`](../../reference/api/index.md#eth_hashrate) to get the number of hashes per
   second with which the node is mining. Not supported for GPU mining.
-* [`eth_getWork`](../../Reference/API-Methods.md#eth_getwork) to get the hash of the current block,
+* [`eth_getWork`](../../reference/api/index.md#eth_getwork) to get the hash of the current block,
   the seed hash, and the target boundary condition. Only used when using the `getwork`
   scheme.
-* [`eth_submitWork`](../../Reference/API-Methods.md#eth_submitwork) to submit the PoW solution.
+* [`eth_submitWork`](../../reference/api/index.md#eth_submitwork) to submit the PoW solution.
   Only used when using the `getwork` scheme.
 
 ## Hyperledger Besu mined blocks

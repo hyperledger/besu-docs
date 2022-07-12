@@ -41,11 +41,11 @@ client an optional string message containing information about the error.
 
 ## Enabling revert reason
 
-Use the [`--revert-reason-enabled`](../../../Reference/CLI/CLI-Syntax.md#revert-reason-enabled)
+Use the [`--revert-reason-enabled`](../../../reference/cli/options.md#revert-reason-enabled)
 command line option to include the revert reason in the transaction receipt,
-[`eth_estimateGas`](../../../Reference/API-Methods.md#eth_estimategas) error,
-[`eth_call`](../../../Reference/API-Methods.md#eth_call) error, and
-[`trace`](../../../Reference/Trace-Types.md#trace) response in Hyperledger Besu.
+[`eth_estimateGas`](../../../reference/api/index.md#eth_estimategas) error,
+[`eth_call`](../../../reference/api/index.md#eth_call) error, and
+[`trace`](../../../reference/trace-types.md#trace) response in Hyperledger Besu.
 
 !!! caution
 
@@ -55,7 +55,7 @@ command line option to include the revert reason in the transaction receipt,
 ## Where is the revert reason included
 
 With revert reason enabled, the transaction receipt returned by
-[`eth_getTransactionReceipt`](../../../Reference/API-Methods.md#eth_gettransactionreceipt) includes
+[`eth_getTransactionReceipt`](../../../reference/api/index.md#eth_gettransactionreceipt) includes
 the revert reason as an ABI-encoded string.
 
 !!! important
@@ -90,8 +90,8 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
-The error returned by [`eth_estimateGas`](../../../Reference/API-Methods.md#eth_estimategas) and
-[`eth_call`](../../../Reference/API-Methods.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
+The error returned by [`eth_estimateGas`](../../../reference/api/index.md#eth_estimategas) and
+[`eth_call`](../../../reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
 
 !!! example "Example of `eth_estimateGas` and `eth_call` error"
 
@@ -107,10 +107,10 @@ The error returned by [`eth_estimateGas`](../../../Reference/API-Methods.md#eth_
     }
     ```
 
-The list items in the [`trace`](../../../Reference/Trace-Types.md#trace) response returned by
-[`trace_replayBlockTransactions`](../../../Reference/API-Methods.md#trace_replayblocktransactions),
-[`trace_block`](../../../Reference/API-Methods.md#trace_block), and
-[`trace_transaction`](../../../Reference/API-Methods.md#trace_transaction) include the revert reason as an ABI-encoded string.
+The list items in the [`trace`](../../../reference/trace-types.md#trace) response returned by
+[`trace_replayBlockTransactions`](../../../reference/api/index.md#trace_replayblocktransactions),
+[`trace_block`](../../../reference/api/index.md#trace_block), and
+[`trace_transaction`](../../../reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
 
 !!! example "Example of `trace` response list item"
 

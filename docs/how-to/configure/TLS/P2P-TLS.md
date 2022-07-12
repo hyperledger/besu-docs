@@ -19,7 +19,7 @@ Besu supports PKCS11, PKCS12, and JKS keystore and truststore types for P2P TLS.
 **Prerequisites**:
 
 * A configured network. For example,
-    [see steps 1 to 5 in the QBFT tutorial](../../../Tutorials/Private-Network/Create-QBFT-Network.md).
+    [see steps 1 to 5 in the QBFT tutorial](../../../tutorials/Private-Network/Create-QBFT-Network.md).
 * Each node requires a keystore that contains the node's certificate and key.
 * A truststore containing all the trusted certificates for the network.
 

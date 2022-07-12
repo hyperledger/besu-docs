@@ -10,7 +10,7 @@ description: Block proposal permissioning
 
     Block proposal permissioning is an early access feature, and functionality and options may be updated between releases.
 
-You can configure [block proposal permissioning](../../Concepts/PKI.md#block-proposal-permissioning)
+You can configure [block proposal permissioning](../../concepts/PKI.md#block-proposal-permissioning)
 to ensure only authorized validator nodes can propose blocks in the network.
 
 Use certificates issued by a trusted authority to ensure validators are authorized to propose blocks.
@@ -20,7 +20,7 @@ Use certificates issued by a trusted authority to ensure validators are authoriz
 **Prerequisites**:
 
 * A configured network. For example,
-    [see steps 1 to 5 in the QBFT tutorial](../../Tutorials/Private-Network/Create-QBFT-Network.md).
+    [see steps 1 to 5 in the QBFT tutorial](../../tutorials/Private-Network/Create-QBFT-Network.md).
 * A keystore containing the certificate and key for each network node.
 * A truststore containing all the trusted certificates for the network.
 

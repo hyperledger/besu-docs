@@ -7,11 +7,11 @@ description: Using the Hyperledger Besu configuration file
 To specify command line options in a file, use a TOML configuration file.
 
 Save the configuration file and reuse it across node startups. To specify the configuration file,
-use the [`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option.
+use the [`--config-file`](../../reference/cli/options.md#config-file) option.
 
 To override an option specified in the configuration file, either specify the same option on the
 command line or as an
-[environment variable](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables). For options
+[environment variable](../../reference/cli/options.md#besu-environment-variables). For options
 specified in more than one place, the order of precedence is command line, environment variable,
 configuration file.
 

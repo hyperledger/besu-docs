@@ -5,8 +5,8 @@ description: Collect Besu information with the OpenTelemetry Collector
 # OpenTelemetry
 
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces.
-To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
-and [`--metrics-protocol=opentelemetry`](../../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
+To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../../reference/cli/options.md#metrics-enabled)
+and [`--metrics-protocol=opentelemetry`](../../../reference/cli/options.md#metrics-protocol) options.
 Use [Splunk](https://splunk.com) to visualize the collected data.
 A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
 
@@ -140,8 +140,8 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
 
     You can also refer to this [Docker-compose example](https://github.com/splunk/splunk-connect-for-ethereum/blob/master/examples/besu-sync/full-sync/docker-compose.yaml).
 
-1. Start Besu with the [`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) and
-   [`--metrics-protocol=opentelemetry`](../../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
+1. Start Besu with the [`--metrics-enabled`](../../../reference/cli/options.md#metrics-enabled) and
+   [`--metrics-protocol=opentelemetry`](../../../reference/cli/options.md#metrics-protocol) options.
    For example, run the following command to start a single node:
 
     === "Syntax"

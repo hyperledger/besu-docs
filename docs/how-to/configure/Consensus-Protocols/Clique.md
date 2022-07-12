@@ -6,7 +6,7 @@ source: rinkeby.json
 
 # Clique
 
-Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](../../../Concepts/Consensus-Protocols/Overview-Consensus.md).
+Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](../../../concepts/Consensus-Protocols/Overview-Consensus.md).
 The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
 
 !!! warning
@@ -19,11 +19,11 @@ In Clique networks, approved accounts, known as signers, validate transactions a
 take turns to create the next block.
 Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
 
-You can [create a private network using Clique](../../../Tutorials/Private-Network/Create-Private-Clique-Network.md).
+You can [create a private network using Clique](../../../tutorials/Private-Network/Create-Private-Clique-Network.md).
 
 ## Genesis file
 
-To use Clique in a private network, Besu requires a Clique [genesis file](../Genesis-File.md). When connecting to Rinkeby,
+To use Clique in a private network, Besu requires a Clique [genesis file](../../../concepts/genesis-file.md). When connecting to Rinkeby,
 Besu uses the
 [`rinkeby.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/rinkeby.json)
 genesis file in the `/besu/config/src/main/resources` directory.
@@ -83,7 +83,7 @@ The `extraData` property consists of:
 
 ### Post-Merge configuration
 
-After [The Merge](../../../Concepts/Merge.md), the following block fields are modified or deprecated.
+After [The Merge](../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated.
 Their fields **must** contain only the constant values from the following chart.
 
 | Field | Constant value | Comment |
@@ -99,34 +99,34 @@ Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data a
 ## Connect to a Clique network
 
 To connect to the Rinkeby testnet, start Besu with the
-[`--network=rinkeby`](../../../Reference/CLI/CLI-Syntax.md#network) command line option. To start a
+[`--network=rinkeby`](../../../reference/cli/options.md#network) command line option. To start a
 node on a Clique private network, use the
-[`--genesis-file`](../../../Reference/CLI/CLI-Syntax.md#genesis-file) option to specify the custom
+[`--genesis-file`](../../../reference/cli/options.md#genesis-file) option to specify the custom
 genesis file.
 
 ## Add and remove signers
 
 Existing signers propose and vote to add or remove validators using the Clique JSON-RPC API methods.
-Enable the HTTP interface with [`--rpc-http-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or the
-WebSocket interface with [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled).
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled) or the
+WebSocket interface with [`--rpc-ws-enabled`](../../../reference/cli/options.md#rpc-ws-enabled).
 
 The Clique API methods are disabled by default.
-To enable them, specify the [`--rpc-http-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) option and include `CLIQUE`.
+To enable them, specify the [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../reference/cli/options.md#rpc-ws-api) option and include `CLIQUE`.
 
 The methods to add or remove signers are:
 
-* [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
-* [`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
-* [`clique_discard`](../../../Reference/API-Methods.md#clique_discard).
+* [`clique_propose`](../../../reference/api/index.md#clique_propose).
+* [`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
+* [`clique_discard`](../../../reference/api/index.md#clique_discard).
 
 To view signer metrics for a specified block range, call
-[`clique_getSignerMetrics`](../../../Reference/API-Methods.md#clique_getsignermetrics).
+[`clique_getSignerMetrics`](../../../reference/api/index.md#clique_getsignermetrics).
 
 ### Add a signer
 
 To propose adding a signer to a Clique network, call
-[`clique_propose`](../../../Reference/API-Methods.md#clique_propose), specifying the address of the proposed signer and `true`.
+[`clique_propose`](../../../reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`.
 A majority of signers must execute the call.
 
 !!! example "JSON-RPC `clique_propose` request example"
@@ -141,7 +141,7 @@ When more than 50% of the existing signers propose adding the signer, with their
 signer can begin signing blocks.
 
 To return a list of signers and confirm the addition of a proposed signer, call
-[`clique_getSigners`](../../../Reference/API-Methods.md#clique_getsigners).
+[`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
 
 !!! example "JSON-RPC `clique_getSigners` request example"
 
@@ -150,7 +150,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
     ```
 
 To discard your proposal after confirming the addition of a signer, call
-[`clique_discard`](../../../Reference/API-Methods.md#clique_discard) specifying the address of the proposed signer.
+[`clique_discard`](../../../reference/api/index.md#clique_discard) specifying the address of the proposed signer.
 
 !!! example "JSON-RPC `clique_discard` request example"
 
@@ -161,7 +161,7 @@ To discard your proposal after confirming the addition of a signer, call
 ### Remove a signer
 
 The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you
-specify `false` as the second parameter of [`clique_propose`](../../../Reference/API-Methods.md#clique_propose).
+specify `false` as the second parameter of [`clique_propose`](../../../reference/api/index.md#clique_propose).
 
 ### Epoch transition
 

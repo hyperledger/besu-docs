@@ -4,7 +4,7 @@ description: Hyperledger Besu API
 
 # Access the Hyperledger Besu API
 
-Access the [Hyperledger Besu API](../../Reference/API-Methods.md) using:
+Access the [Hyperledger Besu API](../../reference/api/index.md) using:
 
 * [JSON-RPC over HTTP, WebSocket, or IPC](json-rpc.md)
 * [RPC Pub/Sub over WebSockets](rpc-pubsub.md)
@@ -15,9 +15,9 @@ The following sections provide information about JSON-RPC, RPC Pub/Sub, and Grap
 ## Enable API access
 
 To enable API access, use the
-[`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled),
-[`--ws-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled),
-[`--graphql-http-enabled`](../../Reference/CLI/CLI-Syntax.md#graphql-http-enabled), and
+[`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled),
+[`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled),
+[`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), and
 `--Xrpc-ipc-enabled` options.
 
 !!! caution
@@ -27,9 +27,9 @@ To enable API access, use the
 ## Service hosts
 
 To specify the host the API service listens on, use the
-[`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host),
-[`--rpc-ws-host`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-host), and
-[`--graphql-http-host`](../../Reference/CLI/CLI-Syntax.md#graphql-http-host) options. The
+[`--rpc-http-host`](../../reference/cli/options.md#rpc-http-host),
+[`--rpc-ws-host`](../../reference/cli/options.md#rpc-ws-host), and
+[`--graphql-http-host`](../../reference/cli/options.md#graphql-http-host) options. The
 default host is `127.0.0.1`.
 
 To allow remote connections, set the host to `0.0.0.0`.
@@ -43,9 +43,9 @@ To allow remote connections, set the host to `0.0.0.0`.
 ## Service ports
 
 To specify the port the API service listens on, use the
-[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port),
-[`--rpc-ws-port`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-port), and
-[`--graphql-http-port`](../../Reference/CLI/CLI-Syntax.md#graphql-http-port) options.
+[`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port),
+[`--rpc-ws-port`](../../reference/cli/options.md#rpc-ws-port), and
+[`--graphql-http-port`](../../reference/cli/options.md#graphql-http-port) options.
 
 The default ports are:
 
@@ -69,7 +69,7 @@ The default path is `besu.ipc` in the Besu data directory.
 To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSocket connections, and GraphQL
 requests.
 Besu accepts requests only when hostnames specified using the
-[`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) option matches the request host headers.
+[`--host-allowlist`](../../reference/cli/options.md#host-allowlist) option matches the request host headers.
 By default, Besu accepts requests and connections from `localhost` and `127.0.0.1`.
 
 !!! important
@@ -99,7 +99,7 @@ Specify "*" for `--host-allowlist` to effectively disable host protection.
 Account management relies on private key management in the client, which is not supported by Besu.
 
 To send signed transactions, use
-[`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction).
+[`eth_sendRawTransaction`](../../reference/api/index.md#eth_sendrawtransaction).
 `eth_sendTransaction` is not implemented.
 
 For [account management](../Send-Transactions/Account-Management.md), use third-party wallets.

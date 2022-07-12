@@ -21,7 +21,7 @@ Bootnodes are regular nodes used to discover other nodes.
 
 For Mainnet and the Rinkeby, Ropsten, Sepolia, and Goerli testnets, Hyperledger Besu has an internal list of
 enode URLs and uses this list automatically when you specify the
-[`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option.
+[`--network`](../../../reference/cli/options.md#network) option.
 
 ## Private networks
 
@@ -31,8 +31,8 @@ In production networks, [configure two or more nodes as bootnodes](../../../how-
 
 ### Specify a bootnode
 
-To start a node, specifying a bootnode [enode](../../../Concepts/Node-Keys.md) for P2P discovery,
-using the [`--bootnodes`](../../../Reference/CLI/CLI-Syntax.md#bootnodes) option.
+To start a node, specifying a bootnode [enode](../../../concepts/node-keys.md) for P2P discovery,
+using the [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option.
 
 !!! example
 
@@ -42,9 +42,9 @@ using the [`--bootnodes`](../../../Reference/CLI/CLI-Syntax.md#bootnodes) option
 
 The default host and port advertised to other peers for P2P discovery is `127.0.0.1:30303`. To
 specify a different host or port, use the
-[`--p2p-host`](../../../Reference/CLI/CLI-Syntax.md#p2p-host) and
-[`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port) options.
+[`--p2p-host`](../../../reference/cli/options.md#p2p-host) and
+[`--p2p-port`](../../../reference/cli/options.md#p2p-port) options.
 
 By default, peer discovery listens on all available network interfaces. If the device Besu is
 running on must bind to a specific network interface, specify the interface using the
-[`--p2p-interface`](../../../Reference/CLI/CLI-Syntax.md#p2p-interface) option.
+[`--p2p-interface`](../../../reference/cli/options.md#p2p-interface) option.

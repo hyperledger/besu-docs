@@ -13,11 +13,11 @@ Hyperledger Besu does not support key management inside the client. Use:
 
 In Besu, you can use the JSON-RPC methods:
 
-* [`eth_getBalance`](../../Reference/API-Methods.md#eth_getbalance) to retrieve the account balance.
-* [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction) to transfer
+* [`eth_getBalance`](../../reference/api/index.md#eth_getbalance) to retrieve the account balance.
+* [`eth_sendRawTransaction`](../../reference/api/index.md#eth_sendrawtransaction) to transfer
   ether or create and interact with contracts. For more information, see
   [Transactions](../send-transactions.md#transactions)).
-* [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction) to send
+* [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) to send
   [private transactions](../../private-networks/how-to/send-transactions/private-transactions.md).
 
 !!! tip

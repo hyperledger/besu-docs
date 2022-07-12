@@ -5,11 +5,11 @@ description: Some use cases of creating transactions on a Hyperledger Besu netwo
 # Creating and sending transactions
 
 You can send signed transactions using the
-[`eth_sendRawTransaction`](../Reference/API-Methods.md#eth_sendrawtransaction) JSON-RPC API
+[`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction) JSON-RPC API
 method.
 
 Signed transactions can be simple value transfers, contract creation, or contract invocation. Set
-the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../Reference/CLI/CLI-Syntax.md#rpc-tx-feecap)
+the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../reference/cli/options.md#rpc-tx-feecap)
 CLI option.
 
 To accept signed transactions from remote connections, set the
@@ -47,8 +47,8 @@ Ether and create a smart contract.
 
 ## `eth_call` vs `eth_sendRawTransaction`
 
-You can interact with contracts using [`eth_call`](../Reference/API-Methods.md#eth_call) or
-[`eth_sendRawTransaction`](../Reference/API-Methods.md#eth_sendrawtransaction). The table below
+You can interact with contracts using [`eth_call`](../reference/api/index.md#eth_call) or
+[`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction). The table below
 compares the characteristics of both calls.
 
 | `eth_call`                                                     | `eth_sendRawTransaction`                                                                                                      |

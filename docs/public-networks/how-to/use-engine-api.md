@@ -4,8 +4,8 @@ description: How to enable and use the Engine API
 
 # Use the Engine API
 
-After [The Merge](../../Concepts/Merge.md), consensus and execution clients communicate with each other using the Engine API.
-These [API methods](../../Reference/Engine-API-Methods.md) are a separate subsection of the [JSON-RPC API](../../how-to/use-besu-api/index.md).
+After [The Merge](../concepts/the-merge.md), consensus and execution clients communicate with each other using the Engine API.
+These [API methods](../reference/engine-api/index.md) are a separate subsection of the [JSON-RPC API](../../how-to/use-besu-api/index.md).
 
 ## Configure the Engine API
 
@@ -25,7 +25,7 @@ To configure the Engine API:
 ### Service ports
 
 To specify the port the Engine API service listens on for HTTP and WebSocket, use the
-[`--engine-rpc-port`](../../Reference/CLI/CLI-Syntax.md#engine-rpc-port) option.
+[`--engine-rpc-port`](../../reference/cli/options.md#engine-rpc-port) option.
 The default is `8551`.
 
 ### Host allowlist
@@ -33,7 +33,7 @@ The default is `8551`.
 To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSocket connections, and GraphQL
 requests.
 Besu accepts requests only when hostnames specified using the
-[`--engine-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) option matches the request host headers.
+[`--engine-host-allowlist`](../../reference/cli/options.md#engine-host-allowlist) option matches the request host headers.
 By default, Besu accepts requests and connections from `localhost` and `127.0.0.1`.
 
 !!! important
@@ -52,20 +52,20 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 ## Authentication
 
 By default, [authentication](../../how-to/use-besu-api/authenticate.md) for the Engine API is enabled.
-To disable, set the [`--engine-jwt-disabled`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-disabled) option to `true`.
+To disable, set the [`--engine-jwt-disabled`](../../reference/cli/options.md#engine-jwt-disabled) option to `true`.
 
 !!! warning
 
     Don't disable JWT authentication in production environments.
     Disable only for testing purposes.
 
-Set the [JWT secret](../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
+Set the [JWT secret](../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
 
 ## Send a payload using the Engine API
 
 ### 1. Prepare a payload
 
-Prepare to send a payload using [`engine_forkchoiceUpdatedV1`](../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1).
+Prepare to send a payload using [`engine_forkchoiceUpdatedV1`](../reference/engine-api/index.md#engine_forkchoiceupdatedv1).
 
 !!! example
 
@@ -94,7 +94,7 @@ Prepare to send a payload using [`engine_forkchoiceUpdatedV1`](../../Reference/E
 
 ### 2. Get the payload
 
-Get the payload using [`engine_getPayloadV1`](../../Reference/Engine-API-Methods.md#engine_getpayloadv1)
+Get the payload using [`engine_getPayloadV1`](../reference/engine-api/index.md#engine_getpayloadv1)
 
 !!! example
 
@@ -131,7 +131,7 @@ Get the payload using [`engine_getPayloadV1`](../../Reference/Engine-API-Methods
 
 ### 3. Execute the payload
 
-Execute the payload using [`engine_newPayloadV1`](../../Reference/Engine-API-Methods.md#engine_newpayloadv1)
+Execute the payload using [`engine_newPayloadV1`](../reference/engine-api/index.md#engine_newpayloadv1)
 
 !!! example
 
@@ -174,7 +174,7 @@ Execute the payload using [`engine_newPayloadV1`](../../Reference/Engine-API-Met
 
 ### 4. Update the fork choice
 
-Update the fork choice using [`engine_forkchoiceUpdatedV1`](../../Reference/Engine-API-Methods.md#engine_forkchoiceupdatedv1) again.
+Update the fork choice using [`engine_forkchoiceUpdatedV1`](../reference/engine-api/index.md#engine_forkchoiceupdatedv1) again.
 
 !!! example
 

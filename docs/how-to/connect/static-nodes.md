@@ -25,20 +25,20 @@ any unconnected static node.
 
 To configure a network of static nodes:
 
-1. List the [enode URLs](../../Concepts/Node-Keys.md#enode-url) of the nodes in the
+1. List the [enode URLs](../../concepts/node-keys.md#enode-url) of the nodes in the
    [`static-nodes.json` file](#static-nodesjson-file).
 
 1. Save the `static-nodes.json` file in the data directory (specified by
-   [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path)) of each node.
+   [`--data-path`](../../reference/cli/options.md#data-path)) of each node.
    Alternatively, you can explicitly specify the static nodes file on the command line using
-   [`--static-nodes-file`](../../Reference/CLI/CLI-Syntax.md#static-nodes-file).
+   [`--static-nodes-file`](../../reference/cli/options.md#static-nodes-file).
 
 1. Start Besu with discovery disabled using
-   [`--discovery-enabled=false`](../../Reference/CLI/CLI-Syntax.md#discovery-enabled).
+   [`--discovery-enabled=false`](../../reference/cli/options.md#discovery-enabled).
 
 To update the list of static peers at run time, use the
-[`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer) and
-[`admin_removePeer`](../../Reference/API-Methods.md#admin_removepeer) JSON-RPC API methods.
+[`admin_addPeer`](../../reference/api/index.md#admin_addpeer) and
+[`admin_removePeer`](../../reference/api/index.md#admin_removepeer) JSON-RPC API methods.
 
 !!! note
 
@@ -58,8 +58,8 @@ To update the list of static peers at run time, use the
 ### `static-nodes.json` file
 
 The `static-nodes.json` file must be in the data directory (specified by
-[`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path)) and contain a JSON array of
-[enode URLs](../../Concepts/Node-Keys.md#enode-url).
+[`--data-path`](../../reference/cli/options.md#data-path)) and contain a JSON array of
+[enode URLs](../../concepts/node-keys.md#enode-url).
 
 !!! example
 

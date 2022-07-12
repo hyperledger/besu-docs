@@ -35,4 +35,4 @@ procedure above to deploy the permissioning management dapp to your Web server.
 
 <!-- Links -->
 [projects release page]: https://github.com/ConsenSys/permissioning-smart-contracts/releases/latest
-[Getting started with onchain permissioning]: ../../Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+[Getting started with onchain permissioning]: ../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md

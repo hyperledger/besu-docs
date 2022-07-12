@@ -7,7 +7,7 @@ description: Starting Hyperledger Besu
 You can use Besu nodes for varying purposes, as described in the [Overview](../../index.md). Nodes
 can connect to the Ethereum Mainnet, public testnets such as Ropsten, or private networks.
 
-Use the [`besu`](../../Reference/CLI/CLI-Syntax.md) command with the required command line options
+Use the [`besu`](../../reference/cli/options.md) command with the required command line options
 to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
 with the most common options.
 
@@ -18,7 +18,7 @@ with the most common options.
 ## Local block data
 
 When connecting to a network other than the network previously connected to, you must either delete
-the local block data or use the [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) option
+the local block data or use the [`--data-path`](../../reference/cli/options.md#data-path) option
 to specify a different data directory.
 
 To delete the local block data, delete the `database` directory in the
@@ -31,38 +31,38 @@ Besu specifies the genesis configuration, and sets the network ID and bootnodes 
 [Goerli](#run-a-node-on-goerli-testnet), [Kiln](#run-a-node-on-kiln-testnet),
 [Sepolia](#run-a-node-on-sepolia-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
-When you specify [`--network=dev`](../../Reference/CLI/CLI-Syntax.md#network), Besu uses the
+When you specify [`--network=dev`](../../reference/cli/options.md#network), Besu uses the
 development mode genesis configuration with a fixed low difficulty. A node started with
-[`--network=dev`](../../Reference/CLI/CLI-Syntax.md#network) has an empty bootnodes list by
+[`--network=dev`](../../reference/cli/options.md#network) has an empty bootnodes list by
 default.
 
 The genesis files defining the genesis configurations are in the
 [Besu source files](https://github.com/hyperledger/besu/tree/master/config/src/main/resources).
 
 To define a genesis configuration, create a genesis file (for example, `genesis.json`) and specify
-the file using the [`--genesis-file`](../../Reference/CLI/CLI-Syntax.md#genesis-file) option.
+the file using the [`--genesis-file`](../../reference/cli/options.md#genesis-file) option.
 
 ## Syncing and storage
 
 By default, Besu syncs to the current state of the blockchain using
 [fast sync](../how-to/connect/sync-node.md#fast-synchronization) in:
 
-- Networks specified using [`--network`](../../Reference/CLI/CLI-Syntax.md#network) except for the `dev`
+- Networks specified using [`--network`](../../reference/cli/options.md#network) except for the `dev`
   development network.
 - Ethereum Mainnet.
 
 We recommend using [snap sync](../how-to/connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
-with [`--sync-mode=X_SNAP`](../../Reference/CLI/CLI-Syntax.md#sync-mode).
+with [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
 
-By default, Besu stores data in the [Forest of Tries](../../Concepts/Data-Storage-Formats.md#forest-of-tries) format.
-We recommend using [Bonsai Tries](../../Concepts/Data-Storage-Formats.md#bonsai-tries) for lower storage requirements,
-by starting Besu with [`--data-storage-format=BONSAI`](../../Reference/CLI/CLI-Syntax.md#data-storage-format).
+By default, Besu stores data in the [Forest of Tries](../concepts/data-storage-formats.md#forest-of-tries) format.
+We recommend using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements,
+by starting Besu with [`--data-storage-format=BONSAI`](../../reference/cli/options.md#data-storage-format).
 
 ## Confirm node is running
 
 If you started Besu with the
-[`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) option, use
-[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../../Reference/API-Methods.md) to
+[`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) option, use
+[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../../reference/api/index.md) to
 confirm the node is running.
 
 !!!example
@@ -166,9 +166,9 @@ Where `<path>` and `<goerlidata-path>` are the path and directory to save the Go
 
 ## Run a node on Kiln testnet
 
-You can [test Besu as an execution client](../../Tutorials/Merge-Testnet.md#start-besu) on the
+You can [test Besu as an execution client](../tutorials/merge-testnet.md#start-besu) on the
 [Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
-You must also run a [consensus client](../../Concepts/Merge.md#consensus-clients) with Besu on the Merge
+You must also run a [consensus client](../concepts/the-merge.md#consensus-clients) with Besu on the Merge
 testnet.
 For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 

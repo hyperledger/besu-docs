@@ -5,8 +5,8 @@ description: How to access the Hyperledger Besu API using JSON-RPC
 # JSON-RPC over HTTP, WebSockets and IPC
 
 To enable JSON-RPC over HTTP or WebSockets, use the
-[`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) and
-[`--rpc-ws-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) options.
+[`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) and
+[`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) options.
 
 To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 `--Xrpc-ipc-enabled` option.
@@ -25,9 +25,9 @@ supported by geth and Hyperledger Besu directly in the console.
 To use the geth console with Besu:
 
 1. Start Besu with the
-   [`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
+   [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
 1. Specify which APIs to enable using the
-   [`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or `--Xrpc-ipc-api` option.
+   [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 1. Start the geth console specifying the JSON-RPC endpoint:
 
 !!! example
@@ -44,7 +44,7 @@ To use the geth console with Besu:
         geth attach /path/to/besu.ipc
         ```
 
-Use the geth console to call [JSON-RPC API methods](../../Reference/API-Methods.md) that geth
+Use the geth console to call [JSON-RPC API methods](../../reference/api/index.md) that geth
 and Besu share.
 
 !!! example
@@ -190,7 +190,7 @@ Besu provides readiness and liveness endpoints to confirm the Besu node status. 
 
 By default, the readiness check requires a connected peer and the node to be within two blocks of
 the best known block. If you have
-[disabled P2P communication](../../Reference/CLI/CLI-Syntax.md#p2p-enabled), you do not need
+[disabled P2P communication](../../reference/cli/options.md#p2p-enabled), you do not need
 peers. A live node with P2P disabled is always ready.
 
 Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required
@@ -236,8 +236,8 @@ Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
 To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`,
 `TRACE`, and `TXPOOL` API methods, use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api),
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api), or
+[`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api),
+[`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api), or
 `--Xrpc-ipc-api` options.
 
 !!! caution
@@ -248,7 +248,7 @@ To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGI
 
 When you make requests that might have different results depending on the block accessed, the block
 parameter specifies the block. Methods such as
-[`eth_getTransactionByBlockNumberAndIndex`](../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex)
+[`eth_getTransactionByBlockNumberAndIndex`](../../reference/api/index.md#eth_gettransactionbyblocknumberandindex)
 have a block parameter.
 
 The block parameter can have the following values:
@@ -258,7 +258,7 @@ The block parameter can have the following values:
 * `earliest` : `tag` - The earliest (genesis) block.
 * `latest` : `tag` - The last block mined.
 * `pending` : `tag` - The last block mined plus pending transactions. Use only with
-  [`eth_getTransactionCount`](../../Reference/API-Methods.md#eth_gettransactioncount).
+  [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount).
 * `finalized` : `tag` - The most recent crypto-economically secure block.
   It cannot be reorganized outside manual intervention driven by community coordination.
 * `safe` : `tag` - The most recent block that is safe from reorganization under

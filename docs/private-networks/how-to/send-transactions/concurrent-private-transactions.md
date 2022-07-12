@@ -5,16 +5,16 @@ description: Creating and sending concurrent private transactions with Hyperledg
 # Sending concurrent private transactions
 
 Private transaction processing involves two transactions, the private transaction and the
-[privacy marker transaction (PMT)](../../../Concepts/Privacy/Private-Transaction-Processing.md).
-The private transaction and the PMT each have their own [nonce](../../../Concepts/Privacy/Private-Transactions.md#nonces).
+[privacy marker transaction (PMT)](../../../concepts/Privacy/Private-Transaction-Processing.md).
+The private transaction and the PMT each have their own [nonce](../../../concepts/Privacy/Private-Transactions.md#nonces).
 
 If your private transaction rate requires sending private transactions without waiting for the previous
-private transaction to be mined, using [`eth_getTransactionCount`](../../../Reference/API-Methods.md#eth_gettransactioncount)
-and [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction) may result in
-[incorrect nonces](../../../Concepts/Privacy/Private-Transactions.md#private-nonce-management).
+private transaction to be mined, using [`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount)
+and [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) may result in
+[incorrect nonces](../../../concepts/Privacy/Private-Transactions.md#private-nonce-management).
 
 In this case, use [`priv_distributeRawTransaction`](private-transactions.md#priv_distributerawtransaction)
-instead of [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction).
+instead of [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
 
 !!! note
 
@@ -22,10 +22,10 @@ instead of [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_send
     [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get the nonce for
     an account for the specified privacy group or participants.
 
-Send the corresponding PMT using [`eth_sendRawTransaction`](../../../Reference/API-Methods.md#eth_sendrawtransaction),
+Send the corresponding PMT using [`eth_sendRawTransaction`](../../../reference/api/index.md#eth_sendrawtransaction),
 specifying the public PMT nonce.
 This method allows you to create and send the PMT yourself rather than
-[`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction) handling the PMT.
+[`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) handling the PMT.
 
 !!! important
 

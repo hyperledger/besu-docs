@@ -4,7 +4,7 @@ description: Hyperledger Besu local permissioning
 
 # Local permissioning
 
-[Local permissioning](../../Concepts/Permissioning/Permissioning-Overview.md#local) supports node and account allowlisting.
+[Local permissioning](../../concepts/Permissioning/Permissioning-Overview.md#local) supports node and account allowlisting.
 
 ## Node allowlisting
 
@@ -26,7 +26,7 @@ enabled, communication is only between nodes in the allowlist.
 
 Node allowlisting is at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) file in the
-[data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
+[data directory](../../reference/cli/options.md#data-path) for the node.
 
 Local permissioning doesn't check that the node using the permissions configuration file is listed in the
 allowlist, it only checks that the remote end of the connection is in the allowlist. Use [onchain permissioning] if you
@@ -57,23 +57,23 @@ start with node permissions enabled.
 ### Enabling node allowlisting
 
 To enable node allowlisting, specify the
-[`--permissions-nodes-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file-enabled)
+[`--permissions-nodes-config-file-enabled`](../../reference/cli/options.md#permissions-nodes-config-file-enabled)
 option when starting Besu.
 
 The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+[`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) options.
 
 ### Updating the node allowlist
 
 To update the nodes allowlist while the node is running, use the following JSON-RPC API methods:
 
-* [perm_addNodesToAllowlist](../../Reference/API-Methods.md#perm_addnodestoallowlist)
-* [perm_removeNodesFromAllowlist](../../Reference/API-Methods.md#perm_removenodesfromallowlist)
+* [perm_addNodesToAllowlist](../../reference/api/index.md#perm_addnodestoallowlist)
+* [perm_removeNodesFromAllowlist](../../reference/api/index.md#perm_removenodesfromallowlist)
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
 and then update the allowlist using the
-[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
+[`perm_reloadPermissionsFromFile`](../../reference/api/index.md#perm_reloadpermissionsfromfile)
 method.
 
 Updates to the permissions configuration file persist across node restarts.
@@ -81,7 +81,7 @@ Updates to the permissions configuration file persist across node restarts.
 ### Viewing the node allowlist
 
 To view the nodes allowlist, use the
-[perm_getNodesAllowlist](../../Reference/API-Methods.md#perm_getnodesallowlist) method.
+[perm_getNodesAllowlist](../../reference/api/index.md#perm_getnodesallowlist) method.
 
 !!! note
 
@@ -111,7 +111,7 @@ permissioning accepts transactions only from accounts in the accounts allowlist.
 
 Account allowlisting is at the node level. That is, each node in the network has a
 [permissions configuration file](#permissions-configuration-file) in the
-[data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
+[data directory](../../reference/cli/options.md#data-path) for the node.
 
 !!! caution "Using account permissioning and privacy"
 
@@ -126,7 +126,7 @@ Account allowlisting is at the node level. That is, each node in the network has
 Transaction validation against the accounts allowlist occurs at the following points:
 
 * Submitted by JSON-RPC API method
-  [`eth_sendRawTransaction`](../../Reference/API-Methods.md#eth_sendrawtransaction)
+  [`eth_sendRawTransaction`](../../reference/api/index.md#eth_sendrawtransaction)
 * Received via propagation from another node
 * Added to a block by a mining node
 
@@ -165,23 +165,23 @@ The following diagram illustrates applying local and onchain permissioning rules
 ### Enabling account allowlisting
 
 To enable account allowlisting, specify the
-[`--permissions-accounts-config-file-enabled`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file-enabled)
+[`--permissions-accounts-config-file-enabled`](../../reference/cli/options.md#permissions-accounts-config-file-enabled)
 option when starting Besu.
 
 The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) options.
+[`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) options.
 
 ### Updating the account allowlist
 
 To update the accounts allowlist when the node is running, use the JSON-RPC API methods:
 
-* [`perm_addAccountsToAllowlist`](../../Reference/API-Methods.md#perm_addaccountstoallowlist)
-* [`perm_removeAccountsFromAllowlist`](../../Reference/API-Methods.md#perm_removeaccountsfromallowlist).
+* [`perm_addAccountsToAllowlist`](../../reference/api/index.md#perm_addaccountstoallowlist)
+* [`perm_removeAccountsFromAllowlist`](../../reference/api/index.md#perm_removeaccountsfromallowlist).
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly
 and use the
-[`perm_reloadPermissionsFromFile`](../../Reference/API-Methods.md#perm_reloadpermissionsfromfile)
+[`perm_reloadPermissionsFromFile`](../../reference/api/index.md#perm_reloadpermissionsfromfile)
 method to update the allowlists.
 
 Updates to the permissions configuration file persist across node restarts.
@@ -189,25 +189,25 @@ Updates to the permissions configuration file persist across node restarts.
 ### Viewing the account allowlist
 
 To view the accounts allowlist, use the
-[`perm_getAccountsAllowlist`](../../Reference/API-Methods.md#perm_getaccountsallowlist) method.
+[`perm_getAccountsAllowlist`](../../reference/api/index.md#perm_getaccountsallowlist) method.
 
 ## Permissions configuration file
 
 The permissions configuration file contains the nodes and accounts allowlists. If the
-[`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
-and [`--permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+[`--permissions-accounts-config-file`](../../reference/cli/options.md#permissions-accounts-config-file)
+and [`--permissions-nodes-config-file`](../../reference/cli/options.md#permissions-nodes-config-file)
 options are not specified, the name of the permissions configuration file must be
 [`permissions_config.toml`](#permissions-configuration-file) and must be in the
-[data directory](../../Reference/CLI/CLI-Syntax.md#data-path) for the node.
+[data directory](../../reference/cli/options.md#data-path) for the node.
 
 You can specify the accounts and nodes allowlists in the same file or in separate files for
 accounts and nodes.
 
 To specify a permissions configuration file (or separate files for accounts and nodes) in any
 location, use the
-[`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
+[`--permissions-accounts-config-file`](../../reference/cli/options.md#permissions-accounts-config-file)
 and
-[`--permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+[`--permissions-nodes-config-file`](../../reference/cli/options.md#permissions-nodes-config-file)
 options.
 
 !!!note
@@ -228,5 +228,5 @@ options.
 
 <!-- Links -->
 [specify a permissions configuration file with Docker]: ../../get-started/install/run-docker-image.md#permissions-configuration-file
-[support domain names]: ../../Concepts/Node-Keys.md#domain-name-support
-[onchain permissioning]: ../../Concepts/Permissioning/Onchain-Permissioning.md
+[support domain names]: ../../concepts/node-keys.md#domain-name-support
+[onchain permissioning]: ../../concepts/Permissioning/Onchain-Permissioning.md

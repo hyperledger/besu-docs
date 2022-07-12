@@ -9,17 +9,17 @@ Subscribe to events, such as logs, using either
 
 Access logs using the following Hyperledger Besu API methods:
 
-* [`eth_getFilterChanges`](../../Reference/API-Methods.md#eth_getfilterchanges)
-* [`eth_getFilterLogs`](../../Reference/API-Methods.md#eth_getfilterlogs)
-* [`eth_getLogs`](../../Reference/API-Methods.md#eth_getlogs).
+* [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges)
+* [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)
+* [`eth_getLogs`](../../reference/api/index.md#eth_getlogs).
 
-Use [`eth_newFilter`](../../Reference/API-Methods.md#eth_newfilter) to create the filter before
-using [`eth_getFilterChanges`](../../Reference/API-Methods.md#eth_getfilterchanges) and
-[`eth_getFilterLogs`](../../Reference/API-Methods.md#eth_getfilterlogs)).
+Use [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) to create the filter before
+using [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) and
+[`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)).
 
-Access logs for [private contracts](../../Concepts/Privacy/Privacy-Overview.md) using the equivalent
+Access logs for [private contracts](../../concepts/Privacy/Privacy-Overview.md) using the equivalent
 [`priv_*` methods and specifying the privacy group ID](#filters-for-private-contracts). For example,
-[`priv_getLogs`](../../Reference/API-Methods.md#priv_getlogs).
+[`priv_getLogs`](../../reference/api/index.md#priv_getlogs).
 
 !!! note
 
@@ -28,7 +28,7 @@ Access logs for [private contracts](../../Concepts/Privacy/Privacy-Overview.md) 
 
 ## Creating a filter
 
-Create a filter using [`eth_newFilter`](../../Reference/API-Methods.md#eth_newfilter).
+Create a filter using [`eth_newFilter`](../../reference/api/index.md#eth_newfilter).
 
 !!! example
 
@@ -55,14 +55,14 @@ Create a filter using [`eth_newFilter`](../../Reference/API-Methods.md#eth_newfi
     }
     ```
 
-[`eth_newFilter`](../../Reference/API-Methods.md#eth_newfilter) returns a filter ID hash (for
+[`eth_newFilter`](../../reference/api/index.md#eth_newfilter) returns a filter ID hash (for
 example, `0x1ddf0c00989044e9b41cc0ae40272df3`).
 
 ### Polling a filter for changes
 
 To poll the filter for changes since the last poll, use
-[`eth_getFilterChanges`](../../Reference/API-Methods.md#eth_getfilterchanges) with the filter ID
-hash returned by [`eth_newFilter`](../../Reference/API-Methods.md#eth_newfilter).
+[`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) with the filter ID
+hash returned by [`eth_newFilter`](../../reference/api/index.md#eth_newfilter).
 
 !!! example
 
@@ -97,7 +97,7 @@ hash returned by [`eth_newFilter`](../../Reference/API-Methods.md#eth_newfilter)
 ### Getting all logs for a filter
 
 To get all logs for a filter, use
-[`eth_getFilterLogs`](../../Reference/API-Methods.md#eth_getfilterlogs).
+[`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs).
 
 !!! example
 
@@ -151,20 +151,20 @@ To get all logs for a filter, use
 ## Uninstalling a filter
 
 When a filter is no longer required, use
-[`eth_uninstallFilter`](../../Reference/API-Methods.md#eth_uninstallfilter) to remove the
+[`eth_uninstallFilter`](../../reference/api/index.md#eth_uninstallfilter) to remove the
 filter.
 
 ## Filters for private contracts
 
 Filters for private contracts are created, accessed, and uninstalled using:
 
-* [`priv_getFilterChanges`](../../Reference/API-Methods.md#priv_getfilterchanges)
-* [`priv_getFilterLogs`](../../Reference/API-Methods.md#priv_getfilterlogs)
-* [`priv_getLogs`](../../Reference/API-Methods.md#priv_getlogs)
-* [`priv_newFilter`](../../Reference/API-Methods.md#priv_newfilter)
-* [`priv_uninstallFilter`](../../Reference/API-Methods.md#priv_uninstallfilter).
+* [`priv_getFilterChanges`](../../reference/api/index.md#priv_getfilterchanges)
+* [`priv_getFilterLogs`](../../reference/api/index.md#priv_getfilterlogs)
+* [`priv_getLogs`](../../reference/api/index.md#priv_getlogs)
+* [`priv_newFilter`](../../reference/api/index.md#priv_newfilter)
+* [`priv_uninstallFilter`](../../reference/api/index.md#priv_uninstallfilter).
 
-The [privacy group ID](../../Concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
+The [privacy group ID](../../concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
 for the `priv` methods.
 
 !!! example
@@ -189,7 +189,7 @@ for the `priv` methods.
 ## Getting logs using a filter options object
 
 To get all logs for a filter options object, use
-[`eth_getLogs`](../../Reference/API-Methods.md#eth_getlogs) or [`priv_getLogs`](../../Reference/API-Methods.md#priv_getlogs)
+[`eth_getLogs`](../../reference/api/index.md#eth_getlogs) or [`priv_getLogs`](../../reference/api/index.md#priv_getlogs)
 for a private contract.
 
 !!! example

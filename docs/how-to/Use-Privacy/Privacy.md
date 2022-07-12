@@ -11,26 +11,26 @@ description: Hyperledger Besu-extended privacy
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 Hyperledger Besu provides an extended implementation of privacy allowing you to
-[create a privacy group for a set of participants](../../Concepts/Privacy/Privacy-Groups.md). You
+[create a privacy group for a set of participants](../../concepts/Privacy/Privacy-Groups.md). You
 must specify the privacy group ID when sending private transactions.
 
-To enable the [`PRIV` API methods](../../Reference/API-Methods.md#priv-methods), use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
+To enable the [`PRIV` API methods](../../reference/api/index.md#priv-methods), use the
+[`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) command line options.
 
 To create the privacy group containing the recipients of a private transaction, use
-[`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup).
+[`priv_createPrivacyGroup`](../../reference/api/index.md#priv_createprivacygroup).
 
 To create an EEA-compliant private transaction, specify `privacyGroupId` when creating the signed
 transaction passed as an input parameter to
-[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
+[`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction).
 
 ## Privacy group type
 
 Privacy groups created using
-[`priv_createPrivacyGroup`](../../Reference/API-Methods.md#priv_createprivacygroup)
+[`priv_createPrivacyGroup`](../../reference/api/index.md#priv_createprivacygroup)
 have a `BESU` privacy group type when returned by
-[`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
+[`priv_findPrivacyGroup`](../../reference/api/index.md#priv_findprivacygroup).
 
 !!! example
 

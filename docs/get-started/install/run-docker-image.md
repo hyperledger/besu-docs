@@ -38,12 +38,12 @@ docker run hyperledger/besu:latest
 
 Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSocket JSON-RPC. You need
 to expose the ports to use the default ports or the ports specified using
-[`--rpc-http-port`](../../Reference/CLI/CLI-Syntax.md#rpc-http-port),
-[`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port),
-[`--rpc-ws-port`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-port),
-[`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port),
-[`--graphql-http-port`](../../Reference/CLI/CLI-Syntax.md#graphql-http-port), and
-[`--metrics-push-port`](../../Reference/CLI/CLI-Syntax.md#metrics-push-port) options.
+[`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port),
+[`--p2p-port`](../../reference/cli/options.md#p2p-port),
+[`--rpc-ws-port`](../../reference/cli/options.md#rpc-ws-port),
+[`--metrics-port`](../../reference/cli/options.md#metrics-port),
+[`--graphql-http-port`](../../reference/cli/options.md#graphql-http-port), and
+[`--metrics-push-port`](../../reference/cli/options.md#metrics-push-port) options.
 
 To run Besu exposing local ports for access:
 
@@ -86,7 +86,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     [`--nat-method`](../../Find-and-Connect/Specifying-NAT.md) to `NONE` or `UPNP`.
 
 You can specify
-[Besu environment variables](../../Reference/CLI/CLI-Syntax.md#besu-environment-variables) with the
+[Besu environment variables](../../reference/cli/options.md#besu-environment-variables) with the
 Docker image instead of the command line options.
 
 !!! example

@@ -15,13 +15,13 @@ service using [command line options](index.md#enabling-api-access).
     GraphQL is not supported over WebSockets.
 
 Access the GraphQL endpoint at `http://<HOST>:<PORT>/graphql`. Configure `<HOST>` and `<PORT>`
-using [`graphql-http-host`](../../Reference/CLI/CLI-Syntax.md#graphql-http-host) and
-[`graphql-http-port`](../../Reference/CLI/CLI-Syntax.md#graphql-http-port). The default endpoint
+using [`graphql-http-host`](../../reference/cli/options.md#graphql-http-host) and
+[`graphql-http-port`](../../reference/cli/options.md#graphql-http-port). The default endpoint
 is `http://127.0.0.1:8547/graphql`.
 
 ## GraphQL requests with cURL
 
-[Hyperledger Besu JSON-RPC API methods](../../Reference/API-Methods.md) with an equivalent
+[Hyperledger Besu JSON-RPC API methods](../../reference/api/index.md) with an equivalent
 [GraphQL](graphql.md) query include a GraphQL request and result in the method example.
 
 !!! example

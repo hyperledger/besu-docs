@@ -11,7 +11,7 @@ description: Besu is an open-source Ethereum client developed under the Apache 2
 
 Hyperledger Besu is an open-source Ethereum client developed under the Apache 2.0 license and written in Java.
 It runs on Ethereum Mainnet, private networks, and test networks such as Rinkeby, Ropsten, Goerli, and the Merge testnet.
-Besu serves as an [execution client](Concepts/Merge.md) on Ethereum Mainnet and the Merge testnet.
+Besu serves as an [execution client](public-networks/concepts/the-merge.md) on Ethereum Mainnet and the Merge testnet.
 
 Besu implements proof of authority (QBFT, IBFT 2.0, and Clique) and proof of work (Ethash) consensus mechanisms.
 
@@ -22,7 +22,7 @@ Besu supports enterprise features including privacy and permissioning.
 
 ## What can you do with Besu?
 
-Besu includes a [command line interface](Reference/CLI/CLI-Syntax.md) and
+Besu includes a [command line interface](reference/cli/options.md) and
 [JSON-RPC API](how-to/use-besu-api/index.md) for running, maintaining, debugging, and monitoring
 nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSockets. Besu also
 supports Pub/Sub. The API supports typical Ethereum functionalities such as:
@@ -33,7 +33,7 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
 ## New to Ethereum?
 
-Get started with the [Developer Quickstart](Tutorials/Developer-Quickstart.md). Use the quickstart
+Get started with the [Developer Quickstart](tutorials/Developer-Quickstart.md). Use the quickstart
 to rapidly generate local blockchain networks.
 
 Learn more about [use cases for Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).

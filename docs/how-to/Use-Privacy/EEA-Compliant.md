@@ -10,23 +10,23 @@ description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy
     Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
-When using Hyperledger Besu [EEA-compliant privacy](../../Concepts/Privacy/Privacy-Groups.md), the
+When using Hyperledger Besu [EEA-compliant privacy](../../concepts/Privacy/Privacy-Groups.md), the
 group of nodes specified by `privateFrom` and `privateFor` form a privacy group, to which Tessera
 assigns a unique privacy group ID.
 
-To enable the [`EEA` API methods](../../Reference/API-Methods.md#eea-methods), use the
-[`--rpc-http-api`](../../Reference/CLI/CLI-Syntax.md#rpc-http-api) or
-[`--rpc-ws-api`](../../Reference/CLI/CLI-Syntax.md#rpc-ws-api) command line options.
+To enable the [`EEA` API methods](../../reference/api/index.md#eea-methods), use the
+[`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) command line options.
 
 To create an EEA-compliant private transaction, specify `privateFor` when creating the signed
 transaction passed as an input parameter to
-[`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
+[`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction).
 
 ## Privacy group type
 
 Privacy groups created when specifying `privateFrom` and `privateFor` have a `LEGACY` privacy group
 type when returned by
-[`priv_findPrivacyGroup`](../../Reference/API-Methods.md#priv_findprivacygroup).
+[`priv_findPrivacyGroup`](../../reference/api/index.md#priv_findprivacygroup).
 
 !!! example
 

@@ -24,7 +24,7 @@ Returned by [`engine_getPayloadV1`](Engine-API-Methods.md#engine_getpayloadv1).
 | `gasUsed`       | *Quantity*, 64 Bits   | Total gas used by all transactions in this block.                |
 | `timestamp`     | *Quantity*, 64 Bits   | Unix timestamp for block assembly.                               |
 | `extraData`     | *Data*, 0 to 32 Bytes | Extra data field for this block.                                 |
-| `baseFeePerGas` | *Quantity*, 256 Bits  | The block's [base fee per gas](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). |
+| `baseFeePerGas` | *Quantity*, 256 Bits  | The block's [base fee per gas](../Concepts/Transactions/Transaction-Types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/2d8a95e14e56de27c5465d93747b0006bd8ac47f/EIPS/eip-1559.md). |
 | `blockHash`     | *Data*, 32 Bytes      | Hash of the execution block.                                     |
 | `transactions`  | *Array*               | Array of transaction objects, each object is a list representing `TransactionType`, `TransactionPayload`, or `LegacyTransaction` as defined in [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718). |
 

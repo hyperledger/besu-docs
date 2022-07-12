@@ -249,7 +249,7 @@ the contract's address.
     * Specify the `privacyGroupId` instead of the `privateFor` option in the txOptions above and then send the transaction.
     
     The Developer Quickstart provides an
-    [example of a private transaction with a privacy group](https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/smart_contracts/scripts/private_tx_privacy_group.js).
+    [example of a private transaction with a privacy group](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/besu/smart_contracts/privacy/scripts/private_tx_privacy_group.js).
 
 ## Using `eea_sendRawTransaction` for private contracts with web3js-eea
 

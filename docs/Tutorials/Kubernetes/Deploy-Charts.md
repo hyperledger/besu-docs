@@ -100,7 +100,7 @@ kubectl create namespace besu
 
 This chart deploys Prometheus and Grafana to monitor the metrics of the cluster, nodes and state of the network.
 
-Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/monitoring.yml). Configure alerts to the receiver of your choice (for example, email or Slack), then deploy the chart using:
+Update the admin `username` and `password` in the [monitoring values file](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/monitoring.yml). Configure alerts to the receiver of your choice (for example, email or Slack), then deploy the chart using:
 
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -110,7 +110,7 @@ kubectl --namespace besu apply -f  ./values/monitoring/
 ```
 
 Metrics are collected via a
-[ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/getting-started.md)
+[ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/7c77626e5e270a2530e187b185d45eeed8a773bf/Documentation/user-guides/getting-started.md)
 that scrapes each Besu pod, using given
 [`annotations`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) which specify the
 port and path to use. For example:
@@ -200,7 +200,7 @@ The genesis chart creates the genesis file and keys for the validators.
     `validator-n`, where `n` is the node number. Any validators created after the initial pool can be named
     to anything you like.
 
-The override [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-besu.yml)
+The override [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/genesis-besu.yml)
 looks like below:
 
 ```bash
@@ -353,7 +353,7 @@ are proposed and created on the chain.
 
 These are the next set of nodes that we will deploy. The charts use four validators (default) to replicate best practices
 for a network. The override
-[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/validator.yml) for the
+[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/validator.yml) for the
 StatefulSet looks like below:
 
 ```bash
@@ -412,7 +412,7 @@ An RPC node is simply a node that can be used to make public transactions or per
 as when connected to a chain explorer like [BlockScout](https://github.com/blockscout/blockscout).
 
 The RPC override
-[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/reader.yml) for the
+[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/reader.yml) for the
 StatefulSet looks identical to that of the validators above, and will create it's own node keys before the node starts.
 
 To deploy an RPC node:
@@ -425,7 +425,7 @@ A Transaction or Member node in turn is one which has an accompanying Private Tr
 which allow you to make private transactions between nodes.
 
 The Transaction override
-[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/txnode.yml) for the
+[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/txnode.yml) for the
 StatefulSet looks identical to that of the validators above and only has `quorumFlags.privacy: true` to indicate that
 it is deploying a pair of GoQuorum and Tessera nodes.
 
@@ -467,10 +467,10 @@ helm install quorum-network-ingress ingress-nginx/ingress-nginx \
     --set controller.service.externalTrafficPolicy=Local
 ```
 
-Use [pre-defined rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml)
+Use [pre-defined rules](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/ingress/ingress-rules-besu.yml)
 to test functionality, and alter to suit your requirements (for example, restrict access for API calls to trusted CIDR blocks).
 
-Edit the [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) file so that the
+Edit the [rules](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/ingress/ingress-rules-besu.yml) file so that the
 service names match your release name. In the example, we deployed a transaction node with the release name `member-1`
 so the corresponding service is called `besu-node-member-1`. Once you have settings
 that match your deployments, deploy the rules as follows:
@@ -505,7 +505,7 @@ The following is an example RPC call, which confirms that the node running the J
 ### 10. Blockchain explorer
 
 You can deploy [BlockScout](https://github.com/blockscout/blockscout) to aid with monitoring the blockchain.
-To do this, update the [BlockScout values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/blockscout-besu.yml)
+To do this, update the [BlockScout values file](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/blockscout-besu.yml)
 and set the `database` and `secret_key_base` values.
 
 !!! important
@@ -532,7 +532,7 @@ to use the application.
     The accounts listed in the file below are for test purposes only and should not be used on a production network.
 
 To deploy the application, update the
-[Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/explorer-besu.yaml)
+[Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/explorer-besu.yaml)
 with details of your nodes and endpoints and then deploy.
 
 ```bash

@@ -63,7 +63,7 @@ in the `IBFT-Network` directory:
  "genesis": {
    "config": {
       "chainId": 1337,
-     "londonBlock": 0,
+      "berlinBlock": 0,
       "ibft2": {
         "blockperiodseconds": 2,
         "epochlength": 30000,

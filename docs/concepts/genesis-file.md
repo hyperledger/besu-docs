@@ -25,7 +25,7 @@ file.
     {
       "config": {
         "chainId": 2018,
-        "londonBlock": 0,
+        "berlinBlock": 0,
         "ibft2": {
           "blockperiodseconds": 2,
           "epochlength": 30000,

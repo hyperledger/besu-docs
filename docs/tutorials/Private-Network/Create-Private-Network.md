@@ -58,7 +58,7 @@ the `Private-Network` directory:
 ```json
 {
   "config": {
-    "londonBlock": 0,
+    "berlinBlock": 0,
     "ethash": {
       "fixeddifficulty": 1000
     },

@@ -6,7 +6,7 @@ description: Rapidly generate local blockchain networks.
 # Developer Quickstart
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
-[IBFT 2.0](../how-to/configure/Consensus-Protocols/IBFT.md) network of Besu nodes managed by Docker Compose.
+[IBFT 2.0](../private-networks/how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
 
 !!! warning
 
@@ -43,7 +43,7 @@ npx quorum-dev-quickstart
 
 Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../private-networks/how-to/monitor/elastic-stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and
-[private transactions](../concepts/Privacy/Privacy-Overview.md).
+[private transactions](../private-networks/concepts/privacy/index.md).
 
 !!! note
 
@@ -599,9 +599,9 @@ or via [RPC API calls](../reference/api/index.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 
-[bootnodes]: ../how-to/Deploy/Bootnodes.md
-[permissions file]: ../how-to/Limit-Access/Local-Permissioning.md
+[bootnodes]: ../private-networks/how-to/deploy/Bootnodes.md
+[permissions file]: ../private-networks/how-to/use-permissioning/local.md
 [static nodes]: ../how-to/connect/static-nodes.md
-[allow list]: ../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting
+[allow list]: ../private-networks/how-to/use-permissioning/local.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
 [create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-

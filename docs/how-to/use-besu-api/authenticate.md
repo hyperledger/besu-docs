@@ -7,7 +7,7 @@ description: Hyperledger Besu authentication and authorization for JSON-RPC
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC
 methods. Hyperledger Besu verifies users using
 [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in
-[multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md) to verify tenant data access.
+[multi-tenancy](../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 
@@ -61,7 +61,7 @@ Each user requiring JSON-RPC access the configuration file lists the:
   hash.
 * [JSON-RPC permissions](#json-rpc-permissions).
 * Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for
-  [multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md).
+  [multi-tenancy](../../private-networks/concepts/privacy/multi-tenancy.md).
 
 !!! example "Password hash subcommand"
 
@@ -208,7 +208,7 @@ Each payload for the JWT must contain:
 * [JSON-RPC permissions](#json-rpc-permissions)
 * [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
 * Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for
-  [multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md).
+  [multi-tenancy](../../private-networks/concepts/privacy/multi-tenancy.md).
 
 !!! example "JWT generation example"
 

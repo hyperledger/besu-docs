@@ -5,7 +5,7 @@ description: Adding and removing IBFT 2.0 validators
 # Add and remove IBFT 2.0 validators
 
 This example walks through
-[adding and removing an IBFT 2.0 validator](../../how-to/configure/Consensus-Protocols/IBFT.md#add-and-remove-validators).
+[adding and removing an IBFT 2.0 validator](../../private-networks/how-to/configure/consensus/ibft.md#add-and-remove-validators).
 
 ## Prerequisites
 

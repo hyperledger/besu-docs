@@ -400,7 +400,7 @@ first validator was spun up, before the logs display blocks being created.
 ### 7. Add/Remove additional validators to the validator pool
 
 To add (or remove) more validators to the initial validator pool, you need to deploy a node such as an RPC node (step 8)
-and then [vote](../../how-to/configure/Consensus-Protocols/IBFT.md#add-and-remove-validators) that node in. The vote API
+and then [vote](../../private-networks/how-to/configure/consensus/ibft.md#add-and-remove-validators) that node in. The vote API
 call must be made on a majority of the existing pool and the new node will then become a validator.
 
 Please refer to the [Ingress Section](#8-connecting-to-the-node-from-your-local-machine-via-an-ingress) for details on

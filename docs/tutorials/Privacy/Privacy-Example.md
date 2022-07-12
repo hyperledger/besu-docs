@@ -85,7 +85,7 @@ For more information on the endpoints and services, refer to README.md in the in
 
 ## Deploy the private contract and interact with the nodes
 
-To deploy a private contract to another [privacy group](../../concepts/Privacy/Privacy-Groups.md) member, use the
+To deploy a private contract to another [privacy group](../../private-networks/concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu

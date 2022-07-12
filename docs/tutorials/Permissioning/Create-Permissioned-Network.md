@@ -41,7 +41,7 @@ Permissioned-Network/
 ### 2. Create the configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -168,7 +168,7 @@ Permissioned-Network/
 
 ### 6. Create the permissions configuration file
 
-The [permissions configuration file](../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file)
+The [permissions configuration file](../../private-networks/how-to/use-permissioning/local.md#permissions-configuration-file)
 defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a copy in the
@@ -480,5 +480,5 @@ window.
     To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
-[IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/Consensus-Protocols/IBFT.md
+[IBFT 2.0 proof of authority consensus protocol]: ../../private-networks/how-to/configure/consensus/ibft.md
 [Private network example tutorial]: ../Developer-Quickstart.md#create-a-transaction-using-metamask

@@ -5,13 +5,13 @@ description: Creating and sending concurrent private transactions with Hyperledg
 # Sending concurrent private transactions
 
 Private transaction processing involves two transactions, the private transaction and the
-[privacy marker transaction (PMT)](../../../concepts/Privacy/Private-Transaction-Processing.md).
-The private transaction and the PMT each have their own [nonce](../../../concepts/Privacy/Private-Transactions.md#nonces).
+[privacy marker transaction (PMT)](../../concepts/privacy/private-transactions/processing.md).
+The private transaction and the PMT each have their own [nonce](../../concepts/privacy/private-transactions/index.md#nonces).
 
 If your private transaction rate requires sending private transactions without waiting for the previous
 private transaction to be mined, using [`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount)
 and [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) may result in
-[incorrect nonces](../../../concepts/Privacy/Private-Transactions.md#private-nonce-management).
+[incorrect nonces](../../concepts/privacy/private-transactions/index.md#private-nonce-management).
 
 In this case, use [`priv_distributeRawTransaction`](private-transactions.md#priv_distributerawtransaction)
 instead of [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).

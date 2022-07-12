@@ -27,7 +27,7 @@ enode URLs and uses this list automatically when you specify the
 
 In private networks for development or testing purposes, specify at least one bootnode.
 
-In production networks, [configure two or more nodes as bootnodes](../../../how-to/Deploy/Bootnodes.md).
+In production networks, [configure two or more nodes as bootnodes](../deploy/Bootnodes.md).
 
 ### Specify a bootnode
 

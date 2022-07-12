@@ -59,4 +59,4 @@ the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `pl
     The `start` step can be ignored and your plugin module will be instantiated when
     the command line interface is parsed and available.
 
-[privacy marker transactions]: ../concepts/Privacy/Private-Transaction-Processing.md
+[privacy marker transactions]: ../private-networks/concepts/privacy/private-transactions/processing.md

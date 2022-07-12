@@ -11,7 +11,7 @@ description: Configure multi-tenancy
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 You can configure Besu and associated Tessera node in a privacy-enabled network to host
-[multiple tenants](../../concepts/Privacy/Multi-Tenancy.md).
+[multiple tenants](../../private-networks/concepts/privacy/multi-tenancy.md).
 
 In this tutorial we'll add tenants to the `Node-1` Besu and Tessera node in a
 [privacy-enabled network](Configuring-Privacy.md).

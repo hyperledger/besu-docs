@@ -25,7 +25,7 @@ Returned by [`eth_getBlockByHash`](index.md#eth_getblockbyhash) and
 | **miner**            | Data, 20&nbsp;bytes   | Address to pay mining rewards to.                                  |
 | **difficulty**       | Quantity, Integer     | Difficulty for this block.                                         |
 | **totalDifficulty**  | Quantity, Integer     | Total difficulty of the chain until this block.                    |
-| **extraData**        | Data                  | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores extra data when used with [Clique](../../how-to/configure/Consensus-Protocols/Clique.md#genesis-file) and [IBFT](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file). |
+| **extraData**        | Data                  | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](/CLI/CLI-Syntax.md#miner-extra-data) command line option. Stores extra data when used with [Clique](../../private-networks/how-to/configure/consensus/clique.md#genesis-file) and [IBFT](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file). |
 | **size**             | Quantity, Integer     | Size of block in bytes.                                            |
 | **gasLimit**         | Quantity              | Maximum gas allowed in this block.                                 |
 | **gasUsed**          | Quantity              | Total gas used by all transactions in this block.                  |
@@ -138,9 +138,9 @@ Returned by [`priv_getPrivateTransaction`](index.md#priv_getprivatetransaction).
 | **r**              | Data, 32&nbsp;bytes               | ECDSA signature r.                                                              |
 | **s**              | Data, 32&nbsp;bytes               | ECDSA signature s.                                                              |
 | **privateFrom**    | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.   |
-| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Tessera](https://docs.tessera.consensys.net/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../../concepts/Privacy/Privacy-Groups.md#privacy-types).  |
-| **privacyGroupId** | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../../concepts/Privacy/Privacy-Groups.md#privacy-types). |
-| **restriction**    | String                            | Must be [`restricted`](../../concepts/Privacy/Private-Transactions.md).            |
+| **privateFor**     | Array of Data, 32&nbsp;bytes each | [Tessera](https://docs.tessera.consensys.net/) public keys of recipients. Not returned if using `privacyGroupId` to [send the transaction](../../private-networks/concepts/privacy/privacy-groups.md#privacy-types).  |
+| **privacyGroupId** | Data, 32&nbsp;bytes               | [Tessera](https://docs.tessera.consensys.net/) privacy group ID of recipients. Not returned if using `privateFor` to [send the transaction](../../private-networks/concepts/privacy/privacy-groups.md#privacy-types). |
+| **restriction**    | String                            | Must be [`restricted`](../../private-networks/concepts/privacy/private-transactions/index.md).            |
 
 ## Range object
 
@@ -213,7 +213,7 @@ and
 | **maxPriorityFeePerGas** | Quantity, Integer   | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **maxFeePerGas**         | Quantity, Integer   | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/Transactions/Transaction-Types.md#eip1559-transactions). |
 | **hash**                 | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
-| **input**                | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../../concepts/Privacy/Privacy-Overview.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
+| **input**                | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../../private-networks/concepts/privacy/index.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | **nonce**                | Quantity            | Number of transactions made by the sender before this one.                                 |
 | **publicKey**            | Data, 64&nbsp;bytes | Public key of the sender.                                                                  |
 | **raw**                  | Data                | This signed transaction in Recursive Length Prefix (RLP) encoded form.                     |

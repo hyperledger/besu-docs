@@ -178,8 +178,8 @@ Generates an
 [QBFT](../../tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining the
-[IBFT 2.0](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) or
-[QBFT](../../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file) genesis file, except for
+[IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) or
+[QBFT](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file) genesis file, except for
 the `extraData` string. The second is the `blockchain` property defining the number of key pairs to
 generate.
 
@@ -243,11 +243,11 @@ Encodes the RLP hexadecimal string for use in a IBFT 2.0 or QBFT genesis file. T
 
 Supported types are:
 
-* `IBFT_EXTRA_DATA` - The [IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) includes
-the `IBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/Consensus-Protocols/IBFT.md#extra-data) property.
+* `IBFT_EXTRA_DATA` - The [IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) includes
+the `IBFT_EXTRA_DATA` type in the [`extraData`](../../private-networks/how-to/configure/consensus/ibft.md#extra-data) property.
 
-* `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file) includes
-       the `QBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/Consensus-Protocols/QBFT.md#extra-data) property.
+* `QBFT_EXTRA_DATA` - The [QBFT genesis file](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file) includes
+       the `QBFT_EXTRA_DATA` type in the [`extraData`](../../private-networks/how-to/configure/consensus/qbft.md#extra-data) property.
 
 ???+ summary "IBFT 2.0 extra data"
 

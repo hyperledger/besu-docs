@@ -16,12 +16,12 @@ directory.
 ## Invalid block header
 
 If a `TimeStampMoreRecentThanParent | Invalid block header` error occurs, the [genesis file](../../concepts/genesis-file.md) of the new node is specifying a higher
-[`blockperiodseconds`](../configure/Consensus-Protocols/IBFT.md#block-time) than the imported chain.
+[`blockperiodseconds`](../../private-networks/how-to/configure/consensus/ibft.md#block-time) than the imported chain.
 The imported chain makes new blocks faster than the genesis file allows and Besu rejects them with this error.
 This error most often occurs when importing chains from older versions of Besu.
 
-To correct this error, decrease the `blockperiodseconds` in the new [IBFT 2.0 genesis file](../configure/Consensus-Protocols/IBFT.md#genesis-file)
-or [QFBT genesis file](../configure/Consensus-Protocols/QBFT.md#genesis-file) to a lower value that satisfies the block header validation.
+To correct this error, decrease the `blockperiodseconds` in the new [IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file)
+or [QFBT genesis file](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file) to a lower value that satisfies the block header validation.
 
 !!! example
 
@@ -29,8 +29,8 @@ or [QFBT genesis file](../configure/Consensus-Protocols/QBFT.md#genesis-file) to
     decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
 
 After you have updated the new genesis file, if the imported chain has a `blockperiodseconds` value set lower than you prefer, you can adjust it by configuring the block time on an
-[existing IBFT 2.0](../configure/Consensus-Protocols/IBFT.md#configure-block-time-on-an-existing-network-deployment)
-or [existing QBFT](../configure/Consensus-Protocols/QBFT.md#configure-block-time-on-an-existing-network) network.
+[existing IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md#configure-block-time-on-an-existing-network-deployment)
+or [existing QBFT](../../private-networks/how-to/configure/consensus/qbft.md#configure-block-time-on-an-existing-network) network.
 
 ## Host not authorized
 
@@ -70,8 +70,8 @@ On non-mining nodes, log messages indicate importing blocks.
 To confirm the block number is increasing, use the
 [`eth_blockNumber`](../../reference/api/index.md#eth_blocknumber) JSON-RPC API method.
 
-If there is no block creating in [Clique](../configure/Consensus-Protocols/Clique.md#extra-data)
-or [IBFT 2.0](../configure/Consensus-Protocols/IBFT.md#extra-data) networks, ensure the validator
+If there is no block creating in [Clique](../../private-networks/how-to/configure/consensus/clique.md#extra-data)
+or [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md#extra-data) networks, ensure the validator
 addresses in the genesis file match running nodes.
 
 ## Transactions are not mined
@@ -83,7 +83,7 @@ returns, but the transaction is never mined, check the
 `gasPrice` on a [transaction](../send-transactions.md) is lower than the
 `min-gas-price` for the mining node, the transaction will never mine.
 
-In [free gas networks](../configure/FreeGas.md), you must set
+In [free gas networks](../../private-networks/how-to/configure/free-gas.md), you must set
 [`--min-gas-price`](../../reference/cli/options.md#min-gas-price) to zero.
 
 ## Genesis milestone

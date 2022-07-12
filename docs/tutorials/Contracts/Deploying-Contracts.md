@@ -186,7 +186,7 @@ Make the request using `eth_sendTransaction`:
 
 ## Using `eea_sendRawTransaction` for private contracts with web3js-quorum
 
-To deploy a private contract to another node or [privacy group](../../concepts/Privacy/Privacy-Groups.md) member, use the
+To deploy a private contract to another node or [privacy group](../../private-networks/concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
 the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
@@ -258,7 +258,7 @@ the contract's address.
     This web3js-eea library will be deprecated on December 31, 2021.
     Please use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library instead and refer to the previous section.
 
-To deploy a private contract to another [privacy group](../../concepts/Privacy/Privacy-Groups.md) member, use the
+To deploy a private contract to another [privacy group](../../private-networks/concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
 the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu

@@ -353,7 +353,7 @@ The command line specifies privacy options:
 * [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
   the list of JSON-RPC APIs to enable privacy JSON-RPC API methods.
 * [`--min-gas-price`](../../reference/cli/options.md#min-gas-price) is 0 for a
-  [free gas network](../../how-to/configure/FreeGas.md).
+  [free gas network](../../private-networks/how-to/configure/free-gas.md).
 
 !!! note
 

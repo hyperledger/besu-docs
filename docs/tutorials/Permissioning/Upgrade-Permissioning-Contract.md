@@ -157,7 +157,7 @@ The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 ### 7. Restart Besu nodes
 
 Restart the Besu nodes with the updated [`NodeIngress`](#5-deploy-the-contracts)
-contract address and [permissioning contract interface](../../how-to/Limit-Access/Specify-Perm-Version.md)
+contract address and [permissioning contract interface](../../private-networks/how-to/use-permissioning/Specify-Perm-Version.md)
 version 2.
 
 !!! example
@@ -166,4 +166,4 @@ version 2.
     ```
 
 <!--link-->
-[nodes to the allowlist]: ../../how-to/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
+[nodes to the allowlist]: ../../private-networks/how-to/use-permissioning/onchain.md#update-nodes-allowlist

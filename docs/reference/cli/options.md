@@ -621,7 +621,7 @@ The default is `8551`.
     ethstats="Dev-Node-1:secret@127.0.0.1:3001"
     ```
 
-Reporting URL of an [Ethstats](../../how-to/Deploy/Ethstats.md) server.
+Reporting URL of an [Ethstats](../../private-networks/how-to/deploy/ethstats.md) server.
 
 ### `ethstats-contact`
 
@@ -1063,7 +1063,7 @@ Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCK
 `KVSTORE_PRIVATE_ROCKSDB_STATS`.
 
 Categories containing `PRIVATE` track metrics when you enable
-[private transactions](../../concepts/Privacy/Privacy-Overview.md).
+[private transactions](../../private-networks/concepts/privacy/index.md).
 
 ### `metrics-enabled`
 
@@ -1578,7 +1578,7 @@ lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return. The defa
 Wei.
 
 !!! important
-    In a [free gas network](../../how-to/configure/FreeGas.md), ensure the minimum gas price is set to zero for every node.
+    In a [free gas network](../../private-networks/how-to/configure/free-gas.md), ensure the minimum gas price is set to zero for every node.
     Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
     You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
 
@@ -1964,7 +1964,7 @@ Enables or disables file-based account level permissions. The default is `false`
     ```
 
 The contract address for
-[onchain account permissioning](../../concepts/Permissioning/Onchain-Permissioning.md).
+[onchain account permissioning](../../private-networks/concepts/permissioning/onchain.md).
 
 ### `permissions-accounts-contract-enabled`
 
@@ -1993,7 +1993,7 @@ The contract address for
     ```
 
 Enables or disables contract-based
-[onchain account permissioning](../../concepts/Permissioning/Onchain-Permissioning.md). The default
+[onchain account permissioning](../../private-networks/concepts/permissioning/onchain.md). The default
 is `false`.
 
 ### `permissions-nodes-config-file`
@@ -2086,7 +2086,7 @@ Enables or disables file-based node level permissions. The default is `false`.
     ```
 
 The contract address for
-[onchain node permissioning](../../concepts/Permissioning/Onchain-Permissioning.md).
+[onchain node permissioning](../../private-networks/concepts/permissioning/onchain.md).
 
 ### `permissions-nodes-contract-enabled`
 
@@ -2115,7 +2115,7 @@ The contract address for
     ```
 
 Enables or disables contract-based
-[onchain node permissioning](../../concepts/Permissioning/Onchain-Permissioning.md). The default is
+[onchain node permissioning](../../private-networks/concepts/permissioning/onchain.md). The default is
 `false`.
 
 ### `permissions-nodes-contract-version`
@@ -2144,7 +2144,7 @@ Enables or disables contract-based
     permissions-nodes-contract-version=2
     ```
 
-Version of the EEA [node permissioning interface](../../how-to/Limit-Access/Specify-Perm-Version.md).
+Version of the EEA [node permissioning interface](../../private-networks/how-to/use-permissioning/Specify-Perm-Version.md).
 The default is 1.
 
 ### `privacy-enabled`
@@ -2173,7 +2173,7 @@ The default is 1.
     privacy-enabled=false
     ```
 
-Enables or disables [private transactions](../../concepts/Privacy/Privacy-Overview.md). The default
+Enables or disables [private transactions](../../private-networks/concepts/privacy/index.md). The default
 is `false`.
 
 !!! important
@@ -2208,7 +2208,7 @@ is `false`.
     ```
 
 `<FILE>` is the name of the private key file used to
-[sign Privacy Marker Transactions](../../how-to/Use-Privacy/Sign-Privacy-Marker-Transactions.md).
+[sign Privacy Marker Transactions](../../private-networks/how-to/use-privacy/sign-pmts.md).
 
 !!! note
 
@@ -2250,7 +2250,7 @@ with a different randomly generated key.
     privacy-multi-tenancy-enabled=false
     ```
 
-Enables or disables [multi-tenancy](../../concepts/Privacy/Multi-Tenancy.md) for private
+Enables or disables [multi-tenancy](../../private-networks/concepts/privacy/multi-tenancy.md) for private
 transactions. The default is `false`.
 
 ### `privacy-flexible-groups-enabled`
@@ -2279,7 +2279,7 @@ transactions. The default is `false`.
     privacy-flexible-groups-enabled=true
     ```
 
-Enables or disables [flexible privacy groups](../../concepts/Privacy/Flexible-PrivacyGroups.md). The default is `false`.
+Enables or disables [flexible privacy groups](../../private-networks/concepts/privacy/flexible-privacy.md). The default is `false`.
 
 Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
@@ -2432,7 +2432,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the
-[authorized privacy enclave](../../how-to/configure/TLS/Configure-TLS.md#create-the-known-servers-file).
+[authorized privacy enclave](../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-servers-file).
 
 ### `privacy-url`
 
@@ -2494,7 +2494,7 @@ The minimum number of confirmations on a block before marking of newly-stored or
 nodes that cannot be pruned. The default is 10.
 
 !!! important
-    Using pruning with [private transactions](../../concepts/Privacy/Privacy-Overview.md) is not
+    Using pruning with [private transactions](../../private-networks/concepts/privacy/index.md) is not
     supported.
 
 ### `pruning-blocks-retained`
@@ -2526,7 +2526,7 @@ nodes that cannot be pruned. The default is 10.
 The minimum number of recent blocks to keep the entire world state for. The default is 1024.
 
 !!! important
-    Using pruning with [private transactions](../../concepts/Privacy/Privacy-Overview.md) is not
+    Using pruning with [private transactions](../../private-networks/concepts/privacy/index.md) is not
     supported.
 
 ### `pruning-enabled`
@@ -3280,7 +3280,7 @@ The path to the file containing the password to decrypt the keystore.
     ```
 
 The path to the file used to
-[authenticate clients](../../how-to/configure/TLS/Configure-TLS.md#create-the-known-clients-file) using
+[authenticate clients](../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using
 self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format
@@ -3950,9 +3950,9 @@ Prints version information and exit.
 
 <!-- Links -->
 [push gateway integration]: ../../how-to/monitor/metrics.md#running-prometheus-with-besu-in-push-mode
-[accounts permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
-[nodes permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
-[account permissioning]: ../../concepts/Permissioning/Permissioning-Overview.md#account-permissioning
-[TLS on communication with the Private Transaction Manager]: ../../concepts/Privacy/Privacy-Overview.md#private-transaction-manager
+[accounts permissions configuration file]: ../../private-networks/how-to/use-permissioning/local.md#permissions-configuration-file
+[nodes permissions configuration file]: ../../private-networks/how-to/use-permissioning/local.md#permissions-configuration-file
+[account permissioning]: ../../private-networks/concepts/permissioning/index.md#account-permissioning
+[TLS on communication with the Private Transaction Manager]: ../../private-networks/concepts/privacy/index.md#private-transaction-manager
 [JWT provider's public key file]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
 [plugin]: ../Plugin-API-Interfaces.md

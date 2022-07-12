@@ -15,7 +15,7 @@ CLI option.
 To accept signed transactions from remote connections, set the
 [API listening host](use-besu-api/index.md#service-hosts) to `0.0.0.0`.
 
-[Use client libraries](Develop-Dapps/Client-Libraries.md) to create and send a signed raw transaction to transfer
+[Use client libraries](develop/client-libraries.md) to create and send a signed raw transaction to transfer
 Ether and create a smart contract.
 
 !!! warning "Private keys"

@@ -15,7 +15,7 @@ subscribe to logs and receive notifications when a specific event occurs.
 Methods specific to RPC Pub/Sub are:
 
 * `eth_subscribe` and `eth_unsubscribe` - create or cancel a subscription for specific events.
-* `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../concepts/Privacy/Privacy-Overview.md).
+* `priv_subscribe` and `priv_unsubscribe` - create or cancel a subscription for [private logs](../../private-networks/concepts/privacy/index.md).
 
 !!!important
 

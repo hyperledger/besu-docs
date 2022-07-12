@@ -17,7 +17,7 @@ Use [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) to create the 
 using [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) and
 [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)).
 
-Access logs for [private contracts](../../concepts/Privacy/Privacy-Overview.md) using the equivalent
+Access logs for [private contracts](../../private-networks/concepts/privacy/index.md) using the equivalent
 [`priv_*` methods and specifying the privacy group ID](#filters-for-private-contracts). For example,
 [`priv_getLogs`](../../reference/api/index.md#priv_getlogs).
 
@@ -164,7 +164,7 @@ Filters for private contracts are created, accessed, and uninstalled using:
 * [`priv_newFilter`](../../reference/api/index.md#priv_newfilter)
 * [`priv_uninstallFilter`](../../reference/api/index.md#priv_uninstallfilter).
 
-The [privacy group ID](../../concepts/Privacy/Privacy-Overview.md) must be specified as parameter 0
+The [privacy group ID](../../private-networks/concepts/privacy/index.md) must be specified as parameter 0
 for the `priv` methods.
 
 !!! example

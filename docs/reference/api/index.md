@@ -500,7 +500,7 @@ Removes a [static node](../../how-to/connect/static-nodes.md).
 
 ## `CLIQUE` methods
 
-The `CLIQUE` API methods provide access to the [Clique](../../how-to/configure/Consensus-Protocols/Clique.md) consensus engine.
+The `CLIQUE` API methods provide access to the [Clique](../../private-networks/how-to/configure/consensus/clique.md) consensus engine.
 
 !!! note
 
@@ -697,7 +697,7 @@ Lists signers for the specified block.
 ### `clique_proposals`
 
 Returns
-[current proposals](../../how-to/configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+[current proposals](../../private-networks/how-to/configure/consensus/clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -1653,8 +1653,8 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 ## `EEA` methods
 
-The `EEA` API methods provide functionality for [private transactions](../../concepts/Privacy/Private-Transactions.md) and
-[privacy groups](../../concepts/Privacy/Privacy-Groups.md).
+The `EEA` API methods provide functionality for [private transactions](../../private-networks/concepts/privacy/private-transactions/index.md) and
+[privacy groups](../../private-networks/concepts/privacy/privacy-groups.md).
 
 !!! note
 
@@ -1666,15 +1666,15 @@ The `EEA` API methods provide functionality for [private transactions](../../con
 
 Distributes the
 [private transaction](../../private-networks/how-to/send-transactions/private-transactions.md),
-generates the [privacy marker transaction](../../concepts/Privacy/Private-Transaction-Processing.md)
+generates the [privacy marker transaction](../../private-networks/concepts/privacy/private-transactions/processing.md)
 and submits it to the transaction pool, and returns the transaction hash of the
-[privacy marker transaction](../../concepts/Privacy/Private-Transaction-Processing.md).
+[privacy marker transaction](../../private-networks/concepts/privacy/private-transactions/processing.md).
 
 The signed transaction passed as an input parameter includes the `privateFrom`,
 [`privateFor` or `privacyGroupId`](../../private-networks/how-to/send-transactions/private-transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
 
-The `gas` and `gasPrice` are used by the [privacy marker transaction](../../concepts/Privacy/Private-Transaction-Processing.md)
+The `gas` and `gasPrice` are used by the [privacy marker transaction](../../private-networks/concepts/privacy/private-transactions/processing.md)
 not the private transaction itself.
 
 To avoid exposing your private key, create signed transactions offline and send the signed
@@ -1703,7 +1703,7 @@ transaction data using `eea_sendRawTransaction`.
 #### Returns
 
 `result`: *string* - 32-byte transaction hash of the
-[Privacy Marker Transaction](../../concepts/Privacy/Private-Transaction-Processing.md)
+[Privacy Marker Transaction](../../private-networks/concepts/privacy/private-transactions/processing.md)
 
 !!! tip
 
@@ -3300,7 +3300,7 @@ from untrusted sources, by using a trusted block hash.
 
 ### `eth_getQuorumPayload`
 
-When using [GoQuorum-compatible privacy](../../how-to/Use-Privacy/Use-GoQuorum-compatible-privacy.md), returns the
+When using [GoQuorum-compatible privacy](../../private-networks/how-to/use-privacy/goquorum-compatible.md), returns the
 [unencrypted payload from Tessera](https://docs.tessera.consensys.net/Concepts/Transaction-manager/#private-transaction-flow).
 
 #### Parameters
@@ -4860,7 +4860,7 @@ Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterch
 
 ## `IBFT` 2.0 methods
 
-The `IBFT` API methods provide access to the [IBFT 2.0](../../how-to/configure/Consensus-Protocols/IBFT.md) consensus engine.
+The `IBFT` API methods provide access to the [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md) consensus engine.
 
 !!! note
 
@@ -4906,8 +4906,8 @@ Discards a proposal to [add or remove a validator] with the specified address.
 
 ### `ibft_getPendingVotes`
 
-Returns [votes](../../how-to/configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators) cast in the current
-[epoch](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file).
+Returns [votes](../../private-networks/how-to/configure/consensus/ibft.md#adding-and-removing-validators) cast in the current
+[epoch](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file).
 
 #### Parameters
 
@@ -5536,7 +5536,7 @@ None
 ## `PERM` (Permissioning) methods
 
 The `PERM` API methods provide permissioning functionality.
-Use these methods for [local permissioning](../../how-to/Limit-Access/Local-Permissioning.md) only.
+Use these methods for [local permissioning](../../private-networks/how-to/use-permissioning/local.md) only.
 
 !!! important
 
@@ -5547,7 +5547,7 @@ Use these methods for [local permissioning](../../how-to/Limit-Access/Local-Perm
 ### `perm_addAccountsToAllowlist`
 
 Adds accounts (participants) to the
-[accounts permission list](../../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permission list](../../private-networks/how-to/use-permissioning/local.md#account-permissioning).
 
 #### Parameters
 
@@ -5590,7 +5590,7 @@ allowlist and including invalid account addresses.)
 ### `perm_addNodesToAllowlist`
 
 Adds nodes to the
-[nodes allowlist](../../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../../private-networks/how-to/use-permissioning/local.md#node-allowlisting).
 
 To use domain names in enode URLs, ensure you [enable DNS support](../../concepts/node-keys.md#domain-name-support) to
 avoid receiving a `request contains an invalid node` error.
@@ -5640,7 +5640,7 @@ including invalid enode URLs.
 ### `perm_getAccountsAllowlist`
 
 Lists accounts (participants) in the
-[accounts permissions list](../../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permissions list](../../private-networks/how-to/use-permissioning/local.md#account-permissioning).
 
 #### Parameters
 
@@ -5680,7 +5680,7 @@ None
 ### `perm_getNodesAllowlist`
 
 Lists nodes in the
-[nodes allowlist](../../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../../private-networks/how-to/use-permissioning/local.md#node-allowlisting).
 
 #### Parameters
 
@@ -5756,7 +5756,7 @@ None
 ### `perm_removeAccountsFromAllowlist`
 
 Removes accounts (participants) from the
-[accounts permissions list](../../how-to/Limit-Access/Local-Permissioning.md#account-permissioning).
+[accounts permissions list](../../private-networks/how-to/use-permissioning/local.md#account-permissioning).
 
 #### Parameters
 
@@ -5799,7 +5799,7 @@ and including invalid account addresses.)
 ### `perm_removeNodesFromAllowlist`
 
 Removes nodes from the
-[nodes allowlist](../../how-to/Limit-Access/Local-Permissioning.md#node-allowlisting).
+[nodes allowlist](../../private-networks/how-to/use-permissioning/local.md#node-allowlisting).
 
 #### Parameters
 
@@ -5887,8 +5887,8 @@ Reloads specified plugin configuration.
 
 ## `PRIV` methods
 
-The `PRIV` API methods provide functionality for [private transactions](../../concepts/Privacy/Private-Transactions.md) and
-[privacy groups](../../concepts/Privacy/Privacy-Groups.md).
+The `PRIV` API methods provide functionality for [private transactions](../../private-networks/concepts/privacy/private-transactions/index.md) and
+[privacy groups](../../private-networks/concepts/privacy/privacy-groups.md).
 
 !!! note
 
@@ -5904,7 +5904,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](#eth_call) for pu
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `call`: *object* - [transaction call object](objects.md#transaction-call-object)
 
@@ -6025,7 +6025,7 @@ Returns the state root of the specified privacy group at the specified block.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
@@ -6152,8 +6152,8 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 #### Returns
 
 `result`: *array* of *objects* - privacy group objects containing only the specified members; privacy groups are
-[EEA-compliant](../../concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy)
-or [Besu-extended](../../concepts/Privacy/Privacy-Groups.md#besu-extended-privacy) with types:
+[EEA-compliant](../../private-networks/concepts/privacy/privacy-groups.md#enterprise-ethereum-alliance-privacy)
+or [Besu-extended](../../private-networks/concepts/privacy/privacy-groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups.
   
@@ -6201,7 +6201,7 @@ is stored as a hexadecimal value.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `address`: *string* - 20-byte contract address
 
@@ -6295,7 +6295,7 @@ of log objects or an empty list.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `filterId`: *string* - filter ID
 
@@ -6359,7 +6359,7 @@ for private contracts.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `filterId`: *string* - filter ID
 
@@ -6430,7 +6430,7 @@ for private contracts.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `filterOptions`: *object* - [filter options object](objects.md#filter-options-object)
 
@@ -6494,7 +6494,7 @@ for private contracts.
 ### `priv_getPrivacyPrecompileAddress`
 
 Returns the address of the
-[privacy precompiled contract](../../concepts/Privacy/Private-Transaction-Processing.md).
+[privacy precompiled contract](../../private-networks/concepts/privacy/private-transactions/processing.md).
 The address
 is derived and based on the value of the
 [`privacy-flexible-groups-enabled`](../cli/options.md#privacy-flexible-groups-enabled) option.
@@ -6699,7 +6699,7 @@ for public contracts.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `filterOptions`: *object* - [filter options object](objects.md#filter-options-object)
 
@@ -6748,7 +6748,7 @@ for public contracts.
 
 #### Parameters
 
-* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../concepts/Privacy/Privacy-Groups.md)
+* `privacyGroupId`: *string* - 32-byte [privacy Group ID](../../private-networks/concepts/privacy/privacy-groups.md)
 
 * `filterId`: *string* - filter ID
 
@@ -6782,7 +6782,7 @@ for public contracts.
 
 ## `QBFT` methods
 
-The `QBFT` API methods provide access to the [QBFT](../../how-to/configure/Consensus-Protocols/QBFT.md) consensus engine.
+The `QBFT` API methods provide access to the [QBFT](../../private-networks/how-to/configure/consensus/qbft.md) consensus engine.
 
 !!! note
 
@@ -6793,7 +6793,7 @@ The `QBFT` API methods provide access to the [QBFT](../../how-to/configure/Conse
 ### `qbft_discardValidatorVote`
 
 Discards a proposal to
-[add or remove a validator](../../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
+[add or remove a validator](../../private-networks/how-to/configure/consensus/qbft.md#adding-and-removing-validators) with the specified address.
 
 #### Parameters
 
@@ -6829,8 +6829,8 @@ Discards a proposal to
 
 ### `qbft_getPendingVotes`
 
-Returns [votes](../../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) cast in the current
-[epoch](../../how-to/configure/Consensus-Protocols/QBFT.md#genesis-file).
+Returns [votes](../../private-networks/how-to/configure/consensus/qbft.md#adding-and-removing-validators) cast in the current
+[epoch](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file).
 
 #### Parameters
 
@@ -7030,7 +7030,7 @@ Lists the validators defined in the specified block.
 ### `qbft_proposeValidatorVote`
 
 Proposes to
-[add or remove a validator](../../how-to/configure/Consensus-Protocols/QBFT.md#adding-and-removing-validators) with the specified address.
+[add or remove a validator](../../private-networks/how-to/configure/consensus/qbft.md#adding-and-removing-validators) with the specified address.
 
 #### Parameters
 
@@ -8115,10 +8115,10 @@ None
 [schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
 [eth_sendRawTransaction or eth_call]: ../../how-to/send-transactions.md#eth_call-or-eth_sendrawtransaction
 [transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6
-[add or remove a signer with the specified address]: ../../how-to/configure/Consensus-Protocols/Clique.md#add-and-remove-signers
-[signers for the specified block]: ../../how-to/configure/Consensus-Protocols/Clique.md#adding-and-removing-signers
-[add or remove a validator]: ../../how-to/configure/Consensus-Protocols/IBFT.md#add-and-remove-validators
-[permissions configuration file]: ../../how-to/Limit-Access/Local-Permissioning.md#permissions-configuration-file
-[group of sender and recipients]: ../../concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy
+[add or remove a signer with the specified address]: ../../private-networks/how-to/configure/consensus/clique.md#add-and-remove-signers
+[signers for the specified block]: ../../private-networks/how-to/configure/consensus/clique.md#adding-and-removing-signers
+[add or remove a validator]: ../../private-networks/how-to/configure/consensus/ibft.md#add-and-remove-validators
+[permissions configuration file]: ../../private-networks/how-to/use-permissioning/local.md#permissions-configuration-file
+[group of sender and recipients]: ../../private-networks/concepts/privacy/privacy-groups.md#enterprise-ethereum-alliance-privacy
 
 *[EEA]: Enterprise Ethereum Alliance

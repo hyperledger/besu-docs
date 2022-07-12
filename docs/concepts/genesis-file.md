@@ -16,7 +16,7 @@ then specify the genesis file using the
 [`--genesis-file`](../reference/cli/options.md#genesis-file) command line option.
 
 The genesis file specifies the [network-wide settings](../reference/genesis-items.md), such as
-those for a [free gas network](../how-to/configure/FreeGas.md), so all nodes in a network must use the same genesis
+those for a [free gas network](../private-networks/how-to/configure/free-gas.md), so all nodes in a network must use the same genesis
 file.
 
 !!! example "Example IBFT 2.0 genesis file"

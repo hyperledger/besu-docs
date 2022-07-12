@@ -45,7 +45,7 @@ Permissioned-Network/
 ### 2. Create the configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../how-to/configure/Consensus-Protocols/IBFT.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -265,7 +265,7 @@ On the command line:
     [`--permissions-nodes-contract-enabled`](../../reference/cli/options.md#permissions-nodes-contract-enabled).
 * Set the address of the Node Ingress contract in the genesis file using
     [`--permissions-nodes-contract-address`](../../reference/cli/options.md#permissions-nodes-contract-address).
-* Set the version of the [permissioning contract interface](../../how-to/Limit-Access/Specify-Perm-Version.md)
+* Set the version of the [permissioning contract interface](../../private-networks/how-to/use-permissioning/Specify-Perm-Version.md)
     using [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version).
 * Enable the JSON-RPC API using
     [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled).
@@ -399,6 +399,6 @@ In the [permissioning management dapp started in step 12](#12-start-the-permissi
 add [Node-1, Node-2, Node-3, and Node-4 to the allowlist].
 
 <!-- Links -->
-[Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../how-to/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
-[admin account]: ../../how-to/Limit-Access/Updating-Permission-Lists.md#update-nodes-allowlist
-[IBFT 2.0 proof of authority (PoA)]: ../../how-to/configure/Consensus-Protocols/IBFT.md
+[Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../private-networks/how-to/use-permissioning/onchain.md#update-nodes-allowlist
+[admin account]: ../../private-networks/how-to/use-permissioning/onchain.md#update-nodes-allowlist
+[IBFT 2.0 proof of authority (PoA)]: ../../private-networks/how-to/configure/consensus/ibft.md

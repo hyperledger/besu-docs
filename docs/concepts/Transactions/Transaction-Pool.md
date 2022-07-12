@@ -22,8 +22,8 @@ Options and methods for configuring and monitoring the transaction pool include:
   RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
 
 !!! important
-    When submitting [private transactions](../Privacy/Private-Transactions.md#nonce-validation), the
-    [privacy marker transaction](../Privacy/Private-Transaction-Processing.md) is submitted to the
+    When submitting [private transactions](../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation), the
+    [privacy marker transaction](../../private-networks/concepts/privacy/private-transactions/processing.md) is submitted to the
     transaction pool, not the private transaction itself.
 
 ## Dropping transactions when the transaction pool is full

@@ -8,7 +8,7 @@ You can configure Besu at the network level and the node level.
 
 Specify network-wide settings in the [genesis file](../reference/genesis-items.md). For example,
 include `evmStackSize` or specify the
-[consensus mechanism](Consensus-Protocols/Overview-Consensus.md).
+[consensus mechanism](../private-networks/how-to/configure/consensus/index.md).
 
 Specify node settings on the command line or in the
 [node configuration file](../how-to/configure/configuration-file.md). For example, enable

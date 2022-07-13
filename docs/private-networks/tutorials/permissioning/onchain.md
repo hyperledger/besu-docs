@@ -151,7 +151,7 @@ Copy the `genesis.json` file to the `Permisssioned-Network` directory.
     contract to the genesis file.
 
 Add the Ingress contracts to the genesis file for your network by copying them from
-[`genesis.json`](https://github.com/ConsenSys/permissioning-smart-contracts/blob/master/genesis.json)
+[`genesis.json`](https://github.com/ConsenSys/permissioning-smart-contracts/blob/e6c2d4d5a728c11cdb8e97a07ddda3c0bfb57b5d/genesis.json)
 in the [`permissioning-smart-contracts` repository](https://github.com/ConsenSys/permissioning-smart-contracts) to
 the `alloc` section of the contract:
 

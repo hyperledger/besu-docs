@@ -8112,7 +8112,7 @@ None
         ```
 
 <!-- Links -->
-[schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
+[schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls
 [eth_sendRawTransaction or eth_call]: ../../how-to/send-transactions.md#eth_call-or-eth_sendrawtransaction
 [transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6
 [add or remove a signer with the specified address]: ../../private-networks/how-to/configure/consensus/clique.md#add-and-remove-signers

@@ -95,4 +95,4 @@ the [Besu GraphQL schema] from within the app.
         ```
 
 <!-- Links -->
-[Besu GraphQL schema]: https://github.com/hyperledger/besu/blob/master/ethereum/api/src/main/resources/schema.graphqls
+[Besu GraphQL schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls

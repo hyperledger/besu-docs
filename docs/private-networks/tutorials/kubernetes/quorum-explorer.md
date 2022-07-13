@@ -21,7 +21,7 @@ The explorer can provide an overview over the whole network, such as block infor
 validators from the network, and demonstrates using the `SimpleStorage` smart contract with privacy enabled, and sending
 transactions between wallets in one interface.
 
-To use the explorer, update the [Quorum-Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/explorer-besu.yaml)
+To use the explorer, update the [Quorum-Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/explorer-besu.yaml)
 with your node details and endpoints, and then [deploy](charts.md).
 
 ## Nodes

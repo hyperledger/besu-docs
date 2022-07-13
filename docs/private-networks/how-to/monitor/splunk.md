@@ -68,7 +68,7 @@ Docker Compose environment provided by Splunk.
 ### Requirements
 
 - [Docker](https://docs.docker.com/compose/install/)
-- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../../../get-started/install/binary-distribution.md)
+- [Besu 1.4.4](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/CHANGELOG.md#144) or later [installed](../../../get-started/install/binary-distribution.md)
 
 !!! important
 

@@ -127,6 +127,6 @@ You can manage private nonces in multiple ways:
 
 !!! tip
 
-    The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/master/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
+    The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/9a0f9eb1b91a4a0d93801f77782b509ae2e7314c/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
     of nonce management when [sending concurrent private transactions](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
     The example calculates the correct nonces for the private transactions and PMTs outside of Besu.

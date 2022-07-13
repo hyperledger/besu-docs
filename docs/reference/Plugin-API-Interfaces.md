@@ -44,7 +44,7 @@ The following table lists interfaces providing services you can retrieve.
 | [**RpcEndpointService**](https://wiki.hyperledger.org/display/BESU/RpcEndpointService)                                                                                 | Register custom RPC endpoints.                    |
 
 To use the interfaces in your plugin, ensure the
-[Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/master/build.gradle) contains
+[Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/957628b3c6f533f3c3f405e2a17e369cd1f02c31/build.gradle) contains
 the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `plugin-api` dependency.
 
 !!! warning "Known issue"

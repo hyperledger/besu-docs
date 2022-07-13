@@ -76,6 +76,6 @@ For Bash-based executions, you can set the variable for only the scope of the pr
 [log rotation to restrict the size of the log files].
 
 <!-- Links -->
-[default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml
-[log rotation to restrict the size of the log files]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/config/besu/log-config.xml
-[default configuration]: https://github.com/hyperledger/besu/blob/master/besu/src/main/resources/log4j2.xml
+[default configuration]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/besu/src/main/resources/log4j2.xml
+[log rotation to restrict the size of the log files]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/besu/config/besu/log-config.xml
+[default configuration]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/besu/src/main/resources/log4j2.xml

@@ -7,7 +7,7 @@ description: Options for getting started with Hyperledger Besu
 
 ## New to Hyperledger Besu?
 
-Get started with the [Developer Quickstart](../../tutorials/Developer-Quickstart.md).
+Get started with the [Developer Quickstart](../../private-networks/tutorials/quickstart.md).
 Use the quickstart to rapidly generate local blockchain networks.
 
 ## Installation options

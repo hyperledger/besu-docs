@@ -10,5 +10,5 @@ private networks using Kubernetes (K8s). The repository has full support for clo
 AWS, Azure, GCP, and IBM, and has production setups that use of identities and cloud-native
 secret storage services like Azure KeyVault and AWS Secrets Manager.
 
-Refer to the [tutorial](../../../tutorials/Kubernetes/Overview.md) and familiarize yourself with
+Refer to the [tutorial](../../tutorials/kubernetes/index.md) and familiarize yourself with
 the reference implementations, and customize them to your requirements.

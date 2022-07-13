@@ -11,7 +11,7 @@ When using [onchain permissioning](../../concepts/permissioning/onchain.md), you
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
-1. On the **Nodes** tab of the [permissioning management dapp](../../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
+1. On the **Nodes** tab of the [permissioning management dapp](../../tutorials/permissioning/onchain.md),
    select **Add Node**.
    The **Add Node** window displays.
 2. Enter the [enode URL](../../../concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
@@ -61,7 +61,7 @@ To remove a node from the nodes allowlist:
 
 To add an account to the accounts allowlist:
 
-1. On the **Accounts** tab of the [permissioning management dapp](../../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md),
+1. On the **Accounts** tab of the [permissioning management dapp](../../tutorials/permissioning/onchain.md),
    select **Add Account**. The **Add Account** window displays.
 1. Enter the account address in the **Account Address** field and select **Add Account**.
 

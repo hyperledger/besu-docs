@@ -204,7 +204,7 @@ Node-3):
 ## Next steps
 
 Import accounts to MetaMask and send transactions as described in the
-[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+[Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 

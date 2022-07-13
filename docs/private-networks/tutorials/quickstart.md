@@ -6,7 +6,7 @@ description: Rapidly generate local blockchain networks.
 # Developer Quickstart
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private
-[IBFT 2.0](../private-networks/how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
+[IBFT 2.0](../how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
 
 !!! warning
 
@@ -41,9 +41,9 @@ To create the tutorial `docker-compose` files and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../private-networks/how-to/monitor/elastic-stack.md).
+Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../how-to/monitor/elastic-stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and
-[private transactions](../private-networks/concepts/privacy/index.md).
+[private transactions](../concepts/privacy/index.md).
 
 !!! note
 
@@ -92,13 +92,13 @@ When execution is successfully finished, the process lists the available service
 - Use the **Web block explorer address** to display the [block explorer Web application](http://localhost:25000).
 - Use the **Prometheus address** to access the
   [Prometheus dashboard](http://localhost:9090/graph).
-  [Read more about metrics](../how-to/monitor/metrics.md).
+  [Read more about metrics](../../how-to/monitor/metrics.md).
 - Use the **Grafana address** to access the
   [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All).
-  [Read more about metrics](../how-to/monitor/metrics.md).
+  [Read more about metrics](../../how-to/monitor/metrics.md).
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
-  [Read more about log management](../private-networks/how-to/monitor/elastic-stack.md).
+  [Read more about log management](../how-to/monitor/elastic-stack.md).
 
 To display the list of endpoints again, run:
 
@@ -117,14 +117,14 @@ The block explorer displays a summary of the private network, indicating four pe
 
 Select the block number to the right of **Best Block** to display the block details:
 
-![Block Details](../images/ExplorerBlockDetails.png)
+![Block Details](../../images/ExplorerBlockDetails.png)
 
 You can explore blocks by selecting the blocks under **`Bk`** on the left-hand side.
 
 You can search for a specific block, transaction hash, or address by selecting the :mag:
 in the top left-hand corner.
 
-![Explorer Search](../images/ExplorerSearch.png)
+![Explorer Search](../../images/ExplorerSearch.png)
 
 ## Monitor nodes with Prometheus and Grafana
 
@@ -135,11 +135,11 @@ You can directly access these tools from your browser at the addresses displayed
 - [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
 
 For more details on how to configure and use these tools for your own nodes, see the
-[performances monitoring documentation](../how-to/monitor/metrics.md),
+[performances monitoring documentation](../../how-to/monitor/metrics.md),
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
-![Grafana](../images/grafana.png)
+![Grafana](../../images/grafana.png)
 
 ## Run JSON-RPC requests
 
@@ -199,7 +199,7 @@ or skip ahead to [Create a transaction using MetaMask](#create-a-transaction-usi
 
 Peers are the other nodes connected to the node receiving the JSON-RPC request.
 
-Poll the peer count using [`net_peerCount`](../reference/api/index.md#net_peercount):
+Poll the peer count using [`net_peerCount`](../../reference/api/index.md#net_peercount):
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545
@@ -217,7 +217,7 @@ The result indicates that there are four peers (the validators):
 
 ### Request the most recent block number
 
-Call [`eth_blockNumber`](../reference/api/index.md#eth_blockNumber) to retrieve the number of the most recently
+Call [`eth_blockNumber`](../../reference/api/index.md#eth_blockNumber) to retrieve the number of the most recently
 synchronized block:
 
 ```bash
@@ -415,15 +415,15 @@ When you select **Adopt**, a MetaMask window pops up and requests your permissio
 
 After the transaction is complete and successful, the status of the pet you adopted shows **Success**.
 
-![Dapp UI](../images/dapp-ui.png)
+![Dapp UI](../../images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
-![Dapp UI](../images/dapp-explorer-tx.png)
+![Dapp UI](../../images/dapp-explorer-tx.png)
 
 The MetMask UI also keeps a record of the transaction.
 
-![Dapp UI](../images/dapp-metamask-tx.png)
+![Dapp UI](../../images/dapp-metamask-tx.png)
 
 ### Deploy your own dapp
 
@@ -581,7 +581,7 @@ If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`,
 `"enode://4540ea...9c1d78@172.16.239.41:30303"`, which must be added to both files.
 
 Alternatively, call the
-[`perm_addNodesToAllowlist`](../reference/api/index.md#perm_addnodestoallowlist) API method on existing nodes to add
+[`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) API method on existing nodes to add
 the new node without restarting.
 
 !!! note
@@ -595,13 +595,13 @@ the new node without restarting.
 
 Once complete, start the network up with `./run.sh`.
 When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts)
-or via [RPC API calls](../reference/api/index.md#perm_addnodestoallowlist).
+or via [RPC API calls](../../reference/api/index.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 
-[bootnodes]: ../private-networks/how-to/deploy/Bootnodes.md
-[permissions file]: ../private-networks/how-to/use-permissioning/local.md
-[static nodes]: ../how-to/connect/static-nodes.md
-[allow list]: ../private-networks/how-to/use-permissioning/local.md#node-allowlisting
+[bootnodes]: ../how-to/deploy/Bootnodes.md
+[permissions file]: ../how-to/use-permissioning/local.md
+[static nodes]: ../../how-to/connect/static-nodes.md
+[allow list]: ../how-to/use-permissioning/local.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
 [create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-

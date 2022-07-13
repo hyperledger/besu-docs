@@ -46,7 +46,7 @@ consensus protocols.
 | `gasLimit`          | Block gas limit. Total gas limit for all transactions in a block.                                                                       |
 | `nonce`             | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`).                                               |
 | `timestamp`         | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.                |
-| `alloc`             | Defines [accounts with balances](Accounts-for-Testing.md) or [contracts](../private-networks/how-to/configure/contracts.md).                   |
+| `alloc`             | Defines [accounts with balances](../private-networks/reference/accounts-for-testing.md) or [contracts](../private-networks/how-to/configure/contracts.md).                   |
 
 ## Milestone blocks
 

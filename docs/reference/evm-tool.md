@@ -83,7 +83,7 @@ If set to a non-zero value, the sender account must have enough value to cover t
 
 The account the invocation is sent from.
 The specified account must exist in the world state, which unless specified by `--genesis`
-or `--prestate` is the set of [accounts used for testing](Accounts-for-Testing.md).
+or `--prestate` is the set of [accounts used for testing](../private-networks/reference/accounts-for-testing.md).
 
 ### `receiver`
 

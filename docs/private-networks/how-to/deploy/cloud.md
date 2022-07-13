@@ -10,4 +10,4 @@ When deploying Besu to the cloud:
   bootnodes and validators.
 * If your network is a multi-region network, consider using VPC Peering to reduce latency.
 * Where required, use VPNs to connect to your on premise systems, or single private chains.
-* If deploying to Kubernetes, please refer to the [tutorial](../../../tutorials/Kubernetes/Overview.md).
+* If deploying to Kubernetes, please refer to the [tutorial](../../tutorials/kubernetes/index.md).

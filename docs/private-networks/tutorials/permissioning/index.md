@@ -14,7 +14,7 @@ uses the [IBFT 2.0 proof of authority consensus protocol].
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+- [Hyperledger Besu](../../../get-started/install/binary-distribution.md)
 - [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps
@@ -41,7 +41,7 @@ Permissioned-Network/
 ### 2. Create the configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../how-to/configure/consensus/ibft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -168,7 +168,7 @@ Permissioned-Network/
 
 ### 6. Create the permissions configuration file
 
-The [permissions configuration file](../../private-networks/how-to/use-permissioning/local.md#permissions-configuration-file)
+The [permissions configuration file](../../how-to/use-permissioning/local.md#permissions-configuration-file)
 defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a copy in the
@@ -184,7 +184,7 @@ Copy the following permissions configuration to a file called `permissions_confi
 
 The permissions configuration file includes the first two accounts from the genesis file.
 
-Use the [`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
+Use the [`perm_addNodesToAllowlist`](../../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
 
 ### 7. Start Node-1
 
@@ -204,21 +204,21 @@ Use the following command:
 
 The command line allows you to enable:
 
-- Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../reference/cli/options.md#permissions-nodes-config-file-enabled)
-  and [`--permissions-accounts-config-file-enabled`](../../reference/cli/options.md#permissions-accounts-config-file-enabled).
-- The JSON-RPC API using [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled).
+- Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../../reference/cli/options.md#permissions-nodes-config-file-enabled)
+  and [`--permissions-accounts-config-file-enabled`](../../../reference/cli/options.md#permissions-accounts-config-file-enabled).
+- The JSON-RPC API using [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled).
 - The `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
-  [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api).
+  [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api).
 - All-host access to the HTTP JSON-RPC API using
-  [`--host-allowlist`](../../reference/cli/options.md#host-allowlist).
+  [`--host-allowlist`](../../../reference/cli/options.md#host-allowlist).
 - All-domain access to the node through the HTTP JSON-RPC API using
-  [`--rpc-http-cors-origins`](../../reference/cli/options.md#rpc-http-cors-origins).
+  [`--rpc-http-cors-origins`](../../../reference/cli/options.md#rpc-http-cors-origins).
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. You need the
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. You need the
 enode URL to specify Node-1 as a peer and update the permissions configuration file in the
 following steps.
 
-![Node 1 Enode URL](../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../images/EnodeStartup.png)
 
 ### 8. Start Node-2
 
@@ -238,12 +238,12 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 
 The command line specifies:
 
-- A different port to Node-1 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-- A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-- A data directory for Node-2 using [`--data-path`](../../reference/cli/options.md#data-path).
+- A different port to Node-1 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+- A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+- A data directory for Node-2 using [`--data-path`](../../../reference/cli/options.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. You need
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. You need
 the enode URL to update the permissions configuration file in the following steps.
 
 ### 9. Start Node-3
@@ -264,12 +264,12 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 
 The command line specifies:
 
-- A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-- A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-- A data directory for Node-3 using [`--data-path`](../../reference/cli/options.md#data-path).
+- A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+- A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+- A data directory for Node-3 using [`--data-path`](../../../reference/cli/options.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. You need
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. You need
 the enode URL to update the permissions configuration file in the following steps.
 
 ### 10. Start Node-4
@@ -290,18 +290,18 @@ Start another terminal, change to the `Node-4` directory, and start Node-4:
 
 The command line specifies:
 
-- A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-- A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-- A data directory for Node-4 using [`--data-path`](../../reference/cli/options.md#data-path).
+- A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+- A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+- A data directory for Node-4 using [`--data-path`](../../../reference/cli/options.md#data-path).
 - Other options as for [Node-1](#7-start-node-1).
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. You need
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. You need
 the enode URL to update the permissions configuration file in the following steps.
 
 ### 11. Add enode URLs for nodes to permissions configuration file
 
 Start another terminal and use the
-[`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API
+[`perm_addNodesToAllowlist`](../../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API
 method to add the nodes to the permissions configuration file for each node.
 
 Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with the enode URL displayed when
@@ -337,7 +337,7 @@ starting each node.
 
 ### 12. Add nodes as peers
 
-Use the [`admin_addPeer`](../../reference/api/index.md#admin_addpeer) JSON-RPC API method to add
+Use the [`admin_addPeer`](../../../reference/api/index.md#admin_addpeer) JSON-RPC API method to add
 Node-1 as a peer for Node-2, Node-3, and Node-4.
 
 Replace `<EnodeNode1>` with the enode URL displayed when starting Node-1.
@@ -390,7 +390,7 @@ Replace `<EnodeNode3>` with the enode URL displayed when starting Node-3.
 
 #### Check peer count
 
-Use curl to call the JSON-RPC API [`net_peerCount`](../../reference/api/index.md#net_peercount) method and confirm the
+Use curl to call the JSON-RPC API [`net_peerCount`](../../../reference/api/index.md#net_peercount) method and confirm the
 nodes are functioning as peers:
 
 ```bash
@@ -454,7 +454,7 @@ Change to the `Node-5` directory and start Node-5 specifying the Node-1 enode UR
     ```
 
 Start another terminal and use curl to call the JSON-RPC API
-[`net_peerCount`](../../reference/api/index.md#net_peercount) method:
+[`net_peerCount`](../../../reference/api/index.md#net_peercount) method:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8549
@@ -480,5 +480,5 @@ window.
     To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
 
 <!-- Links -->
-[IBFT 2.0 proof of authority consensus protocol]: ../../private-networks/how-to/configure/consensus/ibft.md
-[Private network example tutorial]: ../Developer-Quickstart.md#create-a-transaction-using-metamask
+[IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/consensus/ibft.md
+[Private network example tutorial]: ../quickstart.md#create-a-transaction-using-metamask

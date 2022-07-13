@@ -174,8 +174,8 @@ Provides operator actions.
     besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
     ```
 Generates an
-[IBFT 2.0](../../tutorials/Private-Network/Create-IBFT-Network.md) or
-[QBFT](../../tutorials/Private-Network/Create-QBFT-Network.md) genesis file.
+[IBFT 2.0](../../private-networks/tutorials/ibft/index.md) or
+[QBFT](../../private-networks/tutorials/qbft.md) genesis file.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining the
 [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) or

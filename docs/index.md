@@ -33,7 +33,7 @@ supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
 ## New to Ethereum?
 
-Get started with the [Developer Quickstart](tutorials/Developer-Quickstart.md). Use the quickstart
+Get started with the [Developer Quickstart](private-networks/tutorials/quickstart.md). Use the quickstart
 to rapidly generate local blockchain networks.
 
 Learn more about [use cases for Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).

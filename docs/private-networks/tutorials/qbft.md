@@ -5,7 +5,7 @@ description: Hyperledger Besu private network using the QBFT (proof of authority
 # Create a private network using the QBFT (proof of authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[QBFT (proof of authority) consensus protocol](../../private-networks/how-to/configure/consensus/qbft.md).
+[QBFT (proof of authority) consensus protocol](../how-to/configure/consensus/qbft.md).
 
 The QBFT network in this tutorial implements the [block header validator selection method] to manage
 validators. For a tutorial on how to implement the [contract validator selection method], follow the
@@ -51,7 +51,7 @@ QBFT-Network/
 ### 2. Create a configuration file
 
 The configuration file defines the
-[QBFT genesis file](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file) and the
+[QBFT genesis file](../how-to/configure/consensus/qbft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -354,7 +354,7 @@ Look at the logs to confirm Besu is producing blocks:
 
 Use the [QBFT API](../../reference/api/index.md#qbft-methods) to remove or add validators, or import accounts
 to MetaMask and send transactions as described in the
-[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+[Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
 !!! note
 
@@ -378,9 +378,9 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[block header validator selection method]: ../../private-networks/how-to/configure/consensus/qbft.md#add-and-remove-validators-using-block-headers
-[contract validator selection method]: ../../private-networks/how-to/configure/consensus/qbft.md#add-and-remove-validators-using-a-smart-contract
+[block header validator selection method]: ../how-to/configure/consensus/qbft.md#add-and-remove-validators-using-block-headers
+[contract validator selection method]: ../how-to/configure/consensus/qbft.md#add-and-remove-validators-using-a-smart-contract
 [example smart contract repository]: https://github.com/ConsenSys/validator-smart-contracts
-[configuring a transition]: ../../private-networks/how-to/configure/consensus/qbft.md#transitions
+[configuring a transition]: ../how-to/configure/consensus/qbft.md#transitions
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

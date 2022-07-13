@@ -11,7 +11,7 @@ description: web3js-quorum client library multi-node example
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 To use the examples provided in the web3js-quorum library with
-[your privacy network](Configuring-Privacy.md):
+[your privacy network](index.md):
 
 !!! note
 
@@ -33,7 +33,7 @@ To use the examples provided in the web3js-quorum library with
     * chain ID
     * Tessera node public keys
     * Hyperledger Besu node RPC URLs
-    * [Hyperledger Besu node private keys](../../concepts/node-keys.md#node-private-key).
+    * [Hyperledger Besu node private keys](../../../concepts/node-keys.md#node-private-key).
 
 1. In the `example/multiNodeExample` directory, deploy the contract:
 

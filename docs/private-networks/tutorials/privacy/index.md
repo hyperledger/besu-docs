@@ -14,9 +14,9 @@ Configuring a network that supports private transactions requires starting a [Te
 Hyperledger Besu node. Besu command line options associate the Besu node with the Tessera node.
 
 This tutorial assumes you have completed setting up an IBFT 2.0 network to the point where you have
-[created the genesis file and copied the private keys](../Private-Network/Create-IBFT-Network.md#5-copy-the-node-private-keys-to-the-node-directories).
+[created the genesis file and copied the private keys](../ibft/index.md#5-copy-the-node-private-keys-to-the-node-directories).
 If not, complete steps 1 to 5 of the
-[Create an IBFT 2.0](../Private-Network/Create-IBFT-Network.md) tutorial before continuing.
+[Create an IBFT 2.0](../ibft/index.md) tutorial before continuing.
 
 !!! important
 
@@ -344,16 +344,16 @@ In the `Node-1` directory, start Besu Node-1:
 
 The command line specifies privacy options:
 
-* [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy
-* [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the Q2T server address
+* [`--privacy-enabled`](../../../reference/cli/options.md#privacy-enabled) enables privacy
+* [`--privacy-url`](../../../reference/cli/options.md#privacy-url) specifies the Q2T server address
     of the Tessera node (`Q2T` in `tessera.conf`)
-* [`--privacy-public-key-file`](../../reference/cli/options.md#privacy-public-key-file)
+* [`--privacy-public-key-file`](../../../reference/cli/options.md#privacy-public-key-file)
   specifies the file containing Tessera node public key (created in
   [3. Generate Tessera Keys](#2-generate-tessera-keys))
-* [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
+* [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
   the list of JSON-RPC APIs to enable privacy JSON-RPC API methods.
-* [`--min-gas-price`](../../reference/cli/options.md#min-gas-price) is 0 for a
-  [free gas network](../../private-networks/how-to/configure/free-gas.md).
+* [`--min-gas-price`](../../../reference/cli/options.md#min-gas-price) is 0 for a
+  [free gas network](../../how-to/configure/free-gas.md).
 
 !!! note
 
@@ -363,10 +363,10 @@ The command line specifies privacy options:
     [privacy marker transactions](../../Concepts/Privacy/Private-Transaction-Processing.md) using a
     supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../images/EnodeStartup.png)
 
 ## 6. Start Besu Node-2
 
@@ -386,7 +386,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 !!!note
 
@@ -411,7 +411,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 ## 8. Start Besu Node-4
 
@@ -431,7 +431,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 <!-- links -->
 [Tessera]: https://docs.tessera.consensys.net/

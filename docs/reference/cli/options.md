@@ -2461,7 +2461,7 @@ The path to the file containing the hostnames, ports, and SHA256 certificate fin
     ```
 
 The URL on which the
-[Tessera node](../../tutorials/Privacy/Configuring-Privacy.md#3-create-tessera-configuration-files) is
+[Tessera node](../../private-networks/tutorials/privacy/index.md#3-create-tessera-configuration-files) is
 running.
 
 ### `pruning-block-confirmations`

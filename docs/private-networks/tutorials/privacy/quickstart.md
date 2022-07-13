@@ -5,13 +5,13 @@ description: Hyperledger Besu privacy-enabled private network tutorial
 # Create a privacy-enabled network using the Quorum Developer Quickstart
 
 You can create a privacy-enabled network using the
-[Quorum Developer Quickstart](../Developer-Quickstart.md).
+[Quorum Developer Quickstart](../quickstart.md).
 It runs a private Hyperledger Besu network that
 uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 
-You can use the [Block Explorer](../Developer-Quickstart.md#block-explorer), make
-[JSON-RPC requests](../Developer-Quickstart.md#run-json-rpc-requests), and
-[create transactions using MetaMask](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+You can use the [Block Explorer](../quickstart.md#block-explorer), make
+[JSON-RPC requests](../quickstart.md#run-json-rpc-requests), and
+[create transactions using MetaMask](../quickstart.md#create-a-transaction-using-metamask).
 This tutorial describes how to make private transactions between nodes, and perform read and write operations on private
 contracts.
 
@@ -46,7 +46,7 @@ To create the docker-compose file and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../private-networks/how-to/monitor/elastic-stack.md).
+Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../how-to/monitor/elastic-stack.md).
 Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
 ## Start the network
@@ -85,9 +85,9 @@ For more information on the endpoints and services, refer to README.md in the in
 
 ## Deploy the private contract and interact with the nodes
 
-To deploy a private contract to another [privacy group](../../private-networks/concepts/privacy/privacy-groups.md) member, use the
+To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
-the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call.
+the [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
@@ -147,11 +147,11 @@ The general contract deployment flow is:
 1. Obtain the privacy transaction receipt from the transaction hash.
 
 1. Use the contract address in the privacy transaction receipt to
-    [interact with the contract](../Contracts/Calling-Contract-Functions.md) from that point on.
+    [interact with the contract](../contracts/interact.md) from that point on.
 
 ## Further examples
 
-View the [web3js-quorum client library example](web3js-quorum-Multinode-example.md) and view the
+View the [web3js-quorum client library example](web3js-quorum.md) and view the
 [sample code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
 
 You can also test the erc20 token example by executing `erc20.js` which deploys

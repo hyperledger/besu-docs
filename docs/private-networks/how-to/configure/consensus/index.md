@@ -16,7 +16,7 @@ Besu supports the following consensus protocols:
   post-[Merge](../../../../public-networks/concepts/the-merge.md) and can also be used on the [Merge testnet](../../../../public-networks/tutorials/merge-testnet.md).
 * [Ethash](https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/) (proof of work) - Used on Ethereum Mainnet
   pre-[Merge](../../../../public-networks/concepts/the-merge.md) and can also be used in
-  [small development networks](../../../../tutorials/Private-Network/Create-Private-Network.md).
+  [small development networks](../../../tutorials/ethash.md).
 
 See a [comparison of the proof of authority consensus protocols](../../../concepts/poa.md).
 

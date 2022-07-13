@@ -4,14 +4,14 @@ description: calling smart contracts functions
 
 # Interacting with deployed smart contracts
 
-You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate
+You can get started with the [Developer Quickstart](../quickstart.md) to rapidly generate
 local blockchain networks.
 
 This tutorial shows you how to interact with smart contracts that have been deployed to a network.
 
 ## Prerequisites
 
-* A network with a deployed smart contract as in the [deploying smart contracts tutorial](Deploying-Contracts.md)
+* A network with a deployed smart contract as in the [deploying smart contracts tutorial](index.md)
 
 ## Interact with public contracts
 
@@ -49,7 +49,7 @@ of these calls can be found in the [Developer Quickstart].
 
 To perform a read operation, you need the address that the contract was deployed to and the contract's ABI.
 The contract's ABI can be obtained from compiling the contract; see the
-[deploying smart contracts tutorial](Deploying-Contracts.md) for an example.
+[deploying smart contracts tutorial](index.md) for an example.
 
 Use the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) object to create a new
 instance of the smart contract, then make the `get` function call from the contract's list of methods, which will return the value stored:
@@ -172,4 +172,4 @@ async function setValueAtAddress(clientUrl, address, value, contractAbi, fromPri
 
 To verify that a value has been updated, perform a `get` call after a `set` update call.
 
-[Developer Quickstart]: ../Developer-Quickstart.md
+[Developer Quickstart]: ../quickstart.md

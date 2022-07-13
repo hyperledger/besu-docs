@@ -19,7 +19,7 @@ In Clique networks, approved accounts, known as signers, validate transactions a
 take turns to create the next block.
 Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
 
-You can [create a private network using Clique](../../../../tutorials/Private-Network/Create-Private-Clique-Network.md).
+You can [create a private network using Clique](../../../tutorials/clique.md).
 
 ## Genesis file
 

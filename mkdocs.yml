@@ -226,6 +226,36 @@ nav:
             - Events and logs: concepts/events-and-logs.md
             - Node keys: concepts/node-keys.md
         - Tutorials:
+            - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
+            - Create a QBFT network: private-networks/tutorials/qbft.md
+            - Create an IBFT 2.0 network:
+                - Index: private-networks/tutorials/ibft/index.md
+                - Add and remove IBFT 2.0 validators: private-networks/tutorials/ibft/validators.md
+            - Create a Clique network: private-networks/tutorials/clique.md
+            - Create an Ethash network: private-networks/tutorials/ethash.md
+            - Create a privacy-enabled network:
+                - Index: private-networks/tutorials/privacy/index.md
+                - Create a privacy-enabled network using the Quickstart: private-networks/tutorials/privacy/quickstart.md
+                - Configure a multi-tenant network: private-networks/tutorials/privacy/multi-tenancy.md
+                - Use the web3js-quorum multi-node example: private-networks/tutorials/privacy/web3js-quorum.md
+            - Create a permissioned network:
+                - Index: private-networks/tutorials/permissioning/index.md
+                - Get started with onchain permissioning: private-networks/tutorials/permissioning/onchain.md
+                - Upgrade permissioning contracts: private-networks/tutorials/permissioning/upgrade-contracts.md
+            - Deploy a smart contract:
+                - Index: private-networks/tutorials/contracts/index.md
+                - Transfer account funds: private-networks/tutorials/contracts/transfer-funds.md
+                - Interact with a deployed contract: private-networks/tutorials/contracts/interact.md
+            - Deploy using Kubernetes:
+                - Index: private-networks/tutorials/kubernetes/index.md
+                - Local playground: private-networks/tutorials/kubernetes/playground.md
+                - Create a cluster: private-networks/tutorials/kubernetes/cluster.md
+                - Deploy charts: private-networks/tutorials/kubernetes/charts.md
+                - Use the Quorum Explorer: private-networks/tutorials/kubernetes/quorum-explorer.md
+                - Maintenance: private-networks/tutorials/kubernetes/maintenance.md
+                - Production: private-networks/tutorials/kubernetes/production.md
+                - Configure Kubernetes mode in NAT manager: private-networks/tutorials/kubernetes/nat-manager.md
+            - Deploy using Microsoft Azure: private-networks/tutorials/azure.md
         - Reference:
             - Besu command line:
                 - Options: reference/cli/options.md
@@ -234,6 +264,7 @@ nav:
                 - Index: reference/api/index.md
                 - Objects: reference/api/objects.md
             - Genesis file items: reference/genesis-items.md
+            - Accounts for testing: private-networks/reference/accounts-for-testing.md
             - EVM tool options: reference/evm-tool.md
             - Transaction trace types: reference/trace-types.md
             - Projects using Besu: reference/projects-using-besu.md
@@ -304,22 +335,22 @@ plugins:
           Concepts/Client-Libraries.md: how-to/develop/client-libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: private-networks/how-to/use-privacy/flexible.md
-          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: private-networks/tutorials/Private-Network-Example-Azure.md
+          Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: private-networks/tutorials/azure.md
           HowTo/Interact/Client-Libraries/eeajs.md: private-networks/how-to/use-privacy/web3js-quorum.md
           HowTo/Interact/Client-Libraries/web3js-eea.md: private-networks/how-to/use-privacy/web3js-quorum.md
           Privacy/Explanation/Privacy-Groups.md: private-networks/concepts/privacy/privacy-groups.md
-          Tutorials/Privacy/eeajs-Multinode-example.md: private-networks/tutorials/Privacy/web3js-quorum-Multinode-example.md
-          Tutorials/Privacy/web3js-eea-Multinode-example.md: private-networks/tutorials/Privacy/web3js-quorum-Multinode-example.md
+          Tutorials/Privacy/eeajs-Multinode-example.md: private-networks/tutorials/privacy/web3js-quorum.md
+          Tutorials/Privacy/web3js-eea-Multinode-example.md: private-networks/tutorials/privacy/web3js-quorum.md
           HowTo/Configure/Configure-TLS.md: private-networks/how-to/configure/tls/client-and-server.md
           HowTo/Deploy/Lite-Block-Explorer.md: https://github.com/Alethio/ethereum-lite-explorer
           HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
           HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: private-networks/how-to/configure/consensus/qbft.md
           HowTo/Configure/Configure-Data-Storage.md: public-networks/concepts/data-storage-formats.md
           Concepts/Consensus-Protocols/Proof-of-Stake.md: public-networks/concepts/the-merge.md
-          Tutorials/Examples/Private-Network-Example.md: private-networks/tutorials/Developer-Quickstart.md
-          Tutorials/Examples/Privacy-Example.md: private-networks/tutorials/Privacy/Privacy-Example.md
-          Tutorials/Examples/Nat-Manager-Kubernetes.md: private-networks/tutorials/Kubernetes/Nat-Manager-kubernetes.md
-          Tutorials/Examples/Private-Network-Example-Azure.md: private-networks/tutorials/Private-Network-Example-Azure.md
+          Tutorials/Examples/Private-Network-Example.md: private-networks/tutorials/quickstart.md
+          Tutorials/Examples/Privacy-Example.md: private-networks/tutorials/privacy/quickstart.md
+          Tutorials/Examples/Nat-Manager-Kubernetes.md: private-networks/tutorials/kubernetes/nat-manager.md
+          Tutorials/Examples/Private-Network-Example-Azure.md: private-networks/tutorials/azure.md
           HowTo/Configure/Consensus-Protocols/Add-Validators.md: private-networks/how-to/configure/consensus/qbft.md
           # restructure redirects:
           HowTo/Get-Started/System-Requirements/System-Requirements-Private.md: private-networks/get-started/system-requirements.md
@@ -432,3 +463,29 @@ plugins:
           Concepts/Permissioning/Onchain-Permissioning.md: private-networks/concepts/permissioning/onchain.md
           Concepts/Permissioning/Plugin-Permissioning.md: private-networks/concepts/permissioning/plugin.md
           Concepts/PKI.md: private-networks/concepts/pki.md
+          Tutorials/Developer-Quickstart.md: private-networks/tutorials/quickstart.md
+          Tutorials/Private-Network/Create-QBFT-Network.md: private-networks/tutorials/qbft.md
+          Tutorials/Private-Network/Create-IBFT-Network.md: private-networks/tutorials/ibft/index.md
+          Tutorials/Private-Network/Adding-removing-IBFT-validators.md: private-networks/tutorials/ibft/validators.md
+          Tutorials/Private-Network/Create-Private-Clique-Network.md: private-networks/tutorials/clique.md
+          Tutorials/Private-Network/Create-Private-Network.md: private-networks/tutorials/ethash.md
+          Tutorials/Privacy/Configuring-Privacy.md: private-networks/tutorials/privacy/index.md
+          Tutorials/Privacy/Privacy-Example.md: private-networks/tutorials/privacy/quickstart.md
+          Tutorials/Privacy/Configuring-Multi-Tenancy.md: private-networks/tutorials/privacy/multi-tenancy.md
+          Tutorials/Privacy/web3js-quorum-Multinode-example.md: private-networks/tutorials/privacy/web3js-quorum.md
+          Tutorials/Permissioning/Create-Permissioned-Network.md: private-networks/tutorials/permissioning/index.md
+          Tutorials/Permissioning/Getting-Started-Onchain-Permissioning: private-networks/tutorials/permissioning/onchain.md
+          Tutorials/Permissioning/Upgrade-Permissioning-Contract.md: private-networks/tutorials/permissioning/upgrade-contracts.md
+          Tutorials/Contracts/Deploying-Contracts.md: private-networks/tutorials/contracts/index.md
+          Tutorials/Contracts/Account-Funds-Transfers.md: private-networks/tutorials/contracts/transfer-funds.md
+          Tutorials/Contracts/Calling-Contract-Functions.md: private-networks/tutorials/contracts/interact.md
+          Tutorials/Kubernetes/Overview.md: private-networks/tutorials/kubernetes/index.md
+          Tutorials/Kubernetes/Playground.md: private-networks/tutorials/kubernetes/playground.md
+          Tutorials/Kubernetes/Create-Cluster.md: private-networks/tutorials/kubernetes/cluster.md
+          Tutorials/Kubernetes/Deploy-Charts.md: private-networks/tutorials/kubernetes/charts.md
+          Tutorials/Kubernetes/Quorum-Explorer.md: private-networks/tutorials/kubernetes/quorum-explorer.md
+          Tutorials/Kubernetes/Maintenance.md: private-networks/tutorials/kubernetes/maintenance.md
+          Tutorials/Kubernetes/Production.md: private-networks/tutorials/kubernetes/production.md
+          Tutorials/Kubernetes/Nat-Manager-Kubernetes.md: private-networks/tutorials/kubernetes/nat-manager.md
+          Tutorials/Private-Network-Example-Azure.md: private-networks/tutorials/azure.md
+          Reference/Accounts-for-Testing.md: private-networks/reference/accounts-for-testing.md

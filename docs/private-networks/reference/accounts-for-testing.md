@@ -9,7 +9,7 @@ network. Hyperledger Besu also provides predefined accounts for use in developme
 
 ## Development mode
 
-When you start Besu with the [`--network=dev`](cli/options.md#network) command line option, Besu
+When you start Besu with the [`--network=dev`](../../reference/cli/options.md#network) command line option, Besu
 uses the `dev.json` genesis file by default.
 
 The `dev.json` genesis file defines the following accounts used for testing.
@@ -23,4 +23,4 @@ network. For an example of how to define accounts in the genesis file, see
 [`dev.json`](https://github.com/hyperledger/besu/blob/master/config/src/main/resources/dev.json).
 
 To start Besu with the genesis file defining the existing accounts, use the
-[`--genesis-file`](cli/options.md#genesis-file) command line option .
+[`--genesis-file`](../../reference/cli/options.md#genesis-file) command line option .

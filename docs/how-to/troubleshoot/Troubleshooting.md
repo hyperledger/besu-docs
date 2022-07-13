@@ -172,7 +172,7 @@ sudo mount /dev/urandom /dev/random -o bind
 
 ## Quorum Developer Quickstart not working on Apple M1 chip
 
-The [Quorum Developer Quickstart](../../tutorials/Developer-Quickstart.md) does not currently support
+The [Quorum Developer Quickstart](../../private-networks/tutorials/quickstart.md) does not currently support
 the Apple M1 chip. The quickstart starts up on machines that use the chip, but may show the
 following symptoms:
 

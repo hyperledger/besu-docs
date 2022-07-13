@@ -6,7 +6,7 @@ description: Maintenance for Besu on a Kubernetes cluster
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
-* A [running Kubernetes cluster](./Create-Cluster.md) with a [network](./Deploy-Charts.md)
+* A [running Kubernetes cluster](cluster.md) with a [network](charts.md)
 * Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Install [Helm3](https://helm.sh/docs/intro/install/)
 

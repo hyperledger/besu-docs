@@ -45,7 +45,7 @@ Permissioned-Network/
 ### 2. Create the configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../how-to/configure/consensus/ibft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -258,25 +258,25 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-accounts-cont
 On the command line:
 
 * Enable onchain accounts permissioning using
-    [`--permissions-accounts-contract-enabled`](../../reference/cli/options.md#permissions-accounts-contract-enabled).
+    [`--permissions-accounts-contract-enabled`](../../../reference/cli/options.md#permissions-accounts-contract-enabled).
 * Set the address of the Account Ingress contract in the genesis file using
-    [`--permissions-accounts-contract-address`](../../reference/cli/options.md#permissions-accounts-contract-address).
+    [`--permissions-accounts-contract-address`](../../../reference/cli/options.md#permissions-accounts-contract-address).
 * Enable onchain nodes permissioning using
-    [`--permissions-nodes-contract-enabled`](../../reference/cli/options.md#permissions-nodes-contract-enabled).
+    [`--permissions-nodes-contract-enabled`](../../../reference/cli/options.md#permissions-nodes-contract-enabled).
 * Set the address of the Node Ingress contract in the genesis file using
-    [`--permissions-nodes-contract-address`](../../reference/cli/options.md#permissions-nodes-contract-address).
-* Set the version of the [permissioning contract interface](../../private-networks/how-to/use-permissioning/Specify-Perm-Version.md)
-    using [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version).
+    [`--permissions-nodes-contract-address`](../../../reference/cli/options.md#permissions-nodes-contract-address).
+* Set the version of the [permissioning contract interface](../../how-to/use-permissioning/Specify-Perm-Version.md)
+    using [`--permissions-nodes-contract-version`](../../../reference/cli/options.md#permissions-nodes-contract-version).
 * Enable the JSON-RPC API using
-    [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled).
+    [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled).
 * Enable the `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
-    [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api).
+    [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api).
 * Allow all-host access to the HTTP JSON-RPC API using
-    [`--host-allowlist`](../../reference/cli/options.md#host-allowlist).
+    [`--host-allowlist`](../../../reference/cli/options.md#host-allowlist).
 * Allow all-domain access to the node through the HTTP JSON-RPC API using
-    [`--rpc-http-cors-origins`](../../reference/cli/options.md#rpc-http-cors-origins).
+    [`--rpc-http-cors-origins`](../../../reference/cli/options.md#rpc-http-cors-origins).
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to use when starting Node-2, Node-3, and Node-4.
 
 ### 9. Clone the contracts and install dependencies
@@ -358,9 +358,9 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 
 The command line specifies:
 
-* A different port to Node-1 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-* A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-* The enode URL of Node-1 using [`--bootnodes`](../../reference/cli/options.md#bootnodes).
+* A different port to Node-1 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+* A different port to Node-1 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../../reference/cli/options.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 
 ### 14. Start Node-3
@@ -373,9 +373,9 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 
 The command line specifies:
 
-* A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-* A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-* The enode URL of Node-1 using [`--bootnodes`](../../reference/cli/options.md#bootnodes).
+* A different port to Node-1 and Node-2 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+* A different port to Node-1 and Node-2 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../../reference/cli/options.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 
 ### 15. Start Node-4
@@ -388,9 +388,9 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 
 The command line specifies:
 
-* A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../reference/cli/options.md#p2p-port).
-* A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port).
-* The enode URL of Node-1 using [`--bootnodes`](../../reference/cli/options.md#bootnodes).
+* A different port to Node-1, Node-2, and Node-3 for P2P discovery using [`--p2p-port`](../../../reference/cli/options.md#p2p-port).
+* A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port).
+* The enode URL of Node-1 using [`--bootnodes`](../../../reference/cli/options.md#bootnodes).
 * Other options as for [Node-1](#8-start-node-1).
 
 ### 16. Add nodes to the allowlist
@@ -399,6 +399,6 @@ In the [permissioning management dapp started in step 12](#12-start-the-permissi
 add [Node-1, Node-2, Node-3, and Node-4 to the allowlist].
 
 <!-- Links -->
-[Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../private-networks/how-to/use-permissioning/onchain.md#update-nodes-allowlist
-[admin account]: ../../private-networks/how-to/use-permissioning/onchain.md#update-nodes-allowlist
-[IBFT 2.0 proof of authority (PoA)]: ../../private-networks/how-to/configure/consensus/ibft.md
+[Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../how-to/use-permissioning/onchain.md#update-nodes-allowlist
+[admin account]: ../../how-to/use-permissioning/onchain.md#update-nodes-allowlist
+[IBFT 2.0 proof of authority (PoA)]: ../../how-to/configure/consensus/ibft.md

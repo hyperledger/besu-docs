@@ -94,5 +94,5 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[permissioning management dapp]: ../../../tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md
+[permissioning management dapp]: ../../tutorials/permissioning/onchain.md
 [`--privacy-marker-transaction-signing-key-file`]: ../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file

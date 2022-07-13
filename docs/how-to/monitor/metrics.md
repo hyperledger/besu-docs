@@ -302,4 +302,4 @@ If a metric has a JSON-RPC equivalent, it is included in the definition column.
       maximum number of P2P connections that can be established.
 
 <!-- Links -->
-[monitoring with Prometheus and Grafana configured]: ../../tutorials/Developer-Quickstart.md#monitor-nodes-with-prometheus-and-grafana
+[monitoring with Prometheus and Grafana configured]: ../../private-networks/tutorials/quickstart.md#monitor-nodes-with-prometheus-and-grafana

@@ -6,10 +6,10 @@ description: Using the Quorum Explorer on a Kubernetes cluster
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
-* A [running Kubernetes cluster](./Create-Cluster.md)
+* A [running Kubernetes cluster](cluster.md)
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [Helm3](https://helm.sh/docs/intro/install/)
-* [Existing network](./Deploy-Charts.md)
+* [Existing network](charts.md)
 
 ## Deploying the Quorum Explorer helm chart
 
@@ -22,7 +22,7 @@ validators from the network, and demonstrates using the `SimpleStorage` smart co
 transactions between wallets in one interface.
 
 To use the explorer, update the [Quorum-Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/explorer-besu.yaml)
-with your node details and endpoints, and then [deploy](./Deploy-Charts.md).
+with your node details and endpoints, and then [deploy](charts.md).
 
 ## Nodes
 
@@ -30,7 +30,7 @@ The **Nodes** page provides an overview of the nodes on the network. Select the 
 with from the drop-down on the top right, and you'll get details of the node, block height, peers, queued
 transactions etc.
 
-![`k8s-explorer`](../../images/kubernetes-explorer.png)
+![`k8s-explorer`](../../../images/kubernetes-explorer.png)
 
 ## Validators
 
@@ -44,7 +44,7 @@ Each node can call a discard on the voting process during or after the validator
 
 The vote calls made from non-validator nodes have no effect on overall consensus.
 
-![`k8s-explorer-validators`](../../images/kubernetes-explorer-validators.png)
+![`k8s-explorer-validators`](../../../images/kubernetes-explorer-validators.png)
 
 ## Explorer
 
@@ -52,7 +52,7 @@ The **Explorer** page gives you the latest blocks from the chain and the latest 
 occur on the network. In addition, you can search by block number or transaction hash using the respective
 search bar.
 
-![`k8s-explorer-explorer`](../../images/kubernetes-explorer-explorer.png)
+![`k8s-explorer-explorer`](../../../images/kubernetes-explorer-explorer.png)
 
 ## Contracts
 
@@ -63,13 +63,13 @@ to add more contracts to that view.
 In this example, we deploy from `member-1` and select `member-1` and `member-3` in
 the **Private For** multi-select. Then click on `Compile` and `Deploy`
 
-![`k8s-explorer-contracts-1`](../../images/kubernetes-explorer-contracts-1.png)
+![`k8s-explorer-contracts-1`](../../../images/kubernetes-explorer-contracts-1.png)
 
 Once deployed, you can interact with the contract. As this is a new transaction, select `member-1`
 and `member-3` in **Interact** multi-select, and then click on the appropriate method call to `get`
 or `set` the value at the deployed contract address.
 
-![`k8s-explorer-contracts-set`](../../images/kubernetes-explorer-contracts-set.png)
+![`k8s-explorer-contracts-set`](../../../images/kubernetes-explorer-contracts-set.png)
 
 To test the private transaction functionality, select `member-2` from the drop-down on
 the top right, you'll notice that you are unable to interact with the contract because `member-2` was not part
@@ -80,4 +80,4 @@ of the transaction. Only `members-1` and `member-3` responds correctly.
 The **Wallet** page gives you the functionality to send simple ETH transactions between accounts by providing
 the account's private key, the recipient's address, and transfer amount in Wei.
 
-![`k8s-explorer-wallet`](../../images/kubernetes-explorer-wallet.png)
+![`k8s-explorer-wallet`](../../../images/kubernetes-explorer-wallet.png)

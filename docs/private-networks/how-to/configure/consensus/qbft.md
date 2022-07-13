@@ -13,7 +13,7 @@ super-majority (greater than or equal to 2/3) of validators must first sign the 
 
 Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
-You can [create a private network using QBFT](../../../../tutorials/Private-Network/Create-QBFT-Network.md).
+You can [create a private network using QBFT](../../../tutorials/qbft.md).
 
 !!! important
 

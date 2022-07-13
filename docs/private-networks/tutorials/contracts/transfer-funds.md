@@ -4,20 +4,20 @@ description: funds transfer transactions
 
 # Transferring funds between accounts in a transaction
 
-You can get started with the [Developer Quickstart](../Developer-Quickstart.md) to rapidly generate
+You can get started with the [Developer Quickstart](../quickstart.md) to rapidly generate
 local blockchain networks.
 
 This tutorial shows you how to transfer funds (ETH) between accounts in a transaction.
 
 ## Prerequisites
 
-* A [private network](../Developer-Quickstart.md)
+* A [private network](../quickstart.md)
 
 ## Using `eth_sendSignedTransaction`
 
 The simplest way to transfer funds between externally-owned accounts is using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#sendsignedtransaction).
-This example uses `eth_sendSignedTransaction` and one of the [test accounts](../../reference/Accounts-for-Testing.md)
+This example uses `eth_sendSignedTransaction` and one of the [test accounts](../../reference/accounts-for-testing.md)
 to transfer funds to a newly created account.
 
 !!! critical "Do not use the test accounts on Ethereum Mainnet or any production network."
@@ -88,7 +88,7 @@ However, Hyperledger Besu does not support the `eth_sendTransaction` API call an
 management separate for stronger security. Instead, Besu uses
 [EthSigner](https://docs.ethsigner.consensys.net/en/stable/) to make the `eth_sendTransaction` API call.
 
-An example can be found in the [Developer Quickstart](../Developer-Quickstart.md) where the RPC
+An example can be found in the [Developer Quickstart](../quickstart.md) where the RPC
 node is paired with EthSigner. Refer to the
 [EthSigner documentation](https://docs.ethsigner.consensys.net/en/stable/) configuration details.
 

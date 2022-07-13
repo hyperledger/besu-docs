@@ -174,7 +174,7 @@ that are specific to your deployment.
 1. Optionally, deploy the
 [kubernetes dashboard](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws/templates/k8s-dashboard).
 
-1. You can now use your cluster and you can deploy [Helm charts](./Deploy-Charts.md) to it.
+1. You can now use your cluster and you can deploy [Helm charts](charts.md) to it.
 
 ### Azure Kubernetes Service
 
@@ -262,4 +262,4 @@ To provision the cluster:
         ./scripts/bootstrap.sh "AKS_RESOURCE_GROUP" "AKS_CLUSTER_NAME" "AKS_MANAGED_IDENTITY" "AKS_NAMESPACE"
         ```
 
-1. You can now use your cluster and you can deploy [Helm charts](./Deploy-Charts.md) to it.
+1. You can now use your cluster and you can deploy [Helm charts](charts.md) to it.

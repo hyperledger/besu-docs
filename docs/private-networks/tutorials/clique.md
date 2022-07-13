@@ -65,7 +65,7 @@ write the node address to the specified file (`node1Address` in this example).
 
 The genesis file defines the genesis block of the blockchain (that is, the start of the
 blockchain). The
-[Clique genesis file](../../private-networks/how-to/configure/consensus/clique.md#genesis-file) includes
+[Clique genesis file](../how-to/configure/consensus/clique.md#genesis-file) includes
 the address of Node-1 as the initial signer in the `extraData` field.
 
 All nodes in a network must use the same genesis file.
@@ -256,7 +256,7 @@ Use the [Clique API to add] Node-2 or Node-3 as a signer.
     [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer.
 
 Import accounts to MetaMask and send transactions, as described in the
-[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+[Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
@@ -273,5 +273,5 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode).
 
 <!-- Links -->
-[Clique (proof of authority) consensus protocol]: ../../private-networks/how-to/configure/consensus/clique.md
-[Clique API to add]: ../../private-networks/how-to/configure/consensus/clique.md#adding-and-removing-signers
+[Clique (proof of authority) consensus protocol]: ../how-to/configure/consensus/clique.md
+[Clique API to add]: ../how-to/configure/consensus/clique.md#adding-and-removing-signers

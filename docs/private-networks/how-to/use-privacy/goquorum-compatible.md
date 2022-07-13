@@ -13,7 +13,7 @@ To run your Besu nodes in GoQuorum-compatible privacy mode, add the `isQuorum:tr
 [genesis file](../../../concepts/genesis-file.md).
 
 While in GoQuorum-compatible privacy mode and using Tessera, disable [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/)
-by removing `"mode": "orion",` from the [Tessera configuration file](../../../tutorials/Privacy/Configuring-Multi-Tenancy.md#3-update-the-tessera-configuration-file).
+by removing `"mode": "orion",` from the [Tessera configuration file](../../tutorials/privacy/multi-tenancy.md#3-update-the-tessera-configuration-file).
 
 ## GoQuorum-compatible private transactions
 

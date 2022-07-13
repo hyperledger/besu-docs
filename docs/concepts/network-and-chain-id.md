@@ -69,7 +69,7 @@ To change a chain ID and start a new chain:
 2. Update the [genesis file](genesis-file.md) with the new chain ID.
 3. Make sure all nodes have the same genesis file.
 4. Delete the old data directory or point to a new location for each node.
-5. [Restart the nodes](../tutorials/Private-Network/Create-IBFT-Network.md#6-start-the-first-node-as-the-bootnode).
+5. [Restart the nodes](../private-networks/tutorials/ibft/index.md#6-start-the-first-node-as-the-bootnode).
 
 !!! important
 

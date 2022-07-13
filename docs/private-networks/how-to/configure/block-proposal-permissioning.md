@@ -20,7 +20,7 @@ Use certificates issued by a trusted authority to ensure validators are authoriz
 **Prerequisites**:
 
 * A configured network. For example,
-    [see steps 1 to 5 in the QBFT tutorial](../../../tutorials/Private-Network/Create-QBFT-Network.md).
+    [see steps 1 to 5 in the QBFT tutorial](../../tutorials/qbft.md).
 * A keystore containing the certificate and key for each network node.
 * A truststore containing all the trusted certificates for the network.
 

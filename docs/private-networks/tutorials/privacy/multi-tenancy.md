@@ -11,10 +11,10 @@ description: Configure multi-tenancy
     and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
 
 You can configure Besu and associated Tessera node in a privacy-enabled network to host
-[multiple tenants](../../private-networks/concepts/privacy/multi-tenancy.md).
+[multiple tenants](../../concepts/privacy/multi-tenancy.md).
 
 In this tutorial we'll add tenants to the `Node-1` Besu and Tessera node in a
-[privacy-enabled network](Configuring-Privacy.md).
+[privacy-enabled network](index.md).
 
 ```bash
 IBFT-Network/
@@ -39,7 +39,7 @@ IBFT-Network/
 
 ## Prerequisites
 
-* A [Privacy-enabled network](Configuring-Privacy.md).
+* A [Privacy-enabled network](index.md).
 
 ## 1. Generate a private and public key pair
 
@@ -55,7 +55,7 @@ in `.pem` format, belongs to the operator who uses the key pair to authenticate 
 ## 2. Generate Tessera keys
 
 In the `Node-1/Tessera` directory,
-[generate a public/private key pair for each tenant](Configuring-Privacy.md#2-generate-tessera-keys).
+[generate a public/private key pair for each tenant](index.md#2-generate-tessera-keys).
 
 !!! note
 
@@ -138,7 +138,7 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 
 ## 4. Start Tessera
 
-[Start the Tessera nodes](Configuring-Privacy.md#4-start-the-tessera-nodes) and specify
+[Start the Tessera nodes](index.md#4-start-the-tessera-nodes) and specify
 the configuration file.
 
 ## 5. Start Besu Node-1
@@ -153,15 +153,15 @@ In the `Node-1` directory, start Besu Node-1:
 
 The command line specifies privacy options:
 
-* [`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled)
+* [`--rpc-http-authentication-enabled`](../../../reference/cli/options.md#rpc-http-authentication-enabled)
   enables authentication for JSON-RPC APIs.
-* [`--rpc-http-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
+* [`--rpc-http-authentication-jwt-public-key-file`](../../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
   authenticate the [tenant JWTs](#7-generate-the-tenant-jwts).
-* [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy.
-* [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the
+* [`--privacy-enabled`](../../../reference/cli/options.md#privacy-enabled) enables privacy.
+* [`--privacy-url`](../../../reference/cli/options.md#privacy-url) specifies the
     [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
-* [`--privacy-multi-tenancy-enabled`](../../reference/cli/options.md#privacy-multi-tenancy-enabled)
+* [`--privacy-multi-tenancy-enabled`](../../../reference/cli/options.md#privacy-multi-tenancy-enabled)
   enables multi-tenancy.
 
 !!! note
@@ -172,16 +172,16 @@ The command line specifies privacy options:
     [`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
     instead.
 
-[Start the remaining Besu nodes](Configuring-Privacy.md#7-start-besu-node-2).
+[Start the remaining Besu nodes](index.md#7-start-besu-node-2).
 
 ## 6. Generate the tenant JWTs
 
-[Generate the JWT](../../how-to/use-besu-api/authenticate.md#2-create-the-jwt) for each tenant
+[Generate the JWT](../../../how-to/use-besu-api/authenticate.md#2-create-the-jwt) for each tenant
 and specify the [tenant's Tessera public key](#2-generate-tessera-keys) in the `privacyPublicKey`
 field.
 
 Ensure you apply the appropriate
-[JSON-RPC API permissions](../../how-to/use-besu-api/authenticate.md#json-rpc-permissions) to the
+[JSON-RPC API permissions](../../../how-to/use-besu-api/authenticate.md#json-rpc-permissions) to the
 token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 
 !!! note
@@ -192,10 +192,10 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 [Use the authentication token to make requests].
 
 <!-- Links -->
-[JWT public key authentication]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
-[username and password authentication]: ../../how-to/use-besu-api/authenticate.md#username-and-password-authentication
-[generate the private and public key pair]: ../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
-[Use the authentication token to make requests]: ../../how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
+[JWT public key authentication]: ../../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
+[username and password authentication]: ../../../how-to/use-besu-api/authenticate.md#username-and-password-authentication
+[generate the private and public key pair]: ../../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
+[Use the authentication token to make requests]: ../../../how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
 [Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Concepts/TesseraAPI/#quorum-to-tessera-api
 <!-- Abbreviations -->
 *[JWT]: JSON Web Token

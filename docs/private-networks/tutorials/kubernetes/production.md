@@ -6,7 +6,7 @@ description: Deploying Besu Helm Charts for production on a Kubernetes cluster
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
-* A [running Kubernetes cluster](./Create-Cluster.md)
+* A [running Kubernetes cluster](cluster.md)
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [Helm3](https://helm.sh/docs/intro/install/)
 
@@ -29,7 +29,7 @@ the values in the `cluster` map as in the [Deploy](#deploy-the-network) section.
 
 ### Check that you can connect to the cluster with `kubectl`
 
-Once you have a [cluster running](./Create-Cluster.md), verify `kubectl` is connected to cluster with:
+Once you have a [cluster running](cluster.md), verify `kubectl` is connected to cluster with:
 
 ```bash
 kubectl version
@@ -59,7 +59,7 @@ cluster:
   reclaimPolicy: Retain # set to either Retain or Delete; note that PVCs and PVs will still exist after a 'helm delete'. Setting to Retain will keep volumes even if PVCs/PVs are deleted in kubernetes. Setting to Delete will remove volumes from EC2 EBS when PVC is deleted
 ```
 
-Follow the steps outlined in the [deploy charts](./Deploy-Charts.md) tutorial to deploy the network.
+Follow the steps outlined in the [deploy charts](charts.md) tutorial to deploy the network.
 
 ## Best practices
 
@@ -74,7 +74,7 @@ Where possible, we recommend you use multiple bootnodes and static nodes to spee
 
 You can connect to APIs and services outside the cluster normally, but connecting into your network (such as
 adding an on-premise node to the network) might require more configuration.
-Please check the [limitations](./Overview.md#limitations) and use CNI where possible.
+Please check the [limitations](index.md#limitations) and use CNI where possible.
 To connect an external node to your cluster, the easiest way is to use a VPN as seen in the
 following [multi-cluster](#multi-cluster-support) setup.
 
@@ -90,9 +90,9 @@ Ideally, you want to create two separate VPCs (or VNets) and make sure they have
 don't conflict.
 Once done, peer the VPCs together and update the subnet route table, so they are effectively a giant single network.
 
-![multi-cluster](../../images/kubernetes-3.png)
+![multi-cluster](../../../images/kubernetes-3.png)
 
-When you [spin up clusters](./Create-Cluster.md), use [CNI](./Overview.md#limitations) and CIDR blocks to match the
+When you [spin up clusters](cluster.md), use [CNI](index.md#limitations) and CIDR blocks to match the
 subnet's CIDR settings.
 Then deploy the genesis chart on one cluster and copy across the genesis file and static nodes config maps.
 Depending on your DNS settings, they might be fine as is or they might need to be actual IPs.

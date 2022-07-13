@@ -14,7 +14,7 @@ super-majority (greater than or equal to 2/3) of validators must first sign the 
 
 Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
-You can [create a private network using IBFT](../../../../tutorials/Private-Network/Create-IBFT-Network.md).
+You can [create a private network using IBFT](../../../tutorials/ibft/index.md).
 
 !!! important
 

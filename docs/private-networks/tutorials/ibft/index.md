@@ -5,7 +5,7 @@ description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Autho
 # Create a private network using the IBFT 2.0 (proof of authority) consensus protocol
 
 A private network provides a configurable network for testing. This private network uses the
-[IBFT 2.0 (proof of authority) consensus protocol](../../private-networks/how-to/configure/consensus/ibft.md).
+[IBFT 2.0 (proof of authority) consensus protocol](../../how-to/configure/consensus/ibft.md).
 
 !!!important
 
@@ -17,7 +17,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../../../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -47,7 +47,7 @@ IBFT-Network/
 ### 2. Create a configuration file
 
 The configuration file defines the
-[IBFT 2.0 genesis file](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file) and the
+[IBFT 2.0 genesis file](../../how-to/configure/consensus/ibft.md#genesis-file) and the
 number of node key pairs to generate.
 
 The configuration file has two nested JSON nodes. The first is the `genesis` property defining
@@ -196,20 +196,20 @@ In the `Node-1` directory, start Node-1:
 The command line:
 
 * Specifies the data directory for Node-1 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../../reference/cli/options.md#data-path) option.
 * Enables the JSON-RPC API using the
-  [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) option.
+  [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled) option.
 * Enables the ETH, NET, and IBFT APIs using the
-  [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) option.
+  [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api) option.
 * Enables all-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../reference/cli/options.md#host-allowlist) option.
+  [`--host-allowlist`](../../../reference/cli/options.md#host-allowlist) option.
 * Enables all-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../reference/cli/options.md#rpc-http-cors-origins) option.
+  [`--rpc-http-cors-origins`](../../../reference/cli/options.md#rpc-http-cors-origins) option.
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../images/EnodeStartup.png)
 
 ### 7. Start Node-2
 
@@ -231,13 +231,13 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-2 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../../reference/cli/options.md#data-path) option.
 * A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../../reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
-  [`--bootnodes`](../../reference/cli/options.md#bootnodes) option.
+  [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option.
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 8. Start Node-3
@@ -260,11 +260,11 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-3 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../../reference/cli/options.md#data-path) option.
 * A different port to Node-1 and Node-2 for P2P discovery using the
-  [`--p2p-port`](../../reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../../reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port) option.
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
@@ -288,18 +288,18 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-4 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../../reference/cli/options.md#data-path) option.
 * A different port to Node-1, Node-2, and Node-3 for P2P discovery using the
-  [`--p2p-port`](../../reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../../reference/cli/options.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../../reference/cli/options.md#rpc-http-port) option.
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 10. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`ibft_getvalidatorsbyblocknumber`](../../reference/api/index.md#ibft_getvalidatorsbyblocknumber)
+[`ibft_getvalidatorsbyblocknumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber)
 method and confirm the network has four validators:
 
 ```bash
@@ -348,7 +348,7 @@ Look at the logs to confirm Besu is producing blocks:
 
 ## Next steps
 
-Use the [IBFT API](../../reference/api/index.md#ibft-20-methods) to remove or add validators.
+Use the [IBFT API](../../../reference/api/index.md#ibft-20-methods) to remove or add validators.
 
 !!! note
 
@@ -360,7 +360,7 @@ Use the [IBFT API](../../reference/api/index.md#ibft-20-methods) to remove or ad
     2.0 requires four validators to be Byzantine fault tolerant.
 
 Import accounts to MetaMask and send transactions as described in the
-[Quickstart tutorial](../Developer-Quickstart.md#create-a-transaction-using-metamask).
+[Quickstart tutorial](../quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
@@ -377,7 +377,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
     [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
-[IBFT 2.0 (proof of authority)consensus protocol]: ../../private-networks/how-to/configure/consensus/ibft.md
+[IBFT 2.0 (proof of authority)consensus protocol]: ../../how-to/configure/consensus/ibft.md
 
 <!-- Acronyms and Definitions -->
 *[Byzantine fault tolerant]: Ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

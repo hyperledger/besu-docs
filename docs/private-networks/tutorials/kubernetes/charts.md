@@ -6,7 +6,7 @@ description: Deploying Besu Helm Charts for a Kubernetes cluster
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
-* A [running Kubernetes cluster](./Create-Cluster.md)
+* A [running Kubernetes cluster](cluster.md)
 * Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Install [Helm3](https://helm.sh/docs/intro/install/)
 
@@ -128,7 +128,7 @@ port and path to use. For example:
 
      For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
 
-![k8s-metrics](../../images/kubernetes-grafana.png)
+![k8s-metrics](../../../images/kubernetes-grafana.png)
 
 Optionally you can also deploy the [Elastic Stack](https://www.elastic.co/elastic-stack/) to view logs (and metrics).
 
@@ -147,7 +147,7 @@ If you install `filebeat`, please create a `filebeat-*` index pattern in `kibana
 If you use The Elastic stack for logs and metrics, please deploy `metricbeat` in a similar manner to `filebeat` and create an index pattern in
 Kibana.
 
-![k8s-elastic](../../images/kubernetes-elastic.png)
+![k8s-elastic](../../../images/kubernetes-elastic.png)
 
 To connect to Kibana or Grafana, we also need to deploy an ingress so you can access your monitoring endpoints
 publicly. We use Nginx as our ingress here, and you are free to configure any ingress per your requirements.
@@ -176,7 +176,7 @@ or on the command line `kubectl -n quorum get services quorum-monitoring-ingress
     We refer to the ingress here as `external-nginx` because it deals with monitoring endpoints specifically. We
     also deploy a second ingress called `network-ingress` which is for the blockchain nodes only in [step 8](#8-connecting-to-the-node-from-your-local-machine-via-an-ingress)
 
-![`k8s-ingress-external`](../../images/kubernetes-ingress-ip.png)
+![`k8s-ingress-external`](../../../images/kubernetes-ingress-ip.png)
 
 You can view the Besu dashboard by going to:
 
@@ -260,7 +260,7 @@ parameters in there to match your requirements. To set the number of initial val
 when setting the number of validators.
 
 One more thing to note is that when `cluster.cloudNativeServices: true` is set, the genesis job will
-not add the [Quickstart](../Developer-Quickstart.md) test accounts into the genesis file.
+not add the [Quickstart](../quickstart.md) test accounts into the genesis file.
 
 When you are ready deploy the chart with :
 
@@ -272,9 +272,9 @@ helm install genesis ./charts/besu-genesis --namespace besu --create-namespace -
 Once completed, view the genesis and enodes (the list of static nodes) configuration maps that every Besu node uses,
 and the validator and bootnode node keys as secrets.
 
-![k8s-genesis-configmaps](../../images/kubernetes-genesis-configmaps.png)
+![k8s-genesis-configmaps](../../../images/kubernetes-genesis-configmaps.png)
 
-![k8s-genesis-secrets](../../images/kuberenetes-genesis-secrets.png)
+![k8s-genesis-secrets](../../../images/kuberenetes-genesis-secrets.png)
 
 ### 5. Deploy the bootnodes
 
@@ -344,7 +344,7 @@ helm install bootnode-2 ./charts/besu-node --namespace besu --values ./values/bo
 Once complete, you see two StatefulSets, and the two bootnodes discover themselves and peer.
 Because there are no validators present yet, there are no blocks created, as seen in the following logs.
 
-![k8s-bootnode-logs](../../images/kubernetes-bootnode-logs.png)
+![k8s-bootnode-logs](../../../images/kubernetes-bootnode-logs.png)
 
 ### 6. Deploy the validators
 
@@ -395,12 +395,12 @@ helm install validator-4 ./charts/besu-node --namespace besu --values ./values/v
 Once completed, you may need to give the validators a few minutes to peer and for round changes, depending on when the
 first validator was spun up, before the logs display blocks being created.
 
-![k8s-validator-logs](../../images/kubernetes-validator-logs.png)
+![k8s-validator-logs](../../../images/kubernetes-validator-logs.png)
 
 ### 7. Add/Remove additional validators to the validator pool
 
 To add (or remove) more validators to the initial validator pool, you need to deploy a node such as an RPC node (step 8)
-and then [vote](../../private-networks/how-to/configure/consensus/ibft.md#add-and-remove-validators) that node in. The vote API
+and then [vote](../../how-to/configure/consensus/ibft.md#add-and-remove-validators) that node in. The vote API
 call must be made on a majority of the existing pool and the new node will then become a validator.
 
 Please refer to the [Ingress Section](#8-connecting-to-the-node-from-your-local-machine-via-an-ingress) for details on
@@ -437,11 +437,11 @@ helm install member-1 ./charts/besu-node --namespace besu --values ./values/txno
 
 Logs for `member-1` resemble the following for Tessera:
 
-![`k8s-tx-tessera-logs`](../../images/kubernetes-tx-tessera-logs.png)
+![`k8s-tx-tessera-logs`](../../../images/kubernetes-tx-tessera-logs.png)
 
 Logs for Besu resemble the following:
 
-![`k8s-tx-Besu-logs`](../../images/kubernetes-tx-Besu-logs.png)
+![`k8s-tx-Besu-logs`](../../../images/kubernetes-tx-Besu-logs.png)
 
 !!! note
 
@@ -482,7 +482,7 @@ kubectl apply -f ../ingress/ingress-rules-besu.yml
 Once complete, view the IP address listed under the `Ingress` section if you're using the Kubernetes Dashboard
 or on the command line `kubectl -n quorum get services quorum-network-ingress-ingress-nginx-controller`.
 
-![`k8s-ingress`](../../images/kubernetes-ingress-ip.png)
+![`k8s-ingress`](../../../images/kubernetes-ingress-ip.png)
 
 The following is an example RPC call, which confirms that the node running the JSON-RPC service is syncing:
 
@@ -524,7 +524,7 @@ blockchain explorer. The Quorum Explorer is not recommended for use in productio
 demonstration or Development purposes only. The Explorer can give an overview over the whole network, such as
 querying each node on the network for node or block information, voting (add/remove) validators from the
 network, demonstrating a SimpleStorage smart contract with privacy enabled, and sending transactions between
-wallets as you would do in MetaMask. Please see the [Explorer](./Quorum-Explorer.md) page for details on how
+wallets as you would do in MetaMask. Please see the [Explorer](quorum-explorer.md) page for details on how
 to use the application.
 
 !!! warning
@@ -542,4 +542,4 @@ helm install quorum-explorer ./charts/explorer --namespace besu --values ./value
 You will also need deploy the ingress (if not already done in [Monitoring](#3-deploy-the-monitoring-chart) to
 access the endpoint on `http://<INGRESS_IP>/explorer`
 
-![`k8s-explorer`](../../images/kubernetes-explorer.png)
+![`k8s-explorer`](../../../images/kubernetes-explorer.png)

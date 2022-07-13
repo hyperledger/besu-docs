@@ -169,6 +169,7 @@ nav:
                 - Manage peers: how-to/connect/manage-peers.md
                 - Specify NAT method: how-to/connect/specify-nat-method.md
             - Monitor nodes:
+                - Index: how-to/monitor/index.md
                 - Use metrics: how-to/monitor/metrics.md
                 - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
                 - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
@@ -489,3 +490,4 @@ plugins:
           Tutorials/Kubernetes/Nat-Manager-Kubernetes.md: private-networks/tutorials/kubernetes/nat-manager.md
           Tutorials/Private-Network-Example-Azure.md: private-networks/tutorials/azure.md
           Reference/Accounts-for-Testing.md: private-networks/reference/accounts-for-testing.md
+          Concepts/Monitoring.md: how-to/monitor/index.md

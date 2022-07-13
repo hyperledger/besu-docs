@@ -41,7 +41,7 @@ Secrets, and will also make use of AWS IAM or Azure Managed Identities for the p
 
 The repository's `helm` charts support on-premise and cloud providers such as AWS, Azure, GCP, IBM etc. You can
 configure the provider in the
-[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/genesis-besu.yml) file of
+[values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/genesis-besu.yml) file of
 the respective charts by setting `cluster.provider` to `local`, `aws`, or `azure`. If you use
 GCP, IBM etc., please set `cluster.provider: local` and `cluster.cloudNativeServices: false`.
 
@@ -125,7 +125,7 @@ Select the appropriate type of [Storage Class](https://kubernetes.io/docs/concep
 on your cloud provider. In the templates, the size of the [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
 is set to 20Gb by default; you can change this depending on your needs. If you have a different storage
 account than the one in the charts, you may edit those
-[storageClasses](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/charts/besu-node/templates/node-storage.yaml).
+[storageClasses](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/charts/besu-node/templates/node-storage.yaml).
 
 When using PVCs, set the `allowVolumeExpansion` to `true`. This helps keep costs low and enables growing the volume
 over time rather than creating new volumes and copying data across.
@@ -167,6 +167,6 @@ helm install filebeat --version 7.17.1 elastic/filebeat  --namespace besu --valu
 ### Ingress Controllers
 
 If you require the ingress controllers for the RPC calls or the monitoring dashboards, we have provided example
-[rules](https://github.com/ConsenSys/quorum-kubernetes/blob/master/ingress/ingress-rules-besu.yml) that
+[rules](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/ingress/ingress-rules-besu.yml) that
 are pre-configured for common use cases. Use these as a reference and develop solutions to match your network
 topology and requirements.

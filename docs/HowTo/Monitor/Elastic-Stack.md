@@ -28,7 +28,7 @@ To see the Besu Quickstart network logs in Kibana:
     ![Kibana](../../images/KibanaQuickstart.png)
 
 <!-- Links -->
-[Filebeat]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/filebeat/filebeat.yml
-[Metricbeat]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/metricbeat/metricbeat.yml
-[pipeline configuration]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/logstash/pipeline/20_besu.conf
+[Filebeat]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/common/filebeat/filebeat.yml
+[Metricbeat]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/common/metricbeat/metricbeat.yml
+[pipeline configuration]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/common/logstash/pipeline/20_besu.conf
 [Elastic Stack]: https://www.elastic.co/what-is/elk-stack

@@ -19,7 +19,7 @@ Production charts for Azure use Azure Files, and on AWS use EBS Block Store whic
 
 To update the volume size, you must update the override values file.
 For example, to increase the size on the transaction nodes volumes, add the following snippet to the
-[`txnode values.yml`](https://github.com/ConsenSys/quorum-kubernetes/blob/master/helm/values/txnode.yml) file, with
+[`txnode values.yml`](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/txnode.yml) file, with
 the new size limit (the following example uses 50Gi).
 
 ```bash

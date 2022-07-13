@@ -109,7 +109,7 @@ exhaustion as your application demands grow, however makes it easier for externa
 
 To provision the cluster:
 
-1. Update [cluster.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/master/aws/templates/cluster.yml)
+1. Update [cluster.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/aws/templates/cluster.yml)
 
 1. Deploy the template:
 
@@ -249,12 +249,12 @@ To provision the cluster:
     1. Search for `Template deployment (deploy using custom templates)` and select **Create**.
     1. Select **Build your own template in the editor**.
     1. Remove the contents (JSON) in the editor and paste in the contents of
-      [`azuredeploy.json`](https://github.com/ConsenSys/quorum-kubernetes/blob/master/azure/arm/azuredeploy.json)
+      [`azuredeploy.json`](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/azure/arm/azuredeploy.json)
     1. Select **Save**.
     1. Input provisioning parameters in the displayed user interface.
 
 1. Provision the drivers:
-    1. Run the [bootstrap](https://github.com/ConsenSys/quorum-kubernetes/blob/master/azure/scripts/bootstrap.sh) script.
+    1. Run the [bootstrap](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/azure/scripts/bootstrap.sh) script.
     1. Use `besu` for `AKS_NAMESPACE`, and update `AKS_RESOURCE_GROUP`, `AKS_CLUSTER_NAME`, and `AKS_MANAGED_IDENTITY`
         in the commands below to match your settings and deployed resources from step 3.
 

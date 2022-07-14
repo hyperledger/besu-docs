@@ -13,8 +13,8 @@ You can bypass voting and specify new validators using a transition in the genes
 !!! warning
 
     - In most cases, add or remove validators
-      [by voting or smart contract for QBFT](../Configure/Consensus-Protocols/QBFT.md#add-and-remove-validators);
-      or [by voting for IBFT 2.0](../Configure/Consensus-Protocols/IBFT.md#add-and-remove-validators).
+      [by voting or smart contract for QBFT](qbft.md#add-and-remove-validators);
+      or [by voting for IBFT 2.0](ibft.md#add-and-remove-validators).
       Use transitions only when voting isn't possible.
       Using transitions requires coordinating a rolling update of all the nodes in order to pick up the configuration at
       the correct block height.

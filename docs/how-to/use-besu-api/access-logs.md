@@ -2,7 +2,7 @@
 description: Accessing logs using the Hyperledger Besu API
 ---
 
-# Accessing logs using the Hyperledger Besu API
+# Access logs using the Hyperledger Besu API
 
 Subscribe to events, such as logs, using either
 [RPC Pub/Sub over WebSockets](rpc-pubsub.md) or filters over HTTP.
@@ -23,16 +23,15 @@ Access logs for [private contracts](../../private-networks/concepts/privacy/inde
 
 !!! note
 
-    The sample contract included in [Events and Logs](../../../Concepts/Events-and-Logs.md) created
-    the following examples.
+    The following examples use the sample contract included in [events and logs](../../concepts/events-and-logs.md).
 
-## Creating a filter
+## Create a filter
 
 Create a filter using [`eth_newFilter`](../../reference/api/index.md#eth_newfilter).
 
 !!! example
 
-    If the [example contract](../../../Concepts/Events-and-Logs.md#example) was deployed to
+    If the [example contract](../../concepts/events-and-logs.md) was deployed to
     0x42699a7612a82f1d9c36148af9c77354759b210b, the following request for `eth_newFilter` creates a
     filter to log when `valueIndexed` is set to 5:
 
@@ -58,7 +57,7 @@ Create a filter using [`eth_newFilter`](../../reference/api/index.md#eth_newfilt
 [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) returns a filter ID hash (for
 example, `0x1ddf0c00989044e9b41cc0ae40272df3`).
 
-### Polling a filter for changes
+### Poll a filter for changes
 
 To poll the filter for changes since the last poll, use
 [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) with the filter ID
@@ -67,8 +66,8 @@ hash returned by [`eth_newFilter`](../../reference/api/index.md#eth_newfilter).
 !!! example
 
     If the contract had been executed twice since the last poll, with `valueIndexed` set to 1 and
-    5, [`eth_getFilterChanges`](../../../Reference/API-Methods.md#eth_getfilterchanges) returns
-    only the log where the [topic](../../../Concepts/Events-and-Logs.md#event-parameters) for
+    5, [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) returns
+    only the log where the [topic](../../concepts/events-and-logs.md#event-parameters) for
     `valueIndexed` is 5:
 
     ```json
@@ -94,7 +93,7 @@ hash returned by [`eth_newFilter`](../../reference/api/index.md#eth_newfilter).
     }
     ```
 
-### Getting all logs for a filter
+### Get all logs for a filter
 
 To get all logs for a filter, use
 [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs).
@@ -143,12 +142,12 @@ To get all logs for a filter, use
 
 !!! tip
 
-    You can use [`eth_getLogs`](#getting-logs-using-a-filter-options-object) with a filter options
+    You can use [`eth_getLogs`](#get-logs-using-a-filter-options-object) with a filter options
     object to get all logs matching the filter options instead of using
-    [`eth_newFilter`](../../../Reference/API-Methods.md#eth_newfilter) followed by
-    [`eth_getFilterLogs`](../../../Reference/API-Methods.md#eth_getfilterlogs).
+    [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) followed by
+    [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs).
 
-## Uninstalling a filter
+## Uninstall a filter
 
 When a filter is no longer required, use
 [`eth_uninstallFilter`](../../reference/api/index.md#eth_uninstallfilter) to remove the
@@ -186,7 +185,7 @@ for the `priv` methods.
     }
     ```
 
-## Getting logs using a filter options object
+## Get logs using a filter options object
 
 To get all logs for a filter options object, use
 [`eth_getLogs`](../../reference/api/index.md#eth_getlogs) or [`priv_getLogs`](../../reference/api/index.md#priv_getlogs)

@@ -25,7 +25,7 @@ You can [create a private network using IBFT](../../../tutorials/ibft/index.md).
 !!! tip
 
     You can use a plugin to securely store a validator's key using the
-    [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
+   [`--security-module`](../../../../reference/cli/options.md#security-module) option.
 
 ## Genesis file
 
@@ -205,9 +205,9 @@ To enable them, specify the [`--rpc-http-api`](../../../../reference/cli/options
 
 The methods to add or remove validators are:
 
-* [`ibft_getPendingVotes`](../../../../reference/api/index.md#ibft_getPendingVotes).
-* [`ibft_proposeValidatorVote`](../../../../reference/api/index.md#ibft_proposeValidatorVote).
-* [`ibft_discardValidatorVote`](../../../../reference/api/index.md#ibft_discardValidatorVote).
+* [`ibft_getPendingVotes`](../../../../reference/api/index.md#ibft_getpendingvotes).
+* [`ibft_proposeValidatorVote`](../../../../reference/api/index.md#ibft_proposevalidatorvote).
+* [`ibft_discardValidatorVote`](../../../../reference/api/index.md#ibft_discardvalidatorvote).
 
 To view validator metrics for a specified block range, use
 [`ibft_getSignerMetrics`](../../../../reference/api/index.md#ibft_getsignermetrics).
@@ -215,7 +215,7 @@ To view validator metrics for a specified block range, use
 !!! note
 
     If network conditions render it impossible to add and remove validators by voting, you can
-    [add and remove validators without voting](../../Troubleshoot/Add-Validators-Without-Voting.md).
+    [add and remove validators without voting](add-validators-without-voting.md).
 
 ### Add a validator
 

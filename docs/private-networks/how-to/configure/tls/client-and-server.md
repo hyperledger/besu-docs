@@ -81,17 +81,17 @@ The command line:
 
 !!! note
 
-    Set [`--rpc-http-tls-ca-clients-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-http-tls-ca-clients-enabled)
+    Set [`--rpc-http-tls-ca-clients-enabled`](../../../../reference/cli/options.md#rpc-http-tls-ca-clients-enabled)
     to `true` to allow access to clients with signed and trusted root CAs.
 
 ## Configure server TLS
 
 Allow Besu to securely communicate with the server (Tessera).
 
-**Server Prerequisites**:
+**Server prerequisites**:
 
 * [Configure the server to allow TLS communication]
-* Server's certificate information.
+* Server's certificate information
 
 ### Create the known servers file
 

@@ -24,7 +24,7 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 !!! tip
 
     You can use a plugin to securely store a validator's key using the
-    [`--security-module`](../../../Reference/CLI/CLI-Syntax.md#security-module) option.
+    [`--security-module`](../../../../reference/cli/options.md#security-module) option.
 
 ## Genesis file
 
@@ -270,7 +270,7 @@ To tune the block timeout for your network deployment:
 
 !!! tip
 
-    View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
+    View [`TRACE` logs](../../../../reference/api/index.md#admin_changeloglevel) to see round change
     log messages.
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
@@ -330,7 +330,7 @@ To view validator metrics for a specified block range, use
 !!! note
 
     If network conditions render it impossible to add and remove validators by voting, you can
-    [add and remove validators without voting](../../Troubleshoot/Add-Validators-Without-Voting.md).
+    [add and remove validators without voting](add-validators-without-voting.md).
 
 #### Add a validator
 
@@ -406,7 +406,7 @@ using a transaction, then obtain the contract address from the receipt and use t
 !!! note
 
     If network conditions render it impossible to add and remove validators using a smart contract, you can
-    [override smart contract validators](../../Troubleshoot/Add-Validators-Without-Voting.md#override-smart-contract-validators).
+    [override smart contract validators](add-validators-without-voting.md#override-smart-contract-validators).
 
 ### Minimum number of validators
 

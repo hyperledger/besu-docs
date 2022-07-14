@@ -18,8 +18,8 @@ instead of [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendra
 
 !!! note
 
-    You can use [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
-    [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get the nonce for
+    You can use [`priv_getTransactionCount`](../../../reference/api/index.md#priv_gettransactioncount) or
+    [`priv_getEeaTransactionCount`](../../../reference/api/index.md#priv_geteeatransactioncount) to get the nonce for
     an account for the specified privacy group or participants.
 
 Send the corresponding PMT using [`eth_sendRawTransaction`](../../../reference/api/index.md#eth_sendrawtransaction),
@@ -37,6 +37,6 @@ This method allows you to create and send the PMT yourself rather than
 
     The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum/tree/master/example/concurrentPrivateTransactions)
     includes an example of how to send concurrent private transactions.
-    The example uses [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
-    Use [`priv_getPrivacyPrecompileAddress`](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) to get the
+    The example uses [offchain privacy groups](../../concepts/privacy/privacy-groups.md).
+    Use [`priv_getPrivacyPrecompileAddress`](../../../reference/api/index.md#priv_getprivacyprecompileaddress) to get the
     precompile address to specify in the `to` field when creating the PMT.

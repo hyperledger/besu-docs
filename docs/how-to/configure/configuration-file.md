@@ -11,7 +11,7 @@ use the [`--config-file`](../../reference/cli/options.md#config-file) option.
 
 To override an option specified in the configuration file, either specify the same option on the
 command line or as an
-[environment variable](../../reference/cli/options.md#besu-environment-variables). For options
+[environment variable](../../reference/cli/options.md#specifying-options). For options
 specified in more than one place, the order of precedence is command line, environment variable,
 configuration file.
 
@@ -28,7 +28,7 @@ differences between the command line and the TOML file format are:
 
 !!!tip
 
-    The [command line reference](../../Reference/CLI/CLI-Syntax.md) includes configuration file
+    The [command line reference](../../reference/cli/options.md) includes configuration file
     examples for each option.
 
 !!!example "Sample TOML configuration file"

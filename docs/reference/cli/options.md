@@ -895,7 +895,7 @@ By default, Besu accepts requests from `localhost` and `127.0.0.1`.
 
     This isn't a permissioning feature.
     If you want to restrict access to the API, we recommend using the
-    [Besu authentication mechanism](../../HowTo/Interact/APIs/Authentication.md) with username and password
+    [Besu authentication mechanism](../../how-to/use-besu-api/authenticate.md) with username and password
     authentication or JWT public key authentication.
 
 !!! note
@@ -1404,9 +1404,9 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 !!!note
 
     Besu ignores this option in networks using
-    [Clique](../../HowTo/Configure/Consensus-Protocols/Clique.md),
-    [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md), or
-    [QBFT](../../HowTo/Configure/Consensus-Protocols/QBFT.md) consensus protocols.
+    [Clique](../../private-networks/how-to/configure/consensus/clique.md),
+    [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md), or
+    [QBFT](../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
 
 ### `miner-enabled`
 
@@ -1623,7 +1623,7 @@ The default is `AUTO`. `NONE` disables NAT functionality.
     UPnP gateway device.
 
     You must specify `DOCKER` when using the
-    [Besu Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md).
+    [Besu Docker image](../../get-started/install/run-docker-image.md).
 
 ### `network`
 
@@ -1810,7 +1810,7 @@ The default is `127.0.0.1`.
 
 !!! info
 
-    If [`--nat-method`](#nat-method) is set to [`NONE`](../../HowTo/Find-and-Connect/Specifying-NAT.md#none),
+    If [`--nat-method`](#nat-method) is set to [`NONE`](../../how-to/connect/specify-nat.md),
     `--p2p-host` is not overridden and must be specified for the node to be accessed from outside the network.
 
 ### `p2p-interface`
@@ -2178,8 +2178,8 @@ is `false`.
 
 !!! important
 
-    Using private transactions with [pruning](../../Concepts/Pruning.md) and/or Fast Sync is not
-    supported.
+    Using private transactions with [pruning](../../public-networks/concepts/data-storage-formats.md)
+    or [fast sync](#sync-mode) is not supported.
 
 ### `privacy-marker-transaction-signing-key-file`
 
@@ -2208,7 +2208,7 @@ is `false`.
     ```
 
 `<FILE>` is the name of the private key file used to
-[sign Privacy Marker Transactions](../../private-networks/how-to/use-privacy/sign-pmts.md).
+[sign privacy marker transactions](../../private-networks/how-to/use-privacy/sign-pmts.md).
 
 !!! note
 
@@ -2560,12 +2560,13 @@ The default is `false`.
 
 !!! important
 
-    Using pruning with [private transactions](../../Concepts/Privacy/Privacy-Overview.md) is not
+    Using pruning with [private transactions](../../private-networks/concepts/privacy/index.md) isn't
     supported.
 
 !!! Important
 
-    Pruning is being deprecated for [Bonsai Tries](../../Concepts/Data-Storage-Formats.md#bonsai-tries) and is currently not being updated.
+    Pruning is being deprecated for [Bonsai Tries](../../public-networks/concepts/data-storage-formats.md#bonsai-tries)
+    and is currently not being updated.
 
 ### `random-peer-priority-enabled`
 
@@ -3451,7 +3452,7 @@ service.
 
 !!! note
 
-    `wscat` does not support headers. [Authentication](../../HowTo/Interact/APIs/Authentication.md)
+    `wscat` doesn't support headers. [Authentication](../../how-to/use-besu-api/authenticate.md)
     requires you to pass an authentication token in the request header. To use authentication with
     WebSockets, you need an app that supports headers.
 

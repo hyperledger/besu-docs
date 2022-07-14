@@ -83,8 +83,8 @@ The enode URL format is `enode://<id>@<host:port>[?discport=<port>]` where:
     enode URL is
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@10.3.58.6:30303?discport=30301`
 
-    If the [`--p2p-host`](../Reference/CLI/CLI-Syntax.md#p2p-host) or
-    [`--p2p-port`](../Reference/CLI/CLI-Syntax.md#p2p-port) options are not specified and the node
+    If the [`--p2p-host`](../reference/cli/options.md#p2p-host) or
+    [`--p2p-port`](../reference/cli/options.md#p2p-port) options are not specified and the node
     public key is `0xc35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f`,
     then the enode URL is
     `enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb9589bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303`
@@ -101,7 +101,7 @@ defined by [`--nat-method`](../how-to/connect/specify-nat.md).
 !!! warning
 
     Enode URL domain name support is an experimental feature that you can use in private
-    [permissioned networks](Permissioning/Permissioning-Overview.md) only.
+    [permissioned networks](../private-networks/concepts/permissioning/index.md) only.
 
 To use domain names in enode URLs:
 
@@ -120,7 +120,7 @@ To use domain names in enode URLs:
     `--Xdns-enabled` and `--Xdns-update-enabled` options to ensure that Besu can connect to a container after
     restarting even if the IP address of the container changes.
 
-    Use the [`--Xhelp`](../Reference/CLI/CLI-Syntax.md#xhelp) command line option to view experimental options and their
+    Use the [`--Xhelp`](../reference/cli/options.md#xhelp) command line option to view experimental options and their
     descriptions.
 
 If nodes are not connecting as expected, set the [log level to TRACE](../reference/api/index.md#admin_changeloglevel) to

@@ -34,7 +34,7 @@ Ether and create a smart contract.
 
 !!! caution
 
-    Setting the [listening host](../Interact/APIs/API.md#service-hosts) to `0.0.0.0` exposes the API service
+    Setting the [listening host](use-besu-api/index.md#service-hosts) to `0.0.0.0` exposes the API service
     connection on your node to any remote connection.
     In a production environment, ensure you are using a firewall to avoid exposing your node to the
     internet.

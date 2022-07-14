@@ -14,7 +14,7 @@ When running Besu from the [Docker image](../../get-started/install/run-docker-i
 
 !!! tip
 
-    Besu supports [UPnP](Specifying-NAT.md) for home or small office environments where a wireless
+    Besu supports [UPnP](specify-nat.md) for home or small office environments where a wireless
     router or modem provides NAT isolation.
 
 ## P2P networking
@@ -37,7 +37,7 @@ Combine the P2P port with the values for the
 
     By default, peer discovery listens on `0.0.0.0:30303` (all interfaces). If the device Besu is
     running on must bind to a specific network interface, specify the interface using the
-    [`--p2p-interface`](../../Reference/CLI/CLI-Syntax.md#p2p-interface) option.
+    [`--p2p-interface`](../../reference/cli/options.md#p2p-interface) option.
 
 ## JSON-RPC API
 

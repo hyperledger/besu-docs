@@ -48,7 +48,7 @@ Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/sta
 !!! note
 
     If you enter `y` for private transactions, you get three Besu nodes with corresponding Tessera nodes for privacy.
-    You can follow the [privacy walk-through](Privacy/Privacy-Example.md), which details how to send private
+    You can follow the [privacy walk-through](privacy/index.md), which details how to send private
     transactions and interact with deployed private contracts.
 
 ## Start the network
@@ -249,8 +249,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 
 !!! note
 
-    Besu doesn't incorporate
-    [account management](../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't incorporate [account management](../../how-to/send-transactions.md).
     To create your own account, you have to use a third-party tool, such as MetaMask.
 
 1. After importing an existing test account, [create another test account from scratch] to use as the recipient for a
@@ -269,7 +268,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 
     !!! tip
 
-        You can use a zero gas price here as this private test network is a [free gas network](../HowTo/Configure/FreeGas.md),
+        You can use a zero gas price here as this private test network is a [free gas network](../how-to/configure/free-gas.md),
         but the maximum amount of gas that can be used (the gas limit) for a value transaction must be at least 21000.
 
 1. Refresh the Block Explorer page in your browser displaying the target test account.

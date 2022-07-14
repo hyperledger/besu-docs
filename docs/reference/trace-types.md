@@ -4,7 +4,7 @@ description: Transaction trace types
 
 # Transaction trace types
 
-When [tracing transactions](../how-to/troubleshoot/Trace-Transactions.md), the trace type options are
+When [tracing transactions](../how-to/troubleshoot/trace-transactions.md), the trace type options are
 [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
 ## trace
@@ -156,7 +156,7 @@ An absent value is distinct from zero when creating accounts or clearing storage
 ## Applicable API methods
 
 The trace options `trace`, `vmTrace`, and `stateDiff` are available for the following
-[ad-hoc tracing API methods](../how-to/troubleshoot/Trace-Transactions.md#ad-hoc-tracing-apis):
+[ad-hoc tracing API methods](../how-to/troubleshoot/trace-transactions.md#ad-hoc-tracing-apis):
 
 * [`trace_call`](api/index.md#trace_call)
 * [`trace_callMany`](api/index.md#trace_callmany)
@@ -164,7 +164,7 @@ The trace options `trace`, `vmTrace`, and `stateDiff` are available for the foll
 * [`trace_replayBlockTransactions`](api/index.md#trace_replayblocktransactions)
 
 Only the `trace` option is available for the following
-[transaction-trace filtering API methods](../how-to/troubleshoot/Trace-Transactions.md#transaction-trace-filtering-apis):
+[transaction-trace filtering API methods](../how-to/troubleshoot/trace-transactions.md#transaction-trace-filtering-apis):
 
 * [`trace_block`](api/index.md#trace_block)
 * [`trace_filter`](api/index.md#trace_filter)

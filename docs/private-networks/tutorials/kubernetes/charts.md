@@ -88,7 +88,7 @@ This tutorial isolates groups of resources (for example, StatefulSets and Servic
 
     The rest of this tutorial uses `besu` as the namespace,
     but you're free to pick any name when deploying, as long as it's consistent across the
-    [infrastructure scripts](./Create-Cluster.md) and charts.
+    [infrastructure scripts](cluster.md) and charts.
 
 Run the following in a terminal window:
 
@@ -174,7 +174,7 @@ or on the command line `kubectl -n quorum get services quorum-monitoring-ingress
 !!! note
 
     We refer to the ingress here as `external-nginx` because it deals with monitoring endpoints specifically. We
-    also deploy a second ingress called `network-ingress` which is for the blockchain nodes only in [step 8](#8-connecting-to-the-node-from-your-local-machine-via-an-ingress)
+    also deploy a second ingress called `network-ingress` which is for the blockchain nodes only in [step 8](#9-connect-to-the-node-from-your-local-machine-via-an-ingress)
 
 ![`k8s-ingress-external`](../../../images/kubernetes-ingress-ip.png)
 
@@ -403,7 +403,7 @@ To add (or remove) more validators to the initial validator pool, you need to de
 and then [vote](../../how-to/configure/consensus/ibft.md#add-and-remove-validators) that node in. The vote API
 call must be made on a majority of the existing pool and the new node will then become a validator.
 
-Please refer to the [Ingress Section](#8-connecting-to-the-node-from-your-local-machine-via-an-ingress) for details on
+Please refer to the [Ingress Section](#9-connect-to-the-node-from-your-local-machine-via-an-ingress) for details on
 making the API calls from your local machine or equivalent.
 
 ### 8. Deploy RPC or Transaction nodes
@@ -445,7 +445,7 @@ Logs for Besu resemble the following:
 
 !!! note
 
-    In the examples above we use `member-1` and `rpc-1` as release names for the deployments. You can pick any release
+    In these examples we use `member-1` and `rpc-1` as release names for the deployments. You can pick any release
     name that you'd like to use in place of those as per your requirements.
 
 ### 9. Connect to the node from your local machine via an ingress

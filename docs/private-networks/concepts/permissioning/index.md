@@ -16,7 +16,7 @@ specified nodes and accounts to access the network.
     action to prevent the bad actor adding to the chain but they cannot prevent the bad actor from
     allowing access to the chain.
 
-    Besu also implements [privacy](../Privacy/Privacy-Overview.md).
+    Besu also implements [privacy](../privacy/index.md).
 
 ## Node permissioning
 

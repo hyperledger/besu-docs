@@ -2,9 +2,9 @@
 description: How to access the Hyperledger Besu API using JSON-RPC
 ---
 
-# JSON-RPC over HTTP, WebSockets and IPC
+# JSON-RPC over HTTP, WebSocket, and IPC
 
-To enable JSON-RPC over HTTP or WebSockets, use the
+To enable JSON-RPC over HTTP or WebSocket, use the
 [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) and
 [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) options.
 
@@ -112,12 +112,12 @@ Send the requests as an array, and receive an array of responses.
         }]
         ```
 
-### WebSockets
+### WebSocket
 
-To make RPC requests over WebSockets, you can use [`wscat`](https://github.com/websockets/wscat), a
+To make RPC requests over WebSocket, you can use [`wscat`](https://github.com/websockets/wscat), a
 Node.js based command-line tool.
 
-First connect to the WebSockets server using `wscat` (you only need to connect once per session):
+First connect to the WebSocket server using `wscat` (you only need to connect once per session):
 
 ```bash
 wscat -c ws://<JSON-RPC-ws-endpoint:port>
@@ -150,7 +150,7 @@ Send individual requests as a JSON data package at each prompt.
         }
         ```
 
-You can use `wscat` to make multiple RPC requests over WebSockets at the same time.
+You can use `wscat` to make multiple RPC requests over WebSocket at the same time.
 Send the requests as an array, and receive an array of responses.
 
 !!! example
@@ -177,8 +177,8 @@ Send the requests as an array, and receive an array of responses.
 
 !!! note
 
-    `wscat` does not support headers. [Authentication](Authentication.md) requires you to pass an
-    authentication token in the request header. To use authentication with WebSockets, you require
+    `wscat` does not support headers. [Authentication](authenticate.md) requires you to pass an
+    authentication token in the request header. To use authentication with WebSocket, you need
     an app that supports headers.
 
 ## Readiness and liveness endpoints
@@ -266,6 +266,6 @@ The block parameter can have the following values:
 
 !!! note
 
-    If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most
+    If [synchronizing in FAST mode](../../reference/cli/options.md#sync-mode), most
     historical world state data is unavailable. Any methods attempting to access unavailable world
     state data return `null`.

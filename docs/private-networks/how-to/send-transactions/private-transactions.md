@@ -32,9 +32,9 @@ private transaction to the participating nodes, and signs and submits the PMT, a
 
 !!! note
 
-    If [sending concurrent transactions](Concurrent-Private-Transactions.md), you must use
+    If [sending concurrent transactions](concurrent-private-transactions.md), you must use
     [`priv_distributeRawTransaction`](#priv_distributerawtransaction) instead of
-    [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
+    [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
 
 ## `priv_distributeRawTransaction`
 
@@ -90,7 +90,7 @@ and submitting the PMT yourself instead of having it signed by the Besu node, gi
     }
     ```
 
-    Send the enclave key in the `data` field, and the [privacy precompile address](../../Reference/API-Methods.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendRawTransaction`:
+    Send the enclave key in the `data` field, and the [privacy precompile address](../../../reference/api/index.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendRawTransaction`:
 
     ```json
     {
@@ -158,7 +158,7 @@ private transactions to create a contract.
 !!! tip
 
     The `example` directory in the
-    [web3js-quorum client library](../Interact/Client-Libraries/web3js-quorum.md) contains examples of
+    [web3js-quorum client library](../use-privacy/web3js-quorum.md) contains examples of
     signing and encoding private transactions.
 
 <!-- links ---->

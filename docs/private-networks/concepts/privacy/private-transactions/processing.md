@@ -49,8 +49,8 @@ Private transaction processing is illustrated and described in the following dia
     !!! tip
 
         If you want to sign the PMT outside of Besu, use
-        [`priv_distributeRawTransaction`](../../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
-        instead of [`eea_sendRawTransaction`](../../Reference/API-Methods.md#eea_sendrawtransaction).
+        [`priv_distributeRawTransaction`](../../../how-to/send-transactions/private-transactions.md#priv_distributerawtransaction)
+        instead of [`eea_sendRawTransaction`](../../../../reference/api/index.md#eea_sendrawtransaction).
 
 1. Besu mines the PMT into a block and the PMT is distributed to all Ethereum nodes in the network.
 
@@ -75,12 +75,13 @@ Private transaction processing is illustrated and described in the following dia
 !!! important
 
     * We recommend using a network with a consensus mechanism supporting transaction finality. For example,
-      [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
-    * Tessera must be [highly available and run in a separate instance to Besu](../../HowTo/Use-Privacy/Run-Tessera-With-Besu.md).
+      [IBFT 2.0](../../../how-to/configure/consensus/ibft.md).
+    * Tessera must be [highly available and run in a separate instance to Besu](../../../how-to/use-privacy/tessera.md).
 
-    Using private transactions with [pruning](../Pruning.md) or [fast sync](../../Reference/CLI/CLI-Syntax.md#sync-mode)
+    Using private transactions with [pruning] or [fast sync](../../../../reference/cli/options.md#sync-mode)
     is not supported.
 
 <!-- Links -->
 [signed with a random key or the key specified on the command line]: ../../../how-to/use-privacy/sign-pmts.md
 [highly available and run in a separate instance to Besu]: ../../../how-to/use-privacy/tessera.md
+[pruning]: ../../../../concepts/Pruning.md

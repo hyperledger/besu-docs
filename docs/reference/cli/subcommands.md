@@ -79,9 +79,9 @@ Provides node public key related actions.
 !!!caution
 
     To get the public key or address of a node, ensure you use the
-    [`--data-path`](CLI-Syntax.md#data-path) or
-    [`--node-private-key-file`](CLI-Syntax.md#node-private-key-file) option with the `public-key`
-    command. Otherwise, a new [node key](../../Concepts/Node-Keys.md) is silently generated when
+    [`--data-path`](options.md#data-path) or
+    [`--node-private-key-file`](options.md#node-private-key-file) option with the `public-key`
+    command. Otherwise, a new [node key](../../concepts/node-keys.md) is silently generated when
     starting Besu.
 
 ### `export`
@@ -200,7 +200,7 @@ generate.
 !!! tip
 
     Manually executing `generate-log-bloom-cache` is not required unless you set the
-    [`--auto-log-bloom-caching-enabled`](CLI-Syntax.md#auto-log-bloom-caching-enabled) command line
+    [`--auto-log-bloom-caching-enabled`](options.md#auto-log-bloom-caching-enabled) command line
     option to false.
 
 Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log query

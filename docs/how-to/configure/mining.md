@@ -42,8 +42,8 @@ Optional command line options are:
 !!! note
 
     Besu also supports the `getwork` scheme. Use the
-    [`--miner-stratum-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-enabled) option and
-    [enable the `ETH` RPCs](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
+    [`--miner-stratum-enabled`](../../reference/cli/options.md#miner-stratum-enabled) option and
+    [enable the `ETH` RPCs](../../reference/cli/options.md#rpc-http-api).
 
     The `getwork` scheme is supported as the `http` scheme in certain mining software.
 

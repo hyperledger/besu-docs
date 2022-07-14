@@ -27,7 +27,7 @@ You can [add and remove members to and from flexible privacy groups](../../how-t
     group functionality in future versions.
 
     We don't recommended creating flexible privacy groups in a chain with existing
-    [offchain privacy groups](Privacy-Groups.md).
+    [offchain privacy groups](privacy-groups.md).
 
 ## Group management contracts
 

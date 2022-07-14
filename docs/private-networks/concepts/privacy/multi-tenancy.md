@@ -18,7 +18,7 @@ is a _tenant_, and the operator is the _owner_ of the Besu and Tessera node.
 !!! important
 
     The operator is responsible for
-    [configuring multi-tenancy](../../Tutorials/Privacy/Configuring-Multi-Tenancy.md), and has
+    [configuring multi-tenancy](../../tutorials/privacy/multi-tenancy.md), and has
     access to all tenant data.
 
 ![Multi-tenancy](../../../images/Multi-tenancy.png)
@@ -31,8 +31,8 @@ is a _tenant_, and the operator is the _owner_ of the Besu and Tessera node.
     If not configured to allow access only by the multi-tenant Besu node, other Tessera clients,
     including other Besu nodes, might be able to access tenant data.
 
-    To secure access, you can [configure TLS between Besu and Tessera](../TLS.md) with the
-    [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist)
+    To secure access, you can [configure TLS between Besu and Tessera](../../how-to/configure/tls/client-and-server.md)
+    with the [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist)
     trust mode.
 
 Multi-tenancy validates that tenants have permission to use the specified HTTP or WebSocket

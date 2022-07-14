@@ -420,8 +420,7 @@ Import the first account from the genesis file into MetaMask and send transactio
 
 !!! info
 
-    Besu does not support
-    [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't support [private key management](../../../how-to/send-transactions.md).
 
 ### Try sending a transaction from an account not in the accounts allowlist
 

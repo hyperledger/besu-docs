@@ -77,9 +77,9 @@ Docker Compose environment provided by Splunk.
 
 !!! note
 
-    If running [Besu as a Docker container](../Get-Started/Installation-Options/Run-Docker-Image.md), consider using
+    If running [Besu as a Docker container](../../../get-started/install/run-docker-image.md), consider using
     [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose) or
-    [Kubernetes](../Deploy/Kubernetes.md) instead of the Splunk Enterprise trial container.
+    [Kubernetes](../deploy/kubernetes.md) instead of the Splunk Enterprise trial container.
 
 ### Steps
 

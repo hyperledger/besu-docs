@@ -18,14 +18,13 @@ and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
 !!! note
 
-    You can also [configure Besu for high availability](../Configure/Configure-HA/High-Availability.md) using load
-    balancers.
+    You can also [configure Besu for high availability] using load balancers.
 
 ## High availability
 
 Privacy requires you to [configure Tessera for high availability].
 Tessera also requires [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/)
-to be enabled if **not** running Besu in [GoQuorum compatible privacy mode](ompatible-privacy.md).
+to be enabled if **not** running Besu in [GoQuorum compatible privacy mode](goquorum-compatible.md).
 
 To successfully distribute a private transaction, all private transaction participants must be
 online. If any participants are offline when submitting the private transaction, the transaction is
@@ -48,3 +47,4 @@ enough memory.
 
 <!-- links -->
 [configure Tessera for high availability]: https://consensys.net/docs/goquorum//en/stable/configure-and-manage/configure/high-availability/
+[configure Besu for high availability]: ../../../how-to/configure/Configure-HA

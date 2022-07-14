@@ -358,9 +358,9 @@ The command line specifies privacy options:
 !!! note
 
     Use the
-    [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option to sign
-    [privacy marker transactions](../../Concepts/Privacy/Private-Transaction-Processing.md) using a
+    [privacy marker transactions](../../../concepts/privacy/private-transactions/processing.md) using a
     supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
 
 When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the
@@ -388,10 +388,10 @@ Node-1 as the bootnode:
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
 The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
-!!!note
+!!! note
 
-    When running Besu from the [Docker image](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md),
-    [expose ports](../../HowTo/Get-Started/Installation-Options/Run-Docker-Image.md#exposing-ports).
+    When running Besu from the [Docker image](../../../get-started/install/run-docker-image.md),
+    [expose ports](../../../get-started/install/run-docker-image.md#expose-ports).
 
 ## 7. Start Besu Node-3
 

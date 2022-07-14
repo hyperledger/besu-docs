@@ -8,8 +8,8 @@ source: log4j2.xml
 
 Hyperledger Besu uses Log4J2 for logging and provides two methods to configure logging behavior:
 
-* [Basic](#basic-log-level-setting) - changes the log level.
-* [Advanced](#advanced-custom-logging) - configures the output and format of the logs.
+* [Basic](#basic-logging) - Changes the log level.
+* [Advanced](#advanced-logging) - Configures the output and format of the logs.
 
 [Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) provides an
 [example implementation using Elastic Stack](../../private-networks/how-to/monitor/elastic-stack.md) for log management.
@@ -25,8 +25,8 @@ For most use cases, the basic method provides enough configurability.
 
 !!! tip
 
-    Use the [`admin_changeLogLevel`](../../Reference/API-Methods.md#admin_changeloglevel) API method to change the log
-    level while Besu is running.
+    Use the [`admin_changeLogLevel`](../../reference/api/index.md#admin_changeloglevel) API method
+    to change the log level while Besu is running.
 
 ## Advanced logging
 

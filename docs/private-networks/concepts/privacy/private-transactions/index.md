@@ -33,7 +33,7 @@ not the private transaction itself.
 
     Because gas isn't required in private transactions, inefficient contracts deployed accidentally
     or deliberately can cause performance issues in privacy-enabled networks.
-    Ensure your network has a mechanism to [establish trust offchain](Privacy-Overview.md#privacy-enabled-networks).
+    Ensure your network has a mechanism to [establish trust offchain](../index.md#privacy-enabled-networks).
 
 You can [create and send private transactions](../../../how-to/send-transactions/private-transactions.md).
 
@@ -62,7 +62,7 @@ Since the PMT is a public transaction, the PMT nonce is the public nonce for the
 
 ### Private transaction nonce
 
-Besu maintains separate private states for each [privacy group](oups.md).
+Besu maintains separate private states for each [privacy group](../privacy-groups.md).
 The private transaction nonce for an account is specific to the privacy group.
 That is, the nonce for account A for privacy group ABC is different to the nonce for account A for privacy group AB.
 
@@ -118,8 +118,8 @@ You can manage private nonces in multiple ways:
 
     !!! note
 
-        You can use [`priv_getTransactionCount`](../../Reference/API-Methods.md#priv_gettransactioncount) or
-        [`priv_getEeaTransactionCount`](../../Reference/API-Methods.md#priv_geteeatransactioncount) to get the nonce for
+        You can use [`priv_getTransactionCount`](../../../../reference/api/index.md#priv_gettransactioncount) or
+        [`priv_getEeaTransactionCount`](../../../../reference/api/index.md#priv_geteeatransactioncount) to get the nonce for
         an account for the specified privacy group or participants.
 
 * Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management.
@@ -128,5 +128,5 @@ You can manage private nonces in multiple ways:
 !!! tip
 
     The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/9a0f9eb1b91a4a0d93801f77782b509ae2e7314c/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js)
-    of nonce management when [sending concurrent private transactions](../../HowTo/Send-Transactions/Concurrent-Private-Transactions.md).
+    of nonce management when [sending concurrent private transactions](../../../how-to/send-transactions/concurrent-private-transactions.md).
     The example calculates the correct nonces for the private transactions and PMTs outside of Besu.

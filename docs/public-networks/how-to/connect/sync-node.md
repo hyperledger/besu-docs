@@ -84,8 +84,8 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     because snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
-    We recommend using snap sync with the [Bonsai](Data-Storage-Formats.md#bonsai-tries) data storage format for the
-    fastest sync and lowest storage requirements.
+    We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+    data storage format for the fastest sync and lowest storage requirements.
 
 Enable snap sync using [`--sync-mode=X_SNAP`](../../../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
@@ -125,8 +125,8 @@ difficulty as in the following example.
 
 !!! note
 
-    If using [Clique](../HowTo/Configure/Consensus-Protocols/Clique.md) consensus, the checkpoint
-    must be the beginning of an epoch.
+    If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
+    checkpoint must be the beginning of an epoch.
 
 Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
 the Ropsten and Goerli testnets.

@@ -19,9 +19,9 @@ Methods specific to RPC Pub/Sub are:
 
 !!!important
 
-    Unlike other [Hyperledger Besu API methods](../../../Reference/API-Methods.md), you cannot call
+    Unlike other [Hyperledger Besu API methods](../../reference/api/index.md), you cannot call
     the RPC Pub/Sub methods over HTTP. Use the
-    [`--rpc-ws-enabled`](../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled) option to enable the
+    [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option to enable the
     WebSockets JSON-RPC service.
 
 ### Using RPC Pub/Sub

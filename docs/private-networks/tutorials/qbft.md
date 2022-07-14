@@ -109,7 +109,8 @@ in the `QBFT-Network` directory:
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../Reference/Config-Items.md#milestone-blocks) when creating the configuration file for a private network.
+    We recommend specifying the latest [milestone](../../reference/genesis-items.md#milestone-blocks)
+    when creating the genesis file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 !!! warning
@@ -362,8 +363,7 @@ to MetaMask and send transactions as described in the
     [created for each node](#3-generate-node-keys-and-a-genesis-file) has the node address as the
     name.
 
-    Besu does not support
-    [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't support [private key management](../../how-to/send-transactions.md).
 
 You can switch from the [block header validator selection method] configured here, to the [contract validator selection method]
 by updating the genesis file and [configuring a transition].

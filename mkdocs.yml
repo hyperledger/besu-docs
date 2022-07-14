@@ -64,7 +64,7 @@ nav:
             - System requirements: public-networks/get-started/system-requirements.md
             - Install Besu:
                 - Index: get-started/install/index.md
-                - Run Besu from Docker image: get-started/install/run-from-docker-image.md
+                - Run Besu from Docker image: get-started/install/run-docker-image.md
                 - Install binary distribution: get-started/install/binary-distribution.md
             - Start Besu: public-networks/get-started/start-node.md
         - How to:
@@ -83,7 +83,7 @@ nav:
                 - Configure static nodes: how-to/connect/static-nodes.md
                 - Configure ports: how-to/connect/configure-ports.md
                 - Manage peers: how-to/connect/manage-peers.md
-                - Specify NAT method: how-to/connect/specify-nat-method.md
+                - Specify NAT method: how-to/connect/specify-nat.md
             - Monitor nodes:
                 - Use metrics: how-to/monitor/metrics.md
                 - Configure logging: how-to/monitor/logging.md
@@ -128,7 +128,7 @@ nav:
             - System requirements: private-networks/get-started/system-requirements.md
             - Install Besu:
                 - Index: get-started/install/index.md
-                - Run Besu from Docker image: get-started/install/run-from-docker-image.md
+                - Run Besu from Docker image: get-started/install/run-docker-image.md
                 - Install binary distribution: get-started/install/binary-distribution.md
             - Start Besu: private-networks/get-started/start-node.md
         - How to:
@@ -138,7 +138,7 @@ nav:
                     - QBFT: private-networks/how-to/configure/consensus/qbft.md
                     - IBFT: private-networks/how-to/configure/consensus/ibft.md
                     - Clique: private-networks/how-to/configure/consensus/clique.md
-                    - Add and remove validators without voting: private-networks/how-to/configure/consensus/add-and-remove-validators-without-voting.md
+                    - Add and remove validators without voting: private-networks/how-to/configure/consensus/add-validators-without-voting.md
                 - Free gas network: private-networks/how-to/configure/free-gas.md
                 - Validators: private-networks/how-to/configure/validators.md
                 - Pre-deploy a contract: private-networks/how-to/configure/contracts.md
@@ -159,15 +159,15 @@ nav:
                 - Access logs using JSON-RPC: how-to/use-besu-api/access-logs.md
             - Create and send transactions:
                 - Index: how-to/send-transactions.md
-                - Create and send private transactions: private-networks/how-to/send-transactions/index.md
-                - Send concurrent private transactions: private-networks/how-to/send-transactions/concurent-index.md
+                - Create and send private transactions: private-networks/how-to/send-transactions/private-transactions.md
+                - Send concurrent private transactions: private-networks/how-to/send-transactions/concurent-private-transactions.md
                 - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
             - Find and connect to peers:
                 - Configure bootnodes: private-networks/how-to/connect/bootnodes.md
                 - Configure static nodes: how-to/connect/static-nodes.md
                 - Configure ports: how-to/connect/configure-ports.md
                 - Manage peers: how-to/connect/manage-peers.md
-                - Specify NAT method: how-to/connect/specify-nat-method.md
+                - Specify NAT method: how-to/connect/specify-nat.md
             - Monitor nodes:
                 - Index: how-to/monitor/index.md
                 - Use metrics: how-to/monitor/metrics.md
@@ -183,7 +183,7 @@ nav:
                 - Run Tessera with Besu: private-networks/how-to/use-privacy/tessera.md
                 - Create and manage privacy groups: private-networks/how-to/use-privacy/privacy-groups.md
                 - Use flexible privacy groups: private-networks/how-to/use-privacy/flexible.md
-                - Access private and privacy marker transactions: private-networks/how-to/use-privacy/access-index.md
+                - Access private and privacy marker transactions: private-networks/how-to/use-privacy/access-private-transactions.md
                 - Sign privacy marker transactions: private-networks/how-to/use-privacy/sign-pmts.md
                 - Use the web3js-quorum library: private-networks/how-to/use-privacy/web3js-quorum.md
                 - Performance best practices: private-networks/how-to/use-privacy/performance-best-practices.md
@@ -201,7 +201,7 @@ nav:
             - Backup and restore: private-networks/how-to/backup.md
             - Upgrade:
                 - Upgrade node: how-to/upgrade/node.md
-                - Upgrade protocol: private-networks/upgrade/protocol.md
+                - Upgrade protocol: private-networks/how-to/upgrade/protocol.md
             - Troubleshoot:
                 - Use EVM tool: how-to/troubleshoot/evm-tool.md
                 - Use Java Flight Recorder: how-to/troubleshoot/java-flight-recorder.md
@@ -370,8 +370,8 @@ plugins:
           HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md: how-to/use-besu-api/access-logs.md
           HowTo/Send-Transactions/Transactions.md: how-to/send-transactions.md
           HowTo/Send-Transactions/Account-Management.md: how-to/send-transactions.md
-          HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md: private-networks/how-to/send-transactions/index.md
-          HowTo/Send-Transactions/Concurrent-Private-Transactions.md: private-networks/how-to/send-transactions/concurrent-index.md
+          HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md: private-networks/how-to/send-transactions/private-transactions.md
+          HowTo/Send-Transactions/Concurrent-Private-Transactions.md: private-networks/how-to/send-transactions/concurrent-private-transactions.md
           HowTo/Send-Transactions/Revert-Reason.md: private-networks/how-to/send-transactions/revert-reason.md
           HowTo/Find-and-Connect/Bootnodes.md: private-networks/how-to/connect/bootnodes.md
           HowTo/Find-and-Connect/Static-Nodes.md: how-to/connect/static-nodes.md
@@ -432,7 +432,7 @@ plugins:
           HowTo/Use-Privacy/Run-Tessera-With-Besu.md: private-networks/how-to/use-privacy/tessera.md
           HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md: private-networks/how-to/use-privacy/privacy-groups.md
           HowTo/Use-Privacy/Use-FlexiblePrivacy.md: private-networks/how-to/use-privacy/flexible.md
-          HowTo/Use-Privacy/Access-Private-Transactions.md: private-networks/how-to/use-privacy/access-index.md
+          HowTo/Use-Privacy/Access-Private-Transactions.md: private-networks/how-to/use-privacy/access-private-transactions.md
           HowTo/Use-Privacy/Sign-Privacy-Marker-Transactions.md: private-networks/how-to/use-privacy/sign-pmts.md
           HowTo/Interact/Client-Libraries/web3js-quorum.md: private-networks/how-to/use-privacy/web3js-quorum.md
           HowTo/Use-Privacy/Performance-Best-Practices.md: private-networks/how-to/use-privacy/performance-best-practices.md

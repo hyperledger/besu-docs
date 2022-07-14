@@ -105,7 +105,8 @@ in the `IBFT-Network` directory:
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../Reference/Config-Items.md#milestone-blocks) when creating the configuration file for a private network.
+    We recommend specifying the latest [milestone](../../../reference/genesis-items.md#milestone-blocks)
+    when creating the configuration file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 !!! warning
@@ -364,8 +365,7 @@ Import accounts to MetaMask and send transactions as described in the
 
 !!! info
 
-    Besu does not support
-    [private key management](../../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't support [private key management](../../../how-to/send-transactions.md).
 
 ## Stop the nodes
 

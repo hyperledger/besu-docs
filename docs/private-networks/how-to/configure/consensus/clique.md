@@ -75,11 +75,11 @@ The `extraData` property consists of:
 
 !!! example "One initial signer"
 
-    ![One Initial Signer](../../../images/CliqueOneIntialSigner.png)
+    ![One Initial Signer](../../../../images/CliqueOneIntialSigner.png)
 
 !!! example "Two initial signers"
 
-    ![Two Initial Signers](../../../images/CliqueTwoIntialSigners.png)
+    ![Two Initial Signers](../../../../images/CliqueTwoIntialSigners.png)
 
 ### Post-Merge configuration
 
@@ -183,7 +183,7 @@ This may cause large, irresolvable forks in a network.
 
 !!! important
 
-    We recommend using a more updated consensus protocol such as [IBFT 2.0](IBFT.md) or [QBFT](QBFT.md).
+    We recommend using a more updated consensus protocol such as [IBFT 2.0](ibft.md) or [QBFT](qbft.md).
 
 ## Migrate from Clique to another consensus protocol
 

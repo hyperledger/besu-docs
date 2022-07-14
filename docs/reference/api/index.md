@@ -7,8 +7,8 @@ description: Hyperledger Besu JSON-RPC API methods reference
 !!! attention
 
     * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If
-      using the [--rpc-http-host](CLI/CLI-Syntax.md#rpc-http-host) or
-      [--rpc-http-port](CLI/CLI-Syntax.md#rpc-http-port) options, update the endpoint.
+      using the [--rpc-http-host](../cli/options.md#rpc-http-host) or
+      [--rpc-http-port](../cli/options.md#rpc-http-port) options, update the endpoint.
     * Except for the examples made on the Ropsten network, the example requests are made against
       private networks. Depending on network configuration and activity, your example results might
       be different.
@@ -22,8 +22,8 @@ The `ADMIN` API methods provide administrative functionality to manage your node
 !!! note
 
     The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `admin_addPeer`
 
@@ -32,7 +32,7 @@ Adds a [static node](../../how-to/connect/static-nodes.md).
 !!! caution
 
     If connections are timing out, ensure the node ID in the
-    [enode URL](../Concepts/Node-Keys.md#enode-url) is correct.
+    [enode URL](../../concepts/node-keys.md#enode-url) is correct.
 
 #### Parameters
 
@@ -142,7 +142,7 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 !!! tip
 
     Manually executing `admin_generateLogBloomCache` is not required unless the
-    [`--auto-log-bloom-caching-enabled`](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) command
+    [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command
     line option is set to false.
 
 !!! note
@@ -321,7 +321,7 @@ None
 
     If the node is running locally, the host of the `enode` and `listenAddr` display as `[::]` in
     the result. When advertising externally, the external address displayed for the `enode` and
-    `listenAddr` is defined by [`--nat-method`](../HowTo/Find-and-Connect/Specifying-NAT.md).
+    `listenAddr` is defined by [`--nat-method`](../../how-to/connect/specify-nat.md).
 
 !!! example
 
@@ -505,8 +505,8 @@ The `CLIQUE` API methods provide access to the [Clique](../../private-networks/h
 !!! note
 
     The `CLIQUE` API methods are not enabled by default for JSON-RPC. To enable the `CLIQUE` API
-    methods use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `clique_discard`
 
@@ -784,8 +784,8 @@ We recommend using the [`TRACE` API](#trace-methods) for production use over the
 !!! note
 
     The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `debug_accountAt`
 
@@ -1659,8 +1659,8 @@ The `EEA` API methods provide functionality for [private transactions](../../pri
 !!! note
 
     The `EEA` API methods are not enabled by default for JSON-RPC. To enable the `EEA` API methods,
-    use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `eea_sendRawTransaction`
 
@@ -1684,14 +1684,14 @@ transaction data using `eea_sendRawTransaction`.
 
     For production systems requiring private transactions, use a network with a consensus mechanism
     supporting transaction finality to make sure the private state does not become inconsistent
-    with the chain. For example, [IBFT 2.0](../HowTo/Configure/Consensus-Protocols/IBFT.md)
-    and [QBFT](../HowTo/Configure/Consensus-Protocols/QBFT.md) provide the required finality.
+    with the chain. For example, [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md)
+    and [QBFT](../../private-networks/how-to/configure/consensus/qbft.mdd) provide the required finality.
 
-    Using private transactions with [pruning](../Concepts/Pruning.md) or
-    [fast sync](CLI/CLI-Syntax.md#sync-mode) is not supported.
+    Using private transactions with [pruning](../../public-networks/how-to/connect/sync-node.md) or
+    [fast sync](../cli/options.md#sync-mode) is not supported.
 
-    Besu does not implement
-    [`eea_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't implement
+    [`eea_sendTransaction`](../../how-to/send-transactions.md).
 
     [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
     implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
@@ -1740,7 +1740,7 @@ The `ETH` API methods allow you to interact with the blockchain.
 
 !!! note
 
-    Methods with an equivalent [GraphQL](../HowTo/Interact/APIs/GraphQL.md) query include a GraphQL
+    Methods with an equivalent [GraphQL](../../how-to/use-besu-api/graphql.md) query include a GraphQL
     request and result in the method example. The parameter and result descriptions apply to the
     JSON-RPC requests. The GraphQL specification is defined in the [schema].
 
@@ -1751,7 +1751,7 @@ Returns a list of account addresses a client owns.
 !!!note
 
     This method returns an empty object because Besu
-    [doesn't support key management](../HowTo/Send-Transactions/Account-Management.md) inside the
+    [doesn't support key management](../../how-to/send-transactions.md) inside the
     client.
 
     To provide access to your key store and and then sign transactions, use
@@ -1873,7 +1873,9 @@ the `eth_call` error response includes the [revert reason](../../private-network
 
 !!! note
 
-    By default, `eth_call` does not fail if the sender account has an insufficient balance. This is done by setting the balance of the account to a large amount of ether. To enforce balance rules, set the [`strict` parameter](API-Objects.md#transaction-call-object) in the transaction call object to `true`.
+    By default, `eth_call` does not fail if the sender account has an insufficient balance.
+    This is done by setting the balance of the account to a large amount of ether.
+    To enforce balance rules, set the [`strict` parameter](objects.md#transaction-call-object) in the transaction call object to `true`.
 
 #### Returns
 
@@ -1941,7 +1943,8 @@ the `eth_call` error response includes the [revert reason](../../private-network
 
 !!! example "Example of a simulated contract creation"
 
-    The following example creates a simulated contract by not including the `to` parameter from the [transaction call object](API-Objects.md#transaction-call-object) in the `call` parameter.
+    The following example creates a simulated contract by not including the `to` parameter from the
+    [transaction call object](objects.md#transaction-call-object) in the `call` parameter.
     Besu simulates the data to create the contract.
 
     === "curl HTTP"
@@ -2924,7 +2927,7 @@ command line option at the default value of `true` to improve log retrieval perf
 !!! note
 
     `eth_getFilterLogs` is only used for filters created with `eth_newFilter`. To specify a filter
-    object and get logs without creating a filter, use `eth_getLogs` .
+    object and get logs without creating a filter, use `eth_getLogs`.
 
 #### Parameters
 
@@ -2987,7 +2990,9 @@ command line option at the default value of `true` to improve log retrieval perf
 
 !!! attention
 
-    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from its genesis block, can cause Besu to hang and never return a response. We recommend splitting one large query into multiple ones for better performance.
+    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from
+    its genesis block, can cause Besu to hang and never return a response.
+    We recommend splitting one large query into multiple ones for better performance.
 
 #### Parameters
 
@@ -3919,7 +3924,7 @@ Returns uncle specified by block hash and index.
 
 !!! note
 
-    Uncles do not contain individual transactions.
+    Uncles don't contain individual transactions.
 
 !!! example
 
@@ -4570,9 +4575,9 @@ You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#
 To avoid exposing your private key, create signed transactions offline and send the signed
 transaction data using `eth_sendRawTransaction`.
 
-!!!important
+!!! important
 
-    Besu does not implement [`eth_sendTransaction`](../HowTo/Send-Transactions/Account-Management.md).
+    Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md).
 
     [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
     [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
@@ -4580,9 +4585,10 @@ transaction data using `eth_sendRawTransaction`.
 #### Parameters
 
 `transaction`: *string* -  signed transaction serialized to hexadecimal format
+
 !!! note
 
-    [Creating and Sending Transactions](../HowTo/Send-Transactions/Transactions.md) includes
+    [Creating and sending transactions](../../how-to/send-transactions.md) includes
     examples of creating signed transactions using the
     [web3.js](https://github.com/ethereum/web3.js/) library.
 
@@ -4865,8 +4871,8 @@ The `IBFT` API methods provide access to the [IBFT 2.0](../../private-networks/h
 !!! note
 
     The `IBFT` API methods are not enabled by default for JSON-RPC. To enable the `IBFT` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `ibft_discardValidatorVote`
 
@@ -5149,8 +5155,8 @@ The `MINER` API methods allow you to control the node’s mining operation.
 !!! note
 
     The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `miner_changeTargetGasLimit`
 
@@ -5421,7 +5427,8 @@ Returns enabled services (for example, `jsonrpc`) and the host and port for each
 
 !!! note
 
-    The [`--nat-method`](../CLI/CLI-Syntax/#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
+    The [`--nat-method`](../cli/options.md#nat-method) setting affects the JSON-RPC and P2P host and
+    port values, but not the metrics host and port values.
 
 #### Parameters
 
@@ -5541,8 +5548,8 @@ Use these methods for [local permissioning](../../private-networks/how-to/use-pe
 !!! important
 
     The `PERM` API methods are not enabled by default for JSON-RPC. To enable the `PERM` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) CLI options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) CLI options.
 
 ### `perm_addAccountsToAllowlist`
 
@@ -5846,8 +5853,8 @@ The `PLUGINS` API methods provide plugin-related functionality.
 !!! note
 
     The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `plugins_reloadPluginConfig`
 
@@ -5893,8 +5900,8 @@ The `PRIV` API methods provide functionality for [private transactions](../../pr
 !!! note
 
     The `PRIV` API methods are not enabled by default for JSON-RPC. To enable the `PRIV` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `priv_call`
 
@@ -6103,8 +6110,8 @@ Distributes a signed, RLP encoded
 
 !!! tip
 
-    If you want to sign the [privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md) outside of Besu,
-    use [`priv_distributeRawTransaction`](..//HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#priv_distributerawtransaction)
+    If you want to sign the [privacy marker transaction](../../private-networks/how-to/use-privacy/sign-pmts.md)
+    outside of Besu, use [`priv_distributeRawTransaction`](../../private-networks/how-to/send-transactions/private-transactions.md#priv_distributerawtransaction)
     instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).
 
 #### Parameters
@@ -6787,8 +6794,8 @@ The `QBFT` API methods provide access to the [QBFT](../../private-networks/how-t
 !!! note
 
     The `QBFT` API methods are not enabled by default for JSON-RPC. To enable the `QBFT` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `qbft_discardValidatorVote`
 
@@ -7073,8 +7080,8 @@ The `TRACE` API is a more concise alternative to the [`DEBUG` API](#debug-method
 !!! note
 
     The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `trace_block`
 
@@ -7083,8 +7090,8 @@ Provides transaction processing of [type `trace`](../trace-types.md#trace) for t
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
-    (by default, 1024).
+    requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
+    with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7184,7 +7191,7 @@ Executes the given call and returns a number of possible traces for it.
 !!! important
 
     The requested transaction must be contained in a block within the number of
-    [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
+    [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7255,8 +7262,8 @@ Performs multiple call traces on top of the same block. You can trace dependent 
 
 !!! important
 
-    The requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained)
-    with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
+    The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
+    with [pruning enabled](../cli/options.md#pruning-enabled)
     (by default, 1024).
 
 #### Parameters
@@ -7350,8 +7357,8 @@ Returns traces matching the specified filter.
 !!! important
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
-    requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
-    (by default, 1024).
+    requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
+    with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7437,7 +7444,8 @@ Returns trace at given position.
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with
+    [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7503,7 +7511,8 @@ Traces a call to `eth_sendRawTransaction` without making the call, returning the
 !!! important
 
     The requested transaction must be contained in a block within 
-    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with
+    [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7563,8 +7572,8 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    The requested block must be within the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled)
-    (by default, 1024).
+    The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
+    with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7680,7 +7689,8 @@ Provides transaction processing of [type `trace`](../trace-types.md#trace) for t
 
     Your node must be an archive node (that is, synchronized without pruning or fast sync) or the
     requested transaction must be contained in a block within
-    the number of [blocks retained](CLI/CLI-Syntax.md#pruning-blocks-retained) with [pruning enabled](CLI/CLI-Syntax.md#pruning-enabled) (by default, 1024).
+    the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with
+    [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 #### Parameters
 
@@ -7810,8 +7820,8 @@ The `TXPOOL` API methods allow you to inspect the contents of the transaction po
 !!! note
 
     The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API
-    methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
-    [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
+    methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or
+    [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 ### `txpool_besuPendingTransactions`
 

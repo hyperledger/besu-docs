@@ -31,7 +31,7 @@ was invalid (`0x2`).
 !!! example "Private transaction failure example"
 
     To deploy a private contract, you submit a transaction using
-    [`eea_sendRawTransaction`](../Send-Transactions/Creating-Sending-Private-Transactions.md). If
+    [`eea_sendRawTransaction`](../send-transactions/private-transactions.md). If
     contract deployment fails because of insufficient gas, the privacy marker transaction receipt
     has a status of success and the private transaction receipt has a status of failure.
 

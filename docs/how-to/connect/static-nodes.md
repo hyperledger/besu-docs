@@ -18,8 +18,8 @@ any unconnected static node.
     example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
-    To find peers, configure one or more [bootnodes](Bootnodes.md). To configure a specific set of
-    peer connections, use static nodes, as described below.
+    To find peers, configure one or more [bootnodes](../../private-networks/how-to/connect/bootnodes.md).
+    To configure a specific set of peer connections, use static nodes.
 
 ## Configure static nodes
 
@@ -46,13 +46,13 @@ To update the list of static peers at run time, use the
     file is not updated by the `admin_addPeer` and `admin_removePeer` methods.
 
     Nodes not in the list of the static nodes are not prevented from connecting. To prevent nodes
-    from connecting, use [Permissioning](../../Concepts/Permissioning/Permissioning-Overview.md).
+    from connecting, use [Permissioning](../../private-networks/concepts/permissioning/index.md).
 
 !!! tip
 
     If the added peer does not appear in the peer list (returned by
-    [`admin_peers`](../../Reference/API-Methods.md#admin_peers)), check the the supplied
-    [enode URL](../../Concepts/Node-Keys.md#enode-url) is correct, the node is running, and the
+    [`admin_peers`](../../reference/api/index.md#admin_peers)), check the the supplied
+    [enode URL](../../concepts/node-keys.md#enode-url) is correct, the node is running, and the
     node is listening for TCP connections on the endpoint.
 
 ### `static-nodes.json` file

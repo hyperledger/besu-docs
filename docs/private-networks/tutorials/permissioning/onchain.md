@@ -11,7 +11,7 @@ This tutorial configures permissioning on a [IBFT 2.0 proof of authority (PoA)] 
 
 !!! note
 
-    Production environments require a Web server to [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
+    Production environments require a Web server to [host the permissioning management dapp](../../how-to/use-permissioning/onchain.md).
 
 ## Prerequisites
 
@@ -182,7 +182,7 @@ the `alloc` section of the contract:
 
     The permissioning contract has multiple interfaces, and each interface maps to a specific
     version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
-    Ensure that you specify the [permissioning contract interface](../../HowTo/Limit-Access/Specify-Perm-Version.md)
+    Ensure that you specify the [permissioning contract interface](../../how-to/use-permissioning/onchain.md)
     being used when starting Besu.
 
 ### 6. Copy the node private keys to the node directories
@@ -245,7 +245,7 @@ Create the following environment variables and set to the specified values:
 
     To allow MetaMask to connect, the node must have JSON-RPC HTTP enabled, and have `--rpc-http-cors-origins` set to allow MetaMask.
 
-    If your network is not a [free gas network](../../HowTo/Configure/FreeGas.md), the account used
+    If your network is not a [free gas network](../../how-to/configure/free-gas.md), the account used
     to interact with the permissioning contracts must have a balance.
 
 Start the first node with command line options to enable onchain permissioning and the location of
@@ -324,7 +324,7 @@ The migration logs the addresses of the Admin and Rules contracts.
 !!! note
 
     Production environments require a Web server to
-    [host the permissioning management dapp](../../HowTo/Deploy/Production.md).
+    [host the permissioning management dapp](../../how-to/use-permissioning/onchain.md).
 
 1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
 

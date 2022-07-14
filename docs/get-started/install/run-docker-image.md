@@ -34,7 +34,7 @@ docker run hyperledger/besu:latest
 
     To ensure your image is up to date, pull the `latest` version again using `docker pull hyperledger/besu:latest`.
 
-## Exposing ports
+## Expose ports
 
 Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSocket JSON-RPC. You need
 to expose the ports to use the default ports or the ports specified using
@@ -70,7 +70,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     docker run -p 8545:8545 -p 13001:30303 hyperledger/besu:latest --rpc-http-enabled
     ```
 
-## Starting Besu
+## Start Besu
 
 !!! important
 
@@ -78,12 +78,12 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     data path interferes with the operation of Besu and prevents Besu from safely launching.
 
     To run a node that maintains the node state (key and database),
-    [`--data-path`](../../../Reference/CLI/CLI-Syntax.md#data-path) must be set to a location other
+    [`--data-path`](../../reference/cli/options.md#data-path) must be set to a location other
     than `/opt/besu` and a storage volume mounted at that location.
 
-    When running in a Docker container, [`--nat-method`](../../Find-and-Connect/Specifying-NAT.md)
+    When running in a Docker container, [`--nat-method`](../../how-to/connect/specify-nat.md)
     must be set to `DOCKER` or `AUTO` (default). Don't set
-    [`--nat-method`](../../Find-and-Connect/Specifying-NAT.md) to `NONE` or `UPNP`.
+    [`--nat-method`](../../how-to/connect/specify-nat.md) to `NONE` or `UPNP`.
 
 You can specify
 [Besu environment variables](../../reference/cli/options.md#besu-environment-variables) with the
@@ -119,7 +119,7 @@ To run a node on Ethereum Mainnet with the HTTP JSON-RPC service enabled:
 docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu  -p 30303:30303 hyperledger/besu:latest --rpc-http-enabled --data-path=/var/lib/besu
 ```
 
-## Stopping Besu and cleaning up resources
+## Stop Besu and clean up resources
 
 When done running nodes, you can shut down the node container without deleting resources or you can
 delete the container after stopping it. Run `docker container ls` and `docker volume ls` to get the

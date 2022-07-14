@@ -106,7 +106,7 @@ gas limit in Truffle to the maximum possible.
 !!! important
 
     Besu does not support private key management. To use Besu with Truffle, you must configure
-    a [Truffle wallet](../Develop-Dapps/Truffle.md).
+    a [Truffle wallet](../../../how-to/develop/truffle.md).
 
 ### Update `truffle-config.js`
 

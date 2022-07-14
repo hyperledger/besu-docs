@@ -64,7 +64,7 @@ Use `UPNPP2PONLY` if you wish to enable UPnP only for p2p traffic.
 !!! important
 
     When the NAT method is set to `UPNP`, the advertised port is the same as the
-    [listening port](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+    [listening port](../../reference/cli/options.md#p2p-port).
 
 ## Kubernetes
 
@@ -102,4 +102,4 @@ The P2P and JSON-RPC HTTP hosts and ports are advertised in the [`net_services`]
 !!! important
 
     When the NAT method is set to `NONE`, the advertised port is the same as the
-    [listening port](../../Reference/CLI/CLI-Syntax.md#p2p-port).
+    [listening port](../../reference/cli/options.md#p2p-port).

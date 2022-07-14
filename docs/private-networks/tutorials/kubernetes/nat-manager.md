@@ -153,8 +153,8 @@ When steps 1 and 2 are completed, deploy Besu using the following YAML example:
 
     Automatic detection error messages do not prevent you to use Besu.
 
-    Try the fix indicated for each error or use [`--nat-method=KUBERNETES`](../../HowTo/Find-and-Connect/Specifying-NAT.md#kubernetes) CLI option
-    and [set IP address and port manually](../../HowTo/Find-and-Connect/Configuring-Ports.md).
+    Try the fix indicated for each error or use [`--nat-method=KUBERNETES`](../../../how-to/connect/specify-nat.md#kubernetes) CLI option
+    and [set IP address and port manually](../../../how-to/connect/configure-ports.md).
 
 Possible errors messages for Kubernetes automatic detection failure:
 

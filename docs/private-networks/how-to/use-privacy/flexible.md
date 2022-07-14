@@ -20,7 +20,7 @@ membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.
 
 !!! important
 
-    [Flexible privacy groups](../../Concepts/Privacy/Flexible-PrivacyGroups.md) are an early access
+    [Flexible privacy groups](../../concepts/privacy/flexible-privacy.md) are an early access
     feature. Don't use in production networks.
 
     The flexible privacy group interfaces may change between releases. There might not be an
@@ -28,7 +28,7 @@ membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.
     group functionality in future versions.
 
     We don't recommend creating flexible privacy groups in a chain with existing
-    [offchain privacy groups](../../Concepts/Privacy/Privacy-Groups.md).
+    [offchain privacy groups](../../concepts/privacy/privacy-groups.md).
 
 ## Enabling flexible privacy groups
 

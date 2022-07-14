@@ -8,11 +8,11 @@ GraphQL can reduce the overhead needed for common queries. For example, instead 
 receipt in a block, GraphQL can get the same result with a single query for the entire block.
 
 The [Besu GraphQL schema] describes the GraphQL implementation for Ethereum. Enable the GraphQL
-service using [command line options](index.md#enabling-api-access).
+service using [command line options](index.md#enable-api-access).
 
 !!! note
 
-    GraphQL is not supported over WebSockets.
+    GraphQL is not supported over WebSocket.
 
 Access the GraphQL endpoint at `http://<HOST>:<PORT>/graphql`. Configure `<HOST>` and `<PORT>`
 using [`graphql-http-host`](../../reference/cli/options.md#graphql-http-host) and
@@ -26,7 +26,7 @@ is `http://127.0.0.1:8547/graphql`.
 
 !!! example
 
-    The following [`syncing`](../../../Reference/API-Methods.md#eth_syncing) request returns data
+    The following [`syncing`](../../reference/api/index.md#eth_syncing) request returns data
     about the synchronization status.
 
     ```bash

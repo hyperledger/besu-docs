@@ -14,7 +14,7 @@ Use a load balancer to distribute requests across nodes in the cluster that are 
 
 !!! important
 
-    We do not recommend putting [bootnodes](../../Deploy/Bootnodes.md) behind a load balancer.
+    We do not recommend putting [bootnodes] behind a load balancer.
 
 !!! important
 
@@ -22,10 +22,10 @@ Use a load balancer to distribute requests across nodes in the cluster that are 
     specific nodes. If you use load balancers configured in sticky mode over HTTP instead, the connection sticks to the
     associated node even when the node is congested and there is a lower load node available. If you use load balancers
     not configured in sticky mode over HTTP, the connections may switch from node to node, so some JSON-RPC requests may
-    not provide expected results (for example, [`admin` methods](../../../Reference/API-Methods.md#admin-methods),
-    [`net_enode`](../../../Reference/API-Methods.md#net_enode),
-    [`net_peerCount`](../../../Reference/API-Methods.md#net_peercount), and
-    [`eth_syncing`](../../../Reference/API-Methods.md#eth_syncing)).
+    not provide expected results (for example, [`admin` methods],
+    [`net_enode`],
+    [`net_peerCount`], and
+    [`eth_syncing`]).
 
 ## Determining when a node is ready
 
@@ -52,12 +52,12 @@ might be incorrect.
 
 !!! note
 
-    If using [private transactions](../../../Concepts/Privacy/Privacy-Overview.md), retrieve the
+    If using [private transactions], retrieve the
     nonce using
-    [`priv_getTransactionCount`](../../../Reference/API-Methods.md#priv_gettransactioncount) or
-    [`priv_getEeaTransactionCount`](../../../Reference/API-Methods.md#priv_geteeatransactioncount)
+    [`priv_getTransactionCount`] or
+    [`priv_getEeaTransactionCount`]
     and send the private transactions using
-    [`eea_sendRawTransaction`](../../../Reference/API-Methods.md#eea_sendrawtransaction).
+    [`eea_sendRawTransaction`].
 
 To get correct nonces when distributing requests across a cluster, either:
 

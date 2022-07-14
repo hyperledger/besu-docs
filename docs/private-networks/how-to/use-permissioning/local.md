@@ -116,11 +116,11 @@ Account allowlisting is at the node level. That is, each node in the network has
 !!! caution "Using account permissioning and privacy"
 
     Account permissioning is incompatible with
-    [random key signing](../Use-Privacy/Sign-Privacy-Marker-Transactions.md) for
-    [privacy marker transactions](../../Concepts/Privacy/Private-Transaction-Processing.md).
+    [random key signing](../use-privacy/sign-pmts.md) for
+    [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md).
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [`--privacy-marker-transaction-signing-key-file`](../../Reference/CLI/CLI-Syntax.md#privacy-marker-transaction-signing-key-file)
+    [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option and the corresponding public key included in the accounts allowlist.
 
 Transaction validation against the accounts allowlist occurs at the following points:
@@ -212,10 +212,10 @@ options.
 
 !!!note
 
-    The [`--permissions-accounts-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-accounts-config-file)
-    and [`permissions-nodes-config-file`](../../Reference/CLI/CLI-Syntax.md#permissions-nodes-config-file)
+    The [`--permissions-accounts-config-file`](../../../reference/cli/options.md#permissions-accounts-config-file)
+    and [`permissions-nodes-config-file`](../../../reference/cli/options.md#permissions-nodes-config-file)
     options are not used when running Besu from the
-    [Docker image](../Get-Started/Installation-Options/Run-Docker-Image.md). Use a bind mount to
+    [Docker image](../../../get-started/install/run-docker-image.md). Use a bind mount to
     [specify a permissions configuration file with Docker].
 
 !!! example "Sample permissions configuration file"

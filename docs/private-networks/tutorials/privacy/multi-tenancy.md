@@ -132,7 +132,7 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 
 !!! note
 
-    If you are running Besu in [GoQuorum-compatible privacy mode](../../HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md),
+    If you are running Besu in [GoQuorum-compatible privacy mode](../../how-to/use-privacy/goquorum-compatible.md),
     disable [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/) by removing the line
     `"mode": "orion",` from the Tessera configuration file.
 
@@ -166,10 +166,10 @@ The command line specifies privacy options:
 
 !!! note
 
-    [`--rpc-http-authentication-jwt-public-key-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-jwt-public-key-file)
+    [`--rpc-http-authentication-jwt-public-key-file`](../../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
     is only required when using [JWT public key authentication]. If using
     [username and password authentication], use
-    [`--rpc-http-authentication-credentials-file`](../../Reference/CLI/CLI-Syntax.md#rpc-http-authentication-credentials-file)
+    [`--rpc-http-authentication-credentials-file`](../../../reference/cli/options.md#rpc-http-authentication-credentials-file)
     instead.
 
 [Start the remaining Besu nodes](index.md#7-start-besu-node-2).

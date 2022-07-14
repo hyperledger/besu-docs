@@ -13,7 +13,7 @@ in small, stable networks.
 
 !!! info
 
-    You can use [`admin_addPeer`](../../Reference/API-Methods.md#admin_addpeer) to attempt a specific connection, but
+    You can use [`admin_addPeer`](../../reference/cli/options.md#admin_addpeer) to attempt a specific connection, but
     this isn't P2P discovery.
 
 We recommend [using bootnodes](../../private-networks/how-to/connect/bootnodes.md) to initially discover peers.
@@ -39,7 +39,7 @@ The nodes in this closed group are all connected to each other and can't accept 
 
 !!! tip
 
-    You can use [`--random-peer-priority-enabled`](../../Reference/CLI/CLI-Syntax.md#random-peer-priority-enabled) to
+    You can use [`--random-peer-priority-enabled`](../../reference/cli/options.md#random-peer-priority-enabled) to
     help prevent closed groups of peers in small, stable networks.
 
 ## Monitor peer connections

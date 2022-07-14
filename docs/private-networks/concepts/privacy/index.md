@@ -18,11 +18,11 @@ participants. Other participants cannot access the transaction content or list o
     For production environments requiring private transactions:
 
     * We recommend using a network with a consensus mechanism supporting transaction finality. For
-    example, [IBFT 2.0](../../HowTo/Configure/Consensus-Protocols/IBFT.md).
+      example, [IBFT 2.0](../../how-to/configure/consensus/ibft.md).
     * Tessera must be [highly available and run in a separate instance to Besu].
 
-    Using private transactions with [pruning](../Pruning.md) or
-    [fast sync](../../Reference/CLI/CLI-Syntax.md#sync-mode) is not supported.
+    Using private transactions with [pruning] or
+    [fast sync](../../../reference/cli/options.md#sync-mode) is not supported.
 
 ## Private transaction manager
 
@@ -80,3 +80,4 @@ occur.
 
 <!-- Links -->
 [highly available and run in a separate instance to Besu]: ../../how-to/use-privacy/tessera.md
+[pruning]: ../../../concepts/Pruning.md

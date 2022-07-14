@@ -360,7 +360,7 @@ The command line specifies privacy options:
     Use the
     [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option to sign
-    [privacy marker transactions](../../../concepts/privacy/private-transactions/processing.md) using a
+    [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md) using a
     supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
 
 When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the

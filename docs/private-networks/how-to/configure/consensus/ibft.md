@@ -171,7 +171,7 @@ To tune the block timeout for your network deployment:
 
 !!! tip
 
-    View [`TRACE` logs](../../../Reference/API-Methods.md#admin_changeloglevel) to see round change
+    View [`TRACE` logs](../../../../reference/api/index.md#trace-methods) to see round change
     log messages.
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.

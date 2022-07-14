@@ -45,17 +45,17 @@ the file using the [`--genesis-file`](../../reference/cli/options.md#genesis-fil
 ## Syncing and storage
 
 By default, Besu syncs to the current state of the blockchain using
-[fast sync](../how-to/connect/sync-node.md#fast-synchronization) in:
+[fast sync](../../public-networks/how-to/connect/sync-node.md#fast-synchronization) in:
 
 - Networks specified using [`--network`](../../reference/cli/options.md#network) except for the `dev`
   development network.
 - Ethereum Mainnet.
 
-We recommend using [snap sync](../how-to/connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
+We recommend using [snap sync](../../public-networks/how-to/connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
 with [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
 
-By default, Besu stores data in the [Forest of Tries](../concepts/data-storage-formats.md#forest-of-tries) format.
-We recommend using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements,
+By default, Besu stores data in the [Forest of Tries](../../public-networks/concepts/data-storage-formats.md#forest-of-tries) format.
+We recommend using [Bonsai Tries](../../public-networks/concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements,
 by starting Besu with [`--data-storage-format=BONSAI`](../../reference/cli/options.md#data-storage-format).
 
 ## Confirm node is running
@@ -120,13 +120,13 @@ data-path="/tmp/tmpdata-path"
     The following settings are a security risk in production environments:
 
     * Enabling the HTTP JSON-RPC service
-      ([`--rpc-http-enabled`](../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled)) and setting
-      [`--rpc-http-host`](../../Reference/CLI/CLI-Syntax.md#rpc-http-host) to 0.0.0.0 exposes the
+      ([`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled)) and setting
+      [`--rpc-http-host`](../../reference/cli/options.md#rpc-http-host) to 0.0.0.0 exposes the
       RPC connection on your node to any remote connection.
-    * Setting [`--host-allowlist`](../../Reference/CLI/CLI-Syntax.md#host-allowlist) to `"*"`
+    * Setting [`--host-allowlist`](../../reference/cli/options.md#host-allowlist) to `"*"`
       allows JSON-RPC API access from any host.
     * Setting
-      [`--rpc-http-cors-origins`](../../Reference/CLI/CLI-Syntax.md#rpc-http-cors-origins) to
+      [`--rpc-http-cors-origins`](../../reference/cli/options.md#rpc-http-cors-origins) to
       `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain.
 
 ## Run a node on Ropsten testnet
@@ -163,14 +163,6 @@ besu --network=goerli --data-path=<path>/<goerlidata-path>
 ```
 
 Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
-
-## Run a node on Kiln testnet
-
-You can [test Besu as an execution client](../tutorials/merge-testnet.md#start-besu) on the
-[Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
-You must also run a [consensus client](../concepts/the-merge.md#consensus-clients) with Besu on the Merge
-testnet.
-For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 
 ## Run a node on Sepolia testnet
 

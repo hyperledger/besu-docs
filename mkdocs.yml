@@ -160,7 +160,7 @@ nav:
             - Create and send transactions:
                 - Index: how-to/send-transactions.md
                 - Create and send private transactions: private-networks/how-to/send-transactions/private-transactions.md
-                - Send concurrent private transactions: private-networks/how-to/send-transactions/concurent-private-transactions.md
+                - Send concurrent private transactions: private-networks/how-to/send-transactions/concurrent-private-transactions.md
                 - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
             - Find and connect to peers:
                 - Configure bootnodes: private-networks/how-to/connect/bootnodes.md
@@ -424,7 +424,7 @@ plugins:
           Concepts/ArchitectureOverview.md: index.md
           Concepts/Mining.md: how-to/configure/mining.md
           HowTo/Troubleshoot/Troubleshooting.md: how-to/troubleshoot/evm-tool.md
-          Concepts/Protocol-Upgrades.md: private-networks/how-to/ugprade/protocol.md
+          Concepts/Protocol-Upgrades.md: private-networks/how-to/upgrade/protocol.md
           Reference/Resources.md: index.md
           HowTo/Use-Privacy/EEA-compliant.md: private-networks/how-to/use-privacy/eea-compliant.md
           HowTo/Use-Privacy/Privacy.md: private-networks/how-to/use-privacy/besu-extended.md

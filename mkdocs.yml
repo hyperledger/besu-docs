@@ -50,6 +50,8 @@ theme:
         accent: teal
     favicon: favicon.svg
     logo: *logo_reversed
+    features:
+      - navigation.tabs
 
 extra_css:
   - assets/stylesheets/custom_theme.css
@@ -475,7 +477,7 @@ plugins:
           Tutorials/Privacy/Configuring-Multi-Tenancy.md: private-networks/tutorials/privacy/multi-tenancy.md
           Tutorials/Privacy/web3js-quorum-Multinode-example.md: private-networks/tutorials/privacy/web3js-quorum.md
           Tutorials/Permissioning/Create-Permissioned-Network.md: private-networks/tutorials/permissioning/index.md
-          Tutorials/Permissioning/Getting-Started-Onchain-Permissioning: private-networks/tutorials/permissioning/onchain.md
+          Tutorials/Permissioning/Getting-Started-Onchain-Permissioning.md: private-networks/tutorials/permissioning/onchain.md
           Tutorials/Permissioning/Upgrade-Permissioning-Contract.md: private-networks/tutorials/permissioning/upgrade-contracts.md
           Tutorials/Contracts/Deploying-Contracts.md: private-networks/tutorials/contracts/index.md
           Tutorials/Contracts/Account-Funds-Transfers.md: private-networks/tutorials/contracts/transfer-funds.md

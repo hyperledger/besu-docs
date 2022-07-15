@@ -80,7 +80,7 @@ The [template](https://github.com/ConsenSys/quorum-kubernetes/tree/master/aws) c
 infrastructure used to build the cluster and other resources in AWS. We also use some native
 services with the cluster for performance and best practices, these include:
 
-* [Pod identities](hhttps://github.com/aws/amazon-eks-pod-identity-webhook).
+* [Pod identities](https://github.com/aws/amazon-eks-pod-identity-webhook).
 * [Secrets Store CSI drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html).
 * Dynamic storage classes backed by AWS EBS. The
     [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) are fixed

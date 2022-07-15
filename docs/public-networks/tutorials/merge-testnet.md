@@ -17,7 +17,7 @@ Install [Besu](../../get-started/install/binary-distribution.md) and
 Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java 11+ if using the Besu and Teku binary distributions.
 
-Ensure you meet the [system requirements for Besu on Mainnet](../get-started/System-Requirements).
+Ensure you meet the [system requirements for Besu on Mainnet](../get-started/system-requirements.md).
 
 ## 2. Generate the shared secret
 

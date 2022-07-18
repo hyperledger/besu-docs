@@ -20,7 +20,7 @@ Use client libraries to:
 * [Create and send private transactions].
 
 !!! note
-    [Hyperledger Besu does not support key management inside the client](../Send-Transactions/Account-Management.md).
+    [Hyperledger Besu does not support key management inside the client](../send-transactions.md#use-wallets-for-key-management).
 
 <!-- Links -->
 [Create and send private transactions]: ../../private-networks/how-to/send-transactions/private-transactions.md

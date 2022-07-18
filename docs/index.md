@@ -8,38 +8,29 @@ hide:
     - toc
 ---
 
-# Besu Ethereum client
+# Hyperledger Besu Ethereum client
 
-## What is Hyperledger Besu?
+Hyperledger Besu is an open source Ethereum client developed under the Apache 2.0 license and written in Java.
+It runs on:
 
-Hyperledger Besu is an open-source Ethereum client developed under the Apache 2.0 license and written in Java.
-It runs on Ethereum Mainnet, private networks, and test networks such as Rinkeby, Ropsten, Goerli, and the Merge testnet.
-Besu serves as an [execution client](public-networks/concepts/the-merge.md) on Ethereum Mainnet and the Merge testnet.
-
-Besu implements proof of authority (QBFT, IBFT 2.0, and Clique) and proof of work (Ethash) consensus mechanisms.
-
-You can use Besu to develop enterprise applications requiring secure, high-performance transaction
-processing in a private network.
-
-Besu supports enterprise features including privacy and permissioning.
+- [**Public networks**](public-networks/index.md) - You can run Besu as an
+  [execution client](public-networks/concepts/the-merge.md) on Ethereum Mainnet and Ethereum
+  public testnets, such as Goerli and Sepolia.
+- [**Private networks**](private-networks/index.md) - You can create or join a network not connected to
+  Mainnet or a public testnet.
+  Use private networks to develop enterprise applications requiring secure, high-performance transaction
+  processing.
 
 ## What can you do with Besu?
 
 Besu includes a [command line interface](reference/cli/options.md) and
 [JSON-RPC API](how-to/use-besu-api/index.md) for running, maintaining, debugging, and monitoring
-nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSockets. Besu also
+nodes in an Ethereum network. You can use the API via RPC over HTTP or via WebSocket. Besu also
 supports Pub/Sub. The API supports typical Ethereum functionalities such as:
 
 * Ether mining.
 * Smart contract development.
 * Decentralized application (dapp) development.
-
-## New to Ethereum?
-
-Get started with the [Developer Quickstart](private-networks/tutorials/quickstart.md). Use the quickstart
-to rapidly generate local blockchain networks.
-
-Learn more about [use cases for Ethereum](https://consensys.net/blockchain-use-cases/case-studies/).
 
 ## What does Besu support?
 
@@ -48,6 +39,15 @@ use cases, using tools such as [Truffle](http://truffleframework.com/),
 [Remix](https://github.com/ethereum/remix), and [web3j](https://web3j.io/). The client supports
 common JSON-RPC API methods such as `eth`, `net`, `web3`, `debug`, and `miner`.
 
-Besu doesn't support [key management](how-to/Send-Transactions/Account-Management.md) inside the
+Besu doesn't support [key management](how-to/send-transactions.md#use-wallets-for-key-management) inside the
 client. You can use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu to access
 your key store and sign transactions.
+
+## Besu architecture
+
+The following diagram outlines the Besu high-level architecture.
+
+![Architecture](images/Architecture.png)
+
+If you have any questions about Besu or its architecture, contact us on the
+[Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

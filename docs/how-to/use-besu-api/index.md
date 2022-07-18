@@ -102,7 +102,7 @@ To send signed transactions, use
 [`eth_sendRawTransaction`](../../reference/api/index.md#eth_sendrawtransaction).
 `eth_sendTransaction` is not implemented.
 
-For [account management](../Send-Transactions/Account-Management.md), use third-party wallets.
+For [account management](../send-transactions.md#use-wallets-for-key-management), use third-party wallets.
 
 ### Protocols
 

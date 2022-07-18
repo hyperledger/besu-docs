@@ -62,6 +62,7 @@ extra_javascript:
 
 nav:
     - Public networks:
+        - Index: public-networks/index.md
         - Get started:
             - System requirements: public-networks/get-started/system-requirements.md
             - Install Besu:
@@ -126,6 +127,7 @@ nav:
             - Projects using Besu: reference/projects-using-besu.md
             - Security disclosure policy: reference/disclosure.md
     - Private networks:
+        - Index: private-networks/index.md
         - Get started:
             - System requirements: private-networks/get-started/system-requirements.md
             - Install Besu:

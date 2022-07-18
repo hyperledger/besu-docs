@@ -43,7 +43,7 @@ The permissioning smart contracts provided in the
 
     The permissioning contract has multiple interfaces, and each interface maps to a specific
     version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
-    Ensure that you specify the permissioning contract interface being used when starting Besu.
+    Ensure that you [specify the permissioning contract interface] being used when starting Besu.
 
 ## Permissioning management dapp
 
@@ -93,5 +93,6 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[permissioning management dapp]: ../../tutorials/permissioning/onchain.md
+[permissioning management dapp]: ../../how-to/use-permissioning/onchain.md#deploy-the-permissioning-management-dapp
 [`--privacy-marker-transaction-signing-key-file`]: ../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file
+[specify the permissioning contract interface]: ../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version

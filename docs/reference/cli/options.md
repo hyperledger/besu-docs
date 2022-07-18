@@ -2144,7 +2144,7 @@ Enables or disables contract-based
     permissions-nodes-contract-version=2
     ```
 
-Version of the EEA [node permissioning interface](../../private-networks/how-to/use-permissioning/Specify-Perm-Version.md).
+Version of the EEA [node permissioning interface](../../private-networks/how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version).
 The default is 1.
 
 ### `privacy-enabled`

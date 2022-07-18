@@ -5,14 +5,45 @@ description: Updating Hyperledger Besu onchain allowlists
 # Use onchain permissioning
 
 When using [onchain permissioning](../../concepts/permissioning/onchain.md), you can update
-[nodes](#update-nodes-allowlist) and [accounts](#update-accounts-allowlist) allowlists.
+[nodes](#update-nodes-allowlist) and [accounts](#update-accounts-allowlist) allowlists using the
+Besu [permissioning management dapp](#deploy-the-permissioning-management-dapp).
+
+## Deploy the permissioning management dapp
+
+To deploy the permissioning management dapp for production:
+
+1. Retrieve the most recent release (tarball or zip) from the [projects release page].
+
+1. Unpack the distribution into a directory available to your Web server.
+
+1. In the root of the unpack directory, add a file called `config.json` replacing the placeholders
+   shown below.
+
+   !!! example "`config.json`"
+
+         ```json
+
+         {
+           "accountIngressAddress":  "<Address of the account ingress contract>",
+           "nodeIngressAddress": "<Address of the node ingress contract>",
+           "networkId": "<ID of your Ethereum network>"
+         }
+         ```
+
+1. On your Web server, host the contents of the directory as static files and direct root requests
+   to `index.html`.
+
+!!! note "Start a production permissioned network"
+
+    To start a production permissioned network, follow the [onchain permissioning tutorial], but don't
+    perform the steps using `yarn` to install, build, and start the development server.
+    Instead, follow the steps in this section to deploy the permissioning management dapp to your Web server.
 
 ## Update nodes allowlist
 
 To add a node to the Hyperledger Besu nodes allowlist:
 
-1. On the **Nodes** tab of the [permissioning management dapp](../../tutorials/permissioning/onchain.md),
-   select **Add Node**.
+1. On the **Nodes** tab of the permissioning management dapp, select **Add Node**.
    The **Add Node** window displays.
 2. Enter the [enode URL](../../../concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
 
@@ -61,8 +92,8 @@ To remove a node from the nodes allowlist:
 
 To add an account to the accounts allowlist:
 
-1. On the **Accounts** tab of the [permissioning management dapp](../../tutorials/permissioning/onchain.md),
-   select **Add Account**. The **Add Account** window displays.
+1. On the **Accounts** tab of the permissioning management dapp, select **Add Account**.
+   The **Add Account** window displays.
 1. Enter the account address in the **Account Address** field and select **Add Account**.
 
 To remove an account from the accounts allowlist:
@@ -75,4 +106,23 @@ To remove an account from the accounts allowlist:
 
 You can add or remove admins in the same way as [accounts](#update-accounts-allowlist), except on the **Admins** tab.
 
+## Specify the permissioning contract interface version
+
+Use the [`--permissions-nodes-contract-version`](../../../reference/cli/options.md#permissions-nodes-contract-version)
+command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts).
+The default is 1.
+
+Specify the contract interface version that maps to the version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/)
+the contract interface implements.
+
+|         | EEA Client Specification | Contract interface |
+|:--------|:-------------------------|:-------------------|
+| Version | 5                        | 1                  |
+| Version | 6                        | 2                  |
+
+The permissioning contracts in the [`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts)
+repository implement the version 2 contract interface.
+
 [support domain names]: ../../../concepts/node-keys.md#domain-name-support
+[projects release page]: https://github.com/ConsenSys/permissioning-smart-contracts/releases/latest
+[onchain permissioning tutorial]: ../../tutorials/permissioning/onchain.md

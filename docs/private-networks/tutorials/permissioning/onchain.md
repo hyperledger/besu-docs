@@ -265,7 +265,7 @@ On the command line:
     [`--permissions-nodes-contract-enabled`](../../../reference/cli/options.md#permissions-nodes-contract-enabled).
 * Set the address of the Node Ingress contract in the genesis file using
     [`--permissions-nodes-contract-address`](../../../reference/cli/options.md#permissions-nodes-contract-address).
-* Set the version of the [permissioning contract interface](../../how-to/use-permissioning/Specify-Perm-Version.md)
+* Set the version of the [permissioning contract interface](../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version)
     using [`--permissions-nodes-contract-version`](../../../reference/cli/options.md#permissions-nodes-contract-version).
 * Enable the JSON-RPC API using
     [`--rpc-http-enabled`](../../../reference/cli/options.md#rpc-http-enabled).

@@ -2,12 +2,12 @@
 Description: How to run Besu and Teku on the Merge testnet
 ---
 
-# Run Besu and Teku on the Merge testnet
+# Run Besu and Teku on a post-merge testnet
 
 You can test Besu as an [execution client](../Concepts/Merge.md#execution-clients) and
 [Teku](https://docs.teku.consensys.net/en/stable/)
-as a [consensus client](../Concepts/Merge.md#consensus-clients) on the
-[Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
+as a [consensus client](../Concepts/Merge.md#consensus-clients) on a post-merge testnet.
+This tutorial uses the [Sepolia testnet](https://github.com/eth-clients/sepolia).
 
 ## 1. Install Besu and Teku
 
@@ -36,7 +36,7 @@ This is a shared JWT secret the clients use to authenticate each other when usin
 If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
 this in
 [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
-Fund this address with testnet ETH using the [Kiln Faucet](https://faucet.kiln.themerge.dev/).
+Fund this address with testnet ETH using a [Sepolia Faucet](https://faucet.sepolia.dev/).
 
 !!! note
 
@@ -44,7 +44,7 @@ Fund this address with testnet ETH using the [Kiln Faucet](https://faucet.kiln.t
     [EthStaker Discord](https://discord.io/ethstaker).
 
 Generate validator keys and stake your testnet ETH for one or more validators using the
-[Kiln Staking Launchpad](https://kiln.launchpad.ethereum.org/en/).
+[Ropsten Staking Launchpad](https://ropsten.launchpad.ethereum.org/).
 
 !!! important
 
@@ -57,7 +57,7 @@ Run the following command:
 
 ```bash
 besu \
-  --network=kiln              \
+  --network=sepolia           \
   --rpc-http-enabled=true     \
   --rpc-http-host="0.0.0.0"   \
   --rpc-http-cors-origins="*" \
@@ -65,7 +65,7 @@ besu \
   --rpc-ws-host="0.0.0.0"     \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
-  --engine-rpc-port=8550      \
+  --engine-rpc-port=8551      \
   --Xmerge-support=true       \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
@@ -87,9 +87,8 @@ To run Teku as a beacon node (without validator duties), run the following comma
 ```bash
 teku \
   --data-path "datadir-teku"                   \
-  --network kiln                               \
-  --ee-endpoint http://localhost:8550          \
-  --Xee-version kilnv2                         \
+  --network sepolia                            \
+  --ee-endpoint http://localhost:8551          \
   --ee-jwt-secret-file <path to jwtsecret.hex> \
   --log-destination console                    \
   --rest-api-enabled=true                      \
@@ -107,9 +106,8 @@ To run Teku as a beacon node and validator in a single process, run the followin
 ```bash
 teku \
   --data-path "datadir-teku"                                \
-  --network kiln                                            \
-  --ee-endpoint http://localhost:8550                       \
-  --Xee-version kilnv2                                      \
+  --network sepolia                                         \
+  --ee-endpoint http://localhost:8551                       \
   --ee-jwt-secret-file <path to jwtsecret.hex>              \
   --log-destination console                                 \
   --rest-api-enabled=true                                   \
@@ -136,7 +134,7 @@ options for more information on running Teku as a validator.
 
 ## After starting Besu and Teku
 
-After starting Besu and Teku, your node should start syncing and connecting to peers.
+After starting Besu and Teku, your node starts syncing and connecting to peers.
 
 !!! example
 
@@ -160,4 +158,5 @@ After starting Besu and Teku, your node should start syncing and connecting to p
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
+You can check your validator status by searching your Ethereum address on the [Sepolia Beacon Chain explorer](https://sepolia.beaconcha.in/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.

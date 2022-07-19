@@ -14,10 +14,13 @@ markdown_extensions:
       permalink: 
       toc_depth: 3
   - codehilite
-  - pymdownx.tabbed
   - pymdownx.superfences
-  - markdown_include.include:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
       base_path: docs
+      check_paths: true
+
   - admonition
   - footnotes
   - def_list
@@ -39,18 +42,18 @@ markdown_extensions:
   - attr_list
 
 plugins:
-  - search:
+  search:
       lang: 'en'
       separator: '[\s\-\.\_]+'
-  - markdownextradata
-  - exclude:
-      glob:
-        - global/*
-  - git-revision-date-localized:
-      locale: en
-  - tags
-  - minify:
-      minify_html: true
-      minify_js: true
-      htmlmin_opts:
-        remove_comments: true
+  markdownextradata: {}
+  exclude:
+    glob:
+      - global/*
+  git-revision-date-localized:
+    locale: en
+  tags: {}
+  minify:
+    minify_html: true
+    minify_js: true
+    htmlmin_opts:
+      remove_comments: true

@@ -9,6 +9,6 @@
 # specific language governing permissions and limitations under the License.
 
 plugins:
-  - exclude:
-      glob:
-        - global/*
+  exclude:
+    glob:
+      - global/*

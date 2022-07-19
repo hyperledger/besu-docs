@@ -22,7 +22,6 @@ theme:
   logo: logo-reversed.svg
   features:
     - content.code.annotate
-    - content.tabs.link
     - content.tooltips
     - navigation.indexes
     - navigation.tabs

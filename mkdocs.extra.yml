@@ -20,6 +20,7 @@ extra:
     some displayed features may not be available in the stable release.
     You can switch to stable version using the version box at screen bottom.'
   page_edit_button: yes
+  logo_is_text: true
   support:
     chat: https://discord.gg/hyperledger
     email: besu@lists.hyperledger.org
@@ -36,7 +37,5 @@ extra:
 
 extra_css:
   - assets/stylesheets/custom_theme.css
-  - assets/stylesheets/zoomify.min.css
 extra_javascript:
   - assets/javascripts/custom_theme.js
-  - assets/javascripts/zoomify.min.js

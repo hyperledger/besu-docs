@@ -12,23 +12,22 @@
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-        {% if config.site_name == page.title %}
-          <div class="md-header__topic">
-            <span class="md-ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            {% if not config.extra.logo_is_text %}
               {{ config.site_name }}
-            </span>
-          </div>
-        {% else %}
-          <div class="md-header__topic" data-md-component="header-topic">
-            <span class="md-ellipsis">
-              {% if page.meta and page.meta.title %}
-                {{ page.meta.title }}
-              {% else %}
-                {{ page.title }}
-              {% endif %}
-            </span>
-          </div>
-        {% endif %}
+            {% endif %}
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            {% if page.meta and page.meta.title %}
+              {{ page.meta.title }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
+          </span>
+        </div>
       </div>
     </div>
     {% if not config.theme.palette is mapping %}

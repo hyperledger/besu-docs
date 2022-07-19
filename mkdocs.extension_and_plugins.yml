@@ -20,7 +20,6 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: docs
       check_paths: true
-
   - admonition
   - footnotes
   - def_list
@@ -52,8 +51,8 @@ plugins:
   git-revision-date-localized:
     locale: en
   tags: {}
-  minify:
-    minify_html: true
-    minify_js: true
-    htmlmin_opts:
-      remove_comments: true
+#  minify:
+#    minify_html: true
+#    minify_js: true
+#    htmlmin_opts:
+#      remove_comments: true

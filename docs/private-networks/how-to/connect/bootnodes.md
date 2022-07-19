@@ -2,36 +2,32 @@
 description: Configuring bootnodoes
 ---
 
-# Bootnodes
+# Configure bootnodes
 
 You can use bootnodes to initially discover peers.
 Bootnodes are regular nodes used to discover other nodes.
 
+In private networks for development or testing purposes, specify at least one bootnode.
+
+In production networks, [configure two or more nodes as bootnodes](#configure-bootnodes-in-a-production-network).
+
 !!! tip
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
-    you can use only bootnodes, only static nodes, or both bootnodes and statics nodes. For
-    example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
-    nodes are always connected (using static nodes).
+    you can use only bootnodes, only static nodes, or both bootnodes and statics nodes.
 
     To find peers, configure one or more bootnodes. To configure a specific set
     of peer connections, use [static nodes](../../../how-to/connect/static-nodes.md).
 
-## Mainnet and public testnets
+!!! note "Mainnet and public testnets"
 
-For Mainnet and the Rinkeby, Ropsten, Sepolia, and Goerli testnets, Hyperledger Besu has an internal list of
-enode URLs and uses this list automatically when you specify the
-[`--network`](../../../reference/cli/options.md#network) option.
+    For Mainnet and the Rinkeby, Ropsten, Sepolia, and Goerli testnets, Hyperledger Besu has an
+    internal list of enode URLs and uses this list automatically when you specify the
+    [`--network`](../../../reference/cli/options.md#network) option.
 
-## Private networks
+## Specify a bootnode
 
-In private networks for development or testing purposes, specify at least one bootnode.
-
-In production networks, [configure two or more nodes as bootnodes](../deploy/Bootnodes.md).
-
-### Specify a bootnode
-
-To start a node, specifying a bootnode [enode](../../../concepts/node-keys.md) for P2P discovery,
+To start a node, specify a bootnode [enode](../../../concepts/node-keys.md) for P2P discovery,
 using the [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option.
 
 !!! example
@@ -48,3 +44,46 @@ specify a different host or port, use the
 By default, peer discovery listens on all available network interfaces. If the device Besu is
 running on must bind to a specific network interface, specify the interface using the
 [`--p2p-interface`](../../../reference/cli/options.md#p2p-interface) option.
+
+## Configure bootnodes in a production network
+
+A network must have at least one operating bootnode. To allow for continuity in the event of
+failure, configure two or more bootnodes in a production network.
+
+We don't recommend putting bootnodes behind a load balancer because the
+[enode](../../../concepts/node-keys.md#enode-url) relates to the node public key, IP address, and
+discovery ports. Any changes to a bootnode enode prevents other nodes from being able to establish
+a connection with the bootnode. This is why we recommend putting more bootnodes on the network
+itself.
+
+To ensure a bootnode enode doesn't change when recovering from a complete bootnode failure:
+
+1. Create the [node key pair](../../../concepts/node-keys.md) (that is, the private and public key)
+   before starting the bootnode.
+1. When creating bootnodes in the cloud (for example, AWS and Azure), attempt to assign a static IP
+   address to them. If your network is:
+
+    * Publicly accessible, assign an elastic IP.
+    * Internal only, specify a private IP address when you create the instance and record this IP
+      address.
+
+We recommend storing the bootnode configuration under source control.
+
+To allow for failure, specify all bootnodes on the command line (even to the bootnodes themselves).
+
+!!! tip
+
+    Having each bootnode list the other bootnodes increases the speed of discovery.
+    Nodes ignore their own enode in the bootnodes list so it isn't required to specify different
+    bootnode lists to the bootnodes themselves.
+
+## Add and remove bootnodes
+
+Adding new bootnodes is a similar process to creating bootnodes. After creating the bootnodes and
+adding them to the network, update the [`--bootnodes`](../../../reference/cli/options.md#bootnodes)
+command line option for each node to include the new bootnodes.
+
+When adding bootnodes, you don't need to restart running nodes. By updating the
+[`--bootnodes`](../../../reference/cli/options.md#bootnodes) option, the next time you restart the
+nodes (for example, when [upgrading](../../../how-to/upgrade/node.md)), the nodes connect to the new
+bootnodes.

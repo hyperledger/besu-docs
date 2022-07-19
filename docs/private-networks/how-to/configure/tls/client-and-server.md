@@ -5,25 +5,29 @@ description: Configure TLS
 # Configure TLS
 
 Hyperledger Besu supports TLS for client and server communication. For example, you can
-[configure TLS](../../../../concepts/TLS.md) for communication between
+configure TLS for communication between
 [EthSigner](https://docs.ethsigner.consensys.net/en/latest/Concepts/TLS/) and Besu, and Besu and
 [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
 
+The following diagram displays an example client and server TLS configuration.
+
+![Besu client and server TLS](../../../../images/Besu_TLS.png)
+
 Configure TLS communication from the command line.
 
-**Prerequisites**:
+## Prerequisites
 
-* Besu's password-protected PKCS12 keystore.
+* Besu's password-protected PKCS12 keystore
 * File containing the keystore password
 
 ## Configure client TLS
 
 Allow clients (for example a dapp, curl, or EthSigner) to send and receive secure HTTP JSON-RPCs.
 
-**Client Prerequisites**:
+**Client prerequisites**:
 
 * [Configure the client for TLS]
-* Client's PKCS12 keystore information.
+* Client's PKCS12 keystore information
 
 ### Create the known clients file
 

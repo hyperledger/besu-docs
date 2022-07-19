@@ -598,7 +598,7 @@ or via [RPC API calls](../../reference/api/index.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 
-[bootnodes]: ../how-to/deploy/Bootnodes.md
+[bootnodes]: ../how-to/connect/bootnodes.md
 [permissions file]: ../how-to/use-permissioning/local.md
 [static nodes]: ../../how-to/connect/static-nodes.md
 [allow list]: ../how-to/use-permissioning/local.md#node-allowlisting

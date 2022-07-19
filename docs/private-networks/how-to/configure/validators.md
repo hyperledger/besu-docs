@@ -4,7 +4,7 @@ description: Configuring validators in production networks
 
 # Configuring validators in a production network
 
-As when [configuring bootnodes](../deploy/Bootnodes.md):
+As when [configuring bootnodes](../connect/bootnodes.md):
 
 1. Create the [node key pair](../../../concepts/node-keys.md) (that is, the private and public key)
    before starting the validator.
@@ -31,7 +31,7 @@ You can [vote validators in or out of the validator pool].
 
 ## Validators as bootnodes
 
-Validators can also be bootnodes. Other than the [usual configuration for bootnodes](../deploy/Bootnodes.md),
+Validators can also be bootnodes. Other than the [usual configuration for bootnodes](../connect/bootnodes.md),
 you do not need to specify any extra configuration when a validator is also a bootnode.
 
 If you remove a validator that is also a bootnode, ensure there are enough remaining bootnodes on

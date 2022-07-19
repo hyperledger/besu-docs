@@ -11,7 +11,7 @@ as a [consensus client](../concepts/the-merge.md#consensus-clients) on the
 
 ## 1. Install Besu and Teku
 
-Install [Besu](../../get-started/install/binary-distribution.md) and
+Install [Besu](../../global/get-started/install/binary-distribution.md) and
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.
@@ -71,9 +71,9 @@ besu \
 ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
-[`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
+[`--engine-jwt-secret`](../../global/reference/cli/options.md#engine-jwt-secret) option.
 
-See the [`--engine-*`](../../reference/cli/options.md#engine-host-allowlist) options for more information on running
+See the [`--engine-*`](../../global/reference/cli/options.md#engine-host-allowlist) options for more information on running
 Besu as an execution client.
 
 ## 5. Start Teku

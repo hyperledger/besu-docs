@@ -21,9 +21,9 @@ With the transaction hash returned when submitting the private transaction, to g
 receipt for the:
 
 * Private transaction, use
-  [`priv_getTransactionReceipt`](../../../reference/api/index.md#priv_gettransactionreceipt).
+  [`priv_getTransactionReceipt`](../../../global/reference/api/index.md#priv_gettransactionreceipt).
 * Privacy marker transaction, use
-  [`eth_getTransactionReceipt`](../../../reference/api/index.md#eth_gettransactionreceipt).
+  [`eth_getTransactionReceipt`](../../../global/reference/api/index.md#eth_gettransactionreceipt).
 
 The transaction receipt includes a `status` indicating if the transaction failed (`0x0`), succeeded (`0x1`), or
 was invalid (`0x2`).
@@ -40,6 +40,6 @@ was invalid (`0x2`).
 With the transaction hash returned when submitting the private transaction, to get the:
 
 * Private transaction, use
-  [`priv_getPrivateTransaction`](../../../reference/api/index.md#priv_getprivatetransaction).
+  [`priv_getPrivateTransaction`](../../../global/reference/api/index.md#priv_getprivatetransaction).
 * Privacy marker transaction, use
-  [`eth_getTransactionByHash`](../../../reference/api/index.md#eth_gettransactionbyhash).
+  [`eth_getTransactionByHash`](../../../global/reference/api/index.md#eth_gettransactionbyhash).

@@ -66,22 +66,22 @@ besu --rpc-http-enabled --rpc-http-tls-enabled --rpc-http-tls-client-auth-enable
 The command line:
 
 * Enables the HTTP JSON-RPC service using the
-  [`--rpc-http-enabled`](../../../../reference/cli/options.md#rpc-http-enabled) option.
+  [`--rpc-http-enabled`](../../../../global/reference/cli/options.md#rpc-http-enabled) option.
 * Enables TLS for the HTTP JSON-RPC service using the
-  [`--rpc-http-tls-enabled`](../../../../reference/cli/options.md#rpc-http-tls-enabled) option.
+  [`--rpc-http-tls-enabled`](../../../../global/reference/cli/options.md#rpc-http-tls-enabled) option.
 * Enables TLS client authentication using the
-  [`--rpc-http-tls-client-auth-enabled`](../../../../reference/cli/options.md#rpc-http-tls-client-auth-enabled) option.
+  [`--rpc-http-tls-client-auth-enabled`](../../../../global/reference/cli/options.md#rpc-http-tls-client-auth-enabled) option.
 * Specifies the keystore using the
-  [`--rpc-http-tls-keystore-file`](../../../../reference/cli/options.md#rpc-http-tls-keystore-file)
+  [`--rpc-http-tls-keystore-file`](../../../../global/reference/cli/options.md#rpc-http-tls-keystore-file)
   option.
 * Specifies the file that contains the password to decrypt the keystore using the
-  [`--rpc-http-tls-keystore-password-file`](../../../../reference/cli/options.md#rpc-http-tls-keystore-password-file) option.
+  [`--rpc-http-tls-keystore-password-file`](../../../../global/reference/cli/options.md#rpc-http-tls-keystore-password-file) option.
 * [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the
-  [`--rpc-http-tls-known-clients-file`](../../../../reference/cli/options.md#rpc-http-tls-known-clients-file) option.
+  [`--rpc-http-tls-known-clients-file`](../../../../global/reference/cli/options.md#rpc-http-tls-known-clients-file) option.
 * specifies the Java cipher suites using the
-  [`--rpc-http-tls-cipher-suite`](../../../../reference/cli/options.md#rpc-http-tls-cipher-suite) option.
+  [`--rpc-http-tls-cipher-suite`](../../../../global/reference/cli/options.md#rpc-http-tls-cipher-suite) option.
 * specifies the TLS protocol version using the
-  [`--rpc-http-tls-protocol`](../../../../reference/cli/options.md#rpc-http-tls-protocol) option.
+  [`--rpc-http-tls-protocol`](../../../../global/reference/cli/options.md#rpc-http-tls-protocol) option.
 
 !!! note
 
@@ -127,14 +127,14 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 The command line:
 
 * Enables TLS with the server using the
-  [`--privacy-tls-enabled`](../../../../reference/cli/options.md#privacy-tls-enabled) option.
+  [`--privacy-tls-enabled`](../../../../global/reference/cli/options.md#privacy-tls-enabled) option.
 * Specifies the keystore using the
-  [`--privacy-tls-keystore-file`](../../../../reference/cli/options.md#privacy-tls-keystore-file)
+  [`--privacy-tls-keystore-file`](../../../../global/reference/cli/options.md#privacy-tls-keystore-file)
   option.
 * Specifies the file that contains the password to decrypt the keystore using the
-  [`--privacy-tls-keystore-password-file`](../../../../reference/cli/options.md#privacy-tls-keystore-password-file) option.
+  [`--privacy-tls-keystore-password-file`](../../../../global/reference/cli/options.md#privacy-tls-keystore-password-file) option.
 * Specifies the trusted servers using the
-  [`--privacy-tls-known-enclave-file`](../../../../reference/cli/options.md#privacy-tls-known-enclave-file) option.
+  [`--privacy-tls-known-enclave-file`](../../../../global/reference/cli/options.md#privacy-tls-known-enclave-file) option.
 
 <!-- Links -->
 [Configure the client for TLS]: https://docs.ethsigner.consensys.net/en/latest/HowTo/Configure-TLS/#server-tls-connection

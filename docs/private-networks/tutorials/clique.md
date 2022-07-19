@@ -14,7 +14,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../../global/get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -24,7 +24,7 @@ Listed on the right-hand side of the page are the steps to create a private netw
 ### 1. Create directories
 
 Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
-[node key](../../concepts/node-keys.md) in this directory.
+[node key](../../global/concepts/node-keys.md) in this directory.
 
 Create directories for your private network, each of the three nodes, and a data directory for each
 node:
@@ -46,7 +46,7 @@ file. For this Clique network, we'll use Node-1 as the initial signer. This requ
 address for Node-1.
 
 To get the address for Node-1, in the `Node-1` directory, use the
-[`public-key export-address`](../../reference/cli/subcommands.md#export-address) subcommand to
+[`public-key export-address`](../../global/reference/cli/subcommands.md#export-address) subcommand to
 write the node address to the specified file (`node1Address` in this example).
 
 === "MacOS"
@@ -154,15 +154,15 @@ Start Node-1:
 The command line enables:
 
 * The JSON-RPC API using the
-  [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) option
+  [`--rpc-http-enabled`](../../global/reference/cli/options.md#rpc-http-enabled) option
 * The ETH, NET, and CLIQUE APIs using the
-  [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) option
+  [`--rpc-http-api`](../../global/reference/cli/options.md#rpc-http-api) option
 * All-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../reference/cli/options.md#host-allowlist) option
+  [`--host-allowlist`](../../global/reference/cli/options.md#host-allowlist) option
 * All-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../reference/cli/options.md#rpc-http-cors-origins) option
+  [`--rpc-http-cors-origins`](../../global/reference/cli/options.md#rpc-http-cors-origins) option
 
-When the node starts, the [enode URL](../../concepts/node-keys.md#enode-url) displays.
+When the node starts, the [enode URL](../../global/concepts/node-keys.md#enode-url) displays.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
@@ -187,13 +187,13 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
-  [`--bootnodes`](../../reference/cli/options.md#bootnodes) option.
+  [`--bootnodes`](../../global/reference/cli/options.md#bootnodes) option.
 * The data directory for Node-2 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
 ### 6. Start Node-3
@@ -216,18 +216,18 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * A different port to Node-1 and Node-2 for P2P discovery using the
-  [`--p2p-port`](../../reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
 * The data directory for Node-3 using the
-  [`--data-path`](../../reference/cli/options.md#data-path) option.
+  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
 * The bootnode as for [Node-2](#6-start-node-2)
 * Other options as for [Node-1](#5-start-first-node-as-bootnode).
 
 ### 7. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`net_peerCount`](../../reference/api/index.md#net_peercount) method and confirm the nodes are
+[`net_peerCount`](../../global/reference/api/index.md#net_peercount) method and confirm the nodes are
 functioning as peers:
 
 ```bash

@@ -66,9 +66,9 @@ nav:
         - Get started:
             - System requirements: public-networks/get-started/system-requirements.md
             - Install Besu:
-                - Index: get-started/install/index.md
-                - Run Besu from Docker image: get-started/install/run-docker-image.md
-                - Install binary distribution: get-started/install/binary-distribution.md
+                - Index: public-networks/get-started/install/index.md
+                - Run Besu from Docker image: public-networks/get-started/install/run-docker-image.md
+                - Install binary distribution: public-networks/get-started/install/binary-distribution.md
             - Start Besu: public-networks/get-started/start-node.md
         - How to:
             - Prepare for The Merge: public-networks/how-to/prepare-for-the-merge.md
@@ -83,32 +83,33 @@ nav:
             - Create and send transactions: how-to/send-transactions.md
             - Connect to a network:
                 - Sync Besu: public-networks/how-to/connect/sync-node.md
-                - Configure static nodes: how-to/connect/static-nodes.md
-                - Configure ports: how-to/connect/configure-ports.md
-                - Manage peers: how-to/connect/manage-peers.md
-                - Specify NAT method: how-to/connect/specify-nat.md
+                - Configure static nodes: public-networks/how-to/connect/static-nodes.md
+                - Configure ports: public-networks/how-to/connect/configure-ports.md
+                - Manage peers: public-networks/how-to/connect/manage-peers.md
+                - Specify NAT method: public-networks/how-to/connect/specify-nat.md
             - Monitor nodes:
-                - Use metrics: how-to/monitor/metrics.md
-                - Configure logging: how-to/monitor/logging.md
-            - Use a configuration file: how-to/configure/configuration-file.md
-            - Pass JVM options: how-to/configure/pass-jvm-options.md
+                - Index: public-networks/how-to/monitor/index.md
+                - Use metrics: public-networks/how-to/monitor/metrics.md
+                - Configure logging: public-networks/how-to/monitor/logging.md
+            - Use a configuration file: public-networks/how-to/configuration-file.md
+            - Pass JVM options: public-networks/how-to/pass-jvm-options.md
             - Develop dapps:
-                - Use Truffle: how-to/develop/truffle.md
-                - Use client libraries: how-to/develop/client-libraries.md
+                - Use Truffle: public-networks/how-to/develop/truffle.md
+                - Use client libraries: public-networks/how-to/develop/client-libraries.md
             - Use proof of work:
-                - Configure mining: how-to/configure/mining.md
-            - Upgrade Besu: how-to/upgrade/node.md
+                - Configure mining: public-networks/how-to/use-pow/mining.md
+            - Upgrade Besu: public-networks/how-to/node.md
             - Troubleshoot:
-                - Use EVM tool: how-to/troubleshoot/evm-tool.md
-                - Use Java Flight Recorder: how-to/troubleshoot/java-flight-recorder.md
-                - Trace transactions: how-to/troubleshoot/trace-transactions.md
+                - Use EVM tool: public-networks/how-to/troubleshoot/evm-tool.md
+                - Use Java Flight Recorder: public-networks/how-to/troubleshoot/java-flight-recorder.md
+                - Trace transactions: public-networks/how-to/troubleshoot/trace-transactions.md
         - Concepts:
             - The Merge: public-networks/concepts/the-merge.md
             - Data storage formats: public-networks/concepts/data-storage-formats.md
-            - Network ID and chain ID: concepts/network-and-chain-id.md
-            - Events and logs: concepts/events-and-logs.md
-            - Genesis file: concepts/genesis-file.md
-            - Node keys: concepts/node-keys.md
+            - Network ID and chain ID: public-networks/concepts/network-and-chain-id.md
+            - Events and logs: public-networks/concepts/events-and-logs.md
+            - Genesis file: public-networks/concepts/genesis-file.md
+            - Node keys: public-networks/concepts/node-keys.md
         - Tutorials:
             - Run Besu and Teku on the Merge testnet: public-networks/tutorials/merge-testnet.md
         - Reference:
@@ -131,9 +132,9 @@ nav:
         - Get started:
             - System requirements: private-networks/get-started/system-requirements.md
             - Install Besu:
-                - Index: get-started/install/index.md
-                - Run Besu from Docker image: get-started/install/run-docker-image.md
-                - Install binary distribution: get-started/install/binary-distribution.md
+                - Index: private-networks/get-started/install/index.md
+                - Run Besu from Docker image: private-networks/get-started/install/run-docker-image.md
+                - Install binary distribution: private-networks/get-started/install/binary-distribution.md
             - Start Besu: private-networks/get-started/start-node.md
         - How to:
             - Configure:
@@ -151,9 +152,9 @@ nav:
                     - Peer-to-peer TLS: private-networks/how-to/configure/tls/p2p.md
                 - Block proposal permissioning: private-networks/how-to/configure/block-proposal-permissioning.md
                 - Alternative elliptic curves: private-networks/how-to/configure/curves.md
-                - Use a configuration file: how-to/configure/configuration-file.md
-                - Pass JVM options: how-to/configure/pass-jvm-options.md
-                - Mining: how-to/configure/mining.md
+                - Use a configuration file: private-networks/how-to/configure/configuration-file.md
+                - Pass JVM options: private-networks/how-to/configure/pass-jvm-options.md
+                - Mining: private-networks/how-to/configure/mining.md
             - Use the Besu API:
                 - Index: how-to/use-besu-api/index.md
                 - Use JSON-RPC over HTTP, WS, and IPC: how-to/use-besu-api/json-rpc.md
@@ -168,18 +169,18 @@ nav:
                 - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
             - Find and connect to peers:
                 - Configure bootnodes: private-networks/how-to/connect/bootnodes.md
-                - Configure static nodes: how-to/connect/static-nodes.md
-                - Configure ports: how-to/connect/configure-ports.md
-                - Manage peers: how-to/connect/manage-peers.md
-                - Specify NAT method: how-to/connect/specify-nat.md
+                - Configure static nodes: private-networks/how-to/connect/static-nodes.md
+                - Configure ports: private-networks/how-to/connect/configure-ports.md
+                - Manage peers: private-networks/how-to/connect/manage-peers.md
+                - Specify NAT method: private-networks/how-to/connect/specify-nat.md
             - Monitor nodes:
-                - Index: how-to/monitor/index.md
-                - Use metrics: how-to/monitor/metrics.md
+                - Index: private-networks/how-to/monitor/index.md
+                - Use metrics: private-networks/how-to/monitor/metrics.md
                 - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
                 - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
                 - Use Splunk: private-networks/how-to/monitor/splunk.md
                 - Use OpenTelemtry: private-networks/how-to/monitor/opentelemetry.md
-                - Configure logging: how-to/monitor/logging.md
+                - Configure logging: private-networks/how-to/monitor/logging.md
             - Use privacy:
                 - Use EEA-compliant privacy: private-networks/how-to/use-privacy/eea-compliant.md
                 - Use Besu-extended privacy: private-networks/how-to/use-privacy/besu-extended.md
@@ -200,19 +201,19 @@ nav:
                 - Use Kubernetes: private-networks/how-to/deploy/kubernetes.md
                 - Use Ethstats network monitor: private-networks/how-to/deploy/ethstats.md
             - Develop dapps:
-                - Use Truffle: how-to/develop/truffle.md
-                - Use client libraries: how-to/develop/client-libraries.md
+                - Use Truffle: private-networks/how-to/develop/truffle.md
+                - Use client libraries: private-networks/how-to/develop/client-libraries.md
             - Backup and restore: private-networks/how-to/backup.md
             - Upgrade:
-                - Upgrade node: how-to/upgrade/node.md
+                - Upgrade node: private-networks/how-to/upgrade/node.md
                 - Upgrade protocol: private-networks/how-to/upgrade/protocol.md
             - Troubleshoot:
-                - Use EVM tool: how-to/troubleshoot/evm-tool.md
-                - Use Java Flight Recorder: how-to/troubleshoot/java-flight-recorder.md
-                - Trace transactions: how-to/troubleshoot/trace-transactions.md
+                - Use EVM tool: private-networks/how-to/troubleshoot/evm-tool.md
+                - Use Java Flight Recorder: private-networks/how-to/troubleshoot/java-flight-recorder.md
+                - Trace transactions: private-networks/how-to/troubleshoot/trace-transactions.md
         - Concepts:
             - Proof of authority consensus: private-networks/concepts/poa.md
-            - Genesis file: concepts/genesis-file.md
+            - Genesis file: private-networks/concepts/genesis-file.md
             - Privacy:
                 - Index: private-networks/concepts/privacy/index.md
                 - Private transactions:
@@ -227,9 +228,9 @@ nav:
                 - Onchain permissioning: private-networks/concepts/permissioning/onchain.md
                 - Permissioning plugin: private-networks/concepts/permissioning/plugin.md
             - Public key infrastructure: private-networks/concepts/pki.md
-            - Network ID and chain ID: concepts/network-and-chain-id.md
-            - Events and logs: concepts/events-and-logs.md
-            - Node keys: concepts/node-keys.md
+            - Network ID and chain ID: private-networks/concepts/network-and-chain-id.md
+            - Events and logs: private-networks/concepts/events-and-logs.md
+            - Node keys: private-networks/concepts/node-keys.md
         - Tutorials:
             - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
             - Create a QBFT network: private-networks/tutorials/qbft.md
@@ -327,17 +328,17 @@ plugins:
           # new_path can be a file inside the docs/ folder or any URL (http://...)
           HowTo/Get-Started/System-Requirements-Private.md: private-networks/get-started/system-requirements.md
           HowTo/Get-Started/System-Requirements-Public.md: public-networks/get-started/system-requirements.md
-          HowTo/Get-Started/Install-Binaries.md: get-started/install/binary-distribution.md
-          HowTo/Get-Started/Build-from-source.md: get-started/install/index.md
-          HowTo/Get-Started/Run-Docker-Image.md: get-started/install/run-docker-image.md
+          HowTo/Get-Started/Install-Binaries.md: public-networks/get-started/install/binary-distribution.md
+          HowTo/Get-Started/Build-from-source.md: public-networks/get-started/install/index.md
+          HowTo/Get-Started/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
           HowTo/Deploy/High-Availability.md: how-to/configure/Configure-HA/High-Availability.md
           HowTo/Deploy/Monitoring-Performance.md: how-to/monitor/metrics.md
-          HowTo/Upgrade/Upgrade-Network.md: how-to/upgrade/node.md
-          HowTo/Find-and-Connect/Using-UPnP.md: how-to/connect/specify-nat.md
+          HowTo/Upgrade/Upgrade-Network.md: public-networks/how-to/node.md
+          HowTo/Find-and-Connect/Using-UPnP.md: public-networks/how-to/connect/specify-nat.md
           HowTo/Use-Privacy/Run-Orion-With-Besu.md: private-networks/how-to/use-privacy/tessera.md
           Concepts/Transactions/Trace-Types.md: reference/trace-types.md
-          HowTo/Develop-Dapps/Use-web3js.md: how-to/develop/client-libraries.md
-          Concepts/Client-Libraries.md: how-to/develop/client-libraries.md
+          HowTo/Develop-Dapps/Use-web3js.md: public-networks/how-to/develop/client-libraries.md
+          Concepts/Client-Libraries.md: public-networks/how-to/develop/client-libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
           HowTo/Use-Privacy/Use-OnChainPrivacy.md: private-networks/how-to/use-privacy/flexible.md
           Tutorials/Quickstarts/Azure-Private-Network-Quickstart.md: private-networks/tutorials/azure.md
@@ -360,9 +361,9 @@ plugins:
           # restructure redirects:
           HowTo/Get-Started/System-Requirements/System-Requirements-Private.md: private-networks/get-started/system-requirements.md
           HowTo/Get-Started/System-Requirements/System-Requirements-Public.md: public-networks/get-started/system-requirements.md
-          HowTo/Get-Started/Installation-Options/Install-Binaries.md: get-started/install/binary-distribution.md
-          HowTo/Get-Started/Installation-Options/Build-from-source.md: get-started/install/index.md
-          HowTo/Get-Started/Installation-Options/Run-Docker-Image.md: get-started/install/run-docker-image.md
+          HowTo/Get-Started/Installation-Options/Install-Binaries.md: public-networks/get-started/install/binary-distribution.md
+          HowTo/Get-Started/Installation-Options/Build-from-source.md: public-networks/get-started/install/index.md
+          HowTo/Get-Started/Installation-Options/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
           HowTo/Get-Started/Starting-node.md: public-networks/get-started/start-node.md
           HowTo/Upgrade/Prepare-for-The-Merge.md: public-networks/how-to/prepare-for-the-merge.md
           HowTo/Interact/APIs/API.md: how-to/use-besu-api/index.md
@@ -378,30 +379,30 @@ plugins:
           HowTo/Send-Transactions/Concurrent-Private-Transactions.md: private-networks/how-to/send-transactions/concurrent-private-transactions.md
           HowTo/Send-Transactions/Revert-Reason.md: private-networks/how-to/send-transactions/revert-reason.md
           HowTo/Find-and-Connect/Bootnodes.md: private-networks/how-to/connect/bootnodes.md
-          HowTo/Find-and-Connect/Static-Nodes.md: how-to/connect/static-nodes.md
-          HowTo/Find-and-Connect/Configuring-Ports.md: how-to/connect/configure-ports.md
-          HowTo/Find-and-Connect/Managing-Peers.md: how-to/connect/manage-peers.md
-          HowTo/Find-and-Connect/Specifying-NAT.md: how-to/connect/specify-nat.md
+          HowTo/Find-and-Connect/Static-Nodes.md: public-networks/how-to/connect/static-nodes.md
+          HowTo/Find-and-Connect/Configuring-Ports.md: public-networks/how-to/connect/configure-ports.md
+          HowTo/Find-and-Connect/Managing-Peers.md: public-networks/how-to/connect/manage-peers.md
+          HowTo/Find-and-Connect/Specifying-NAT.md: public-networks/how-to/connect/specify-nat.md
           Concepts/Node-Types.md: public-networks/how-to/connect/sync-node.md
-          HowTo/Monitor/Metrics.md: how-to/monitor/metrics.md
-          HowTo/Monitor/Logging.md: how-to/monitor/logging.md
+          HowTo/Monitor/Metrics.md: public-networks/how-to/monitor/metrics.md
+          HowTo/Monitor/Logging.md: public-networks/how-to/monitor/logging.md
           HowTo/Monitor/Elastic-Stack.md: private-networks/how-to/monitor/elastic-stack.md
           HowTo/Monitor/Quorum-Hibernate.md: private-networks/how-to/monitor/quorum-hibernate.md
           HowTo/Monitor/Splunk-Enterprise.md: private-networks/how-to/monitor/splunk.md
           HowTo/Monitor/OpenTelemetry-Collector.md: private-networks/how-to/monitor/opentelemetry.md
-          HowTo/Configure/Using-Configuration-File.md: how-to/configure/configuration-file.md
-          HowTo/Configure/Configure-Mining.md: how-to/configure/mining.md
-          HowTo/Configure/Passing-JVM-Options.md: how-to/configure/pass-jvm-options.md
+          HowTo/Configure/Using-Configuration-File.md: public-networks/how-to/configuration-file.md
+          HowTo/Configure/Configure-Mining.md: public-networks/how-to/use-pow/mining.md
+          HowTo/Configure/Passing-JVM-Options.md: public-networks/how-to/pass-jvm-options.md
           Concepts/Merge.md: public-networks/concepts/the-merge.md
-          Concepts/NetworkID-And-ChainID.md: concepts/network-and-chain-id.md
-          Concepts/Events-and-Logs.md: concepts/events-and-logs.md
-          HowTo/Configure/Genesis-File.md: concepts/genesis-file.md
-          HowTo/Upgrade/Upgrade-Node.md: how-to/upgrade/node.md
+          Concepts/NetworkID-And-ChainID.md: public-networks/concepts/network-and-chain-id.md
+          Concepts/Events-and-Logs.md: public-networks/concepts/events-and-logs.md
+          HowTo/Configure/Genesis-File.md: public-networks/concepts/genesis-file.md
+          HowTo/Upgrade/Upgrade-Node.md: public-networks/how-to/node.md
           HowTo/Upgrade/Upgrade-Protocol.md: private-networks/how-to/upgrade/protocol.md
-          HowTo/Troubleshoot/Use-EVM-Tool.md: how-to/troubleshoot/evm-tool.md
-          HowTo/Troubleshoot/Java-Flight-Recording.md: how-to/troubleshoot/java-flight-recorder.md
-          HowTo/Troubleshoot/Trace-Transactions.md: how-to/troubleshoot/trace-transactions.md
-          Concepts/Node-Keys.md: concepts/node-keys.md
+          HowTo/Troubleshoot/Use-EVM-Tool.md: public-networks/how-to/troubleshoot/evm-tool.md
+          HowTo/Troubleshoot/Java-Flight-Recording.md: public-networks/how-to/troubleshoot/java-flight-recorder.md
+          HowTo/Troubleshoot/Trace-Transactions.md: public-networks/how-to/troubleshoot/trace-transactions.md
+          Concepts/Node-Keys.md: public-networks/concepts/node-keys.md
           Concepts/Data-Storage-Formats.md: public-networks/concepts/data-storage-formats.md
           Tutorials/Merge-Testnet.md: public-networks/tutorials/merge-testnet.md
           Reference/CLI/CLI-Syntax.md: reference/cli/options.md
@@ -426,8 +427,8 @@ plugins:
           HowTo/Configure/Block-Proposal-Permissioning.md: private-networks/how-to/configure/block-proposal-permissioning.md
           HowTo/Deploy/Bootnodes.md: private-networks/how-to/connect/bootnodes.md
           Concepts/ArchitectureOverview.md: index.md
-          Concepts/Mining.md: how-to/configure/mining.md
-          HowTo/Troubleshoot/Troubleshooting.md: how-to/troubleshoot/evm-tool.md
+          Concepts/Mining.md: public-networks/how-to/use-pow/mining.md
+          HowTo/Troubleshoot/Troubleshooting.md: public-networks/how-to/troubleshoot/evm-tool.md
           Concepts/Protocol-Upgrades.md: private-networks/how-to/upgrade/protocol.md
           Reference/Resources.md: index.md
           HowTo/Use-Privacy/EEA-compliant.md: private-networks/how-to/use-privacy/eea-compliant.md
@@ -451,9 +452,9 @@ plugins:
           HowTo/Deploy/Ethstats.md: private-networks/how-to/deploy/ethstats.md
           Reference/web3js-quorum.md: private-networks/how-to/use-privacy/web3js-quorum.md
           HowTo/Deploy/Production.md: private-networks/how-to/use-permissioning/onchain.md
-          Concepts/Network-vs-Node.md: concepts/genesis-file.md
-          HowTo/Develop-Dapps/Truffle.md: how-to/develop/truffle.md
-          HowTo/Develop-Dapps/Client-Libraries.md: how-to/develop/client-libraries.md
+          Concepts/Network-vs-Node.md: public-networks/concepts/genesis-file.md
+          HowTo/Develop-Dapps/Truffle.md: public-networks/how-to/develop/truffle.md
+          HowTo/Develop-Dapps/Client-Libraries.md: public-networks/how-to/develop/client-libraries.md
           HowTo/Backup/Backup.md: private-networks/how-to/backup.md
           Concepts/Consensus-Protocols/Overview-Consensus.md: private-networks/how-to/configure/consensus/index.md
           Concepts/Consensus-Protocols/Comparing-PoA.md: private-networks/concepts/poa.md
@@ -494,4 +495,4 @@ plugins:
           Tutorials/Kubernetes/Nat-Manager-Kubernetes.md: private-networks/tutorials/kubernetes/nat-manager.md
           Tutorials/Private-Network-Example-Azure.md: private-networks/tutorials/azure.md
           Reference/Accounts-for-Testing.md: private-networks/reference/accounts-for-testing.md
-          Concepts/Monitoring.md: how-to/monitor/index.md
+          Concepts/Monitoring.md: public-networks/how-to/monitor/index.md

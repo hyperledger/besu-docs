@@ -152,7 +152,7 @@ Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/) fo
 Pass the following parameters to the
 [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods/#eth_sendtransaction) call
 to EthSigner; EthSigner then converts the request to an
-[`eth_sendRawTransaction`](../../../reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
+[`eth_sendRawTransaction`](../../../global/reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
 
 * `to` - address of the receiver. To deploy a contract, set to `null`.
 * `from` - address of the sender account. For example `0x9b790656b9ec0db1936ed84b3bea605873558198`.
@@ -188,7 +188,7 @@ Make the request using `eth_sendTransaction`:
 
 To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
-the [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) API call.
+the [`eea_sendRawTransaction`](../../../global/reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
@@ -260,7 +260,7 @@ the contract's address.
 
 To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
-the [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction) API call.
+the [`eea_sendRawTransaction`](../../../global/reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 

@@ -32,7 +32,7 @@ You can use Besu with any consensus client.
 ### 1. Configure the Engine API
 
 The beacon node and Besu communicate using the [Engine API](use-engine-api.md).
-Configure the Engine API by setting [`engine-rpc-port`](../../reference/cli/options.md#engine-rpc-port) in the Besu
+Configure the Engine API by setting [`engine-rpc-port`](../../global/reference/cli/options.md#engine-rpc-port) in the Besu
 configuration file.
 
 Specify the Besu Engine API endpoint in the consensus client using the consensus client's configuration options.
@@ -49,7 +49,7 @@ You can generate a JWT using a command line tool, for example:
 openssl rand -hex 32 -out <file>
 ```
 
-Provide the JWT to Besu using the [`engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret)
+Provide the JWT to Besu using the [`engine-jwt-secret`](../../global/reference/cli/options.md#engine-jwt-secret)
 configuration option, and to the consensus client using its configuration options.
 For example, provide the JWT to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.

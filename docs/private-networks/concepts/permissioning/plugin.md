@@ -4,7 +4,7 @@ description: Plugin based permissioning
 
 # Permissioning plugin
 
-You can define complex [permissioning](index.md) solutions by [building a plugin](../../../concepts/Plugins.md) that
+You can define complex [permissioning](index.md) solutions by [building a plugin](../../../global/concepts/Plugins.md) that
 extends Hyperledger Besu functionality.
 
 The plugin API provides a `PermissioningService` interface that currently supports connection permissioning and

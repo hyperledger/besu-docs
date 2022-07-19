@@ -6,7 +6,7 @@ description: System requirements to sync and run Besu
 # System requirements for public networks
 
 Determine public network system requirements by checking CPU and disk space requirements using
-[Prometheus](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus).
+[Prometheus](../../global/how-to/monitor/metrics.md#monitor-node-performance-using-prometheus).
 Grafana provides a [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
 !!! tip
@@ -23,9 +23,9 @@ to the chain head. Monitor your system to determine your actual JVM memory needs
 
 ## Disk space
 
-[Fast synchronization](../../reference/cli/options.md#sync-mode) with
-[pruning](../../concepts/Pruning.md) enabled requires approximately 750 GB of disk space.
-[Full synchronization](../../reference/cli/options.md#sync-mode) requires approximately 3 TB.
+[Fast synchronization](../../global/reference/cli/options.md#sync-mode) with
+[pruning](../../global/concepts/Pruning.md) enabled requires approximately 750 GB of disk space.
+[Full synchronization](../../global/reference/cli/options.md#sync-mode) requires approximately 3 TB.
 
 ## Disk type
 

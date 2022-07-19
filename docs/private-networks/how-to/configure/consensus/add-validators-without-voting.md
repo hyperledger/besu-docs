@@ -145,8 +145,8 @@ To add or remove validators without voting:
 1. Restart all nodes in the network using the updated genesis file.
    You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 1. To verify the changes after the transition block, call
-   [`qbft_getValidatorsByBlockNumber`](../../../../reference/api/index.md#qbft_getvalidatorsbyblocknumber) or
-   [`ibft_getValidatorsByBlockNumber`](../../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber),
+   [`qbft_getValidatorsByBlockNumber`](../../../../global/reference/api/index.md#qbft_getvalidatorsbyblocknumber) or
+   [`ibft_getValidatorsByBlockNumber`](../../../../global/reference/api/index.md#ibft_getvalidatorsbyblocknumber),
    specifying `latest`.
 
 !!! caution

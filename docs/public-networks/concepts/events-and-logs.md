@@ -1,0 +1,1 @@
+{!global/concepts/events-and-logs.md!}

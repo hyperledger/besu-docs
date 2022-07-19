@@ -94,5 +94,5 @@ bootnodes to rediscover peers.
 
 <!-- Links -->
 [permissioning management dapp]: ../../how-to/use-permissioning/onchain.md#deploy-the-permissioning-management-dapp
-[`--privacy-marker-transaction-signing-key-file`]: ../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file
+[`--privacy-marker-transaction-signing-key-file`]: ../../../global/reference/cli/options.md#privacy-marker-transaction-signing-key-file
 [specify the permissioning contract interface]: ../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version

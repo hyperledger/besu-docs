@@ -80,4 +80,4 @@ occur.
 
 <!-- Links -->
 [highly available and run in a separate instance to Besu]: ../../how-to/use-privacy/tessera.md
-[pruning]: ../../../concepts/Pruning.md
+[pruning]: ../../../global/concepts/Pruning.md

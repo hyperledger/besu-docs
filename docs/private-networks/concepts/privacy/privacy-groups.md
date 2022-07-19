@@ -83,7 +83,7 @@ provided by Tessera.
 ### Besu-extended privacy
 
 The Besu-extended privacy implementation creates a privacy group using
-[`priv_createPrivacyGroup`](../../../reference/api/index.md#priv_createprivacygroup) with private
+[`priv_createPrivacyGroup`](../../../global/reference/api/index.md#priv_createprivacygroup) with private
 transactions sent to the privacy group ID.
 
 !!! example

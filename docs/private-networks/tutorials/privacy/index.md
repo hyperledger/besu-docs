@@ -344,15 +344,15 @@ In the `Node-1` directory, start Besu Node-1:
 
 The command line specifies privacy options:
 
-* [`--privacy-enabled`](../../../reference/cli/options.md#privacy-enabled) enables privacy
-* [`--privacy-url`](../../../reference/cli/options.md#privacy-url) specifies the Q2T server address
+* [`--privacy-enabled`](../../../global/reference/cli/options.md#privacy-enabled) enables privacy
+* [`--privacy-url`](../../../global/reference/cli/options.md#privacy-url) specifies the Q2T server address
     of the Tessera node (`Q2T` in `tessera.conf`)
-* [`--privacy-public-key-file`](../../../reference/cli/options.md#privacy-public-key-file)
+* [`--privacy-public-key-file`](../../../global/reference/cli/options.md#privacy-public-key-file)
   specifies the file containing Tessera node public key (created in
   [3. Generate Tessera Keys](#2-generate-tessera-keys))
-* [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
+* [`--rpc-http-api`](../../../global/reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
   the list of JSON-RPC APIs to enable privacy JSON-RPC API methods.
-* [`--min-gas-price`](../../../reference/cli/options.md#min-gas-price) is 0 for a
+* [`--min-gas-price`](../../../global/reference/cli/options.md#min-gas-price) is 0 for a
   [free gas network](../../how-to/configure/free-gas.md).
 
 !!! note
@@ -363,7 +363,7 @@ The command line specifies privacy options:
     [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md) using a
     supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
 
-When the node starts, the [enode URL](../../../concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../../global/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../../images/EnodeStartup.png)
@@ -386,7 +386,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 !!! note
 
@@ -411,7 +411,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 ## 8. Start Besu Node-4
 
@@ -431,7 +431,7 @@ Node-1 as the bootnode:
     ```
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL.
-The [`--bootnodes`](../../../reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
+The [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
 <!-- links -->
 [Tessera]: https://docs.tessera.consensys.net/

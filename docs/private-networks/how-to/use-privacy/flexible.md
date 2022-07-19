@@ -32,11 +32,11 @@ membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.
 
 ## Enabling flexible privacy groups
 
-Use the [`--privacy-flexible-groups-enabled`](../../../reference/cli/options.md#privacy-flexible-groups-enabled)
+Use the [`--privacy-flexible-groups-enabled`](../../../global/reference/cli/options.md#privacy-flexible-groups-enabled)
 command line option to enable [flexible privacy groups](../../concepts/privacy/flexible-privacy.md).
-When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../../reference/api/index.md#priv_createprivacygroup),
-[`priv_deletePrivacyGroup`](../../../reference/api/index.md#priv_deleteprivacygroup),
-and [`priv_findPrivacyGroup`](../../../reference/api/index.md#priv_findprivacygroup) methods for
+When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../../global/reference/api/index.md#priv_createprivacygroup),
+[`priv_deletePrivacyGroup`](../../../global/reference/api/index.md#priv_deleteprivacygroup),
+and [`priv_findPrivacyGroup`](../../../global/reference/api/index.md#priv_findprivacygroup) methods for
 [offchain privacy groups](../../concepts/privacy/privacy-groups.md) are disabled.
 
 ## Simple flexible privacy group example

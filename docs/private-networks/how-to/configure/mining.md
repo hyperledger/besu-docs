@@ -1,0 +1,1 @@
+{!global/how-to/configure/mining.md!}

@@ -9,9 +9,9 @@ Private network system requirements depend on many factors, including:
 
 * Size of the world state for the network.
 * Number of transactions submitted to the network.
-* [Block gas limit](../../reference/genesis-items.md#genesis-block-parameters).
-* Number and complexity of [JSON-RPC](../../how-to/use-besu-api/json-rpc.md),
-  [PubSub](../../how-to/use-besu-api/rpc-pubsub.md), or [GraphQL](../../how-to/use-besu-api/graphql.md) queries
+* [Block gas limit](../../global/reference/genesis-items.md#genesis-block-parameters).
+* Number and complexity of [JSON-RPC](../../global/how-to/use-besu-api/json-rpc.md),
+  [PubSub](../../global/how-to/use-besu-api/rpc-pubsub.md), or [GraphQL](../../global/how-to/use-besu-api/graphql.md) queries
   handled by the node.
 
 Participation in private networks is typically restricted in some way, so the volume of traffic is
@@ -20,7 +20,7 @@ much lower than on Mainnet, resulting in lower system requirements.
 ## Determining system requirements
 
 To determine system requirements, check CPU and disk space requirements using
-[Prometheus](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
+[Prometheus](../../global/how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). Grafana provides a
 [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
 
 ## Java Virtual Machine size

@@ -80,16 +80,16 @@ but later removed from, Besu allows the user access to the following functionali
 group:
 
 - Private transactions using `priv_getTransaction` and private transaction receipts using
-  [`priv_getTransactionReceipt`](../../../reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and
+  [`priv_getTransactionReceipt`](../../../global/reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and
   including) the removal block.
   
     !!! note
 
         A removed group member may have access to some private transactions after the removal PMT in the same block.
   
-- Using [`priv_call`](../../../reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
+- Using [`priv_call`](../../../global/reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
   
-- Private logs using [`priv_getLogs`](../../../reference/api/index.md#priv_getlogs) for blocks up to (and including) the
+- Private logs using [`priv_getLogs`](../../../global/reference/api/index.md#priv_getlogs) for blocks up to (and including) the
   removal block.
   When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
   
@@ -99,4 +99,4 @@ group:
         they've created are also removed and can't be accessed.
         A user can only create and access filters for a privacy group they are currently a member of.
 
-All other [`PRIV` API methods](../../../reference/api/index.md#priv-methods) fail for the removed group member.
+All other [`PRIV` API methods](../../../global/reference/api/index.md#priv-methods) fail for the removed group member.

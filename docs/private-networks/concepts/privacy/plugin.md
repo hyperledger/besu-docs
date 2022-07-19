@@ -4,7 +4,7 @@ description: Privacy plugin
 
 # Privacy plugin
 
-You can define your own strategy for private transactions by [building a plugin](../../../concepts/Plugins.md) that extends
+You can define your own strategy for private transactions by [building a plugin](../../../global/concepts/Plugins.md) that extends
 Hyperledger Besu functionality.
 
 The plugin can take many forms, but it must provide Besu with a private transaction when required.
@@ -29,7 +29,7 @@ for the PMT is.
 
 ### Sending transactions
 
-When submitting a private transaction using [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction),
+When submitting a private transaction using [`eea_sendRawTransaction`](../../../global/reference/api/index.md#eea_sendrawtransaction),
 the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which
 [privacy precompiled contract](private-transactions/processing.md) is being used.
 
@@ -48,7 +48,7 @@ The transaction flow is as follows:
 The process of mining transactions happens in reverse to sending transactions.
 
 1. The Mainnet transaction processor processes the PMT in the same way as
-    any other public transaction. On nodes containing the [privacy precompile contract](../../../reference/api/index.md#priv_getprivacyprecompileaddress)
+    any other public transaction. On nodes containing the [privacy precompile contract](../../../global/reference/api/index.md#priv_getprivacyprecompileaddress)
     specified in the `to` attribute of the PMT, the Mainnet transaction processor passes the PMT to the privacy precompile contract.
 
    !!! note

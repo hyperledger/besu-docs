@@ -1,0 +1,1 @@
+{!global/how-to/troubleshoot/java-flight-recorder.md!}

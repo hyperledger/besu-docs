@@ -24,6 +24,7 @@ repo_name: hyperledger/besu-docs
 repo_url: https://github.com/hyperledger/besu-docs/
 edit_uri: edit/main/docs/
 
+# The following has to be in this mkdocs.yml file because readthedocs.org is overriding it here.
 extra_css:
   - assets/stylesheets/custom_theme.css
 extra_javascript:

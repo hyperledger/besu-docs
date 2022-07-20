@@ -31,7 +31,6 @@ You will specify `jwtsecret.hex` when starting both Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../HowTo/Interact/APIs/Engine-API.md).
 
-
 ## 3. Start Besu
 
 Run the following command:

@@ -10,7 +10,7 @@ python:
 #  make sure we test with the same version that RTD will use
   version: 3.7
   install:
-    - requirements: CI/requirements.txt
+    - requirements: CI/requirements-insider.txt
 
 mkdocs:
   configuration: mkdocs.yml

@@ -1,4 +1,4 @@
-mkdocs-material==8.3.9
+git+https://${MKDOCS_GITHUB_USER}:${MKDOCS_GITHUB_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git@8.3.9-insiders-4.21.0
 Markdown==3.4.1
 markdown-fenced-code-tabs==1.0.5
 markdown-include==0.6.0

@@ -7,7 +7,7 @@ Description: How to run Besu and Teku on the Merge testnet
 You can test Besu as an [execution client](../Concepts/Merge.md#execution-clients) and
 [Teku](https://docs.teku.consensys.net/en/stable/)
 as a [consensus client](../Concepts/Merge.md#consensus-clients) on a post-merge testnet.
-This tutorial uses the [Sepolia testnet](https://github.com/eth-clients/sepolia).
+This tutorial uses the [Goerli testnet](https://github.com/eth-clients/goerli).
 
 ## 1. Install Besu and Teku
 
@@ -30,34 +30,15 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 You will specify `jwtsecret.hex` when starting both Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../HowTo/Interact/APIs/Engine-API.md).
-  
-## 3. Generate validator keys and stake ETH
 
-If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
-this in
-[MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
-Fund this address with testnet ETH using a [Sepolia Faucet](https://faucet.sepolia.dev/).
 
-!!! note
-
-    If you're unable to get ETH using the faucet, you can ask for help on the
-    [EthStaker Discord](https://discord.io/ethstaker).
-
-Generate validator keys and stake your testnet ETH for one or more validators using the
-[Ropsten Staking Launchpad](https://ropsten.launchpad.ethereum.org/).
-
-!!! important
-
-    Save the password you use to generate each key pair in a `.txt` file.
-    You should also have a `.json` file for each validator key pair.
-
-## 4. Start Besu
+## 3. Start Besu
 
 Run the following command:
 
 ```bash
 besu \
-  --network=sepolia           \
+  --network=goerli            \
   --rpc-http-enabled=true     \
   --rpc-http-host="0.0.0.0"   \
   --rpc-http-cors-origins="*" \
@@ -76,6 +57,28 @@ Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-t
 See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) options for more information on running
 Besu as an execution client.
 
+## 4. Generate validator keys and stake ETH
+
+If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
+this in
+[MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+Fund this address with testnet ETH using a [Goerli Faucet](https://goerli-faucet.com/).
+
+!!! note
+
+    If you're unable to get ETH using the faucet, you can ask for help on the
+    [EthStaker Discord](https://discord.io/ethstaker).
+
+Generate validator keys and stake your testnet ETH for one or more validators using the
+[Prater Staking Launchpad](https://prater.launchpad.ethereum.org/).
+
+!!! important
+
+    Save the password you use to generate each key pair in a `.txt` file.
+    You should also have a `.json` file for each validator key pair.
+
+    Ensure your Besu node is fully synced before submitting your staking deposit. This can take several days.
+
 ## 5. Start Teku
 
 Open a new terminal window.
@@ -87,7 +90,7 @@ To run Teku as a beacon node (without validator duties), run the following comma
 ```bash
 teku \
   --data-path "datadir-teku"                   \
-  --network sepolia                            \
+  --network goerli                            \
   --ee-endpoint http://localhost:8551          \
   --ee-jwt-secret-file <path to jwtsecret.hex> \
   --log-destination console                    \
@@ -106,7 +109,7 @@ To run Teku as a beacon node and validator in a single process, run the followin
 ```bash
 teku \
   --data-path "datadir-teku"                                \
-  --network sepolia                                         \
+  --network goerli                                          \
   --ee-endpoint http://localhost:8551                       \
   --ee-jwt-secret-file <path to jwtsecret.hex>              \
   --log-destination console                                 \
@@ -120,12 +123,12 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
-- The test Ethereum address created in [step 3](#3-generate-validator-keys-and-stake-eth) as the default fee recipient
+- The test Ethereum address created in [step 4](#4-generate-validator-keys-and-stake-eth) as the default fee recipient
   using the
   [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
   option.
 - The paths to the keystore `.json` file and password `.txt` file created in
-  [step 3](#3-generate-validator-keys-and-stake-eth) for each validator using the
+  [step 4](#4-generate-validator-keys-and-stake-eth) for each validator using the
   [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys) option.
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
@@ -158,5 +161,5 @@ After starting Besu and Teku, your node starts syncing and connecting to peers.
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-You can check your validator status by searching your Ethereum address on the [Sepolia Beacon Chain explorer](https://sepolia.beaconcha.in/).
+You can check your validator status by searching your Ethereum address on the [Prater Beacon Chain explorer](https://prater.beaconcha.in/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.

@@ -11,9 +11,10 @@ INHERIT: mkdocs.theme.yml # DO NOT MODIFY THIS LINE
 
 watch:
   - mkdocs.exclude.yml
-  - mkdocs.extension_and_plugins.yml
+  - mkdocs.extensions.yml
   - mkdocs.extra.yml
   - mkdocs.navigation.yml
+  - mkdocs.plugins.yml
   - mkdocs.redirects.yml
   - mkdocs.theme.yml
   - mkdocs.watch.yml

@@ -9,6 +9,7 @@
 # specific language governing permissions and limitations under the License.
 INHERIT: mkdocs.exclude.yml # DO NOT MODIFY THIS LINE
 
+# Extensions list requires the dashed list format
 markdown_extensions:
   - toc:
       permalink: 
@@ -40,6 +41,7 @@ markdown_extensions:
   - smarty
   - attr_list
 
+# Extensions list requires the object list format without dashes and with {} for empty entries.
 plugins:
   search:
       lang: 'en'

@@ -29,7 +29,7 @@ You can [create a private network using IBFT](../../../tutorials/ibft/index.md).
 
 ## Genesis file
 
-To use IBFT 2.0, Besu requires an IBFT 2.0 [genesis file](../../../../global/concepts/genesis-file.md). The genesis file defines properties
+To use IBFT 2.0, Besu requires an IBFT 2.0 [genesis file](../../../concepts/genesis-file.md). The genesis file defines properties
 specific to IBFT 2.0.
 
 !!! example "Example IBFT 2.0 genesis file"

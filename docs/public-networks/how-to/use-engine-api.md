@@ -5,7 +5,7 @@ description: How to enable and use the Engine API
 # Use the Engine API
 
 After [The Merge](../concepts/the-merge.md), consensus and execution clients communicate with each other using the Engine API.
-These [API methods](../reference/engine-api/index.md) are a separate subsection of the [JSON-RPC API](../../global/how-to/use-besu-api/index.md).
+These [API methods](../reference/engine-api/index.md) are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
 
 ## Configure the Engine API
 
@@ -51,7 +51,7 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 
 ## Authentication
 
-By default, [authentication](../../global/how-to/use-besu-api/authenticate.md) for the Engine API is enabled.
+By default, [authentication](../how-to/use-besu-api/authenticate.md) for the Engine API is enabled.
 To disable, set the [`--engine-jwt-disabled`](../../global/reference/cli/options.md#engine-jwt-disabled) option to `true`.
 
 !!! warning

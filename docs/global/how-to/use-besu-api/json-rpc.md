@@ -15,7 +15,7 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 
     `--Xrpc-ipc-enabled` is an experimental option.
 
-{!global/Postman.md!}
+--8<-- "global/Postman.md"
 
 ## Geth console
 
@@ -129,11 +129,11 @@ Send individual requests as a JSON data package at each prompt.
 !!! Example
 
     === "Syntax"
-    
+
         ```bash
         {"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}
         ```
-    
+
     === "wscat WS request"
 
         ```bash

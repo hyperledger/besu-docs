@@ -14,7 +14,7 @@ uses the `dev.json` genesis file by default.
 
 The `dev.json` genesis file defines the following accounts used for testing.
 
-{!global/test_accounts.md!}
+--8<-- "global/test_accounts.md"
 
 ## Genesis file
 

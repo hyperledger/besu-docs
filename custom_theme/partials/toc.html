@@ -1,11 +1,15 @@
-{% import "partials/language.html" as lang with context %}
-<nav class="md-nav md-nav--secondary" aria-label="{{ lang.t('toc.title') }}">
+{% set title = lang.t("toc.title") %}
+{% if config.mdx_configs.toc and config.mdx_configs.toc.title %}
+  {% set title = config.mdx_configs.toc.title %}
+{% endif %}
+<nav class="md-nav md-nav--secondary" aria-label="{{ title }}">
   {% set toc = page.toc %}
-  {% if toc | first is defined and "\x3ch1 id=" in page.content %}
-    {% set toc = (toc | first).children %}
+  {% set first = toc | first %}
+  {% if first and first.level == 1 %}
+    {% set toc = first.children %}
   {% endif %}
-  {% if toc | first is defined %}
-    <ul class="md-nav__list" data-md-scrollfix>
+  {% if toc %}
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       {% for toc_item in toc %}
         {% include "partials/toc-item.html" %}
       {% endfor %}

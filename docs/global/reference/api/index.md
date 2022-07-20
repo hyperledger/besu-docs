@@ -13,7 +13,7 @@ description: Hyperledger Besu JSON-RPC API methods reference
       private networks. Depending on network configuration and activity, your example results might
       be different.
 
-{!global/Postman.md!}
+--8<-- "global/Postman.md"
 
 ## `ADMIN` methods
 
@@ -161,13 +161,13 @@ Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth
 `result`: *object* - log bloom index details:
 
 * `startBlock`: *string* - starting block for the last requested cache generation
-  
+
 * `endBlock`: *string* - ending block for the last requested cache generation
-  
+
 * `currentBlock`: *string* - most recent block added to the cache
-  
+
 * `indexing`: *boolean* - indicates if indexing is in progress
-  
+
 * *boolean* - indicates acceptance of the request from this call to generate the cache
 
 !!! example
@@ -218,9 +218,9 @@ You can skip a parameter by using an empty string, `""`.
 If you specify:
 
 * No parameters, the call removes cache files for all blocks.
-  
+
 * Only `fromBlock`, the call removes cache files for the specified block.
-  
+
 * Only `toBlock`, the call removes cache files from the genesis block to the specified block.
 
 #### Returns
@@ -305,16 +305,16 @@ None
 `result`: *object* - node object with the following fields:
 
 * `enode`: *string* - [enode URL](../../concepts/node-keys.md#enode-url) of the node
-  
+
 * `listenAddr`: *string* - host and port for the node
-  
+
 * `name`: *string* - client name
-  
+
 * `id`: *string* - [node public key](../../concepts/node-keys.md#node-public-key)
-  
+
 * `ports`: *object* - peer discovery and listening
   [ports](../../how-to/connect/manage-peers.md#port-configuration)
-  
+
 * `protocols`: *object* - list of objects containing information for each Ethereum sub-protocol
 
 !!! note
@@ -392,23 +392,23 @@ None
 `result`: *array* of *objects* - list of objects returned for each remote node, with the following fields.
 
 * `version`: *string* - P2P protocol version
-  
+
 * `name`: *string* - client name
-  
+
 * `caps`: *array* of *strings* - list of Ethereum sub-protocol capabilities
-  
+
 * `network`: *object* - local and remote addresses established at time of bonding with the peer (the remote
   address might not match the hex value for `port`; it depends on which node
   initiated the connection.)
-  
+
 * `port`: *string* - port on the remote node on which P2P discovery is listening
-  
+
 * `id`: *string* - node public key (excluding the `0x` prefix, the node public key is the ID in the
   [enode URL](../../concepts/node-keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.)
-  
-* `protocols`: *object* - [current state of peer](../../how-to/connect/manage-peers.md#monitoring-peer-connections)
-including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
-  
+
+* `protocols`: *object* - [current state of peer](../../how-to/connect/manage-peers.md#monitor-peer-connections)
+  including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
+
 * `enode`: *string* - enode URL of the remote node
 
 !!! example
@@ -587,10 +587,10 @@ Lists [signers for the specified block].
 Provides the following validator metrics for the specified range:
 
 * Number of blocks from each validator
-  
+
 * Block number of the last block proposed by each validator (if any proposed in the specified
   range)
-  
+
 * All validators present in the last block
 
 #### Parameters
@@ -893,7 +893,7 @@ Returns the accounts for a specified block.
 `result`: *object* - account details object with the following fields:
 
 * `addressMap`: *map* of *strings* to *strings* - map of address hashes and account addresses
-  
+
 * `nextKey`: *string* - hash of the next address if any addresses remain in the state, otherwise
   zero
 
@@ -945,9 +945,9 @@ This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTrans
 `result`: *array* of *objects* - object returned for each transaction, with the following fields:
 
 * `index`: *string* - index of the transaction in the request parameters array
-  
+
 * `success`: *boolean* - indicates whether or not the transaction has been added to the transaction pool
-  
+
 * `errorMessage`: *string* - (optional) error message
 
 !!! example
@@ -1276,9 +1276,9 @@ The JVM metrics might vary based on the JVM implementation used.
 The metric types are:
 
 * Timer
-  
+
 * Counter
-  
+
 * Gauge
 
 #### Parameters
@@ -2836,9 +2836,9 @@ Polls the specified filter and returns an array of changes that have occurred si
 `result`: *array* of *strings* or *objects* - if nothing changed since the last poll, an empty list; otherwise:
 
 * For filters created with `eth_newBlockFilter`, returns block hashes.
-  
+
 * For filters created with `eth_newPendingTransactionFilter`, returns transaction hashes.
-  
+
 * For filters created with `eth_newFilter`, returns [log objects](objects.md#log-object).
 
 !!! example
@@ -3237,17 +3237,17 @@ from untrusted sources, by using a trusted block hash.
 `result`: *object* - account details object with the following fields:
 
 * `balance`: *string* - account balance
-  
+
 * `codeHash`: *string* - 32-byte hash of the account code
-  
+
 * `nonce`: *string* - number of transactions sent from the account
-  
+
 * `storageHash`: *string* - 32-byte SHA3 of the `storageRoot`
-  
+
 * `accountProof`: *array* of *strings* - list of RLP-encoded Merkle tree nodes, starting with the `stateRoot`
-  
+
 * `storageProof`: *array* of *objects* - list of storage entry objects with the following fields:
-  
+
     * `key`: *string* - storage key
 
     * `value`: *string* - storage value
@@ -4276,11 +4276,11 @@ None
 `result`: *array* of *strings* - array with the following items:
 
 * `header`: *string* - 32-byte hash of the current block header (PoW-hash)
-  
+
 * `seed`: *string* - 32-byte seed hash used for the DAG
-  
+
 * `target`: *string* - 32-byte required target boundary condition: 2^256 / difficulty
-  
+
 * `blockNumber`: *string* - hexadecimal integer representing the current block number
 
 !!! example
@@ -4651,7 +4651,7 @@ Submits the mining hashrate. This is used by mining software such as [Ethminer](
 #### Parameters
 
 * `hashrate`: *string* - 32-byte hexadecimal string representation of the hashrate
-  
+
 * `id`: *string* - 32-byte random hexadecimal ID identifying the client
 
 #### Returns
@@ -4690,9 +4690,9 @@ This is used by mining software such as [Ethminer](https://github.com/ethereum-m
 #### Parameters
 
 * `nonce`: *string* - retrieved 8-byte nonce
-  
+
 * `header`: *string* - 32-byte hash of the block header (PoW-hash)
-  
+
 * `digest`: *string* - 32-bytes mix digest
 
 #### Returns
@@ -4742,18 +4742,18 @@ synchronizing:
 
 * `startingBlock`: *string* - index of the highest block on the blockchain when the network
   synchronization starts
-  
+
 * `currentBlock`: *string* - index of the latest block (also known as the best block) for the
   current node (this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.)
-  
+
 * `highestBlock`: *string* - index of the highest known block in the peer network (that is, the
   highest block so far discovered among peer nodes. This is the same value as `currentBlock` if
   the current node has no peers.)
-  
+
 * `pulledStates`: *string* - if fast synchronizing, the number of state entries fetched so far,
   or `null` if this is not known or not relevant (if full synchronizing or fully synchronized, this
   field is not returned.)
-  
+
 * `knownStates`: *string* - if fast synchronizing, the number of states the node knows of so
   far, or `null` if this is not known or not relevant (if full synchronizing or fully synchronized,
   this field is not returned.)
@@ -4957,10 +4957,10 @@ remove a validator.
 Provides the following validator metrics for the specified range:
 
 * Number of blocks from each validator
-  
+
 * Block number of the last block proposed by each validator (if any proposed in the specified
   range)
-  
+
 * All validators present in the last block of the range
 
 #### Parameters
@@ -4976,7 +4976,7 @@ If you specify:
 
 * No parameters, the call provides metrics for the last 100 blocks, or all blocks if there are less
   than 100 blocks.
-  
+
 * Only the first parameter, the call provides metrics for all blocks from the block specified to
   the latest block.
 
@@ -5993,9 +5993,9 @@ Creates a group of nodes, specified by their [Tessera](https://docs.tessera.cons
 
 * `addresses`: *array* of *strings* - list of nodes specified by
   [Tessera](https://docs.tessera.consensys.net/) public keys
-  
+
 * `name`: *string* - (optional) privacy group name
-  
+
 * `description`: *string* - (optional) privacy group description
 
 #### Returns
@@ -6163,7 +6163,7 @@ members are A and B, a privacy group containing A, B, and C is not returned.
 or [Besu-extended](../../../private-networks/concepts/privacy/privacy-groups.md#besu-extended-privacy) with types:
 
 * `LEGACY` for EEA-compliant groups.
-  
+
 * `PANTHEON` for Besu-extended groups.
 
 !!! example
@@ -7493,7 +7493,7 @@ one object per call, in the order called by the transaction
                 "output" : "0x0000000000000000000000000000000000000000000000000000000000000001"
               },
               "subtraces" : 0,
-              "traceAddress" : [ 
+              "traceAddress" : [
                 0
               ],
               "transactionHash": "0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",
@@ -7510,7 +7510,7 @@ Traces a call to `eth_sendRawTransaction` without making the call, returning the
 
 !!! important
 
-    The requested transaction must be contained in a block within 
+    The requested transaction must be contained in a block within
     the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with
     [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
@@ -7830,7 +7830,7 @@ Lists pending transactions that match the supplied filter conditions.
 #### Parameters
 
 * `numResults`: *number* - integer representing the maximum number of results to return
-  
+
 * `fields`: *object* - object of fields used to create the filter condition
 
 Each field in the object corresponds to a field name containing an operator, and a value for the operator.
@@ -7853,11 +7853,11 @@ All filters must be satisfied for a transaction to be returned.
 Supported operators:
 
 * `eq` (equal to)
-  
+
 * `lt` (less than)
-  
+
 * `gt` (greater than)
-  
+
 * `action`
 
 !!! note
@@ -7921,9 +7921,9 @@ None
 
 * `maxSize`: *number* - maximum number of transactions kept in the transaction pool; use the
   [`--tx-pool-max-size`](../cli/options.md#tx-pool-max-size) option to configure the maximum size.
-  
+
 * `localCount`: *number* - number of transactions submitted directly to this node
-  
+
 * `remoteCount`: *number* - number of transactions received from remote nodes
 
 !!! example

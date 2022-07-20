@@ -105,7 +105,7 @@ Formally, `extraData` in the genesis block contains
     RLP encoding is a space-efficient object serialization scheme used in Ethereum.
 
 #### Generate extra data
-  
+
 To generate the `extraData` RLP string for inclusion in the genesis file, use the
 [`rlp encode`](../../../../global/reference/cli/subcommands.md#rlp) Besu subcommand.
 
@@ -176,7 +176,7 @@ To tune the block timeout for your network deployment:
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
-{!global/Config-Options.md!}
+--8<-- "global/Config-Options.md"
 
 ### Post-Merge configuration
 
@@ -476,11 +476,11 @@ To update an existing network with a new mining beneficiary:
                 "transitions": {
                   "ibft2": [
                       {
-                          "block": <FutureBlockNumber>, 
+                          "block": <FutureBlockNumber>,
                           "miningbeneficiary": <NewAddress>
                       },
                       {
-                          "block": <FutureBlockNumber>, 
+                          "block": <FutureBlockNumber>,
                           "miningbeneficiary": <NewAddress>
                       }
                   ]
@@ -507,11 +507,11 @@ To update an existing network with a new mining beneficiary:
                 "transitions": {
                   "ibft2": [
                   {
-                    "block": 10000, 
+                    "block": 10000,
                     "miningbeneficiary": "",
                   },
                   {
-                    "block": 20000, 
+                    "block": 20000,
                     "miningbeneficiary": "0x0000000000000000000000000000000000000002",
                   }
                   ]

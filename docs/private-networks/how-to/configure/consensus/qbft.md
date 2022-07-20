@@ -275,7 +275,7 @@ To tune the block timeout for your network deployment:
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
-{!global/Config-Options.md!}
+--8<-- "global/Config-Options.md"
 
 ### Post-Merge configuration
 
@@ -669,11 +669,11 @@ To update an existing network with a new mining beneficiary:
                 "transitions": {
                   "qbft": [
                   {
-                    "block": <FutureBlockNumber>, 
+                    "block": <FutureBlockNumber>,
                     "miningbeneficiary": <NewAddress>
                   },
                   {
-                    "block": <FutureBlockNumber>, 
+                    "block": <FutureBlockNumber>,
                     "miningbeneficiary": <NewAddress>
                   }
                   ]
@@ -697,11 +697,11 @@ To update an existing network with a new mining beneficiary:
                 "transitions": {
                   "qbft": [
                   {
-                    "block": 10000, 
+                    "block": 10000,
                     "miningbeneficiary": "0x0000000000000000000000000000000000000002",
                   },
                   {
-                    "block": 20000, 
+                    "block": 20000,
                     "miningbeneficiary": "",
                   }
                   ]

@@ -156,7 +156,7 @@ This tutorial uses [cURL](https://curl.haxx.se/download.html) to send JSON-RPC r
 
 You can also run all the requests with the Besu Postman collection.
 
-{!global/Postman.md!}
+--8<-- "global/Postman.md"
 
 ### Request the node version
 
@@ -245,7 +245,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 1. Choose one of the following test accounts and
     [import it into MetaMask by copying the corresponding private key](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
 
-{!global/test_accounts.md!}
+--8<-- "global/test_accounts.md"
 
 !!! note
 

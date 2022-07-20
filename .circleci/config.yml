@@ -58,6 +58,7 @@ jobs:
             done
             exit $status
 
+  # test the build with regular non-insider MkDocs Material theme for compatibility
   build:
     executor: python_executor
     steps:

@@ -73,14 +73,14 @@ nav:
         - How to:
             - Prepare for The Merge: public-networks/how-to/prepare-for-the-merge.md
             - Use the Besu API:
-                - Index: how-to/use-besu-api/index.md
-                - Use JSON-RPC over HTTP, WS, and IPC: how-to/use-besu-api/json-rpc.md
-                - Use RPC Pub/Sub over WS: how-to/use-besu-api/rpc-pubsub.md
-                - Use GraphQL over HTTP: how-to/use-besu-api/graphql.md
-                - Authenticate JSON-RPC requests: how-to/use-besu-api/authenticate.md
-                - Access logs using JSON-RPC: how-to/use-besu-api/access-logs.md
+                - Index: public-networks/how-to/use-besu-api/index.md
+                - Use JSON-RPC over HTTP, WS, and IPC: public-networks/how-to/use-besu-api/json-rpc.md
+                - Use RPC Pub/Sub over WS: public-networks/how-to/use-besu-api/rpc-pubsub.md
+                - Use GraphQL over HTTP: public-networks/how-to/use-besu-api/graphql.md
+                - Authenticate JSON-RPC requests: public-networks/how-to/use-besu-api/authenticate.md
+                - Access logs using JSON-RPC: public-networks/how-to/use-besu-api/access-logs.md
             - Use the Engine API: public-networks/how-to/use-engine-api.md
-            - Create and send transactions: how-to/send-transactions.md
+            - Create and send transactions: public-networks/how-to/send-transactions.md
             - Connect to a network:
                 - Sync Besu: public-networks/how-to/connect/sync-node.md
                 - Configure static nodes: public-networks/how-to/connect/static-nodes.md
@@ -114,19 +114,19 @@ nav:
             - Run Besu and Teku on the Merge testnet: public-networks/tutorials/merge-testnet.md
         - Reference:
             - Besu command line:
-                - Options: reference/cli/options.md
-                - Subcommands: reference/cli/subcommands.md
+                - Options: public-networks/reference/cli/options.md
+                - Subcommands: public-networks/reference/cli/subcommands.md
             - Besu API:
-                - Index: reference/api/index.md
-                - Objects: reference/api/objects.md
+                - Index: public-networks/reference/api/index.md
+                - Objects: public-networks/reference/api/objects.md
             - Engine API:
                 - Index: public-networks/reference/engine-api/index.md
                 - Objects: public-networks/reference/engine-api/objects.md
-            - Genesis file items: reference/genesis-items.md
-            - EVM tool options: reference/evm-tool.md
-            - Transaction trace types: reference/trace-types.md
-            - Projects using Besu: reference/projects-using-besu.md
-            - Security disclosure policy: reference/disclosure.md
+            - Genesis file items: public-networks/reference/genesis-items.md
+            - EVM tool options: public-networks/reference/evm-tool.md
+            - Transaction trace types: public-networks/reference/trace-types.md
+            - Projects using Besu: public-networks/reference/projects-using-besu.md
+            - Security disclosure policy: public-networks/reference/disclosure.md
     - Private networks:
         - Index: private-networks/index.md
         - Get started:
@@ -156,14 +156,14 @@ nav:
                 - Pass JVM options: private-networks/how-to/configure/pass-jvm-options.md
                 - Mining: private-networks/how-to/configure/mining.md
             - Use the Besu API:
-                - Index: how-to/use-besu-api/index.md
-                - Use JSON-RPC over HTTP, WS, and IPC: how-to/use-besu-api/json-rpc.md
-                - Use RPC Pub/Sub over WS: how-to/use-besu-api/rpc-pubsub.md
-                - Use GraphQL over HTTP: how-to/use-besu-api/graphql.md
-                - Authenticate JSON-RPC requests: how-to/use-besu-api/authenticate.md
-                - Access logs using JSON-RPC: how-to/use-besu-api/access-logs.md
+                - Index: private-networks/how-to/use-besu-api/index.md
+                - Use JSON-RPC over HTTP, WS, and IPC: private-networks/how-to/use-besu-api/json-rpc.md
+                - Use RPC Pub/Sub over WS: private-networks/how-to/use-besu-api/rpc-pubsub.md
+                - Use GraphQL over HTTP: private-networks/how-to/use-besu-api/graphql.md
+                - Authenticate JSON-RPC requests: private-networks/how-to/use-besu-api/authenticate.md
+                - Access logs using JSON-RPC: private-networks/how-to/use-besu-api/access-logs.md
             - Create and send transactions:
-                - Index: how-to/send-transactions.md
+                - Index: private-networks/how-to/send-transactions/index.md
                 - Create and send private transactions: private-networks/how-to/send-transactions/private-transactions.md
                 - Send concurrent private transactions: private-networks/how-to/send-transactions/concurrent-private-transactions.md
                 - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
@@ -264,17 +264,17 @@ nav:
             - Deploy using Microsoft Azure: private-networks/tutorials/azure.md
         - Reference:
             - Besu command line:
-                - Options: reference/cli/options.md
-                - Subcommands: reference/cli/subcommands.md
+                - Options: private-networks/reference/cli/options.md
+                - Subcommands: private-networks/reference/cli/subcommands.md
             - Besu API:
-                - Index: reference/api/index.md
-                - Objects: reference/api/objects.md
-            - Genesis file items: reference/genesis-items.md
+                - Index: private-networks/reference/api/index.md
+                - Objects: private-networks/reference/api/objects.md
+            - Genesis file items: private-networks/reference/genesis-items.md
             - Accounts for testing: private-networks/reference/accounts-for-testing.md
-            - EVM tool options: reference/evm-tool.md
-            - Transaction trace types: reference/trace-types.md
-            - Projects using Besu: reference/projects-using-besu.md
-            - Security disclosure policy: reference/disclosure.md
+            - EVM tool options: private-networks/reference/evm-tool.md
+            - Transaction trace types: private-networks/reference/trace-types.md
+            - Projects using Besu: private-networks/reference/projects-using-besu.md
+            - Security disclosure policy: private-networks/reference/disclosure.md
 
 markdown_extensions:
     - toc:
@@ -331,12 +331,12 @@ plugins:
           HowTo/Get-Started/Install-Binaries.md: public-networks/get-started/install/binary-distribution.md
           HowTo/Get-Started/Build-from-source.md: public-networks/get-started/install/index.md
           HowTo/Get-Started/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
-          HowTo/Deploy/High-Availability.md: how-to/configure/Configure-HA/High-Availability.md
-          HowTo/Deploy/Monitoring-Performance.md: how-to/monitor/metrics.md
+          HowTo/Deploy/High-Availability.md: global/how-to/configure/Configure-HA/High-Availability.md
+          HowTo/Deploy/Monitoring-Performance.md: public-networks/how-to/monitor/metrics.md
           HowTo/Upgrade/Upgrade-Network.md: public-networks/how-to/node.md
           HowTo/Find-and-Connect/Using-UPnP.md: public-networks/how-to/connect/specify-nat.md
           HowTo/Use-Privacy/Run-Orion-With-Besu.md: private-networks/how-to/use-privacy/tessera.md
-          Concepts/Transactions/Trace-Types.md: reference/trace-types.md
+          Concepts/Transactions/Trace-Types.md: public-networks/reference/trace-types.md
           HowTo/Develop-Dapps/Use-web3js.md: public-networks/how-to/develop/client-libraries.md
           Concepts/Client-Libraries.md: public-networks/how-to/develop/client-libraries.md
           Concepts/Privacy/Onchain-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
@@ -366,15 +366,15 @@ plugins:
           HowTo/Get-Started/Installation-Options/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
           HowTo/Get-Started/Starting-node.md: public-networks/get-started/start-node.md
           HowTo/Upgrade/Prepare-for-The-Merge.md: public-networks/how-to/prepare-for-the-merge.md
-          HowTo/Interact/APIs/API.md: how-to/use-besu-api/index.md
-          HowTo/Interact/APIs/Using-JSON-RPC-API.md: how-to/use-besu-api/json-rpc.md
-          HowTo/Interact/APIs/RPC-PubSub.md: how-to/use-besu-api/rpc-pubsub.md
-          HowTo/Interact/APIs/GraphQL.md: how-to/use-besu-api/graphql.md
-          HowTo/Interact/APIs/Authentication.md: how-to/use-besu-api/authenticate.md
+          HowTo/Interact/APIs/API.md: public-networks/how-to/use-besu-api/index.md
+          HowTo/Interact/APIs/Using-JSON-RPC-API.md: public-networks/how-to/use-besu-api/json-rpc.md
+          HowTo/Interact/APIs/RPC-PubSub.md: public-networks/how-to/use-besu-api/rpc-pubsub.md
+          HowTo/Interact/APIs/GraphQL.md: public-networks/how-to/use-besu-api/graphql.md
+          HowTo/Interact/APIs/Authentication.md: public-networks/how-to/use-besu-api/authenticate.md
           HowTo/Interact/APIs/Engine-API.md: public-networks/how-to/use-engine-api.md
-          HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md: how-to/use-besu-api/access-logs.md
-          HowTo/Send-Transactions/Transactions.md: how-to/send-transactions.md
-          HowTo/Send-Transactions/Account-Management.md: how-to/send-transactions.md
+          HowTo/Interact/Filters/Accessing-Logs-Using-JSON-RPC.md: public-networks/how-to/use-besu-api/access-logs.md
+          HowTo/Send-Transactions/Transactions.md: public-networks/how-to/send-transactions.md
+          HowTo/Send-Transactions/Account-Management.md: public-networks/how-to/send-transactions.md
           HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md: private-networks/how-to/send-transactions/private-transactions.md
           HowTo/Send-Transactions/Concurrent-Private-Transactions.md: private-networks/how-to/send-transactions/concurrent-private-transactions.md
           HowTo/Send-Transactions/Revert-Reason.md: private-networks/how-to/send-transactions/revert-reason.md
@@ -405,17 +405,17 @@ plugins:
           Concepts/Node-Keys.md: public-networks/concepts/node-keys.md
           Concepts/Data-Storage-Formats.md: public-networks/concepts/data-storage-formats.md
           Tutorials/Merge-Testnet.md: public-networks/tutorials/merge-testnet.md
-          Reference/CLI/CLI-Syntax.md: reference/cli/options.md
-          Reference/CLI/CLI-Subcommands.md: reference/cli/subcommands.md
-          Reference/API-Methods.md: reference/api/index.md
-          Reference/API-Objects.md: reference/api/objects.md
+          Reference/CLI/CLI-Syntax.md: public-networks/reference/cli/options.md
+          Reference/CLI/CLI-Subcommands.md: public-networks/reference/cli/subcommands.md
+          Reference/API-Methods.md: public-networks/reference/api/index.md
+          Reference/API-Objects.md: public-networks/reference/api/objects.md
           Reference/Engine-API-Methods.md: public-networks/reference/engine-api/index.md
           Reference/Engine-API-Objects.md: public-networks/reference/engine-api/objects.md
-          Reference/Config-Items.md: reference/genesis-items.md
-          Reference/Evm-Tool.md: reference/evm-tool.md
-          Reference/Trace-Types.md: reference/trace-types.md
-          Reference/Projects-Using-Besu.md: reference/projects-using-besu.md
-          Reference/Responsible-Disclosure.md: reference/disclosure.md
+          Reference/Config-Items.md: public-networks/reference/genesis-items.md
+          Reference/Evm-Tool.md: public-networks/reference/evm-tool.md
+          Reference/Trace-Types.md: public-networks/reference/trace-types.md
+          Reference/Projects-Using-Besu.md: public-networks/reference/projects-using-besu.md
+          Reference/Responsible-Disclosure.md: public-networks/reference/disclosure.md
           HowTo/Configure/Consensus-Protocols/Clique.md: private-networks/how-to/configure/consensus/clique.md
           HowTo/Configure/Consensus-Protocols/IBFT.md: private-networks/how-to/configure/consensus/ibft.md
           HowTo/Configure/Consensus-Protocols/QBFT.md: private-networks/how-to/configure/consensus/qbft.md

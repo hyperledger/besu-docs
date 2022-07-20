@@ -17,7 +17,7 @@ Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) an
 Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java 11+ if using the Besu and Teku binary distributions.
 
-Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements).
+Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements/System-Requirements-Public.md).
 
 ## 2. Generate the shared secret
 
@@ -134,7 +134,7 @@ Specify:
 See the Teku [`--validators-*`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validator-keys)
 options for more information on running Teku as a validator.
 
-## 6. Check validator status
+## After starting Besu and Teku
 
 After starting Besu and Teku, your node should start syncing and connecting to peers.
 
@@ -160,6 +160,4 @@ After starting Besu and Teku, your node should start syncing and connecting to p
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-You can check your validator status by searching your Ethereum address on the
-[Kiln Beacon Chain explorer](https://beaconchain.kiln.themerge.dev/).
-It may take up to multiple days for your validator to reach `active` status.
+It may take up to multiple days for your validator to be activated and start proposing blocks.

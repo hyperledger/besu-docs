@@ -7,8 +7,7 @@ description: Collect Besu information with the OpenTelemetry Collector
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces.
 To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 and [`--metrics-protocol=opentelemetry`](../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
-Use [Splunk APM](https://www.splunk.com/en_us/software/splunk-apm.html) or [Splunk](https://splunk.com) to visualize the
-collected data.
+Use [Splunk](https://splunk.com) to visualize the collected data.
 A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
 
 !!! example
@@ -139,7 +138,7 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
           otel/opentelemetry-collector-contrib:latest
         ```
 
-    You can also refer to this [Docker-compose example](https://github.com/splunk/splunk-connect-for-ethereum/blob/master/examples/besu-sync/full-sync/docker-compose.yaml).
+    You can also refer to this [Docker-compose example](https://github.com/splunk/splunk-connect-for-ethereum/blob/989dc2ccae7d8235bf3ce2a83a18cf0cd1713294/examples/besu-sync/full-sync/docker-compose.yaml).
 
 1. Start Besu with the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) and
    [`--metrics-protocol=opentelemetry`](../../Reference/CLI/CLI-Syntax.md#metrics-protocol) options.
@@ -157,7 +156,7 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
         OTEL_EXPORTER_OTLP_ENDPOINT=https://localhost:4317 besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
         ```
 
-    The [OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/sdk-environment-variables.md)
+    The [OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/8f7cdb73618a0b3afa9532b8f8103d719e352781/specification/sdk-environment-variables.md)
     mandates how to configure the OpenTelemetry gRPC client, so data flows to the collector from Besu.
 
     You can use the following environment variables:

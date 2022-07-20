@@ -77,7 +77,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 {
   "config":{
     "chainId":1337,
-    "londonBlock": 0,
+    "berlinBlock": 0,
     "clique":{
       "blockperiodseconds":15,
       "epochlength":30000

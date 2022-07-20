@@ -208,7 +208,7 @@ To run the Besu launcher:
 besu --Xlauncher
 ```
 
-Answer each of question, or press ++Enter++ to accept the default value.
+Answer each question, or press ++Enter++ to accept the default value.
 
 ```bash
 ? Which Ethereum network would you like to use ? rinkeby

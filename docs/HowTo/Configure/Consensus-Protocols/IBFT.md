@@ -10,7 +10,7 @@ consensus protocol for private networks.
 
 In IBFT 2.0 networks, approved accounts, known as validators, validate transactions and blocks.
 Validators take turns to create the next block. Before inserting the block onto the chain, a
-super-majority (greater than 66%) of validators must first sign the block.
+super-majority (greater than or equal to 2/3) of validators must first sign the block.
 
 Existing validators propose and vote to [add or remove validators](#add-and-remove-validators).
 
@@ -18,7 +18,7 @@ You can [create a private network using IBFT](../../../Tutorials/Private-Network
 
 !!! important
 
-    Configure your network to ensure you never lose 1/3 or more of your validators. If more
+    Configure your network to ensure you never lose more than 1/3 of your validators. If more
     than 1/3 of validators stop participating, new blocks are no longer created, and the
     network stalls. It may take significant time to recover once nodes are restarted.
 
@@ -38,7 +38,7 @@ specific to IBFT 2.0.
       {
         "config": {
           "chainId": 1981,
-          "londonBlock": 0,
+          "berlinBlock": 0,
           "ibft2": {
             "blockperiodseconds": 2,
             "epochlength": 30000,
@@ -465,7 +465,7 @@ To update an existing network with a new mining beneficiary:
             {
               "config": {
                 "chainId": 999,
-                "byzantiumBlock": 0,
+                "berlinBlock": 0,
                 "ibft2": {
                   "blockperiodseconds": 1,
                   "epochlength": 30000,
@@ -496,7 +496,7 @@ To update an existing network with a new mining beneficiary:
             {
               "config": {
                 "chainId": 999,
-                "byzantiumBlock": 0,
+                "berlinBlock": 0,
                 "ibft2": {
                   "blockperiodseconds": 1,
                   "epochlength": 30000,

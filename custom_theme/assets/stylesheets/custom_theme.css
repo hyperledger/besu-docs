@@ -47,7 +47,7 @@
 
 .md-footer a[href^="http"]:after,
 .feedback a[href^="http"]:after,
-.md-content a[href^="http"]:not(.md-content__icon):after {
+.md-content a[href^="http"]:not(.md-content__icon):not(.md-content__button):after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: small;

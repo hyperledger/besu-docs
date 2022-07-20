@@ -36,8 +36,10 @@ To run a node with Bonsai Tries data storage format, use the command line option
 ### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai.
-With an archive node, forest mode uses an estimated 12 TB of storage, while Bonsai uses an estimated 1100 GB of storage.
-With a full node, forest mode uses an estimated 7 TB of storage, while Bonsai uses an estimated 790 GB of storage.
+With an [archive node](Node-Types.md#run-an-archive-node), forest mode uses an estimated 12 TB of
+storage, while Bonsai uses an estimated 1100 GB of storage.
+With a [full node](Node-Types.md#run-a-full-node), forest mode uses an estimated 7 TB of storage,
+while Bonsai uses an estimated 790 GB of storage.
 
 ### Accessing data
 

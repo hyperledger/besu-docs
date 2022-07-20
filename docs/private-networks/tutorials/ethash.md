@@ -17,7 +17,7 @@ public testnets.
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../global/get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -27,7 +27,7 @@ Listed on the right-hand side of the page are the steps to create a private netw
 ### 1. Create directories
 
 Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
-[node key](../../global/concepts/node-keys.md) in this directory.
+[node key](../concepts/node-keys.md) in this directory.
 
 Create directories for your private network, each of the three nodes, and a data directory for each
 node:
@@ -49,7 +49,7 @@ blockchain). The genesis file includes entries for configuring the blockchain, s
 difficulty and initial accounts and balances.
 
 All nodes in a network must use the same genesis file. The
-[network ID](../../global/concepts/network-and-chain-id.md) defaults to the `chainID` in the genesis
+[network ID](../concepts/network-and-chain-id.md) defaults to the `chainID` in the genesis
 file. The `fixeddifficulty` enables fast block mining.
 
 Copy the following genesis definition to a file called `privateNetworkGenesis.json` and save it in
@@ -212,12 +212,12 @@ Import accounts to MetaMask and send transactions as described in the
     Besu doesn't support [private key management](../../how-to/send-transactions.md).
 
 Send transactions using `eth_sendRawTransaction` to
-[send ether or, deploy or invoke contracts](../../global/how-to/send-transactions.md).
+[send ether or, deploy or invoke contracts](../how-to/send-transactions/index.md).
 
-Use the [JSON-RPC API](../../global/how-to/use-besu-api/json-rpc.md).
+Use the [JSON-RPC API](../how-to/use-besu-api/json-rpc.md).
 
 Start a node with the [`--rpc-ws-enabled`](../../global/reference/cli/options.md#rpc-ws-enabled) option
-and use the [RPC Pub/Sub API](../../global/how-to/use-besu-api/rpc-pubsub.md).
+and use the [RPC Pub/Sub API](../how-to/use-besu-api/rpc-pubsub.md).
 
 ## Stop the nodes
 

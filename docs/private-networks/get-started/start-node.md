@@ -2,18 +2,17 @@
 description: Starting Hyperledger Besu
 ---
 
-# Starting Hyperledger Besu
+# Start Hyperledger Besu
 
-You can use Besu nodes for varying purposes, as described in the [Overview](../../index.md). Nodes
-can connect to the Ethereum Mainnet, public testnets such as Ropsten, or private networks.
+Nodes can connect to the Ethereum Mainnet, public testnets such as Ropsten, or private networks.
 
-Use the [`besu`](../../global/reference/cli/options.md) command with the required command line options
+Use the [`besu`](../reference/cli/options.md) command with the required command line options
 to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
 with the most common options.
 
 ## Prerequisites
 
-[Besu Installed](../../global/get-started/install/binary-distribution.md)
+[Besu installed](install/binary-distribution.md)
 
 ## Local block data
 
@@ -62,7 +61,7 @@ by starting Besu with [`--data-storage-format=BONSAI`](../../global/reference/cl
 
 If you started Besu with the
 [`--rpc-http-enabled`](../../global/reference/cli/options.md#rpc-http-enabled) option, use
-[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../../global/reference/api/index.md) to
+[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../reference/api/index.md) to
 confirm the node is running.
 
 !!!example
@@ -101,7 +100,7 @@ To run a node that mines blocks at a rate suitable for testing purposes:
 besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
-You can also use the following [configuration file](../../global/how-to/configure/configuration-file.md)
+You can also use the following [configuration file](../how-to/configure/configuration-file.md)
 on the command line to start a node with the same options as above:
 
 ```toml
@@ -192,7 +191,7 @@ besu --rpc-http-enabled
 ## Besu launcher
 
 Use the Besu launcher to interactively configure and start a node with the most common options. The
-launcher asks a series of questions and generates a [configuration file](../../global/how-to/configure/configuration-file.md).
+launcher asks a series of questions and generates a [configuration file](../how-to/configure/configuration-file.md).
 
 To run the Besu launcher:
 

@@ -27,7 +27,7 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 
 ## Specify a bootnode
 
-To start a node, specify a bootnode [enode](../../../global/concepts/node-keys.md) for P2P discovery,
+To start a node, specify a bootnode [enode](../../concepts/node-keys.md) for P2P discovery,
 using the [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option.
 
 !!! example
@@ -58,7 +58,7 @@ itself.
 
 To ensure a bootnode enode doesn't change when recovering from a complete bootnode failure:
 
-1. Create the [node key pair](../../../global/concepts/node-keys.md) (that is, the private and public key)
+1. Create the [node key pair](../../concepts/node-keys.md) (that is, the private and public key)
    before starting the bootnode.
 1. When creating bootnodes in the cloud (for example, AWS and Azure), attempt to assign a static IP
    address to them. If your network is:
@@ -85,5 +85,5 @@ command line option for each node to include the new bootnodes.
 
 When adding bootnodes, you don't need to restart running nodes. By updating the
 [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option, the next time you restart the
-nodes (for example, when [upgrading](../../../global/how-to/upgrade/node.md)), the nodes connect to the new
+nodes (for example, when [upgrading](../../how-to/upgrade/node.md)), the nodes connect to the new
 bootnodes.

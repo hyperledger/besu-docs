@@ -23,7 +23,7 @@ You can [create a private network using Clique](../../../tutorials/clique.md).
 
 ## Genesis file
 
-To use Clique in a private network, Besu requires a Clique [genesis file](../../../../global/concepts/genesis-file.md). When connecting to Rinkeby,
+To use Clique in a private network, Besu requires a Clique [genesis file](../../../concepts/genesis-file.md). When connecting to Rinkeby,
 Besu uses the
 [`rinkeby.json`](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/config/src/main/resources/rinkeby.json)
 genesis file in the `/besu/config/src/main/resources` directory.

@@ -58,7 +58,7 @@ Use the value returned by
 address of the [privacy precompiled contract](../../concepts/privacy/private-transactions/processing.md), in the `to`
 field of the call.
 
-By using the [public Ethereum transaction](../../../global/how-to/send-transactions.md),
+By using the [public Ethereum transaction](../../how-to/send-transactions/index.md),
 [`eth_sendRawTransaction`](../../../global/reference/api/index.md#eth_sendrawtransaction), you are signing
 and submitting the PMT yourself instead of having it signed by the Besu node, giving you greater control over the PMT.
 

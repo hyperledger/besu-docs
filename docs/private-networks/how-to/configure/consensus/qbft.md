@@ -28,7 +28,7 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 
 ## Genesis file
 
-To use QBFT, define a [genesis file](../../../../global/concepts/genesis-file.md) that contains the QBFT properties.
+To use QBFT, define a [genesis file](../../../concepts/genesis-file.md) that contains the QBFT properties.
 
 The genesis file differs depending on the [validator management method](#add-and-remove-validators) you intend to use.
 

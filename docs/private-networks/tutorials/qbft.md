@@ -21,7 +21,7 @@ steps in the [example smart contract repository].
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../global/get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps

@@ -17,12 +17,12 @@ file under source control.
 If installed locally, the default data location is the Besu installation directory.
 
 We recommend mounting a
-[separate volume to store data](../../global/get-started/install/run-docker-image.md#starting-besu). Use the
+[separate volume to store data](../get-started/install/run-docker-image.md). Use the
 [`--data-path`](../../global/reference/cli/options.md#data-path) command line option to pass the path
 to Besu.
 
 The default data location is the Besu installation directory, or `/opt/besu/database` if using the
-[Besu Docker image](../../global/get-started/install/run-docker-image.md).
+[Besu Docker image](../get-started/install/run-docker-image.md).
 
 Having some data reduces the time to synchronize a new node. You can perform periodic backups of
 the data directory and send the data to your preferred backup mechanism. For example, `cron` job and
@@ -52,4 +52,4 @@ The process for finding peers after restarting is the same as for
 [finding peers after upgrading and restarting].
 
 <!-- Links -->
-[finding peers after upgrading and restarting]: ../../global/how-to/upgrade/node.md#finding-peers-on-restarting
+[finding peers after upgrading and restarting]: ../how-to/upgrade/node.md

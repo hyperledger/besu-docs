@@ -331,7 +331,7 @@ plugins:
           HowTo/Get-Started/Install-Binaries.md: public-networks/get-started/install/binary-distribution.md
           HowTo/Get-Started/Build-from-source.md: public-networks/get-started/install/index.md
           HowTo/Get-Started/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
-          HowTo/Deploy/High-Availability.md: global/how-to/configure/Configure-HA/High-Availability.md
+          # HowTo/Deploy/High-Availability.md: global/how-to/configure/Configure-HA/High-Availability.md
           HowTo/Deploy/Monitoring-Performance.md: public-networks/how-to/monitor/metrics.md
           HowTo/Upgrade/Upgrade-Network.md: public-networks/how-to/node.md
           HowTo/Find-and-Connect/Using-UPnP.md: public-networks/how-to/connect/specify-nat.md

@@ -17,7 +17,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../../global/get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps

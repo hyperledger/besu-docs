@@ -14,7 +14,7 @@ uses the [IBFT 2.0 proof of authority consensus protocol].
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../../global/get-started/install/binary-distribution.md)
+- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
 - [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps

@@ -92,10 +92,10 @@ When execution is successfully finished, the process lists the available service
 - Use the **Web block explorer address** to display the [block explorer Web application](http://localhost:25000).
 - Use the **Prometheus address** to access the
   [Prometheus dashboard](http://localhost:9090/graph).
-  [Read more about metrics](../../global/how-to/monitor/metrics.md).
+  [Read more about metrics](../how-to/monitor/metrics.md).
 - Use the **Grafana address** to access the
   [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All).
-  [Read more about metrics](../../global/how-to/monitor/metrics.md).
+  [Read more about metrics](../how-to/monitor/metrics.md).
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
   [Read more about log management](../how-to/monitor/elastic-stack.md).
@@ -135,7 +135,7 @@ You can directly access these tools from your browser at the addresses displayed
 - [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
 
 For more details on how to configure and use these tools for your own nodes, see the
-[performances monitoring documentation](../../global/how-to/monitor/metrics.md),
+[performances monitoring documentation](../how-to/monitor/metrics.md),
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 

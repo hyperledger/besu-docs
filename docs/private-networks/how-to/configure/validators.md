@@ -6,7 +6,7 @@ description: Configuring validators in production networks
 
 As when [configuring bootnodes](../connect/bootnodes.md):
 
-1. Create the [node key pair](../../../global/concepts/node-keys.md) (that is, the private and public key)
+1. Create the [node key pair](../../concepts/node-keys.md) (that is, the private and public key)
    before starting the validator.
 1. When creating validators in the cloud (for example, AWS or Azure), attempt to assign static IP
    addresses to them. If your network is:
@@ -38,4 +38,4 @@ If you remove a validator that is also a bootnode, ensure there are enough remai
 the network.
 
 <!-- Links -->
-[vote validators in or out of the validator pool]: consensus/ibft.md#adding-and-removing-validators
+[vote validators in or out of the validator pool]: consensus/ibft.md#add-and-remove-validators

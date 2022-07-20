@@ -11,7 +11,7 @@ as a [consensus client](../concepts/the-merge.md#consensus-clients) on the
 
 ## 1. Install Besu and Teku
 
-Install [Besu](../../global/get-started/install/binary-distribution.md) and
+Install [Besu](../get-started/install/binary-distribution.md) and
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.

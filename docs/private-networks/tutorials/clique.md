@@ -14,7 +14,7 @@ A private network provides a configurable network for testing. This private netw
 
 ## Prerequisites
 
-* [Hyperledger Besu](../../global/get-started/install/binary-distribution.md)
+* [Hyperledger Besu](../get-started/install/binary-distribution.md)
 * [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -118,7 +118,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 In `extraData`, replace `<Node 1 Address>` with the
-[address for Node-1](#2-get-address-for-node-1), excluding the 0x prefix.
+[address for Node-1](#2-get-the-address-for-node-1), excluding the 0x prefix.
 
 !!! example
 
@@ -221,8 +221,8 @@ The command line specifies:
   [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
 * The data directory for Node-3 using the
   [`--data-path`](../../global/reference/cli/options.md#data-path) option.
-* The bootnode as for [Node-2](#6-start-node-2)
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* The bootnode as for [Node-2](#5-start-node-2).
+* Other options as for [Node-1](#4-start-the-first-node-as-the-bootnode).
 
 ### 7. Confirm the private network is working
 

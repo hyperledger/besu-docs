@@ -108,7 +108,7 @@ You need Besu version 22.4.3 or later to use checkpoint sync.
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
-file](../../../global/concepts/genesis-file.md).
+file](../../concepts/genesis-file.md).
 
 You can configure a checkpoint in the genesis file by specifying the block hash, number, and total
 difficulty as in the following example.

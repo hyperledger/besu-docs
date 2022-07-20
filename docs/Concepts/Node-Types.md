@@ -15,8 +15,7 @@ Archive nodes have all of this and they also store the intermediary state of eve
 contract for every block since the genesis block. An archive node can do everything a full node
 does, and it can access historical state data.
 
-For Besu on Mainnet, archive nodes require significantly more disk space (approximately 3TB) than
-full nodes (approximately 750GB).
+For Besu on Mainnet, archive nodes [require more disk space](Data-Storage-Formats.md#storage-requirements) than full nodes.
 
 !!! note
 

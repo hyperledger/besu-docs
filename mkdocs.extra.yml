@@ -34,8 +34,3 @@ extra:
     tag_manager: 'GTM-TS3WLJM'
   logo_regular: logo.svg
   logo_reversed: logo-reversed.svg
-
-extra_css:
-  - assets/stylesheets/custom_theme.css
-extra_javascript:
-  - assets/javascripts/custom_theme.js

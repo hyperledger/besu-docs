@@ -70,6 +70,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
+            pip install -q -r CI/requirements-mkdocs-material.txt
             pip install -q -r CI/requirements.txt
       - save_cache:
           paths:

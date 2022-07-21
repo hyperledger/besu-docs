@@ -40,6 +40,7 @@ markdown_extensions:
   - meta
   - smarty
   - attr_list
+  - md_in_html
 
 # Extensions list requires the object list format without dashes and with {} for empty entries.
 plugins:

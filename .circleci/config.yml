@@ -72,8 +72,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install --upgrade pip
-            pip install -q -r CI/requirements-mkdocs-material.txt
-            pip install -q -r CI/requirements.txt
+            pip install -q -r CI/requirements-mkdocs-material.txt -r CI/requirements.txt
       - save_cache:
           paths:
             - ./venv

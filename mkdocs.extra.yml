@@ -30,6 +30,20 @@ extra:
   analytics:
     provider: google
     property: 'G-23GVTD3LEQ'
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using suggesting a change our <a href="..." target=_blank>feedback form</a>.
   logo_regular: logo.svg
   logo_reversed: logo-reversed.svg
   consent:

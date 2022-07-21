@@ -2,27 +2,30 @@
 
 :root, [data-md-color-scheme=default] {
   --mdx-version-notice-bg-color: #ff8721;
-  --mdx-footer-bg-color: #00bda4;
+  --mdx-custom-footer-bg-color: #00bda4;
+  --mdx-custom-footer-fg-color: #000;
   --mdx-admonition-critical-border-color: rgb(220, 0, 0);
   --mdx-admonition-critical-bg-color: rgb(250, 150, 150);
   --mdx-admonition-critical-title-color: #FFF;
 }
 :root, [data-md-color-scheme=slate] {
   --mdx-version-notice-bg-color: #d26000;
-  --mdx-footer-bg-color: #008c7b;
+  --mdx-custom-footer-bg-color: #008c7b;
+  --mdx-custom-footer-fg-color: #fff;
   --mdx-admonition-critical-border-color: rgb(220, 0, 0);
   --mdx-admonition-critical-bg-color: rgb(160, 0, 0);
   --mdx-admonition-critical-title-color: #FFF;
 }
 
 /*Footer feedback banner*/
-.feedback{
+.custom-footer{
   padding: 1em;
   text-align: center;
-  background-color: var(--mdx-footer-bg-color);
+  color: var(--mdx-custom-footer-fg-color);
+  background-color: var(--mdx-custom-footer-bg-color);
 }
-.feedback a {
-  color: var(--md-typeset-color) !important;
+.custom-footer a {
+  color: var(--mdx-custom-footer-fg-color) !important;
 }
 
 /*Navigation customisation*/

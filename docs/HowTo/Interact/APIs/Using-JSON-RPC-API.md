@@ -216,8 +216,8 @@ and the number of blocks tolerance.
 
 ### Liveness
 
-The liveness check requires the JSON-RPC server to be up. The returned status will always be `UP`.
-By calling the endpoint you can verify that the node can respond to RPC calls.
+The liveness check requires the JSON-RPC server to be up. You can use the endpoint to verify that
+the node can respond to RPC calls. The status in the response will always be `UP`.
 
 === "Liveness endpoint"
 

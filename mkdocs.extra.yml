@@ -60,3 +60,12 @@ extra:
       - accept
       - reject
       - manage
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hyperledger/besu/
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/hyperledger
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/hyperledger/besu/tags
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/HyperledgerBesu

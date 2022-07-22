@@ -9,6 +9,10 @@
 # specific language governing permissions and limitations under the License.
 INHERIT: mkdocs.yml # DO NOT MODIFY THIS LINE
 
+plugins:
+  meta:
+    meta_file: '**/.meta.yml'
+
 extra:
   # indicates to the templating system that the current build uses insider
   # used to display insider only features in templates and prevent build fail on the normal version.

@@ -67,12 +67,17 @@
   width: inherit;
 }
 
+/*Page footer*/
 .md-footer-copyright {
     max-width: 100% !important;
 }
 
+/*.md-footer-meta__inner{*/
+/*  flex: unset;*/
+/*}*/
+
 /*External links arrow symbol*/
-.md-footer a[href^="http"]:after,
+.md-footer a[href^="http"]:not(.md-social__link):after,
 .feedback a[href^="http"]:after,
 .md-content a[href^="http"]:not(.md-content__icon):not(.md-content__button):after {
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -92,7 +97,6 @@
 }
 
 /*Critical admonition design*/
-
 :root {
   --md-admonition-icon--critical: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21z'/></svg>")
 }

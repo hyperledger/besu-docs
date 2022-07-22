@@ -16,4 +16,7 @@
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 {% endif %}
 {{ page.content }}
-{% include "partials/feedback.html" %}
+
+{% if config.extra.is_insider %}
+  {% include "partials/feedback.html" %}
+{% endif %}

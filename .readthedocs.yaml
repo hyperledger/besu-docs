@@ -16,5 +16,5 @@ python:
     - requirements: CI/requirements.txt
 
 mkdocs:
-  configuration: mkdocs.yml
-  fail_on_warning: false
+  configuration: mkdocs.insider.yml
+  fail_on_warning: true

@@ -42,7 +42,7 @@ You can [create and send private transactions](../../../how-to/send-transactions
 Besu and Tessera nodes both have public/private key pairs identifying them.
 A Besu node sending a private transaction to a Tessera node signs the transaction with the Besu node private key.
 The `privateFrom` and `privateFor` parameters specified in the RLP-encoded transaction string for
-[`eea_sendRawTransaction`](../../../../global/reference/api/index.md#eea_sendrawtransaction) are the public keys of the Tessera
+[`eea_sendRawTransaction`](../../../../public-networks/reference/api/index.md#eea_sendrawtransaction) are the public keys of the Tessera
 nodes sending and receiving the transaction.
 
 !!! important
@@ -68,11 +68,11 @@ That is, the nonce for account A for privacy group ABC is different to the nonce
 
 ### Private nonce validation
 
-Unlike public transactions, private transactions are not submitted to the [transaction pool](../../../../global/concepts/Transactions/Transaction-Pool.md).
+Unlike public transactions, private transactions are not submitted to the [transaction pool](../../../../public-networks/concepts/transactions/pool.md).
 The private transaction is distributed directly to the participants in the transaction, and the PMT is submitted to the
 transaction pool.
 
-Unlike [public transaction nonces](../../../../global/concepts/Transactions/Transaction-Validation.md), private transaction nonces aren't
+Unlike [public transaction nonces](../../../../public-networks/concepts/transactions/validation.md), private transaction nonces aren't
 validated when the private transaction is submitted.
 If a private transaction has an incorrect nonce, the PMT is still valid and is added to a block.
 However, in this scenario, the private transaction execution fails when [processing the PMT](processing.md)
@@ -83,7 +83,7 @@ The following private transaction flow illustrates when nonce validation occurs:
 1. Submit a private transaction with a [nonce value](#private-transaction-nonce).
 1. The private transaction is distributed to all participants in the privacy group.
 1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one-time accounts.
-   If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../../../global/reference/cli/options.md#privacy-marker-transaction-signing-key-file),
+   If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../../../public-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file),
    the public nonce for that account is obtained and used for the PMT.
 1. The PMT is mined and included in the block.
 1. After the block containing the PMT is imported, and the PMT is processed, the private transaction is retrieved from
@@ -94,8 +94,8 @@ The following private transaction flow illustrates when nonce validation occurs:
 
 ### Private nonce management
 
-In Besu, you call [`eth_getTransactionCount`](../../../../global/reference/api/index.md#eth_gettransactioncount) to get a nonce,
-then use that nonce with [`eea_sendRawTransaction`](../../../../global/reference/api/index.md#eea_sendrawtransaction) to send a
+In Besu, you call [`eth_getTransactionCount`](../../../../public-networks/reference/api/index.md#eth_gettransactioncount) to get a nonce,
+then use that nonce with [`eea_sendRawTransaction`](../../../../public-networks/reference/api/index.md#eea_sendrawtransaction) to send a
 private transaction.
 
 However, when you send multiple transactions in row, if a subsequent call to `getTransactionCount` happens before a

@@ -11,8 +11,8 @@ These [API methods](../reference/engine-api/index.md) are a separate subsection 
 
 To configure the Engine API:
 
-- [Enable the JSON-RPC API](../../global/how-to/use-besu-api/index.md#enable-api-access).
-  Ensure the [`ETH` method is enabled](../../global/how-to/use-besu-api/json-rpc.md#api-methods-enabled-by-default) (it's enabled by default).
+- [Enable the JSON-RPC API](use-besu-api/index.md#enable-api-access).
+  Ensure the [`ETH` method is enabled](use-besu-api/json-rpc.md#api-methods-enabled-by-default) (it's enabled by default).
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).
 
@@ -25,7 +25,7 @@ To configure the Engine API:
 ### Service ports
 
 To specify the port the Engine API service listens on for HTTP and WebSocket, use the
-[`--engine-rpc-port`](../../global/reference/cli/options.md#engine-rpc-port) option.
+[`--engine-rpc-port`](../reference/cli/options.md#engine-rpc-port) option.
 The default is `8551`.
 
 ### Host allowlist
@@ -33,7 +33,7 @@ The default is `8551`.
 To prevent DNS rebinding attacks, Besu checks incoming HTTP request host headers, WebSocket connections, and GraphQL
 requests.
 Besu accepts requests only when hostnames specified using the
-[`--engine-host-allowlist`](../../global/reference/cli/options.md#engine-host-allowlist) option matches the request host headers.
+[`--engine-host-allowlist`](../reference/cli/options.md#engine-host-allowlist) option matches the request host headers.
 By default, Besu accepts requests and connections from `localhost` and `127.0.0.1`.
 
 !!! important
@@ -52,14 +52,14 @@ Specify "*" for `--engine-host-allowlist` to effectively disable host protection
 ## Authentication
 
 By default, [authentication](../how-to/use-besu-api/authenticate.md) for the Engine API is enabled.
-To disable, set the [`--engine-jwt-disabled`](../../global/reference/cli/options.md#engine-jwt-disabled) option to `true`.
+To disable, set the [`--engine-jwt-disabled`](../reference/cli/options.md#engine-jwt-disabled) option to `true`.
 
 !!! warning
 
     Don't disable JWT authentication in production environments.
     Disable only for testing purposes.
 
-Set the [JWT secret](../../global/how-to/use-besu-api/authenticate.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../../global/reference/cli/options.md#engine-jwt-secret) option.
+Set the [JWT secret](use-besu-api/authenticate.md#jwt-public-key-authentication) by using the [`--engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret) option.
 
 ## Send a payload using the Engine API
 

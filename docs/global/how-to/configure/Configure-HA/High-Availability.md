@@ -5,8 +5,8 @@ description: Hyperledger Besu high availability
 # High availability of JSON-RPC and RPC Pub/Sub APIs
 
 To enable high availability to the
-[RPC Pub/Sub API over WebSockets](../../use-besu-api/rpc-pubsub.md) or the
-[JSON-RPC API](../../use-besu-api/json-rpc.md), run and synchronize more than one
+[RPC Pub/Sub API over WebSockets](../../../../public-networks/how-to/use-besu-api/rpc-pubsub.md) or the
+[JSON-RPC API](../../../../public-networks/how-to/use-besu-api/json-rpc.md), run and synchronize more than one
 Hyperledger Besu node to the network.
 Use a load balancer to distribute requests across nodes in the cluster that are ready to receive requests.
 
@@ -30,7 +30,7 @@ Use a load balancer to distribute requests across nodes in the cluster that are 
 ## Determining when a node is ready
 
 Use the
-[readiness endpoint](../../use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) to
+[readiness endpoint](../../../../public-networks/how-to/use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) to
 determine when a node is ready.
 
 !!! note
@@ -41,13 +41,13 @@ determine when a node is ready.
 ## Transaction nonces
 
 Besu obtains the nonce for the next transaction using
-[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount). The nonce
+[`eth_getTransactionCount`](../../../../public-networks/reference/api/index.md#eth_gettransactioncount). The nonce
 depends on the transactions in the
-[transaction pool](../../../concepts/Transactions/Transaction-Pool.md). If sending
-[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount) and
-[`eth_sendRawTransaction`](../../../reference/api/index.md#eth_sendrawtransaction) requests for a
+[transaction pool](../../../../public-networks/concepts/transactions/pool.md). If sending
+[`eth_getTransactionCount`](../../../../public-networks/reference/api/index.md#eth_gettransactioncount) and
+[`eth_sendRawTransaction`](../../../../public-networks/reference/api/index.md#eth_sendrawtransaction) requests for a
 specific account to more than one node, the
-[`eth_getTransactionCount`](../../../reference/api/index.md#eth_gettransactioncount) results
+[`eth_getTransactionCount`](../../../../public-networks/reference/api/index.md#eth_gettransactioncount) results
 might be incorrect.
 
 !!! note
@@ -69,14 +69,14 @@ To get correct nonces when distributing requests across a cluster, either:
 
 You can subscribe to events using:
 
-* [RPC Pub/Sub over WebSockets](../../use-besu-api/rpc-pubsub.md).
-* [Filters over HTTP](../../use-besu-api/access-logs.md).
+* [RPC Pub/Sub over WebSockets](../../../../public-networks/how-to/use-besu-api/rpc-pubsub.md).
+* [Filters over HTTP](../../../../public-networks/how-to/use-besu-api/access-logs.md).
 
-We recommend using [RPC Pub/Sub over WebSockets](../../use-besu-api/rpc-pubsub.md) because
+We recommend using [RPC Pub/Sub over WebSockets](../../../../public-networks/how-to/use-besu-api/rpc-pubsub.md) because
 WebSockets connections associate with a specific node and do not require using the load balancer in
 sticky mode.
 
-If using [filters over HTTP](../../use-besu-api/access-logs.md), configure
+If using [filters over HTTP](../../../../public-networks/how-to/use-besu-api/access-logs.md), configure
 the load balancer in sticky mode to associate the subscription with a specific node.
 
 ## Recovering from dropped subscriptions
@@ -88,7 +88,7 @@ Dropped subscriptions can occur because of:
 
 If there is a dropped subscription, missed events might occur while reconnecting to a different
 node. To recover dropped messages, create another subscription and follow the process for that
-[subscription type](../../use-besu-api/rpc-pubsub.md#subscribing):
+[subscription type](../../../../public-networks/how-to/use-besu-api/rpc-pubsub.md#subscribing):
 
 * [`newHeads`](#new-headers)
 * [`logs`](#logs)
@@ -100,17 +100,17 @@ node. To recover dropped messages, create another subscription and follow the pr
 
 To request information on blocks from the last block before the subscription dropped to the first
 block received from the new subscription, use
-[`eth_getBlockByNumber`](../../../reference/api/index.md#eth_getblockbynumber).
+[`eth_getBlockByNumber`](../../../../public-networks/reference/api/index.md#eth_getblockbynumber).
 
 ### Logs
 
 To request logs from the block number of the last log received before the subscription dropped to
-the current chain head, use [`eth_getLogs`](../../../reference/api/index.md#eth_getlogs).
+the current chain head, use [`eth_getLogs`](../../../../public-networks/reference/api/index.md#eth_getlogs).
 
 ### New pending transactions
 
 To request all pending transactions for the new node, use
-[`txpool_besuTransactions`](../../../reference/api/index.md#txpool_besutransactions).
+[`txpool_besuTransactions`](../../../../public-networks/reference/api/index.md#txpool_besutransactions).
 
 !!! note
 
@@ -119,7 +119,7 @@ To request all pending transactions for the new node, use
 ### Dropped pending transactions
 
 To request all pending transactions for the new node, use
-[`txpool_besuTransactions`](../../../reference/api/index.md#txpool_besutransactions).
+[`txpool_besuTransactions`](../../../../public-networks/reference/api/index.md#txpool_besutransactions).
 
 !!! note
 
@@ -128,4 +128,4 @@ To request all pending transactions for the new node, use
 ### Syncing
 
 The syncing state of each node is specific to that node. To retrieve the syncing state of the new
-node, use [`eth_syncing`](../../../reference/api/index.md#eth_syncing).
+node, use [`eth_syncing`](../../../../public-networks/reference/api/index.md#eth_syncing).

@@ -201,17 +201,17 @@ In the `Node-1` directory, start Node-1:
 The command line:
 
 * Specifies the data directory for Node-1 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * Enables the JSON-RPC API using the
-  [`--rpc-http-enabled`](../../global/reference/cli/options.md#rpc-http-enabled) option.
+  [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
 * Enables the ETH, NET, and QBFT APIs using the
-  [`--rpc-http-api`](../../global/reference/cli/options.md#rpc-http-api) option.
+  [`--rpc-http-api`](../../public-networks/reference/cli/options.md#rpc-http-api) option.
 * Enables all-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../global/reference/cli/options.md#host-allowlist) option.
+  [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
 * Enables all-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../global/reference/cli/options.md#rpc-http-cors-origins) option.
+  [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
 
-When the node starts, the [enode URL](../../global/concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
@@ -236,13 +236,13 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-2 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../public-networks/reference/cli/options.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
-  [`--bootnodes`](../../global/reference/cli/options.md#bootnodes) option.
+  [`--bootnodes`](../../public-networks/reference/cli/options.md#bootnodes) option.
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 8. Start Node-3
@@ -265,11 +265,11 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-3 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * A different port to Node-1 and Node-2 for P2P discovery using the
-  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 and Node-2 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../public-networks/reference/cli/options.md#rpc-http-port) option.
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
@@ -293,18 +293,18 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * The data directory for Node-4 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * A different port to Node-1, Node-2, and Node-3 for P2P discovery using the
-  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1, Node-2, and Node-3 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../global/reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../public-networks/reference/cli/options.md#rpc-http-port) option.
 * The bootnode as for [Node-2](#7-start-node-2).
 * Other options as for [Node-1](#6-start-the-first-node-as-the-bootnode).
 
 ### 10. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`qbft_getvalidatorsbyblocknumber`](../../global/reference/api/index.md#qbft_getvalidatorsbyblocknumber)
+[`qbft_getvalidatorsbyblocknumber`](../../public-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber)
 method and confirm the network has four validators:
 
 ```bash
@@ -353,7 +353,7 @@ Look at the logs to confirm Besu is producing blocks:
 
 ## Next steps
 
-Use the [QBFT API](../../global/reference/api/index.md#qbft-methods) to remove or add validators, or import accounts
+Use the [QBFT API](../../public-networks/reference/api/index.md#qbft-methods) to remove or add validators, or import accounts
 to MetaMask and send transactions as described in the
 [Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 

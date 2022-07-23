@@ -10,12 +10,12 @@ If Hyperledger Besu is not working as expected, here are some things to check or
 
 If a `Supplied genesis block does not match stored chain data` error occurs, use the genesis file
 matching the genesis block of the data directory, or use the
-[`--data-path`](../../reference/cli/options.md#data-path) option to specify a different data
+[`--data-path`](../../../public-networks/reference/cli/options.md#data-path) option to specify a different data
 directory.
 
 ## Invalid block header
 
-If a `TimeStampMoreRecentThanParent | Invalid block header` error occurs, the [genesis file](../../concepts/genesis-file.md) of the new node is specifying a higher
+If a `TimeStampMoreRecentThanParent | Invalid block header` error occurs, the [genesis file](../../../public-networks/concepts/genesis-file.md) of the new node is specifying a higher
 [`blockperiodseconds`](../../../private-networks/how-to/configure/consensus/ibft.md#block-time) than the imported chain.
 The imported chain makes new blocks faster than the genesis file allows and Besu rejects them with this error.
 This error most often occurs when importing chains from older versions of Besu.
@@ -35,20 +35,20 @@ or [existing QBFT](../../../private-networks/how-to/configure/consensus/qbft.md#
 ## Host not authorized
 
 If a `Host not authorized` error occurs when attempting to access the JSON-RPC API, ensure
-[`--host-allowlist`](../../reference/cli/options.md#host-allowlist) includes the host you are
+[`--host-allowlist`](../../../public-networks/reference/cli/options.md#host-allowlist) includes the host you are
 sending the RPC from, or `*`.
 
 ## Peers fail to connect
 
 If nodes are not communicating, ensure the
-[required ports are open](../connect/configure-ports.md).
+[required ports are open](../../../public-networks/how-to/connect/configure-ports.md).
 
 If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to
 the required ports.
 
-Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for
-[bootnodes](../../../private-networks/how-to/connect/bootnodes.md) or
-[static nodes](../connect/static-nodes.md) match the enode URLs displayed when starting the
+Check that the [enode URLs](../../../public-networks/concepts/node-keys.md#enode-url) specified for
+[bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or
+[static nodes](../../../public-networks/how-to/connect/static-nodes.md) match the enode URLs displayed when starting the
 remote nodes.
 
 ## Mining
@@ -68,7 +68,7 @@ On non-mining nodes, log messages indicate importing blocks.
 ```
 
 To confirm the block number is increasing, use the
-[`eth_blockNumber`](../../reference/api/index.md#eth_blocknumber) JSON-RPC API method.
+[`eth_blockNumber`](../../../public-networks/reference/api/index.md#eth_blocknumber) JSON-RPC API method.
 
 If there is no block creating in [Clique](../../../private-networks/how-to/configure/consensus/clique.md#extra-data)
 or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md#extra-data) networks, ensure the validator
@@ -77,14 +77,14 @@ addresses in the genesis file match running nodes.
 ## Transactions are not mined
 
 If you add a transaction to the
-[transaction pool](../../concepts/Transactions/Transaction-Pool.md) and the transaction hash
+[transaction pool](../../../public-networks/concepts/transactions/pool.md) and the transaction hash
 returns, but the transaction is never mined, check the
-[`--min-gas-price`](../../reference/cli/options.md#min-gas-price) option on mining nodes. If the
-`gasPrice` on a [transaction](../send-transactions.md) is lower than the
+[`--min-gas-price`](../../../public-networks/reference/cli/options.md#min-gas-price) option on mining nodes. If the
+`gasPrice` on a [transaction](../../../public-networks/how-to/send-transactions.md) is lower than the
 `min-gas-price` for the mining node, the transaction will never mine.
 
 In [free gas networks](../../../private-networks/how-to/configure/free-gas.md), you must set
-[`--min-gas-price`](../../reference/cli/options.md#min-gas-price) to zero.
+[`--min-gas-price`](../../../public-networks/reference/cli/options.md#min-gas-price) to zero.
 
 ## Genesis milestone
 
@@ -101,7 +101,7 @@ hyphens.
 ## Logging
 
 Restart Besu with the command line option
-[`--logging=TRACE`](../../reference/cli/options.md#logging) and look at the log files.
+[`--logging=TRACE`](../../../public-networks/reference/cli/options.md#logging) and look at the log files.
 
 ## Pending State Nodes not decreasing for a full node in Grafana
 

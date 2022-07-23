@@ -1,1 +1,0 @@
-{!global/how-to/connect/manage-peers.md!}

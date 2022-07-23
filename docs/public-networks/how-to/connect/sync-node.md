@@ -2,7 +2,7 @@
 description: Full and archive node types
 ---
 
-# Node types
+# Sync Besu
 
 Besu supports two node types, commonly referred to as _full nodes_ and _archive nodes_.
 
@@ -30,7 +30,7 @@ You can run a full node using [fast synchronization (fast sync)](#fast-synchroni
 
 ### Fast synchronization
 
-Enable fast sync using [`--sync-mode=FAST`](../../../global/reference/cli/options.md#sync-mode).
+Enable fast sync using [`--sync-mode=FAST`](../../reference/cli/options.md#sync-mode).
 
 Fast sync downloads the block headers and transaction receipts, and verifies the chain of block headers from the genesis
 block.
@@ -38,10 +38,10 @@ block.
 When starting fast sync, Besu first downloads the world state for a recent block verified by its peers (referred to as a
 pivot block), and then begins fast sync from the genesis block.
 
-Fast sync is the default for named networks specified using the [`--network`](../../../global/reference/cli/options.md#network)
+Fast sync is the default for named networks specified using the [`--network`](../../reference/cli/options.md#network)
 option, except for the `dev` development network.
 It's also the default if connecting to Ethereum Mainnet by not specifying the
-[`--network`](../../../global/reference/cli/options.md#network) or [`--genesis-file`](../../../global/reference/cli/options.md#genesis-file)
+[`--network`](../../reference/cli/options.md#network) or [`--genesis-file`](../../reference/cli/options.md#genesis-file)
 options.
 
 Using fast sync with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
@@ -86,7 +86,7 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
     data storage format for the fastest sync and lowest storage requirements.
 
-Enable snap sync using [`--sync-mode=X_SNAP`](../../../global/reference/cli/options.md#sync-mode).
+Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
 
 Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the
@@ -102,7 +102,7 @@ deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
     Checkpoint sync is an experimental feature.
 
-Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../../global/reference/cli/options.md#sync-mode).
+Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.3 or later to use checkpoint sync.
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
@@ -136,6 +136,6 @@ sync from the genesis block.
 ## Run an archive node
 
 To run an archive node, enable full synchronization (full sync) using
-[`--sync-mode=FULL`](../../../global/reference/cli/options.md#sync-mode).
+[`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
 
 Full sync starts from the genesis block and reprocesses all transactions.

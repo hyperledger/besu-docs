@@ -45,7 +45,7 @@ To add a node to the Hyperledger Besu nodes allowlist:
 
 1. On the **Nodes** tab of the permissioning management dapp, select **Add Node**.
    The **Add Node** window displays.
-2. Enter the [enode URL](../../../global/concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
+2. Enter the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
 
 !!! tip
 
@@ -108,7 +108,7 @@ You can add or remove admins in the same way as [accounts](#update-accounts-allo
 
 ## Specify the permissioning contract interface version
 
-Use the [`--permissions-nodes-contract-version`](../../../global/reference/cli/options.md#permissions-nodes-contract-version)
+Use the [`--permissions-nodes-contract-version`](../../../public-networks/reference/cli/options.md#permissions-nodes-contract-version)
 command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts).
 The default is 1.
 
@@ -123,6 +123,6 @@ the contract interface implements.
 The permissioning contracts in the [`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts)
 repository implement the version 2 contract interface.
 
-[support domain names]: ../../../global/concepts/node-keys.md#domain-name-support
+[support domain names]: ../../../public-networks/concepts/node-keys.md#domain-name-support
 [projects release page]: https://github.com/ConsenSys/permissioning-smart-contracts/releases/latest
 [onchain permissioning tutorial]: ../../tutorials/permissioning/onchain.md

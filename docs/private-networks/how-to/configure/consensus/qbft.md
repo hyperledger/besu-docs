@@ -28,7 +28,7 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 
 ## Genesis file
 
-To use QBFT, define a [genesis file](../../../concepts/genesis-file.md) that contains the QBFT properties.
+To use QBFT, define a [genesis file](../../../../public-networks/concepts/genesis-file.md) that contains the QBFT properties.
 
 The genesis file differs depending on the [validator management method](#add-and-remove-validators) you intend to use.
 
@@ -164,7 +164,7 @@ The properties with specific values in the QBFT genesis files are:
   block identification.
 
 To start a node on a QBFT private network, use the
-[`--genesis-file`](../../../../global/reference/cli/options.md#genesis-file) option to specify the custom
+[`--genesis-file`](../../../../public-networks/reference/cli/options.md#genesis-file) option to specify the custom
 genesis file.
 
 ### Extra data
@@ -200,7 +200,7 @@ Formally, `extraData` in the genesis block contains:
 #### Generate extra data
 
 To generate the `extraData` RLP string for inclusion in the genesis file,
-use the [`rlp encode`](../../../../global/reference/cli/subcommands.md#rlp) Besu subcommand.
+use the [`rlp encode`](../../../../public-networks/reference/cli/subcommands.md#rlp) Besu subcommand.
 
 !!! example
 
@@ -210,7 +210,7 @@ use the [`rlp encode`](../../../../global/reference/cli/subcommands.md#rlp) Besu
 
 Where the `toEncode.json` file contains a list of the initial validators, in ascending order. To
 write the validator address and copy it to the `toEncode.json` file, use the
-[`public-key export-address`](../../../../global/reference/cli/subcommands.md#export-address) Besu
+[`public-key export-address`](../../../../public-networks/reference/cli/subcommands.md#export-address) Besu
 subcommand. For example:
 
 !!! example "Initial validators in `toEncode.json` file"
@@ -311,21 +311,21 @@ method are configured in the genesis file's `storage` section.
 
 ### Add and remove validators using block headers
 
-Enable the HTTP interface with [`--rpc-http-enabled`](../../../../global/reference/cli/options.md#rpc-http-enabled) or the
-WebSockets interface with [`--rpc-ws-enabled`](../../../../global/reference/cli/options.md#rpc-ws-enabled).
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-enabled) or the
+WebSockets interface with [`--rpc-ws-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-enabled).
 
 The QBFT API methods are disabled by default.
-To enable them, specify the [`--rpc-http-api`](../../../../global/reference/cli/options.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../../global/reference/cli/options.md#rpc-ws-api) option and include `QBFT`.
+To enable them, specify the [`--rpc-http-api`](../../../../public-networks/reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../../public-networks/reference/cli/options.md#rpc-ws-api) option and include `QBFT`.
 
 The methods to add or remove validators are:
 
-* [`qbft_getPendingVotes`](../../../../global/reference/api/index.md#qbft_getpendingvotes).
-* [`qbft_proposeValidatorVote`](../../../../global/reference/api/index.md#qbft_proposevalidatorvote).
-* [`qbft_discardValidatorVote`](../../../../global/reference/api/index.md#qbft_discardvalidatorvote).
+* [`qbft_getPendingVotes`](../../../../public-networks/reference/api/index.md#qbft_getpendingvotes).
+* [`qbft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_proposevalidatorvote).
+* [`qbft_discardValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_discardvalidatorvote).
 
 To view validator metrics for a specified block range, use
-[`qbft_getSignerMetrics`](../../../../global/reference/api/index.md#qbft_getsignermetrics).
+[`qbft_getSignerMetrics`](../../../../public-networks/reference/api/index.md#qbft_getsignermetrics).
 
 !!! note
 
@@ -335,7 +335,7 @@ To view validator metrics for a specified block range, use
 #### Add a validator
 
 To propose adding a validator, call
-[`qbft_proposeValidatorVote`](../../../../global/reference/api/index.md#qbft_proposevalidatorvote),
+[`qbft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_proposevalidatorvote),
 specifying the address of the proposed validator and `true`. A majority of validators must execute
 the call.
 
@@ -346,7 +346,7 @@ the call.
     ```
 
 When the validator proposes the next block, the protocol inserts one proposal received from
-[`qbft_proposeValidatorVote`](../../../../global/reference/api/index.md#qbft_proposevalidatorvote) into the
+[`qbft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_proposevalidatorvote) into the
 block. If blocks include all proposals, subsequent blocks proposed by the validator will not
 contain a vote.
 
@@ -354,7 +354,7 @@ When more than 50% of the existing validators have published a matching proposal
 adds the proposed validator to the validator pool and the validator can begin validating blocks.
 
 To return a list of validators and confirm the addition of a proposed validator, use
-[`qbft_getValidatorsByBlockNumber`](../../../../global/reference/api/index.md#qbft_getvalidatorsbyblocknumber).
+[`qbft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber).
 
 !!! example "JSON-RPC `qbft_getValidatorsByBlockNumber` request example"
 
@@ -363,7 +363,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```
 
 To discard your proposal after confirming the addition of a validator, call
-[`qbft_discardValidatorVote`](../../../../global/reference/api/index.md#qbft_discardvalidatorvote),
+[`qbft_discardValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
 !!! example "JSON-RPC `qbft_discardValidatorVote` request example"
@@ -376,7 +376,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator is the same as adding a validator except you specify `false`
 as the second parameter of
-[`qbft_proposeValidatorVote`](../../../../global/reference/api/index.md#qbft_proposevalidatorvote).
+[`qbft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#qbft_proposevalidatorvote).
 
 #### Epoch transition
 
@@ -491,7 +491,7 @@ To update an existing network with a new `blockperiodseconds`:
 
 3. Restart all nodes in the network using the updated genesis file.
 4. To verify the changes after the transition block, call
-   [`qbft_getValidatorsByBlockNumber`](../../../../global/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+   [`qbft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 ### Configure block rewards on an existing network deployment
 

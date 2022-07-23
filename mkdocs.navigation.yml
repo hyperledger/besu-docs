@@ -47,7 +47,7 @@ nav:
               - Use client libraries: public-networks/how-to/develop/client-libraries.md
           - Use proof of work:
               - Configure mining: public-networks/how-to/use-pow/mining.md
-          - Upgrade Besu: public-networks/how-to/node.md
+          - Upgrade Besu: public-networks/how-to/upgrade-node.md
           - Troubleshoot:
               - Use EVM tool: public-networks/how-to/troubleshoot/evm-tool.md
               - Use Java Flight Recorder: public-networks/how-to/troubleshoot/java-flight-recorder.md
@@ -55,6 +55,10 @@ nav:
       - Concepts:
           - The Merge: public-networks/concepts/the-merge.md
           - Data storage formats: public-networks/concepts/data-storage-formats.md
+          - Transactions:
+              - Transaction types: public-networks/concepts/transactions/types.md
+              - Transaction pool: public-networks/concepts/transactions/pool.md
+              - Transaction validation: public-networks/concepts/transactions/validation.md
           - Network ID and chain ID: public-networks/concepts/network-and-chain-id.md
           - Events and logs: public-networks/concepts/events-and-logs.md
           - Genesis file: public-networks/concepts/genesis-file.md
@@ -86,6 +90,7 @@ nav:
               - Install binary distribution: private-networks/get-started/install/binary-distribution.md
           - Start Besu: private-networks/get-started/start-node.md
       - How to:
+          - Index: private-networks/how-to/index.md
           - Configure:
               - Consensus:
                   - Index: private-networks/how-to/configure/consensus/index.md
@@ -94,6 +99,7 @@ nav:
                   - Clique: private-networks/how-to/configure/consensus/clique.md
                   - Add and remove validators without voting: private-networks/how-to/configure/consensus/add-validators-without-voting.md
               - Free gas network: private-networks/how-to/configure/free-gas.md
+              - Bootnodes: private-networks/how-to/configure/bootnodes.md
               - Validators: private-networks/how-to/configure/validators.md
               - Pre-deploy a contract: private-networks/how-to/configure/contracts.md
               - TLS:
@@ -101,35 +107,17 @@ nav:
                   - Peer-to-peer TLS: private-networks/how-to/configure/tls/p2p.md
               - Block proposal permissioning: private-networks/how-to/configure/block-proposal-permissioning.md
               - Alternative elliptic curves: private-networks/how-to/configure/curves.md
-              - Use a configuration file: private-networks/how-to/configure/configuration-file.md
-              - Pass JVM options: private-networks/how-to/configure/pass-jvm-options.md
-              - Mining: private-networks/how-to/configure/mining.md
-          - Use the Besu API:
-              - Index: private-networks/how-to/use-besu-api/index.md
-              - Use JSON-RPC over HTTP, WS, and IPC: private-networks/how-to/use-besu-api/json-rpc.md
-              - Use RPC Pub/Sub over WS: private-networks/how-to/use-besu-api/rpc-pubsub.md
-              - Use GraphQL over HTTP: private-networks/how-to/use-besu-api/graphql.md
-              - Authenticate JSON-RPC requests: private-networks/how-to/use-besu-api/authenticate.md
-              - Access logs using JSON-RPC: private-networks/how-to/use-besu-api/access-logs.md
           - Create and send transactions:
               - Index: private-networks/how-to/send-transactions/index.md
               - Create and send private transactions: private-networks/how-to/send-transactions/private-transactions.md
               - Send concurrent private transactions: private-networks/how-to/send-transactions/concurrent-private-transactions.md
               - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
-          - Find and connect to peers:
-              - Configure bootnodes: private-networks/how-to/connect/bootnodes.md
-              - Configure static nodes: private-networks/how-to/connect/static-nodes.md
-              - Configure ports: private-networks/how-to/connect/configure-ports.md
-              - Manage peers: private-networks/how-to/connect/manage-peers.md
-              - Specify NAT method: private-networks/how-to/connect/specify-nat.md
           - Monitor nodes:
               - Index: private-networks/how-to/monitor/index.md
-              - Use metrics: private-networks/how-to/monitor/metrics.md
               - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
               - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
               - Use Splunk: private-networks/how-to/monitor/splunk.md
               - Use OpenTelemtry: private-networks/how-to/monitor/opentelemetry.md
-              - Configure logging: private-networks/how-to/monitor/logging.md
           - Use privacy:
               - Use EEA-compliant privacy: private-networks/how-to/use-privacy/eea-compliant.md
               - Use Besu-extended privacy: private-networks/how-to/use-privacy/besu-extended.md
@@ -149,20 +137,11 @@ nav:
               - Use Ansible: private-networks/how-to/deploy/ansible.md
               - Use Kubernetes: private-networks/how-to/deploy/kubernetes.md
               - Use Ethstats network monitor: private-networks/how-to/deploy/ethstats.md
-          - Develop dapps:
-              - Use Truffle: private-networks/how-to/develop/truffle.md
-              - Use client libraries: private-networks/how-to/develop/client-libraries.md
           - Backup and restore: private-networks/how-to/backup.md
-          - Upgrade:
-              - Upgrade node: private-networks/how-to/upgrade/node.md
-              - Upgrade protocol: private-networks/how-to/upgrade/protocol.md
-          - Troubleshoot:
-              - Use EVM tool: private-networks/how-to/troubleshoot/evm-tool.md
-              - Use Java Flight Recorder: private-networks/how-to/troubleshoot/java-flight-recorder.md
-              - Trace transactions: private-networks/how-to/troubleshoot/trace-transactions.md
+          - Upgrade: private-networks/how-to/upgrade.md
       - Concepts:
+          - Index: private-networks/concepts/index.md
           - Proof of authority consensus: private-networks/concepts/poa.md
-          - Genesis file: private-networks/concepts/genesis-file.md
           - Privacy:
               - Index: private-networks/concepts/privacy/index.md
               - Private transactions:
@@ -177,9 +156,6 @@ nav:
               - Onchain permissioning: private-networks/concepts/permissioning/onchain.md
               - Permissioning plugin: private-networks/concepts/permissioning/plugin.md
           - Public key infrastructure: private-networks/concepts/pki.md
-          - Network ID and chain ID: private-networks/concepts/network-and-chain-id.md
-          - Events and logs: private-networks/concepts/events-and-logs.md
-          - Node keys: private-networks/concepts/node-keys.md
       - Tutorials:
           - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
           - Create a QBFT network: private-networks/tutorials/qbft.md
@@ -212,15 +188,11 @@ nav:
               - Configure Kubernetes mode in NAT manager: private-networks/tutorials/kubernetes/nat-manager.md
           - Deploy using Microsoft Azure: private-networks/tutorials/azure.md
       - Reference:
+          - Index: private-networks/reference/index.md
           - Besu command line:
-              - Options: private-networks/reference/cli/options.md
-              - Subcommands: private-networks/reference/cli/subcommands.md
+              - Private network options: private-networks/reference/cli/options.md
+              - Private network subcommands: private-networks/reference/cli/subcommands.md
           - Besu API:
               - Index: private-networks/reference/api/index.md
-              - Objects: private-networks/reference/api/objects.md
-          - Genesis file items: private-networks/reference/genesis-items.md
+              - Private network API objects: private-networks/reference/api/objects.md
           - Accounts for testing: private-networks/reference/accounts-for-testing.md
-          - EVM tool options: private-networks/reference/evm-tool.md
-          - Transaction trace types: private-networks/reference/trace-types.md
-          - Projects using Besu: private-networks/reference/projects-using-besu.md
-          - Security disclosure policy: private-networks/reference/disclosure.md

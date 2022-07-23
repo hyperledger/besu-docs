@@ -1,1 +1,0 @@
-{!global/concepts/genesis-file.md!}

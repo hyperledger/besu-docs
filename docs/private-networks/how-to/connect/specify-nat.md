@@ -1,1 +1,0 @@
-{!global/how-to/connect/specify-nat.md!}

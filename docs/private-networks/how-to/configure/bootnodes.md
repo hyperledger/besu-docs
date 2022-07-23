@@ -27,8 +27,8 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 
 ## Specify a bootnode
 
-To start a node, specify a bootnode [enode](../../concepts/node-keys.md) for P2P discovery,
-using the [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option.
+To start a node, specify a bootnode [enode](../../../public-networks/concepts/node-keys.md) for P2P discovery,
+using the [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option.
 
 !!! example
 
@@ -38,12 +38,12 @@ using the [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) op
 
 The default host and port advertised to other peers for P2P discovery is `127.0.0.1:30303`. To
 specify a different host or port, use the
-[`--p2p-host`](../../../global/reference/cli/options.md#p2p-host) and
-[`--p2p-port`](../../../global/reference/cli/options.md#p2p-port) options.
+[`--p2p-host`](../../../public-networks/reference/cli/options.md#p2p-host) and
+[`--p2p-port`](../../../public-networks/reference/cli/options.md#p2p-port) options.
 
 By default, peer discovery listens on all available network interfaces. If the device Besu is
 running on must bind to a specific network interface, specify the interface using the
-[`--p2p-interface`](../../../global/reference/cli/options.md#p2p-interface) option.
+[`--p2p-interface`](../../../public-networks/reference/cli/options.md#p2p-interface) option.
 
 ## Configure bootnodes in a production network
 
@@ -51,14 +51,14 @@ A network must have at least one operating bootnode. To allow for continuity in 
 failure, configure two or more bootnodes in a production network.
 
 We don't recommend putting bootnodes behind a load balancer because the
-[enode](../../../global/concepts/node-keys.md#enode-url) relates to the node public key, IP address, and
+[enode](../../../public-networks/concepts/node-keys.md#enode-url) relates to the node public key, IP address, and
 discovery ports. Any changes to a bootnode enode prevents other nodes from being able to establish
 a connection with the bootnode. This is why we recommend putting more bootnodes on the network
 itself.
 
 To ensure a bootnode enode doesn't change when recovering from a complete bootnode failure:
 
-1. Create the [node key pair](../../concepts/node-keys.md) (that is, the private and public key)
+1. Create the [node key pair](../../../public-networks/concepts/node-keys.md) (that is, the private and public key)
    before starting the bootnode.
 1. When creating bootnodes in the cloud (for example, AWS and Azure), attempt to assign a static IP
    address to them. If your network is:
@@ -80,10 +80,10 @@ To allow for failure, specify all bootnodes on the command line (even to the boo
 ## Add and remove bootnodes
 
 Adding new bootnodes is a similar process to creating bootnodes. After creating the bootnodes and
-adding them to the network, update the [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes)
+adding them to the network, update the [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes)
 command line option for each node to include the new bootnodes.
 
 When adding bootnodes, you don't need to restart running nodes. By updating the
-[`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option, the next time you restart the
-nodes (for example, when [upgrading](../../how-to/upgrade/node.md)), the nodes connect to the new
-bootnodes.
+[`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option, the next time you restart the
+nodes (for example, when [upgrading](../../../public-networks/how-to/upgrade-node.md)), the nodes
+connect to the new bootnodes.

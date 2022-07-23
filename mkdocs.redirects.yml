@@ -25,7 +25,7 @@ plugins:
       HowTo/Get-Started/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
       # HowTo/Deploy/High-Availability.md: global/how-to/configure/Configure-HA/High-Availability.md
       HowTo/Deploy/Monitoring-Performance.md: public-networks/how-to/monitor/metrics.md
-      HowTo/Upgrade/Upgrade-Network.md: public-networks/how-to/node.md
+      HowTo/Upgrade/Upgrade-Network.md: public-networks/how-to/upgrade-node.md
       HowTo/Find-and-Connect/Using-UPnP.md: public-networks/how-to/connect/specify-nat.md
       HowTo/Use-Privacy/Run-Orion-With-Besu.md: private-networks/how-to/use-privacy/tessera.md
       Concepts/Transactions/Trace-Types.md: public-networks/reference/trace-types.md
@@ -70,7 +70,7 @@ plugins:
       HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md: private-networks/how-to/send-transactions/private-transactions.md
       HowTo/Send-Transactions/Concurrent-Private-Transactions.md: private-networks/how-to/send-transactions/concurrent-private-transactions.md
       HowTo/Send-Transactions/Revert-Reason.md: private-networks/how-to/send-transactions/revert-reason.md
-      HowTo/Find-and-Connect/Bootnodes.md: private-networks/how-to/connect/bootnodes.md
+      HowTo/Find-and-Connect/Bootnodes.md: private-networks/how-to/configure/bootnodes.md
       HowTo/Find-and-Connect/Static-Nodes.md: public-networks/how-to/connect/static-nodes.md
       HowTo/Find-and-Connect/Configuring-Ports.md: public-networks/how-to/connect/configure-ports.md
       HowTo/Find-and-Connect/Managing-Peers.md: public-networks/how-to/connect/manage-peers.md
@@ -89,8 +89,8 @@ plugins:
       Concepts/NetworkID-And-ChainID.md: public-networks/concepts/network-and-chain-id.md
       Concepts/Events-and-Logs.md: public-networks/concepts/events-and-logs.md
       HowTo/Configure/Genesis-File.md: public-networks/concepts/genesis-file.md
-      HowTo/Upgrade/Upgrade-Node.md: public-networks/how-to/node.md
-      HowTo/Upgrade/Upgrade-Protocol.md: private-networks/how-to/upgrade/protocol.md
+      HowTo/Upgrade/Upgrade-Node.md: public-networks/how-to/upgrade-node.md
+      HowTo/Upgrade/Upgrade-Protocol.md: private-networks/how-to/upgrade.md
       HowTo/Troubleshoot/Use-EVM-Tool.md: public-networks/how-to/troubleshoot/evm-tool.md
       HowTo/Troubleshoot/Java-Flight-Recording.md: public-networks/how-to/troubleshoot/java-flight-recorder.md
       HowTo/Troubleshoot/Trace-Transactions.md: public-networks/how-to/troubleshoot/trace-transactions.md
@@ -117,11 +117,11 @@ plugins:
       HowTo/Configure/Contracts-in-Genesis.md: private-networks/how-to/configure/contracts.md
       HowTo/Configure/Alternative-EC-Curves.md: private-networks/how-to/configure/curves.md
       HowTo/Configure/Block-Proposal-Permissioning.md: private-networks/how-to/configure/block-proposal-permissioning.md
-      HowTo/Deploy/Bootnodes.md: private-networks/how-to/connect/bootnodes.md
+      HowTo/Deploy/Bootnodes.md: private-networks/how-to/configure/bootnodes.md
       Concepts/ArchitectureOverview.md: index.md
       Concepts/Mining.md: public-networks/how-to/use-pow/mining.md
       HowTo/Troubleshoot/Troubleshooting.md: public-networks/how-to/troubleshoot/evm-tool.md
-      Concepts/Protocol-Upgrades.md: private-networks/how-to/upgrade/protocol.md
+      Concepts/Protocol-Upgrades.md: private-networks/how-to/upgrade.md
       Reference/Resources.md: index.md
       HowTo/Use-Privacy/EEA-compliant.md: private-networks/how-to/use-privacy/eea-compliant.md
       HowTo/Use-Privacy/Privacy.md: private-networks/how-to/use-privacy/besu-extended.md
@@ -188,3 +188,6 @@ plugins:
       Tutorials/Private-Network-Example-Azure.md: private-networks/tutorials/azure.md
       Reference/Accounts-for-Testing.md: private-networks/reference/accounts-for-testing.md
       Concepts/Monitoring.md: public-networks/how-to/monitor/index.md
+      Concepts/Transactions/Transaction-Pool.md: public-networks/concepts/transactions/pool.md
+      Concepts/Transactions/Transaction-Types.md: public-networks/concepts/transactions/types.md
+      Concepts/Transctions/Transction-Validation.md: public-networks/concepts/transactions/validation.md

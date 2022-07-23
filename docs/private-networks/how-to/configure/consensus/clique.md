@@ -23,7 +23,7 @@ You can [create a private network using Clique](../../../tutorials/clique.md).
 
 ## Genesis file
 
-To use Clique in a private network, Besu requires a Clique [genesis file](../../../concepts/genesis-file.md). When connecting to Rinkeby,
+To use Clique in a private network, Besu requires a Clique [genesis file](../../../../public-networks/concepts/genesis-file.md). When connecting to Rinkeby,
 Besu uses the
 [`rinkeby.json`](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/config/src/main/resources/rinkeby.json)
 genesis file in the `/besu/config/src/main/resources` directory.
@@ -99,34 +99,34 @@ Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data a
 ## Connect to a Clique network
 
 To connect to the Rinkeby testnet, start Besu with the
-[`--network=rinkeby`](../../../../global/reference/cli/options.md#network) command line option. To start a
+[`--network=rinkeby`](../../../../public-networks/reference/cli/options.md#network) command line option. To start a
 node on a Clique private network, use the
-[`--genesis-file`](../../../../global/reference/cli/options.md#genesis-file) option to specify the custom
+[`--genesis-file`](../../../../public-networks/reference/cli/options.md#genesis-file) option to specify the custom
 genesis file.
 
 ## Add and remove signers
 
 Existing signers propose and vote to add or remove validators using the Clique JSON-RPC API methods.
-Enable the HTTP interface with [`--rpc-http-enabled`](../../../../global/reference/cli/options.md#rpc-http-enabled) or the
-WebSocket interface with [`--rpc-ws-enabled`](../../../../global/reference/cli/options.md#rpc-ws-enabled).
+Enable the HTTP interface with [`--rpc-http-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-enabled) or the
+WebSocket interface with [`--rpc-ws-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-enabled).
 
 The Clique API methods are disabled by default.
-To enable them, specify the [`--rpc-http-api`](../../../../global/reference/cli/options.md#rpc-http-api) or
-[`--rpc-ws-api`](../../../../global/reference/cli/options.md#rpc-ws-api) option and include `CLIQUE`.
+To enable them, specify the [`--rpc-http-api`](../../../../public-networks/reference/cli/options.md#rpc-http-api) or
+[`--rpc-ws-api`](../../../../public-networks/reference/cli/options.md#rpc-ws-api) option and include `CLIQUE`.
 
 The methods to add or remove signers are:
 
-* [`clique_propose`](../../../../global/reference/api/index.md#clique_propose).
-* [`clique_getSigners`](../../../../global/reference/api/index.md#clique_getsigners).
-* [`clique_discard`](../../../../global/reference/api/index.md#clique_discard).
+* [`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose).
+* [`clique_getSigners`](../../../../public-networks/reference/api/index.md#clique_getsigners).
+* [`clique_discard`](../../../../public-networks/reference/api/index.md#clique_discard).
 
 To view signer metrics for a specified block range, call
-[`clique_getSignerMetrics`](../../../../global/reference/api/index.md#clique_getsignermetrics).
+[`clique_getSignerMetrics`](../../../../public-networks/reference/api/index.md#clique_getsignermetrics).
 
 ### Add a signer
 
 To propose adding a signer to a Clique network, call
-[`clique_propose`](../../../../global/reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`.
+[`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`.
 A majority of signers must execute the call.
 
 !!! example "JSON-RPC `clique_propose` request example"
@@ -141,7 +141,7 @@ When more than 50% of the existing signers propose adding the signer, with their
 signer can begin signing blocks.
 
 To return a list of signers and confirm the addition of a proposed signer, call
-[`clique_getSigners`](../../../../global/reference/api/index.md#clique_getsigners).
+[`clique_getSigners`](../../../../public-networks/reference/api/index.md#clique_getsigners).
 
 !!! example "JSON-RPC `clique_getSigners` request example"
 
@@ -150,7 +150,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
     ```
 
 To discard your proposal after confirming the addition of a signer, call
-[`clique_discard`](../../../../global/reference/api/index.md#clique_discard) specifying the address of the proposed signer.
+[`clique_discard`](../../../../public-networks/reference/api/index.md#clique_discard) specifying the address of the proposed signer.
 
 !!! example "JSON-RPC `clique_discard` request example"
 
@@ -161,7 +161,7 @@ To discard your proposal after confirming the addition of a signer, call
 ### Remove a signer
 
 The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you
-specify `false` as the second parameter of [`clique_propose`](../../../../global/reference/api/index.md#clique_propose).
+specify `false` as the second parameter of [`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose).
 
 ### Epoch transition
 

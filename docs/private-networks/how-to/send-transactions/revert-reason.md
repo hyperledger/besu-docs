@@ -33,7 +33,7 @@ client an optional string message containing information about the error.
         function withdraw() public {
             if (msg.sender != owner)
                 revert Unauthorized();
-    
+
             payable(msg.sender).transfer(address(this).balance);
         }
     }
@@ -41,11 +41,11 @@ client an optional string message containing information about the error.
 
 ## Enabling revert reason
 
-Use the [`--revert-reason-enabled`](../../../global/reference/cli/options.md#revert-reason-enabled)
+Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled)
 command line option to include the revert reason in the transaction receipt,
-[`eth_estimateGas`](../../../global/reference/api/index.md#eth_estimategas) error,
-[`eth_call`](../../../global/reference/api/index.md#eth_call) error, and
-[`trace`](../../../global/reference/trace-types.md#trace) response in Hyperledger Besu.
+[`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) error,
+[`eth_call`](../../../public-networks/reference/api/index.md#eth_call) error, and
+[`trace`](../../../public-networks/reference/trace-types.md#trace) response in Hyperledger Besu.
 
 !!! caution
 
@@ -55,7 +55,7 @@ command line option to include the revert reason in the transaction receipt,
 ## Where is the revert reason included
 
 With revert reason enabled, the transaction receipt returned by
-[`eth_getTransactionReceipt`](../../../global/reference/api/index.md#eth_gettransactionreceipt) includes
+[`eth_getTransactionReceipt`](../../../public-networks/reference/api/index.md#eth_gettransactionreceipt) includes
 the revert reason as an ABI-encoded string.
 
 !!! important
@@ -90,8 +90,8 @@ the revert reason as an ABI-encoded string.
     }
     ```
 
-The error returned by [`eth_estimateGas`](../../../global/reference/api/index.md#eth_estimategas) and
-[`eth_call`](../../../global/reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
+The error returned by [`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) and
+[`eth_call`](../../../public-networks/reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
 
 !!! example "Example of `eth_estimateGas` and `eth_call` error"
 
@@ -107,10 +107,10 @@ The error returned by [`eth_estimateGas`](../../../global/reference/api/index.md
     }
     ```
 
-The list items in the [`trace`](../../../global/reference/trace-types.md#trace) response returned by
-[`trace_replayBlockTransactions`](../../../global/reference/api/index.md#trace_replayblocktransactions),
-[`trace_block`](../../../global/reference/api/index.md#trace_block), and
-[`trace_transaction`](../../../global/reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
+The list items in the [`trace`](../../../public-networks/reference/trace-types.md#trace) response returned by
+[`trace_replayBlockTransactions`](../../../public-networks/reference/api/index.md#trace_replayblocktransactions),
+[`trace_block`](../../../public-networks/reference/api/index.md#trace_block), and
+[`trace_transaction`](../../../public-networks/reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
 
 !!! example "Example of `trace` response list item"
 

@@ -1,4 +1,4 @@
-# Private transaction performance best practices
+# Performance best practices
 
 This document collects deployment and usage tips to help you achieve high performance for private transactions.
 If transaction throughput or latency is not meeting your expectations, please consider the following before raising an issue.

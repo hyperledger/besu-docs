@@ -4,6 +4,12 @@ description: Upgrading protocol versions
 
 # Network and protocol upgrades
 
+!!! important
+
+    Node upgrades upgrade your Besu client to a later version.
+    In private networks, you can [upgrade your node](../../public-networks/how-to/upgrade-node.md)
+    as in public networks.
+
 Network upgrades are the mechanism for upgrading the Ethereum protocol.
 Protocol upgrades occur during the network upgrades.
 
@@ -23,7 +29,7 @@ To upgrade the protocol in a private network:
    For example, [Istanbul](https://eips.ethereum.org/EIPS/eip-1679).
 1. Network participants agree on the block number at which to upgrade.
 1. For each node in the network:
-     1. Add the [milestone block number](../../../global/reference/genesis-items.md#milestone-blocks) to
+     1. Add the [milestone block number](../../public-networks/reference/genesis-items.md#milestone-blocks) to
         the genesis file.
      1. Restart the node before reaching milestone block.
 

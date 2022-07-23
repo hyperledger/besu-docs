@@ -30,7 +30,7 @@ smart contract as an example, create a new file called `compile.js` with the fol
     ```js
     const fs = require('fs').promises;
     const solc = require('solc');
-    
+
     async function main() {
       // Load the contract source code
       const sourceCode = await fs.readFile('SimpleStorage.sol', 'utf8');
@@ -40,7 +40,7 @@ smart contract as an example, create a new file called `compile.js` with the fol
       const artifact = JSON.stringify({ abi, bytecode }, null, 2);
       await fs.writeFile('SimpleStorage.json', artifact);
     }
-    
+
     function compile(sourceCode, contractName) {
       // Create the Solidity Compiler Standard Input and Output JSON
       const input = {
@@ -56,7 +56,7 @@ smart contract as an example, create a new file called `compile.js` with the fol
         bytecode: artifact.evm.bytecode.object,
       };
     }
-    
+
     main().then(() => process.exit(0));
     ```
 
@@ -85,7 +85,7 @@ The Developer Quickstart provides an [example of a public transaction script](ht
     // use an existing account, or make an account
     const privateKey = "0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63";
     const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-    
+
     // read in the contracts
     const contractJsonPath = path.resolve(__dirname, 'SimpleStorage.json');
     const contractJson = JSON.parse(fs.readFileSync(contractJsonPath));
@@ -94,10 +94,10 @@ The Developer Quickstart provides an [example of a public transaction script](ht
     const contractBin = fs.readFileSync(contractBinPath);
     // initialize the default constructor with a value `47 = 0x2F`; this value is appended to the bytecode
     const contractConstructorInit = "000000000000000000000000000000000000000000000000000000000000002F";
-    
+
     // get txnCount for the nonce value
     const txnCount = await web3.eth.getTransactionCount(account.address);
-    
+
     const rawTxOptions = {
       nonce: web3.utils.numberToHex(txnCount),
       from: account.address,
@@ -152,7 +152,7 @@ Refer to the [EthSigner documentation](https://docs.ethsigner.consensys.net/) fo
 Pass the following parameters to the
 [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods/#eth_sendtransaction) call
 to EthSigner; EthSigner then converts the request to an
-[`eth_sendRawTransaction`](../../../global/reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
+[`eth_sendRawTransaction`](../../../public-networks/reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
 
 * `to` - address of the receiver. To deploy a contract, set to `null`.
 * `from` - address of the sender account. For example `0x9b790656b9ec0db1936ed84b3bea605873558198`.
@@ -188,7 +188,7 @@ Make the request using `eth_sendTransaction`:
 
 To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
-the [`eea_sendRawTransaction`](../../../global/reference/api/index.md#eea_sendrawtransaction) API call.
+the [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
@@ -206,15 +206,15 @@ by running the following commands in a JavaScript console, or by including them 
     ```js
     const Web3 = require('web3');
     const Web3Quorum = require('web3js-quorum');
-    
+
     const bytecode="608060405234801561001057600080fd5b5060405161014d38038061014d8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000819055505060f38061005a6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033";
     // initialize the default constructor with a value `47 = 0x2F`; this value is appended to the bytecode
     const contractConstructorInit = "000000000000000000000000000000000000000000000000000000000000002F";
-    
+
     const chainId = 1337;
     const web3 = new Web3(clientUrl);
     const web3quorum = new Web3Quorum(web3, chainId);
-    
+
     const txOptions = {
       data: '0x'+bytecode+contractConstructorInit,
       privateKey: fromPrivateKey,
@@ -224,7 +224,7 @@ by running the following commands in a JavaScript console, or by including them 
     console.log("Creating contract...");
     const txHash = await web3quorum.priv.generateAndSendRawTransaction(txOptions);
     console.log("Getting contractAddress from txHash: ", txHash);
-    
+
     const privateTxReceipt = await web3quorum.priv.waitForTransactionReceipt(txHash);
     console.log("Private Transaction Receipt: ", privateTxReceipt);
     return privateTxReceipt;
@@ -244,10 +244,10 @@ the contract's address.
 
     This example doesn't use a privacy group and makes a simple node-to-node transaction.
     To use a privacy group:
-    
+
     * Create the privacy group using the public keys of the nodes in the group.
     * Specify the `privacyGroupId` instead of the `privateFor` option in the txOptions above and then send the transaction.
-    
+
     The Developer Quickstart provides an
     [example of a private transaction with a privacy group](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/besu/smart_contracts/privacy/scripts/private_tx_privacy_group.js).
 
@@ -260,7 +260,7 @@ the contract's address.
 
 To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and
-the [`eea_sendRawTransaction`](../../../global/reference/api/index.md#eea_sendrawtransaction) API call.
+the [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction) API call.
 You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu
 keeps account management separate for stronger security.
 
@@ -277,11 +277,11 @@ Use `eea_sendRawTransaction` by running the following commands in a JavaScript c
     ```js
     const Web3 = require('web3');
     const EEAClient = require('web3-eea');
-    
+
     const bytecode="608060405234801561001057600080fd5b5060405161014d38038061014d8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000819055505060f38061005a6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033";
     // initialize the default constructor with a value `47 = 0x2F`; this value is appended to the bytecode
     const contractConstructorInit = "000000000000000000000000000000000000000000000000000000000000002F";
-    
+
     const web3 = new Web3(clientUrl);
     const web3eea = new EEAClient(web3, 1337);
     const txOptions = {
@@ -293,7 +293,7 @@ Use `eea_sendRawTransaction` by running the following commands in a JavaScript c
     console.log("Creating contract...");
     const txHash = await web3eea.eea.sendRawTransaction(txOptions);
     console.log("Getting contractAddress from txHash: ", txHash);
-    
+
     const privateTxReceipt = await web3.priv.getTransactionReceipt(txHash, fromPublicKey);
     // console.log("Private Transaction Receipt: ", privateTxReceipt);
     return privateTxReceipt;

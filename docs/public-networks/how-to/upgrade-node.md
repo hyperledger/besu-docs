@@ -2,7 +2,7 @@
 description: Upgrade Besu
 ---
 
-# Upgrading your Besu node
+# Upgrade your Besu node
 
 When upgrading your Besu node, we recommend:
 
@@ -26,7 +26,7 @@ The playbook:
 1. Applies any new configuration.
 1. Starts Besu.
 
-## Finding peers on restarting
+## Find peers on restarting
 
 Nodes store known peers in the peer table. The peer table is not persisted to disk.
 When a node restarts, the node connects to the specified bootnodes and discovers other nodes through the peer

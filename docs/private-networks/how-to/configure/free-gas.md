@@ -74,7 +74,7 @@ size (in bytes).
 
 ### 3. Start Besu with a minimum gas price of zero
 
-When starting nodes, set the [minimum gas price](../../../global/reference/cli/options.md#min-gas-price)
+When starting nodes, set the [minimum gas price](../../../public-networks/reference/cli/options.md#min-gas-price)
 to zero.
 
 === "Command Line"
@@ -90,10 +90,10 @@ to zero.
     ```
 
 !!! important
-    In a free gas network, ensure the [minimum gas price](../../../global/reference/cli/options.md#min-gas-price)
+    In a free gas network, ensure the [minimum gas price](../../../public-networks/reference/cli/options.md#min-gas-price)
     is set to zero for every node.
     Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
-    You can query a node's gas configuration using [`eth_gasPrice`](../../../global/reference/api/index.md#eth_gasprice).
+    You can query a node's gas configuration using [`eth_gasPrice`](../../../public-networks/reference/api/index.md#eth_gasprice).
 
 ## Configuring free gas in Truffle
 

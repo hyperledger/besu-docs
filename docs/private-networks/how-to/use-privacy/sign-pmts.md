@@ -6,7 +6,7 @@ description: How to sign a privacy marker transaction with Hyperledger Besu
 
 You can sign privacy marker transactions with either a random key or a specified key. To sign
 privacy marker transactions with a specified private key, use
-[`--privacy-marker-transaction-signing-key-file`](../../../global/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+[`--privacy-marker-transaction-signing-key-file`](../../../public-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
 when starting Hyperledger Besu.
 
 !!! note
@@ -20,7 +20,7 @@ adequate funds.
 
 In [free gas networks](../configure/free-gas.md), to provide further anonymity by signing
 each privacy marker transaction with a different random key, exclude the
-[`--privacy-marker-transaction-signing-key-file`](../../../global/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+[`--privacy-marker-transaction-signing-key-file`](../../../public-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
 command line option when starting Besu.
 
 !!! caution "Using account permissioning and privacy"

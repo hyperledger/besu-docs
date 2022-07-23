@@ -27,7 +27,7 @@ Listed on the right-hand side of the page are the steps to create a private netw
 ### 1. Create directories
 
 Each node requires a data directory for the blockchain data. When the node starts, Besu saves the
-[node key](../concepts/node-keys.md) in this directory.
+[node key](../../public-networks/concepts/node-keys.md) in this directory.
 
 Create directories for your private network, each of the three nodes, and a data directory for each
 node:
@@ -49,7 +49,7 @@ blockchain). The genesis file includes entries for configuring the blockchain, s
 difficulty and initial accounts and balances.
 
 All nodes in a network must use the same genesis file. The
-[network ID](../concepts/network-and-chain-id.md) defaults to the `chainID` in the genesis
+[network ID](../../public-networks/concepts/network-and-chain-id.md) defaults to the `chainID` in the genesis
 file. The `fixeddifficulty` enables fast block mining.
 
 Copy the following genesis definition to a file called `privateNetworkGenesis.json` and save it in
@@ -112,20 +112,20 @@ Start Node-1:
 The command line enables:
 
 * Mining and specifies the account to pay mining rewards to using the
-  [`--miner-enabled`](../../global/reference/cli/options.md#miner-enabled) and
-  [`--miner-coinbase`](../../global/reference/cli/options.md#miner-coinbase) options.
-* JSON-RPC API using the [`--rpc-http-enabled`](../../global/reference/cli/options.md#rpc-http-enabled)
+  [`--miner-enabled`](../../public-networks/reference/cli/options.md#miner-enabled) and
+  [`--miner-coinbase`](../../public-networks/reference/cli/options.md#miner-coinbase) options.
+* JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled)
   option.
 * All-host access to the HTTP JSON-RPC API using the
-  [`--host-allowlist`](../../global/reference/cli/options.md#host-allowlist) option.
+  [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
 * All-domain access to the node through the HTTP JSON-RPC API using the
-  [`--rpc-http-cors-origins`](../../global/reference/cli/options.md#rpc-http-cors-origins) option.
+  [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
 
 !!! info
 
     The miner coinbase account is one of the accounts defined in the genesis file.
 
-When the node starts, the [enode URL](../../global/concepts/node-keys.md#enode-url) displays. Copy the
+When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
 ![Node 1 Enode URL](../../images/EnodeStartup.png)
@@ -150,11 +150,11 @@ enode URL copied when starting Node-1 as the bootnode:
 The command line specifies:
 
 * A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../global/reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 * The enode URL of Node-1 using the
-  [`--bootnodes`](../../global/reference/cli/options.md#bootnodes) option.
+  [`--bootnodes`](../../public-networks/reference/cli/options.md#bootnodes) option.
 * A data directory for Node-2 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * A genesis file as for Node-1.
 
 ### 5. Start Node-3
@@ -178,13 +178,13 @@ The command line specifies:
 
 * A different port to Node-1 and Node-2 for P2P discovery.
 * A data directory for Node-3 using the
-  [`--data-path`](../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
 * A bootnode and genesis file as for Node-2.
 
 ### 6. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`net_peerCount`](../../global/reference/api/index.md#net_peercount) method and confirm the nodes are
+[`net_peerCount`](../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are
 functioning as peers:
 
 ```bash
@@ -214,10 +214,10 @@ Import accounts to MetaMask and send transactions as described in the
 Send transactions using `eth_sendRawTransaction` to
 [send ether or, deploy or invoke contracts](../how-to/send-transactions/index.md).
 
-Use the [JSON-RPC API](../how-to/use-besu-api/json-rpc.md).
+Use the [JSON-RPC API](../../public-networks/how-to/use-besu-api/json-rpc.md).
 
-Start a node with the [`--rpc-ws-enabled`](../../global/reference/cli/options.md#rpc-ws-enabled) option
-and use the [RPC Pub/Sub API](../how-to/use-besu-api/rpc-pubsub.md).
+Start a node with the [`--rpc-ws-enabled`](../../public-networks/reference/cli/options.md#rpc-ws-enabled) option
+and use the [RPC Pub/Sub API](../../public-networks/how-to/use-besu-api/rpc-pubsub.md).
 
 ## Stop the nodes
 

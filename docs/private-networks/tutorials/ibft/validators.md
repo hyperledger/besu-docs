@@ -33,13 +33,13 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 The command line specifies:
 
 * The data directory for Node-5 using the
-  [`--data-path`](../../../global/reference/cli/options.md#data-path) option.
+  [`--data-path`](../../../public-networks/reference/cli/options.md#data-path) option.
 * A different port to Node-1 for P2P discovery using the
-  [`--p2p-port`](../../../global/reference/cli/options.md#p2p-port) option.
+  [`--p2p-port`](../../../public-networks/reference/cli/options.md#p2p-port) option.
 * A different port to Node-1 for HTTP JSON-RPC using the
-  [`--rpc-http-port`](../../../global/reference/cli/options.md#rpc-http-port) option.
+  [`--rpc-http-port`](../../../public-networks/reference/cli/options.md#rpc-http-port) option.
 * The enode URL of Node-1 using the
-  [`--bootnodes`](../../../global/reference/cli/options.md#bootnodes) option.
+  [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option.
 * Other options as for [Node-1](index.md#6-start-the-first-node-as-the-bootnode).
 
 ### 3. Copy the address of the node
@@ -53,7 +53,7 @@ You can find the address in the logs when starting the new node:
     2021-05-28 09:49:00.881+10:00 | main | INFO  | DefaultP2PNetwork | Node address 0x90626e6a67445aabf1c0615410d108d4733aa90b
     ```
 
-Or use the [`public-key export-address`](../../../global/reference/cli/subcommands.md#export-address) subcommand:
+Or use the [`public-key export-address`](../../../public-networks/reference/cli/subcommands.md#export-address) subcommand:
 
 !!! example
 
@@ -72,7 +72,7 @@ Or use the [`public-key export-address`](../../../global/reference/cli/subcomman
 ### 4. Propose adding the new validator
 
 Propose adding the new validator from more than half the number of current validators, using
-[`ibft_proposeValidatorVote`](../../../global/reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the
+[`ibft_proposeValidatorVote`](../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the
 proposed validator and `true`:
 
 !!! example
@@ -98,7 +98,7 @@ Repeat the proposal process for this candidate node from at least two of the oth
 ### 5. Verify the addition of the new validator
 
 Verify that the new validator is now in the list of validators using
-[`ibft_getValidatorsByBlockNumber`](../../../global/reference/api/index.md#ibft_getvalidatorsbyblocknumber):
+[`ibft_getValidatorsByBlockNumber`](../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber):
 
 !!! example
 
@@ -120,4 +120,4 @@ The list of validators contains 5 addresses now.
 
 The process for removing a validator is similar to [adding a validator](#add-a-validator) starting from step 2,
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../../global/reference/api/index.md#ibft_proposevalidatorvote).
+[`ibft_proposeValidatorVote`](../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote).

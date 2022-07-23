@@ -27,7 +27,7 @@ account key. This greatly reduces the disk space needed for storage and allows f
 and faster read performance. Bonsai inherently [prunes](../../global/concepts/Pruning.md) orphaned nodes and old branches.
 
 To run a node with Bonsai Tries data storage format, use the command line option
-[`--data-storage-format=BONSAI`](../../global/reference/cli/options.md#data-storage-format).
+[`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
 
 ![Bonsai_tries](../../images/Bonsai_tries.png)
 
@@ -50,7 +50,7 @@ particularly if the blocks are more recent.
 However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data.
 To prevent this, you can limit how far Bonsai looks back while reconstructing data.
 The default limit Bonsai looks back is 512. To change the parameter, use the
-[`--bonsai-maximum-back-layers-to-load`](../../global/reference/cli/options.md#bonsai-maximum-back-layers-to-load) option.
+[`--bonsai-maximum-back-layers-to-load`](../reference/cli/options.md#bonsai-maximum-back-layers-to-load) option.
 
 !!! note
 

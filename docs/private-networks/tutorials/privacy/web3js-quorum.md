@@ -33,7 +33,7 @@ To use the examples provided in the web3js-quorum library with
     * chain ID
     * Tessera node public keys
     * Hyperledger Besu node RPC URLs
-    * [Hyperledger Besu node private keys](../../../global/concepts/node-keys.md#node-private-key).
+    * [Hyperledger Besu node private keys](../../../public-networks/concepts/node-keys.md#node-private-key).
 
 1. In the `example/multiNodeExample` directory, deploy the contract:
 

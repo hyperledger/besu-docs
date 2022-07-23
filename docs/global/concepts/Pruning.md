@@ -5,10 +5,10 @@ description: Pruning concept information.
 # Pruning
 
 In Besu, pruning reduces the storage required by removing state trie nodes that are unreachable
-from [recent blocks](../reference/cli/options.md#pruning-blocks-retained).
+from [recent blocks](../../public-networks/reference/cli/options.md#pruning-blocks-retained).
 
 Pruning is disabled by default, and can be enabled with the
-[`--pruning-enabled`](../reference/cli/options.md#pruning-enabled) command line option.
+[`--pruning-enabled`](../../public-networks/reference/cli/options.md#pruning-enabled) command line option.
 
 !!! Important
 

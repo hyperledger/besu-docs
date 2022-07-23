@@ -30,7 +30,7 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 You will specify `jwtsecret.hex` when starting both Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../how-to/use-engine-api.md).
-  
+
 ## 3. Generate validator keys and stake ETH
 
 If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
@@ -71,9 +71,9 @@ besu \
 ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
-[`--engine-jwt-secret`](../../global/reference/cli/options.md#engine-jwt-secret) option.
+[`--engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret) option.
 
-See the [`--engine-*`](../../global/reference/cli/options.md#engine-host-allowlist) options for more information on running
+See the [`--engine-*`](../reference/cli/options.md#engine-host-allowlist) options for more information on running
 Besu as an execution client.
 
 ## 5. Start Teku
@@ -141,7 +141,7 @@ After starting Besu and Teku, your node should start syncing and connecting to p
 !!! example
 
     === "Besu logs"
-    
+
         ```bash
         2022-03-21 20:42:09.295-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
         2022-03-21 20:42:14.298-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
@@ -149,9 +149,9 @@ After starting Besu and Teku, your node should start syncing and connecting to p
         2022-03-21 20:42:18.452-07:00 | nioEventLoopGroup-3-8 | INFO  | SyncTargetManager | Found common ancestor with peer Peer 0xab3a286b181721c794... at block 55127
         2022-03-21 20:42:18.454-07:00 | nioEventLoopGroup-3-8 | INFO  | PipelineChainDownloader | PipelineChain download complete
         ```
-    
+
     === "Teku logs"
-    
+
         ```bash
         2022-03-21 20:43:24.355 INFO  - Syncing     *** Target slot: 76092, Head slot: 2680, Remaining slots: 73412, Connected peers: 8
         2022-03-21 20:43:36.363 INFO  - Syncing     *** Target slot: 76093, Head slot: 2879, Remaining slots: 73214, Connected peers: 10

@@ -64,16 +64,16 @@ Permissioning implements three allowlists:
     [privacy marker transactions](../privacy/private-transactions/processing.md).
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+    [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option and the corresponding public key
     included in the accounts allowlist.
 
 !!! tip
 
-    If nodes are not connecting as expected, set the [log level to `TRACE`](../../../reference/cli/options.md#logging)
+    If nodes are not connecting as expected, set the [log level to `TRACE`](../../../public-networks/reference/cli/options.md#logging)
     and search for messages containing `Node permissioning` to identify the issue.
 
-    Ensure the [`--p2p-host`](../../../reference/cli/options.md#p2p-host) command line option has been
+    Ensure the [`--p2p-host`](../../../public-networks/reference/cli/options.md#p2p-host) command line option has been
     correctly configured for all nodes with the
     externally accessible address.
 

@@ -4,7 +4,7 @@ description: Plugin based permissioning
 
 # Permissioning plugin
 
-You can define complex [permissioning](index.md) solutions by [building a plugin](../../../global/concepts/Plugins.md) that
+You can define complex [permissioning](index.md) solutions by building a plugin that
 extends Hyperledger Besu functionality.
 
 The plugin API provides a `PermissioningService` interface that currently supports connection permissioning and
@@ -19,7 +19,7 @@ Use connection permissioning when deciding whether to restrict node access to kn
 Use message permissioning to propagate different types of devP2P messages to particular nodes. For example,
 this can be used to prevent pending transactions from being forwarded to other nodes.
 
-## Registering your plugin
+## Register your plugin
 
 To enable permissioning in your plugin, implement the `PermissioningService` interface and register your providers.
 

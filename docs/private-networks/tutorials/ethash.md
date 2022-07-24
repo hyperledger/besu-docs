@@ -84,13 +84,13 @@ the `Private-Network` directory:
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../reference/genesis-items.md#milestone-blocks) when creating
+    We recommend specifying the latest [milestone](../../public-networks/reference/genesis-items.md#milestone-blocks) when creating
     the genesis file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
 !!! warning
 
-    Do not use the accounts in `alloc` in the genesis file on Mainnet or any public network except
+    Don't use the accounts in `alloc` in the genesis file on Mainnet or any public network except
     for testing. The private keys display, which means the accounts are not secure.
 
 ### 3. Start the first node as a bootnode
@@ -209,7 +209,7 @@ Import accounts to MetaMask and send transactions as described in the
 
 !!! info
 
-    Besu doesn't support [private key management](../../how-to/send-transactions.md).
+    Besu doesn't support [private key management](../../public-networks/how-to/send-transactions.md).
 
 Send transactions using `eth_sendRawTransaction` to
 [send ether or, deploy or invoke contracts](../how-to/send-transactions/index.md).

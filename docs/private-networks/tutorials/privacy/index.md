@@ -344,10 +344,10 @@ In the `Node-1` directory, start Besu Node-1:
 
 The command line specifies privacy options:
 
-* [`--privacy-enabled`](../../../public-networks/reference/cli/options.md#privacy-enabled) enables privacy
-* [`--privacy-url`](../../../public-networks/reference/cli/options.md#privacy-url) specifies the Q2T server address
+* [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy
+* [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the Q2T server address
     of the Tessera node (`Q2T` in `tessera.conf`)
-* [`--privacy-public-key-file`](../../../public-networks/reference/cli/options.md#privacy-public-key-file)
+* [`--privacy-public-key-file`](../../reference/cli/options.md#privacy-public-key-file)
   specifies the file containing Tessera node public key (created in
   [3. Generate Tessera Keys](#2-generate-tessera-keys))
 * [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in
@@ -358,7 +358,7 @@ The command line specifies privacy options:
 !!! note
 
     Use the
-    [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+    [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option to sign
     [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md) using a
     supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
@@ -390,8 +390,8 @@ The [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes)
 
 !!! note
 
-    When running Besu from the [Docker image](../../../get-started/install/run-docker-image.md),
-    [expose ports](../../../get-started/install/run-docker-image.md#expose-ports).
+    When running Besu from the [Docker image](../../get-started/install/run-docker-image.md),
+    [expose ports](../../get-started/install/run-docker-image.md#expose-ports).
 
 ## 7. Start Besu Node-3
 

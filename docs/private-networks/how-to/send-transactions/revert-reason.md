@@ -39,7 +39,7 @@ client an optional string message containing information about the error.
     }
     ```
 
-## Enabling revert reason
+## Enable revert reason
 
 Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled)
 command line option to include the revert reason in the transaction receipt,
@@ -52,7 +52,7 @@ command line option to include the revert reason in the transaction receipt,
     Enabling revert reason may use a significant amount of memory. We do not recommend enabling
     revert reason when connected to public Ethereum networks.
 
-## Where is the revert reason included
+## Where the revert reason is included
 
 With revert reason enabled, the transaction receipt returned by
 [`eth_getTransactionReceipt`](../../../public-networks/reference/api/index.md#eth_gettransactionreceipt) includes
@@ -64,7 +64,7 @@ the revert reason as an ABI-encoded string.
     revert reason in the transactions receipt's root hash means the revert reason is only available
     to nodes that execute the transaction when importing the block. That is, the revert reason is
     not available if using fast synchronization
-    ([`--sync-mode=FAST`](../../../reference/cli/options.md#sync-mode)).
+    ([`--sync-mode=FAST`](../../../public-networks/reference/cli/options.md#sync-mode)).
 
 !!! example
 

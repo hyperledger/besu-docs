@@ -98,7 +98,7 @@ When execution is successfully finished, the process lists the available service
   [Read more about metrics](../../public-networks/how-to/monitor/metrics.md).
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
-  [Read more about log management](../../public-networks/how-to/monitor/elastic-stack.md).
+  [Read more about log management](../how-to/monitor/elastic-stack.md).
 
 To display the list of endpoints again, run:
 
@@ -249,7 +249,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 
 !!! note
 
-    Besu doesn't incorporate [account management](../../how-to/send-transactions.md).
+    Besu doesn't incorporate [account management](../../public-networks/how-to/send-transactions.md).
     To create your own account, you have to use a third-party tool, such as MetaMask.
 
 1. After importing an existing test account, [create another test account from scratch] to use as the recipient for a

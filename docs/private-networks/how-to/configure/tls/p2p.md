@@ -2,7 +2,7 @@
 description: Configure P2P TLS communication
 ---
 
-# P2P TLS
+# Configure P2P TLS
 
 You can configure TLS to secure the P2P communication between nodes by ensuring only authorized nodes can communicate
 with each other. Use certificates issued by a trusted authority to connect authorized nodes in the network.

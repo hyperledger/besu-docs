@@ -2,11 +2,11 @@
 description: How to sign a privacy marker transaction with Hyperledger Besu
 ---
 
-# Signing privacy marker transactions
+# Sign privacy marker transactions
 
-You can sign privacy marker transactions with either a random key or a specified key. To sign
+You can sign privacy marker transactions (PMTs) with either a random key or a specified key. To sign
 privacy marker transactions with a specified private key, use
-[`--privacy-marker-transaction-signing-key-file`](../../../public-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+[`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
 when starting Hyperledger Besu.
 
 !!! note
@@ -20,7 +20,7 @@ adequate funds.
 
 In [free gas networks](../configure/free-gas.md), to provide further anonymity by signing
 each privacy marker transaction with a different random key, exclude the
-[`--privacy-marker-transaction-signing-key-file`](../../../public-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+[`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
 command line option when starting Besu.
 
 !!! caution "Using account permissioning and privacy"
@@ -28,7 +28,7 @@ command line option when starting Besu.
     You can't use [account permissioning] with random key signing.
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
+    [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option and the corresponding public key included in the accounts allowlist.
 
 !!! note

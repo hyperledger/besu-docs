@@ -2,7 +2,7 @@
 description: Configure TLS
 ---
 
-# Configure TLS
+# Configure client and server TLS
 
 Hyperledger Besu supports TLS for client and server communication. For example, you can
 configure TLS for communication between
@@ -85,7 +85,7 @@ The command line:
 
 !!! note
 
-    Set [`--rpc-http-tls-ca-clients-enabled`](../../../../reference/cli/options.md#rpc-http-tls-ca-clients-enabled)
+    Set [`--rpc-http-tls-ca-clients-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-ca-clients-enabled)
     to `true` to allow access to clients with signed and trusted root CAs.
 
 ## Configure server TLS
@@ -127,14 +127,14 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 The command line:
 
 * Enables TLS with the server using the
-  [`--privacy-tls-enabled`](../../../../public-networks/reference/cli/options.md#privacy-tls-enabled) option.
+  [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled) option.
 * Specifies the keystore using the
-  [`--privacy-tls-keystore-file`](../../../../public-networks/reference/cli/options.md#privacy-tls-keystore-file)
+  [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file)
   option.
 * Specifies the file that contains the password to decrypt the keystore using the
-  [`--privacy-tls-keystore-password-file`](../../../../public-networks/reference/cli/options.md#privacy-tls-keystore-password-file) option.
+  [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file) option.
 * Specifies the trusted servers using the
-  [`--privacy-tls-known-enclave-file`](../../../../public-networks/reference/cli/options.md#privacy-tls-known-enclave-file) option.
+  [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file) option.
 
 <!-- Links -->
 [Configure the client for TLS]: https://docs.ethsigner.consensys.net/en/latest/HowTo/Configure-TLS/#server-tls-connection

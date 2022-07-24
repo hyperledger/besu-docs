@@ -109,7 +109,7 @@ in the `QBFT-Network` directory:
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../reference/genesis-items.md#milestone-blocks)
+    We recommend specifying the latest [milestone](../../public-networks/reference/genesis-items.md#milestone-blocks)
     when creating the genesis file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
@@ -304,7 +304,7 @@ The command line specifies:
 ### 10. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`qbft_getvalidatorsbyblocknumber`](../../public-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber)
+[`qbft_getvalidatorsbyblocknumber`](../reference/api/index.md#qbft_getvalidatorsbyblocknumber)
 method and confirm the network has four validators:
 
 ```bash
@@ -353,7 +353,7 @@ Look at the logs to confirm Besu is producing blocks:
 
 ## Next steps
 
-Use the [QBFT API](../../public-networks/reference/api/index.md#qbft-methods) to remove or add validators, or import accounts
+Use the [QBFT API](../reference/api/index.md#qbft-methods) to remove or add validators, or import accounts
 to MetaMask and send transactions as described in the
 [Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
@@ -363,7 +363,7 @@ to MetaMask and send transactions as described in the
     [created for each node](#3-generate-node-keys-and-a-genesis-file) has the node address as the
     name.
 
-    Besu doesn't support [private key management](../../how-to/send-transactions.md).
+    Besu doesn't support [private key management](../../public-networks/how-to/send-transactions.md).
 
 You can switch from the [block header validator selection method] configured here, to the [contract validator selection method]
 by updating the genesis file and [configuring a transition].
@@ -375,7 +375,7 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 !!!tip
 
     To restart the QBFT network in the future, start from
-    [6. Start First Node as Bootnode](#6-start-the-first-node-as-the-bootnode).
+    [step 6](#6-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
 [block header validator selection method]: ../how-to/configure/consensus/qbft.md#add-and-remove-validators-using-block-headers

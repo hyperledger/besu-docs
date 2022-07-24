@@ -53,9 +53,9 @@ Docker Compose environment provided by Splunk.
     !!! note
 
         Splunk enterprise takes some time to start.
-    
+
         Run `docker ps` and wait for the `STATUS` of the 3 containers to be `Up [number] seconds (healthy)`.
-    
+
         ```
         CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                    PORTS                                                                            NAMES
         127600dd1173        splunkdlt/ethlogger:latest   "ethlogger"              53 seconds ago      Up 51 seconds (healthy)                                                                                    ethlogger
@@ -65,7 +65,7 @@ Docker Compose environment provided by Splunk.
 
 ## Use Splunk Enterprise as a Docker container
 
-### Requirements
+### Prerequisites
 
 - [Docker](https://docs.docker.com/compose/install/)
 - [Besu 1.4.4](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/CHANGELOG.md#144) or later [installed](../../get-started/install/binary-distribution.md)
@@ -77,7 +77,7 @@ Docker Compose environment provided by Splunk.
 
 !!! note
 
-    If running [Besu as a Docker container](../../../get-started/install/run-docker-image.md), consider using
+    If running [Besu as a Docker container](../../get-started/install/run-docker-image.md), consider using
     [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose) or
     [Kubernetes](../deploy/kubernetes.md) instead of the Splunk Enterprise trial container.
 
@@ -103,7 +103,7 @@ Docker Compose environment provided by Splunk.
     !!! tip
 
         To follow the logs of the Splunk container:
-    
+
         ```bash
         docker logs -f splunk-demo
         ```
@@ -147,7 +147,7 @@ Docker Compose environment provided by Splunk.
 
 ## Run a Splunk Enterprise instance
 
-### Requirements
+### Prerequisites
 
 - [Splunk Enterprise license](https://www.splunk.com/)
 - [Besu 1.4.4](https://github.com/hyperledger/besu/blob/master/CHANGELOG.md#144) or later [installed](../../get-started/install/binary-distribution.md)

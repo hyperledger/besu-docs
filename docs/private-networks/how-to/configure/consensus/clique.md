@@ -116,17 +116,17 @@ To enable them, specify the [`--rpc-http-api`](../../../../public-networks/refer
 
 The methods to add or remove signers are:
 
-* [`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose).
-* [`clique_getSigners`](../../../../public-networks/reference/api/index.md#clique_getsigners).
-* [`clique_discard`](../../../../public-networks/reference/api/index.md#clique_discard).
+* [`clique_propose`](../../../reference/api/index.md#clique_propose).
+* [`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
+* [`clique_discard`](../../../reference/api/index.md#clique_discard).
 
 To view signer metrics for a specified block range, call
-[`clique_getSignerMetrics`](../../../../public-networks/reference/api/index.md#clique_getsignermetrics).
+[`clique_getSignerMetrics`](../../../reference/api/index.md#clique_getsignermetrics).
 
 ### Add a signer
 
 To propose adding a signer to a Clique network, call
-[`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`.
+[`clique_propose`](../../../reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`.
 A majority of signers must execute the call.
 
 !!! example "JSON-RPC `clique_propose` request example"
@@ -141,7 +141,7 @@ When more than 50% of the existing signers propose adding the signer, with their
 signer can begin signing blocks.
 
 To return a list of signers and confirm the addition of a proposed signer, call
-[`clique_getSigners`](../../../../public-networks/reference/api/index.md#clique_getsigners).
+[`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
 
 !!! example "JSON-RPC `clique_getSigners` request example"
 
@@ -150,7 +150,7 @@ To return a list of signers and confirm the addition of a proposed signer, call
     ```
 
 To discard your proposal after confirming the addition of a signer, call
-[`clique_discard`](../../../../public-networks/reference/api/index.md#clique_discard) specifying the address of the proposed signer.
+[`clique_discard`](../../../reference/api/index.md#clique_discard) specifying the address of the proposed signer.
 
 !!! example "JSON-RPC `clique_discard` request example"
 
@@ -161,7 +161,7 @@ To discard your proposal after confirming the addition of a signer, call
 ### Remove a signer
 
 The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you
-specify `false` as the second parameter of [`clique_propose`](../../../../public-networks/reference/api/index.md#clique_propose).
+specify `false` as the second parameter of [`clique_propose`](../../../reference/api/index.md#clique_propose).
 
 ### Epoch transition
 

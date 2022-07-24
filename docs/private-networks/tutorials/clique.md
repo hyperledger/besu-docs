@@ -113,7 +113,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../reference/genesis-items.md#milestone-blocks) when creating
+    We recommend specifying the latest [milestone](../../public-neteworks/reference/genesis-items.md#milestone-blocks) when creating
     the genesis file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
@@ -194,7 +194,7 @@ The command line specifies:
   [`--bootnodes`](../../public-networks/reference/cli/options.md#bootnodes) option.
 * The data directory for Node-2 using the
   [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
-* Other options as for [Node-1](#5-start-first-node-as-bootnode).
+* Other options as for [Node-1](#4-start-the-first-node-as-the-bootnode).
 
 ### 6. Start Node-3
 
@@ -254,14 +254,14 @@ Use the [Clique API to add] Node-2 or Node-3 as a signer.
 !!! note
 
     To add Node-2 or Node-3 as a signer you need the
-    [node address as when specifying Node-1](#2-get-address-for-node-1) as the initial signer.
+    [node address as when specifying Node-1](#2-get-the-address-for-node-1) as the initial signer.
 
 Import accounts to MetaMask and send transactions, as described in the
 [Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
 !!! info
 
-    Besu doesn't support [private key management](../../how-to/send-transactions.md).
+    Besu doesn't support [private key management](../../public-networks/how-to/send-transactions.md).
 
 ## Stop the nodes
 
@@ -270,8 +270,8 @@ When finished using the private network, stop all nodes using ++ctrl+c++ in each
 !!!tip
 
     To restart the Clique network in the future, start from
-    [4. Start First Node as Bootnode](#4-start-first-node-as-bootnode).
+    [4. Start First Node as Bootnode](#4-start-the-first-node-as-the-bootnode).
 
 <!-- Links -->
 [Clique (proof of authority) consensus protocol]: ../how-to/configure/consensus/clique.md
-[Clique API to add]: ../how-to/configure/consensus/clique.md#adding-and-removing-signers
+[Clique API to add]: ../how-to/configure/consensus/clique.md#add-and-remove-signers

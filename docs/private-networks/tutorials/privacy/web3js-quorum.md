@@ -58,7 +58,7 @@ To use the examples provided in the web3js-quorum library with
     !!! note
 
         If you receive a `Method not enabled` error, ensure you enabled the appropriate APIs
-        using the [`--rpc-http-api`](../../../reference/cli/options.md#rpc-http-api)
+        using the [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api)
 
 1. Copy the contract address from the private transaction receipt and set the `CONTRACT_ADDRESS`
    environment variable:

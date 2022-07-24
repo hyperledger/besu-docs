@@ -38,12 +38,12 @@ docker run hyperledger/besu:latest
 
 Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSocket JSON-RPC. You need
 to expose the ports to use the default ports or the ports specified using
-[`--rpc-http-port`](../../reference/cli/options.md#rpc-http-port),
-[`--p2p-port`](../../reference/cli/options.md#p2p-port),
-[`--rpc-ws-port`](../../reference/cli/options.md#rpc-ws-port),
-[`--metrics-port`](../../reference/cli/options.md#metrics-port),
-[`--graphql-http-port`](../../reference/cli/options.md#graphql-http-port), and
-[`--metrics-push-port`](../../reference/cli/options.md#metrics-push-port) options.
+[`--rpc-http-port`](../../../public-networks/reference/cli/options.md#rpc-http-port),
+[`--p2p-port`](../../../public-networks/reference/cli/options.md#p2p-port),
+[`--rpc-ws-port`](../../../public-networks/reference/cli/options.md#rpc-ws-port),
+[`--metrics-port`](../../../public-networks/reference/cli/options.md#metrics-port),
+[`--graphql-http-port`](../../../public-networks/reference/cli/options.md#graphql-http-port), and
+[`--metrics-push-port`](../../../public-networks/reference/cli/options.md#metrics-push-port) options.
 
 To run Besu exposing local ports for access:
 
@@ -78,15 +78,15 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     data path interferes with the operation of Besu and prevents Besu from safely launching.
 
     To run a node that maintains the node state (key and database),
-    [`--data-path`](../../reference/cli/options.md#data-path) must be set to a location other
+    [`--data-path`](../../../public-networks/reference/cli/options.md#data-path) must be set to a location other
     than `/opt/besu` and a storage volume mounted at that location.
 
-    When running in a Docker container, [`--nat-method`](../../how-to/connect/specify-nat.md)
+    When running in a Docker container, [`--nat-method`](../../../public-networks/how-to/connect/specify-nat.md)
     must be set to `DOCKER` or `AUTO` (default). Don't set
-    [`--nat-method`](../../how-to/connect/specify-nat.md) to `NONE` or `UPNP`.
+    [`--nat-method`](../../../public-networks/how-to/connect/specify-nat.md) to `NONE` or `UPNP`.
 
 You can specify
-[Besu environment variables](../../reference/cli/options.md#besu-environment-variables) with the
+[Besu environment variables](../../../public-networks/reference/cli/options.md#besu-environment-variables) with the
 Docker image instead of the command line options.
 
 !!! example

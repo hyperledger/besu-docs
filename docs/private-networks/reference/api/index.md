@@ -322,10 +322,10 @@ transaction data using `eea_sendRawTransaction`.
 
     For production systems requiring private transactions, use a network with a consensus mechanism
     supporting transaction finality to make sure the private state does not become inconsistent
-    with the chain. For example, [IBFT 2.0](../how-to/configure/consensus/ibft.md)
-    and [QBFT](../how-to/configure/consensus/qbft.md) provide the required finality.
+    with the chain. For example, [IBFT 2.0](../../how-to/configure/consensus/ibft.md)
+    and [QBFT](../../how-to/configure/consensus/qbft.md) provide the required finality.
 
-    Using private transactions with [pruning](../../public-networks/how-to/connect/sync-node.md) or
+    Using private transactions with [pruning](../../../public-networks/how-to/connect/sync-node.md) or
     [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) is not supported.
 
     Besu doesn't implement

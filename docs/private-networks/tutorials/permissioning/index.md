@@ -184,7 +184,7 @@ Copy the following permissions configuration to a file called `permissions_confi
 
 The permissions configuration file includes the first two accounts from the genesis file.
 
-Use the [`perm_addNodesToAllowlist`](../../../public-networks/reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
+Use the [`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
 
 ### 7. Start Node-1
 
@@ -204,8 +204,8 @@ Use the following command:
 
 The command line allows you to enable:
 
-- Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../../public-networks/reference/cli/options.md#permissions-nodes-config-file-enabled)
-  and [`--permissions-accounts-config-file-enabled`](../../../public-networks/reference/cli/options.md#permissions-accounts-config-file-enabled).
+- Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../reference/cli/options.md#permissions-nodes-config-file-enabled)
+  and [`--permissions-accounts-config-file-enabled`](../../reference/cli/options.md#permissions-accounts-config-file-enabled).
 - The JSON-RPC API using [`--rpc-http-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-enabled).
 - The `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
   [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api).
@@ -301,7 +301,7 @@ the enode URL to update the permissions configuration file in the following step
 ### 11. Add enode URLs for nodes to permissions configuration file
 
 Start another terminal and use the
-[`perm_addNodesToAllowlist`](../../../public-networks/reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API
+[`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API
 method to add the nodes to the permissions configuration file for each node.
 
 Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with the enode URL displayed when
@@ -420,7 +420,7 @@ Import the first account from the genesis file into MetaMask and send transactio
 
 !!! info
 
-    Besu doesn't support [private key management](../../../how-to/send-transactions.md).
+    Besu doesn't support [private key management](../../../public-networks/how-to/send-transactions.md).
 
 ### Try sending a transaction from an account not in the accounts allowlist
 
@@ -476,7 +476,7 @@ window.
 
 !!!tip
 
-    To restart the permissioned network in the future, start from [step 5](#5-start-node-1).
+    To restart the permissioned network in the future, start from [step 7](#7-start-node-1).
 
 <!-- Links -->
 [IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/consensus/ibft.md

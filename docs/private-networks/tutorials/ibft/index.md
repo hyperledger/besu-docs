@@ -105,7 +105,7 @@ in the `IBFT-Network` directory:
 
 !!! note
 
-    We recommend specifying the latest [milestone](../../../reference/genesis-items.md#milestone-blocks)
+    We recommend specifying the latest [milestone](../../../public-networks/reference/genesis-items.md#milestone-blocks)
     when creating the configuration file for a private network.
     This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
 
@@ -300,7 +300,7 @@ The command line specifies:
 ### 10. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API
-[`ibft_getvalidatorsbyblocknumber`](../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber)
+[`ibft_getvalidatorsbyblocknumber`](../../reference/api/index.md#ibft_getvalidatorsbyblocknumber)
 method and confirm the network has four validators:
 
 ```bash
@@ -349,7 +349,7 @@ Look at the logs to confirm Besu is producing blocks:
 
 ## Next steps
 
-Use the [IBFT API](../../../public-networks/reference/api/index.md#ibft-20-methods) to remove or add validators.
+Use the [IBFT API](../../reference/api/index.md#ibft-20-methods) to remove or add validators.
 
 !!! note
 
@@ -365,7 +365,7 @@ Import accounts to MetaMask and send transactions as described in the
 
 !!! info
 
-    Besu doesn't support [private key management](../../../how-to/send-transactions.md).
+    Besu doesn't support [private key management](../../../public-networks/how-to/send-transactions.md).
 
 ## Stop the nodes
 

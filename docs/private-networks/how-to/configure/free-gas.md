@@ -30,7 +30,7 @@ to limit resource use.
 In a free gas network, transactions still use gas but the gas price is zero, meaning the
 transaction cost is zero. Transaction cost = gas used * 0 (the gas price).
 
-## Configuring free gas in Hyperledger Besu
+## Configure free gas in Besu
 
 When gas is free, limiting block and contract sizes is less important. In free gas networks, we
 increase the block size limit and set the contract size limit to the maximum value.
@@ -95,7 +95,7 @@ to zero.
     Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
     You can query a node's gas configuration using [`eth_gasPrice`](../../../public-networks/reference/api/index.md#eth_gasprice).
 
-## Configuring free gas in Truffle
+## Configure free gas in Truffle
 
 If using Truffle to develop on your free gas network, you also need to configure free gas in
 Truffle.
@@ -106,7 +106,7 @@ gas limit in Truffle to the maximum possible.
 !!! important
 
     Besu does not support private key management. To use Besu with Truffle, you must configure
-    a [Truffle wallet](../../../how-to/develop/truffle.md).
+    a [Truffle wallet](../../../public-networks/how-to/develop/truffle.md).
 
 ### Update `truffle-config.js`
 

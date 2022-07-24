@@ -4,7 +4,7 @@ description: Privacy plugin
 
 # Privacy plugin
 
-You can define your own strategy for private transactions by [building a plugin](../../../global/concepts/Plugins.md) that extends
+You can define your own strategy for private transactions by building a plugin that extends
 Hyperledger Besu functionality.
 
 The plugin can take many forms, but it must provide Besu with a private transaction when required.
@@ -18,7 +18,7 @@ The plugin can take many forms, but it must provide Besu with a private transact
 Enable the privacy plugin by starting Besu and including the `--Xprivacy-plugin-enabled` command line option.
 The registered plugin must implement the `PrivacyPluginPayloadProvider` interface.
 
-## Using the payload provider interface
+## Use the payload provider interface
 
 The privacy plugin must define the [privacy marker transaction (PMT)] payload.
 Use the payload to retrieve the contents of the private transaction which could be a link to a location in
@@ -27,7 +27,7 @@ an enclave, or an encrypted form of the private payload itself.
 Besu doesn't need to know how the private transaction is distributed, it just needs to know what the private transaction
 for the PMT is.
 
-### Sending transactions
+### Send transactions
 
 When submitting a private transaction using [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction),
 the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which
@@ -43,7 +43,7 @@ The transaction flow is as follows:
 5. The private transaction handler creates a PMT for the private transaction, and propagates the PMT using devP2P in
     the same way as a public Ethereum transaction.
 
-### Mining transactions
+### Mine transactions
 
 The process of mining transactions happens in reverse to sending transactions.
 
@@ -74,7 +74,7 @@ to the transaction pool. The responsibility then lies with the plugin to sign an
 
 [privacy marker transaction (PMT)]: ../../how-to/use-privacy/access-private-transactions.md
 
-## Registering your plugin
+## Register your plugin
 
 To enable Besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and you must call `setPayloadProvider`.
 

@@ -30,9 +30,9 @@ mode if automatic configuration fails.
 
 Follow 3 steps to configure Besu for automatic IP address and ports detection on Kubernetes:
 
-1. [Create a load balancer](#1---create-a-load-balancer)
-1. [Check if the load balancer is properly deployed](#2---check-if-the-load-balancer-is-properly-deployed)
-1. [Deploy Besu](#3---deploy-besu)
+1. [Create a load balancer](#1-create-a-load-balancer)
+1. [Check if the load balancer is properly deployed](#2-check-if-the-load-balancer-is-properly-deployed)
+1. [Deploy Besu](#3-deploy-besu)
 
 ### 1. Create a load balancer
 
@@ -153,8 +153,8 @@ When steps 1 and 2 are completed, deploy Besu using the following YAML example:
 
     Automatic detection error messages do not prevent you to use Besu.
 
-    Try the fix indicated for each error or use [`--nat-method=KUBERNETES`](../../../how-to/connect/specify-nat.md#kubernetes) CLI option
-    and [set IP address and port manually](../../../how-to/connect/configure-ports.md).
+    Try the fix indicated for each error or use [`--nat-method=KUBERNETES`](../../../public-networks/how-to/connect/specify-nat.md#kubernetes) CLI option
+    and [set IP address and port manually](../../../public-networks/how-to/connect/configure-ports.md).
 
 Possible errors messages for Kubernetes automatic detection failure:
 
@@ -207,7 +207,7 @@ Possible errors messages for Kubernetes automatic detection failure:
 
 - **Error message:** `Nat manager failed to configure itself automatically due to the following reason Ingress not found. NONE mode will be used`
 - **Cause:** Load balancer did not finish to recover an IP address.
-- **Fix:** [Check that the load balancer is properly deployed](#check-that-the-load-balancer-is-properly-deployed) before launching Besu.
+- **Fix:** [Check that the load balancer is properly deployed](#2-check-if-the-load-balancer-is-properly-deployed) before launching Besu.
 
 !!!example "Example error log"
 

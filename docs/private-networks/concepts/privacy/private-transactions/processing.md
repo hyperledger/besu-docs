@@ -17,7 +17,7 @@ Processing [private transactions](index.md) involves the following:
 
 * **Privacy marker transaction (PMT)**: A public Ethereum transaction with a payload of the enclave key.
   The enclave key is a pointer to the private transaction in Tessera.
-  The `to` attribute of the PMT is the [address of the privacy precompiled contract](../../../../public-networks/reference/api/index.md#priv_getprivacyprecompileaddress).
+  The `to` attribute of the PMT is the [address of the privacy precompiled contract](../../../reference/api/index.md#priv_getprivacyprecompileaddress).
 
     The PMT is [signed with a random key or the key specified on the command line].
 
@@ -25,7 +25,7 @@ Private transaction processing is illustrated and described in the following dia
 
 ![Processing Private Transactions](../../../../images/PrivateTransactionProcessing.png)
 
-1. Submit a private transaction using [`eea_sendRawTransaction`](../../../../public-networks/reference/api/index.md#eea_sendrawtransaction).
+1. Submit a private transaction using [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
    The signed transaction includes transaction parameters specific to private transactions, including:
 
     * `privateFor` or `privacyGroupId`, which specifies the list of recipients.
@@ -50,12 +50,12 @@ Private transaction processing is illustrated and described in the following dia
 
         If you want to sign the PMT outside of Besu, use
         [`priv_distributeRawTransaction`](../../../how-to/send-transactions/private-transactions.md#priv_distributerawtransaction)
-        instead of [`eea_sendRawTransaction`](../../../../reference/api/index.md#eea_sendrawtransaction).
+        instead of [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
 
 1. Besu mines the PMT into a block and the PMT is distributed to all Ethereum nodes in the network.
 
 1. The Mainnet Transaction Processor processes the PMT in the same way as any other public transaction.
-   On nodes containing the [privacy precompile contract](../../../../public-networks/reference/api/index.md#priv_getprivacyprecompileaddress)
+   On nodes containing the [privacy precompile contract](../../../reference/api/index.md#priv_getprivacyprecompileaddress)
    specified in the `to` attribute of the PMT, the Mainnet Transaction Processor passes the PMT to the privacy
    precompile contract.
 
@@ -78,10 +78,10 @@ Private transaction processing is illustrated and described in the following dia
       [IBFT 2.0](../../../how-to/configure/consensus/ibft.md).
     * Tessera must be [highly available and run in a separate instance to Besu](../../../how-to/use-privacy/tessera.md).
 
-    Using private transactions with [pruning] or [fast sync](../../../../reference/cli/options.md#sync-mode)
+    Using private transactions with [pruning] or [fast sync](../../../../public-networks/reference/cli/options.md#sync-mode)
     is not supported.
 
 <!-- Links -->
 [signed with a random key or the key specified on the command line]: ../../../how-to/use-privacy/sign-pmts.md
 [highly available and run in a separate instance to Besu]: ../../../how-to/use-privacy/tessera.md
-[pruning]: ../../../../global/concepts/Pruning.md
+[pruning]: ../../../../public-networks/concepts/data-storage-formats.md

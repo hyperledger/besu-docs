@@ -45,7 +45,7 @@ IBFT-Network/
 
 In the `Node-1` directory, [generate the private and public key pair]. The key pair, which must be
 in `.pem` format, belongs to the operator who uses the key pair to authenticate the
-[tenant JWTs](#7-generate-the-tenant-jwts).
+[tenant JWTs](#6-generate-the-tenant-jwts).
 
 !!! note
 
@@ -157,22 +157,22 @@ The command line specifies privacy options:
   enables authentication for JSON-RPC APIs.
 * [`--rpc-http-authentication-jwt-public-key-file`](../../../public-networks/reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
   specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to
-  authenticate the [tenant JWTs](#7-generate-the-tenant-jwts).
-* [`--privacy-enabled`](../../../public-networks/reference/cli/options.md#privacy-enabled) enables privacy.
-* [`--privacy-url`](../../../public-networks/reference/cli/options.md#privacy-url) specifies the
+  authenticate the [tenant JWTs](#6-generate-the-tenant-jwts).
+* [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy.
+* [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the
     [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
-* [`--privacy-multi-tenancy-enabled`](../../../public-networks/reference/cli/options.md#privacy-multi-tenancy-enabled)
+* [`--privacy-multi-tenancy-enabled`](../../reference/cli/options.md#privacy-multi-tenancy-enabled)
   enables multi-tenancy.
 
 !!! note
 
-    [`--rpc-http-authentication-jwt-public-key-file`](../../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
+    [`--rpc-http-authentication-jwt-public-key-file`](../../../public-networks/reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
     is only required when using [JWT public key authentication]. If using
     [username and password authentication], use
-    [`--rpc-http-authentication-credentials-file`](../../../reference/cli/options.md#rpc-http-authentication-credentials-file)
+    [`--rpc-http-authentication-credentials-file`](../../../public-networks/reference/cli/options.md#rpc-http-authentication-credentials-file)
     instead.
 
-[Start the remaining Besu nodes](index.md#7-start-besu-node-2).
+[Start the remaining Besu nodes](index.md#6-start-besu-node-2).
 
 ## 6. Generate the tenant JWTs
 

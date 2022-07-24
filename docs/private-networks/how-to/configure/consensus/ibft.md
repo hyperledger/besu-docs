@@ -171,7 +171,7 @@ To tune the block timeout for your network deployment:
 
 !!! tip
 
-    View [`TRACE` logs](../../../../reference/api/index.md#trace-methods) to see round change
+    View [`TRACE` logs](../../../../public-networks/reference/api/index.md#trace-methods) to see round change
     log messages.
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
@@ -205,9 +205,9 @@ To enable them, specify the [`--rpc-http-api`](../../../../public-networks/refer
 
 The methods to add or remove validators are:
 
-* [`ibft_getPendingVotes`](../../../../public-networks/reference/api/index.md#ibft_getpendingvotes).
-* [`ibft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote).
-* [`ibft_discardValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_discardvalidatorvote).
+* [`ibft_getPendingVotes`](../../../reference/api/index.md#ibft_getpendingvotes).
+* [`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote).
+* [`ibft_discardValidatorVote`](../../../reference/api/index.md#ibft_discardvalidatorvote).
 
 To view validator metrics for a specified block range, use
 [`ibft_getSignerMetrics`](../../../../public-networks/reference/api/index.md#ibft_getsignermetrics).
@@ -220,7 +220,7 @@ To view validator metrics for a specified block range, use
 ### Add a validator
 
 To propose adding a validator to an IBFT 2.0 network, call
-[`ibft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the
 proposed validator and `true`.
 A majority of validators must execute the call.
 
@@ -231,14 +231,14 @@ A majority of validators must execute the call.
     ```
 
 When the validator proposes the next block, the protocol inserts one proposal received from
-[`ibft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote) into the block.
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote) into the block.
 If blocks include all proposals, subsequent blocks proposed by the validator will not contain a vote.
 
 When more than 50% of the existing validators have published a matching proposal, the protocol adds the proposed
 validator to the validator pool and the validator can begin validating blocks.
 
 To return a list of validators and confirm the addition of a proposed validator, use
-[`ibft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber).
+[`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber).
 
 !!! example "JSON-RPC `ibft_getValidatorsByBlockNumber` request example"
 
@@ -247,7 +247,7 @@ To return a list of validators and confirm the addition of a proposed validator,
     ```
 
 To discard your proposal after confirming the addition of a validator, call
-[`ibft_discardValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_discardvalidatorvote),
+[`ibft_discardValidatorVote`](../../../reference/api/index.md#ibft_discardvalidatorvote),
 specifying the address of the proposed validator.
 
 !!! example "JSON-RPC `ibft_discardValidatorVote` request example"
@@ -260,7 +260,7 @@ specifying the address of the proposed validator.
 
 The process for removing a validator from an IBFT 2.0 network is the same as [adding a validator](#add-a-validator)
 except you specify `false` as the second parameter of
-[`ibft_proposeValidatorVote`](../../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote).
+[`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote).
 
 ### Epoch transition
 

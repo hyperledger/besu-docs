@@ -90,7 +90,7 @@ and submitting the PMT yourself instead of having it signed by the Besu node, gi
     }
     ```
 
-    Send the enclave key in the `data` field, and the [privacy precompile address](../../../reference/api/index.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendRawTransaction`:
+    Send the enclave key in the `data` field, and the [privacy precompile address](../../reference/api/index.md#priv_getprivacyprecompileaddress) in the `to` field of `eth_sendRawTransaction`:
 
     ```json
     {

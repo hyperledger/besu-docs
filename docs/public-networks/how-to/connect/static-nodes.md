@@ -5,8 +5,8 @@ description: Configuring static nodes
 # Static nodes
 
 Static nodes are a configured set of trusted nodes. Static nodes are exempt from
-[maximum peer](manage-peers.md#limiting-peers) and
-[remote connection](manage-peers.md#limiting-remote-connections) limits.
+[maximum peer](manage-peers.md#limit-peers) and
+[remote connection](manage-peers.md#limit-remote-connections) limits.
 
 Besu attempts to maintain connections with static nodes by periodically initiating a connection to
 any unconnected static node.
@@ -18,7 +18,7 @@ any unconnected static node.
     example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
-    To find peers, configure one or more [bootnodes](../../private-networks/how-to/connect/bootnodes.md).
+    To find peers, configure one or more [bootnodes](../../../private-networks/how-to/connect/bootnodes.md).
     To configure a specific set of peer connections, use static nodes.
 
 ## Configure static nodes
@@ -46,7 +46,7 @@ To update the list of static peers at run time, use the
     file is not updated by the `admin_addPeer` and `admin_removePeer` methods.
 
     Nodes not in the list of the static nodes are not prevented from connecting. To prevent nodes
-    from connecting, use [Permissioning](../../private-networks/concepts/permissioning/index.md).
+    from connecting, use [Permissioning](../../../private-networks/concepts/permissioning/index.md).
 
 !!! tip
 

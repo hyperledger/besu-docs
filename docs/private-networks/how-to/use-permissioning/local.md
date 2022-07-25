@@ -227,6 +227,6 @@ options.
     ```
 
 <!-- Links -->
-[specify a permissions configuration file with Docker]: ../../../global/get-started/install/run-docker-image.md#permissions-configuration-file
+[specify a permissions configuration file with Docker]: ../../get-started/install/run-docker-image.md#permissions-configuration-file
 [support domain names]: ../../../public-networks/concepts/node-keys.md#domain-name-support
 [onchain permissioning]: ../../concepts/permissioning/onchain.md

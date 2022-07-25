@@ -52,7 +52,7 @@ and `8546`.
 ## Metrics
 
 To enable
-[Prometheus to access Besu](../../../global/how-to/monitor/metrics.md#monitor-node-performance-using-prometheus), open
+[Prometheus to access Besu](../monitor/metrics.md), open
 the metrics port or metrics push port to Prometheus or the Prometheus push gateway on TCP.
 
 Specify the ports for Prometheus and Prometheus push gateway using the

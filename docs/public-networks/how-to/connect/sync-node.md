@@ -15,7 +15,8 @@ Archive nodes have all of this and they also store the intermediary state of eve
 contract for every block since the genesis block. An archive node can do everything a full node
 does, and it can access historical state data.
 
-For Besu on Mainnet, archive nodes [require more disk space](Data-Storage-Formats.md#storage-requirements) than full nodes.
+For Besu on Mainnet, archive nodes [require more disk space](../../concepts/data-storage-formats.md#storage-requirements)
+than full nodes.
 
 !!! note
 
@@ -47,7 +48,7 @@ options.
 Using fast sync with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
 
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
-[metrics](../../../global/how-to/monitor/metrics.md#metrics-list) to monitor fast sync.
+[metrics](../monitor/metrics.md#metrics-list) to monitor fast sync.
 
 !!! warning
 

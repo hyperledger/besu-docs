@@ -1410,9 +1410,9 @@ using the [`--miner-enabled`](#miner-enabled) option or the
 !!!note
 
     Besu ignores this option in networks using
-    [Clique](../../private-networks/how-to/configure/consensus/clique.md),
-    [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md), or
-    [QBFT](../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
+    [Clique](../../../private-networks/how-to/configure/consensus/clique.md),
+    [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md), or
+    [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
 
 ### `miner-enabled`
 
@@ -1972,17 +1972,17 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     pruning-enabled=true
     ```
 
-Enables [pruning](../../../global/concepts/Pruning.md) to reduce storage required for the world state.
+Enables [pruning](../../concepts/data-storage-formats.md) to reduce storage required for the world state.
 The default is `false`.
 
 !!! important
 
-    Using pruning with [private transactions](../../private-networks/concepts/privacy/index.md) isn't
+    Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't
     supported.
 
-!!! Important
+!!! important
 
-    Pruning is being deprecated for [Bonsai Tries](../../public-networks/concepts/data-storage-formats.md#bonsai-tries)
+    Pruning is being deprecated for [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries)
     and is currently not being updated.
 
 ### `random-peer-priority-enabled`
@@ -3073,7 +3073,7 @@ The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You m
     security-module="security_module"
     ```
 
-Name of the security module [plugin] to use. For example, a Hardware Security Module (HSM) or V3 filestore
+Name of the security module plugin to use. For example, a Hardware Security Module (HSM) or V3 filestore
 plugin
 
 The default is the node's local private key file specified using
@@ -3369,4 +3369,3 @@ Prints version information and exit.
 <!-- Links -->
 [push gateway integration]: ../../how-to/monitor/metrics.md#running-prometheus-with-besu-in-push-mode
 [JWT provider's public key file]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
-[plugin]: ../../../global/reference/Plugin-API-Interfaces.md

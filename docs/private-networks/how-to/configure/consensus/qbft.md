@@ -24,7 +24,7 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 !!! tip
 
     You can use a plugin to securely store a validator's key using the
-    [`--security-module`](../../../../reference/cli/options.md#security-module) option.
+    [`--security-module`](../../../../public-networks/reference/cli/options.md#security-module) option.
 
 ## Genesis file
 
@@ -270,7 +270,7 @@ To tune the block timeout for your network deployment:
 
 !!! tip
 
-    View [`TRACE` logs](../../../../reference/api/index.md#admin_changeloglevel) to see round change
+    View [`TRACE` logs](../../../../public-networks/reference/api/index.md#admin_changeloglevel) to see round change
     log messages.
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.

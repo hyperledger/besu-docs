@@ -11,18 +11,18 @@ INHERIT: mkdocs.extra.yml # DO NOT MODIFY THIS LINE
 
 nav:
   - Public networks:
-      - Index: public-networks/index.md
+      - public-networks/index.md
       - Get started:
           - System requirements: public-networks/get-started/system-requirements.md
           - Install Besu:
-              - Index: public-networks/get-started/install/index.md
+              - public-networks/get-started/install/index.md
               - Run Besu from Docker image: public-networks/get-started/install/run-docker-image.md
               - Install binary distribution: public-networks/get-started/install/binary-distribution.md
           - Start Besu: public-networks/get-started/start-node.md
       - How to:
           - Prepare for The Merge: public-networks/how-to/prepare-for-the-merge.md
           - Use the Besu API:
-              - Index: public-networks/how-to/use-besu-api/index.md
+              - public-networks/how-to/use-besu-api/index.md
               - Use JSON-RPC over HTTP, WS, and IPC: public-networks/how-to/use-besu-api/json-rpc.md
               - Use RPC Pub/Sub over WS: public-networks/how-to/use-besu-api/rpc-pubsub.md
               - Use GraphQL over HTTP: public-networks/how-to/use-besu-api/graphql.md
@@ -37,7 +37,7 @@ nav:
               - Manage peers: public-networks/how-to/connect/manage-peers.md
               - Specify NAT method: public-networks/how-to/connect/specify-nat.md
           - Monitor nodes:
-              - Index: public-networks/how-to/monitor/index.md
+              - public-networks/how-to/monitor/index.md
               - Use metrics: public-networks/how-to/monitor/metrics.md
               - Configure logging: public-networks/how-to/monitor/logging.md
           - Use a configuration file: public-networks/how-to/configuration-file.md
@@ -70,10 +70,10 @@ nav:
               - Options: public-networks/reference/cli/options.md
               - Subcommands: public-networks/reference/cli/subcommands.md
           - Besu API:
-              - Index: public-networks/reference/api/index.md
+              - public-networks/reference/api/index.md
               - Objects: public-networks/reference/api/objects.md
           - Engine API:
-              - Index: public-networks/reference/engine-api/index.md
+              - public-networks/reference/engine-api/index.md
               - Objects: public-networks/reference/engine-api/objects.md
           - Genesis file items: public-networks/reference/genesis-items.md
           - EVM tool options: public-networks/reference/evm-tool.md
@@ -81,19 +81,19 @@ nav:
           - Projects using Besu: public-networks/reference/projects-using-besu.md
           - Security disclosure policy: public-networks/reference/disclosure.md
   - Private networks:
-      - Index: private-networks/index.md
+      - private-networks/index.md
       - Get started:
           - System requirements: private-networks/get-started/system-requirements.md
           - Install Besu:
-              - Index: private-networks/get-started/install/index.md
+              - private-networks/get-started/install/index.md
               - Run Besu from Docker image: private-networks/get-started/install/run-docker-image.md
               - Install binary distribution: private-networks/get-started/install/binary-distribution.md
           - Start Besu: private-networks/get-started/start-node.md
       - How to:
-          - Index: private-networks/how-to/index.md
+          - private-networks/how-to/index.md
           - Configure:
               - Consensus:
-                  - Index: private-networks/how-to/configure/consensus/index.md
+                  - private-networks/how-to/configure/consensus/index.md
                   - QBFT: private-networks/how-to/configure/consensus/qbft.md
                   - IBFT: private-networks/how-to/configure/consensus/ibft.md
                   - Clique: private-networks/how-to/configure/consensus/clique.md
@@ -108,12 +108,12 @@ nav:
               - Block proposal permissioning: private-networks/how-to/configure/block-proposal-permissioning.md
               - Alternative elliptic curves: private-networks/how-to/configure/curves.md
           - Create and send transactions:
-              - Index: private-networks/how-to/send-transactions/index.md
+              - private-networks/how-to/send-transactions/index.md
               - Create and send private transactions: private-networks/how-to/send-transactions/private-transactions.md
               - Send concurrent private transactions: private-networks/how-to/send-transactions/concurrent-private-transactions.md
               - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
           - Monitor nodes:
-              - Index: private-networks/how-to/monitor/index.md
+              - private-networks/how-to/monitor/index.md
               - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
               - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
               - Use Splunk: private-networks/how-to/monitor/splunk.md
@@ -140,19 +140,19 @@ nav:
           - Backup and restore: private-networks/how-to/backup.md
           - Upgrade: private-networks/how-to/upgrade.md
       - Concepts:
-          - Index: private-networks/concepts/index.md
+          - private-networks/concepts/index.md
           - Proof of authority consensus: private-networks/concepts/poa.md
           - Privacy:
-              - Index: private-networks/concepts/privacy/index.md
+              - private-networks/concepts/privacy/index.md
               - Private transactions:
-                  - Index: private-networks/concepts/privacy/private-transactions/index.md
+                  - private-networks/concepts/privacy/private-transactions/index.md
                   - Processing private transactions: private-networks/concepts/privacy/private-transactions/processing.md
               - Privacy groups: private-networks/concepts/privacy/privacy-groups.md
               - Flexible privacy groups: private-networks/concepts/privacy/flexible-privacy.md
               - Multi-tenancy: private-networks/concepts/privacy/multi-tenancy.md
               - Privacy plugin: private-networks/concepts/privacy/plugin.md
           - Permissioning:
-              - Index: private-networks/concepts/permissioning/index.md
+              - private-networks/concepts/permissioning/index.md
               - Onchain permissioning: private-networks/concepts/permissioning/onchain.md
               - Permissioning plugin: private-networks/concepts/permissioning/plugin.md
           - Public key infrastructure: private-networks/concepts/pki.md
@@ -160,25 +160,25 @@ nav:
           - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
           - Create a QBFT network: private-networks/tutorials/qbft.md
           - Create an IBFT 2.0 network:
-              - Index: private-networks/tutorials/ibft/index.md
+              - private-networks/tutorials/ibft/index.md
               - Add and remove IBFT 2.0 validators: private-networks/tutorials/ibft/validators.md
           - Create a Clique network: private-networks/tutorials/clique.md
           - Create an Ethash network: private-networks/tutorials/ethash.md
           - Create a privacy-enabled network:
-              - Index: private-networks/tutorials/privacy/index.md
+              - private-networks/tutorials/privacy/index.md
               - Create a privacy-enabled network using the Quickstart: private-networks/tutorials/privacy/quickstart.md
               - Configure a multi-tenant network: private-networks/tutorials/privacy/multi-tenancy.md
               - Use the web3js-quorum multi-node example: private-networks/tutorials/privacy/web3js-quorum.md
           - Create a permissioned network:
-              - Index: private-networks/tutorials/permissioning/index.md
+              - private-networks/tutorials/permissioning/index.md
               - Get started with onchain permissioning: private-networks/tutorials/permissioning/onchain.md
               - Upgrade permissioning contracts: private-networks/tutorials/permissioning/upgrade-contracts.md
           - Deploy a smart contract:
-              - Index: private-networks/tutorials/contracts/index.md
+              - private-networks/tutorials/contracts/index.md
               - Transfer account funds: private-networks/tutorials/contracts/transfer-funds.md
               - Interact with a deployed contract: private-networks/tutorials/contracts/interact.md
           - Deploy using Kubernetes:
-              - Index: private-networks/tutorials/kubernetes/index.md
+              - private-networks/tutorials/kubernetes/index.md
               - Local playground: private-networks/tutorials/kubernetes/playground.md
               - Create a cluster: private-networks/tutorials/kubernetes/cluster.md
               - Deploy charts: private-networks/tutorials/kubernetes/charts.md
@@ -188,11 +188,11 @@ nav:
               - Configure Kubernetes mode in NAT manager: private-networks/tutorials/kubernetes/nat-manager.md
           - Deploy using Microsoft Azure: private-networks/tutorials/azure.md
       - Reference:
-          - Index: private-networks/reference/index.md
+          - private-networks/reference/index.md
           - Besu command line:
               - Private network options: private-networks/reference/cli/options.md
               - Private network subcommands: private-networks/reference/cli/subcommands.md
           - Besu API:
-              - Index: private-networks/reference/api/index.md
+              - private-networks/reference/api/index.md
               - Private network API objects: private-networks/reference/api/objects.md
           - Accounts for testing: private-networks/reference/accounts-for-testing.md

@@ -24,7 +24,7 @@ read performance.
 Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the
 location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the
 account key. This greatly reduces the disk space needed for storage and allows for less resource-demanding
-and faster read performance. Bonsai inherently [prunes](../../global/concepts/Pruning.md) orphaned nodes and old branches.
+and faster read performance. Bonsai inherently prunes orphaned nodes and old branches.
 
 To run a node with Bonsai Tries data storage format, use the command line option
 [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
@@ -36,9 +36,9 @@ To run a node with Bonsai Tries data storage format, use the command line option
 ### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai.
-With an [archive node](Node-Types.md#run-an-archive-node), forest mode uses an estimated 12 TB of
+With an [archive node](../how-to/connect/sync-node.md#run-an-archive-node), forest mode uses an estimated 12 TB of
 storage, while Bonsai uses an estimated 1100 GB of storage.
-With a [full node](Node-Types.md#run-a-full-node), forest mode uses an estimated 7 TB of storage,
+With a [full node](../how-to/connect/sync-node.md#run-a-full-node), forest mode uses an estimated 7 TB of storage,
 while Bonsai uses an estimated 790 GB of storage.
 
 ### Accessing data

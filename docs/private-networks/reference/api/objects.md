@@ -53,4 +53,3 @@ Returned by [`priv_getTransactionReceipt`](index.md#priv_gettransactionreceipt).
 | **privateFrom**      | Data, 32&nbsp;bytes  | [Tessera](https://docs.tessera.consensys.net/) public key of the sender.           |
 | **privateFor** or **privacyGroupId** | Array or Data, 32&nbsp;bytes | [Tessera](https://docs.tessera.consensys.net/) public keys or privacy group ID of the recipients. |
 | **logsBloom**        | Data, 256&nbsp;bytes | Bloom filter for light clients to quickly retrieve related logs.                   |
-

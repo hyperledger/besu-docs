@@ -37,7 +37,7 @@ bytes of the hash as the node address. It is also displayed in the logs after st
 You can export the node address, either to standard output or to a specified file, using the
 [`public-key export-address`](../reference/cli/subcommands.md#public-key) subcommand.
 
-## Specifying a custom node private key file
+## Specify a custom node private key file
 
 Use the [`--node-private-key-file`](../reference/cli/options.md#node-private-key-file) option to
 specify a custom `key` file in any location.
@@ -101,7 +101,7 @@ defined by [`--nat-method`](../how-to/connect/specify-nat.md).
 !!! warning
 
     Enode URL domain name support is an experimental feature that you can use in private
-    [permissioned networks](../private-networks/concepts/permissioning/index.md) only.
+    [permissioned networks](../../private-networks/concepts/permissioning/index.md) only.
 
 To use domain names in enode URLs:
 

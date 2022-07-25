@@ -25,9 +25,9 @@ You can specify Besu options:
 
 * As an environment variable.
   For each command line option, the equivalent environment variable is:
-  * Uppercase.
-  * `_` replaces `-`.
-  * Has a `BESU_` prefix.
+    * Uppercase.
+    * `_` replaces `-`.
+    * Has a `BESU_` prefix.
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 

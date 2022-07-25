@@ -2,7 +2,7 @@
 description: Use GoQuorum-compatible privacy
 ---
 
-# Using GoQuorum-compatible privacy
+# Use GoQuorum-compatible privacy
 
 GoQuorum-compatible privacy mode enables interoperable private transactions between Hyperledger
 Besu and [GoQuorum clients] using the Tessera private transaction manager.

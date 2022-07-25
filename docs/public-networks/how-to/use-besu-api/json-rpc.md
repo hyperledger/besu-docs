@@ -2,7 +2,7 @@
 description: How to access the Hyperledger Besu API using JSON-RPC
 ---
 
-# JSON-RPC over HTTP, WebSocket, and IPC
+# Use JSON-RPC over HTTP, WebSocket, and IPC
 
 To enable JSON-RPC over HTTP or WebSocket, use the
 [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) and

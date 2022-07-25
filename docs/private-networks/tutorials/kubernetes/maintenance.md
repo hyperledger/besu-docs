@@ -3,6 +3,10 @@ title: Besu Kubernetes Maintenance
 description: Maintenance for Besu on a Kubernetes cluster
 ---
 
+# Maintenance
+
+You can perform maintenance for Besu on a Kubernetes cluster.
+
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository

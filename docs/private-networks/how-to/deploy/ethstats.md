@@ -2,10 +2,10 @@
 description: Ethstats network monitor
 ---
 
-# Ethstats network monitor
+# Connect to Ethstats network monitor
 
 Connect to [Ethstats](https://ethstats.net) to display real time and historical [statistics](#statistics) about the network and nodes.
-You can connect to the Ethstats dashboard by [connecting to a client and server](#connecting-through-a-client-and-server) or by [connecting through the command line](#connecting-through-the-command-line).
+You can connect to the Ethstats dashboard by [connecting to a client and server](#connect-through-a-client-and-server) or by [connecting through the command line](#connect-through-the-command-line).
 
 ## Components
 
@@ -27,12 +27,12 @@ Statistics displayed by Ethstats include:
 - Node logs, which display the data sent by a node.
 - Block history, which provides the ability to go back in time and playback the block propagation through the nodes.
 
-## Connecting through a client and server
+## Connect through a client and server
 
 Refer to the external [Ethstats client](https://github.com/goerli/ethstats-client) and [Ethstats server](https://github.com/goerli/ethstats-server) documentation
 for installing those components and connecting to a dashboard.
 
-## Connecting through the command line
+## Connect through the command line
 
 You can use command line options to connect a node directly to a [dashboard](https://github.com/goerli/ethstats-client#available-dashboards), without using a client.
 

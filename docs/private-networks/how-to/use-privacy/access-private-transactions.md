@@ -3,7 +3,7 @@ description: Methods for accessing and managing private transactions and privacy
              Hyperledger Besu
 ---
 
-# Accessing private and privacy marker transactions
+# Access private and privacy marker transactions
 
 !!! warning
 
@@ -21,7 +21,7 @@ With the transaction hash returned when submitting the private transaction, to g
 receipt for the:
 
 * Private transaction, use
-  [`priv_getTransactionReceipt`](../../../public-networks/reference/api/index.md#priv_gettransactionreceipt).
+  [`priv_getTransactionReceipt`](../../reference/api/index.md#priv_gettransactionreceipt).
 * Privacy marker transaction, use
   [`eth_getTransactionReceipt`](../../../public-networks/reference/api/index.md#eth_gettransactionreceipt).
 
@@ -40,6 +40,6 @@ was invalid (`0x2`).
 With the transaction hash returned when submitting the private transaction, to get the:
 
 * Private transaction, use
-  [`priv_getPrivateTransaction`](../../../public-networks/reference/api/index.md#priv_getprivatetransaction).
+  [`priv_getPrivateTransaction`](../../reference/api/index.md#priv_getprivatetransaction).
 * Privacy marker transaction, use
   [`eth_getTransactionByHash`](../../../public-networks/reference/api/index.md#eth_gettransactionbyhash).

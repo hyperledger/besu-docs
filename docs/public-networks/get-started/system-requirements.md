@@ -3,7 +3,7 @@ title: Hyperledger Besu System Requirements
 description: System requirements to sync and run Besu
 ---
 
-# System requirements for public networks
+# System requirements
 
 Determine public network system requirements by checking CPU and disk space requirements using
 [Prometheus](../how-to/monitor/metrics.md).

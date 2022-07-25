@@ -2,7 +2,7 @@
 description: Using Hyperledger Besu with Truffle
 ---
 
-# Using Hyperledger Besu with Truffle
+# Use Truffle
 
 Developing for Hyperledger Besu using Truffle is the same as developing for public Ethereum
 networks using Truffle. Truffle supports Besu with the only difference being Besu does not support

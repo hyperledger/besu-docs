@@ -2,7 +2,7 @@
 description: Hyperledger Besu private network using the Clique (proof of authority) consensus protocol
 ---
 
-# Create a private network using the Clique (proof of authority) consensus protocol
+# Create a private network using Clique
 
 A private network provides a configurable network for testing. This private network uses the
 [Clique (proof of authority) consensus protocol].

@@ -2,7 +2,7 @@
 description: Using Hyperledger Besu for PoW CPU mining
 ---
 
-# Mining
+# Configure mining
 
 Hyperledger Besu supports CPU and GPU mining, which are configured using command line options.
 

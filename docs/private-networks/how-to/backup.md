@@ -2,7 +2,7 @@
 description: Backing up and restoring Besu
 ---
 
-# Backups
+# Backup and restore Besu
 
 In a decentralized blockchain, data replicates between nodes so it's not lost. But backing up
 configuration and data ensures a smoother recovery from corrupted data or other failures.
@@ -46,7 +46,7 @@ If log messages signify a corrupt database, the cleanest way to recover is:
 1. Restore the data from a [previous backup](#data-backups).
 1. Restart the node.
 
-## Finding peers after restarting
+## Find peers after restarting
 
 The process for finding peers after restarting is the same as for
 [finding peers after upgrading and restarting].

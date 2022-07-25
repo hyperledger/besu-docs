@@ -2,7 +2,7 @@
 description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
 ---
 
-# RPC Pub/Sub over WebSockets
+# Use RPC Pub/Sub over WebSockets
 
 ## Introduction
 
@@ -24,7 +24,7 @@ Methods specific to RPC Pub/Sub are:
     [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option to enable the
     WebSockets JSON-RPC service.
 
-### Using RPC Pub/Sub
+### Use RPC Pub/Sub
 
 [WebSockets](json-rpc.md#http-and-websocket-requests) supports the RPC Pub/Sub API.
 
@@ -64,7 +64,7 @@ Notifications include the subscription ID.
 Subscribing to some events (for example, logs) can cause a flood of notifications while the node is
 synchronizing.
 
-## Subscribing
+## Subscribe
 
 Use `eth_subscribe` to create subscriptions for the following event types:
 
@@ -457,7 +457,7 @@ synchronization progress. When fully synchronized, returns `false`.
     }
     ```
 
-## Unsubscribing
+## Unsubscribe
 
 To cancel a subscription, use the [subscription ID](#subscription-id) with `eth_unsubscribe` or
 `priv_unsubscribe`. Only the connection that created a subscription can unsubscribe from it.

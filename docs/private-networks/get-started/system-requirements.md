@@ -3,7 +3,7 @@ title: Hyperledger Besu system requirements
 description: System requirements to sync and run Besu
 ---
 
-# System requirements for private networks
+# System requirements
 
 Private network system requirements depend on many factors, including:
 

@@ -2,7 +2,7 @@
 description: Using alternative elliptic curves in Besu
 ---
 
-# Using alternative elliptic curves
+# Configure alternative elliptic curves
 
 !!! caution
 

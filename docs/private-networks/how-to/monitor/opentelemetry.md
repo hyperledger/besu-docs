@@ -2,7 +2,7 @@
 description: Collect Besu information with the OpenTelemetry Collector
 ---
 
-# OpenTelemetry
+# Use OpenTelemetry
 
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces.
 To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled)

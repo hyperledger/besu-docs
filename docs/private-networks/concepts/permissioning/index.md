@@ -35,7 +35,7 @@ Use account permissioning to:
 
 ![Account Permissioning](../../../images/enterprise-ethereum-account-permissioning.png)
 
-## Specifying permissioning
+## Specify permissioning
 
 You can specify permissioning [locally](#local) or [onchain](#onchain).
 

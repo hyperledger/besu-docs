@@ -2,7 +2,7 @@
 description: deploying smart contracts
 ---
 
-# Deploying smart contracts to an Ethereum chain
+# Deploy smart contracts to an Ethereum chain
 
 This tutorial shows you how to deploy smart contracts as transactions to a network.
 
@@ -13,7 +13,7 @@ You can use the [Developer Quickstart](../quickstart.md) to rapidly generate one
 If deploying a private contract, enable privacy on the network (public contracts can also be deployed on privacy-enabled
 networks).
 
-## Using `eth_sendSignedTransaction`
+## Use `eth_sendSignedTransaction`
 
 To deploy a smart contract using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an
@@ -138,7 +138,7 @@ node public_tx.js
 This example code creates the transaction `tx`, signs it with the private key of the account, serializes it, then calls
 `eth_sendSignedTransaction` to deploy the contract.
 
-## Using `eth_sendTransaction`
+## Use `eth_sendTransaction`
 
 You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) as an alternative to `eth_sendSignedTransaction`.
 However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for
@@ -184,7 +184,7 @@ Make the request using `eth_sendTransaction`:
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0x9b790656b9ec0db1936ed84b3bea605873558198", "to":null, "gas":"0x7600","gasPrice":"0x9184e72a000", "data":"0x608060405234801561001057600080fd5b5060405161014d38038061014d8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000819055505060f38061005a6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033"}], "id":1}' <JSON-RPC-endpoint:port>
     ```
 
-## Using `eea_sendRawTransaction` for private contracts with web3js-quorum
+## Use `eea_sendRawTransaction` for private contracts with web3js-quorum
 
 To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the
 [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and
@@ -251,7 +251,7 @@ the contract's address.
     The Developer Quickstart provides an
     [example of a private transaction with a privacy group](https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/besu/smart_contracts/privacy/scripts/private_tx_privacy_group.js).
 
-## Using `eea_sendRawTransaction` for private contracts with web3js-eea
+## Use `eea_sendRawTransaction` for private contracts with web3js-eea
 
 !!! warning
 

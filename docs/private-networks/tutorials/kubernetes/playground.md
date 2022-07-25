@@ -3,7 +3,7 @@ title: Deploy a Hyperledger Besu private network locally with Kubernetes
 description: Deploying a Hyperledger Besu private network locally with Kubernetes
 ---
 
-# Deploy Besu with Kubernetes in a Local Environment
+# Deploy in a local environment
 
 The [playground](https://github.com/ConsenSys/quorum-kubernetes/tree/master/playground) was created to provide an
 opportunity to deploy [quorum-kubernetes](https://github.com/ConsenSys/quorum-kubernetes/) in a local environment before
@@ -12,7 +12,7 @@ Local deployment can be done with any local Kubernetes tool.
 Minikube and Rancher Desktop have been tested to work, but any complete Kubernetes solution with support for `kubectl`
 should suffice.
 
-## How to deploy locally
+## Steps
 
 1. Navigate to the playground [`README`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/playground).
 1. Ensure that your system meets the requirements specified.

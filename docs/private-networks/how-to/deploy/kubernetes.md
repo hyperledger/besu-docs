@@ -3,7 +3,7 @@ title: Deploy a Hyperledger Besu private network with Kubernetes
 description: Deploying Hyperledger Besu with Kubernetes
 ---
 
-# Deploying Hyperledger Besu with Kubernetes
+# Deploy Besu with Kubernetes
 
 Use the [reference implementations](https://github.com/ConsenSys/quorum-kubernetes) to install
 private networks using Kubernetes (K8s). The repository has full support for cloud providers like

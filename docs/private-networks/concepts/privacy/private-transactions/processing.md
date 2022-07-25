@@ -2,7 +2,7 @@
 description: Private transaction processing
 ---
 
-# Processing private transactions
+# Private transaction processing
 
 !!! warning
 

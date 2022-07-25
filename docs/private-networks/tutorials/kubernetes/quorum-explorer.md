@@ -3,6 +3,10 @@ title: Besu Kubernetes - Quorum Explorer
 description: Using the Quorum Explorer on a Kubernetes cluster
 ---
 
+# Use the Quorum Explorer
+
+You can use the Quorum Explorer on a Kubernetes cluster.
+
 ## Prerequisites
 
 * Clone the [Quorum-Kubernetes](https://github.com/ConsenSys/quorum-kubernetes) repository
@@ -11,7 +15,7 @@ description: Using the Quorum Explorer on a Kubernetes cluster
 * [Helm3](https://helm.sh/docs/intro/install/)
 * [Existing network](charts.md)
 
-## Deploying the Quorum Explorer helm chart
+## Deploy the Quorum Explorer helm chart
 
 [Quorum-Explorer](https://github.com/ConsenSys/quorum-explorer) as a lightweight
 blockchain explorer. The Quorum Explorer is **not** recommended for use in production and is intended for

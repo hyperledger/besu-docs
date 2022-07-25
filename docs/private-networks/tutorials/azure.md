@@ -23,7 +23,7 @@ The following is a high-level overview of the deployed network.
 
 ![Image landing](../../images/sampleNetworks-poa.png)
 
-## Deploying
+## Deploy
 
 To deploy the private network example on Azure:
 
@@ -85,7 +85,7 @@ To display the dashboard:
 The dashboard provides a visual way to monitor your network and nodes as the chain progresses.
 Alerting can also be configured.
 
-## Connecting to VM RPC endpoint
+## Connect to VM RPC endpoint
 
 You can connect dapps or develop directly from the IDE by using VSCode and connecting to the VM RPC endpoint.
 The endpoint is the DNS name appended with `/jsonrpc`: `http://<DNS_NAME_OF_VM>/jsonrpc`.

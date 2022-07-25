@@ -2,7 +2,7 @@
 description: web3js-quorum client library
 ---
 
-# web3js-quorum client library
+# Use the web3js-quorum client library
 
 The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum) adds a property to your web3
 instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and
@@ -60,7 +60,7 @@ Initialize your client where:
     When migrating from web3js-eea to web3js-quorum, use `Web3Quorum`. The constructor doesn't require the chain ID anymore.
     Chain ID is automatically retrieved from the chain using the specified JSON-RPC HTTP endpoint.
 
-## Deploying a contract with `generateAndSendRawTransaction`
+## Deploy a contract with `generateAndSendRawTransaction`
 
 To deploy a private contract, you need the contract binary. You can use
 [Solidity](https://solidity.readthedocs.io/en/develop/using-the-compiler.html) to get the

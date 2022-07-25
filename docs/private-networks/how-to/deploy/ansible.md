@@ -3,9 +3,9 @@ title: Deploy Hyperledger Besu with Ansible
 description: Deploying Hyperledger Besu with Ansible role on Galaxy
 ---
 
-# Deploying Hyperledger Besu with Ansible
+# Deploy Besu with Ansible
 
-To deploy Hyperledger Besu using Ansible, use the
+To deploy Besu using Ansible, use the
 [Hyperledger Besu role](https://galaxy.ansible.com/consensys/hyperledger_besu) published on Galaxy.
 
 For more information, see the "Read Me" button on the

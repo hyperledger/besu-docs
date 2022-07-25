@@ -47,4 +47,3 @@ enough memory.
 
 <!-- links -->
 [configure Tessera for high availability]: https://consensys.net/docs/goquorum//en/stable/configure-and-manage/configure/high-availability/
-[configure Besu for high availability]: ../../../global/how-to/configure/Configure-HA

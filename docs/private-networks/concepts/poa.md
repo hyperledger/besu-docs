@@ -2,7 +2,7 @@
 description: Besu proof of authority consensus protocols comparison
 ---
 
-# Comparing proof of authority consensus protocols
+# Proof of authority consensus
 
 Besu implements the QBFT, IBFT 2.0, and Clique proof of authority (PoA) [consensus protocols](../how-to/configure/consensus/index.md).
 PoA consensus protocols work when participants know each other and there is a level of trust

@@ -3,7 +3,7 @@ title: Deploy a Hyperledger Besu private network with Kubernetes
 description: Deploying Hyperledger Besu with Kubernetes
 ---
 
-# Deploying Hyperledger Besu with Kubernetes
+# Deploy Besu using Kubernetes
 
 Use the [reference implementations](https://github.com/ConsenSys/besu-kubernetes) to install
 private networks using Kubernetes (K8s). Reference implementations are available using:
@@ -104,9 +104,9 @@ across namespaces don't need to be.
 Consider using StatefulSets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
 and member/RPC nodes. For Besu nodes, we only use CLI arguments to keep things consistent.
 
-### Role Based Access Controls
+### Role-based access controls
 
-We encourage using RBACs for access to the private key of each node, that is, only a specific pod or statefulset is
+We encourage using role-based access controls (RBACs) for access to the private key of each node, that is, only a specific pod or statefulset is
 allowed to access a specific secret.
 
 If you need to specify a Kube configuration file for each pod, use the KUBE_CONFIG_PATH variable.

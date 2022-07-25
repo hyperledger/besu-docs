@@ -2,7 +2,7 @@
 description: Using Elastick Stack (ELK) with Hyperledger Besu
 ---
 
-# Elastic Stack
+# Use Elastic Stack
 
 [Elastic Stack] (ELK) is an open-source log management platform that is available when using the
 [Developer Quickstart](../../tutorials/quickstart.md).

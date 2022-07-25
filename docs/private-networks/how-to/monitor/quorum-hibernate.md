@@ -2,7 +2,7 @@
 description: Use Quorum Hibernate with Hyperledger Besu
 ---
 
-# Quorum Hibernate
+# Use Quorum Hibernate
 
 [Quorum Hibernate] is a proxy that monitors a node's API traffic and hibernates the node when inactive.
 This reduces infrastructure costs by ensuring only nodes receiving API requests or nodes required to establish consensus

@@ -2,7 +2,7 @@
 description: Upgrade the permissioning contracts for onchain permissioning
 ---
 
-# Upgrade the permissioning contracts
+# Upgrade permissioning contracts
 
 The following tutorial describes the steps to upgrade the onchain permissioning contracts to the latest
 version.
@@ -108,7 +108,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     RETAIN_ADMIN_CONTRACT=true
     RETAIN_NODE_RULES_CONTRACT=false
     RETAIN_ACCOUNT_RULES_CONTRACT=false
-    ```  
+    ```
 
 ### 5. Deploy the contracts
 

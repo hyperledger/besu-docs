@@ -4,7 +4,7 @@ path: blob/master/besu/src/main/resources/
 source: log4j2.xml
 ---
 
-# Logging
+# Use logging
 
 Hyperledger Besu uses Log4J2 for logging and provides two methods to configure logging behavior:
 

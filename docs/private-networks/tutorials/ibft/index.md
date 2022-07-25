@@ -2,7 +2,7 @@
 description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 ---
 
-# Create a private network using the IBFT 2.0 (proof of authority) consensus protocol
+# Create a private network using IBFT 2.0
 
 A private network provides a configurable network for testing. This private network uses the
 [IBFT 2.0 (proof of authority) consensus protocol](../../how-to/configure/consensus/ibft.md).

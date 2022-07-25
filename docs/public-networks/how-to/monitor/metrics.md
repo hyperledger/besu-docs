@@ -36,7 +36,7 @@ On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
       Additional configuration is not required for these components because Prometheus handles and analyzes data directly
       from the feed.
 
-## Setting up and running Prometheus with Besu
+## Set up and run Prometheus with Besu
 
 To configure Prometheus and run with Besu:
 
@@ -46,7 +46,7 @@ To configure Prometheus and run with Besu:
     !!! example
 
         === "Fragment to insert in prometheus.yml"
-   
+
             ```yml
               - job_name: besu
                 scrape_interval: 15s
@@ -57,13 +57,13 @@ To configure Prometheus and run with Besu:
                 - targets:
                   - localhost:9545
             ```
-   
+
         === "Full prometheus.yml example"
-   
+
             ```yml
             global:
               scrape_interval: 15s
-    
+
             scrape_configs:
               - job_name: "prometheus"
                 static_configs:
@@ -77,7 +77,7 @@ To configure Prometheus and run with Besu:
                 - targets:
                   - localhost:9545
             ```
-   
+
         Prometheus requires 3 MB of space per node per hour for metrics, with a `scrape_interval` of 15 seconds.
 
 1. Start Besu with the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
@@ -119,7 +119,7 @@ To configure Prometheus and run with Besu:
 
         Use a log ingestion tool, such as Logstash, to parse the logs and alert you to configured anomalies.
 
-## Running Prometheus with Besu in push mode
+## Run Prometheus with Besu in push mode
 
 The [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option enables Prometheus polling of Besu,
 but sometimes metrics are hard to poll (for example, when running inside Docker containers with varying IP addresses).

@@ -2,7 +2,7 @@
 description: Configuring free gas networks
 ---
 
-# Free gas networks
+# Configure free gas networks
 
 Transactions use computational resources so have an associated cost. Gas is the cost unit and the
 gas price is the price per gas unit. The transaction cost is the gas used * gas price.

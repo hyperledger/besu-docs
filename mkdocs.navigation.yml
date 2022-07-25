@@ -146,7 +146,7 @@ nav:
               - private-networks/concepts/privacy/index.md
               - Private transactions:
                   - private-networks/concepts/privacy/private-transactions/index.md
-                  - Processing private transactions: private-networks/concepts/privacy/private-transactions/processing.md
+                  - Private transaction processing: private-networks/concepts/privacy/private-transactions/processing.md
               - Privacy groups: private-networks/concepts/privacy/privacy-groups.md
               - Flexible privacy groups: private-networks/concepts/privacy/flexible-privacy.md
               - Multi-tenancy: private-networks/concepts/privacy/multi-tenancy.md

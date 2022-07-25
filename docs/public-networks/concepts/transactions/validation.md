@@ -2,7 +2,7 @@
 description: What transaction validation and when
 ---
 
-# Validating transactions
+# Transaction validation
 
 For transactions submitted and added to a block, Besu validates the transactions, as illustrated in
 the following diagram.

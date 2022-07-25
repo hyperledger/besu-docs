@@ -2,7 +2,7 @@
 description: funds transfer transactions
 ---
 
-# Transferring funds between accounts in a transaction
+# Transfer funds between accounts in a transaction
 
 You can get started with the [Developer Quickstart](../quickstart.md) to rapidly generate
 local blockchain networks.
@@ -13,7 +13,7 @@ This tutorial shows you how to transfer funds (ETH) between accounts in a transa
 
 * A [private network](../quickstart.md)
 
-## Using `eth_sendSignedTransaction`
+## Use `eth_sendSignedTransaction`
 
 The simplest way to transfer funds between externally-owned accounts is using
 [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#sendsignedtransaction).
@@ -80,7 +80,7 @@ console.log("Account B has an updatedbalance of: " + accountBBalance);
 A [full example](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/eth_tx.js)
 can be found in the Developer Quickstart.
 
-## Using `eth_sendTransaction`
+## Use `eth_sendTransaction`
 
 An alternative to using `eth_sendSignedTransaction` is
 [`eth_sendTransaction`](https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#sendtransaction).

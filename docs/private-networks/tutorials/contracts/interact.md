@@ -2,7 +2,7 @@
 description: calling smart contracts functions
 ---
 
-# Interacting with deployed smart contracts
+# Interact with deployed smart contracts
 
 You can get started with the [Developer Quickstart](../quickstart.md) to rapidly generate
 local blockchain networks.

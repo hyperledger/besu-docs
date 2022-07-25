@@ -2,7 +2,7 @@
 description: Hyperledger Besu authentication and authorization for JSON-RPC
 ---
 
-# Authentication and authorization for JSON-RPC
+# Authenticate and authorize JSON-RPC
 
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC
 methods. Hyperledger Besu verifies users using
@@ -251,7 +251,7 @@ With authentication enabled, to explicitly specify a user cannot access any meth
 user with an empty permissions list (`[]`). Users with an empty permissions list and users not
 included in the credentials file cannot access any JSON-RPC methods.
 
-## Using an authentication token to make requests
+## Use an authentication token to make requests
 
 Specify the authentication token as a `Bearer` token in the JSON-RPC request header.
 

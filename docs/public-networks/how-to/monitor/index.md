@@ -2,7 +2,7 @@
 description: Monitoring using metrics and logging
 ---
 
-# Monitoring
+# Monitor Besu
 
 Monitoring enables identification of node and network issues. Specifically, configuring metrics and
 logging enables:

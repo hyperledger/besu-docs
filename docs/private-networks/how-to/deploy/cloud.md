@@ -2,7 +2,7 @@
 description: Deploying Besu to the cloud
 ---
 
-# Deploying Hyperledger Besu to the cloud
+# Deploy Besu to the cloud
 
 When deploying Besu to the cloud:
 

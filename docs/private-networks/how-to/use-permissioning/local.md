@@ -165,7 +165,7 @@ The following diagram illustrates applying local and onchain permissioning rules
 ### Enable account allowlisting
 
 To enable account allowlisting, specify the
-[`--permissions-accounts-config-file-enabled`](../../../public-networks/reference/cli/options.md#permissions-accounts-config-file-enabled)
+[`--permissions-accounts-config-file-enabled`](../../reference/cli/options.md#permissions-accounts-config-file-enabled)
 option when starting Besu.
 
 The `PERM` API methods are not enabled by default. To enable the `PERM` API methods, use the
@@ -227,6 +227,6 @@ options.
     ```
 
 <!-- Links -->
-[specify a permissions configuration file with Docker]: ../../get-started/install/run-docker-image.md#permissions-configuration-file
+[specify a permissions configuration file with Docker]: ../../get-started/install/run-docker-image.md
 [support domain names]: ../../../public-networks/concepts/node-keys.md#domain-name-support
 [onchain permissioning]: ../../concepts/permissioning/onchain.md

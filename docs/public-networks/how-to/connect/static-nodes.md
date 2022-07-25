@@ -18,7 +18,7 @@ any unconnected static node.
     example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
-    To find peers, configure one or more [bootnodes](../../../private-networks/how-to/connect/bootnodes.md).
+    To find peers, configure one or more [bootnodes](../../../private-networks/how-to/configure/bootnodes.md).
     To configure a specific set of peer connections, use static nodes.
 
 ## Configure static nodes

@@ -4,7 +4,7 @@ path: blob/master/config/src/main/resources/
 source: rinkeby.json
 ---
 
-# Clique
+# Configure Clique consensus
 
 Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](index.md).
 The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.

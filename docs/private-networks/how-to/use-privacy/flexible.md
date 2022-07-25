@@ -2,7 +2,7 @@
 description: Use flexible privacy groups
 ---
 
-# Using flexible privacy groups
+# Use flexible privacy groups
 
 !!! warning
 
@@ -30,13 +30,13 @@ membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.
     We don't recommend creating flexible privacy groups in a chain with existing
     [offchain privacy groups](../../concepts/privacy/privacy-groups.md).
 
-## Enabling flexible privacy groups
+## Enable flexible privacy groups
 
-Use the [`--privacy-flexible-groups-enabled`](../../../public-networks/reference/cli/options.md#privacy-flexible-groups-enabled)
+Use the [`--privacy-flexible-groups-enabled`](../../reference/cli/options.md#privacy-flexible-groups-enabled)
 command line option to enable [flexible privacy groups](../../concepts/privacy/flexible-privacy.md).
-When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../../public-networks/reference/api/index.md#priv_createprivacygroup),
-[`priv_deletePrivacyGroup`](../../../public-networks/reference/api/index.md#priv_deleteprivacygroup),
-and [`priv_findPrivacyGroup`](../../../public-networks/reference/api/index.md#priv_findprivacygroup) methods for
+When flexible privacy groups are enabled, the [`priv_createPrivacyGroup`](../../reference/api/index.md#priv_createprivacygroup),
+[`priv_deletePrivacyGroup`](../../reference/api/index.md#priv_deleteprivacygroup),
+and [`priv_findPrivacyGroup`](../../reference/api/index.md#priv_findprivacygroup) methods for
 [offchain privacy groups](../../concepts/privacy/privacy-groups.md) are disabled.
 
 ## Simple flexible privacy group example
@@ -62,7 +62,7 @@ the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum):
     expected behavior because private transactions check offchain and onchain to find the privacy
     group for a private transaction.
 
-## Adding and removing members
+## Add and remove members
 
 To add and remove members from a [flexible privacy group](../../concepts/privacy/flexible-privacy.md),
 use the `addTo` and `removeFrom` methods in the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum)

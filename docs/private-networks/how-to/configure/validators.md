@@ -2,7 +2,7 @@
 description: Configuring validators in production networks
 ---
 
-# Configuring validators in a production network
+# Configure validators in a production network
 
 As when [configuring bootnodes](bootnodes.md):
 

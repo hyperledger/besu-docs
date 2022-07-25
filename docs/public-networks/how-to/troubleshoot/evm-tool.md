@@ -2,17 +2,17 @@
 description: Hyperledger Besu EVM tool
 ---
 
-# EVM tool
+# Use the EVM tool
 
 The Besu EVM tool is a CLI program that executes arbitrary EVM programs and Ethereum State Tests
 outside the context of an operating node. Use the EVM tool for benchmarking and fuzz testing.
 
-## Getting the EVM tool
+## Get the EVM tool
 
 The Besu EVM tool does not have a standard zip file distribution. To use, you need to either
 build from the source repository or use a pre-published docker image.
 
-### Building from source
+### Build from source
 
 To build from source, run the following from the root of the Besu repository:
 
@@ -29,7 +29,7 @@ Execute the EVM tool:
 ethereum/evmtool/build/install/evmtool/bin/evm <evmtool options>
 ```
 
-### Executing with Docker
+### Execute with Docker
 
 To run the Besu EVM tool in a container:
 

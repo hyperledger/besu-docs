@@ -26,7 +26,7 @@ When submitting a private transaction using [web3js-quorum](https://github.com/C
 This limits the throughput to at most one private transaction per block when submitting from a single thread.
 To increase throughput, use web3js-quorum from multiple concurrent threads or processes.
 
-### Colocate Besu and Tessera
+### Co-locate Besu and Tessera
 
 Besu has to talk to its local Tessera node frequently while handling a block.
 While we do not recommend running them on the same node, minimizing the latency between Besu and Tessera will improve block processing times.

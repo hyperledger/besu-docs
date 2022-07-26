@@ -188,7 +188,7 @@ following symptoms:
 
 ## Unsupported address exception while running from Docker
 
-While [running Besu from a Docker image](../../get-started/install/run-docker-image.md), you might get the following exception:
+While [running Besu from a Docker image], you might get the following exception:
 
 ```bash
 Unsupported address type exception when connecting to peer {}, this is likely due to ipv6 not being enabled at runtime.

@@ -20,8 +20,6 @@ plugins:
       - global/*
   git-revision-date-localized:
     locale: en
-  tags:
-    tags_file: tags.md
   minify:
     minify_html: true
     minify_js: true

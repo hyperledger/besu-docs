@@ -72,10 +72,6 @@
     max-width: 100% !important;
 }
 
-/*.md-footer-meta__inner{*/
-/*  flex: unset;*/
-/*}*/
-
 /*External links arrow symbol*/
 .md-footer a[href^="http"]:not(.md-social__link):after,
 .feedback a[href^="http"]:after,
@@ -122,4 +118,14 @@
   background-color: var(--mdx-admonition-critical-title-color);
   -webkit-mask-image: var(--md-admonition-icon--critical);
   mask-image: var(--md-admonition-icon--critical);
+}
+
+/*Cookie consent*/
+.md-consent__overlay {
+  display: none;
+}
+
+.md-consent__inner {
+  background-color: var(--md-default-fg-color);
+  color: var(--md-default-bg-color);
 }

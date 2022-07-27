@@ -30,7 +30,9 @@ markdown_extensions:
       smart_enable: all
   - pymdownx.keys
   - pymdownx.details
-  - pymdownx.emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -40,21 +42,4 @@ markdown_extensions:
   - meta
   - smarty
   - attr_list
-
-# Extensions list requires the object list format without dashes and with {} for empty entries.
-plugins:
-  search:
-      lang: 'en'
-      separator: '[\s\-\.\_]+'
-  markdownextradata: {}
-  exclude:
-    glob:
-      - global/*
-  git-revision-date-localized:
-    locale: en
-  tags: {}
-  minify:
-    minify_html: true
-    minify_js: true
-    htmlmin_opts:
-      remove_comments: true
+  - md_in_html

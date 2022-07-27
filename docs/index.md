@@ -11,15 +11,27 @@ hide:
 # Hyperledger Besu Ethereum client
 
 Hyperledger Besu is an open source Ethereum client developed under the Apache 2.0 license and written in Java.
-It runs on:
+It runs on public and private networks:
 
-* [**Public networks**](public-networks/index.md) - You can run Besu as an
-  [execution client](public-networks/concepts/the-merge.md) on Ethereum Mainnet and Ethereum
-  public testnets, such as Goerli and Sepolia.
-* [**Private networks**](private-networks/index.md) - You can create or join a network not connected to
-  Mainnet or a public testnet.
-  Use private networks to develop enterprise applications requiring secure, high-performance transaction
-  processing.
+<div class="grid cards" markdown>
+
+* :material-book-open-variant: __Public networks__
+
+    ---
+
+    You can run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Goerli and Sepolia.
+
+    [:octicons-arrow-right-24: Get started](public-networks/index.md)
+
+* :material-book-lock-outline: __Private networks__
+
+    ---
+
+    You can create or join a network not connected to Mainnet or a public testnet. Use private networks to develop enterprise applications requiring secure, high-performance transaction processing.
+
+    [:octicons-arrow-right-24: Get started](private-networks/index.md)
+
+</div>
 
 ## What can you do with Besu?
 

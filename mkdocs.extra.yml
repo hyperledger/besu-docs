@@ -43,7 +43,8 @@ extra:
           data: 0
           note: >-
             Thanks for your feedback! Help us improve this page by
-            using suggesting a change our <a href="..." target=_blank>feedback form</a>.
+            adding a comment in <a href="https://github.com/hyperledger/besu-docs/discussions/new?category=feedback&title=[Feedback]%20{title}&body=*%20Page:%20{title}%0A*%20URL:%20`{url}`" target=_blank>Besu discussion</a>.
+            Besu discussion requires to login on Github.
   logo_regular: logo.svg
   logo_reversed: logo-reversed.svg
   consent:

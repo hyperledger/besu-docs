@@ -7,7 +7,13 @@ Description: How to run Besu and Teku on the Merge testnet
 You can test Besu as an [execution client](../Concepts/Merge.md#execution-clients) and
 [Teku](https://docs.teku.consensys.net/en/stable/)
 as a [consensus client](../Concepts/Merge.md#consensus-clients) on a post-merge testnet.
-This tutorial uses the [Goerli testnet](https://github.com/eth-clients/goerli).
+This tutorial uses the [Goerli testnet](https://github.com/eth-clients/goerli) and
+[Sepolia testnet](https://github.com/eth-clients/sepolia) as examples.
+
+!!! note
+
+    Sepolia is a permissioned network and can't be run using a validator client without [becoming a validator first](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
+    You can connect your consensus client using the beacon node only, without any validator duties.
 
 ## 1. Install Besu and Teku
 
@@ -35,20 +41,39 @@ This is a shared JWT secret the clients use to authenticate each other when usin
 
 Run the following command:
 
-```bash
-besu \
-  --network=goerli            \
-  --rpc-http-enabled=true     \
-  --rpc-http-host="0.0.0.0"   \
-  --rpc-http-cors-origins="*" \
-  --rpc-ws-enabled=true       \
-  --rpc-ws-host="0.0.0.0"     \
-  --host-allowlist="*"        \
-  --engine-host-allowlist="*" \
-  --engine-rpc-port=8551      \
-  --Xmerge-support=true       \
-  --engine-jwt-secret=<path to jwtsecret.hex>
-```
+=== "Goerli"
+
+    ```bash
+    besu \
+      --network=goerli            \
+      --rpc-http-enabled=true     \
+      --rpc-http-host="0.0.0.0"   \
+      --rpc-http-cors-origins="*" \
+      --rpc-ws-enabled=true       \
+      --rpc-ws-host="0.0.0.0"     \
+      --host-allowlist="*"        \
+      --engine-host-allowlist="*" \
+      --engine-rpc-port=8551      \
+      --Xmerge-support=true       \
+      --engine-jwt-secret=<path to jwtsecret.hex>
+    ```
+
+=== "Sepolia"
+
+    ```bash
+    besu \
+      --network=sepolia           \
+      --rpc-http-enabled=true     \
+      --rpc-http-host="0.0.0.0"   \
+      --rpc-http-cors-origins="*" \
+      --rpc-ws-enabled=true       \
+      --rpc-ws-host="0.0.0.0"     \
+      --host-allowlist="*"        \
+      --engine-host-allowlist="*" \
+      --engine-rpc-port=8551      \
+      --Xmerge-support=true       \
+      --engine-jwt-secret=<path to jwtsecret.hex>
+    ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
 [`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
@@ -61,7 +86,8 @@ Besu as an execution client.
 If you're running a [validator client](#beacon-node-and-validator-client), create a test Ethereum address (you can do
 this in
 [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
-Fund this address with testnet ETH using a [Goerli Faucet](https://goerli-faucet.com/).
+Fund this address with testnet ETH using a faucet.
+You can find a list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 
 !!! note
 
@@ -86,16 +112,31 @@ Open a new terminal window.
 
 To run Teku as a beacon node (without validator duties), run the following command:
 
-```bash
-teku \
-  --data-path "datadir-teku"                   \
-  --network goerli                            \
-  --ee-endpoint http://localhost:8551          \
-  --ee-jwt-secret-file <path to jwtsecret.hex> \
-  --log-destination console                    \
-  --rest-api-enabled=true                      \
-  --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
-```
+=== "Goerli"
+
+    ```bash
+    teku \
+      --data-path "datadir-teku"                   \
+      --network goerli                             \
+      --ee-endpoint http://localhost:8551          \
+      --ee-jwt-secret-file <path to jwtsecret.hex> \
+      --log-destination console                    \
+      --rest-api-enabled=true                      \
+      --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
+    ```
+
+=== "Sepolia"
+
+    ```bash
+    teku \
+      --data-path "datadir-teku"                   \
+      --network sepolia                            \
+      --ee-endpoint http://localhost:8551          \
+      --ee-jwt-secret-file <path to jwtsecret.hex> \
+      --log-destination console                    \
+      --rest-api-enabled=true                      \
+      --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
+    ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
 the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file)
@@ -105,18 +146,24 @@ option.
 
 To run Teku as a beacon node and validator in a single process, run the following command:
 
-```bash
-teku \
-  --data-path "datadir-teku"                                \
-  --network goerli                                          \
-  --ee-endpoint http://localhost:8551                       \
-  --ee-jwt-secret-file <path to jwtsecret.hex>              \
-  --log-destination console                                 \
-  --rest-api-enabled=true                                   \
-  --validators-proposer-default-fee-recipient=<ETH address> \
-  --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
-  --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
-```
+=== "Goerli"
+
+    ```bash
+    teku \
+      --data-path "datadir-teku"                                \
+      --network goerli                                          \
+      --ee-endpoint http://localhost:8551                       \
+      --ee-jwt-secret-file <path to jwtsecret.hex>              \
+      --log-destination console                                 \
+      --rest-api-enabled=true                                   \
+      --validators-proposer-default-fee-recipient=<ETH address> \
+      --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
+      --p2p-discovery-bootnodes "enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
+    ```
+
+=== "Sepolia"
+
+    Sepolia is a permissioned network and can't be run using a validator client without [becoming a validator first](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
 
 Specify:
 
@@ -141,7 +188,7 @@ After starting Besu and Teku, your node starts syncing and connecting to peers.
 !!! example
 
     === "Besu logs"
-    
+
         ```bash
         2022-03-21 20:42:09.295-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
         2022-03-21 20:42:14.298-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
@@ -149,9 +196,9 @@ After starting Besu and Teku, your node starts syncing and connecting to peers.
         2022-03-21 20:42:18.452-07:00 | nioEventLoopGroup-3-8 | INFO  | SyncTargetManager | Found common ancestor with peer Peer 0xab3a286b181721c794... at block 55127
         2022-03-21 20:42:18.454-07:00 | nioEventLoopGroup-3-8 | INFO  | PipelineChainDownloader | PipelineChain download complete
         ```
-    
+
     === "Teku logs"
-    
+
         ```bash
         2022-03-21 20:43:24.355 INFO  - Syncing     *** Target slot: 76092, Head slot: 2680, Remaining slots: 73412, Connected peers: 8
         2022-03-21 20:43:36.363 INFO  - Syncing     *** Target slot: 76093, Head slot: 2879, Remaining slots: 73214, Connected peers: 10

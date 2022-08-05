@@ -4861,7 +4861,7 @@ None
 
 !!! note
 
-    For almost all networks network ID and chain ID are the same.
+    For almost all networks, network ID and chain ID are the same.
 
     The only networks in the table above with different network and chain IDs are
     Classic with a chain ID of `61` and Mordor with a chain ID of `63`.

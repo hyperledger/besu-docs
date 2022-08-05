@@ -16,7 +16,7 @@ It runs on public and private networks:
 
     ---
 
-    You can run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Goerli and Sepolia.
+    Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Goerli and Sepolia.
 
     [:octicons-arrow-right-24: Get started](public-networks/index.md)
 
@@ -24,7 +24,7 @@ It runs on public and private networks:
 
     ---
 
-    You can create or join a network not connected to Mainnet or a public testnet. Use private networks to develop enterprise applications requiring secure, high-performance transaction processing.
+    Create or join a private, permissioned network. Use private networks to develop enterprise applications requiring secure, high-performance transaction processing.
 
     [:octicons-arrow-right-24: Get started](private-networks/index.md)
 

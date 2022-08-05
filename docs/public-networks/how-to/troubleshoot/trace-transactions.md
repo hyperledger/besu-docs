@@ -15,8 +15,8 @@ The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-traci
 
 ## Ad-hoc tracing APIs
 
-These APIs allow different diagnostic options when tracing calls or transactions.
-The options are [`trace`, `vmTrace`, or `stateDiff`](../../reference/trace-types.md).
+These APIs allow you to use the [`trace`, `vmTrace`, or `stateDiff`](../../reference/trace-types.md)
+diagnostic options when tracing calls or transactions.
 
 To use the ad-hoc tracing APIs, the requested block or transaction must be within the
 number of [blocks retained](../../reference/cli/options.md#pruning-blocks-retained) with [pruning enabled](../../reference/cli/options.md#pruning-enabled)

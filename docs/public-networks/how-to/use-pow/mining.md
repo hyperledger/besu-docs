@@ -6,7 +6,8 @@ description: Using Hyperledger Besu for PoW CPU mining
 
 Hyperledger Besu supports CPU and GPU mining, which are configured using command line options.
 
-GPU mining support testing used [Ethminer](https://github.com/ethereum-mining/ethminer) with the
+
+GPU mining tests used [Ethminer](https://github.com/ethereum-mining/ethminer) with the
 `stratum+tcp` and `getwork` schemes.
 
 Ethminer has been used with Hyperledger Besu to mine blocks on the [Ropsten testnet](https://ropsten.etherscan.io/address/0x2f14582947E292a2eCd20C430B46f2d27CFE213c#mine),

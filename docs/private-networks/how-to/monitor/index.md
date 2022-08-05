@@ -4,7 +4,7 @@ description: Monitoring using metrics and logging
 
 # Monitoring
 
-Monitoring enables identification of node and network issues. In private networks, you can
+Use monitoring to identify node and network issues. In private networks, you can
 [configure metrics and logging](../../../public-networks/how-to/monitor/index.md) as in public
 networks.
 

@@ -20,7 +20,7 @@ third-party application. The API exposes data about the following components:
 
 ![Besu plugin API](../../images/Hyperledger-Besu-Plugin-API.png)
 
-The plugin API provides access to [interfaces](../reference/Plugin-API-Interfaces.md) allowing you
+The plugin API provides access to [interfaces](../reference/plugin-api-interfaces.md) allowing you
 to build the plugin.
 
 !!! tip

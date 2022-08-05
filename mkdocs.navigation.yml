@@ -43,6 +43,9 @@ nav:
               - Configure logging: public-networks/how-to/monitor/logging.md
           - Use a configuration file: public-networks/how-to/configuration-file.md
           - Pass JVM options: public-networks/how-to/pass-jvm-options.md
+          - Configure high availability:
+              - public-networks/how-to/configure-ha/index.md
+              - Sample load balancer configurations: public-networks/how-to/configure-ha/sample-configuration.md
           - Develop dapps:
               - Use Truffle: public-networks/how-to/develop/truffle.md
               - Use client libraries: public-networks/how-to/develop/client-libraries.md
@@ -157,6 +160,7 @@ nav:
               - Onchain permissioning: private-networks/concepts/permissioning/onchain.md
               - Permissioning plugin: private-networks/concepts/permissioning/plugin.md
           - Public key infrastructure: private-networks/concepts/pki.md
+          - Plugins: private-networks/concepts/plugins.md
       - Tutorials:
           - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
           - Create a QBFT network: private-networks/tutorials/qbft.md
@@ -197,3 +201,4 @@ nav:
               - private-networks/reference/api/index.md
               - Private network API objects: private-networks/reference/api/objects.md
           - Accounts for testing: private-networks/reference/accounts-for-testing.md
+          - Plugin API interfaces: private-networks/reference/plugin-api-interfaces.md

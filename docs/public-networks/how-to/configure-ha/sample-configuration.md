@@ -8,7 +8,7 @@ description: Sample load balancers
 
 For AWS, we recommend the Classic Load Balancer. The Classic Load Balancer is the easiest to
 configure and work with. Register the Hyperledger Besu instances to the load balancer and use the
-[liveness endpoint](../../../../public-networks/how-to/use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) for
+[liveness endpoint](../use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) for
 health checks.
 
 For finer grain control, use the Application Load Balancer:
@@ -17,7 +17,7 @@ For finer grain control, use the Application Load Balancer:
 * Configure multiple listeners with one per port (for example, `30303`, `8545`) you are using and
   route to the target group.
 * Use the
-  [liveness endpoint](../../../../public-networks/how-to/use-besu-api/json-rpc.md#readiness-and-liveness-endpoints)
+  [liveness endpoint](../use-besu-api/json-rpc.md#readiness-and-liveness-endpoints)
   for health checks.
 * Register the Besu instances multiple times with different ports. This is like configuring
   microservices on Elastic Container Service (ECS) or Elastic Kubernetes Service (EKS).

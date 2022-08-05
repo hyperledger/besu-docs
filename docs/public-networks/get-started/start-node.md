@@ -2,9 +2,9 @@
 description: Starting Hyperledger Besu
 ---
 
-# Start Hyperledger Besu
+# Start Besu
 
-Nodes can connect to the Ethereum Mainnet, public testnets such as Ropsten, or private networks.
+Nodes can connect to Ethereum Mainnet and public testnets such as Ropsten.
 
 Use the [`besu`](../reference/cli/options.md) command with the required command line options
 to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively

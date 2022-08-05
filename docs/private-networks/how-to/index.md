@@ -12,6 +12,7 @@ content can be found in the public networks section:
 - Configuration:
     - [Use a configuration file](../../public-networks/how-to/configuration-file.md)
     - [Pass JVM options](../../public-networks/how-to/pass-jvm-options.md)
+    - [Configure high availability](../../public-networks/how-to/configure-ha/index.md)
     - [Configure mining](../../public-networks/how-to/use-pow/mining.md)
 - [Use the Besu API](../../public-networks/how-to/use-besu-api/index.md):
     - [Use JSON-RPC over HTTP, WS, and IPC](../../public-networks/how-to/use-besu-api/json-rpc.md)

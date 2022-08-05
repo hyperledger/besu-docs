@@ -19,6 +19,7 @@ nav:
               - Run Besu from Docker image: public-networks/get-started/install/run-docker-image.md
               - Install binary distribution: public-networks/get-started/install/binary-distribution.md
           - Start Besu: public-networks/get-started/start-node.md
+          - Migrate to Besu: public-networks/get-started/migrate-to-besu.md
       - How to:
           - Prepare for The Merge: public-networks/how-to/prepare-for-the-merge.md
           - Use the Besu API:

@@ -30,6 +30,7 @@ nav:
               - Authenticate JSON-RPC requests: public-networks/how-to/use-besu-api/authenticate.md
               - Access logs using JSON-RPC: public-networks/how-to/use-besu-api/access-logs.md
           - Use the Engine API: public-networks/how-to/use-engine-api.md
+          - Use a configuration file: public-networks/how-to/configuration-file.md
           - Create and send transactions: public-networks/how-to/send-transactions.md
           - Connect to a network:
               - Sync Besu: public-networks/how-to/connect/sync-node.md
@@ -41,7 +42,6 @@ nav:
               - public-networks/how-to/monitor/index.md
               - Use metrics: public-networks/how-to/monitor/metrics.md
               - Configure logging: public-networks/how-to/monitor/logging.md
-          - Use a configuration file: public-networks/how-to/configuration-file.md
           - Pass JVM options: public-networks/how-to/pass-jvm-options.md
           - Configure high availability:
               - public-networks/how-to/configure-ha/index.md

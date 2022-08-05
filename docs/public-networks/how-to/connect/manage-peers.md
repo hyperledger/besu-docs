@@ -16,7 +16,8 @@ in small, stable networks.
     You can use [`admin_addPeer`](../../reference/cli/options.md#admin_addpeer) to attempt a specific connection, but
     this isn't P2P discovery.
 
-We recommend [using bootnodes](../../../private-networks/how-to/configure/bootnodes.md) to initially discover peers.
+In private networks, we recommend [using bootnodes](../../../private-networks/how-to/configure/bootnodes.md)
+to initially discover peers.
 
 ## Limit peers
 

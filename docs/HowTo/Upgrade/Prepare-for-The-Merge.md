@@ -40,9 +40,9 @@ For example, if you use [Teku] as the consensus client, you can specify the endp
 [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint) in the Teku
 configuration file.
 
-### 2. Configure the Java Web Token
+### 2. Configure the JSON Web Token
 
-Java Web Token (JWT) authentication is used to secure the Engine API.
+JSON Web Token (JWT) authentication is used to secure the Engine API.
 You can generate a JWT using a command line tool, for example:
 
 ```bash

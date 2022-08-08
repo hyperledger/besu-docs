@@ -21,6 +21,7 @@ nav:
               - Install binary distribution: HowTo/Get-Started/Installation-Options/Install-Binaries.md
               - Build from source: HowTo/Get-Started/Installation-Options/Build-from-source.md
           - Start Besu: HowTo/Get-Started/Starting-node.md
+          - Migrate to Besu: HowTo/Get-Started/migrate-to-besu.md
       - Configure Besu:
           - Consensus protocols:
               - QBFT: HowTo/Configure/Consensus-Protocols/QBFT.md

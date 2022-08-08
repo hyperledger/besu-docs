@@ -95,7 +95,7 @@ You can find a list of [Goerli faucets](https://github.com/eth-clients/goerli#me
     [EthStaker Discord](https://discord.io/ethstaker).
 
 Generate validator keys and stake your testnet ETH for one or more validators using the
-[Prater Staking Launchpad](https://prater.launchpad.ethereum.org/).
+[Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
 
 !!! important
 

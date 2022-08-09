@@ -7,7 +7,7 @@ description: Ethereum proof of stake
 [The Merge](the-merge.md) transitions Ethereum Mainnet to
 [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
-PoS is preferred over proof of work and proof of authority as a aconsensus mechanism
+PoS is preferred over proof of work and proof of authority as a consensus mechanism
 because it is more secure, requires less energy, and lowers the barrier to entry.
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the

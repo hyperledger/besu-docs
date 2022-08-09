@@ -6,3 +6,5 @@ node_modules/
 .circleci/process.yml
 .DS_Store
 *.log
+.lh
+.run

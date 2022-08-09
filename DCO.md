@@ -2,7 +2,7 @@ Developer Certificate of Origin
 ===============================
 
 Per section 13.a of the
-[Hyperledger Charter](https://www.hyperledger.org/about/charter), all code
+[Hyperledger Charter](https://www.hyperledger.org/about/charter-2), all code
 submitted to the Hyperledger Foundation needs to have a
 [Developer Certificate of Origin](http://developercertificate.org/) (DCO)
 sign-off.

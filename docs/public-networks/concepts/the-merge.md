@@ -8,7 +8,7 @@ description: What is the Merge?
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
 The Merge transitions Mainnet from proof of work to
-[proof of stake consensus](Consensus-Protocols/proof-of-stake.md).
+[proof of stake consensus](proof-of-stake.md).
 
 Update and configure Besu to be [ready for The Merge](../how-to/prepare-for-the-merge.md).
 You can also test Besu with a consensus client such as [Teku] on the [Kiln Merge testnet](../tutorials/merge-testnet.md).

@@ -58,8 +58,8 @@ Specifying permissioning onchain enables all nodes to read and update permission
 from one location.
 
 Onchain permissioning requires coordination to update the rules. The network might not be able to
-act immediately (for example, the smart contract might enforce a minimum of number of votes before
-changing permissioning rules).
+act immediately (for example, the smart contract might enforce a minimum of number of votes
+before changing permissioning rules).
 
 When you update onchain permissioning, the update applies across the network and new blocks abide
 by the updated rules. For example, blocked accounts can no longer add transactions to the chain.

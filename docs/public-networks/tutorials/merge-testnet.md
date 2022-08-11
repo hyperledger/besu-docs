@@ -4,9 +4,9 @@ Description: How to run Besu and Teku on the Merge testnet
 
 # Run Besu and Teku on a post-Merge testnet
 
-You can test Besu as an [execution client](../Concepts/Merge.md#execution-clients) and
+You can test Besu as an [execution client](../concepts/the-merge.md#execution-clients) and
 [Teku](https://docs.teku.consensys.net/en/stable/)
-as a [consensus client](../Concepts/Merge.md#consensus-clients) on a post-Merge testnet.
+as a [consensus client](../concepts/the-merge.md#consensus-clients) on a post-Merge testnet.
 This tutorial uses the [Goerli testnet](https://github.com/eth-clients/goerli) and
 [Sepolia testnet](https://github.com/eth-clients/sepolia) as examples.
 
@@ -17,13 +17,13 @@ This tutorial uses the [Goerli testnet](https://github.com/eth-clients/goerli) a
 
 ## 1. Install Besu and Teku
 
-Install [Besu](../HowTo/Get-Started/Installation-Options/Install-Binaries.md) and
+Install [Besu](../get-started/install/binary-distribution.md) and
 [Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java 11+ if using the Besu and Teku binary distributions.
 
-Ensure you meet the [system requirements for Besu on Mainnet](../HowTo/Get-Started/System-Requirements/System-Requirements-Public.md).
+Ensure you meet the [system requirements for Besu on Mainnet](../get-started/system-requirements.md).
 
 ## 2. Generate the shared secret
 
@@ -35,7 +35,7 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 
 You will specify `jwtsecret.hex` when starting both Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
-[Engine API](../HowTo/Interact/APIs/Engine-API.md).
+[Engine API](../how-to/use-engine-api.md).
 
 ## 3. Start Besu
 
@@ -76,9 +76,9 @@ Run the following command:
     ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
-[`--engine-jwt-secret`](../Reference/CLI/CLI-Syntax.md#engine-jwt-secret) option.
+[`--engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret) option.
 
-See the [`--engine-*`](../Reference/CLI/CLI-Syntax.md#engine-host-allowlist) options for more information on running
+See the [`--engine-*`](../reference/cli/options.md#engine-host-allowlist) options for more information on running
 Besu as an execution client.
 
 ## 4. Generate validator keys and stake ETH

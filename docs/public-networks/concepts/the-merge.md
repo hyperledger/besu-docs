@@ -8,7 +8,7 @@ description: What is the Merge?
 Ethereum Mainnet, turning Mainnet into a combination of an
 [execution layer and consensus layer](#execution-and-consensus-clients).
 The Merge transitions Mainnet from proof of work to
-[proof of stake consensus](https://docs.teku.consensys.net/en/stable/Concepts/Proof-of-Stake/).
+[proof of stake consensus](proof-of-stake.md).
 
 Update and configure Besu to be [ready for The Merge](../how-to/prepare-for-the-merge.md).
 You can also test Besu with a consensus client such as [Teku] on the [Kiln Merge testnet](../tutorials/merge-testnet.md).
@@ -34,7 +34,7 @@ peer-to-peer network.
 
 Consensus clients, such as [Teku], contain beacon node and validator client implementations.
 The beacon node is the primary link to the [Beacon Chain] (consensus layer).
-The validator client performs [validator duties](https://docs.teku.consensys.net/en/latest/Concepts/Proof-of-Stake/) on
+The validator client performs [validator duties](proof-of-stake.md) on
 the consensus layer.
 Consensus clients serve [REST API](https://docs.teku.consensys.net/en/stable/Reference/Rest_API/Rest/) requests and
 communicate with each other in a peer-to-peer network.
@@ -60,7 +60,7 @@ To become a validator, you must also run a validator client (either
 or [separately](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#run-the-clients-separately).
 
 After The Merge, validators earn rewards for performing
-[validator duties](https://docs.teku.consensys.net/en/stable/Concepts/Proof-of-Stake/), and
+[validator duties](proof-of-stake.md), and
 [fee recipients](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient)
 will also earn rewards for the inclusion of execution layer transactions.
 

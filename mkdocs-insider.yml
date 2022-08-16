@@ -10,14 +10,22 @@
 INHERIT: mkdocs.yml # DO NOT MODIFY THIS LINE
 
 plugins:
+  # Meta plugin to add meta content to pages in batch based on a .meta.yml file in the folder
+  # see
   meta:
     meta_file: '**/.meta.yml'
-
+  # tags plugin is not insider but has to be defined after meta plugin so has to be added here too
+  # to be loaded in the right order.
+  tags:
+    tags_file: tags-index.md
 extra:
   # indicates to the templating system that the current build uses insider
   # used to display insider only features in templates and prevent build fail on the normal version.
   is_insider: true
-
+  # tags ID, used for insider tag icons, see https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/#tag-icons
+  tags:
+    Private Networks: priv
+    Public Networks: pub
 # The following has to be in this file and mkdocs.yml file because
 # readthedocs.org is overriding it wrong if not in the initial config file but in a child file.
 # The side effect is that it also allows us to have different scripts and CSS for insider theme
@@ -25,3 +33,10 @@ extra_css:
   - assets/stylesheets/custom_theme.css
 extra_javascript:
   - assets/javascripts/custom_theme.js
+
+theme:
+  # only used with insider, see https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/#tag-icons
+  icon:
+    tag:
+      priv: material/book-lock-outline
+      pub: material/book-open-variant

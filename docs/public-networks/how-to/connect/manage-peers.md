@@ -26,6 +26,14 @@ You can limit peers to reduce the bandwidth, CPU time, and disk access Besu uses
 To reduce the maximum number of peers, use the
 [`--max-peers`](../../reference/cli/options.md#max-peers) option. The default is 25.
 
+!!! caution
+
+    If you reduce the maximum number of peers from the default, you must also reduce the minimum number of peers
+    by setting the `--xp2p-peer-lower-bound` option to the same value or lower.
+    For example, if you decrease `--max-peers` to 20, `--xp2p-peer-lower-bound` must also be set to 20 or lower.
+
+    Note, `xp2p-peer-lower-bound` is an experimental feature.
+
 ## Limit remote connections
 
 Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and

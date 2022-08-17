@@ -28,12 +28,12 @@ To reduce the maximum number of peers, use the
 
 !!! caution
 
-    The miminum number of peers is set by the `--xp2p-peer-lower-bound` option, which also has a default of 25.
-    If you reduce the `--max-peers` from the default, you must also set the `--xp2p-peer-lower-bound`
+    The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, which also has a default of 25.
+    If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound`
     option to the same value or lower.
-    For example, if you decrease `--max-peers` to 20, set `--xp2p-peer-lower-bound` to 20 or lower.
+    For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
 
-    Note, `xp2p-peer-lower-bound` is an experimental option.
+    Note, `Xp2p-peer-lower-bound` is an experimental option.
 
 ## Limit remote connections
 

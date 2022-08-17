@@ -24,8 +24,8 @@ extra:
   is_insider: true
   # tags ID, used for insider tag icons, see https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/#tag-icons
   tags:
-    Private Networks: priv
-    Public Networks: pub
+    private networks: priv
+    public networks: pub
 # The following has to be in this file and mkdocs.yml file because
 # readthedocs.org is overriding it wrong if not in the initial config file but in a child file.
 # The side effect is that it also allows us to have different scripts and CSS for insider theme

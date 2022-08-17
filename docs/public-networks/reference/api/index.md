@@ -4850,9 +4850,8 @@ None
 | Network ID | Chain | Network | Description
 |------------|-------|---------|-------------------------------|
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `3`        | ETH   | Ropsten | PoS test network              |
-| `4`        | ETH   | Rinkeby | PoA test network using Clique |
-| `5`        | ETH   | Goerli  | PoA test network using Clique |
+| `5`        | ETH   | Goerli  | PoS test network              |
+| `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
 | `7`        | ETC   | Mordor  | PoW test network              |

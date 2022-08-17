@@ -195,7 +195,7 @@ For a complete description of this file see [Genesis file items](genesis-items.m
 === "Syntax"
 
     ```bash
-    --chain=<mainnet|ropsten|rinkeby|goerli|dev|classic|mordor|kotti|astor>
+    --chain=<mainnet|goerli|sepolia|dev|classic|mordor|kotti|astor>
     ```
 
 === "Example"

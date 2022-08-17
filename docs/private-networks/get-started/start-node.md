@@ -5,8 +5,7 @@ description: Starting Hyperledger Besu
 # Start Besu
 
 Use the [`besu`](../reference/cli/options.md) command with the required command line options
-to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
-with the most common options.
+to start a node.
 
 ## Prerequisites
 
@@ -23,37 +22,17 @@ To delete the local block data, delete the `database` directory in the
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to
-[Ropsten](#run-a-node-on-ropsten-testnet), [Rinkeby](#run-a-node-on-rinkeby-testnet),
-[Goerli](#run-a-node-on-goerli-testnet), [Kiln](#run-a-node-on-kiln-testnet),
-[Sepolia](#run-a-node-on-sepolia-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
+To define a genesis configuration, create a [genesis file](../../public-networks/concepts/genesis-file.md)
+(for example, `genesis.json`) and specify the file using the
+[`--genesis-file`](../../public-networks/reference/cli/options.md#genesis-file) option.
 
 When you specify [`--network=dev`](../../public-networks/reference/cli/options.md#network), Besu uses the
 development mode genesis configuration with a fixed low difficulty. A node started with
 [`--network=dev`](../../public-networks/reference/cli/options.md#network) has an empty bootnodes list by
 default.
 
-The genesis files defining the genesis configurations are in the
+Predefined genesis configurations for named networks are in the
 [Besu source files](https://github.com/hyperledger/besu/tree/master/config/src/main/resources).
-
-To define a genesis configuration, create a genesis file (for example, `genesis.json`) and specify
-the file using the [`--genesis-file`](../../public-networks/reference/cli/options.md#genesis-file) option.
-
-## Syncing and storage
-
-By default, Besu syncs to the current state of the blockchain using
-[fast sync](../../public-networks/how-to/connect/sync-node.md#fast-synchronization) in:
-
-- Networks specified using [`--network`](../../public-networks/reference/cli/options.md#network) except for the `dev`
-  development network.
-- Ethereum Mainnet.
-
-We recommend using [snap sync](../../public-networks/how-to/connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
-with [`--sync-mode=X_SNAP`](../../public-networks/reference/cli/options.md#sync-mode).
-
-By default, Besu stores data in the [Forest of Tries](../../public-networks/concepts/data-storage-formats.md#forest-of-tries) format.
-We recommend using [Bonsai Tries](../../public-networks/concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements,
-by starting Besu with [`--data-storage-format=BONSAI`](../../public-networks/reference/cli/options.md#data-storage-format).
 
 ## Confirm node is running
 
@@ -126,97 +105,13 @@ data-path="/tmp/tmpdata-path"
       [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) to
       `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain.
 
-## Run a node on Ropsten testnet
+## Run a node on a private network
 
-To run a node on Ropsten:
-
-```bash
-besu --network=ropsten
-```
-
-To run a node on Ropsten with the HTTP JSON-RPC service enabled and allow Remix to access the node:
+To run a node on your private network specifying a genesis file and data directory:
 
 ```bash
-besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins "http://remix.ethereum.org"
+besu --genesis-file=<path>/genesis.json --data-path=<data-path> --rpc-http-enabled --bootnodes=<bootnodes>
 ```
 
-## Run a node on Rinkeby testnet
-
-To run a node on Rinkeby specifying a data directory:
-
-```bash
-besu --network=rinkeby --data-path=<path>/<rinkebydata-path>
-```
-
-Where `<path>` and `<rinkebydata-path>` are the path and directory to save the Rinkeby chain data
-to.
-
-## Run a node on Goerli testnet
-
-To run a node on [Goerli](https://github.com/goerli/testnet) specifying a data directory:
-
-```bash
-besu --network=goerli --data-path=<path>/<goerlidata-path>
-```
-
-Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
-
-## Run a node on Sepolia testnet
-
-To run a node on [Sepolia](https://github.com/goerli/sepolia) specifying a data directory:
-
-```bash
-besu --network=sepolia --data-path=<path>/<sepoliadata-path>
-```
-
-Where `<path>` and `<sepoliadata-path>` are the path and directory to save the Sepolia chain data
-to.
-
-## Run a node on Ethereum Mainnet
-
-To run a node on the Ethereum Mainnet:
-
-```bash
-besu
-```
-
-To run a node on Mainnet with the HTTP JSON-RPC service enabled and available for localhost only:
-
-```bash
-besu --rpc-http-enabled
-```
-
-## Besu launcher
-
-Use the Besu launcher to interactively configure and start a node with the most common options. The
-launcher asks a series of questions and generates a [configuration file](../../public-networks/how-to/configuration-file.md).
-
-To run the Besu launcher:
-
-```bash
-besu --Xlauncher
-```
-
-Answer each question, or press ++Enter++ to accept the default value.
-
-```bash
-? Which Ethereum network would you like to use ? rinkeby
-? Which synchronization mode? fast
-? Do you want to enable pruning? no
-? What is the data directory ? /Users/me/besu
-? Do you want to enable the JSON-RPC HTTP service ? yes
-? Do you want to configure the JSON-RPC options now ? yes
-? What is the JSON RPC HTTP host address ? 127.0.0.1
-? What is the JSON RPC HTTP port ? 8545
-? Select the list of APIs to enable on JSON-RPC HTTP service [eth, net, web3]
-? Do you want to enable the JSON-RPC Websocket service ? no
-? Do you want to enable GraphQL functionality ? no
-? Do you want to use Ethstats ? no
-? Do you want to enable NAT ? no
-? Do you want to enable mining ? no
-```
-
-If a configuration file is already present in the directory where the command is executed,
-Besu will start and use the values in the configuration file. To force the launcher to interact
-during a restart, use the `--Xlauncher-force` option, or delete the configuration
-file.
+Where `<data-path>` is the path to the directory to save the chain data to.
+Ensure you configure a peer discovery method, such as [bootnodes](../how-to/configure/bootnodes.md)

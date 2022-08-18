@@ -18,22 +18,6 @@ Use this Docker image to run a single Besu node without installing Besu.
 
     The Docker image does not run on Windows.
 
-## Default node for Mainnet
-
-To run a Besu node in a container connected to the Ethereum Mainnet:
-
-```bash
-docker run hyperledger/besu:latest
-```
-
-!!! note
-
-    https://hub.docker.com/r/hyperledger/besu/tags lists the available tags for the image.
-
-    If you previously pulled `latest`, Docker runs the cached version.
-
-    To ensure your image is up to date, pull the `latest` version again using `docker pull hyperledger/besu:latest`.
-
 ## Expose ports
 
 Expose ports for P2P discovery, GraphQL, metrics, and HTTP and WebSocket JSON-RPC. You need
@@ -97,26 +81,10 @@ Docker image instead of the command line options.
 
 ### Run a node for testing
 
-To run a node that mines blocks at a rate suitable for testing purposes with WebSockets enabled:
+To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
 
 ```bash
 docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
-```
-
-### Run a node on Rinkeby testnet
-
-To run a node on Rinkeby:
-
-```bash
-docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu hyperledger/besu:latest --network=rinkeby --data-path=/var/lib/besu
-```
-
-### Run a node on Ethereum Mainnet
-
-To run a node on Ethereum Mainnet with the HTTP JSON-RPC service enabled:
-
-```bash
-docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu  -p 30303:30303 hyperledger/besu:latest --rpc-http-enabled --data-path=/var/lib/besu
 ```
 
 ## Stop Besu and clean up resources

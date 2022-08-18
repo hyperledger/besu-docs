@@ -4,7 +4,7 @@ description: Starting Hyperledger Besu
 
 # Start Besu
 
-Nodes can connect to Ethereum Mainnet and public testnets such as Ropsten.
+Nodes can connect to Ethereum Mainnet and public testnets.
 
 Use the [`besu`](../reference/cli/options.md) command with the required command line options
 to start a node. Alternatively, use the [launcher](#besu-launcher) to start Besu interactively
@@ -26,9 +26,12 @@ To delete the local block data, delete the `database` directory in the
 ## Genesis configuration
 
 Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to
-[Ropsten](#run-a-node-on-ropsten-testnet), [Rinkeby](#run-a-node-on-rinkeby-testnet),
-[Goerli](#run-a-node-on-goerli-testnet), [Kiln](#run-a-node-on-kiln-testnet),
-[Sepolia](#run-a-node-on-sepolia-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
+[Goerli](#run-a-node-on-goerli-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), and
+[Mainnet](#run-a-node-on-ethereum-mainnet).
+
+!!! important
+
+    The Ropsten, Rinkeby, and Kiln testnets are deprecated.
 
 When you specify [`--network=dev`](../reference/cli/options.md#network), Besu uses the
 development mode genesis configuration with a fixed low difficulty. A node started with
@@ -128,31 +131,6 @@ data-path="/tmp/tmpdata-path"
       [`--rpc-http-cors-origins`](../reference/cli/options.md#rpc-http-cors-origins) to
       `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain.
 
-## Run a node on Ropsten testnet
-
-To run a node on Ropsten:
-
-```bash
-besu --network=ropsten
-```
-
-To run a node on Ropsten with the HTTP JSON-RPC service enabled and allow Remix to access the node:
-
-```bash
-besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins "http://remix.ethereum.org"
-```
-
-## Run a node on Rinkeby testnet
-
-To run a node on Rinkeby specifying a data directory:
-
-```bash
-besu --network=rinkeby --data-path=<path>/<rinkebydata-path>
-```
-
-Where `<path>` and `<rinkebydata-path>` are the path and directory to save the Rinkeby chain data
-to.
-
 ## Run a node on Goerli testnet
 
 To run a node on [Goerli](https://github.com/goerli/testnet) specifying a data directory:
@@ -162,14 +140,6 @@ besu --network=goerli --data-path=<path>/<goerlidata-path>
 ```
 
 Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
-
-## Run a node on Kiln testnet
-
-You can [test Besu as an execution client](../tutorials/merge-testnet.md#start-besu) on the
-[Kiln Merge testnet](https://blog.ethereum.org/2022/03/14/kiln-merge-testnet/).
-You must also run a [consensus client](../concepts/the-merge.md#consensus-clients) with Besu on the Merge
-testnet.
-For example, [Teku](https://docs.teku.consensys.net/en/stable/).
 
 ## Run a node on Sepolia testnet
 
@@ -210,7 +180,7 @@ besu --Xlauncher
 Answer each question, or press ++Enter++ to accept the default value.
 
 ```bash
-? Which Ethereum network would you like to use ? rinkeby
+? Which Ethereum network would you like to use ? goerli
 ? Which synchronization mode? fast
 ? Do you want to enable pruning? no
 ? What is the data directory ? /Users/me/besu

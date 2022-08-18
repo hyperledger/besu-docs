@@ -7,7 +7,7 @@ description: Configuring a network using the genesis file
 The genesis file defines the first block in the chain, and the first block defines which chain you
 want to join.
 
-For Ethereum Mainnet and public testnets (for example, Rinkeby) the genesis configuration
+For Ethereum Mainnet and public testnets (for example, Goerli) the genesis configuration
 definition is in Besu and used when specifying a public network using the
 [`--network`](../reference/cli/options.md#network) command line option.
 

@@ -1941,7 +1941,8 @@ nodes that cannot be pruned. The default is 10.
 The minimum number of recent blocks to keep the entire world state for. The default is 1024.
 
 !!! important
-    Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) is not
+
+    Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't
     supported.
 
 ### `pruning-enabled`
@@ -1970,7 +1971,8 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     pruning-enabled=true
     ```
 
-Enables [pruning](../../concepts/data-storage-formats.md) to reduce storage required for the world state.
+Enables [pruning](../../concepts/data-storage-formats.md#pruning) to reduce storage required for the
+world state.
 The default is `false`.
 
 !!! important

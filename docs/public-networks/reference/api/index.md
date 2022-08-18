@@ -12,9 +12,8 @@ description: Hyperledger Besu JSON-RPC API methods reference
     * All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If
       using the [--rpc-http-host](../cli/options.md#rpc-http-host) or
       [--rpc-http-port](../cli/options.md#rpc-http-port) options, update the endpoint.
-    * Except for the examples made on the Ropsten network, the example requests are made against
-      private networks. Depending on network configuration and activity, your example results might
-      be different.
+    * Most example requests are made against private networks.
+      Depending on network configuration and activity, your example results might be different.
 
 --8<-- "global/Postman.md"
 
@@ -4889,13 +4888,13 @@ None
         }
         ```
 
-    === "JSON result for Ropsten"
+    === "JSON result for Goerli"
 
         ```json
         {
           "jsonrpc" : "2.0",
           "id" : 53,
-          "result" : "3"
+          "result" : "5"
         }
         ```
 

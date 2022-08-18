@@ -84,4 +84,4 @@ Private transaction processing is illustrated and described in the following dia
 <!-- Links -->
 [signed with a random key or the key specified on the command line]: ../../../how-to/use-privacy/sign-pmts.md
 [highly available and run in a separate instance to Besu]: ../../../how-to/use-privacy/tessera.md
-[pruning]: ../../../../public-networks/concepts/data-storage-formats.md
+[pruning]: ../../../../public-networks/concepts/data-storage-formats.md#pruning

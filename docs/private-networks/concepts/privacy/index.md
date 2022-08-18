@@ -22,7 +22,7 @@ participants. Other participants cannot access the transaction content or list o
     * Tessera must be [highly available and run in a separate instance to Besu].
 
     Using private transactions with [pruning] or
-    [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) is not supported.
+    [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
 
 ## Private transaction manager
 
@@ -80,4 +80,4 @@ occur.
 
 <!-- Links -->
 [highly available and run in a separate instance to Besu]: ../../how-to/use-privacy/tessera.md
-[pruning]: ../../../public-networks/concepts/data-storage-formats.md
+[pruning]: ../../../public-networks/concepts/data-storage-formats.md#pruning

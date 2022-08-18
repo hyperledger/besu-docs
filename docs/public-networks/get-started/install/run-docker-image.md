@@ -97,18 +97,18 @@ Docker image instead of the command line options.
 
 ### Run a node for testing
 
-To run a node that mines blocks at a rate suitable for testing purposes with WebSockets enabled:
+To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
 
 ```bash
 docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
 ```
 
-### Run a node on Rinkeby testnet
+### Run a node on Goerli testnet
 
-To run a node on Rinkeby:
+To run a node on Goerli:
 
 ```bash
-docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu hyperledger/besu:latest --network=rinkeby --data-path=/var/lib/besu
+docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/goerli>,target=/var/lib/besu hyperledger/besu:latest --network=goerli --data-path=/var/lib/besu
 ```
 
 ### Run a node on Ethereum Mainnet
@@ -116,7 +116,7 @@ docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/rinkeby>,targ
 To run a node on Ethereum Mainnet with the HTTP JSON-RPC service enabled:
 
 ```bash
-docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/rinkeby>,target=/var/lib/besu  -p 30303:30303 hyperledger/besu:latest --rpc-http-enabled --data-path=/var/lib/besu
+docker run -p 8545:8545 --mount type=bind,source=/<myvolume/besu/mainnet>,target=/var/lib/besu  -p 30303:30303 hyperledger/besu:latest --rpc-http-enabled --data-path=/var/lib/besu
 ```
 
 ## Stop Besu and clean up resources

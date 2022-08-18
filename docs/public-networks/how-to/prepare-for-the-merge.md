@@ -13,7 +13,7 @@ If you're using Besu with [Teku] as the consensus client,
 [prepare Teku for the Merge](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/).
 
 You can also
-[test Besu with Teku on the Kiln Merge testnet](../tutorials/merge-testnet.md).
+[run Besu with Teku on the Merge testnet](../tutorials/merge-testnet.md).
 
 ## Configure Besu as an execution client
 

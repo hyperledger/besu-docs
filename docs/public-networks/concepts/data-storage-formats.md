@@ -16,6 +16,25 @@ and stored by hash, which increases the size of the database and increases the r
 
 ![forest_of_tries](../../images/forest_of_tries.png)
 
+### Pruning
+
+Pruning reduces the storage required by removing state trie nodes unreachable
+from [recent blocks](../../public-networks/reference/cli/options.md#pruning-blocks-retained).
+
+Pruning is disabled by default, and can be enabled with the
+[`--pruning-enabled`](../../public-networks/reference/cli/options.md#pruning-enabled) command line option.
+
+!!! Important
+
+    Using pruning with [private transactions](../../private-networks/concepts/privacy/private-transactions)\
+    isn't supported.
+
+Pruning might increase block import times, but it doesn't affect the ability of nodes to stay in sync.
+
+!!! Important
+
+    Pruning is being deprecated for [Bonsai Tries](#bonsai-tries) and is currently not being updated.
+
 ## Bonsai Tries
 
 Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase

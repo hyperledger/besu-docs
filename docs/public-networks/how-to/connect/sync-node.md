@@ -20,8 +20,14 @@ than full nodes.
 
 !!! note
 
-    Besu running on other public testnets, such as Ropsten, and other Ethereum clients have
+    Besu running on other public testnets and other Ethereum clients have
     different disk space requirements.
+
+## Store data
+
+You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
+or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+We recommend using Bonsai Tries for the lowest storage requirements.
 
 ## Run a full node
 
@@ -129,7 +135,7 @@ difficulty as in the following example.
     checkpoint must be the beginning of an epoch.
 
 Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
-the Ropsten and Goerli testnets.
+the Goerli testnet.
 
 If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
 sync from the genesis block.

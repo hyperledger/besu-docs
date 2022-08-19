@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu API
+tags:
+  - private networks
 ---
 
 # Access the Hyperledger Besu API

@@ -1,5 +1,7 @@
 ---
 description: Accessing logs using the Hyperledger Besu API
+tags:
+  - private networks
 ---
 
 # Access logs using the Hyperledger Besu API

@@ -1,5 +1,7 @@
 ---
 description: How to access the Hyperledger Besu API using JSON-RPC
+tags:
+  - private networks
 ---
 
 # Use JSON-RPC over HTTP, WebSocket, and IPC

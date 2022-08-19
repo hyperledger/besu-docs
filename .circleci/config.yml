@@ -19,9 +19,6 @@ commands:
           keys:
             - deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
       - run:
-          name: update-npm
-          command: 'npm install -g npm@latest'
-      - run:
           name: Install dependencies
           command: |
             npm ci

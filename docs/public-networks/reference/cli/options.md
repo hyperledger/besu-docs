@@ -701,7 +701,7 @@ Use the genesis file to create a custom network.
 
 !!!tip
 
-    To use a public Ethereum network such as Rinkeby, use the [`--network`](#network) option. The
+    To use a public Ethereum network such as Goerli, use the [`--network`](#network) option. The
     network option defines the genesis file for public networks.
 
 === "Syntax"
@@ -1651,19 +1651,19 @@ The default is `AUTO`. `NONE` disables NAT functionality.
 === "Example"
 
     ```bash
-    --network=rinkeby
+    --network=goerli
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_NETWORK=rinkeby
+    BESU_NETWORK=goerli
     ```
 
 === "Configuration file"
 
     ```bash
-    network="rinkeby"
+    network="goerli"
     ```
 
 The predefined network configuration.
@@ -1674,9 +1674,6 @@ Possible values are:
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
 |:----------|:------|:------------|:-------------------|:---------------------------------------------------------------|
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `kiln`    | ETH   | Test        | [FAST](#sync-mode) | A PoS network similar to the main Ethereum network post-[Merge](../../concepts/the-merge.md) |
-| `ropsten` | ETH   | Test        | [FAST](#sync-mode) | A PoS network similar to the main Ethereum network post-[Merge](../../concepts/the-merge.md) |
-| `rinkeby` | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 | `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 | `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
@@ -1685,14 +1682,15 @@ Possible values are:
 | `kotti`   | ETC   | Test        | [FAST](#sync-mode) | A PoA network using Clique                                     |
 | `astor`   | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
 
-!!!tip
+!!! tip
 
     Values are case insensitive, so either `mainnet` or `MAINNET` works.
 
-!!!important
+!!! important
 
-    You cannot use the [`--network`](#network) and [`--genesis-file`](#genesis-file) options at the
-    same time.
+    - You can't use the `--network` and [`--genesis-file`](#genesis-file) options at the same time.
+
+    - The Ropsten, Rinkeby, and Kiln testnets are deprecated.
 
 ### `network-id`
 
@@ -1952,7 +1950,8 @@ nodes that cannot be pruned. The default is 10.
 The minimum number of recent blocks to keep the entire world state for. The default is 1024.
 
 !!! important
-    Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) is not
+
+    Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't
     supported.
 
 ### `pruning-enabled`
@@ -1981,7 +1980,8 @@ The minimum number of recent blocks to keep the entire world state for. The defa
     pruning-enabled=true
     ```
 
-Enables [pruning](../../concepts/data-storage-formats.md) to reduce storage required for the world state.
+Enables [pruning](../../concepts/data-storage-formats.md#pruning) to reduce storage required for the
+world state.
 The default is `false`.
 
 !!! important

@@ -40,8 +40,6 @@ table lists the available networks and their chain and network IDs.
 | Network   | Chain | Chain ID | Network ID | Type        |
 |-----------|-------|----------|------------|-------------|
 | `mainnet` | ETH   | 1        | 1          | Production  |
-| `ropsten` | ETH   | 3        | 3          | Test        |
-| `rinkeby` | ETH   | 4        | 4          | Test        |
 | `goerli`  | ETH   | 5        | 5          | Test        |
 | `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
@@ -49,6 +47,10 @@ table lists the available networks and their chain and network IDs.
 | `mordor`  | ETC   | 63       | 7          | Test        |
 | `kotti`   | ETC   | 6        | 6          | Test        |
 | `astor`   | ETC   | 212      | 212        | Test        |
+
+!!! important
+
+    The Ropsten, Rinkeby, and Kiln testnets are deprecated.
 
 ## Specify a different network ID
 

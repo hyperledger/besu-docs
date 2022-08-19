@@ -3,14 +3,12 @@ title: Installation options
 description: Options for getting started with Hyperledger Besu
 ---
 
-# Options for getting started
-
-## New to Hyperledger Besu?
+# Installation options
 
 Get started with the [Developer Quickstart](../../../private-networks/tutorials/quickstart.md).
 Use the quickstart to rapidly generate local blockchain networks.
 
-## Installation options
+You can also install the following:
 
 * [Docker image](run-docker-image.md)
 * [Binaries](binary-distribution.md)

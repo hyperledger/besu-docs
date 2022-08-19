@@ -64,10 +64,10 @@ For Bash-based executions, you can set the variable for only the scope of the pr
 
 !!! example
 
-    To set the debug logging and start Besu connected to the Rinkeby testnet:
+    To set the debug logging and start Besu connected to the Goerli testnet:
 
     ```bash
-    LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=rinkeby
+    LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=goerli
     ```
 
 ### Log rotation

@@ -1,5 +1,7 @@
 ---
 description: Managing Hyperledger Besu peers
+tags:
+  - private networks
 ---
 
 # Manage peers

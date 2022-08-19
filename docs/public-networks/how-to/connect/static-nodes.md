@@ -1,5 +1,7 @@
 ---
 description: Configuring static nodes
+tags:
+  - private networks
 ---
 
 # Static nodes

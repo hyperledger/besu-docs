@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu EVM tool
+tags:
+  - private networks
 ---
 
 # Use the EVM tool

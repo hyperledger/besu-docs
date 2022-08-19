@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu events and logs
+tags:
+  - private networks
 ---
 
 # Events and logs

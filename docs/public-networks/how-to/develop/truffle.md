@@ -1,5 +1,7 @@
 ---
 description: Using Hyperledger Besu with Truffle
+tags:
+  - private networks
 ---
 
 # Use Truffle

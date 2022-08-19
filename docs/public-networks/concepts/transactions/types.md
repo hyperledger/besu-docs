@@ -1,5 +1,7 @@
 ---
 description: Description of the different transaction types
+tags:
+  - private networks
 ---
 
 # Transaction types

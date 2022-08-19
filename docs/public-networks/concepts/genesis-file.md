@@ -1,5 +1,7 @@
 ---
 description: Configuring a network using the genesis file
+tags:
+  - private networks
 ---
 
 # Genesis file

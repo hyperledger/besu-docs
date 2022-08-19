@@ -1,5 +1,7 @@
 ---
-description: Projects using Besu.
+description: Projects using Besu
+tags:
+  - private networks
 ---
 
 # Projects using Besu

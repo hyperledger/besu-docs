@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu API objects reference
+tags:
+  - private networks
 ---
 
 # Besu API objects

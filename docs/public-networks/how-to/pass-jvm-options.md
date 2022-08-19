@@ -1,5 +1,7 @@
 ---
 description: Passing Java virtual machine JVM options to Hyperledger Besu at runtime
+tags:
+  - private networks
 ---
 
 # Pass JVM options

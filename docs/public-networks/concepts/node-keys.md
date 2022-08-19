@@ -1,5 +1,7 @@
 ---
 description: Private and public key, and node address used to identify nodes
+tags:
+  - private networks
 ---
 
 # Node keys and node address

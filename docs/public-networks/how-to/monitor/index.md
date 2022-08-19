@@ -1,5 +1,7 @@
 ---
 description: Monitoring using metrics and logging
+tags:
+  - private networks
 ---
 
 # Monitor Besu

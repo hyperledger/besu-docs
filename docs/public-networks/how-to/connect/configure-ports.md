@@ -1,5 +1,7 @@
 ---
 description: To enable communication you must expose Hyperledger Besu ports appropriately
+tags:
+  - private networks
 ---
 
 # Configure ports

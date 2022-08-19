@@ -1,5 +1,7 @@
 ---
 description: Configuration items specified in the Hyperledger Besu genesis file
+tags:
+  - private networks
 ---
 
 # Genesis file items

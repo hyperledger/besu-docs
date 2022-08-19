@@ -1,5 +1,7 @@
 ---
 description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
+tags:
+  - private networks
 ---
 
 # Use RPC Pub/Sub over WebSockets

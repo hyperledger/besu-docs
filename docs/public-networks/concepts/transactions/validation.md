@@ -1,5 +1,7 @@
 ---
 description: What transaction validation and when
+tags:
+  - private networks
 ---
 
 # Transaction validation

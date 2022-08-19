@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu command line interface reference
+tags:
+  - private networks
 ---
 
 # Command line options

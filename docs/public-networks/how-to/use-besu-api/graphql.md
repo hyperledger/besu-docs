@@ -1,5 +1,7 @@
 ---
 description: How to access the Hyperledger Besu API using GraphQL
+tags:
+  - private networks
 ---
 
 # Use GraphQL over HTTP

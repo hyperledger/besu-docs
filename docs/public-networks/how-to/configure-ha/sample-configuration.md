@@ -1,5 +1,7 @@
 ---
 description: Sample load balancers
+tags:
+  - private networks
 ---
 
 # Sample load balancer configurations

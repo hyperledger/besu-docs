@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu JSON-RPC API methods reference
+tags:
+  - private networks
 ---
 
 # Besu API methods

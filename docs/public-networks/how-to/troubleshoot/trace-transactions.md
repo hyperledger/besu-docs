@@ -1,5 +1,7 @@
 ---
 description: How to trace transactions
+tags:
+  - private networks
 ---
 
 # Trace transactions

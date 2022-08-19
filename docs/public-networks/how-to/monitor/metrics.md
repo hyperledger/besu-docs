@@ -1,5 +1,7 @@
 ---
 description: Monitoring and metrics
+tags:
+  - private networks
 ---
 
 # Use metrics to monitor node performance

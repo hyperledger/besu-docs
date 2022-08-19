@@ -1,5 +1,7 @@
 ---
 description: Configuring NAT with Hyperledger Besu
+tags:
+  - private networks
 ---
 
 # Specify the NAT method

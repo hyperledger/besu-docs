@@ -1,5 +1,7 @@
 ---
 description: Using Hyperledger Besu for PoW CPU mining
+tags:
+  - private networks
 ---
 
 # Configure mining

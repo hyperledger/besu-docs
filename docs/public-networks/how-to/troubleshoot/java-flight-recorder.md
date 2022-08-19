@@ -1,5 +1,7 @@
 ---
 description: Using Java Flight Recorder with Hyperledger Besu
+tags:
+  - private networks
 ---
 
 # Use Java Flight Recorder

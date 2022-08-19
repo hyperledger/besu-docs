@@ -1,5 +1,7 @@
 ---
 description: Transaction pool overview
+tags:
+  - private networks
 ---
 
 # Transaction pool

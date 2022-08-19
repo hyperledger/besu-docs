@@ -1,5 +1,7 @@
 ---
 description: Besu network ID and chain ID implementation
+tags:
+  - private networks
 ---
 
 # Network ID and chain ID

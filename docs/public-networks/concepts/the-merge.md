@@ -11,7 +11,7 @@ The Merge transitions Mainnet from proof of work to
 [proof of stake consensus](proof-of-stake.md).
 
 Update and configure Besu to be [ready for The Merge](../how-to/prepare-for-the-merge.md).
-You can also test Besu with a consensus client such as [Teku] on the [Kiln Merge testnet](../tutorials/merge-testnet.md).
+You can also run Besu with a consensus client such as [Teku] on the [Merge testnet](../tutorials/merge-testnet.md).
 
 ## Execution and consensus clients
 

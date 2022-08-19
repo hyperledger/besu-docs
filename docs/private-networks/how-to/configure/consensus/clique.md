@@ -7,7 +7,7 @@ source: rinkeby.json
 # Configure Clique consensus
 
 Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](index.md).
-The Rinkeby and Goerli testnets uses Clique and private networks can also use Clique.
+Private networks can use Clique.
 
 !!! warning
 
@@ -23,10 +23,7 @@ You can [create a private network using Clique](../../../tutorials/clique.md).
 
 ## Genesis file
 
-To use Clique in a private network, Besu requires a Clique [genesis file](../../../../public-networks/concepts/genesis-file.md). When connecting to Rinkeby,
-Besu uses the
-[`rinkeby.json`](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/config/src/main/resources/rinkeby.json)
-genesis file in the `/besu/config/src/main/resources` directory.
+To use Clique in a private network, Besu requires a Clique [genesis file](../../../../public-networks/concepts/genesis-file.md).
 
 A Clique genesis file defines properties specific to Clique.
 
@@ -98,9 +95,7 @@ Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data a
 
 ## Connect to a Clique network
 
-To connect to the Rinkeby testnet, start Besu with the
-[`--network=rinkeby`](../../../../public-networks/reference/cli/options.md#network) command line option. To start a
-node on a Clique private network, use the
+To start a node on a Clique private network, use the
 [`--genesis-file`](../../../../public-networks/reference/cli/options.md#genesis-file) option to specify the custom
 genesis file.
 

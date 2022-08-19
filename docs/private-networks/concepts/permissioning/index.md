@@ -30,7 +30,6 @@ Use account permissioning to:
 
 * Enforce onboarding or identity requirements.
 * Suspend accounts.
-* Exclude broken contracts using a denylist.
 * Restrict the actions an account can perform.
 
 ![Account Permissioning](../../../images/enterprise-ethereum-account-permissioning.png)

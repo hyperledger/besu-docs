@@ -60,3 +60,7 @@ The following diagram outlines the Besu high-level architecture.
 
 If you have any questions about Besu or its architecture, contact us on the
 [Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).
+
+Learn more about the [Hyperledger Foundation](https://www.hyperledger.org/about).
+You can [contribute to the documentation](https://wiki.hyperledger.org/display/BESU/Documentation)
+or to [Besu itself](https://wiki.hyperledger.org/display/BESU/Contributing).

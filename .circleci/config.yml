@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python_executor:
     docker:
-      - image: cimg/python:3.7.4
+      - image: cimg/python:3.9
   node_executor:
     docker:
       - image: cimg/node:lts
@@ -12,17 +12,14 @@ executors:
       - image: cimg/base:2022.06
 
 commands:
-  install_node:
+  install_node_dependencies:
     description: "Install Node dependencies"
     steps:
       - restore_cache:
           keys:
             - deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
       - run:
-          name: update-npm
-          command: 'npm install -g npm@latest'
-      - run:
-          name: Install dependencies
+          name: Install Node dependencies
           command: |
             npm ci
 
@@ -58,6 +55,7 @@ jobs:
             done
             exit $status
 
+  # test the build with regular non-insider MkDocs Material theme for compatibility
   build:
     executor: python_executor
     steps:
@@ -70,7 +68,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -q -r CI/requirements.txt
+            pip install -q -r CI/requirements-mkdocs-material.txt -r CI/requirements.txt
       - save_cache:
           paths:
             - ./venv
@@ -86,7 +84,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install Vale
           command: |
             wget https://github.com/errata-ai/vale/releases/download/v2.6.0/vale_2.6.0_Linux_64-bit.tar.gz
             mkdir bin && tar -xvzf vale_2.6.0_Linux_64-bit.tar.gz -C bin vale
@@ -102,7 +100,7 @@ jobs:
     executor: node_executor
     steps:
       - checkout
-      - install_node
+      - install_node_dependencies
       - run:
           name: Run markdown link checker
           command: |
@@ -116,7 +114,7 @@ jobs:
     executor: node_executor
     steps:
       - checkout
-      - install_node
+      - install_node_dependencies
       - run:
           shell: /bin/bash #this is a non breaking command so it will always return success
           name: Run Markdownlint info checks
@@ -138,7 +136,7 @@ jobs:
     executor: node_executor
     steps:
       - checkout
-      - install_node
+      - install_node_dependencies
       - run:
           shell: /bin/bash #this is a non breaking command so it will always return success
           name: Run repolinter

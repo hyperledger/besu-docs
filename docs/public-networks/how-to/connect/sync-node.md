@@ -116,10 +116,8 @@ Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of 
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
 file](../../concepts/genesis-file.md).
 
-Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
-the Goerli testnet, so you don't have to provide this yourself. Using
-[`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode) is sufficient to checkpoint
-sync these networks.
+Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
+don't have to add this yourself.
 
 For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
 number, and total difficulty as in the following example.

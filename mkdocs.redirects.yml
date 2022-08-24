@@ -153,6 +153,7 @@ plugins:
       Concepts/Consensus-Protocols/Comparing-PoA.md: private-networks/concepts/poa.md
       Concepts/Privacy/Private-Transactions.md: private-networks/concepts/privacy/private-transactions/index.md
       Concepts/Privacy/Private-Transactions-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
+      Concepts/Privacy/Private-Transaction-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
       Concepts/Privacy/Privacy-Groups.md: private-networks/concepts/privacy/privacy-groups.md
       Concepts/Privacy/Flexible-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
       Concepts/Privacy/Multi-Tenancy.md: private-networks/concepts/privacy/multi-tenancy.md

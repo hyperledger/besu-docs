@@ -559,7 +559,7 @@ The default is `false` (authentication is enabled by default).
 === "Environment variable"
 
     ```bash
-    BESU_ENGINE_JWT_SECRET="publicKey.pem"
+    BESU_ENGINE_JWT_SECRET="jwt.hex"
     ```
 
 === "Configuration file"

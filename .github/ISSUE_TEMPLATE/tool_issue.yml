@@ -1,0 +1,115 @@
+---
+name: Doc tool issue report
+description: Create a report to help us improve our doc tools.
+title: "[Doc tooling] "
+labels: ["triage"]
+assignees: 'NicolasMassart'
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        IMPORTANT: This is only for reporting documentation tool issues.
+
+        Report Besu software issues at https://github.com/hyperledger/besu/issues.
+        Report documentation content issues using the "Documentation content issue report" template.
+
+        Before creating an issue, did you refresh your browser cache for the site?
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the issue
+      description: |
+        Add a clear and concise description of what the documentation tool issue is.
+        Include steps to reproduce the bug and what you expected to happen.
+      placeholder: |
+        - step 1: open the page
+        - step 2: click the button
+        - step 3: notice that the feature X is not showing the data Y
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Describe the expected behaviour
+      description: |
+        Add a clear and concise description of what you expected to happen.
+      placeholder: |
+        I expected feature X to show the data Y when clicking on the button
+    validations:
+      required: true
+
+  - type: input
+    id: page-url
+    attributes:
+      label: What page has this issue?
+      description: |
+        Provide the URL of the page where you experienced this issue.
+        If this issue is present on all the pages, simply point to the home page.
+      placeholder: https://besu.hyperledger.org/en/stable/...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: What version of the doc has this issue?
+      description: Provide the version of doc with the issue
+      placeholder: latest, stable, 1.2.3, ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: Check the operating system where you experience the issue.
+      multiple: false
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Android
+        - iOS
+        - Other
+        - all of them
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Check the Borwser where you experience the issue.
+      multiple: false
+      options:
+        - Chrome
+        - Edge
+        - Firefox
+        - Safari
+        - Brave
+        - Other
+        - all of them
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: More context
+      description: |
+        Add any other context about the problem here, for example, screenshots or a small demo video.
+
+        Tip: You can attach image and video files by copy and pasting or by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: recommendations
+    attributes:
+      label: Besu documentation issue recommendations
+      description: By checking this box, you confirm that you read and followed the [Besu documentation issue guidelines](https://wiki.hyperledger.org/display/BESU/Raise+issues)
+      options:
+        - label: I read and followed this project's documentation guidelines
+          required: true

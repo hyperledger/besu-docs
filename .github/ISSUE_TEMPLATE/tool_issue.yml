@@ -14,7 +14,7 @@ body:
         Report Besu software issues at https://github.com/hyperledger/besu/issues.
         Report documentation content issues using the "Documentation content issue report" template.
 
-        Before creating an issue, did you refresh your browser cache for the site?
+        Before creating an issue, make sure you've refreshed your browser cache for the site.
 
   - type: textarea
     id: description
@@ -22,22 +22,22 @@ body:
       label: Describe the issue
       description: |
         Add a clear and concise description of what the documentation tool issue is.
-        Include steps to reproduce the bug and what you expected to happen.
+        Include steps to reproduce the bug.
       placeholder: |
-        - step 1: open the page
-        - step 2: click the button
-        - step 3: notice that the feature X is not showing the data Y
+        - Step 1: Open the page
+        - Step 2: Select the button
+        - Step 3: Notice that feature X is not showing data Y
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Describe the expected behaviour
+      label: Describe the expected behavior
       description: |
         Add a clear and concise description of what you expected to happen.
       placeholder: |
-        I expected feature X to show the data Y when clicking on the button
+        I expected feature X to show data Y when selecting the button.
     validations:
       required: true
 
@@ -56,7 +56,7 @@ body:
     id: version
     attributes:
       label: What version of the doc has this issue?
-      description: Provide the version of doc with the issue
+      description: Provide the version of doc with the issue.
       placeholder: latest, stable, 1.2.3, ...
     validations:
       required: true
@@ -65,7 +65,7 @@ body:
     id: os
     attributes:
       label: Operating System
-      description: Check the operating system where you experience the issue.
+      description: Select the operating system where you experienced the issue.
       multiple: false
       options:
         - Windows
@@ -74,7 +74,7 @@ body:
         - Android
         - iOS
         - Other
-        - all of them
+        - All of them
     validations:
       required: true
 
@@ -82,7 +82,7 @@ body:
     id: browser
     attributes:
       label: Browser
-      description: Check the Borwser where you experience the issue.
+      description: Select the browser where you experienced the issue.
       multiple: false
       options:
         - Chrome
@@ -91,7 +91,7 @@ body:
         - Safari
         - Brave
         - Other
-        - all of them
+        - All of them
     validations:
       required: true
 
@@ -101,15 +101,15 @@ body:
       description: |
         Add any other context about the problem here, for example, screenshots or a small demo video.
 
-        Tip: You can attach image and video files by copy and pasting or by clicking this area to highlight it and then dragging files in.
+        Tip: You can attach image and video files by copy and pasting or by selecting this area to highlight it and then dragging files in.
     validations:
       required: false
 
   - type: checkboxes
     id: recommendations
     attributes:
-      label: Besu documentation issue recommendations
-      description: By checking this box, you confirm that you read and followed the [Besu documentation issue guidelines](https://wiki.hyperledger.org/display/BESU/Raise+issues)
+      label: Besu documentation issue guidelines
+      description: By checking this box, you confirm that you read and followed the [Besu documentation issue guidelines](https://wiki.hyperledger.org/display/BESU/Raise+issues).
       options:
-        - label: I read and followed this project's documentation guidelines
+        - label: I read and followed this project's documentation guidelines.
           required: true

@@ -12,7 +12,7 @@ body:
         Report Besu software issues at https://github.com/hyperledger/besu/issues.
         Report documentation tool issues using the "Documentation tool bug report" template.
 
-        Before creating an issue, did you use the search field in the documentation to find what you're looking for?
+        Before creating an issue, make sure you've tried using the search field in the documentation to find what you're looking for.
 
   - type: textarea
     id: description
@@ -36,7 +36,7 @@ body:
     id: issue-type
     attributes:
       label: Issue type
-      description: Check the issue type in the following list
+      description: Select the issue type.
       multiple: false
       options:
         - Missing content
@@ -61,15 +61,15 @@ body:
       description: |
         Add any other context about the problem here, for example, screenshots or a small demo video.
 
-        Tip: You can attach image and video files by copy and pasting or by clicking this area to highlight it and then dragging files in.
+        Tip: You can attach image and video files by copy and pasting or by selecting this area to highlight it and then dragging files in.
     validations:
       required: false
 
   - type: checkboxes
     id: recommendations
     attributes:
-      label: Besu documentation issue recommendations
-      description: By checking this box, you confirm that you read and followed the [Besu documentation issue guidelines](https://wiki.hyperledger.org/display/BESU/Raise+issues)
+      label: Besu documentation issue guidelines
+      description: By checking this box, you confirm that you read and followed the [Besu documentation issue guidelines](https://wiki.hyperledger.org/display/BESU/Raise+issues).
       options:
-        - label: I read and followed this project's documentation guidelines
+        - label: I read and followed this project's documentation guidelines.
           required: true

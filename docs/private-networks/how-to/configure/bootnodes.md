@@ -14,7 +14,7 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 !!! tip
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
-    you can use only bootnodes, only static nodes, or both bootnodes and statics nodes.
+    you can use only bootnodes, only static nodes, or both bootnodes and static nodes.
 
     To find peers, configure one or more bootnodes. To configure a specific set
     of peer connections, use [static nodes](../../../public-networks/how-to/connect/static-nodes.md).

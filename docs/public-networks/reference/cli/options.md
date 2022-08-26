@@ -1087,7 +1087,7 @@ Categories containing `PRIVATE` track metrics when you enable
 === "Syntax"
 
     ```bash
-    ---metrics-enabled[=<true|false>]
+    --metrics-enabled[=<true|false>]
     ```
 
 === "Example"

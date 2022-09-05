@@ -31,7 +31,7 @@ The healing, step 2, starts just after the world state download in step 1 is ove
 The peak in system CPU is related to the high rate of IO (input and output) required during this step.
 IO utilisation is around 61% during healing when it's only 39% during the remaining sync.
 
-![io utilization](../../../images/io-utilization.png)
+![IO utilization](../../../images/io-utilization.png)
 
 ### 3 -- Blocks import
 
@@ -104,4 +104,4 @@ the execution of all its transactions.
 
 It usually takes between 13 and 16 seconds.
 
-[[monitoring Besu with Prometheus and Grafana]]: ../../../private-networks/tutorials/quickstart.md#monitor-nodes-with-prometheus-and-grafana
+[monitoring Besu with Prometheus and Grafana]: ../../../private-networks/tutorials/quickstart.md#monitor-nodes-with-prometheus-and-grafana

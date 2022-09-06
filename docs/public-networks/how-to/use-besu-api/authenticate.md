@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu authentication and authorization for JSON-RPC
+tags:
+  - private networks
 ---
 
 # Authenticate and authorize JSON-RPC

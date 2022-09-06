@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu command line interface subcommands
+tags:
+  - private networks
 ---
 
 # Subcommands
@@ -67,7 +69,7 @@ Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when
 === "Example"
 
     ```bash
-    besu --network=rinkeby --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+    besu --network=goerli --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
     ```
 
 Exports a block or range of blocks from storage to a file in RLP format.

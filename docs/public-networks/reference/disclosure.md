@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu responsible disclosure statement
+tags:
+  - private networks
 ---
 
 # Security disclosure policy

@@ -1,5 +1,7 @@
 ---
 description: Using the Hyperledger Besu configuration file
+tags:
+  - private networks
 ---
 
 # Use the Hyperledger Besu configuration file

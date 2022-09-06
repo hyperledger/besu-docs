@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu high availability
+tags:
+  - private networks
 ---
 
 # High availability of JSON-RPC and RPC Pub/Sub APIs

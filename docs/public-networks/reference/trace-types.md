@@ -1,5 +1,7 @@
 ---
 description: Transaction trace types
+tags:
+  - private networks
 ---
 
 # Transaction trace types

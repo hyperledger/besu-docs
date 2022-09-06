@@ -58,6 +58,7 @@ nav:
               - Trace transactions: public-networks/how-to/troubleshoot/trace-transactions.md
       - Concepts:
           - The Merge: public-networks/concepts/the-merge.md
+          - Proof of stake: public-networks/concepts/proof-of-stake.md
           - Data storage formats: public-networks/concepts/data-storage-formats.md
           - Transactions:
               - Transaction types: public-networks/concepts/transactions/types.md

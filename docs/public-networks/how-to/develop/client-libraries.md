@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu client libraries
+tags:
+  - private networks
 ---
 
 # Use client libraries

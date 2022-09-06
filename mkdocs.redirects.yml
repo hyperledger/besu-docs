@@ -44,7 +44,7 @@ plugins:
       HowTo/Deploy/Lite-Network-Monitor.md: https://github.com/Alethio/ethstats-network-dashboard
       HowTo/Configure/Consensus-Protocols/QuorumIBFT.md: private-networks/how-to/configure/consensus/qbft.md
       HowTo/Configure/Configure-Data-Storage.md: public-networks/concepts/data-storage-formats.md
-      Concepts/Consensus-Protocols/Proof-of-Stake.md: public-networks/concepts/the-merge.md
+      Concepts/Consensus-Protocols/Proof-of-Stake.md: public-networks/concepts/proof-of-stake.md
       Tutorials/Examples/Private-Network-Example.md: private-networks/tutorials/quickstart.md
       Tutorials/Examples/Privacy-Example.md: private-networks/tutorials/privacy/quickstart.md
       Tutorials/Examples/Nat-Manager-Kubernetes.md: private-networks/tutorials/kubernetes/nat-manager.md
@@ -153,6 +153,7 @@ plugins:
       Concepts/Consensus-Protocols/Comparing-PoA.md: private-networks/concepts/poa.md
       Concepts/Privacy/Private-Transactions.md: private-networks/concepts/privacy/private-transactions/index.md
       Concepts/Privacy/Private-Transactions-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
+      Concepts/Privacy/Private-Transaction-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
       Concepts/Privacy/Privacy-Groups.md: private-networks/concepts/privacy/privacy-groups.md
       Concepts/Privacy/Flexible-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
       Concepts/Privacy/Multi-Tenancy.md: private-networks/concepts/privacy/multi-tenancy.md

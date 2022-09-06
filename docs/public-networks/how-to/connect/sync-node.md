@@ -20,8 +20,14 @@ than full nodes.
 
 !!! note
 
-    Besu running on other public testnets, such as Ropsten, and other Ethereum clients have
+    Besu running on other public testnets and other Ethereum clients have
     different disk space requirements.
+
+## Store data
+
+You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
+or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+We recommend using Bonsai Tries for the lowest storage requirements.
 
 ## Run a full node
 
@@ -110,8 +116,11 @@ Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of 
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
 file](../../concepts/genesis-file.md).
 
-You can configure a checkpoint in the genesis file by specifying the block hash, number, and total
-difficulty as in the following example.
+Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
+don't have to add this yourself.
+
+For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
+number, and total difficulty as in the following example.
 
 !!! example "Checkpoint configuration example"
 
@@ -127,9 +136,6 @@ difficulty as in the following example.
 
     If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
     checkpoint must be the beginning of an epoch.
-
-Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
-the Ropsten and Goerli testnets.
 
 If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
 sync from the genesis block.

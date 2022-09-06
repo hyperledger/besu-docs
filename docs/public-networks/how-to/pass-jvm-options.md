@@ -1,5 +1,7 @@
 ---
 description: Passing Java virtual machine JVM options to Hyperledger Besu at runtime
+tags:
+  - private networks
 ---
 
 # Pass JVM options
@@ -17,5 +19,5 @@ setting it before starting Besu.
 
     ```bash
     BESU_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
-    besu --network=rinkeby
+    besu --network=goerli
     ```

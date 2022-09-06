@@ -504,7 +504,7 @@ The default is `true`.
 === "Configuration file"
 
     ```bash
-    engine-host-allowlist=localhost,127.0.0.1
+    engine-host-allowlist=["localhost","127.0.0.1"]
     ```
 
 A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSocket).
@@ -597,7 +597,7 @@ See an [example of how to generate this](../../tutorials/merge-testnet.md#prereq
 === "Configuration file"
 
     ```bash
-    engine-rpc-port=8551
+    engine-rpc-port="8551"
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.

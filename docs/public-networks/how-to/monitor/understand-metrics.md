@@ -25,6 +25,15 @@ The CPU pattern is a "staircase" pattern, where each step represents one of the 
 Step 1 highlights blocks import and world state download, two tasks that are executed in parallel in Besu.
 Besu manages these two tasks with two different pipelines.
 
+The CPU is the limit for this step.
+The two pipelines stages are run on multiple threads.
+
+As displayed on the following screenshot -- for a VM with 8 CPU -- the CPU load average is about 7.5
+and sometimes exceeds 10 (a full CPU load is 1).
+It means that there's more work to be done than what the CPUs can handle.
+
+![](../../../images/system-load.png)
+
 ### 2 -- World state healing
 
 The healing, step 2, starts just after the world state download in step 1 is over.

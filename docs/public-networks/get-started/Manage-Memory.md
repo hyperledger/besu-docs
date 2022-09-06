@@ -49,5 +49,5 @@ file, set the `-XX:HeapDumpPath` Java option to the required path.
 To disable the heap dump file generation, set the `-XX:-HeapDumpOnOutOfMemoryError` Java option.
 
     ```bash
-    BESU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"
+    BESU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"  
     ```

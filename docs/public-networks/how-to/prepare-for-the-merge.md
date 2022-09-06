@@ -43,19 +43,22 @@ configuration file.
 ### 2. Configure the JSON Web Token
 
 JSON Web Token (JWT) authentication is used to secure the Engine API.
-You can generate a JWT using a command line tool, for example:
+You can generate a key for signing JWTs using a command line tool, for example:
 
 ```bash
 openssl rand -hex 32 -out <file>
 ```
 
-Provide the JWT to Besu using the [`engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret)
+Provide the signing key to Besu using the [`engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret)
 configuration option, and to the consensus client using its configuration options.
-For example, provide the JWT to [Teku] using the
+For example, provide the key to [Teku] using the
 [`ee-jwt-secret-file`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 
-If you don't provide a token to Besu, Besu will automatically generate a new token called `jwt.hex` and store it in the
+If you don't provide a key to Besu, Besu will automatically generate a new key called `jwt.hex` and store it in the
 configured data directory.
+
+This key is used by the consensus client to sign JWT tokens it generates to authenticate to the
+Engine API. Besu uses the same key to validate the token presented.
 
 ### 3. Sync Besu
 

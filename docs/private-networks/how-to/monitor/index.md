@@ -10,6 +10,7 @@ networks.
 
 You can also use the following monitoring tools in private networks:
 
+- [Loki](loki.md)
 - [Elastic Stack](elastic-stack.md)
 - [Quorum Hibernate](quorum-hibernate.md)
 - [Splunk](splunk.md)

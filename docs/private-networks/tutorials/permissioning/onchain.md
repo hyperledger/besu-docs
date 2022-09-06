@@ -297,7 +297,6 @@ The command line specifies:
 * The enode URL of Node-1 using [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes).
 * Other options as for [Node-1](#7-start-node-1).
 
-
 !!! tip
 
     If your nodes are having trouble connecting as peers,

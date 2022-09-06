@@ -16,7 +16,7 @@ Read this page to better understand and know how to interpret these graphical pa
 
 The following screenshot from [monitoring Besu with Prometheus and Grafana] shows patterns related to CPU utilization.
 
-![CPU Grafana Besu dashboard patterns](../../../images/besu-cpu-pattern-during-sync.png)
+![CPU Grafana Besu dashboard patterns screenshot](../../../images/besu-cpu-pattern-during-sync.png)
 
 The CPU pattern is a "staircase" pattern, where each step represents one of the Besu running stages.
 
@@ -32,7 +32,7 @@ As displayed on the following screenshot -- for a VM with 8 CPU -- the CPU load 
 and sometimes exceeds 10 (a full CPU load is 1).
 It means that there's more work to be done than what the CPUs can handle.
 
-![](../../../images/system-load.png)
+![System load metrics screenshot](../../../images/system-load.png)
 
 ### 2 -- World state healing
 
@@ -40,7 +40,7 @@ The healing, step 2, starts just after the world state download in step 1 is ove
 The peak in system CPU is related to the high rate of IO (input and output) required during this step.
 IO utilisation is around 61% during healing when it's only 39% during the remaining sync.
 
-![IO utilization](../../../images/io-utilization.png)
+![IO utilization metrics screenshot](../../../images/io-utilization.png)
 
 ### 3 -- Blocks import
 
@@ -78,7 +78,7 @@ transactions on the EVM is sequential.
 
 The following screenshot shows patterns related to block times as available in the [Besu Grafana full dashboard](https://grafana.com/grafana/dashboards/16455-besu-full/).
 
-![Block time Grafana Besu dashboard patterns](../../../images/block-time.png)
+![Block time Grafana Besu dashboard patterns screenshot](../../../images/block-time.png)
 
 The block times screenshot also shows a "staircase" pattern.
 

@@ -26,10 +26,10 @@ Step 1 highlights blocks import and world state download, two tasks that are exe
 Besu manages these two tasks with two different pipelines.
 
 The CPU is the limit for this step.
-The two pipelines stages are run on multiple threads.
+The two pipelines stages run on multiple threads.
 
 As displayed on the following screenshot -- for a VM with 8 CPU -- the CPU load average is about 7.5
-and sometimes exceeds 10 (a full CPU load is 1).
+and sometimes exceeds 10 (a 100% load for the 8 CPUs is 8).
 It means that there's more work to be done than what the CPUs can handle.
 
 ![System load metrics screenshot](../../../images/system-load.png)

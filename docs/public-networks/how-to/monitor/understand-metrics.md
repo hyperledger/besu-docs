@@ -25,7 +25,7 @@ The CPU pattern is a "staircase" pattern, where each step represents one of the 
 Step 1 highlights blocks import and world state download, two tasks that are executed in parallel in Besu.
 Besu manages these two tasks with two different pipelines.
 
-The CPU is the limit for this step.
+This step is CPU-bound[^1].
 The two pipelines stages run on multiple threads.
 
 As displayed on the following screenshot -- for a VM with 8 CPU -- the CPU load average is about 7.5
@@ -93,7 +93,7 @@ Block import time, as visible in step 1, is the duration for importing a block.
 Import includes:
 
 - the data retrieval over the network
-- the headers, body and, receipts validation
+- the headers, body and, receipt validation
 - persisting the block in the database.
 
 Duration for a block import is between a few milliseconds and up to tens of milliseconds.
@@ -114,3 +114,6 @@ the execution of all its transactions.
 It usually takes between 13 and 16 seconds.
 
 [monitoring Besu with Prometheus and Grafana]: ../../../private-networks/tutorials/quickstart.md#monitor-nodes-with-prometheus-and-grafana
+
+[^1]: A CPU-bound task means that only the CPU speed drives the time required to execute the task.
+Find more about [CPU-bounding on Wikipedia](https://en.wikipedia.org/wiki/CPU-bound).

@@ -96,41 +96,41 @@ jobs:
           path: ./vale.out
           destination: ./vale.out
 
-  linkchecker:
-    executor: node_executor
-    steps:
-      - checkout
-      - install_node_dependencies
-      - run:
-          name: Run markdown link checker
-          command: |
-            npm run test:links
-      - save_node_cache
-      - store_artifacts:
-          path: ./linkchecker.out
-          destination: linkchecker.out
+#  linkchecker:
+#    executor: node_executor
+#    steps:
+#      - checkout
+#      - install_node_dependencies
+#      - run:
+#          name: Run markdown link checker
+#          command: |
+#            npm run test:links
+#      - save_node_cache
+#      - store_artifacts:
+#          path: ./linkchecker.out
+#          destination: linkchecker.out
 
-  markdownlint:
-    executor: node_executor
-    steps:
-      - checkout
-      - install_node_dependencies
-      - run:
-          shell: /bin/bash #this is a non breaking command so it will always return success
-          name: Run Markdownlint info checks
-          command: |
-            npm run test:markdown:info
-      - run:
-          name: Run Markdownlint
-          command: |
-            npm run test:markdown
-      - save_node_cache
-      - store_artifacts:
-          path: ./markdownlint.out
-          destination: ./markdownlint.out
-      - store_artifacts:
-          path: ./markdownlint_info.out
-          destination: ./markdownlint_info.out
+#  markdownlint:
+#    executor: node_executor
+#    steps:
+#      - checkout
+#      - install_node_dependencies
+#      - run:
+#          shell: /bin/bash #this is a non breaking command so it will always return success
+#          name: Run Markdownlint info checks
+#          command: |
+#            npm run test:markdown:info
+#      - run:
+#          name: Run Markdownlint
+#          command: |
+#            npm run test:markdown
+#      - save_node_cache
+#      - store_artifacts:
+#          path: ./markdownlint.out
+#          destination: ./markdownlint.out
+#      - store_artifacts:
+#          path: ./markdownlint_info.out
+#          destination: ./markdownlint_info.out
 
   repolint:
     executor: node_executor
@@ -151,20 +151,20 @@ workflows:
       - dco
       - build
       - vale
-      - markdownlint
-      - linkchecker
+#      - markdownlint
+#      - linkchecker
       - repolint
 
-  nightly:
-    triggers:
-      - schedule: # GMT
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - linkchecker
+#  nightly:
+#    triggers:
+#      - schedule: # GMT
+#          cron: "0 0 * * *"
+#          filters:
+#            branches:
+#              only:
+#                - main
+#    jobs:
+#      - linkchecker
 
   weekly:
     triggers:

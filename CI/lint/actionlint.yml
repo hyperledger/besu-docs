@@ -1,0 +1,6 @@
+self-hosted-runner:
+  # Labels of accepted self-hosted runners
+  labels:
+    - linux
+    - X64
+    - generic

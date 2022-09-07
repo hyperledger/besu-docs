@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+name: Lint Code Base
+
+on: [pull_request]
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Run check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter/slim@v4
+        env:
+#          VALIDATE_ALL_CODEBASE: "false"
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: ./CI/lint/
+          MARKDOWN_CONFIG_FILE: markdown.yml
+          LOG_LEVEL: ERROR
+          CSS_FILE_NAME: .stylelintrc.yaml
+          FILTER_REGEX_EXCLUDE: /CI/vale/vale_styles

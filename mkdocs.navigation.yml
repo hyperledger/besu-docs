@@ -41,6 +41,7 @@ nav:
           - Monitor nodes:
               - public-networks/how-to/monitor/index.md
               - Use metrics: public-networks/how-to/monitor/metrics.md
+              - Understand metrics: public-networks/how-to/monitor/understand-metrics.md
               - Configure logging: public-networks/how-to/monitor/logging.md
           - Pass JVM options: public-networks/how-to/pass-jvm-options.md
           - Configure high availability:

@@ -38,13 +38,13 @@ It means that there's more work to be done than what the CPUs can handle.
 
 The healing, step 2, starts just after the world state download in step 1 is over.
 The peak in system CPU is related to the high rate of IO (input and output) required during this step.
-IO utilisation is around 61% during healing when it's only 39% during the remaining sync.
+IO utilization is around 61% during healing when it's only 39% during the remaining sync.
 
 ![IO utilization metrics screenshot](../../../images/io-utilization.png)
 
 ### 3 -- Blocks import
 
-After step 1 and 2 where world state si downloaded and healed, block import continues.
+After step 1 and 2 where world state is downloaded and healed, block import continues.
 
 The visible drop in CPU shows that Besu finished the world state nodes download.
 
@@ -71,7 +71,7 @@ reducing the concurrent work at the CPU level.
 
 Once Besu is completely synced, it propagates blocks and executes the transactions inside each block.
 Block production and propagation step shows an important reduction in CPU consumption.
-This reduction is due to the idle time while waiting for the new block and, because executing
+This reduction is due to the idle time while waiting for the new block and because executing
 transactions on the EVM is sequential.
 
 ## Block time
@@ -84,7 +84,7 @@ The block times screenshot also shows a "staircase" pattern.
 
 Block time metric measures the duration for getting new blocks in Besu.
 
-Block time is closely related to the steps described in the previous [CPU utilisation](#cpu-utilization).
+Block time is closely related to the steps described in the previous [CPU utilization](#cpu-utilization).
 
 ### 1 -- Block import time
 

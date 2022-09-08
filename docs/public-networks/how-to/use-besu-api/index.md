@@ -24,7 +24,7 @@ To enable API access, use the
 
 !!! caution
 
-    `--Xrpc-ipc-enabled` is an experimental option.
+    `--Xrpc-ipc-enabled` is an early access option.
 
 ## Service hosts
 
@@ -64,7 +64,7 @@ The default path is `besu.ipc` in the Besu data directory.
 
 !!! caution
 
-    `--Xrpc-ipc-path` is an experimental option.
+    `--Xrpc-ipc-path` is an early access option.
 
 ## Host allowlist
 

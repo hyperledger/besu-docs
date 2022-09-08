@@ -32,14 +32,14 @@ To deploy the private network example on Azure:
 1. Go to the [Quorum Dev Quickstart on Azure Marketplace].
 
 1. Click **Get It Now** and **Continue**.
-   The Quickstart landing page is displayed.
+    The Quickstart landing page is displayed.
 
     ![Image landing](../../images/mp_0_landing.png)
 
 1. Click **Create**.
-   The **Basics** page is displayed.
+    The **Basics** page is displayed.
 
-     ![Image basics](../../images/mp_1_basics.png)
+    ![Image basics](../../images/mp_1_basics.png)
 
 1. Enter:
 
@@ -58,11 +58,11 @@ To deploy the private network example on Azure:
     When the deployment is complete, the resources created are displayed.
 
 1. Click **Go to Resource**.
-   Everything created in the deployment is displayed.
+    Everything created in the deployment is displayed.
 
 1. Click on the VM name.
-   The VM details such as the IP and DNS name are displayed.
-   Use the IP and DNS name displayed to connect to the VM, either in browser or via RPC calls.
+    The VM details such as the IP and DNS name are displayed.
+    Use the IP and DNS name displayed to connect to the VM, either in browser or via RPC calls.
 
 ## Block explorer
 
@@ -76,7 +76,7 @@ The deployment includes Prometheus metrics and Grafana with a custom Besu Dashbo
 To display the dashboard:
 
 1. Open a new tab and enter the IP or DNS name appended with `/grafana`.
-   For example: `http://<DNS_NAME_OF_VM>/grafana`.
+    For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
 1. Click on home and select the Besu dashboard.
 

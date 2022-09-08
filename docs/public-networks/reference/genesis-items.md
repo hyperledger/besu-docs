@@ -117,7 +117,7 @@ the network's difficulty constant and override the `difficulty` parameter from t
             "fixeddifficulty": 1000
           },
 
-       },
+      },
       ...
     }
     ```

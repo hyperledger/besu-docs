@@ -63,7 +63,7 @@ the `Private-Network` directory:
       "fixeddifficulty": 1000
     },
       "chainID": 1337
-   },
+  },
   "nonce": "0x42",
   "gasLimit": "0x1000000",
   "difficulty": "0x10000",

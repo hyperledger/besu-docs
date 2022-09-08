@@ -23,7 +23,7 @@ To see the Besu Quickstart network logs in Kibana:
 
 1. [Start the Developer Quickstart with Besu](../../tutorials/quickstart.md), selecting ELK monitoring.
 1. Open the [`Kibana logs address`](http://localhost:5601/app/kibana#/discover) listed by the sample networks `list.sh` script.
-   The logs display in Kibana.
+    The logs display in Kibana.
 
     ![Kibana](../../../images/KibanaQuickstart.png)
 

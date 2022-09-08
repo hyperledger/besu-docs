@@ -107,7 +107,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
         "balance": "90000000000000000000000"
       }
-   }
+  }
 }
 ```
 

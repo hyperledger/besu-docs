@@ -17,21 +17,21 @@ To deploy the permissioning management dapp for production:
 1. Unpack the distribution into a directory available to your Web server.
 
 1. In the root of the unpack directory, add a file called `config.json` replacing the placeholders
-   shown below.
+    shown below.
 
-   !!! example "`config.json`"
+    !!! example "`config.json`"
 
-         ```json
+        ```json
 
-         {
-           "accountIngressAddress":  "<Address of the account ingress contract>",
-           "nodeIngressAddress": "<Address of the node ingress contract>",
-           "networkId": "<ID of your Ethereum network>"
-         }
-         ```
+        {
+          "accountIngressAddress":  "<Address of the account ingress contract>",
+          "nodeIngressAddress": "<Address of the node ingress contract>",
+          "networkId": "<ID of your Ethereum network>"
+        }
+        ```
 
 1. On your Web server, host the contents of the directory as static files and direct root requests
-   to `index.html`.
+    to `index.html`.
 
 !!! note "Start a production permissioned network"
 
@@ -44,8 +44,8 @@ To deploy the permissioning management dapp for production:
 To add a node to the Hyperledger Besu nodes allowlist:
 
 1. On the **Nodes** tab of the permissioning management dapp, select **Add Node**.
-   The **Add Node** window displays.
-2. Enter the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
+    The **Add Node** window displays.
+1. Enter the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) of the node you are adding and select **Add Node**.
 
 !!! tip
 
@@ -64,7 +64,7 @@ To add a node to the Hyperledger Besu nodes allowlist:
 To remove a node from the nodes allowlist:
 
 1. On the **Nodes** tab of the permissioning management dapp, hover over the row of the
-   node you are removing. A trash can displays.
+    node you are removing. A trash can displays.
 1. Select the trash can.
 
 !!! tip
@@ -93,13 +93,13 @@ To remove a node from the nodes allowlist:
 To add an account to the accounts allowlist:
 
 1. On the **Accounts** tab of the permissioning management dapp, select **Add Account**.
-   The **Add Account** window displays.
+    The **Add Account** window displays.
 1. Enter the account address in the **Account Address** field and select **Add Account**.
 
 To remove an account from the accounts allowlist:
 
 1. On the **Accounts** tab of the permissioning management dapp, hover over the row of
-   the account you are removing. A trash can displays.
+    the account you are removing. A trash can displays.
 1. Select the trash can.
 
 ## Update admins

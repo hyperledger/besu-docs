@@ -26,7 +26,7 @@ Private transaction processing is illustrated and described in the following dia
 ![Processing Private Transactions](../../../../images/PrivateTransactionProcessing.png)
 
 1. Submit a private transaction using [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
-   The signed transaction includes transaction parameters specific to private transactions, including:
+    The signed transaction includes transaction parameters specific to private transactions, including:
 
     * `privateFor` or `privacyGroupId`, which specifies the list of recipients.
     * `privateFrom`, which specifies the sender.
@@ -37,14 +37,14 @@ Private transaction processing is illustrated and described in the following dia
 1. The Private Transaction Handler sends the private transaction to Tessera.
 
 1. Tessera distributes the private transaction directly (that is, point-to-point) to the Tessera nodes specified in
-   `privateFor` or belonging to the privacy group identified by `privacyGroupId`.
-   All recipient Tessera nodes store the transaction.
-   Tessera associates the stored transaction with the transaction hash and privacy group ID.
+    `privateFor` or belonging to the privacy group identified by `privacyGroupId`.
+    All recipient Tessera nodes store the transaction.
+    Tessera associates the stored transaction with the transaction hash and privacy group ID.
 
 1. Tessera returns the transaction hash to the Private Transaction Handler.
 
 1. The Private Transaction Handler creates a PMT for the private transaction.
-   The Private Transaction Handler propagates the PMT using devP2P in the same way as any other public Ethereum transaction.
+    The Private Transaction Handler propagates the PMT using devP2P in the same way as any other public Ethereum transaction.
 
     !!! tip
 
@@ -55,22 +55,22 @@ Private transaction processing is illustrated and described in the following dia
 1. Besu mines the PMT into a block and the PMT is distributed to all Ethereum nodes in the network.
 
 1. The Mainnet Transaction Processor processes the PMT in the same way as any other public transaction.
-   On nodes containing the [privacy precompile contract](../../../reference/api/index.md#priv_getprivacyprecompileaddress)
-   specified in the `to` attribute of the PMT, the Mainnet Transaction Processor passes the PMT to the privacy
-   precompile contract.
+    On nodes containing the [privacy precompile contract](../../../reference/api/index.md#priv_getprivacyprecompileaddress)
+    specified in the `to` attribute of the PMT, the Mainnet Transaction Processor passes the PMT to the privacy
+    precompile contract.
 
     !!! note
 
         Nodes receiving the PMT that don't contain the privacy precompile contract ignore the PMT.
 
 1. The privacy precompile contract queries Tessera for the private transaction and privacy group ID using the
-   transaction hash.
+    transaction hash.
 
 1. The privacy precompile contract passes the private transaction to the Private Transaction Processor.
-   The privacy group ID specifies the private world state to use.
+    The privacy group ID specifies the private world state to use.
 
 1. The Private Transaction Processor executes the transaction.
-   The Private Transaction Processor can read and write to the private world state, and read from the public world state.
+    The Private Transaction Processor can read and write to the private world state, and read from the public world state.
 
 !!! important
 

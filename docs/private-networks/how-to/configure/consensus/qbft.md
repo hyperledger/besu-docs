@@ -144,10 +144,11 @@ The QBFT properties are:
 * `blockreward` - Optional reward amount in Wei to reward the beneficiary. Defaults to zero (0).
     Can be specified as a hexadecimal (with 0x prefix) or decimal string value. If set, then all
     nodes on the network must use the identical value.
-* `validatorcontractaddress` - Address of the validator smart contract. Required only if using a contract validator
-     selection. The address must be identical to the address in the `alloc` section. This option can also be
-     used in the [transitions](#transitions) configuration item if swapping
-     [validator management methods](#add-and-remove-validators) in an existing network.
+* `validatorcontractaddress` - Address of the validator smart contract.
+    Required only if using a contract validator selection.
+    The address must be identical to the address in the `alloc` section. This option can also be
+    used in the [transitions](#transitions) configuration item if swapping
+    [validator management methods](#add-and-remove-validators) in an existing network.
 * `miningbeneficiary` - Optional beneficiary of the `blockreward`. Defaults to the validator
     that proposes the block. If set, then all nodes on the network must use the same beneficiary.
 * [`extraData`](#extra-data) - RLP encoded [extra data](#extra-data).
@@ -264,7 +265,7 @@ small (usually around one second) even in networks with geographically dispersed
 To tune the block timeout for your network deployment:
 
 1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times
-   `blockperiodseconds`.
+    `blockperiodseconds`.
 1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
 1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
 
@@ -446,20 +447,20 @@ To update an existing network with a new `blockperiodseconds`:
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockperiodseconds": <NewValue>
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "qbft": [
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockperiodseconds": <NewValue>
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -470,20 +471,20 @@ To update an existing network with a new `blockperiodseconds`:
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": 1240,
-                     "blockperiodseconds": 4
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "qbft": [
+                    {
+                      "block": 1240,
+                      "blockperiodseconds": 4
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -491,7 +492,7 @@ To update an existing network with a new `blockperiodseconds`:
 
 3. Restart all nodes in the network using the updated genesis file.
 4. To verify the changes after the transition block, call
-   [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+    [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 ### Configure block rewards on an existing network deployment
 
@@ -510,29 +511,29 @@ To update an existing network with a new `blockreward`:
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                   "blockreward": "5000000000000000"
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   },
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   },
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                  "blockreward": "5000000000000000"
+                },
+                "transitions": {
+                  "qbft": [
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    },
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    },
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -543,29 +544,29 @@ To update an existing network with a new `blockreward`:
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                   "blockreward": "5000000000000000"
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": 10,
-                     "blockreward": "6000000000000000"
-                   },
-                   {
-                     "block": 15,
-                     "blockreward": "75000000000000000"
-                   },
-                   {
-                     "block": 20,
-                     "blockreward": "0"
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                  "blockreward": "5000000000000000"
+                },
+                "transitions": {
+                  "qbft": [
+                    {
+                      "block": 10,
+                      "blockreward": "6000000000000000"
+                    },
+                    {
+                      "block": 15,
+                      "blockreward": "75000000000000000"
+                    },
+                    {
+                      "block": 20,
+                      "blockreward": "0"
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -595,21 +596,21 @@ To swap between block header validator selection and contract validator selectio
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 5,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 10
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": <FutureBlockNumber>,
-                     "validatorselectionmode": <SelectionMode>,
-                     "validatorcontractaddress": <ContractAddress>
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 5,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 10
+                },
+                "transitions": {
+                  "qbft": [
+                    {
+                      "block": <FutureBlockNumber>,
+                      "validatorselectionmode": <SelectionMode>,
+                      "validatorcontractaddress": <ContractAddress>
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -620,21 +621,21 @@ To swap between block header validator selection and contract validator selectio
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 5,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 10
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": 102885,
-                     "validatorselectionmode": "contract",
-                     "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 5,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 10
+                },
+                "transitions": {
+                  "qbft": [
+                  {
+                    "block": 102885,
+                    "validatorselectionmode": "contract",
+                    "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
+                  }
+                  ]
+                }
               },
               ...
             }

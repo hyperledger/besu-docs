@@ -337,7 +337,7 @@ The script:
 
         > Saving migration to chain.
         > Saving artifacts
-           -------------------------------------
+          -------------------------------------
         > Total cost:           0.0044311 ETH
 
     2_deploy_contracts.js
@@ -360,7 +360,7 @@ The script:
 
         > Saving migration to chain.
         > Saving artifacts
-           -------------------------------------
+          -------------------------------------
         > Total cost:           0.0047983 ETH
 
     Summary

@@ -7,9 +7,9 @@ description: Configuring validators in production networks
 As when [configuring bootnodes](bootnodes.md):
 
 1. Create the [node key pair](../../../public-networks/concepts/node-keys.md) (that is, the private and public key)
-   before starting the validator.
+    before starting the validator.
 1. When creating validators in the cloud (for example, AWS or Azure), attempt to assign static IP
-   addresses to them. If your network is:
+    addresses to them. If your network is:
 
     * Publicly accessible, assign an elastic IP address.
     * Internal only, specify a private IP address when you create the instance and record this IP

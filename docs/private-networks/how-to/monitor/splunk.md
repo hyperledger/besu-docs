@@ -48,7 +48,7 @@ Docker Compose environment provided by Splunk.
     ```
 
 1. Start the demonstration environment by following the Splunk Connect for Ethereum repository
-   [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
+    [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
 
     !!! note
 
@@ -116,7 +116,7 @@ Docker Compose environment provided by Splunk.
     1. Save the `besu` index.
 
 1. Run Besu.
-   To start a Besu node running in development mode, run the following command:
+    To start a Besu node running in development mode, run the following command:
 
     ```bash
     LOGGER=Splunk \
@@ -135,15 +135,15 @@ Docker Compose environment provided by Splunk.
     The complete list of options is in the [Splunk options reference table](#splunk-options-reference).
 
 1. In the Splunk Web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search).
-   Type `index="besu"` in the search field.
-   Log events sent by Besu are displayed.
+    Type `index="besu"` in the search field.
+    Log events sent by Besu are displayed.
 
     Congratulations! You can now play with the search and other Splunk features to explore your Besu logs.
 
     ![Splunk search page](../../../images/splunk-ui.png)
 
 1. Stop Besu with ++ctrl+c++.
-   Stop the Splunk container with `docker stop splunk-demo`.
+    Stop the Splunk container with `docker stop splunk-demo`.
 
 ## Run a Splunk Enterprise instance
 
@@ -155,7 +155,7 @@ Docker Compose environment provided by Splunk.
 ### Steps
 
 1. Follow the steps in the [Splunk Enterprise documentation](https://docs.splunk.com/Documentation/Splunk/8.0.4/Installation)
-   to download, install, and run Splunk Enterprise.
+    to download, install, and run Splunk Enterprise.
 
 1. After logging into the Splunk Enterprise Web interface, navigate to the settings to:
 
@@ -163,7 +163,7 @@ Docker Compose environment provided by Splunk.
     1. [Create an event index] named `besu`.
 
 1. Run Besu as in step 3 in [using Splunk on Docker](#use-splunk-enterprise-as-a-docker-container).
-   Set the `SPLUNK_URL` value to match the HTTP Event Collector address and port.
+    Set the `SPLUNK_URL` value to match the HTTP Event Collector address and port.
 
     You can display logs and use the search engine as in step 4 in [using Splunk on Docker](#use-splunk-enterprise-as-a-docker-container).
 

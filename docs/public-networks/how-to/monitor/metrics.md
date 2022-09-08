@@ -26,7 +26,7 @@ To use Prometheus with Besu, install the [Prometheus main component](https://pro
 On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
 ```bash
- brew install prometheus
+brew install prometheus
 ```
 
 !!! tip
@@ -43,7 +43,7 @@ On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
 To configure Prometheus and run with Besu:
 
 1. Configure Prometheus to poll Besu.
-   For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
+  For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
     !!! example
 
@@ -83,7 +83,7 @@ To configure Prometheus and run with Besu:
         Prometheus requires 3 MB of space per node per hour for metrics, with a `scrape_interval` of 15 seconds.
 
 1. Start Besu with the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
-   To start a single node for testing with metrics enabled, run the following command:
+  To start a single node for testing with metrics enabled, run the following command:
 
     === "Syntax"
 
@@ -131,19 +131,19 @@ To enable Besu to push metrics to a [Prometheus Pushgateway](https://github.com/
 To configure Prometheus and run with Besu pushing to a push gateway:
 
 1. Configure Prometheus to read from a push gateway.
-   For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
+  For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
     ```yml
-     - job_name: push-gateway
-       metrics_path: /metrics
-       scheme: http
-       static_configs:
-       - targets:
-         - localhost:9091
+    - job_name: push-gateway
+      metrics_path: /metrics
+      scheme: http
+      static_configs:
+      - targets:
+        - localhost:9091
     ```
 
 1. Start the push gateway.
-   You can deploy the push gateway using the Docker image:
+  You can deploy the push gateway using the Docker image:
 
     ```bash
     docker pull prom/pushgateway
@@ -179,12 +179,12 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 
 1. From the **Insert metric at cursor** drop-down, select a [metric](#metrics-list) such as `besu_blockchain_difficulty_total`
-   or `ethereum_blockchain_height` and click **Execute**.
-   The values display.
+  or `ethereum_blockchain_height` and click **Execute**.
+  The values display.
 
 1. Click the **Graph** tab to view the data as a time-based graph.
-   The query string displays below the graph.
-   For example, `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`.
+  The query string displays below the graph.
+  For example, `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`.
 
 ## Metrics list
 

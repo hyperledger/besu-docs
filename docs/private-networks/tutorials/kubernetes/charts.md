@@ -130,7 +130,8 @@ port and path to use. For example:
 
 !!! warning
 
-     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
+    For production use cases, configure Grafana with one of the supported
+    [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
 
 ![k8s-metrics](../../../images/kubernetes-grafana.png)
 

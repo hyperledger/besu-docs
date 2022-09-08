@@ -30,4 +30,4 @@ jobs:
           MARKDOWN_CONFIG_FILE: markdown.yml
           LOG_LEVEL: ERROR
           CSS_FILE_NAME: .stylelintrc.yaml
-          FILTER_REGEX_EXCLUDE: /CI/vale/vale_styles
+          FILTER_REGEX_EXCLUDE: (/CI/vale/vale_styles/*|LICENSE)

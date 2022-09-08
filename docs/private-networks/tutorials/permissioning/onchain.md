@@ -161,7 +161,7 @@ the `alloc` section of the contract:
       "balance": "0",
       "code": <stripped>,
       "storage": {
-         <stripped>
+        <stripped>
       }
 }
 
@@ -170,7 +170,7 @@ the `alloc` section of the contract:
       "balance": "0",
       "code": <stripped>,
       "storage": {
-         <stripped>
+        <stripped>
       }
 }
 ```

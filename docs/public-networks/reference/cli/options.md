@@ -142,7 +142,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 === "Syntax"
 
     ```bash
-    ---auto-log-bloom-caching-enabled[=<true|false>]
+    --auto-log-bloom-caching-enabled[=<true|false>]
     ```
 
 === "Example"

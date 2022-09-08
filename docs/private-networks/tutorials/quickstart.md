@@ -144,7 +144,7 @@ For more details on how to configure and use these tools for your own nodes, see
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
-![Grafana](../../images/grafana.png)
+![Grafana dashboard screenshot](../../images/grafana.png)
 
 and collated logs via Grafana Loki
 

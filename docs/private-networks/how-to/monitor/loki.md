@@ -13,7 +13,7 @@ The `pipeline configuration` in Promtail defines pipeline stages that can collat
 
 !!! note
 
-    If using the pipeline regex stage in `Promtail`, configuration must match the your log format.
+    If using the pipeline regex stage in `Promtail`, configuration must match your log format.
 
 To view the GoQuorum Quickstart network logs in Loki:
 

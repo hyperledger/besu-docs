@@ -15,7 +15,7 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 
 !!! caution
 
-    `--Xrpc-ipc-enabled` is an experimental option.
+    `--Xrpc-ipc-enabled` is an early access option.
 
 --8<-- "global/Postman.md"
 
@@ -244,7 +244,7 @@ To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGI
 
 !!! caution
 
-    `--Xrpc-ipc-api` is an experimental option.
+    `--Xrpc-ipc-api` is an early access option.
 
 ## Block parameter
 

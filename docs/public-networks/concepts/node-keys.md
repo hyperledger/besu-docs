@@ -102,13 +102,13 @@ defined by [`--nat-method`](../how-to/connect/specify-nat.md).
 
 !!! warning
 
-    Enode URL domain name support is an experimental feature that you can use in private
+    Enode URL domain name support is an early access feature that you can use in private
     [permissioned networks](../../private-networks/concepts/permissioning/index.md) only.
 
 To use domain names in enode URLs:
 
 * Configure DNS reverse lookup.
-* Enable DNS support using Besu's `--Xdns-enabled` experimental command line option.
+* Enable DNS support using the early access option `--Xdns-enabled`.
 
 !!! example "Example enode URL using a domain name"
 
@@ -122,7 +122,7 @@ To use domain names in enode URLs:
     `--Xdns-enabled` and `--Xdns-update-enabled` options to ensure that Besu can connect to a container after
     restarting even if the IP address of the container changes.
 
-    Use the [`--Xhelp`](../reference/cli/options.md#xhelp) command line option to view experimental options and their
+    Use the [`--Xhelp`](../reference/cli/options.md#xhelp) command line option to view early access options and their
     descriptions.
 
 If nodes are not connecting as expected, set the [log level to TRACE](../reference/api/index.md#admin_changeloglevel) to

@@ -148,7 +148,7 @@ and [Grafana documentation](https://grafana.com/docs/).
 
 and collated logs via Grafana Loki
 
-![Loki](../../images/grafana_loki.png)
+![Grafana Loki dashboard screenshot](../../images/grafana_loki.png)
 
 ## Run JSON-RPC requests
 

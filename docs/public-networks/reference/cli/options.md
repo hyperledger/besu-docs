@@ -142,7 +142,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 === "Syntax"
 
     ```bash
-    ---auto-log-bloom-caching-enabled[=<true|false>]
+    --auto-log-bloom-caching-enabled[=<true|false>]
     ```
 
 === "Example"
@@ -770,7 +770,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 === "Syntax"
 
     ```bash
-    ---graphql-http-enabled[=<true|false>]
+    --graphql-http-enabled[=<true|false>]
     ```
 
 === "Example"
@@ -2524,7 +2524,7 @@ Enables or disables clients with trusted CA certificates to connect. The default
 !!! note
 
     You must enable client authentication using the
-    [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
+    [`--rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
 ### `rpc-http-tls-client-auth-enabled`
 
@@ -2717,7 +2717,7 @@ Must contain the certificate's Common Name, and SHA-256 fingerprint in the forma
 !!! note
 
     You must enable client authentication using the
-    [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
+    [`--rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
 ### `rpc-http-tls-protocol`
 

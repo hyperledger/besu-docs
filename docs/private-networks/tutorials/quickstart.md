@@ -103,6 +103,7 @@ When execution is successfully finished, the process lists the available service
 - Use the **Grafana Loki logs address** to access the
   [logs in Grafana](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=).
   [Read more about log management](../how-to/monitor/loki.md).
+
 To display the list of endpoints again, run:
 
 ```bash

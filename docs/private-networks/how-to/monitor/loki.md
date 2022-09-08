@@ -1,5 +1,5 @@
 ---
-description: Using Grafana Loki with Hyperledger Besu
+description: Using Grafana Loki log management platform with Hyperledger Besu
 ---
 
 # Grafana Loki

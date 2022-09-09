@@ -80,6 +80,7 @@ When execution is successfully finished, the process lists the available service
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
+    Collated logs using Grafana Loki    : http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=
 
     For more information on the endpoints and services, refer to README.md in the installation directory.
     ****************************************************************
@@ -99,6 +100,9 @@ When execution is successfully finished, the process lists the available service
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
   [Read more about log management](../how-to/monitor/elastic-stack.md).
+- Use the **Grafana Loki logs address** to access the
+  [logs in Grafana](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=).
+  [Read more about log management](../how-to/monitor/loki.md).
 
 To display the list of endpoints again, run:
 
@@ -133,13 +137,18 @@ You can directly access these tools from your browser at the addresses displayed
 
 - [Prometheus dashboard](http://localhost:9090/graph)
 - [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
+- [Grafana Loki logs dashboard](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=quorum&var-search=)
 
 For more details on how to configure and use these tools for your own nodes, see the
-[performances monitoring documentation](../../public-networks/how-to/monitor/metrics.md),
+[performance monitoring documentation](../../public-networks/how-to/monitor/metrics.md),
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
-![Grafana](../../images/grafana.png)
+![Grafana dashboard screenshot](../../images/grafana.png)
+
+and collated logs via Grafana Loki
+
+![Grafana Loki dashboard screenshot](../../images/grafana_loki.png)
 
 ## Run JSON-RPC requests
 

@@ -30,6 +30,7 @@ extra:
   analytics:
     provider: google
     property: 'G-23GVTD3LEQ'
+    verification: 'sGzYdFR_AYDRtsC-SNxMRwjellnfTgs5ZA0q7GIM5j0'
     feedback:
       title: Was this page helpful?
       ratings:

@@ -121,6 +121,7 @@ P[oO]W
 [pP]recompile(d)?
 [pP]reidentif(y|ied)
 Prometheus
+Promtail
 Protobuf
 Prysm
 Prysmatic

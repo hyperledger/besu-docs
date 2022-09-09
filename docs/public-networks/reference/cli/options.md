@@ -142,7 +142,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 === "Syntax"
 
     ```bash
-    ---auto-log-bloom-caching-enabled[=<true|false>]
+    --auto-log-bloom-caching-enabled[=<true|false>]
     ```
 
 === "Example"
@@ -479,7 +479,7 @@ The default is `true`.
 !!! note
 
     You can override the default DNS server if it's unreliable or doesn't serve TCP DNS requests, using the
-    [experimental option](#xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
+    [early access option](#xhelp) `--Xp2p-dns-discovery-server=<HOST>`.
 
 ### `engine-host-allowlist`
 
@@ -504,7 +504,7 @@ The default is `true`.
 === "Configuration file"
 
     ```bash
-    engine-host-allowlist=localhost,127.0.0.1
+    engine-host-allowlist=["localhost","127.0.0.1"]
     ```
 
 A comma-separated list of hostnames to allow for Engine API access (applies to both HTTP and WebSocket).
@@ -597,7 +597,7 @@ See an [example of how to generate this](../../tutorials/merge-testnet.md#prereq
 === "Configuration file"
 
     ```bash
-    engine-rpc-port=8551
+    engine-rpc-port="8551"
     ```
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket.
@@ -770,7 +770,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 === "Syntax"
 
     ```bash
-    ---graphql-http-enabled[=<true|false>]
+    --graphql-http-enabled[=<true|false>]
     ```
 
 === "Example"
@@ -1039,12 +1039,11 @@ The maximum number of P2P connections you can establish. The default is 25.
 
 !!! caution
 
-    The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, which also has a default of 25.
+    The minimum number of peers is set by the early access option `--Xp2p-peer-lower-bound`, which
+    also has a default of 25.
     If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound`
     option to the same value or lower.
     For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
-
-    Note, `Xp2p-peer-lower-bound` is an experimental option.
 
 ### `metrics-category`
 
@@ -2525,7 +2524,7 @@ Enables or disables clients with trusted CA certificates to connect. The default
 !!! note
 
     You must enable client authentication using the
-    [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
+    [`--rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
 ### `rpc-http-tls-client-auth-enabled`
 
@@ -2718,7 +2717,7 @@ Must contain the certificate's Common Name, and SHA-256 fingerprint in the forma
 !!! note
 
     You must enable client authentication using the
-    [`---rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
+    [`--rpc-http-tls-client-auth-enabled`](#rpc-http-tls-client-auth-enabled) option.
 
 ### `rpc-http-tls-protocol`
 
@@ -3190,7 +3189,7 @@ Use `FAST` for [fast sync](../../how-to/connect/sync-node.md#fast-synchronizatio
 
 !!! important
 
-    Snap sync and checkpoint sync are experimental features.
+    Snap sync and checkpoint sync are early access features.
 
     We recommend using snap sync over fast sync even in certain production environments (for example, staking), because
     snap sync can be faster by several days.
@@ -3361,7 +3360,7 @@ The maximum period, in hours, to hold pending transactions in the transaction po
     -X, --Xhelp
     ```
 
-Displays the experimental options and their descriptions, and exit.
+Displays the early access options and their descriptions, and exit.
 
 !!! warning
 

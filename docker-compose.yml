@@ -1,0 +1,20 @@
+---
+version: '3.2'
+services:
+  super-linter:
+    image: github/super-linter:slim-latest
+    volumes:
+      - type: bind
+        source: .
+        target: /tmp/lint
+    environment:
+      RUN_LOCAL: 'true'
+      USE_FIND_ALGORITHM: 'true'
+      LINTER_RULES_PATH: 'CI/lint'
+      MARKDOWN_CONFIG_FILE: '.markdown.yml'
+      CSS_FILE_NAME: '.stylelintrc.yaml'
+      FILTER_REGEX_EXCLUDE: '(CI/vale/vale_styles/*|LICENSE)'
+      VALIDATE_JAVASCRIPT_STANDARD: 'false'
+      VALIDATE_PYTHON: 'false'
+      LOG_LEVEL: INFO
+      IGNORE_GITIGNORED_FILES: 'true'

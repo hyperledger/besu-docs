@@ -26,9 +26,11 @@ jobs:
 #          VALIDATE_ALL_CODEBASE: "false"
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LINTER_RULES_PATH: ./CI/lint/
-          MARKDOWN_CONFIG_FILE: markdown.yml
+          LINTER_RULES_PATH: ./CI/lint
+          MARKDOWN_CONFIG_FILE: .markdown.yml
           LOG_LEVEL: ERROR
           CSS_FILE_NAME: .stylelintrc.yaml
           FILTER_REGEX_EXCLUDE: (/CI/vale/vale_styles/*|LICENSE)
           VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_PYTHON: 'false'
+          IGNORE_GITIGNORED_FILES: 'true'

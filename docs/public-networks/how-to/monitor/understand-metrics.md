@@ -28,9 +28,9 @@ Besu manages these two tasks with two different pipelines.
 This step is CPU-bound.[^1]
 The two pipeline stages run on multiple threads.
 
-As displayed in the following screenshot, for a VM with 8 CPUs, the CPU load average is about 7.5
+As displayed in the following screenshot (for a VM with 8 CPUs) the CPU load average is about 7.5
 and sometimes exceeds 10 (a 100% load for the 8 CPUs is 8).
-This means that there's more work to be done than what the CPUs can handle.
+This means there's more work to be done than what the CPUs can handle.
 
 ![System load metrics screenshot](../../../images/system-load.png)
 
@@ -59,7 +59,7 @@ parent block before importing a child.
 ### 4. Blocks full import
 
 In step 4, Besu executes all transactions of each block.
-This is where Besu updates the world state after the healing step.
+This is when Besu updates the world state after the healing step.
 
 The quantity of imported blocks in this step depends on the speed of the sync.
 This number indicates the cumulated blocks quantity behind head since the last healing step.
@@ -71,47 +71,45 @@ reducing the concurrent work at the CPU level.
 ### 5. Blocks production and propagation
 
 Once Besu is completely synced, it propagates blocks and executes the transactions inside each block.
-Step 5, block production and propagation, shows an important reduction in CPU consumption.
-This reduction is due to the idle time while waiting for the new block and because executing
-transactions on the EVM is sequential.
+Step 5, block production and propagation, shows a reduction in CPU consumption due to the idle time
+while waiting for the new block and the sequential nature of executing transactions on the EVM.
 
 ## Block time
 
-The following screenshot shows patterns related to block times as available in the
+Block time measures the duration of getting new blocks in Besu.
+Block time is closely related to [CPU usage](#cpu-usage).
+
+The following screenshot shows patterns related to block time as available in the
 [Besu Grafana full dashboard](https://grafana.com/grafana/dashboards/16455-besu-full/).
 
 ![Block time Grafana Besu dashboard patterns screenshot](../../../images/block-time.png)
 
-The block time screenshot also shows a "staircase" pattern.
-
-Block time measures the duration for getting new blocks in Besu.
-
-Block time is closely related to the steps described in [CPU usage](#cpu-usage).
+The block time pattern is also a "staircase" pattern.
 
 ### 1. Block import time
 
-Step 1, block import time, is the duration for importing a block.
+Step 1, block import time, is the duration of importing a block.
 
 Import includes:
 
-- The data retrieval over the network.
-- The headers, body, and receipt validation.
+- Data retrieval over the network.
+- Headers, body, and receipt validation.
 - Persisting the block in the database.
 
 Block import takes between a few and tens of milliseconds.
 
 ### 2. Block full import time
 
-Step 2, block full import time, is the duration for importing the block
-(duration of the first stage) and for the execution of all the transactions in this block.
+Step 2, block full import time, is the duration of importing a block (step 1) and executing all
+its transactions.
 
 Block full import takes between 1 and 2 seconds per block, depending on the number and complexity
 of the transactions.
 
 ### 3. Block network time
 
-Step 3, block network time, is the duration for the propagating of the block over the network and
-the execution of all its transactions.
+Step 3, block network time, is the duration of propagating a block over the network and
+executing all its transactions.
 
 Block network takes between 13 and 16 seconds.
 

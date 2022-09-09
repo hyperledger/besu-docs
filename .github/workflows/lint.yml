@@ -31,3 +31,4 @@ jobs:
           LOG_LEVEL: ERROR
           CSS_FILE_NAME: .stylelintrc.yaml
           FILTER_REGEX_EXCLUDE: (/CI/vale/vale_styles/*|LICENSE)
+          VALIDATE_JAVASCRIPT_STANDARD: false

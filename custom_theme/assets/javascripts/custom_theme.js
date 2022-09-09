@@ -1,18 +1,13 @@
-$( document ).ready(function() {
-  displayLatestWarning();
-  makeImagesZoomable();
-});
+/* global $ */
+$(document).ready(function () {
+  displayLatestWarning()
+})
 
-$(window).on('hashchange', function(){
-  displayLatestWarning();
-});
+$(window).on('hashchange', function () {
+  displayLatestWarning()
+})
 
-function displayLatestWarning(){
-  $( ".latest-warning" ).css( "display", $(location).attr('href').includes(latestWarningTrigger)?"block":"none" );
-}
-
-function makeImagesZoomable(){
-  $(':not(a) > img').each(function (index, value){
-    $(this).zoomify();
-  });
+function displayLatestWarning() {
+  $(".latest-warning").css("display",
+    $(location).attr('href').includes(latestWarningTrigger) ? "block" : "none")
 }

@@ -45,18 +45,12 @@ Heap size can be set using environment variable.
 
 ## Manage the heap dump
 
-<<<<<<< HEAD
-If an out of memory error occurs, the heap dump file is placed in the directory that Besu
-runs from. The heap dump file is potentially large (up to 8GB), to specify the directory to place the
-file, set `-XX:HeapDumpPath` Java option to the required path.
-=======
 When an out of memory error occurs, the heap dump file is saved in the Besu runtime directory by default.
 
 The heap dump file is potentially large and can saturate your drive.
 It can be up to the size of the allocated memory.
 For example, for 8GB heap memory, the file can be up to 8GB
 Specify the directory where you want the dump to be saved using the `-XX:HeapDumpPath` Java option.
->>>>>>> 3799fbbbd3a763bdfbeae0304160b74ef5931bef
 
 !!! example
 
@@ -66,6 +60,4 @@ Specify the directory where you want the dump to be saved using the `-XX:HeapDum
 
 To disable the heap dump file generation, set the `-XX:-HeapDumpOnOutOfMemoryError` Java option.
 
-    ```bash
     BESU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"
-    ```

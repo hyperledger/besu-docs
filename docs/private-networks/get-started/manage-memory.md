@@ -2,45 +2,57 @@
 title: Besu memory management
 ---
 
-# Managing memory
+# Managing Java Virtual Machine (JVM) memory
 
-Manage Besu's Java Virtual Machine (JVM) memory usage by setting a maximum heap size
-using the `JAVA_OPTS` environment variable.
+To setup JVM memory usage for Besu modify maximum heap size using the `JAVA_OPTS` environment variable.
 
-The JVM will default to 25% of system RAM.  In other words if you have 16GB RAM installed, the JVM will default to 4GB.  
+The JVM default is to use 25% of system RAM.
+For example, if you have 16GB RAM installed, the JVM will default to 4GB.
 
 We recommend setting the maximum heap size to at least 8GB for public networks.
 
-Set the heap size using the environment variable, or using the command line when starting Besu.
+Heap size can be set using environment variable.
 
-=== "Environment variable"
+!!! example "Environment variable setup examples"
+    === "Exported environment variable"
 
-    ```bash
-    export BESU_OPTS=-Xmx8g
-    ```
+        Set the variable for the whole shell before running Besu.
 
-=== "Command line"
+        ```bash
+        export BESU_OPTS=-Xmx8g
+        ```
 
-    ```bash
-    BESU_OPTS=-Xmx8g besu [options]
-    ```  
+    === "Inline environment variable"
 
-=== "Systemd" (Note this is a truncated snippet as an example, do NOT this as your .service file)
+        Set the variable only for the specific Besu command.
 
-    ```bash
-    [Service]
-    ...
-    Environment="BESU_OPTS=-Xmx8g"
-    ExecStart=besu [options]
-    ...
-    ```  
+        ```bash
+        BESU_OPTS=-Xmx8g besu [Besu options]
+        ```
+
+    === "In Systemd `.service` file"
+
+        !!! important
+            This is a truncated Systemd code snippet, don't us this direclty as your `.service` file.
+
+        ```bash
+        [Service]
+        ...
+        Environment="BESU_OPTS=-Xmx8g"
+        ExecStart=besu [Besu options]
+        ...
+        ```
 
 ## Manage the heap dump
 
-If an out of memory error occurs, the heap dump file is placed in the directory that Besu
-runs from. The heap dump file is potentially large (up to 8GB), to specify the directory to place the
-file, set `-XX:HeapDumpPath` Java option to the required path.
+When an out of memory error occurs, the heap dump file is saved in the Besu runtime directory by default.
 
+The heap dump file is potentially large and can saturate your drive.
+It can be up to the size of the allocated memory.
+For example, for 8GB heap memory, the file can be up to 8GB
+Specify the directory where you want the dump to be saved using the `-XX:HeapDumpPath` Java option.
+
+!!! example
 
     ```bash
     BESU_OPTS="-XX:HeapDumpPath=/home/me/me_node/dumps"
@@ -48,6 +60,4 @@ file, set `-XX:HeapDumpPath` Java option to the required path.
 
 To disable the heap dump file generation, set the `-XX:-HeapDumpOnOutOfMemoryError` Java option.
 
-    ```bash
-    BESU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"  
-    ```
+    BESU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"

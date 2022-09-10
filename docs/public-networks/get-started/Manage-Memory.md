@@ -3,7 +3,6 @@ title: Besu memory management
 ---
 
 # Managing Java Virtual Machine (JVM) memory
-
 To setup JVM memory usage for Besu modify maximum heap size using the `JAVA_OPTS` environment variable.
 
 The JVM default is to use 25% of system RAM.

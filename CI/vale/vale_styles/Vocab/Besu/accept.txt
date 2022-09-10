@@ -121,6 +121,7 @@ P[oO]W
 [pP]recompile(d)?
 [pP]reidentif(y|ied)
 Prometheus
+Promtail
 Protobuf
 Prysm
 Prysmatic
@@ -150,6 +151,7 @@ statefully
 [sS]ubnet(s)?
 [sS]uborganization(s)?
 [sS]ynchronizer(s)?
+Systemd
 Teku
 Telegraf
 [tT]estnet(s)?

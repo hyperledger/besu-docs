@@ -42,6 +42,7 @@ nav:
           - Monitor nodes:
               - public-networks/how-to/monitor/index.md
               - Use metrics: public-networks/how-to/monitor/metrics.md
+              - Understand metrics: public-networks/how-to/monitor/understand-metrics.md
               - Configure logging: public-networks/how-to/monitor/logging.md
           - Pass JVM options: public-networks/how-to/pass-jvm-options.md
           - Configure high availability:
@@ -121,6 +122,7 @@ nav:
               - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
           - Monitor nodes:
               - private-networks/how-to/monitor/index.md
+              - Use Grafana Loki: private-networks/how-to/monitor/loki.md
               - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
               - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
               - Use Splunk: private-networks/how-to/monitor/splunk.md

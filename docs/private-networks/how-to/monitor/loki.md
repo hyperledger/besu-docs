@@ -23,7 +23,7 @@ To view the GoQuorum Quickstart network logs in Loki:
 
     The logs display in Loki.
 
-    ![Loki logs](../../../images/grafana_loki.png)
+    ![Loki logs](../../../assets/images/grafana_loki.png)
 
 <!-- Links -->
 [Promtail configuration]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/common/promtail/promtail.yml

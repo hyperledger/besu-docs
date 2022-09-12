@@ -441,7 +441,7 @@ network.
 If you're using [Truffle](https://trufflesuite.com/truffle/), update the `networks` object in the
 [Truffle configuration file](https://trufflesuite.com/docs/truffle/reference/configuration#networks) to specify which
 networks to connect to for deployments and testing.
-The Quickstart's RPC service endpoint is `http://localhost:8545`.
+The Quickstart RPC service endpoint is `http://localhost:8545`.
 
 For example, the following is the Truffle configuration file for the Pet Shop dapp used in the Quickstart Besu network:
 

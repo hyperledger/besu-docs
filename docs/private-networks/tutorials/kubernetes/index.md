@@ -57,8 +57,8 @@ Use the following solutions to mitigate this limitation:
 
 * Disallow discovery and use static nodes to allow only TCP traffic.
   This isn't an issue for load balancers or exposing nodes publicly.
-* If you need to use discovery, use something such as [CNI](#CNI) which is supported by all major cloud providers, and
-  the cloud templates already have CNI implemented.
+* If you need to use discovery, use something such as [CNI](#cni) which is supported by all major
+  cloud providers, and the cloud templates already have CNI implemented.
 
 ### CNI
 

@@ -93,7 +93,7 @@ The endpoint is the DNS name appended with `/jsonrpc`: `http://<DNS_NAME_OF_VM>/
 ## SSH
 
 You can SSH into the VM to see how everything is set up and working.
-Use the credentials from step 5 of [deployment](#deploying) and your preferred client:
+Use the credentials from step 5 of [deployment](#deploy) and your preferred client:
 
 ```bash
 ssh username@<DNS_NAME_OF_VM>

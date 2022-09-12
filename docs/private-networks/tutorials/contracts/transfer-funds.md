@@ -92,7 +92,7 @@ An example can be found in the [Developer Quickstart](../quickstart.md) where th
 node is paired with EthSigner. Refer to the
 [EthSigner documentation](https://docs.ethsigner.consensys.net/en/stable/) configuration details.
 
-Use `eth_sendTransaction` similarly to [using `eth_sendSignedTransaction`](#using-eth_sendsignedtransaction) (without
+Use `eth_sendTransaction` similarly to [using `eth_sendSignedTransaction`](#use-eth_sendsignedtransaction) (without
 the signing step which is done by EthSigner):
 
 ```js

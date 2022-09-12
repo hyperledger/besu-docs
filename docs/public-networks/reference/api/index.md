@@ -662,7 +662,7 @@ Returns the accounts for a specified block.
 
 Sends a list of [signed transactions](../../how-to/send-transactions.md).
 This is used to quickly load a network with a lot of transactions.
-This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
+This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendrawtransaction) multiple times.
 
 #### Parameters
 

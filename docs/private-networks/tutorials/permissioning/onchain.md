@@ -231,15 +231,15 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-accounts-cont
 On the command line:
 
 * Enable onchain accounts permissioning using
-    [`--permissions-accounts-contract-enabled`](../../../private-networks/reference/cli/options.md#permissions-accounts-contract-enabled).
+    [`--permissions-accounts-contract-enabled`](../../reference/cli/options.md#permissions-accounts-contract-enabled).
 * Set the address of the Account Ingress contract in the genesis file using
-    [`--permissions-accounts-contract-address`](../../../private-networks/reference/cli/options.md#permissions-accounts-contract-address).
+    [`--permissions-accounts-contract-address`](../../reference/cli/options.md#permissions-accounts-contract-address).
 * Enable onchain nodes permissioning using
-    [`--permissions-nodes-contract-enabled`](../../../private-networks/reference/cli/options.md#permissions-nodes-contract-enabled).
+    [`--permissions-nodes-contract-enabled`](../../reference/cli/options.md#permissions-nodes-contract-enabled).
 * Set the address of the Node Ingress contract in the genesis file using
-    [`--permissions-nodes-contract-address`](../../../private-networks/reference/cli/options.md#permissions-nodes-contract-address).
+    [`--permissions-nodes-contract-address`](../../reference/cli/options.md#permissions-nodes-contract-address).
 * Set the version of the [permissioning contract interface](../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version)
-    using [`--permissions-nodes-contract-version`](../../../private-networks/reference/cli/options.md#permissions-nodes-contract-version).
+    using [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version).
 * Enable the JSON-RPC API using
     [`--rpc-http-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-enabled).
 * Enable the `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using
@@ -304,13 +304,13 @@ The command line specifies:
 
 ### 11. Clone the contracts and install dependencies
 
-1. Clone the `permissioning-smart-contracts` repository:
+Clone the `permissioning-smart-contracts` repository:
 
     ```bash
     git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
     ```
 
-1. Change into the `permissioning-smart-contracts` directory and run:
+Change into the `permissioning-smart-contracts` directory and run:
 
     ```bash
     yarn install
@@ -383,17 +383,17 @@ The migration logs the addresses of the Admin and Rules contracts.
     yarn start
     ```
 
-   The dapp displays at [`http://localhost:3000`](http://localhost:3000).
+    The dapp displays at [`http://localhost:3000`](http://localhost:3000).
 
 1. Ensure MetaMask connects to your local node (by default [`http://localhost:8545`](http://localhost:8545)).
 
-   A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
-   account.
+    A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
+    account.
 
 1. Select the **Connect** button.
 
-   The dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
-   variable in the **Accounts** and **Admins** tabs.
+    The dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
+    variable in the **Accounts** and **Admins** tabs.
 
 !!! note
 

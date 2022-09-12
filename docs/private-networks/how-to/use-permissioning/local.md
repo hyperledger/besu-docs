@@ -14,7 +14,7 @@ enabled, communication is only between nodes in the allowlist.
 
 !!! important
 
-    Node allowlists [support domain names] in enode URLs as an experimental feature. Use the `--Xdns-enabled` option
+    Node allowlists [support domain names] in enode URLs as an early access feature. Use the `--Xdns-enabled` option
     to enable domain name support.
 
     If using Kubernetes, enable domain name support and use the `--Xdns-update-enabled` option to ensure that Besu can

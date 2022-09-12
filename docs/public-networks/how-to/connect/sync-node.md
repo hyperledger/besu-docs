@@ -85,8 +85,8 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
 
 !!! important
 
-    Snap sync is an experimental feature.
-    However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
+    Snap sync is an early access feature.
+    We recommend using snap sync over fast sync even in certain production environments (for example, staking),
     because snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
@@ -107,7 +107,7 @@ deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
 !!! important
 
-    Checkpoint sync is an experimental feature.
+    Checkpoint sync is an early access feature.
 
 Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.3 or later to use checkpoint sync.

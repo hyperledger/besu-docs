@@ -35,7 +35,7 @@ To reduce the maximum number of peers, use the
     option to the same value or lower.
     For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
 
-    Note, `Xp2p-peer-lower-bound` is an experimental option.
+    Note, `Xp2p-peer-lower-bound` is an early access option.
 
 ## Limit remote connections
 

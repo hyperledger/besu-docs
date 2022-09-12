@@ -4,8 +4,7 @@ tags:
   - public networks
 ---
 
-If you've run Besu on mainnet several times with `X_SNAP` option enabled
-([see experimental options](../../reference/cli/options.md#xhelp)),
+If you've run Besu on mainnet several times with `X_SNAP` option enabled,
 you may have noticed graphical patterns that stand out in different metrics charts.
 
 These patterns are related to the Besu sync process.

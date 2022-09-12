@@ -720,7 +720,7 @@ to avoid receiving a `request contains an invalid node` error.
 
 !!! warning
 
-    Enode URL domain name support is an experimental feature.
+    Enode URL domain name support is an early access feature.
 
 #### Parameters
 

@@ -52,13 +52,9 @@ Besu doesn't support [key management](public-networks/how-to/send-transactions.m
 client. You can use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu to access
 your key store and sign transactions.
 
-## Besu architecture
+## Questions?
 
-The following diagram outlines the Besu high-level architecture.
-
-![Architecture](assets/images/Architecture.png)
-
-If you have any questions about Besu or its architecture, contact us on the
+If you have any questions about Besu, contact us on the
 [Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).
 
 Learn more about the [Hyperledger Foundation](https://www.hyperledger.org/about).

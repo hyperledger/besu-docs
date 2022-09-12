@@ -31,7 +31,7 @@ privacy.
 Each Besu node that sends or receives [private transactions](private-transactions/index.md) requires an
 associated Tessera node.
 
-![Tessera Nodes](../../../images/TesseraNodes.png)
+![Tessera Nodes](../../../assets/images/TesseraNodes.png)
 
 Private transactions pass from the Besu node to the associated Tessera node. The Tessera node
 encrypts and directly distributes (that is, point-to-point) the private transaction to the Tessera

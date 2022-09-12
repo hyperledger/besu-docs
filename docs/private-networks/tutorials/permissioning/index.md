@@ -218,7 +218,7 @@ When the node starts, the [enode URL](../../../public-networks/concepts/node-key
 enode URL to specify Node-1 as a peer and update the permissions configuration file in the
 following steps.
 
-![Node 1 Enode URL](../../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../assets/images/EnodeStartup.png)
 
 ### 8. Start Node-2
 

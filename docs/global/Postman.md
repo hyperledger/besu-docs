@@ -11,4 +11,4 @@
 
     #### Download collection
 
-    Alternatively you can [download the JSON collection file](/postman/postman_collection.json).
+    Alternatively you can [download the JSON collection file](/assets/postman/postman_collection.json).

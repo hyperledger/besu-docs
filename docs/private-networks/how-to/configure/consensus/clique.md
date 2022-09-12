@@ -71,11 +71,11 @@ The `extraData` property consists of:
 
 !!! example "One initial signer"
 
-    ![One Initial Signer](../../../../images/CliqueOneIntialSigner.png)
+    ![One Initial Signer](../../../../assets/images/CliqueOneIntialSigner.png)
 
 !!! example "Two initial signers"
 
-    ![Two Initial Signers](../../../../images/CliqueTwoIntialSigners.png)
+    ![Two Initial Signers](../../../../assets/images/CliqueTwoIntialSigners.png)
 
 ### Post-Merge configuration
 

@@ -23,7 +23,7 @@ Processing [private transactions](index.md) involves the following:
 
 Private transaction processing is illustrated and described in the following diagram.
 
-![Processing Private Transactions](../../../../images/PrivateTransactionProcessing.png)
+![Processing Private Transactions](../../../../assets/images/PrivateTransactionProcessing.png)
 
 1. Submit a private transaction using [`eea_sendRawTransaction`](../../../reference/api/index.md#eea_sendrawtransaction).
     The signed transaction includes transaction parameters specific to private transactions, including:

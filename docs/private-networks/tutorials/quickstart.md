@@ -117,14 +117,14 @@ The block explorer displays a summary of the private network, indicating four pe
 
 Select the block number to the right of **Best Block** to display the block details:
 
-![Block Details](../../images/ExplorerBlockDetails.png)
+![Block Details](../../assets/images/ExplorerBlockDetails.png)
 
 You can explore blocks by selecting the blocks under **`Bk`** on the left-hand side.
 
 You can search for a specific block, transaction hash, or address by selecting the :mag:
 in the top left-hand corner.
 
-![Explorer Search](../../images/ExplorerSearch.png)
+![Explorer Search](../../assets/images/ExplorerSearch.png)
 
 ## Monitor nodes with Prometheus and Grafana
 
@@ -139,7 +139,7 @@ For more details on how to configure and use these tools for your own nodes, see
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
-![Grafana](../../images/grafana.png)
+![Grafana](../../assets/images/grafana.png)
 
 ## Run JSON-RPC requests
 
@@ -414,15 +414,15 @@ When you select **Adopt**, a MetaMask window pops up and requests your permissio
 
 After the transaction is complete and successful, the status of the pet you adopted shows **Success**.
 
-![Dapp UI](../../images/dapp-ui.png)
+![Dapp UI](../../assets/images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
-![Dapp UI](../../images/dapp-explorer-tx.png)
+![Dapp UI](../../assets/images/dapp-explorer-tx.png)
 
 The MetMask UI also keeps a record of the transaction.
 
-![Dapp UI](../../images/dapp-metamask-tx.png)
+![Dapp UI](../../assets/images/dapp-metamask-tx.png)
 
 ### Deploy your own dapp
 

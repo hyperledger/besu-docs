@@ -128,7 +128,7 @@ The command line enables:
 When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../assets/images/EnodeStartup.png)
 
 ### 4. Start Node-2
 

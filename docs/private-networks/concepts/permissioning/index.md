@@ -22,7 +22,7 @@ specified nodes and accounts to access the network.
 
 Use node permissioning to restrict access to known participants only.
 
-![Node Permissioning](../../../images/node-permissioning-bad-actor.png)
+![Node Permissioning](../../../assets/images/node-permissioning-bad-actor.png)
 
 ## Account permissioning
 
@@ -32,7 +32,7 @@ Use account permissioning to:
 * Suspend accounts.
 * Restrict the actions an account can perform.
 
-![Account Permissioning](../../../images/enterprise-ethereum-account-permissioning.png)
+![Account Permissioning](../../../assets/images/enterprise-ethereum-account-permissioning.png)
 
 ## Specify permissioning
 
@@ -65,7 +65,7 @@ by the updated rules. For example, blocked accounts can no longer add transactio
 
 The following diagram illustrates applying local and onchain permissioning rules.
 
-![Permissioning Flow](../../../images/PermissioningFlow.png)
+![Permissioning Flow](../../../assets/images/PermissioningFlow.png)
 
 <!-- Links -->
 [permissions configuration file]: ../../how-to/use-permissioning/local.md#permissions-configuration-file

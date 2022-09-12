@@ -67,12 +67,12 @@ Each node in turn uses NAT to configure the pods so that they reach other pods o
 This limits where they can reach but also more specifically what can reach them.
 For example, an external VM which must have custom routes does not scale well.
 
-![without-CNI](../../../images/kubernetes-1.jpeg)
+![without-CNI](../../../assets/images/kubernetes-1.jpeg)
 
 CNI, on the other hand, allows every pod to get a unique IP directly from the virtual subnet which removes this restriction.
 Therefore, it has a limit on the maximum number of pods that can be spun up, so you must plan ahead to avoid IP exhaustion.
 
-![with-CNI](../../../images/kubernetes-2.jpeg)
+![with-CNI](../../../assets/images/kubernetes-2.jpeg)
 
 ## Multi-cluster
 
@@ -84,7 +84,7 @@ From that point on you can use static nodes and pods to communicate across the c
 The same setup also works to connect external nodes and business applications from other infrastructure, either in the
 cloud or on premise.
 
-![multi-cluster](../../../images/kubernetes-3.png)
+![multi-cluster](../../../assets/images/kubernetes-3.png)
 
 ## Concepts
 

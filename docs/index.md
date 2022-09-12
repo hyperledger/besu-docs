@@ -56,7 +56,7 @@ your key store and sign transactions.
 
 The following diagram outlines the Besu high-level architecture.
 
-![Architecture](images/Architecture.png)
+![Architecture](assets/images/Architecture.png)
 
 If you have any questions about Besu or its architecture, contact us on the
 [Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

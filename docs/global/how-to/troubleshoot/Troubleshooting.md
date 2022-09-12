@@ -115,7 +115,7 @@ In the following example the Pivot Block is 0 (zero) and the Pending State Nodes
 This means the node isn't syncing against any peers. The fact that state nodes have been downloaded
 means at some stage it was syncing.
 
-![Fast synchronization](../../../images/fastsync.png)
+![Fast synchronization](../../../assets/images/fastsync.png)
 
 The easiest solution in this scenario is to restart fast synchronization to obtain a new
 pivot block.

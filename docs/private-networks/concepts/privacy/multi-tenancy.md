@@ -21,7 +21,7 @@ is a _tenant_, and the operator is the _owner_ of the Besu and Tessera node.
     [configuring multi-tenancy](../../tutorials/privacy/multi-tenancy.md), and has
     access to all tenant data.
 
-![Multi-tenancy](../../../images/Multi-tenancy.png)
+![Multi-tenancy](../../../assets/images/Multi-tenancy.png)
 
 !!! important
 

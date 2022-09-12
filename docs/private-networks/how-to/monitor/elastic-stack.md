@@ -25,7 +25,7 @@ To see the Besu Quickstart network logs in Kibana:
 1. Open the [`Kibana logs address`](http://localhost:5601/app/kibana#/discover) listed by the sample networks `list.sh` script.
     The logs display in Kibana.
 
-    ![Kibana](../../../images/KibanaQuickstart.png)
+    ![Kibana](../../../assets/images/KibanaQuickstart.png)
 
 <!-- Links -->
 [Filebeat]: https://github.com/ConsenSys/quorum-dev-quickstart/blob/b72a0f64d685c851bf8be399a8e33bbdf0e09982/files/common/filebeat/filebeat.yml

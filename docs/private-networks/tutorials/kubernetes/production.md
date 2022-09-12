@@ -94,7 +94,7 @@ Ideally, you want to create two separate VPCs (or VNets) and make sure they have
 don't conflict.
 Once done, peer the VPCs together and update the subnet route table, so they are effectively a giant single network.
 
-![multi-cluster](../../../images/kubernetes-3.png)
+![multi-cluster](../../../assets/images/kubernetes-3.png)
 
 When you [spin up clusters](cluster.md), use [CNI](index.md#limitations) and CIDR blocks to match the
 subnet's CIDR settings.

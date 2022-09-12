@@ -12,7 +12,7 @@ To enable high availability to the
 Hyperledger Besu node to the network.
 Use a load balancer to distribute requests across nodes in the cluster that are ready to receive requests.
 
-![Load Balancer](../../../images/LoadBalancer.png)
+![Load Balancer](../../../assets/images/LoadBalancer.png)
 
 !!! important
 

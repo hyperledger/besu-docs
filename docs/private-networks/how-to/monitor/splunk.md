@@ -140,7 +140,7 @@ Docker Compose environment provided by Splunk.
 
     Congratulations! You can now play with the search and other Splunk features to explore your Besu logs.
 
-    ![Splunk search page](../../../images/splunk-ui.png)
+    ![Splunk search page](../../../assets/images/splunk-ui.png)
 
 1. Stop Besu with ++ctrl+c++.
     Stop the Splunk container with `docker stop splunk-demo`.

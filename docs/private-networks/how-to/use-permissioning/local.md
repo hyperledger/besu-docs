@@ -136,7 +136,7 @@ transactions from accounts that are not on the accounts allowlist of that node.
 
 The following diagram illustrates applying local and onchain permissioning rules.
 
-![Permissioning Flow](../../../images/PermissioningFlow.png)
+![Permissioning Flow](../../../assets/images/PermissioningFlow.png)
 
 !!! example "Example of different account allowlists"
 

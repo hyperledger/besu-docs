@@ -1,11 +1,15 @@
 # SPDX-License-Identifier: Apache-2.0
 ---
-name: Verify links
+name: Nightly check
 
-on: [pull_request]
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  "0 0 * * *"
+  workflow_dispatch: {}
 
 concurrency:
-  group: links-${{ github.ref }}
+  group: nightly-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -18,11 +22,11 @@ jobs:
       - name: Checkout tools repo
         uses: actions/checkout@v3
 
-      - name: Test changed files links
+      - name: Test all the links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: yes
           use-verbose-mode: yes
-          check-modified-files-only: yes
+          check-modified-files-only: no
           base-branch: main
           config-file: ./CI/linkchecker/link_check_conf.json

@@ -30,30 +30,30 @@ commands:
           paths:
             - ./node_modules
           key: deps-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
-
-jobs:
-  dco:
-    executor: shell_executor
-    steps:
-      - checkout
-      - run:
-          name: check
-          command: |
-            status=0
-            while IFS= read -r -a line; do
-              my_array+=( "$line" )
-              done < <( git branch -r | grep -v origin/HEAD )
-            for branch in "${my_array[@]}"
-            do
-              branch=$(echo "$branch" | xargs)
-              echo "Checking commits in branch $branch for commits missing DCO..."
-              while read -r results; do
-                status=1
-                commit_hash="$(echo "$results" | cut -d' ' -f1)"
-                >&2 echo "$commit_hash is missing Signed-off-by line."
-              done < <(git log "$branch" --no-merges --pretty="%H %ae" --grep 'Signed-off-by' --invert-grep -- )
-            done
-            exit $status
+#
+#jobs:
+#  dco:
+#    executor: shell_executor
+#    steps:
+#      - checkout
+#      - run:
+#          name: check
+#          command: |
+#            status=0
+#            while IFS= read -r -a line; do
+#              my_array+=( "$line" )
+#              done < <( git branch -r | grep -v origin/HEAD )
+#            for branch in "${my_array[@]}"
+#            do
+#              branch=$(echo "$branch" | xargs)
+#              echo "Checking commits in branch $branch for commits missing DCO..."
+#              while read -r results; do
+#                status=1
+#                commit_hash="$(echo "$results" | cut -d' ' -f1)"
+#                >&2 echo "$commit_hash is missing Signed-off-by line."
+#              done < <(git log "$branch" --no-merges --pretty="%H %ae" --grep 'Signed-off-by' --invert-grep -- )
+#            done
+#            exit $status
 
   # test the build with regular non-insider MkDocs Material theme for compatibility
   build:
@@ -131,29 +131,29 @@ jobs:
 #      - store_artifacts:
 #          path: ./markdownlint_info.out
 #          destination: ./markdownlint_info.out
-
-  repolint:
-    executor: node_executor
-    steps:
-      - checkout
-      - install_node_dependencies
-      - run:
-          shell: /bin/bash #this is a non breaking command so it will always return success
-          name: Run repolinter
-          command: |
-            npm run lint:repo
-      - save_node_cache
+#
+#  repolint:
+#    executor: node_executor
+#    steps:
+#      - checkout
+#      - install_node_dependencies
+#      - run:
+#          shell: /bin/bash #this is a non breaking command so it will always return success
+#          name: Run repolinter
+#          command: |
+#            npm run lint:repo
+#      - save_node_cache
 
 workflows:
   version: 2
   default:
     jobs:
-      - dco
+#      - dco
       - build
       - vale
 #      - markdownlint
 #      - linkchecker
-      - repolint
+#      - repolint
 
 #  nightly:
 #    triggers:
@@ -166,13 +166,13 @@ workflows:
 #    jobs:
 #      - linkchecker
 
-  weekly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * 0"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - repolint
+#  weekly:
+#    triggers:
+#      - schedule:
+#          cron: "0 0 * * 0"
+#          filters:
+#            branches:
+#              only:
+#                - main
+#    jobs:
+#      - repolint

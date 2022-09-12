@@ -7,7 +7,7 @@ tags:
 # Understand metrics
 
 When running Besu on Ethereum Mainnet using [snap sync](../connect/sync-node.md#snap-synchronization),
-you may notice graphical patterns that stand out in different metrics charts.
+you might notice graphical patterns that stand out in different metrics charts.
 These patterns are related to the [CPU usage](#cpu-usage) and [block time](#block-time) of the Besu
 sync process.
 

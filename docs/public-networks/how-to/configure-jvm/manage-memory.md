@@ -40,12 +40,7 @@ The following examples set the maximum heap size to 8 GB:
     BESU_OPTS=-Xmx8g besu [Besu options]
     ```
 
-=== "Systemd `.service` file example"
-
-    !!! important
-
-        This is a truncated Systemd code snippet.
-        Don't use this directly as your `.service` file.
+=== "`.service` file example"
 
     ```bash
     [Service]

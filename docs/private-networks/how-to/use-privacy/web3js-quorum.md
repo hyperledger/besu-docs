@@ -4,9 +4,10 @@ description: web3js-quorum client library
 
 # Use the web3js-quorum client library
 
-The [web3js-quorum library](https://github.com/ConsenSys/web3js-quorum) adds a property to your web3
-instance by extending [web3](https://github.com/ethereum/web3.js/). Use the library to create and
-send RLP-encoded transactions using JSON-RPC.
+[web3js-quorum](https://github.com/ConsenSys/web3js-quorum) is an Ethereum JavaScript library
+extending [web3.js](https://github.com/ethereum/web3.js/) that adds support for Besu-specific JSON-RPC
+APIs and features.
+Use the library to create and send RLP-encoded transactions using JSON-RPC.
 
 !!! important
     web3js-quorum supports JSON-RPC over HTTP only.
@@ -15,7 +16,7 @@ send RLP-encoded transactions using JSON-RPC.
 
     web3js-quorum includes all [quorum.js](https://github.com/ConsenSys/quorum.js) and [web3js-eea](https://github.com/ConsenSys/web3js-eea) features.
 
-    If migrating to web3js-quorum, then update your Javascript code as indicated in the following examples.
+    If migrating to web3js-quorum, update your JavaScript code as indicated in the following examples.
 
     [Read the migration guide for more information about updating your code.](https://consensys.github.io/web3js-quorum/latest/tutorial-Migrate%20from%20web3js-eea.html)
 

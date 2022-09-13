@@ -17,6 +17,11 @@ command line or as an
 specified in more than one place, the order of precedence is command line, environment variable,
 configuration file.
 
+!!! note
+
+    The configuration file is used for node-level settings.
+    You can specify network-wide settings in the [genesis file](../concepts/genesis-file.md).
+
 ## TOML specification
 
 The configuration file must be a valid TOML file composed of key/value pairs. Each key is the same

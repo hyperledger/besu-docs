@@ -103,6 +103,8 @@ You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
 deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
+See [how to read the Besu metrics charts](../monitor/understand-metrics.md) when using snap sync.
+
 ### Checkpoint synchronization
 
 !!! important

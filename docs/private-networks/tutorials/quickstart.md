@@ -165,7 +165,7 @@ This tutorial uses [cURL](https://curl.haxx.se/download.html) to send JSON-RPC r
 
 You can also run all the requests with the Besu Postman collection.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ### Request the node version
 

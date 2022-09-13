@@ -17,7 +17,7 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 
     `--Xrpc-ipc-enabled` is an early access option.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ## Geth console
 

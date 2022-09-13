@@ -176,7 +176,7 @@ To tune the block timeout for your network deployment:
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
---8<-- "global/Config-Options.md"
+--8<-- "global/config-options.md"
 
 ### Post-Merge configuration
 

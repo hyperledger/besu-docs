@@ -1,5 +1,7 @@
 ---
 description: Besu memory management
+tags:
+  - private networks
 ---
 
 # Manage JVM memory

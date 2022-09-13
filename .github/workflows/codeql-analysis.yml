@@ -11,6 +11,10 @@ on:
   schedule:
     - cron: '19 15 * * 6'
 
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   analyze:
     name: Analyze

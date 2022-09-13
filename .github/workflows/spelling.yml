@@ -3,6 +3,10 @@ name: Verify spelling and guidelines
 
 on: [pull_request]
 
+concurrency:
+  group: spelling-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   CONFIG: ./CI/vale/.vale.ini
 

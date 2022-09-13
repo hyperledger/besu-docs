@@ -22,7 +22,7 @@
             "pattern": "^http(s)?://consensys.net"
         }
     ],
-    "timeout": "2000s",
+    "timeout": "20s",
     "aliveStatusCodes":[200, 206],
     "retryOn429":true
 }

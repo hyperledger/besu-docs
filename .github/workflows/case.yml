@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "Testing file case in docs."
           passed=true
-          for filename in `find docs -name "*.md" | ( ! grep -P -v "^[[:lower:][:digit:]\/\-_]+\.md$" )`
+          for filename in $(find docs -name "*.md" | ( ! grep -P -v "^[[:lower:][:digit:]\/\-_]+\.md$" ))
           do
             echo "$filename"
             echo "::error file=$filename ::File path must be only lowercase letters, digits, - (dash) and _ (underscore)"

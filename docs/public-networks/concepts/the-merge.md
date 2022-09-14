@@ -22,7 +22,7 @@ called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-ren
 Execution and consensus clients communicate with each other using the
 [Engine API](../how-to/use-engine-api.md).
 
-![Ethereum Merge node](../../images/Execution-Consensus-Clients.png)
+![Ethereum Merge node](../../assets/images/Execution-Consensus-Clients.png)
 
 ### Execution clients
 

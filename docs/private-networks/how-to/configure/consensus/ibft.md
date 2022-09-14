@@ -145,7 +145,7 @@ For example:
 
     ```json
     [
-     "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+      "9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
     ]
     ```
 
@@ -186,7 +186,7 @@ small (usually around one second) even in networks with geographically dispersed
 To tune the block timeout for your network deployment:
 
 1. Set `blockperiodseconds` to your desired block time and `requesttimeoutseconds` to two times
-   `blockperiodseconds`.
+    `blockperiodseconds`.
 1. Reduce `requesttimeoutseconds` until you start to see round changes occurring.
 1. Increase `requesttimeoutseconds` to the value where round changes are no longer occurring.
 
@@ -197,7 +197,7 @@ To tune the block timeout for your network deployment:
 
 Use a [transition](#transitions) to update the `blockperiodseconds` in an existing network.
 
---8<-- "global/Config-Options.md"
+--8<-- "global/config-options.md"
 
 ### Post-Merge configuration
 
@@ -324,7 +324,7 @@ For example, you can update the [block time](#configure-block-time-on-an-existin
 To update an existing network with a new `blockperiodseconds`:
 
 1. Stop all nodes in the network.
-2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     * `<NewValue>` is the updated value for `blockperiodseconds`.
@@ -336,20 +336,20 @@ To update an existing network with a new `blockperiodseconds`:
             ```bash
             {
               "config": {
-                 ...
-                 "ibft2": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "ibft2": [
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockperiodseconds": <NewValue>
-                   }
-                   ]
-                 }
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "ibft2": [
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockperiodseconds": <NewValue>
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -360,35 +360,35 @@ To update an existing network with a new `blockperiodseconds`:
             ```bash
             {
               "config": {
-                 ...
-                 "ibft2": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "ibft2": [
-                   {
-                     "block": 1240,
-                     "blockperiodseconds": 4
-                   }
-                   ]
-                 }
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "ibft2": [
+                    {
+                      "block": 1240,
+                      "blockperiodseconds": 4
+                    }
+                  ]
+                }
               },
               ...
             }
             ```
 
-3. Restart all nodes in the network using the updated genesis file.
-4. To verify the changes after the transition block, call
-   [`ibft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+1. Restart all nodes in the network using the updated genesis file.
+1. To verify the changes after the transition block, call
+    [`ibft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
 ### Configure block rewards on an existing network deployment
 
 To update an existing network with a new `blockreward`:
 
 1. Stop all nodes in the network.
-2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     * `<NewValue>` is the updated value for `blockreward`.
@@ -400,29 +400,29 @@ To update an existing network with a new `blockreward`:
             ```bash
             {
               "config": {
-                 ...
-                 "ibft2": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                   "blockreward": "5000000000000000"
-                 },
-                 "transitions": {
-                   "ibft2": [
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   },
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   },
-                   {
-                     "block": <FutureBlockNumber>,
-                     "blockreward": <NewValue>
-                   }
-                   ]
-                 }
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                  "blockreward": "5000000000000000"
+                },
+                "transitions": {
+                  "ibft2": [
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    },
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    },
+                    {
+                      "block": <FutureBlockNumber>,
+                      "blockreward": <NewValue>
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -433,29 +433,29 @@ To update an existing network with a new `blockreward`:
             ```bash
             {
               "config": {
-                 ...
-                 "ibft2": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                   "blockreward": "5000000000000000"
-                 },
-                 "transitions": {
-                   "ibft2": [
-                   {
-                     "block": 10,
-                     "blockreward": "6000000000000000"
-                   },
-                   {
-                     "block": 15,
-                     "blockreward": "75000000000000000"
-                   },
-                   {
-                     "block": 20,
-                     "blockreward": "0"
-                   }
-                   ]
-                 }
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                  "blockreward": "5000000000000000"
+                },
+                "transitions": {
+                  "ibft2": [
+                    {
+                      "block": 10,
+                      "blockreward": "6000000000000000"
+                    },
+                    {
+                      "block": 15,
+                      "blockreward": "75000000000000000"
+                    },
+                    {
+                      "block": 20,
+                      "blockreward": "0"
+                    }
+                  ]
+                }
               },
               ...
             }
@@ -465,18 +465,18 @@ To update an existing network with a new `blockreward`:
 
         You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
 
-3. Restart all nodes in the network using the updated genesis file.
+1. Restart all nodes in the network using the updated genesis file.
 
 ### Configure the mining beneficiary on an existing network deployment
 
 To update an existing network with a new mining beneficiary:
 
 1. Stop all nodes in the network.
-2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     * `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
     * `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`.
-     Starting at `<FutureBlockNumber>`, block rewards go to this address.
+      Starting at `<FutureBlockNumber>`, block rewards go to this address.
 
     !!! example "Transitions configuration"
 
@@ -496,14 +496,14 @@ To update an existing network with a new mining beneficiary:
                 },
                 "transitions": {
                   "ibft2": [
-                      {
-                          "block": <FutureBlockNumber>,
-                          "miningbeneficiary": <NewAddress>
-                      },
-                      {
-                          "block": <FutureBlockNumber>,
-                          "miningbeneficiary": <NewAddress>
-                      }
+                    {
+                      "block": <FutureBlockNumber>,
+                      "miningbeneficiary": <NewAddress>
+                    },
+                    {
+                      "block": <FutureBlockNumber>,
+                      "miningbeneficiary": <NewAddress>
+                    }
                   ]
                 }
               },
@@ -547,7 +547,7 @@ To update an existing network with a new mining beneficiary:
         Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the
         block producer rather than a global override address.
 
-3. Restart all nodes in the network using the updated genesis file.
+1. Restart all nodes in the network using the updated genesis file.
 
 <!-- Acronyms and Definitions -->
 

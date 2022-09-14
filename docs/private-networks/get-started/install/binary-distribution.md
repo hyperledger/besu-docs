@@ -43,7 +43,7 @@ brew upgrade hyperledger/besu/besu
 
 !!! note
 
-    When upgrading Besu, you might be prompted to fix the remote branch names in Homebrew by using the command 
+    When upgrading Besu, you might be prompted to fix the remote branch names in Homebrew by using the command
     `brew tap --repair`.
 
 To display the Besu version and confirm installation:

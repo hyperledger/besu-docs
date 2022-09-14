@@ -84,20 +84,20 @@ Log `data` includes non-indexed parameters but is difficult to search or filter.
     5 and `valueNotIndexed` set to 7:
 
     ```json
-     {
-       "logIndex": "0x0",
-       "removed": false,
-       "blockNumber": "0x4d6",
-       "blockHash": "0x7d0ac7c12ac9f622d346d444c7e0fa4dda8d4ed90de80d6a28814613a4884a67",
-       "transactionHash": "0xe994022ada94371ace00c4e1e20663a01437846ced02f18b3f3afec827002781",
-       "transactionIndex": "0x0",
-       "address": "0x43d1f9096674b5722d359b6402381816d5b22f28",
-       "data": "0x0000000000000000000000000000000000000000000000000000000000000007",
-       "topics": [
+    {
+      "logIndex": "0x0",
+      "removed": false,
+      "blockNumber": "0x4d6",
+      "blockHash": "0x7d0ac7c12ac9f622d346d444c7e0fa4dda8d4ed90de80d6a28814613a4884a67",
+      "transactionHash": "0xe994022ada94371ace00c4e1e20663a01437846ced02f18b3f3afec827002781",
+      "transactionIndex": "0x0",
+      "address": "0x43d1f9096674b5722d359b6402381816d5b22f28",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000007",
+      "topics": [
         "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8",
         "0x0000000000000000000000000000000000000000000000000000000000000005"
-       ]
-     }
+      ]
+    }
     ```
 
 ## Event signature hash
@@ -111,25 +111,25 @@ signature identifies to which event log topics belong.
 
     A Solidity contract with two different events:
 
-    ``` solidity
-         pragma solidity ^0.5.1;
-         contract Storage {
-         uint256 public valueA;
-         uint256 public valueB;
+    ```solidity
+    pragma solidity ^0.5.1;
+    contract Storage {
+      uint256 public valueA;
+      uint256 public valueB;
 
-         event Event1(uint256 indexed valueA);
-         event Event2(uint256 indexed valueB);
+      event Event1(uint256 indexed valueA);
+      event Event2(uint256 indexed valueB);
 
-         function setValue(uint256 _valueA) public {
-           valueA = _valueA;
-           emit Event1(_valueA);
-         }
+      function setValue(uint256 _valueA) public {
+        valueA = _valueA;
+        emit Event1(_valueA);
+      }
 
-         function setValueAgain(uint256 _valueB) public {
-           valueB = _valueB;
-           emit Event2(_valueB);
-         }
-       }
+      function setValueAgain(uint256 _valueB) public {
+        valueB = _valueB;
+        emit Event2(_valueB);
+      }
+    }
     ```
 
 The event signature hash for event 1 is `keccak('Event1(uint256)')` and the event signature hash
@@ -207,8 +207,8 @@ following topic filters:
       "toBlock":"latest",
       "address":"0x43d1f9096674b5722d359b6402381816d5b22f28",
       "topics":[
-       ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
-       ["0x0000000000000000000000000000000000000000000000000000000000000005", "0x0000000000000000000000000000000000000000000000000000000000000009"]
+        ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
+        ["0x0000000000000000000000000000000000000000000000000000000000000005", "0x0000000000000000000000000000000000000000000000000000000000000009"]
       ]
     }
     ```

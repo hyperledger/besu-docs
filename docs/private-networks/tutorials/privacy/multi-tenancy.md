@@ -70,63 +70,63 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 
 ```json
 {
-   "mode": "orion",
-   "useWhiteList": false,
-   "jdbc": {
-       "username": "sa",
-       "password": "",
-       "url": "jdbc:h2:./target/h2/tessera1",
-       "autoCreateTables": true
-   },
-   "serverConfigs":[
-       {
-           "app":"ThirdParty",
-           "serverAddress": "http://localhost:9101",
-           "communicationType" : "REST"
-       },
-       {
-           "app":"Q2T",
-           "serverAddress": "http://localhost:9102",
-           "communicationType" : "REST"
-       },
-       {
-           "app":"P2P",
-           "serverAddress":"http://localhost:9103",
-           "sslConfig": {
-               "tls": "OFF"
-           },
-           "communicationType" : "REST"
-       }
-   ],
-   "peer": [
-       {
-           "url": "http://localhost:9203"
-       },
-       {
-           "url": "http://localhost:9303"
-       },
-       {
-           "url": "http://localhost:9403"
-       }
-   ],
-    "keys": {
-        "passwords": [],
-        "keyData": [
-            {
-                "privateKeyPath": "nodeKey.key",
-                "publicKeyPath": "nodeKey.pub"
-            },
-            {
-                "privateKeyPath": "nodeKey2.key",
-                "publicKeyPath": "nodeKey2.pub"
-            },
-            {
-                "privateKeyPath": "nodeKey3.key",
-                "publicKeyPath": "nodeKey3.pub"
-            }
-        ]
-   },
-   "alwaysSendTo": []
+  "mode": "orion",
+  "useWhiteList": false,
+  "jdbc": {
+    "username": "sa",
+    "password": "",
+    "url": "jdbc:h2:./target/h2/tessera1",
+    "autoCreateTables": true
+  },
+  "serverConfigs":[
+    {
+      "app":"ThirdParty",
+      "serverAddress": "http://localhost:9101",
+      "communicationType" : "REST"
+    },
+    {
+      "app":"Q2T",
+      "serverAddress": "http://localhost:9102",
+      "communicationType" : "REST"
+    },
+    {
+      "app":"P2P",
+      "serverAddress":"http://localhost:9103",
+      "sslConfig": {
+        "tls": "OFF"
+      },
+      "communicationType" : "REST"
+    }
+  ],
+  "peer": [
+    {
+      "url": "http://localhost:9203"
+    },
+    {
+      "url": "http://localhost:9303"
+    },
+    {
+      "url": "http://localhost:9403"
+    }
+  ],
+  "keys": {
+    "passwords": [],
+    "keyData": [
+      {
+        "privateKeyPath": "nodeKey.key",
+        "publicKeyPath": "nodeKey.pub"
+      },
+      {
+        "privateKeyPath": "nodeKey2.key",
+        "publicKeyPath": "nodeKey2.pub"
+      },
+      {
+        "privateKeyPath": "nodeKey3.key",
+        "publicKeyPath": "nodeKey3.pub"
+      }
+    ]
+  },
+  "alwaysSendTo": []
 }
 ```
 
@@ -160,7 +160,7 @@ The command line specifies privacy options:
   authenticate the [tenant JWTs](#6-generate-the-tenant-jwts).
 * [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy.
 * [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the
-    [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
+  [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
 * [`--privacy-multi-tenancy-enabled`](../../reference/cli/options.md#privacy-multi-tenancy-enabled)
   enables multi-tenancy.
 

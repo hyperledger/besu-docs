@@ -9,7 +9,7 @@ tags:
 For transactions submitted and added to a block, Besu validates the transactions, as illustrated in
 the following diagram.
 
-![Transaction Validation](../../../images/transaction-validation.png)
+![Transaction Validation](../../../assets/images/transaction-validation.png)
 
 Besu repeats the set of transaction pool validations after propagating the transaction. Besu
 repeats the same set of validations when importing the block that includes the transaction, except

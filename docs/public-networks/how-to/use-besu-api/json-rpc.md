@@ -17,7 +17,7 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 
     `--Xrpc-ipc-enabled` is an early access option.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ## Geth console
 
@@ -27,9 +27,9 @@ supported by geth and Hyperledger Besu directly in the console.
 To use the geth console with Besu:
 
 1. Start Besu with the
-   [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
+  [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
 1. Specify which APIs to enable using the
-   [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
+  [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 1. Start the geth console specifying the JSON-RPC endpoint:
 
 !!! example
@@ -218,7 +218,8 @@ and the number of blocks tolerance.
 
 ### Liveness
 
-The liveness check requires the JSON-RPC server to be up.
+The liveness check requires the JSON-RPC server to be up. You can use the endpoint to verify that
+the node can respond to RPC calls. The status in the response will always be `UP`.
 
 === "Liveness endpoint"
 

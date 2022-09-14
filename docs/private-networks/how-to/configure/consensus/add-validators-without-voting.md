@@ -37,24 +37,24 @@ To add or remove validators without voting:
             ```bash
             {
               "config": {
-                 ...
-                 "qbft": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "qbft": [
-                   {
-                     "block": <BlockNumber>,
-                     "validators": [
-                        <ValidatorAddressX>,
-                        ...
-                        <ValidatorAddressZ>
-                     ]
-                   }
-                   ]
-                 }
+                ...
+                "qbft": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "qbft": [
+                  {
+                    "block": <BlockNumber>,
+                    "validators": [
+                      <ValidatorAddressX>,
+                      ...
+                      <ValidatorAddressZ>
+                    ]
+                  }
+                  ]
+                }
               },
               ...
             }
@@ -72,15 +72,15 @@ To add or remove validators without voting:
                   "requesttimeoutseconds": 4
                 },
                 "transitions": {
-                   "qbft": [
-                   {
+                  "qbft": [
+                    {
                     "block": 25,
                     "validators": [
                       "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
                       "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
                       ]
                     }
-                   ]
+                  ]
                 }
               },
               ...
@@ -92,24 +92,24 @@ To add or remove validators without voting:
             ```bash
             {
               "config": {
-                 ...
-                 "ibft2": {
-                   "blockperiodseconds": 2,
-                   "epochlength": 30000,
-                   "requesttimeoutseconds": 4
-                 },
-                 "transitions": {
-                   "ibft2": [
-                   {
-                     "block": <BlockNumber>,
-                     "validators": [
-                        <ValidatorAddressX>,
-                        ...
-                        <ValidatorAddressZ>
-                     ]
-                   }
-                   ]
-                 }
+                ...
+                "ibft2": {
+                  "blockperiodseconds": 2,
+                  "epochlength": 30000,
+                  "requesttimeoutseconds": 4
+                },
+                "transitions": {
+                  "ibft2": [
+                  {
+                    "block": <BlockNumber>,
+                    "validators": [
+                      <ValidatorAddressX>,
+                      ...
+                      <ValidatorAddressZ>
+                    ]
+                  }
+                  ]
+                }
               },
               ...
             }
@@ -127,15 +127,15 @@ To add or remove validators without voting:
                   "requesttimeoutseconds": 4
                 },
                 "transitions": {
-                   "ibft2": [
-                   {
-                    "block": 25,
-                    "validators": [
-                      "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-                      "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
-                      ]
-                    }
-                   ]
+                  "ibft2": [
+                  {
+                  "block": 25,
+                  "validators": [
+                    "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                    "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                    ]
+                  }
+                  ]
                 }
               },
               ...
@@ -143,11 +143,11 @@ To add or remove validators without voting:
             ```
 
 1. Restart all nodes in the network using the updated genesis file.
-   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
+  You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 1. To verify the changes after the transition block, call
-   [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#qbft_getvalidatorsbyblocknumber) or
-   [`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber),
-   specifying `latest`.
+  [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#qbft_getvalidatorsbyblocknumber) or
+  [`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber),
+  specifying `latest`.
 
 !!! caution
 
@@ -181,26 +181,26 @@ To bypass the smart contract and specify new validators:
         ```bash
         {
           "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4,
-               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
-             },
-             "transitions": {
-               "qbft": [
-               {
-                 "block": <BlockNumber>,
-                 "validatorselectionmode": <SelectionMode>,
-                 "validators": [
-                    <ValidatorAddressX>,
-                    ...
-                    <ValidatorAddressZ>
-                 ]
-               }
-               ]
-             }
+            ...
+            "qbft": {
+              "blockperiodseconds": 2,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 4,
+              "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
+            },
+            "transitions": {
+              "qbft": [
+              {
+                "block": <BlockNumber>,
+                "validatorselectionmode": <SelectionMode>,
+                "validators": [
+                  <ValidatorAddressX>,
+                  ...
+                  <ValidatorAddressZ>
+                ]
+              }
+              ]
+            }
           },
           ...
         }
@@ -211,32 +211,32 @@ To bypass the smart contract and specify new validators:
         ```bash
         {
           "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4,
-               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
-             },
-             "transitions": {
-               "qbft": [
-               {
-                 "block": 2555,
-                 "validatorselectionmode": "blockheader",
-                 "validators": [
-                    "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
-                    "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
-                 ]
-               }
-               ]
-             }
+            ...
+            "qbft": {
+              "blockperiodseconds": 2,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 4,
+              "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
+            },
+            "transitions": {
+              "qbft": [
+              {
+                "block": 2555,
+                "validatorselectionmode": "blockheader",
+                "validators": [
+                  "0x372a70ace72b02cc7f1757183f98c620254f9c8d",
+                  "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+                ]
+              }
+              ]
+            }
           },
           ...
         }
         ```
 
 1. Restart all nodes in the network using the updated genesis file.
-   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
+  You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 1. Deploy a new contract to the blockchain containing the desired list of validators.
 1. In the genesis file, add another `transitions` configuration item where:
 
@@ -250,16 +250,16 @@ To bypass the smart contract and specify new validators:
         ```bash
         {
           "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4,
-               “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
-             },
-             "transitions": {
-               "qbft": [
-               {
+            ...
+            "qbft": {
+              "blockperiodseconds": 2,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 4,
+              “validatorcontractaddress”: “0x0000000000000000000000000000000000007777”
+            },
+            "transitions": {
+              "qbft": [
+              {
                 "block": 2555,
                 "validatorselectionmode": "blockheader",
                 "validators": [
@@ -267,13 +267,13 @@ To bypass the smart contract and specify new validators:
                   "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
                   ]
                 },
-               {
-                 "block": <BlockNumber>,
-                 "validatorselectionmode": <SelectionMode>,
-                 "validatorcontractaddress": <NewValidatorContractAddress>
-               }
-               ]
-             }
+              {
+                "block": <BlockNumber>,
+                "validatorselectionmode": <SelectionMode>,
+                "validatorcontractaddress": <NewValidatorContractAddress>
+              }
+              ]
+            }
           },
           ...
         }
@@ -284,16 +284,16 @@ To bypass the smart contract and specify new validators:
         ```bash
         {
           "config": {
-             ...
-             "qbft": {
-               "blockperiodseconds": 2,
-               "epochlength": 30000,
-               "requesttimeoutseconds": 4,
-               "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
-             },
-             "transitions": {
-               "qbft": [
-               {
+            ...
+            "qbft": {
+              "blockperiodseconds": 2,
+              "epochlength": 30000,
+              "requesttimeoutseconds": 4,
+              "validatorcontractaddress": "0x0000000000000000000000000000000000007777"
+            },
+            "transitions": {
+              "qbft": [
+              {
                 "block": 2555,
                 "validatorselectionmode": "blockheader",
                 "validators": [
@@ -301,17 +301,17 @@ To bypass the smart contract and specify new validators:
                   "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
                   ]
                 },
-               {
-                 "block": 2755,
-                 "validatorselectionmode": "contract",
-                 "validatorcontractaddress": "0x0000000000000000000000000000000000009999"
-               }
-               ]
-             }
+              {
+                "block": 2755,
+                "validatorselectionmode": "contract",
+                "validatorcontractaddress": "0x0000000000000000000000000000000000009999"
+              }
+              ]
+            }
           },
           ...
         }
         ```
 
 1. Restart all nodes in the network using the updated genesis file.
-   You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
+  You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.

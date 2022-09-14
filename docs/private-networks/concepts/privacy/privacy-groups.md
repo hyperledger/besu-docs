@@ -35,7 +35,7 @@ Besu implements two types of privacy:
 Both privacy types create privacy groups and store private transactions with their privacy group in
 Tessera.
 
-![Privacy Groups](../../../images/PrivacyGroups.png)
+![Privacy Groups](../../../assets/images/PrivacyGroups.png)
 
 !!! note
 

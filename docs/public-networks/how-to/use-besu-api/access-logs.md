@@ -39,18 +39,18 @@ Create a filter using [`eth_newFilter`](../../reference/api/index.md#eth_newfilt
 
     ```json
     {
-     "jsonrpc":"2.0",
-     "method":"eth_newFilter",
-     "params":[
+      "jsonrpc":"2.0",
+      "method":"eth_newFilter",
+      "params":[
         {
           "fromBlock":"earliest",
           "toBlock":"latest",
           "address":"0x42699a7612a82f1d9c36148af9c77354759b210b",
           "topics":[
-              ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
-              ["0x0000000000000000000000000000000000000000000000000000000000000005"]
+            ["0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8"],
+            ["0x0000000000000000000000000000000000000000000000000000000000000005"]
           ]
-         }
+        }
       ],
       "id":1
     }
@@ -107,38 +107,38 @@ To get all logs for a filter, use
 
     ```json
     {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "result": [
-            {
-                "logIndex": "0x0",
-                "removed": false,
-                "blockNumber": "0x1a7",
-                "blockHash": "0x4edda22a242ddc7bc51e2b6b11e63cd67be1af7389470cdea9c869768ff75d42",
-                "transactionHash": "0x9535bf8830a72ca7d0020df0b547adc4d0ecc4321b7d5b5d6beb1eccee5c0afa",
-                "transactionIndex": "0x0",
-                "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
-                "data": "0x0000000000000000000000000000000000000000000000000000000000000005",
-                "topics": [
-                    "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8",
-                    "0x0000000000000000000000000000000000000000000000000000000000000005"
-                ]
-            },
-            {
-                "logIndex": "0x0",
-                "removed": false,
-                "blockNumber": "0x21c",
-                "blockHash": "0xc7e6c9d5b9f522b2c9d2991546be0a8737e587beb6628c056f3c327a44b45132",
-                "transactionHash": "0xfd1a40f9fbf89c97b4545ec9db774c85e51dd8a3545f969418a22f9cb79417c5",
-                "transactionIndex": "0x0",
-                "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
-                "data": "0x0000000000000000000000000000000000000000000000000000000000000005",
-                "topics": [
-                    "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8",
-                    "0x0000000000000000000000000000000000000000000000000000000000000005"
-                ]
-            }
-        ]
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": [
+        {
+          "logIndex": "0x0",
+          "removed": false,
+          "blockNumber": "0x1a7",
+          "blockHash": "0x4edda22a242ddc7bc51e2b6b11e63cd67be1af7389470cdea9c869768ff75d42",
+          "transactionHash": "0x9535bf8830a72ca7d0020df0b547adc4d0ecc4321b7d5b5d6beb1eccee5c0afa",
+          "transactionIndex": "0x0",
+          "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000005",
+          "topics": [
+            "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8",
+            "0x0000000000000000000000000000000000000000000000000000000000000005"
+          ]
+        },
+        {
+          "logIndex": "0x0",
+          "removed": false,
+          "blockNumber": "0x21c",
+          "blockHash": "0xc7e6c9d5b9f522b2c9d2991546be0a8737e587beb6628c056f3c327a44b45132",
+          "transactionHash": "0xfd1a40f9fbf89c97b4545ec9db774c85e51dd8a3545f969418a22f9cb79417c5",
+          "transactionIndex": "0x0",
+          "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000005",
+          "topics": [
+            "0xd3610b1c54575b7f4f0dc03d210b8ac55624ae007679b7a928a4f25a709331a8",
+            "0x0000000000000000000000000000000000000000000000000000000000000005"
+          ]
+        }
+      ]
     }
     ```
 
@@ -172,18 +172,18 @@ for the `priv` methods.
 
     ```json
     {
-        "jsonrpc": "2.0",
-        "method": "priv_newFilter",
-        "params": [
-            "4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",
-            {
-             "fromBlock": "earliest",
-             "toBlock": "latest",
-             "addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],
-             "topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]
-            }
-        ],
-        "id": 1
+      "jsonrpc": "2.0",
+      "method": "priv_newFilter",
+      "params": [
+        "4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",
+        {
+          "fromBlock": "earliest",
+          "toBlock": "latest",
+          "addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],
+          "topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]
+        }
+      ],
+      "id": 1
     }
     ```
 

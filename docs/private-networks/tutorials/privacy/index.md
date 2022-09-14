@@ -83,55 +83,55 @@ configuration:
 
     ```json
     {
-       "mode": "orion",
-       "useWhiteList": false,
-       "jdbc": {
-           "username": "sa",
-           "password": "",
-           "url": "jdbc:h2:./target/h2/tessera1",
-           "autoCreateTables": true
-       },
-       "serverConfigs":[
-           {
-               "app":"ThirdParty",
-               "serverAddress": "http://localhost:9101",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"Q2T",
-               "serverAddress": "http://localhost:9102",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"P2P",
-               "serverAddress":"http://localhost:9103",
-               "sslConfig": {
-                   "tls": "OFF"
-               },
-               "communicationType" : "REST"
-           }
-       ],
-       "peer": [
-           {
-               "url": "http://localhost:9203"
-           },
-           {
-               "url": "http://localhost:9303"
-           },
-           {
-               "url": "http://localhost:9403"
-           }
-       ],
-        "keys": {
-            "passwords": [],
-            "keyData": [
-                {
-                    "privateKeyPath": "nodeKey.key",
-                    "publicKeyPath": "nodeKey.pub"
-                }
-            ]
-       },
-       "alwaysSendTo": []
+      "mode": "orion",
+      "useWhiteList": false,
+      "jdbc": {
+        "username": "sa",
+        "password": "",
+        "url": "jdbc:h2:./target/h2/tessera1",
+        "autoCreateTables": true
+      },
+      "serverConfigs":[
+        {
+          "app":"ThirdParty",
+          "serverAddress": "http://localhost:9101",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"Q2T",
+          "serverAddress": "http://localhost:9102",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"P2P",
+          "serverAddress":"http://localhost:9103",
+          "sslConfig": {
+            "tls": "OFF"
+          },
+          "communicationType" : "REST"
+        }
+      ],
+      "peer": [
+        {
+          "url": "http://localhost:9203"
+        },
+        {
+          "url": "http://localhost:9303"
+        },
+        {
+          "url": "http://localhost:9403"
+        }
+      ],
+      "keys": {
+        "passwords": [],
+        "keyData": [
+          {
+            "privateKeyPath": "nodeKey.key",
+            "publicKeyPath": "nodeKey.pub"
+          }
+        ]
+      },
+      "alwaysSendTo": []
     }
     ```
 
@@ -139,55 +139,55 @@ configuration:
 
     ```json
     {
-       "mode": "orion",
-       "useWhiteList": false,
-       "jdbc": {
-           "username": "sa",
-           "password": "",
-           "url": "jdbc:h2:./target/h2/tessera1",
-           "autoCreateTables": true
-       },
-       "serverConfigs":[
-           {
-               "app":"ThirdParty",
-               "serverAddress": "http://localhost:9201",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"Q2T",
-               "serverAddress": "http://localhost:9202",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"P2P",
-               "serverAddress":"http://localhost:9203",
-               "sslConfig": {
-                   "tls": "OFF"
-               },
-               "communicationType" : "REST"
-           }
-       ],
-       "peer": [
-           {
-               "url": "http://localhost:9103"
-           },
-           {
-               "url": "http://localhost:9303"
-           },
-           {
-               "url": "http://localhost:9403"
-           }
-       ],
-        "keys": {
-            "passwords": [],
-            "keyData": [
-                {
-                    "privateKeyPath": "nodeKey.key",
-                    "publicKeyPath": "nodeKey.pub"
-                }
-            ]
-       },
-       "alwaysSendTo": []
+      "mode": "orion",
+      "useWhiteList": false,
+      "jdbc": {
+        "username": "sa",
+        "password": "",
+        "url": "jdbc:h2:./target/h2/tessera1",
+        "autoCreateTables": true
+      },
+      "serverConfigs":[
+        {
+          "app":"ThirdParty",
+          "serverAddress": "http://localhost:9201",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"Q2T",
+          "serverAddress": "http://localhost:9202",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"P2P",
+          "serverAddress":"http://localhost:9203",
+          "sslConfig": {
+            "tls": "OFF"
+          },
+          "communicationType" : "REST"
+        }
+      ],
+      "peer": [
+        {
+          "url": "http://localhost:9103"
+        },
+        {
+          "url": "http://localhost:9303"
+        },
+        {
+          "url": "http://localhost:9403"
+        }
+      ],
+      "keys": {
+        "passwords": [],
+        "keyData": [
+          {
+            "privateKeyPath": "nodeKey.key",
+            "publicKeyPath": "nodeKey.pub"
+          }
+        ]
+      },
+      "alwaysSendTo": []
     }
     ```
 
@@ -195,55 +195,55 @@ configuration:
 
     ```json
     {
-       "mode": "orion",
-       "useWhiteList": false,
-       "jdbc": {
-           "username": "sa",
-           "password": "",
-           "url": "jdbc:h2:./target/h2/tessera1",
-           "autoCreateTables": true
-       },
-       "serverConfigs":[
-           {
-               "app":"ThirdParty",
-               "serverAddress": "http://localhost:9301",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"Q2T",
-               "serverAddress": "http://localhost:9302",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"P2P",
-               "serverAddress":"http://localhost:9303",
-               "sslConfig": {
-                   "tls": "OFF"
-               },
-               "communicationType" : "REST"
-           }
-       ],
-       "peer": [
-           {
-               "url": "http://localhost:9103"
-           },
-           {
-               "url": "http://localhost:9203"
-           },
-           {
-               "url": "http://localhost:9403"
-           }
-       ],
-        "keys": {
-            "passwords": [],
-            "keyData": [
-                {
-                    "privateKeyPath": "nodeKey.key",
-                    "publicKeyPath": "nodeKey.pub"
-                }
-            ]
-       },
-       "alwaysSendTo": []
+      "mode": "orion",
+      "useWhiteList": false,
+      "jdbc": {
+        "username": "sa",
+        "password": "",
+        "url": "jdbc:h2:./target/h2/tessera1",
+        "autoCreateTables": true
+      },
+      "serverConfigs":[
+        {
+          "app":"ThirdParty",
+          "serverAddress": "http://localhost:9301",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"Q2T",
+          "serverAddress": "http://localhost:9302",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"P2P",
+          "serverAddress":"http://localhost:9303",
+          "sslConfig": {
+            "tls": "OFF"
+          },
+          "communicationType" : "REST"
+        }
+      ],
+      "peer": [
+        {
+          "url": "http://localhost:9103"
+        },
+        {
+          "url": "http://localhost:9203"
+        },
+        {
+          "url": "http://localhost:9403"
+        }
+      ],
+      "keys": {
+        "passwords": [],
+        "keyData": [
+          {
+            "privateKeyPath": "nodeKey.key",
+            "publicKeyPath": "nodeKey.pub"
+          }
+        ]
+      },
+      "alwaysSendTo": []
     }
     ```
 
@@ -251,55 +251,55 @@ configuration:
 
     ```json
     {
-       "mode": "orion",
-       "useWhiteList": false,
-       "jdbc": {
-           "username": "sa",
-           "password": "",
-           "url": "jdbc:h2:./target/h2/tessera1",
-           "autoCreateTables": true
-       },
-       "serverConfigs":[
-           {
-               "app":"ThirdParty",
-               "serverAddress": "http://localhost:9401",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"Q2T",
-               "serverAddress": "http://localhost:9402",
-               "communicationType" : "REST"
-           },
-           {
-               "app":"P2P",
-               "serverAddress":"http://localhost:9403",
-               "sslConfig": {
-                   "tls": "OFF"
-               },
-               "communicationType" : "REST"
-           }
-       ],
-       "peer": [
-           {
-               "url": "http://localhost:9103"
-           },
-           {
-               "url": "http://localhost:9203"
-           },
-           {
-               "url": "http://localhost:9303"
-           }
-       ],
-        "keys": {
-            "passwords": [],
-            "keyData": [
-                {
-                    "privateKeyPath": "nodeKey.key",
-                    "publicKeyPath": "nodeKey.pub"
-                }
-            ]
-       },
-       "alwaysSendTo": []
+      "mode": "orion",
+      "useWhiteList": false,
+      "jdbc": {
+        "username": "sa",
+        "password": "",
+        "url": "jdbc:h2:./target/h2/tessera1",
+        "autoCreateTables": true
+      },
+      "serverConfigs":[
+        {
+          "app":"ThirdParty",
+          "serverAddress": "http://localhost:9401",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"Q2T",
+          "serverAddress": "http://localhost:9402",
+          "communicationType" : "REST"
+        },
+        {
+          "app":"P2P",
+          "serverAddress":"http://localhost:9403",
+          "sslConfig": {
+            "tls": "OFF"
+          },
+          "communicationType" : "REST"
+        }
+      ],
+      "peer": [
+        {
+          "url": "http://localhost:9103"
+        },
+        {
+          "url": "http://localhost:9203"
+        },
+        {
+          "url": "http://localhost:9303"
+        }
+      ],
+      "keys": {
+        "passwords": [],
+          "keyData": [
+            {
+              "privateKeyPath": "nodeKey.key",
+              "publicKeyPath": "nodeKey.pub"
+            }
+          ]
+      },
+      "alwaysSendTo": []
     }
     ```
 
@@ -366,7 +366,7 @@ The command line specifies privacy options:
 When the node starts, the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../assets/images/EnodeStartup.png)
 
 ## 6. Start Besu Node-2
 

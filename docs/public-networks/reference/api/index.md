@@ -17,7 +17,7 @@ tags:
     * Most example requests are made against private networks.
       Depending on network configuration and activity, your example results might be different.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ## `ADMIN` methods
 
@@ -108,9 +108,9 @@ You can specify only one log level per RPC call.
 
         ```json
         {
-         "jsonrpc": "2.0",
-         "id": 1,
-         "result": "Success"
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "Success"
         }
         ```
 
@@ -132,9 +132,9 @@ You can specify only one log level per RPC call.
 
         ```json
         {
-         "jsonrpc": "2.0",
-         "id": 1,
-         "result": "Success"
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "Success"
         }
         ```
 
@@ -345,41 +345,41 @@ None
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "enode": "enode://87ec35d558352cc55cd1bf6a472557797f91287b78fe5e86760219124563450ad1bb807e4cc61e86c574189a851733227155551a14b9d0e1f62c5e11332a18a3@[::]:30303",
-                "listenAddr": "[::]:30303",
-                "name": "besu/v1.0.1-dev-0d2294a5/osx-x86_64/oracle-java-1.8",
-                "id": "87ec35d558352cc55cd1bf6a472557797f91287b78fe5e86760219124563450ad1bb807e4cc61e86c574189a851733227155551a14b9d0e1f62c5e11332a18a3",
-                "ports": {
-                    "discovery": 30303,
-                    "listener": 30303
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "enode": "enode://87ec35d558352cc55cd1bf6a472557797f91287b78fe5e86760219124563450ad1bb807e4cc61e86c574189a851733227155551a14b9d0e1f62c5e11332a18a3@[::]:30303",
+            "listenAddr": "[::]:30303",
+            "name": "besu/v1.0.1-dev-0d2294a5/osx-x86_64/oracle-java-1.8",
+            "id": "87ec35d558352cc55cd1bf6a472557797f91287b78fe5e86760219124563450ad1bb807e4cc61e86c574189a851733227155551a14b9d0e1f62c5e11332a18a3",
+            "ports": {
+              "discovery": 30303,
+              "listener": 30303
+            },
+            "protocols": {
+              "eth": {
+                "config": {
+                  "chainId": 2018,
+                  "homesteadBlock": 0,
+                  "daoForkBlock": 0,
+                  "daoForkSupport": true,
+                  "eip150Block": 0,
+                  "eip155Block": 0,
+                  "eip158Block": 0,
+                  "byzantiumBlock": 0,
+                  "constantinopleBlock": 0,
+                  "constantinopleFixBlock": 0,
+                  "ethash": {
+                    "fixeddifficulty": 100
+                  }
                 },
-                "protocols": {
-                    "eth": {
-                        "config": {
-                            "chainId": 2018,
-                            "homesteadBlock": 0,
-                            "daoForkBlock": 0,
-                            "daoForkSupport": true,
-                            "eip150Block": 0,
-                            "eip155Block": 0,
-                            "eip158Block": 0,
-                            "byzantiumBlock": 0,
-                            "constantinopleBlock": 0,
-                            "constantinopleFixBlock": 0,
-                            "ethash": {
-                                "fixeddifficulty": 100
-                            }
-                        },
-                        "difficulty": 78536,
-                        "genesis": "0x43ee12d45470e57c86a0dfe008a5b847af9e372d05e8ba8f01434526eb2bea0f",
-                        "head": "0xc6677651f16d07ae59cab3a5e1f0b814ed2ec27c00a93297b2aa2e29707844d9",
-                        "network": 2018
-                    }
-                }
+                "difficulty": 78536,
+                "genesis": "0x43ee12d45470e57c86a0dfe008a5b847af9e372d05e8ba8f01434526eb2bea0f",
+                "head": "0xc6677651f16d07ae59cab3a5e1f0b814ed2ec27c00a93297b2aa2e29707844d9",
+                "network": 2018
+              }
             }
+          }
         }
         ```
 
@@ -433,35 +433,35 @@ None
 
         ```json
         {
-           "jsonrpc": "2.0",
-           "id": 1,
-           "result": [
-             {
-               "version": "0x5",
-               "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
-               "caps": [
-                 "eth/62",
-                 "eth/63",
-                 "eth/64",
-                 "eth/65",
-                 "IBF/1"
-               ],
-               "network": {
-                 "localAddress": "192.168.1.229:50115",
-                 "remoteAddress": "168.61.153.255:40303"
-               },
-               "port": "0x765f",
-               "id": "0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc",
-               "protocols": {
-                 "eth": {
-                   "difficulty": "0x1ac",
-                   "head": "0x964090ae9277aef43f47f1b8c28411f162243d523118605f0b1231dbfdf3611a",
-                   "version": 65
-                 }
-               },
-               "enode": "enode://e143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc@127.0.0.1:30303"
-             }
-           ]
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "version": "0x5",
+              "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
+              "caps": [
+                "eth/62",
+                "eth/63",
+                "eth/64",
+                "eth/65",
+                "IBF/1"
+              ],
+              "network": {
+                "localAddress": "192.168.1.229:50115",
+                "remoteAddress": "168.61.153.255:40303"
+              },
+              "port": "0x765f",
+              "id": "0xe143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc",
+              "protocols": {
+                "eth": {
+                  "difficulty": "0x1ac",
+                  "head": "0x964090ae9277aef43f47f1b8c28411f162243d523118605f0b1231dbfdf3611a",
+                  "version": 65
+                }
+              },
+              "enode": "enode://e143eadaf670d49afa3327cae2e655b083f5a89dac037c9af065914a9f8e6bceebcfe7ae2258bd22a9cd18b6a6de07b9790e71de49b78afa456e401bd2fb22fc@127.0.0.1:30303"
+            }
+          ]
         }
         ```
 
@@ -662,7 +662,7 @@ Returns the accounts for a specified block.
 
 Sends a list of [signed transactions](../../how-to/send-transactions.md).
 This is used to quickly load a network with a lot of transactions.
-This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
+This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendrawtransaction) multiple times.
 
 #### Parameters
 
@@ -890,9 +890,9 @@ transaction in the block.
         {
           "jsonrpc": "2.0",
           "id": 1,
-           "result": [
-             "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
-           ]
+          "result": [
+            "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+          ]
         }
         ```
 
@@ -933,9 +933,9 @@ valid block.
         {
           "jsonrpc": "2.0",
           "id": 1,
-           "result": [
-             "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
-           ]
+          "result": [
+            "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+          ]
         }
         ```
 
@@ -980,17 +980,17 @@ Returns the contract storage for the specified range.
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "storage": {
-                    "0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563": {
-                        "key": null,
-                        "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
-                    }
-                },
-                "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
-            }
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "storage": {
+              "0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563": {
+                "key": null,
+                "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+              }
+            },
+            "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
+          }
         }
         ```
 
@@ -1035,100 +1035,100 @@ None
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "jvm": {
-                    "memory_bytes_init": {
-                        "heap": 268435456,
-                        "nonheap": 2555904
-                    },
-                    "threads_current": 41,
-                    "memory_bytes_used": {
-                        "heap": 696923976,
-                        "nonheap": 63633456
-                    },
-                    "memory_pool_bytes_used": {
-                        "PS Eden Space": 669119360,
-                        "Code Cache": 19689024,
-                        "Compressed Class Space": 4871144,
-                        "PS Survivor Space": 2716320,
-                        "PS Old Gen": 25088296,
-                        "Metaspace": 39073288
-                    },
-                    ...
-                },
-                "process": {
-                    "open_fds": 546,
-                    "cpu_seconds_total": 67.148992,
-                    "start_time_seconds": 1543897699.589,
-                    "max_fds": 10240
-                },
-                "rpc": {
-                    "request_time": {
-                        "debug_metrics": {
-                            "bucket": {
-                                "+Inf": 2,
-                                "0.01": 1,
-                                "0.075": 2,
-                                "0.75": 2,
-                                "0.005": 1,
-                                "0.025": 2,
-                                "0.1": 2,
-                                "1.0": 2,
-                                "0.05": 2,
-                                "10.0": 2,
-                                "0.25": 2,
-                                "0.5": 2,
-                                "5.0": 2,
-                                "2.5": 2,
-                                "7.5": 2
-                            },
-                            "count": 2,
-                            "sum": 0.015925392
-                        }
-                    }
-                },
-                "blockchain": {
-                    "difficulty_total": 3533501,
-                    "announcedBlock_ingest": {
-                        "bucket": {
-                            "+Inf": 0,
-                            "0.01": 0,
-                            "0.075": 0,
-                            "0.75": 0,
-                            "0.005": 0,
-                            "0.025": 0,
-                            "0.1": 0,
-                            "1.0": 0,
-                            "0.05": 0,
-                            "10.0": 0,
-                            "0.25": 0,
-                            "0.5": 0,
-                            "5.0": 0,
-                            "2.5": 0,
-                            "7.5": 0
-                        },
-                        "count": 0,
-                        "sum": 0
-                    },
-                    "height": 1908793
-                },
-                "peers": {
-                    "disconnected_total": {
-                        "remote": {
-                            "SUBPROTOCOL_TRIGGERED": 5
-                        },
-                        "local": {
-                            "TCP_SUBSYSTEM_ERROR": 1,
-                            "SUBPROTOCOL_TRIGGERED": 2,
-                            "USELESS_PEER": 3
-                        }
-                    },
-                    "peer_count_current": 2,
-                    "connected_total": 10
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "jvm": {
+              "memory_bytes_init": {
+                "heap": 268435456,
+                "nonheap": 2555904
+              },
+              "threads_current": 41,
+              "memory_bytes_used": {
+                "heap": 696923976,
+                "nonheap": 63633456
+              },
+              "memory_pool_bytes_used": {
+                "PS Eden Space": 669119360,
+                "Code Cache": 19689024,
+                "Compressed Class Space": 4871144,
+                "PS Survivor Space": 2716320,
+                "PS Old Gen": 25088296,
+                "Metaspace": 39073288
+              },
+              ...
+            },
+            "process": {
+              "open_fds": 546,
+              "cpu_seconds_total": 67.148992,
+              "start_time_seconds": 1543897699.589,
+              "max_fds": 10240
+            },
+            "rpc": {
+              "request_time": {
+                "debug_metrics": {
+                  "bucket": {
+                    "+Inf": 2,
+                    "0.01": 1,
+                    "0.075": 2,
+                    "0.75": 2,
+                    "0.005": 1,
+                    "0.025": 2,
+                    "0.1": 2,
+                    "1.0": 2,
+                    "0.05": 2,
+                    "10.0": 2,
+                    "0.25": 2,
+                    "0.5": 2,
+                    "5.0": 2,
+                    "2.5": 2,
+                    "7.5": 2
+                  },
+                  "count": 2,
+                  "sum": 0.015925392
                 }
+              }
+            },
+            "blockchain": {
+              "difficulty_total": 3533501,
+              "announcedBlock_ingest": {
+                "bucket": {
+                  "+Inf": 0,
+                  "0.01": 0,
+                  "0.075": 0,
+                  "0.75": 0,
+                  "0.005": 0,
+                  "0.025": 0,
+                  "0.1": 0,
+                  "1.0": 0,
+                  "0.05": 0,
+                  "10.0": 0,
+                  "0.25": 0,
+                  "0.5": 0,
+                  "5.0": 0,
+                  "2.5": 0,
+                  "7.5": 0
+                },
+                "count": 0,
+                "sum": 0
+              },
+              "height": 1908793
+            },
+            "peers": {
+              "disconnected_total": {
+                "remote": {
+                  "SUBPROTOCOL_TRIGGERED": 5
+                },
+                "local": {
+                  "TCP_SUBSYSTEM_ERROR": 1,
+                  "SUBPROTOCOL_TRIGGERED": 2,
+                  "USELESS_PEER": 3
+                }
+              },
+              "peer_count_current": 2,
+              "connected_total": 10
             }
+          }
         }
         ```
 
@@ -1289,28 +1289,28 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "gas": 21000,
+              "failed": false,
+              "returnValue": "",
+              "structLogs": [
                 {
-                    "gas": 21000,
-                    "failed": false,
-                    "returnValue": "",
-                    "structLogs": [
-                        {
-                            "pc": 0,
-                            "op": "STOP",
-                            "gas": 0,
-                            "gasCost": 0,
-                            "depth": 1,
-                            "stack": [],
-                            "memory": [],
-                            "storage": {},
-                            "reason": null
-                        }
-                    ]
+                  "pc": 0,
+                  "op": "STOP",
+                  "gas": 0,
+                  "gasCost": 0,
+                  "depth": 1,
+                  "stack": [],
+                  "memory": [],
+                  "storage": {},
+                  "reason": null
                 }
-            ]
+              ]
+            }
+          ]
         }
         ```
 
@@ -1354,28 +1354,28 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+            {
+              "gas": 21000,
+              "failed": false,
+              "returnValue": "",
+              "structLogs": [
                 {
-                    "gas": 21000,
-                    "failed": false,
-                    "returnValue": "",
-                    "structLogs": [
-                        {
-                            "pc": 0,
-                            "op": "STOP",
-                            "gas": 0,
-                            "gasCost": 0,
-                            "depth": 1,
-                            "stack": [],
-                            "memory": [],
-                            "storage": null,
-                            "reason": null
-                        }
-                    ]
+                  "pc": 0,
+                  "op": "STOP",
+                  "gas": 0,
+                  "gasCost": 0,
+                  "depth": 1,
+                  "stack": [],
+                  "memory": [],
+                  "storage": null,
+                  "reason": null
                 }
-            ]
+              ]
+            }
+          ]
         }
         ```
 
@@ -1479,7 +1479,7 @@ number of the current chain head
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block {
             number
@@ -1489,7 +1489,7 @@ number of the current chain head
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -1558,7 +1558,7 @@ the `eth_call` error response includes the [revert reason](../../../private-netw
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block {
             number
@@ -1602,9 +1602,9 @@ the `eth_call` error response includes the [revert reason](../../../private-netw
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 53,
-            "result": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063445df0ac146100465780638da5cb5b14610064578063fdacd576146100ae575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b61006c6100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da600480360360208110156100c457600080fd5b8101908080359060200190929190505050610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260338152602001806101b76033913960400191505060405180910390fd5b806001819055505056fe546869732066756e6374696f6e206973207265737472696374656420746f2074686520636f6e74726163742773206f776e6572a265627a7a7231582007302f208a10686769509b529e1878bda1859883778d70dedd1844fe790c9bde64736f6c63430005100032"
+          "jsonrpc": "2.0",
+          "id": 53,
+          "result": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063445df0ac146100465780638da5cb5b14610064578063fdacd576146100ae575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b61006c6100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da600480360360208110156100c457600080fd5b8101908080359060200190929190505050610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260338152602001806101b76033913960400191505060405180910390fd5b806001819055505056fe546869732066756e6374696f6e206973207265737472696374656420746f2074686520636f6e74726163742773206f776e6572a265627a7a7231582007302f208a10686769509b529e1878bda1859883778d70dedd1844fe790c9bde64736f6c63430005100032"
         }
         ```
 
@@ -1748,7 +1748,7 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block {
             estimateGas(data: {from: "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f", to: "0x8888f1f195afa192cfee860698584c030f4c9db1"})
@@ -1758,7 +1758,7 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -1778,27 +1778,27 @@ is irrelevant to the estimation process (unlike transactions, in which gas limit
     === "curl HTTP request"
 
         ```bash
-         curl -X POST \
-            http://127.0.0.1:8545 \
-            -H 'Content-Type: application/json' \
-            -d '{
-              "jsonrpc": "2.0",
-              "method": "eth_estimateGas",
-              "params": [{
-                "from": "0x8bad598904ec5d93d07e204a366d084a80c7694e",
-                "data": "0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"
-              }],
-              "id": 1
-            }'
+        curl -X POST \
+        http://127.0.0.1:8545 \
+        -H 'Content-Type: application/json' \
+        -d '{
+          "jsonrpc": "2.0",
+          "method": "eth_estimateGas",
+          "params": [{
+            "from": "0x8bad598904ec5d93d07e204a366d084a80c7694e",
+            "data": "0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"
+          }],
+          "id": 1
+        }'
         ```
 
     === "JSON result"
 
         ```json
         {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": "0x1bacb"
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": "0x1bacb"
         }
         ```
 
@@ -1813,8 +1813,8 @@ for the requested block range, allowing you to track trends over time.
 If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
- `earliest`, or `pending`, as described in
- [Block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  `earliest`, or `pending`, as described in
+  [Block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 #### Returns
 
@@ -1844,7 +1844,7 @@ If blocks in the specified block range are not available, then only the fee hist
             "oldestBlock" : "0x53cbe6",
             "baseFeePerGas" : ["0x7", "0x7", "0x7" ]
             "gasUsedRatio" : [ 0.0011536265162931602, 0.10653990633315608 ]
-         }
+          }
         }
         ```
 
@@ -1903,7 +1903,7 @@ None
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           gasPrice
         }
@@ -1967,7 +1967,7 @@ Returns the account balance of the specified address.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
             balance
@@ -1977,7 +1977,7 @@ Returns the account balance of the specified address.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data": {
             "account": {
@@ -2057,7 +2057,7 @@ block
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(hash: "0xb0efed1fc9326fee967cb2d845d4ebe57c5350a0670c8e86f8052dea6f219f92") {
             number
@@ -2086,7 +2086,7 @@ block
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -2186,7 +2186,7 @@ block.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(number: 100) {
             transactions {
@@ -2229,7 +2229,7 @@ block.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -2312,7 +2312,7 @@ or `null` if no matching block hash is found
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(hash: "0xe455c14f757b0b9b67774baad1be1c180a4c1657df52259dbb685bf375408097") {
             transactionCount
@@ -2322,7 +2322,7 @@ or `null` if no matching block hash is found
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -2379,7 +2379,7 @@ or `null` if no matching block number is found
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(number: 232) {
             transactionCount
@@ -2389,7 +2389,7 @@ or `null` if no matching block number is found
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -2448,7 +2448,7 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           account(address: "0xa50a51c09a5c451c52bb714527e1974b686d8e77") {
             code
@@ -2458,7 +2458,7 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "account" : {
@@ -2502,65 +2502,69 @@ Polls the specified filter and returns an array of changes that have occurred si
 
     === "JSON result"
 
-        ```json
+        !!! example "Example result from a filter created with `eth_newBlockFilter`"
 
-        Example result from a filter created with `eth_newBlockFilter`:
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
+            ```json
+            {
+              "jsonrpc": "2.0",
+              "id": 1,
+              "result": [
                 "0xda2bfe44bf85394f0d6aa702b5af89ae50ae22c0928c18b8903d9269abe17e0b",
                 "0x88cd3a37306db1306f01f7a0e5b25a9df52719ad2f87b0f88ee0e6753ed4a812",
                 "0x4d4c731fe129ff32b425e6060d433d3fde278b565bbd1fd624d5a804a34f8786"
-            ]
-        }
+              ]
+            }
+            ```
 
-        Example result from a filter created with `eth_newPendingTransactionFilter`:
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
+        !!! example "Example result from a filter created with `eth_newPendingTransactionFilter`"
+
+            ```json
+            {
+              "jsonrpc": "2.0",
+              "id": 1,
+              "result": [
                 "0x1e977049b6db09362da09491bee3949d9362080ce3f4fc19721196d508580d46",
                 "0xa3abc4b9a4e497fd58dc59cdff52e9bb5609136bcd499e760798aa92802769be"
-            ]
-        }
+              ]
+            }
+            ```
 
-        Example result from a filter created with `eth_newFilter`:
+        !!! example "Example result from a filter created with `eth_newFilter`"
 
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": [
+            ```json
+            {
+              "jsonrpc": "2.0",
+              "id": 1,
+              "result": [
                 {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x233",
-                    "blockHash": "0xfc139f5e2edee9e9c888d8df9a2d2226133a9bd87c88ccbd9c930d3d4c9f9ef5",
-                    "transactionHash": "0x66e7a140c8fa27fe98fde923defea7562c3ca2d6bb89798aabec65782c08f63d",
-                    "transactionIndex": "0x0",
-                    "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
-                    "data": "0x0000000000000000000000000000000000000000000000000000000000000004",
-                    "topics": [
-                        "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
-                    ]
+                  "logIndex": "0x0",
+                  "removed": false,
+                  "blockNumber": "0x233",
+                  "blockHash": "0xfc139f5e2edee9e9c888d8df9a2d2226133a9bd87c88ccbd9c930d3d4c9f9ef5",
+                  "transactionHash": "0x66e7a140c8fa27fe98fde923defea7562c3ca2d6bb89798aabec65782c08f63d",
+                  "transactionIndex": "0x0",
+                  "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
+                  "data": "0x0000000000000000000000000000000000000000000000000000000000000004",
+                  "topics": [
+                    "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
+                  ]
                 },
                 {
-                    "logIndex": "0x0",
-                    "removed": false,
-                    "blockNumber": "0x238",
-                    "blockHash": "0x98b0ec0f9fea0018a644959accbe69cd046a8582e89402e1ab0ada91cad644ed",
-                    "transactionHash": "0xdb17aa1c2ce609132f599155d384c0bc5334c988a6c368056d7e167e23eee058",
-                    "transactionIndex": "0x0",
-                    "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
-                    "data": "0x0000000000000000000000000000000000000000000000000000000000000007",
-                    "topics": [
-                        "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
-                    ]
+                  "logIndex": "0x0",
+                  "removed": false,
+                  "blockNumber": "0x238",
+                  "blockHash": "0x98b0ec0f9fea0018a644959accbe69cd046a8582e89402e1ab0ada91cad644ed",
+                  "transactionHash": "0xdb17aa1c2ce609132f599155d384c0bc5334c988a6c368056d7e167e23eee058",
+                  "transactionIndex": "0x0",
+                  "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
+                  "data": "0x0000000000000000000000000000000000000000000000000000000000000007",
+                  "topics": [
+                    "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
+                  ]
                 }
-            ]
-        }
-
-        ```
+              ]
+            }
+            ```
 
 ### `eth_getFilterLogs`
 
@@ -2699,7 +2703,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           logs(filter: {fromBlock: 1486000, toBlock: 1486010, addresses: ["0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"], topics: [["0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d"]]}) {
             index
@@ -2717,7 +2721,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data": {
             "logs": [
@@ -2798,11 +2802,11 @@ Returns miner data for the specified block.
                 "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
                 "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
               }
-             ],
-             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-             "difficulty": "0x7348c20",
-             "totalDifficulty": "0xa57bcfdd96"
+            ],
+            "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+            "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+            "difficulty": "0x7348c20",
+            "totalDifficulty": "0xa57bcfdd96"
           }
         }
         ```
@@ -2851,11 +2855,11 @@ Returns miner data for the specified block.
                 "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
                 "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
               }
-             ],
-             "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-             "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-             "difficulty": "0x7348c20",
-             "totalDifficulty": "0xa57bcfdd96"
+            ],
+            "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
+            "extraData": "0xd583010502846765746885676f312e37856c696e7578",
+            "difficulty": "0x7348c20",
+            "totalDifficulty": "0xa57bcfdd96"
           }
         }
         ```
@@ -3037,7 +3041,7 @@ Returns the value of a storage position at a specified address.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
             storage(slot: "0x04")
@@ -3047,7 +3051,7 @@ Returns the value of a storage position at a specified address.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "account" : {
@@ -3111,7 +3115,7 @@ transaction
             "r" : "0xa2d2b1021e1428740a7c67af3c05fe3160481889b25b921108ac0ac2c3d5d40a",
             "s" : "0x63186d2aaefe188748bfb4b46fb9493cbc2b53cf36169e8501a5bc0ed941b484"
           }
-         }
+        }
         ```
 
     === "curl GraphQL"
@@ -3122,7 +3126,7 @@ transaction
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(hash: "0x9270651f9c6fa36232c379d0ecf69b519383aa275815a65f1e03114346668f69") {
             transactionAt(index: 0) {
@@ -3137,7 +3141,7 @@ transaction
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -3223,7 +3227,7 @@ transaction
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(number: 20303) {
             transactionAt(index: 0) {
@@ -3238,7 +3242,7 @@ transaction
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -3316,7 +3320,7 @@ transaction
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           transaction(hash: "0x03d80b9ca0a71435399a268609d6d7896f7155d2147cc22b780672bcb59b170d") {
             block {
@@ -3340,7 +3344,7 @@ transaction
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "transaction" : {
@@ -3413,7 +3417,7 @@ next account nonce not used by any pending transactions.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           account(address: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73") {
             transactionCount
@@ -3423,7 +3427,7 @@ next account nonce not used by any pending transactions.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "account" : {
@@ -3496,7 +3500,7 @@ there is no receipt
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
             block {
@@ -3526,7 +3530,7 @@ there is no receipt
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "transaction" : {
@@ -3623,7 +3627,7 @@ Returns uncle specified by block hash and index.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(hash: "0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7") {
             ommerAt(index: 0) {
@@ -3648,7 +3652,7 @@ Returns uncle specified by block hash and index.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data": {
             "block": {
@@ -3737,46 +3741,46 @@ Returns uncle specified by block number and index.
 
     === "curl GraphQL"
 
-         ```bash
-         curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:2587){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
-         ```
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(number:2587){ ommerAt(index: 0) {difficulty extraData gasLimit gasUsed hash logsBloom mixHash nonce number receiptsRoot stateRoot timestamp totalDifficulty transactionsRoot}}}"}' http://localhost:8547/graphql
+        ```
 
     === "GraphQL"
 
-         ```bash
-         {
-           block(number: 2587) {
-             ommerAt(index: 0) {
-               difficulty
-               extraData
-               gasLimit
-               gasUsed
-               hash
-               logsBloom
-               mixHash
-               nonce
-               number
-               receiptsRoot
-               stateRoot
-               timestamp
-               totalDifficulty
-               transactionsRoot
-             }
-           }
-         }
-         ```
+        ```text
+        {
+          block(number: 2587) {
+            ommerAt(index: 0) {
+              difficulty
+              extraData
+              gasLimit
+              gasUsed
+              hash
+              logsBloom
+              mixHash
+              nonce
+              number
+              receiptsRoot
+              stateRoot
+              timestamp
+              totalDifficulty
+              transactionsRoot
+            }
+          }
+        }
+        ```
 
     === "GraphQL result"
 
-         ```bash
-         {
-           "data" : {
-             "block" : {
-               "ommerAt" : null
-             }
-           }
-         }
-         ```
+        ```json
+        {
+          "data" : {
+            "block" : {
+              "ommerAt" : null
+            }
+          }
+        }
+        ```
 
 ### `eth_getUncleCountByBlockHash`
 
@@ -3822,7 +3826,7 @@ Returns the number of uncles in a block from a block matching the given block ha
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(hash: "0x65c08d792e4192b9ece6b6f2390da7da464208b22d88490be8add9373917b426") {
             ommerCount
@@ -3832,7 +3836,7 @@ Returns the number of uncles in a block from a block matching the given block ha
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -3888,7 +3892,7 @@ Returns the number of uncles in a block matching the specified block number.
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           block(number: "0x59fd") {
             ommerCount
@@ -3898,7 +3902,7 @@ Returns the number of uncles in a block matching the specified block number.
 
     === "GraphQL result"
 
-        ```bash
+        ```json
         {
           "data" : {
             "block" : {
@@ -4193,7 +4197,7 @@ None
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           protocolVersion
         }
@@ -4267,27 +4271,27 @@ transaction data using `eth_sendRawTransaction`.
 
     === "curl GraphQL"
 
-         ```bash
-         curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation {sendRawTransaction(data: \"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\")}"}' http://localhost:8547/graphql
-         ```
+        ```bash
+        curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation {sendRawTransaction(data: \"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\")}"}' http://localhost:8547/graphql
+        ```
 
     === "GraphQL"
 
-         ```bash
-         mutation {
-           sendRawTransaction(data: "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833")
-         }
-         ```
+        ```text
+        mutation {
+          sendRawTransaction(data: "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833")
+        }
+        ```
 
     === "GraphQL result"
 
-         ```json
-         {
-           "data" : {
-             "sendRawTransaction" : "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
-           }
-         }
-         ```
+        ```json
+        {
+          "data" : {
+            "sendRawTransaction" : "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+          }
+        }
+        ```
 
 ### `eth_submitHashrate`
 
@@ -4441,7 +4445,7 @@ synchronizing:
 
     === "GraphQL"
 
-        ```bash
+        ```text
         {
           syncing {
             startingBlock
@@ -4550,9 +4554,9 @@ command line option.
 
         ```json
         {
-           "jsonrpc" : "2.0",
-           "id" : 1,
-           "result" : "Success"
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "Success"
         }
         ```
 

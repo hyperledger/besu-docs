@@ -36,14 +36,14 @@ type when returned by
         "id": 1,
         "result": [
           {
-             "privacyGroupId": "68/Cq0mVjB8FbXDLE1tbDRAvD/srluIok137uFOaClM=",
-             "name": "legacy",
-             "description": "Privacy groups to support the creation of groups by privateFor and privateFrom",
-             "type": "LEGACY",
-             "members": [
-                "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw=",
-                "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk="
-             ]
+            "privacyGroupId": "68/Cq0mVjB8FbXDLE1tbDRAvD/srluIok137uFOaClM=",
+            "name": "legacy",
+            "description": "Privacy groups to support the creation of groups by privateFor and privateFrom",
+            "type": "LEGACY",
+            "members": [
+              "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw=",
+              "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk="
+            ]
           }
         ]
     }

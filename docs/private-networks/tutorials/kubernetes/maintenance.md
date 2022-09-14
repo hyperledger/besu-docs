@@ -57,12 +57,12 @@ via `kubectl`. This example updates a node called `besu-validator-3`:
 
 2. Update the Besu version via Helm:
 
-      ```bash
-      helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
-      ```
+    ```bash
+    helm upgrade bootnode-1 ./charts/besu-node --namespace besu --values ./values/bootnode.yml --set image.besu.tag=21.10.0
+    ```
 
-     Or via `kubectl`:
+    Or via `kubectl`:
 
-      ```bash
-      kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
-      ```
+    ```bash
+    kubectl patch statefulset besu-validator-3 --namespace besu --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"hyperledger/besu:21.10.0"}]'
+    ```

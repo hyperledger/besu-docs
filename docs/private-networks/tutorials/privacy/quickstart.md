@@ -106,7 +106,7 @@ Member3Besu RPC: http://localhost:20004
 Member3Tessera: http://localhost:9083
 ```
 
-Navigate to the smart_contracts directory and deploy the private transaction:
+Navigate to the `smart_contracts` directory and deploy the private transaction:
 
 ```bash
 cd smart_contracts

@@ -14,7 +14,7 @@ To enable [privacy functionality](../../concepts/privacy/index.md) in production
 systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
-![Besu-Tessera-High-Availability](../../../images/Besu-Tessera-High-Availability.png)
+![Besu-Tessera-High-Availability](../../../assets/images/Besu-Tessera-High-Availability.png)
 
 !!! note
 

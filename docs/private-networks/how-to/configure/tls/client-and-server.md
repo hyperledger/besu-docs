@@ -11,7 +11,7 @@ configure TLS for communication between
 
 The following diagram displays an example client and server TLS configuration.
 
-![Besu client and server TLS](../../../../images/Besu_TLS.png)
+![Besu client and server TLS](../../../../assets/images/Besu_TLS.png)
 
 Configure TLS communication from the command line.
 

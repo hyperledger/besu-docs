@@ -9,7 +9,7 @@ tags:
 To enable communication you must expose Hyperledger Besu ports appropriately. The following shows
 an example port configuration for a Besu node on AWS.
 
-![Port Configuration](../../../images/PortConfiguration.png)
+![Port Configuration](../../../assets/images/PortConfiguration.png)
 
 When running Besu from the [Docker image](../../get-started/install/run-docker-image.md),
 [expose ports](../../get-started/install/run-docker-image.md#exposing-ports).

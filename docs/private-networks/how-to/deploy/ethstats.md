@@ -51,4 +51,4 @@ You can specify a contact email to send to the server using [`--ethstats-contact
 
 Open the selected dashboard website. Find your node under the list of nodes to see the statistics for the node and the network.
 
-![dashboard](../../../images/dashboard.png)
+![dashboard](../../../assets/images/dashboard.png)

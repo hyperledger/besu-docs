@@ -169,7 +169,7 @@ Besu default is `RS256`.
 
     === "`ES256` `secp256r1` ECDSA Keys"
 
-         1. Generate the private key:
+        1. Generate the private key:
 
             ```bash
             openssl ecparam -name secp256r1 -genkey -out privateECDSAKey.pem

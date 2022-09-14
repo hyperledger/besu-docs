@@ -107,7 +107,7 @@ Copy the following genesis definition to a file called `cliqueGenesis.json` and 
         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
         "balance": "90000000000000000000000"
       }
-   }
+  }
 }
 ```
 
@@ -165,7 +165,7 @@ The command line enables:
 When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays.
 Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../assets/images/EnodeStartup.png)
 
 ### 5. Start Node-2
 

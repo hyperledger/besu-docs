@@ -28,7 +28,7 @@ the same, with the network ID defaulting to the chain ID, as specified in the ge
       "config": {
         "ethash": {
         },
-         "chainID": 1981
+        "chainID": 1981
       },
       ...
     }

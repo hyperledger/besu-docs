@@ -17,7 +17,7 @@ Get started by [installing Besu](get-started/install/index.md).
 
 The following diagram outlines the high-level architecture of Besu for public networks.
 
-![Public architecture](../images/public-architecture.jpeg)
+![Public architecture](../assets/images/public-architecture.jpeg)
 
 If you have any questions about Besu for public networks, contact us on the
 [Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

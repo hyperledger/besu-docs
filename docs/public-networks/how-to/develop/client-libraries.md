@@ -14,7 +14,7 @@ methods works with Besu.
 Use the [web3js-quorum library](../../../private-networks/how-to/use-privacy/web3js-quorum.md) with Besu for
 [privacy features](../../../private-networks/concepts/privacy/index.md).
 
-![Client Libraries](../../../images/Hyperledger-Besu-Client-Libraries.png)
+![Client Libraries](../../../assets/images/Hyperledger-Besu-Client-Libraries.png)
 
 Use client libraries to:
 

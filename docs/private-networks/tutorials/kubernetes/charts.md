@@ -130,9 +130,10 @@ port and path to use. For example:
 
 !!! warning
 
-     For production use cases, configure Grafana with one of the supported [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
+    For production use cases, configure Grafana with one of the supported
+    [native auth mechanisms](https://grafana.com/docs/grafana/latest/auth/).
 
-![k8s-metrics](../../../images/kubernetes-grafana.png)
+![k8s-metrics](../../../assets/images/kubernetes-grafana.png)
 
 Optionally you can also deploy the [Elastic Stack](https://www.elastic.co/elastic-stack/) to view logs (and metrics).
 
@@ -151,7 +152,7 @@ If you install `filebeat`, please create a `filebeat-*` index pattern in `kibana
 If you use The Elastic stack for logs and metrics, please deploy `metricbeat` in a similar manner to `filebeat` and create an index pattern in
 Kibana.
 
-![k8s-elastic](../../../images/kubernetes-elastic.png)
+![k8s-elastic](../../../assets/images/kubernetes-elastic.png)
 
 To connect to Kibana or Grafana, we also need to deploy an ingress so you can access your monitoring endpoints
 publicly. We use Nginx as our ingress here, and you are free to configure any ingress per your requirements.
@@ -180,7 +181,7 @@ or on the command line `kubectl -n quorum get services quorum-monitoring-ingress
     We refer to the ingress here as `external-nginx` because it deals with monitoring endpoints specifically. We
     also deploy a second ingress called `network-ingress` which is for the blockchain nodes only in [step 8](#9-connect-to-the-node-from-your-local-machine-via-an-ingress)
 
-![`k8s-ingress-external`](../../../images/kubernetes-ingress-ip.png)
+![`k8s-ingress-external`](../../../assets/images/kubernetes-ingress-ip.png)
 
 You can view the Besu dashboard by going to:
 
@@ -276,9 +277,9 @@ helm install genesis ./charts/besu-genesis --namespace besu --create-namespace -
 Once completed, view the genesis and enodes (the list of static nodes) configuration maps that every Besu node uses,
 and the validator and bootnode node keys as secrets.
 
-![k8s-genesis-configmaps](../../../images/kubernetes-genesis-configmaps.png)
+![k8s-genesis-configmaps](../../../assets/images/kubernetes-genesis-configmaps.png)
 
-![k8s-genesis-secrets](../../../images/kuberenetes-genesis-secrets.png)
+![k8s-genesis-secrets](../../../assets/images/kuberenetes-genesis-secrets.png)
 
 ### 5. Deploy the bootnodes
 
@@ -348,7 +349,7 @@ helm install bootnode-2 ./charts/besu-node --namespace besu --values ./values/bo
 Once complete, you see two StatefulSets, and the two bootnodes discover themselves and peer.
 Because there are no validators present yet, there are no blocks created, as seen in the following logs.
 
-![k8s-bootnode-logs](../../../images/kubernetes-bootnode-logs.png)
+![k8s-bootnode-logs](../../../assets/images/kubernetes-bootnode-logs.png)
 
 ### 6. Deploy the validators
 
@@ -399,7 +400,7 @@ helm install validator-4 ./charts/besu-node --namespace besu --values ./values/v
 Once completed, you may need to give the validators a few minutes to peer and for round changes, depending on when the
 first validator was spun up, before the logs display blocks being created.
 
-![k8s-validator-logs](../../../images/kubernetes-validator-logs.png)
+![k8s-validator-logs](../../../assets/images/kubernetes-validator-logs.png)
 
 ### 7. Add/Remove additional validators to the validator pool
 
@@ -441,11 +442,11 @@ helm install member-1 ./charts/besu-node --namespace besu --values ./values/txno
 
 Logs for `member-1` resemble the following for Tessera:
 
-![`k8s-tx-tessera-logs`](../../../images/kubernetes-tx-tessera-logs.png)
+![`k8s-tx-tessera-logs`](../../../assets/images/kubernetes-tx-tessera-logs.png)
 
 Logs for Besu resemble the following:
 
-![`k8s-tx-Besu-logs`](../../../images/kubernetes-tx-Besu-logs.png)
+![`k8s-tx-Besu-logs`](../../../assets/images/kubernetes-tx-Besu-logs.png)
 
 !!! note
 
@@ -486,7 +487,7 @@ kubectl apply -f ../ingress/ingress-rules-besu.yml
 Once complete, view the IP address listed under the `Ingress` section if you're using the Kubernetes Dashboard
 or on the command line `kubectl -n quorum get services quorum-network-ingress-ingress-nginx-controller`.
 
-![`k8s-ingress`](../../../images/kubernetes-ingress-ip.png)
+![`k8s-ingress`](../../../assets/images/kubernetes-ingress-ip.png)
 
 The following is an example RPC call, which confirms that the node running the JSON-RPC service is syncing:
 
@@ -546,4 +547,4 @@ helm install quorum-explorer ./charts/explorer --namespace besu --values ./value
 You will also need deploy the ingress (if not already done in [Monitoring](#3-deploy-the-monitoring-chart) to
 access the endpoint on `http://<INGRESS_IP>/explorer`
 
-![`k8s-explorer`](../../../images/kubernetes-explorer.png)
+![`k8s-explorer`](../../../assets/images/kubernetes-explorer.png)

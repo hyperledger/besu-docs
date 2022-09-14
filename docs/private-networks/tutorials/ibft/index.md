@@ -60,8 +60,8 @@ in the `IBFT-Network` directory:
 
 ```json
 {
- "genesis": {
-   "config": {
+  "genesis": {
+    "config": {
       "chainId": 1337,
       "berlinBlock": 0,
       "ibft2": {
@@ -77,29 +77,29 @@ in the `IBFT-Network` directory:
     "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
     "coinbase": "0x0000000000000000000000000000000000000000",
     "alloc": {
-       "fe3b557e8fb62b89f4916b721be55ceb828dbd73": {
-          "privateKey": "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
-          "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
-          "balance": "0xad78ebc5ac6200000"
-       },
-       "627306090abaB3A6e1400e9345bC60c78a8BEf57": {
-         "privateKey": "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
-         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
-         "balance": "90000000000000000000000"
-       },
-       "f17f52151EbEF6C7334FAD080c5704D77216b732": {
-         "privateKey": "ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f",
-         "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
-         "balance": "90000000000000000000000"
-       }
+      "fe3b557e8fb62b89f4916b721be55ceb828dbd73": {
+        "privateKey": "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "0xad78ebc5ac6200000"
+      },
+      "627306090abaB3A6e1400e9345bC60c78a8BEf57": {
+        "privateKey": "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "90000000000000000000000"
+      },
+      "f17f52151EbEF6C7334FAD080c5704D77216b732": {
+        "privateKey": "ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f",
+        "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance": "90000000000000000000000"
       }
- },
- "blockchain": {
-   "nodes": {
-     "generate": true,
-       "count": 4
-   }
- }
+    }
+  },
+  "blockchain": {
+    "nodes": {
+      "generate": true,
+      "count": 4
+    }
+  }
 }
 ```
 
@@ -210,7 +210,7 @@ The command line:
 When the node starts, the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the
 enode URL to specify Node-1 as the bootnode in the following steps.
 
-![Node 1 Enode URL](../../../images/EnodeStartup.png)
+![Node 1 Enode URL](../../../assets/images/EnodeStartup.png)
 
 ### 7. Start Node-2
 

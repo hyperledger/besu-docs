@@ -32,7 +32,7 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
 ## Setting up and running OpenTelemetry with Besu
 
 1. Configure OpenTelemetry to accept data from Besu.
-   For example, use the following configuration for your `otel-collector-config.yml` file, and send data to Splunk and Splunk APM:
+    For example, use the following configuration for your `otel-collector-config.yml` file, and send data to Splunk and Splunk APM:
 
     !!! example "`otel-collector-config.yml`"
 
@@ -141,8 +141,8 @@ Download and install the [OpenTelemetry Collector](https://github.com/open-telem
     You can also refer to this [Docker-compose example](https://github.com/splunk/splunk-connect-for-ethereum/blob/989dc2ccae7d8235bf3ce2a83a18cf0cd1713294/examples/besu-sync/full-sync/docker-compose.yaml).
 
 1. Start Besu with the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and
-   [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options.
-   For example, run the following command to start a single node:
+    [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options.
+    For example, run the following command to start a single node:
 
     === "Syntax"
 

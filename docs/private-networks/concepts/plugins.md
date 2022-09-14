@@ -18,7 +18,7 @@ third-party application. The API exposes data about the following components:
 * Logs
 * Syncing state.
 
-![Besu plugin API](../../images/Hyperledger-Besu-Plugin-API.png)
+![Besu plugin API](../../assets/images/Hyperledger-Besu-Plugin-API.png)
 
 The plugin API provides access to [interfaces](../reference/plugin-api-interfaces.md) allowing you
 to build the plugin.

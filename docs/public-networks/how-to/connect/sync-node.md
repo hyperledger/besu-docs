@@ -93,7 +93,7 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     This means the node isn't syncing against any peers.
     The fact that state nodes have been downloaded means at some stage it was syncing.
 
-    ![Fast synchronization](../../../images/fastsync.png)
+    ![Fast synchronization](../../../assets/images/fastsync.png)
 
     The easiest solution in this scenario is to restart fast sync to obtain a new pivot block.
 

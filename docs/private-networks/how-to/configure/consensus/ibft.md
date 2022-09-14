@@ -25,7 +25,7 @@ You can [create a private network using IBFT](../../../tutorials/ibft/index.md).
 !!! tip
 
     You can use a plugin to securely store a validator's key using the
-   [`--security-module`](../../../../public-networks/reference/cli/options.md#security-module) option.
+    [`--security-module`](../../../../public-networks/reference/cli/options.md#security-module) option.
 
 ## Genesis file
 
@@ -71,15 +71,36 @@ The properties specific to IBFT 2.0 are:
 
 !!! caution
 
-    We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
+    We don't recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
+
+??? caution "Invalid block header error"
+
+    When adding a new node, if a `TimeStampMoreRecentThanParent | Invalid block header` error occurs,
+    the genesis file of the new node specifies a higher `blockperiodseconds` than the imported chain.
+    The imported chain makes new blocks faster than the genesis file allows and Besu rejects them
+    with this error.
+    This error most often occurs when importing chains from older versions of Besu.
+
+    Decrease the `blockperiodseconds` in the new IBFT 2.0 genesis file to a lower value that
+    satisfies the block header validation.
+
+    !!! example
+
+        If the error reads `| TimestampMoreRecentThanParent | Invalid block header: timestamp
+        1619660141 is only 3 seconds newer than parent timestamp 1619660138. Minimum 4 seconds`,
+        decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
+
+    After you update the new genesis file, if the imported chain has a `blockperiodseconds` value
+    set lower than you prefer, you can adjust it by [configuring the block time on an existing IBFT
+    2.0 network](#configure-block-time-on-an-existing-network).
 
 The properties with specific values in the IBFT 2.0 genesis files are:
 
 * `nonce` - `0x0`
 * `difficulty` - `0x1`
 * `mixHash` - `0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365` for Istanbul
-  block identification.
+  block identification
 
 To start a node on an IBFT 2.0 private network, use the
 [`--genesis-file`](../../../../public-networks/reference/cli/options.md#genesis-file) option to specify the custom

@@ -154,14 +154,35 @@ The QBFT properties are:
 
 !!! caution
 
-    We do not recommend changing `epochlength` in a running network. Changing the `epochlength`
+    We don't recommend changing `epochlength` in a running network. Changing the `epochlength`
     after genesis can result in illegal blocks.
+
+??? caution "Invalid block header error"
+
+    When adding a new node, if a `TimeStampMoreRecentThanParent | Invalid block header` error occurs,
+    the genesis file of the new node specifies a higher `blockperiodseconds` than the imported chain.
+    The imported chain makes new blocks faster than the genesis file allows and Besu rejects them
+    with this error.
+    This error most often occurs when importing chains from older versions of Besu.
+
+    Decrease the `blockperiodseconds` in the new QBFT genesis file to a lower value that satisfies
+    the block header validation.
+
+    !!! example
+
+        If the error reads `| TimestampMoreRecentThanParent | Invalid block header: timestamp
+        1619660141 is only 3 seconds newer than parent timestamp 1619660138. Minimum 4 seconds`,
+        decrease the `blockperiodseconds` from 4 seconds to 3 seconds to match the imported chain.
+
+    After you update the new genesis file, if the imported chain has a `blockperiodseconds` value
+    set lower than you prefer, you can adjust it by [configuring the block time on an existing QBFT
+    network](#configure-block-time-on-an-existing-network).
 
 The properties with specific values in the QBFT genesis files are:
 
 * `difficulty` - `0x1`
 * `mixHash` - `0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365` for Istanbul
-  block identification.
+  block identification
 
 To start a node on a QBFT private network, use the
 [`--genesis-file`](../../../../public-networks/reference/cli/options.md#genesis-file) option to specify the custom

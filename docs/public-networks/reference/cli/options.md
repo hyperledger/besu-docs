@@ -43,6 +43,12 @@ If using Bash or Z shell, you can view option suggestions by entering `--` and p
 besu --Tab+Tab
 ```
 
+!!! caution
+
+    Characters such as smart quotes and long (em) hyphens don't work in Besu command line options.
+    Ensure quotes aren't automatically converted to smart quotes, or double hyphens combined into em
+    hyphens.
+
 ## Options
 
 ### `api-gas-price-blocks`

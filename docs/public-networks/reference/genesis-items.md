@@ -50,6 +50,13 @@ consensus protocols.
 | `timestamp`         | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.                |
 | `alloc`             | Defines [accounts with balances](../../private-networks/reference/accounts-for-testing.md) or [contracts](../../private-networks/how-to/configure/contracts.md).                   |
 
+!!! caution
+
+    If a `Supplied genesis block does not match stored chain data` error occurs, use the genesis
+    file matching the genesis block of the data directory, or use the
+    [`--data-path`](../reference/cli/options.md#data-path) option to specify a different data
+    directory.
+
 ## Milestone blocks
 
 In public networks, the milestone blocks specify the blocks at which the network changed protocol.
@@ -82,6 +89,11 @@ and their corresponding milestone blocks.
     }
     ```
 
+!!! caution
+
+    Ensure you include a milestone far enough in advance in the genesis file.
+    Not doing so can lead to unexpected and inconsistent behavior without specific errors.
+
 In private networks, the milestone block defines the protocol version for the network.
 
 !!! example "Private network milestone block"
@@ -98,9 +110,9 @@ In private networks, the milestone block defines the protocol version for the ne
 
 !!! note
 
-    We recommend specifying the latest milestone block for private networks.
-    It is implied this includes the preceding milestones.
-    This ensures you are using the most up-to-date protocol and have access to the most recent opcodes.
+    In private networks, we recommend specifying the latest milestone block.
+    It's implied this includes the preceding milestones.
+    This ensures you use the most up-to-date protocol and have access to the most recent opcodes.
 
 ## Fixed difficulty
 

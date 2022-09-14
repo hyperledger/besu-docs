@@ -16,7 +16,7 @@ Grafana provides a [sample dashboard](https://grafana.com/grafana/dashboards/102
 
 ## Java Virtual Machine size
 
-For Mainnet and testnets, the minimum Java Virtual Machine (JVM) memory requirement is 8 GB.
+For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-jvm/manage-memory.md).
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized
 to the chain head. Monitor your system to determine your actual JVM memory needs.

@@ -110,7 +110,6 @@ Docker image instead of the command line options.
     [Enable IPv6 support in Docker](https://docs.docker.com/config/daemon/ipv6/) to allow outbound
     IPv6 traffic and allow connection with IPv6 peers.
 
-
 ### Run a node for testing
 
 To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:

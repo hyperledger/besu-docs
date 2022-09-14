@@ -41,11 +41,16 @@ nav:
           - Monitor nodes:
               - public-networks/how-to/monitor/index.md
               - Use metrics: public-networks/how-to/monitor/metrics.md
+              - Understand metrics: public-networks/how-to/monitor/understand-metrics.md
               - Configure logging: public-networks/how-to/monitor/logging.md
-          - Pass JVM options: public-networks/how-to/pass-jvm-options.md
           - Configure high availability:
               - public-networks/how-to/configure-ha/index.md
               - Sample load balancer configurations: public-networks/how-to/configure-ha/sample-configuration.md
+          - Configure the Java Virtual Machine:
+              - public-networks/how-to/configure-jvm/index.md
+              - Pass JVM options: public-networks/how-to/configure-jvm/pass-jvm-options.md
+              - Manage JVM memory: public-networks/how-to/configure-jvm/manage-memory.md
+              - Use Java Flight Recorder: public-networks/how-to/configure-jvm/java-flight-recorder.md
           - Develop dapps:
               - Use Truffle: public-networks/how-to/develop/truffle.md
               - Use client libraries: public-networks/how-to/develop/client-libraries.md
@@ -54,7 +59,6 @@ nav:
           - Upgrade Besu: public-networks/how-to/upgrade-node.md
           - Troubleshoot:
               - Use EVM tool: public-networks/how-to/troubleshoot/evm-tool.md
-              - Use Java Flight Recorder: public-networks/how-to/troubleshoot/java-flight-recorder.md
               - Trace transactions: public-networks/how-to/troubleshoot/trace-transactions.md
       - Concepts:
           - The Merge: public-networks/concepts/the-merge.md
@@ -119,6 +123,7 @@ nav:
               - Include revert reason: private-networks/how-to/send-transactions/revert-reason.md
           - Monitor nodes:
               - private-networks/how-to/monitor/index.md
+              - Use Grafana Loki: private-networks/how-to/monitor/loki.md
               - Use Elastic Stack: private-networks/how-to/monitor/elastic-stack.md
               - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
               - Use Splunk: private-networks/how-to/monitor/splunk.md

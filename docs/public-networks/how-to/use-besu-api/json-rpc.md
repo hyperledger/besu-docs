@@ -15,9 +15,9 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the
 
 !!! caution
 
-    `--Xrpc-ipc-enabled` is an experimental option.
+    `--Xrpc-ipc-enabled` is an early access option.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ## Geth console
 
@@ -27,9 +27,9 @@ supported by geth and Hyperledger Besu directly in the console.
 To use the geth console with Besu:
 
 1. Start Besu with the
-   [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
+  [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
 1. Specify which APIs to enable using the
-   [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
+  [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 1. Start the geth console specifying the JSON-RPC endpoint:
 
 !!! example
@@ -244,7 +244,7 @@ To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGI
 
 !!! caution
 
-    `--Xrpc-ipc-api` is an experimental option.
+    `--Xrpc-ipc-api` is an early access option.
 
 ## Block parameter
 

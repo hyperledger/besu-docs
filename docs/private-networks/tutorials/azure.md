@@ -21,7 +21,7 @@ endpoint `http://<VM_IP>/jsonrpc`.
 
 The following is a high-level overview of the deployed network.
 
-![Image landing](../../images/sampleNetworks-poa.png)
+![Image landing](../../assets/images/sampleNetworks-poa.png)
 
 ## Deploy
 
@@ -32,14 +32,14 @@ To deploy the private network example on Azure:
 1. Go to the [Quorum Dev Quickstart on Azure Marketplace].
 
 1. Click **Get It Now** and **Continue**.
-   The Quickstart landing page is displayed.
+    The Quickstart landing page is displayed.
 
-    ![Image landing](../../images/mp_0_landing.png)
+    ![Image landing](../../assets/images/mp_0_landing.png)
 
 1. Click **Create**.
-   The **Basics** page is displayed.
+    The **Basics** page is displayed.
 
-     ![Image basics](../../images/mp_1_basics.png)
+    ![Image basics](../../assets/images/mp_1_basics.png)
 
 1. Enter:
 
@@ -58,17 +58,17 @@ To deploy the private network example on Azure:
     When the deployment is complete, the resources created are displayed.
 
 1. Click **Go to Resource**.
-   Everything created in the deployment is displayed.
+    Everything created in the deployment is displayed.
 
 1. Click on the VM name.
-   The VM details such as the IP and DNS name are displayed.
-   Use the IP and DNS name displayed to connect to the VM, either in browser or via RPC calls.
+    The VM details such as the IP and DNS name are displayed.
+    Use the IP and DNS name displayed to connect to the VM, either in browser or via RPC calls.
 
 ## Block explorer
 
 To display the block explorer, open a new tab and enter either the IP of the VM or the DNS name.
 
-![Image be](../../images/mp_8_block_explorer.png)
+![Image be](../../assets/images/mp_8_block_explorer.png)
 
 ## Metrics
 
@@ -76,11 +76,11 @@ The deployment includes Prometheus metrics and Grafana with a custom Besu Dashbo
 To display the dashboard:
 
 1. Open a new tab and enter the IP or DNS name appended with `/grafana`.
-   For example: `http://<DNS_NAME_OF_VM>/grafana`.
+    For example: `http://<DNS_NAME_OF_VM>/grafana`.
 
 1. Click on home and select the Besu dashboard.
 
-    ![Grafana screenshot](../../images/mp_9_grafana.png)
+    ![Grafana screenshot](../../assets/images/mp_9_grafana.png)
 
 The dashboard provides a visual way to monitor your network and nodes as the chain progresses.
 Alerting can also be configured.
@@ -93,7 +93,7 @@ The endpoint is the DNS name appended with `/jsonrpc`: `http://<DNS_NAME_OF_VM>/
 ## SSH
 
 You can SSH into the VM to see how everything is set up and working.
-Use the credentials from step 5 of [deployment](#deploying) and your preferred client:
+Use the credentials from step 5 of [deployment](#deploy) and your preferred client:
 
 ```bash
 ssh username@<DNS_NAME_OF_VM>
@@ -102,6 +102,6 @@ ssh username@<DNS_NAME_OF_VM>
 To list all containers running, run `docker ps`.
 Find the complete setup in `/home/<username>/besu-quickstart`.
 
-![Image ssh](../../images/mp_10_ssh.png)
+![Image ssh](../../assets/images/mp_10_ssh.png)
 
 [Quorum Dev Quickstart on Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/consensys.quorum-dev-quickstart

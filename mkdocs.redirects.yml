@@ -85,7 +85,7 @@ plugins:
       HowTo/Monitor/OpenTelemetry-Collector.md: private-networks/how-to/monitor/opentelemetry.md
       HowTo/Configure/Using-Configuration-File.md: public-networks/how-to/configuration-file.md
       HowTo/Configure/Configure-Mining.md: public-networks/how-to/use-pow/mining.md
-      HowTo/Configure/Passing-JVM-Options.md: public-networks/how-to/pass-jvm-options.md
+      HowTo/Configure/Passing-JVM-Options.md: public-networks/how-to/configure-jvm/pass-jvm-options.md
       Concepts/Merge.md: public-networks/concepts/the-merge.md
       Concepts/NetworkID-And-ChainID.md: public-networks/concepts/network-and-chain-id.md
       Concepts/Events-and-Logs.md: public-networks/concepts/events-and-logs.md
@@ -93,7 +93,7 @@ plugins:
       HowTo/Upgrade/Upgrade-Node.md: public-networks/how-to/upgrade-node.md
       HowTo/Upgrade/Upgrade-Protocol.md: private-networks/how-to/upgrade.md
       HowTo/Troubleshoot/Use-EVM-Tool.md: public-networks/how-to/troubleshoot/evm-tool.md
-      HowTo/Troubleshoot/Java-Flight-Recording.md: public-networks/how-to/troubleshoot/java-flight-recorder.md
+      HowTo/Troubleshoot/Java-Flight-Recording.md: public-networks/how-to/configure-jvm/java-flight-recorder.md
       HowTo/Troubleshoot/Trace-Transactions.md: public-networks/how-to/troubleshoot/trace-transactions.md
       Concepts/Node-Keys.md: public-networks/concepts/node-keys.md
       Concepts/Data-Storage-Formats.md: public-networks/concepts/data-storage-formats.md
@@ -153,6 +153,7 @@ plugins:
       Concepts/Consensus-Protocols/Comparing-PoA.md: private-networks/concepts/poa.md
       Concepts/Privacy/Private-Transactions.md: private-networks/concepts/privacy/private-transactions/index.md
       Concepts/Privacy/Private-Transactions-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
+      Concepts/Privacy/Private-Transaction-Processing.md: private-networks/concepts/privacy/private-transactions/processing.md
       Concepts/Privacy/Privacy-Groups.md: private-networks/concepts/privacy/privacy-groups.md
       Concepts/Privacy/Flexible-PrivacyGroups.md: private-networks/concepts/privacy/flexible-privacy.md
       Concepts/Privacy/Multi-Tenancy.md: private-networks/concepts/privacy/multi-tenancy.md
@@ -198,3 +199,4 @@ plugins:
       HowTo/Configure/Configure-HA/Sample-Configuration.md: public-networks/how-to/configure-ha/sample-configuration.md
       Concepts/Pruning.md: public-networks/concepts/data-storage-formats.md
       Concepts/TLS.md: private-networks/how-to/configure/tls/client-and-server.md
+      public-networks/how-to/troubleshoot/java-flight-recorder.md: public-networks/how-to/configure-jvm/java-flight-recorder.md

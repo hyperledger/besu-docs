@@ -14,7 +14,7 @@ In forest mode, each node in the trie is saved in a key-value store by hash. For
 with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed
 and stored by hash, which increases the size of the database and increases the resources and time needed to access account data.
 
-![forest_of_tries](../../images/forest_of_tries.png)
+![forest_of_tries](../../assets/images/forest_of_tries.png)
 
 ### Pruning
 
@@ -48,7 +48,7 @@ and faster read performance. Bonsai inherently prunes orphaned nodes and old bra
 To run a node with Bonsai Tries data storage format, use the command line option
 [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
 
-![Bonsai_tries](../../images/Bonsai_tries.png)
+![Bonsai_tries](../../assets/images/Bonsai_tries.png)
 
 ## Forest of Tries vs. Bonsai Tries
 

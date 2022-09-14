@@ -61,3 +61,7 @@
     </div>
   {% endif %}
 {% endblock %}
+
+{% block extrahead %}
+<meta name="google-site-verification" content="{{config.extra.analytics.verification}}" />
+{% endblock %}

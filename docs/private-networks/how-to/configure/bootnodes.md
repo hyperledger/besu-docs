@@ -14,7 +14,7 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 !!! tip
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
-    you can use only bootnodes, only static nodes, or both bootnodes and statics nodes.
+    you can use only bootnodes, only static nodes, or both bootnodes and static nodes.
 
     To find peers, configure one or more bootnodes. To configure a specific set
     of peer connections, use [static nodes](../../../public-networks/how-to/connect/static-nodes.md).
@@ -59,9 +59,9 @@ itself.
 To ensure a bootnode enode doesn't change when recovering from a complete bootnode failure:
 
 1. Create the [node key pair](../../../public-networks/concepts/node-keys.md) (that is, the private and public key)
-   before starting the bootnode.
+    before starting the bootnode.
 1. When creating bootnodes in the cloud (for example, AWS and Azure), attempt to assign a static IP
-   address to them. If your network is:
+    address to them. If your network is:
 
     * Publicly accessible, assign an elastic IP.
     * Internal only, specify a private IP address when you create the instance and record this IP

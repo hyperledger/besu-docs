@@ -16,7 +16,7 @@ any unconnected static node.
 !!! tip
 
     Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case,
-    you can use only bootnodes, only static nodes, or both bootnodes and statics nodes. For
+    you can use only bootnodes, only static nodes, or both bootnodes and static nodes. For
     example, you run multiple nodes on Mainnet (discovery using bootnodes), but want to ensure your
     nodes are always connected (using static nodes).
 
@@ -28,15 +28,15 @@ any unconnected static node.
 To configure a network of static nodes:
 
 1. List the [enode URLs](../../concepts/node-keys.md#enode-url) of the nodes in the
-   [`static-nodes.json` file](#static-nodesjson-file).
+  [`static-nodes.json` file](#static-nodesjson-file).
 
 1. Save the `static-nodes.json` file in the data directory (specified by
-   [`--data-path`](../../reference/cli/options.md#data-path)) of each node.
-   Alternatively, you can explicitly specify the static nodes file on the command line using
-   [`--static-nodes-file`](../../reference/cli/options.md#static-nodes-file).
+  [`--data-path`](../../reference/cli/options.md#data-path)) of each node.
+  Alternatively, you can explicitly specify the static nodes file on the command line using
+  [`--static-nodes-file`](../../reference/cli/options.md#static-nodes-file).
 
 1. Start Besu with discovery disabled using
-   [`--discovery-enabled=false`](../../reference/cli/options.md#discovery-enabled).
+  [`--discovery-enabled=false`](../../reference/cli/options.md#discovery-enabled).
 
 To update the list of static peers at run time, use the
 [`admin_addPeer`](../../reference/api/index.md#admin_addpeer) and

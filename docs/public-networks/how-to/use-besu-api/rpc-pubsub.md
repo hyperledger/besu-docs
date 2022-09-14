@@ -154,25 +154,25 @@ notifications include transaction hashes.
           "params":{
             "subscription":"0x1",
             "result": {
-               ....
-               "transactions":[
-                 {
-                   "blockHash":"0xa30ee4d7c271ae5150aec494131c5f1f34089c7aa8fb58bd8bb916a55275bb90",
-                   "blockNumber":"0x63",
-                   "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-                   "gas":"0x5208",
-                   "gasPrice":"0x3b9aca00",
-                   "hash":"0x11f66c3e96a92e3c14c1c33ad77381221bf8b58a887b4fed6aee456fc6f39b24",
-                   "input":"0x",
-                   "nonce":"0x1",
-                   "to":"0x627306090abab3a6e1400e9345bc60c78a8bef57",
-                   "transactionIndex":"0x0",
-                   "value":"0x56bc75e2d63100000",
-                   "v":"0xfe8",
-                   "r":"0x4b57d179c74885ef5f9326fd000665ea7fae44095c1e2016a2817fc671beb8cc",
-                   "s":"0x7ec060b115746dda392777df07ae1feacc0b83b3646f0a3de9a5fc3615af9bb8",
-                 }
-               ],
+              ....
+              "transactions":[
+                {
+                  "blockHash":"0xa30ee4d7c271ae5150aec494131c5f1f34089c7aa8fb58bd8bb916a55275bb90",
+                  "blockNumber":"0x63",
+                  "from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+                  "gas":"0x5208",
+                  "gasPrice":"0x3b9aca00",
+                  "hash":"0x11f66c3e96a92e3c14c1c33ad77381221bf8b58a887b4fed6aee456fc6f39b24",
+                  "input":"0x",
+                  "nonce":"0x1",
+                  "to":"0x627306090abab3a6e1400e9345bc60c78a8bef57",
+                  "transactionIndex":"0x0",
+                  "value":"0x56bc75e2d63100000",
+                  "v":"0xfe8",
+                  "r":"0x4b57d179c74885ef5f9326fd000665ea7fae44095c1e2016a2817fc671beb8cc",
+                  "s":"0x7ec060b115746dda392777df07ae1feacc0b83b3646f0a3de9a5fc3615af9bb8",
+                }
+              ],
             },
           }
         }
@@ -209,7 +209,7 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
     === "All logs"
 
         ```json
-         {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
+        {"id": 1, "method": "eth_subscribe", "params": ["logs",{}]}
         ```
 
     === "Specific address, topic, fromBlock and toBlock"
@@ -242,8 +242,8 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
               "address":"0x9b8397f1b0fecd3a1a40cdd5e8221fa461898517",
               "data":"0x",
               "topics":["0x199cd93e851e4c78c437891155e2112093f8f15394aa89dab09e38d6ca072787","0x0000000000000000000000000000000000000000000000000000000000000005"]
-             }
-           }
+            }
+          }
         }
         ```
 
@@ -441,7 +441,7 @@ synchronization progress. When fully synchronized, returns `false`.
           "startingBlock":"0x0",
           "currentBlock":"0x3e80",
           "highestBlock":"0x67b93c"
-         }
+        }
       }
     }
     ```

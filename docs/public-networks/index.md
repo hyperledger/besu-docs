@@ -2,9 +2,6 @@
 # page icon, insider only, see https://squidfunk.github.io/mkdocs-material/reference/#setting-the-page-icon
 icon: material/book-open-variant
 description: Public networks overview
-# hide feedback on this page as it's just an index page with not much content
-hide:
-  - feedback
 ---
 
 # Hyperledger Besu for public networks
@@ -15,3 +12,12 @@ proof-of-stake Ethereum networks such as Ethereum Mainnet, Goerli, and Sepolia.
 You can also run Besu using proof of work on [Ethereum Classic (ETC)](how-to/use-pow/mining.md).
 
 Get started by [installing Besu](get-started/install/index.md).
+
+## Architecture
+
+The following diagram outlines the high-level architecture of Besu for public networks.
+
+![Public architecture](../assets/images/public-architecture.jpeg)
+
+If you have any questions about Besu for public networks, contact us on the
+[Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

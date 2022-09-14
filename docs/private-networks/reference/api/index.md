@@ -283,9 +283,9 @@ Proposes to [add or remove a signer with the specified address].
 
         ```json
         {
-         "jsonrpc" : "2.0",
-         "id" : 1,
-         "result" : true
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : true
         }
         ```
 
@@ -650,9 +650,9 @@ Proposes to [add or remove a validator] with the specified address.
 
         ```json
         {
-         "jsonrpc" : "2.0",
-         "id" : 1,
-         "result" : true
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : true
         }
         ```
 
@@ -720,7 +720,7 @@ to avoid receiving a `request contains an invalid node` error.
 
 !!! warning
 
-    Enode URL domain name support is an experimental feature.
+    Enode URL domain name support is an early access feature.
 
 #### Parameters
 
@@ -1256,19 +1256,19 @@ or [Besu-extended](../../concepts/privacy/privacy-groups.md#besu-extended-privac
 
         ```json
         {
-         "jsonrpc": "2.0",
-         "id": 1,
-         "result": [
-           {
-             "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
-             "name": "Group B",
-             "description": "Description of Group B",
-             "type": "PANTHEON",
-             "members": [
-               "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
-               "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
-             ]
-           }
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": [
+          {
+            "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",
+            "name": "Group B",
+            "description": "Description of Group B",
+            "type": "PANTHEON",
+            "members": [
+              "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",
+              "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="
+            ]
+          }
         ]
         }
         ```
@@ -2143,9 +2143,9 @@ the specified address.
 
         ```json
         {
-         "jsonrpc" : "2.0",
-         "id" : 1,
-         "result" : true
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : true
         }
         ```
 

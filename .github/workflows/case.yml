@@ -1,0 +1,34 @@
+---
+name: Check file name case
+
+on: [pull_request]
+
+concurrency:
+  group: case-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Check file name case
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check pages file name case
+        shell: sh
+        run: |
+          echo "Testing file case in docs."
+          passed=true
+          for filename in $(find docs -name "*.md" | ( ! grep -P -v "^[[:lower:][:digit:]\/\-_]+\.md$" ))
+          do
+            echo "$filename"
+            echo "::error file=$filename ::File path must be only lowercase letters, digits, - (dash) and _ (underscore)"
+            passed=false
+          done;
+          if [ "$passed" = false ] ; then
+            echo "::error ::Some files path are incorrect. Check error annotations in the pull request."
+            echo "Correct example: my-folder/my-file-name_new2.md"
+            echo "Wrong example: My-Folder/MyFile-NAME.old.md"
+            exit 1
+          fi

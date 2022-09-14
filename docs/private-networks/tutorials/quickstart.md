@@ -80,6 +80,7 @@ When execution is successfully finished, the process lists the available service
     Prometheus address                  : http://localhost:9090/graph
     Grafana address                     : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
     Kibana logs address                 : http://localhost:5601/app/kibana#/discover
+    Collated logs using Grafana Loki    : http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=
 
     For more information on the endpoints and services, refer to README.md in the installation directory.
     ****************************************************************
@@ -99,6 +100,9 @@ When execution is successfully finished, the process lists the available service
 - Use the **Kibana logs address** to access the
   [logs in Kibana](http://localhost:5601/app/kibana#/discover).
   [Read more about log management](../how-to/monitor/elastic-stack.md).
+- Use the **Grafana Loki logs address** to access the
+  [logs in Grafana](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=).
+  [Read more about log management](../how-to/monitor/loki.md).
 
 To display the list of endpoints again, run:
 
@@ -117,14 +121,14 @@ The block explorer displays a summary of the private network, indicating four pe
 
 Select the block number to the right of **Best Block** to display the block details:
 
-![Block Details](../../images/ExplorerBlockDetails.png)
+![Block Details](../../assets/images/ExplorerBlockDetails.png)
 
 You can explore blocks by selecting the blocks under **`Bk`** on the left-hand side.
 
 You can search for a specific block, transaction hash, or address by selecting the :mag:
 in the top left-hand corner.
 
-![Explorer Search](../../images/ExplorerSearch.png)
+![Explorer Search](../../assets/images/ExplorerSearch.png)
 
 ## Monitor nodes with Prometheus and Grafana
 
@@ -133,13 +137,18 @@ You can directly access these tools from your browser at the addresses displayed
 
 - [Prometheus dashboard](http://localhost:9090/graph)
 - [Grafana dashboard](http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All)
+- [Grafana Loki logs dashboard](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=quorum&var-search=)
 
 For more details on how to configure and use these tools for your own nodes, see the
-[performances monitoring documentation](../../public-networks/how-to/monitor/metrics.md),
+[performance monitoring documentation](../../public-networks/how-to/monitor/metrics.md),
 [Prometheus documentation](https://prometheus.io/docs/introduction/overview/)
 and [Grafana documentation](https://grafana.com/docs/).
 
-![Grafana](../../images/grafana.png)
+![Grafana dashboard screenshot](../../assets/images/grafana.png)
+
+and collated logs via Grafana Loki
+
+![Grafana Loki dashboard screenshot](../../assets/images/grafana_loki.png)
 
 ## Run JSON-RPC requests
 
@@ -156,7 +165,7 @@ This tutorial uses [cURL](https://curl.haxx.se/download.html) to send JSON-RPC r
 
 You can also run all the requests with the Besu Postman collection.
 
---8<-- "global/Postman.md"
+--8<-- "global/postman.md"
 
 ### Request the node version
 
@@ -337,7 +346,7 @@ The script:
 
         > Saving migration to chain.
         > Saving artifacts
-           -------------------------------------
+          -------------------------------------
         > Total cost:           0.0044311 ETH
 
     2_deploy_contracts.js
@@ -360,7 +369,7 @@ The script:
 
         > Saving migration to chain.
         > Saving artifacts
-           -------------------------------------
+          -------------------------------------
         > Total cost:           0.0047983 ETH
 
     Summary
@@ -414,15 +423,15 @@ When you select **Adopt**, a MetaMask window pops up and requests your permissio
 
 After the transaction is complete and successful, the status of the pet you adopted shows **Success**.
 
-![Dapp UI](../../images/dapp-ui.png)
+![Dapp UI](../../assets/images/dapp-ui.png)
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
-![Dapp UI](../../images/dapp-explorer-tx.png)
+![Dapp UI](../../assets/images/dapp-explorer-tx.png)
 
 The MetMask UI also keeps a record of the transaction.
 
-![Dapp UI](../../images/dapp-metamask-tx.png)
+![Dapp UI](../../assets/images/dapp-metamask-tx.png)
 
 ### Deploy your own dapp
 
@@ -432,7 +441,7 @@ network.
 If you're using [Truffle](https://trufflesuite.com/truffle/), update the `networks` object in the
 [Truffle configuration file](https://trufflesuite.com/docs/truffle/reference/configuration#networks) to specify which
 networks to connect to for deployments and testing.
-The Quickstart's RPC service endpoint is `http://localhost:8545`.
+The Quickstart RPC service endpoint is `http://localhost:8545`.
 
 For example, the following is the Truffle configuration file for the Pet Shop dapp used in the Quickstart Besu network:
 

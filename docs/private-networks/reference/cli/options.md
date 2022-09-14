@@ -129,7 +129,7 @@ Enables or disables file-based account level permissions. The default is `false`
 === "Configuration file"
 
     ```bash
-    permissions-accounts-contract-address=xyz
+    permissions-accounts-contract-address="xyz"
     ```
 
 The contract address for
@@ -251,7 +251,7 @@ Enables or disables file-based node level permissions. The default is `false`.
 === "Configuration file"
 
     ```bash
-    permissions-nodes-contract-address=xyz
+    permissions-nodes-contract-address="xyz"
     ```
 
 The contract address for

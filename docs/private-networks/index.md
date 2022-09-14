@@ -2,9 +2,6 @@
 # page icon, insider only, see https://squidfunk.github.io/mkdocs-material/reference/#setting-the-page-icon
 icon: material/book-lock-outline
 description: Private networks overview
-# hide feedback on this page as it's just an index page with not much content
-hide:
-  - feedback
 ---
 
 # Hyperledger Besu for private networks
@@ -24,3 +21,12 @@ Besu supports enterprise features including [privacy](concepts/privacy/index.md)
 
 Get started with the [Developer Quickstart](tutorials/quickstart.md) to rapidly generate local
 blockchain networks.
+
+## Architecture
+
+The following diagram outlines the high-level architecture of Besu for private networks.
+
+![Private architecture](../assets/images/private-architecture.jpeg)
+
+If you have any questions about Besu for private networks, contact us on the
+[Besu channel on Hyperledger Discord](https://discord.gg/hyperledger).

@@ -41,7 +41,7 @@ The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provide
 interface for editing and testing GraphQL queries and mutations. GraphiQL also provides access to
 the [Besu GraphQL schema] from within the app.
 
-![GraphiQL](../../../images/GraphiQL.png)
+![GraphiQL](../../../assets/images/GraphiQL.png)
 
 ## Pending
 

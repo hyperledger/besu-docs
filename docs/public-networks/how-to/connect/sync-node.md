@@ -85,8 +85,8 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
 
 !!! important
 
-    Snap sync is an experimental feature.
-    However, we recommend using snap sync over fast sync even in certain production environments (for example, staking),
+    Snap sync is an early access feature.
+    We recommend using snap sync over fast sync even in certain production environments (for example, staking),
     because snap sync can be faster by several days.
     If your snap sync completes successfully, you have the correct world state.
 
@@ -103,11 +103,13 @@ You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
 deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
+See [how to read the Besu metrics charts](../monitor/understand-metrics.md) when using snap sync.
+
 ### Checkpoint synchronization
 
 !!! important
 
-    Checkpoint sync is an experimental feature.
+    Checkpoint sync is an early access feature.
 
 Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.3 or later to use checkpoint sync.
@@ -116,8 +118,11 @@ Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of 
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
 file](../../concepts/genesis-file.md).
 
-You can configure a checkpoint in the genesis file by specifying the block hash, number, and total
-difficulty as in the following example.
+Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
+don't have to add this yourself.
+
+For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
+number, and total difficulty as in the following example.
 
 !!! example "Checkpoint configuration example"
 
@@ -133,9 +138,6 @@ difficulty as in the following example.
 
     If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
     checkpoint must be the beginning of an epoch.
-
-Checkpoints are currently already defined in the network configurations for Ethereum Mainnet and
-the Goerli testnet.
 
 If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
 sync from the genesis block.

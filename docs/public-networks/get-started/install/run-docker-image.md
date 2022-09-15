@@ -14,9 +14,9 @@ Use this Docker image to run a single Besu node without installing Besu.
 
 * MacOS or Linux
 
-!!! important
+    !!! important
 
-    The Docker image does not run on Windows.
+        The Docker image doesn't run on Windows.
 
 ## Default node for Mainnet
 
@@ -86,7 +86,7 @@ docker run -p <localportJSON-RPC>:8545 -p <localportWS>:8546 -p <localportP2P>:3
     [`--nat-method`](../../how-to/connect/specify-nat.md) to `NONE` or `UPNP`.
 
 You can specify
-[Besu environment variables](../../reference/cli/options.md#besu-environment-variables) with the
+[Besu environment variables](../../reference/cli/options.md#specify-options) with the
 Docker image instead of the command line options.
 
 !!! example
@@ -94,6 +94,21 @@ Docker image instead of the command line options.
     ```bash
     docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=goerli hyperledger/besu:latest
     ```
+
+??? caution "Unsupported address type exception"
+
+    When running Besu from a Docker image, you might get the following exception:
+
+    ```bash
+    Unsupported address type exception when connecting to peer {}, this is likely due to ipv6 not being enabled at runtime.
+    ```
+
+    This happens when the IPv6 support in Docker is disabled while connecting to an IPv6 peer,
+    preventing outbound communication.
+    IPv6 is disabled by default in Docker.
+
+    [Enable IPv6 support in Docker](https://docs.docker.com/config/daemon/ipv6/) to allow outbound
+    IPv6 traffic and allow connection with IPv6 peers.
 
 ### Run a node for testing
 

@@ -56,7 +56,17 @@ Using fast sync with [private transactions](../../../private-networks/concepts/p
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
 [metrics](../monitor/metrics.md#metrics-list) to monitor fast sync.
 
-!!! warning
+!!! note
+
+    When fast syncing, block numbers increase until close to the head block, then the process pauses
+    while the world state download completes.
+    This may take a significant amount of time depending on world state size, during which the
+    current head block doesn't increase.
+    For example, Mainnet may take several days or more to fast sync.
+    Fast sync time may increase because Besu picks new pivot blocks, or because peers prune the
+    world state before it completes downloading.
+
+!!! caution "RocksDB error on AWS"
 
     When running Besu on some cloud providers, a known [RocksDB](https://github.com/facebook/rocksdb/issues/6435) issue
     causes fast sync to fail occasionally.
@@ -71,15 +81,21 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     On AWS, A full restart of the VM is required to restart the fast sync.
     Fast sync isn't [currently supported on Digital Ocean](https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/CHANGELOG.md#143).
 
-!!! note
+!!! caution "Pending state nodes stays constant"
 
-    When fast syncing, block numbers increase until close to the head block, then the process pauses while the world
-    state download completes.
-    This may take a significant amount of time depending on world state size, during which the current head block
-    doesn't increase.
-    For example, Mainnet may take several days or more to fast sync.
-    Fast sync time may increase because Besu picks new pivot blocks, or because peers prune the world state before it
-    completes downloading.
+    When fast syncing, the pending state nodes count is the number of nodes yet to be downloaded, and
+    it should change constantly.
+    Pending state nodes trend to 0 during fast sync and then goes to 0.
+
+    If the number stays constant, this could mean your node isn't syncing against any peers.
+
+    In the following example, the pivot block is 0 and the pending state nodes value is constant.
+    This means the node isn't syncing against any peers.
+    The fact that state nodes have been downloaded means at some stage it was syncing.
+
+    ![Fast synchronization](../../../assets/images/fastsync.png)
+
+    The easiest solution in this scenario is to restart fast sync to obtain a new pivot block.
 
 ### Snap synchronization
 

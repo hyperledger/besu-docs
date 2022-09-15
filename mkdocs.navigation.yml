@@ -104,7 +104,7 @@ nav:
               - Consensus:
                   - private-networks/how-to/configure/consensus/index.md
                   - QBFT: private-networks/how-to/configure/consensus/qbft.md
-                  - IBFT: private-networks/how-to/configure/consensus/ibft.md
+                  - IBFT 2.0: private-networks/how-to/configure/consensus/ibft.md
                   - Clique: private-networks/how-to/configure/consensus/clique.md
                   - Add and remove validators without voting: private-networks/how-to/configure/consensus/add-validators-without-voting.md
               - Free gas network: private-networks/how-to/configure/free-gas.md

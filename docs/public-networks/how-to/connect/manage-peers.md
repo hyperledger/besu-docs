@@ -100,3 +100,15 @@ To disable P2P discovery, set the
 With discovery disabled, peers can't open connections with the node unless they were previously discovered or manually
 peered (for example, using [`admin_addPeer`](../../reference/api/index.md#admin_addpeer)).
 [Static nodes](static-nodes.md) can also open connections.
+
+## Troubleshoot
+
+If your nodes fail to connect, ensure the
+[required ports are open](configure-ports.md).
+
+If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to
+the required ports.
+
+Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for
+[bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or
+[static nodes](static-nodes.md) match the enode URLs displayed when starting the remote nodes.

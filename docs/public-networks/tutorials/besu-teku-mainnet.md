@@ -53,8 +53,8 @@ Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-t
 
 This command also specifies the following options:
 
-- [`sync-mode`](../reference/cli/options.md#sync-mode) - Use [snap sync](sync-node.md#snap-synchronization).
-- [`data-storage-format`](../reference/cli/options.md#data-storage-format) - Use [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+- [`sync-mode`](../reference/cli/options.md#sync-mode) - Use [snap sync](../get-started/connect/sync-node.md#snap-synchronization).
+- [`data-storage-format`](../reference/cli/options.md#data-storage-format) - Use [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries).
 - [`rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) - Enable the HTTP JSON-RPC
   service.
 - [`rpc-http-host`](../reference/cli/options.md#rpc-http-host) - Set to `0.0.0.0` to allow remote

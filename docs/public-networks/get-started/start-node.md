@@ -47,53 +47,18 @@ the file using the [`--genesis-file`](../reference/cli/options.md#genesis-file) 
 ## Syncing and storage
 
 By default, Besu syncs to the current state of the blockchain using
-[fast sync](../how-to/connect/sync-node.md#fast-synchronization) in:
+[fast sync](connect/sync-node.md#fast-synchronization) in:
 
 - Networks specified using [`--network`](../reference/cli/options.md#network) except for the `dev`
   development network.
 - Ethereum Mainnet.
 
-We recommend using [snap sync](../how-to/connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
+We recommend using [snap sync](connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu
 with [`--sync-mode=X_SNAP`](../reference/cli/options.md#sync-mode).
 
 By default, Besu stores data in the [Forest of Tries](../concepts/data-storage-formats.md#forest-of-tries) format.
 We recommend using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements,
 by starting Besu with [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
-
-## Confirm node is running
-
-If you started Besu with the
-[`--rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) option, use
-[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../reference/api/index.md) to
-confirm the node is running.
-
-!!!example
-
-    * `eth_chainId` returns the chain ID of the network.
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
-        ```
-
-    * `eth_syncing` returns the starting, current, and highest block.
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
-        ```
-
-        For example, after connecting to Mainnet, `eth_syncing` will return something similar to:
-
-        ```json
-        {
-          "jsonrpc" : "2.0",
-          "id" : 1,
-          "result" : {
-            "startingBlock" : "0x0",
-            "currentBlock" : "0x2d0",
-            "highestBlock" : "0x66c0"
-          }
-        }
-        ```
 
 ## Run a node for testing
 
@@ -141,6 +106,8 @@ besu --network=goerli --data-path=<path>/<goerlidata-path>
 
 Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
 
+See the [guide on connecting to a testnet](connect/testnet.md) for more information.
+
 ## Run a node on Sepolia testnet
 
 To run a node on [Sepolia](https://github.com/goerli/sepolia) specifying a data directory:
@@ -151,6 +118,8 @@ besu --network=sepolia --data-path=<path>/<sepoliadata-path>
 
 Where `<path>` and `<sepoliadata-path>` are the path and directory to save the Sepolia chain data
 to.
+
+See the [guide on connecting to a testnet](connect/testnet.md) for more information.
 
 ## Run a node on Ethereum Mainnet
 
@@ -165,6 +134,8 @@ To run a node on Mainnet with the HTTP JSON-RPC service enabled and available fo
 ```bash
 besu --rpc-http-enabled
 ```
+
+See the [guide on connecting to Mainnet](connect/mainnet.md) for more information.
 
 ## Besu launcher
 
@@ -200,3 +171,38 @@ If a configuration file is already present in the directory where the command is
 Besu will start and use the values in the configuration file. To force the launcher to interact
 during a restart, use the `--Xlauncher-force` option, or delete the configuration
 file.
+
+## Confirm node is running
+
+If you started Besu with the
+[`--rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) option, use
+[cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../reference/api/index.md) to
+confirm the node is running.
+
+!!! example
+
+    * `eth_chainId` returns the chain ID of the network.
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
+        ```
+
+    * `eth_syncing` returns the starting, current, and highest block.
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
+        ```
+
+        For example, after connecting to Mainnet, `eth_syncing` will return something similar to:
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : {
+            "startingBlock" : "0x0",
+            "currentBlock" : "0x2d0",
+            "highestBlock" : "0x66c0"
+          }
+        }
+        ```

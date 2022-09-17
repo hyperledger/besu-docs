@@ -4,8 +4,10 @@ description: Engine API methods reference
 
 # Engine API methods
 
-After [The Merge](../../concepts/the-merge.md), consensus and execution clients communicate with each other using the Engine API.
-When running Besu as an execution client, [use these API calls](../../how-to/use-engine-api.md) to communicate with a consensus client.
+[Consensus and execution clients](../../concepts/the-merge.md#execution-and-consensus-clients)
+communicate with each other using the Engine API.
+When running Besu as an execution client, [use these API calls](../../how-to/use-engine-api.md) to
+communicate with a consensus client.
 
 See the [Ethereum Engine API specification](https://github.com/ethereum/execution-apis/blob/0b965fb714ccd3faa3c939fdce1726e56679cdec/src/engine/specification.md) for more information.
 

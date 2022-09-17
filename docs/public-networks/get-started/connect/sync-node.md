@@ -54,7 +54,7 @@ options.
 Using fast sync with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
 
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
-[metrics](../monitor/metrics.md#metrics-list) to monitor fast sync.
+[metrics](../../how-to/monitor/metrics.md#metrics-list) to monitor fast sync.
 
 !!! note
 
@@ -119,7 +119,7 @@ You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
 deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
-See [how to read the Besu metrics charts](../monitor/understand-metrics.md) when using snap sync.
+See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
 
 ### Checkpoint synchronization
 

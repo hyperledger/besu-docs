@@ -55,9 +55,9 @@ To run a node with Bonsai Tries data storage format, use the command line option
 ### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai.
-With an [archive node](../how-to/connect/sync-node.md#run-an-archive-node), forest mode uses an estimated 12 TB of
+With an [archive node](../get-started/connect/sync-node.md#run-an-archive-node), forest mode uses an estimated 12 TB of
 storage, while Bonsai uses an estimated 1100 GB of storage.
-With a [full node](../how-to/connect/sync-node.md#run-a-full-node), forest mode uses an estimated 7 TB of storage,
+With a [full node](../get-started/connect/sync-node.md#run-a-full-node), forest mode uses an estimated 7 TB of storage,
 while Bonsai uses an estimated 790 GB of storage.
 
 ### Accessing data
@@ -78,8 +78,8 @@ The default limit Bonsai looks back is 512. To change the parameter, use the
 
 ### Syncing nodes
 
-The following table shows the ways you can [sync a full node](../how-to/connect/sync-node.md#run-a-full-node) with the different data
-storage formats using [fast](../how-to/connect/sync-node.md#fast-synchronization) and [snap](../how-to/connect/sync-node.md#snap-synchronization) sync.
+The following table shows the ways you can [sync a full node](../get-started/connect/sync-node.md#run-a-full-node) with the different data
+storage formats using [fast](../get-started/connect/sync-node.md#fast-synchronization) and [snap](../get-started/connect/sync-node.md#snap-synchronization) sync.
 
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 |---------------------|-----------|------------------|------------------------------------|

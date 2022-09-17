@@ -4,7 +4,7 @@ description: Ethereum proof of stake
 
 # Proof of stake
 
-[The Merge](the-merge.md) transitions Ethereum Mainnet to
+[The Merge](the-merge.md) transitioned Ethereum Mainnet to
 [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
 PoS is preferred over proof of work and proof of authority as a consensus mechanism
@@ -46,7 +46,7 @@ In Ethereum's PoS, you must run a [full node](the-merge.md#execution-and-consens
 
 !!! note
 
-    You must run a beacon node and an execution client to operate a full node on Mainnet post-Merge.
+    You must run a beacon node and an execution client to operate a full node on Mainnet.
     To become a validator, you must also run a validator client (either
     [in the same process as the beacon node](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#start-the-clients-in-a-single-process) or
     [separately](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#run-the-clients-separately)).

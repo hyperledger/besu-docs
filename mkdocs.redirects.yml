@@ -76,7 +76,7 @@ plugins:
       HowTo/Find-and-Connect/Configuring-Ports.md: public-networks/how-to/connect/configure-ports.md
       HowTo/Find-and-Connect/Managing-Peers.md: public-networks/how-to/connect/manage-peers.md
       HowTo/Find-and-Connect/Specifying-NAT.md: public-networks/how-to/connect/specify-nat.md
-      Concepts/Node-Types.md: public-networks/how-to/connect/sync-node.md
+      Concepts/Node-Types.md: public-networks/get-started/connect/sync-node.md
       HowTo/Monitor/Metrics.md: public-networks/how-to/monitor/metrics.md
       HowTo/Monitor/Logging.md: public-networks/how-to/monitor/logging.md
       HowTo/Monitor/Elastic-Stack.md: private-networks/how-to/monitor/elastic-stack.md
@@ -97,7 +97,7 @@ plugins:
       HowTo/Troubleshoot/Trace-Transactions.md: public-networks/how-to/troubleshoot/trace-transactions.md
       Concepts/Node-Keys.md: public-networks/concepts/node-keys.md
       Concepts/Data-Storage-Formats.md: public-networks/concepts/data-storage-formats.md
-      Tutorials/Merge-Testnet.md: public-networks/tutorials/merge-testnet.md
+      Tutorials/Merge-Testnet.md: public-networks/tutorials/besu-teku-testnet.md
       Reference/CLI/CLI-Syntax.md: public-networks/reference/cli/options.md
       Reference/CLI/CLI-Subcommands.md: public-networks/reference/cli/subcommands.md
       Reference/API-Methods.md: public-networks/reference/api/index.md
@@ -200,3 +200,5 @@ plugins:
       Concepts/Pruning.md: public-networks/concepts/data-storage-formats.md
       Concepts/TLS.md: private-networks/how-to/configure/tls/client-and-server.md
       public-networks/how-to/troubleshoot/java-flight-recorder.md: public-networks/how-to/configure-jvm/java-flight-recorder.md
+      public-networks/how-to/connect/sync-node.md: public-networks/get-started/connect/sync-node.md
+      public-networks/tutorials/merge-testnet.md: public-networks/tutorials/besu-teku-testnet.md

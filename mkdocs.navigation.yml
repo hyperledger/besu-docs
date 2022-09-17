@@ -19,6 +19,11 @@ nav:
               - Run Besu from Docker image: public-networks/get-started/install/run-docker-image.md
               - Install binary distribution: public-networks/get-started/install/binary-distribution.md
           - Start Besu: public-networks/get-started/start-node.md
+          - Connect to a network:
+              - public-networks/get-started/connect/index.md
+              - Sync Besu: public-networks/get-started/connect/sync-node.md
+              - Connect to Mainnet: public-networks/get-started/connect/mainnet.md
+              - Connect to a testnet: public-networks/get-started/connect/testnet.md
           - Migrate to Besu: public-networks/get-started/migrate-to-besu.md
       - How to:
           - Prepare for The Merge: public-networks/how-to/prepare-for-the-merge.md
@@ -32,8 +37,7 @@ nav:
           - Use the Engine API: public-networks/how-to/use-engine-api.md
           - Use a configuration file: public-networks/how-to/configuration-file.md
           - Create and send transactions: public-networks/how-to/send-transactions.md
-          - Connect to a network:
-              - Sync Besu: public-networks/how-to/connect/sync-node.md
+          - Find and connect to peers:
               - Configure static nodes: public-networks/how-to/connect/static-nodes.md
               - Configure ports: public-networks/how-to/connect/configure-ports.md
               - Manage peers: public-networks/how-to/connect/manage-peers.md
@@ -73,7 +77,8 @@ nav:
           - Genesis file: public-networks/concepts/genesis-file.md
           - Node keys: public-networks/concepts/node-keys.md
       - Tutorials:
-          - Run Besu and Teku on the Merge testnet: public-networks/tutorials/merge-testnet.md
+          - Run Besu and Teku on Mainnet: public-networks/tutorials/besu-teku-mainnet.md
+          - Run Besu and Teku on a testnet: public-networks/tutorials/besu-teku-testnet.md
       - Reference:
           - Besu command line:
               - Options: public-networks/reference/cli/options.md

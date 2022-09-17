@@ -12,7 +12,7 @@ To migrate from a different client,
 and connect your [consensus client](../concepts/the-merge.md#consensus-clients) to Besu instead of
 your original execution client.
 
-To minimize downtime while [Besu syncs](../how-to/connect/sync-node.md) and avoid downtime penalties,
+To minimize downtime while [Besu syncs](connect/sync-node.md) and avoid downtime penalties,
 you can sync Besu with a new consensus layer instance.
 Once Besu has fully synced you can connect it to your existing consensus client.
 

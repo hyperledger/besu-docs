@@ -1,5 +1,5 @@
 ---
-Description: How to run Besu and Teku on the Merge testnet
+Description: How to connect to a testnet
 ---
 
 # Connect to a testnet
@@ -14,7 +14,7 @@ follow the [Besu and Teku testnet tutorial](../../tutorials/besu-teku-testnet.md
 !!! note
 
     Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator first](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
+    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
     You can connect your consensus client using the beacon node only, without any validator duties.
 
 ## Prerequisites

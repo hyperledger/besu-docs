@@ -13,7 +13,7 @@ Ethereum testnets.
 !!! note
 
     Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator first](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
+    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
     You can connect your consensus client using the beacon node only, without any validator duties.
 
 ## 1. Install Besu and Teku
@@ -166,7 +166,7 @@ the options in the [Teku configuration file]:
 === "Sepolia"
 
     Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator first](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
+    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 
 Specify:
 

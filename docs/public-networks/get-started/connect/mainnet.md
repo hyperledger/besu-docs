@@ -74,8 +74,8 @@ This command also specifies the following options:
   hostnames to access the Engine API.
 - `Xmerge-support` - Enable Merge support.
 
-You can modify the values and add other [command line options](../../reference/cli/options.md) as
-needed.
+You can modify the option values and add other [command line options](../../reference/cli/options.md)
+as needed.
 
 ### 3. Generate validator keys and stake ETH
 

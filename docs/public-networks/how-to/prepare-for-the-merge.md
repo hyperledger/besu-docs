@@ -66,7 +66,9 @@ Validators can't produce attestations or blocks without a fully synced execution
 To expedite network participation, [sync Besu](connect/sync-node.md) on Ethereum Mainnet before the Merge
 configuration (Bellatrix) comes online.
 
-!!! caution "If you restart your node before SNAP or CHECKPOINT sync has completed, syncing will restart from scratch."
+!!! caution
+
+    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
 
 ## Update Besu
 

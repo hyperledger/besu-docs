@@ -65,6 +65,8 @@ This command also specifies the following options:
   RPC connections.
 - [`rpc-ws-enabled`](../reference/cli/options.md#rpc-ws-enabled) - Enable the WebSocket JSON-RPC
   service.
+- [`rpc-ws-host`](../reference/cli/options.md#rpc-ws-host) - Set to `0.0.0.0` to allow remote RPC
+  connections.
 - `Xmerge-support` - Enable Merge support.
 
 You can modify the option values and add other [command line options](../reference/cli/options.md)

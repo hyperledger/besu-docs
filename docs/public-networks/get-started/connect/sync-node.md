@@ -121,6 +121,10 @@ deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
 See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
 
+!!! caution
+
+    If you restart your node before snap sync completes, syncing restarts from scratch.
+
 ### Checkpoint synchronization
 
 !!! important
@@ -149,6 +153,10 @@ number, and total difficulty as in the following example.
       "totalDifficulty": "0xA2539264C62BF98CFC6"
     }
     ```
+
+!!! caution
+
+    If you restart your node before checkpoint sync completes, syncing restarts from scratch.
 
 !!! note
 

@@ -130,5 +130,9 @@ After starting Besu and the consensus client, your node starts syncing and conne
 You can check your validator status by searching your Ethereum address on the [Beacon Chain explorer](https://beaconcha.in/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.
 
+!!! caution
+
+    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
+
 <!-- links -->
 [Teku]: https://docs.teku.consensys.net/en/stable/

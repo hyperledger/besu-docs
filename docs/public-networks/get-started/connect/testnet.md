@@ -139,6 +139,10 @@ After starting Besu and the consensus client, your node starts syncing and conne
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
+!!! caution
+
+    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
+
 You can check your validator status by searching your Ethereum address on the
 [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.

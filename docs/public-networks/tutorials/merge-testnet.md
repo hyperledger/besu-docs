@@ -209,3 +209,7 @@ After starting Besu and Teku, your node starts syncing and connecting to peers.
 
 You can check your validator status by searching your Ethereum address on the [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.
+
+!!! caution
+
+    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.

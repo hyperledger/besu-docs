@@ -15,7 +15,7 @@ Running EVM transactions creates a lot of random reads that are executed sequent
 The Besu data folder for high throughput nodes should be located on the fastest possible storage media.
 
 * Prefer [NVMe](https://cloud.google.com/compute/docs/disks/local-ssd#performance) attached SLC flash or Intel Optane.
-* Avoid network attached SSDs or cloud storage with limited IOPs.
+* Avoid network attached SSDs or cloud storage with limited input/output operations per second.
 * Do not use spinning disks under any circumstances.
 
 ## Private transaction performance

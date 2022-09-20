@@ -59,10 +59,10 @@ azure:
   subscriptionId: azure-subscriptionId
 ```
 
-Setting the `cluster.cloudNativeServices: true` will:
+Setting the `cluster.cloudNativeServices: true`:
 
-* Store keys in Azure KeyVault or AWS Secrets Manager
-* Make use of Azure Managed Identities or AWS IAMs for pod identity access
+* Stores keys in Azure Key Vault or AWS Secrets Manager.
+* Uses Azure Managed Identities or AWS Identity and Access Management for pod identity access.
 
 !!! note
 

@@ -5717,15 +5717,14 @@ For example, you cannot query transactions with a gas price between 8 and 9 Gwei
 
 All filters must be satisfied for a transaction to be returned.
 
-| Field name   | Value                                     | Value type            | Supported operators |
-|--------------|-------------------------------------------|:---------------------:|---------------------|
-| **from**     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
-| **to**       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
-| **gas**      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
-| **gasPrice** | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-| **value**    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
-| **nonce**    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
-|
+| Field name | Value                                     | Value type            | Supported operators |
+|------------|-------------------------------------------|:---------------------:|---------------------|
+| `from`     | Address of the sender.                    | *Data*, 20&nbsp;bytes | `eq`                |
+| `to`       | Address of the receiver, or `"contract_creation"`.| *Data*, 20&nbsp;bytes |`eq`, `action`|
+| `gas`      | Gas provided by the sender.               | *Quantity*            | `eq`, `gt`, `lt`    |
+| `gasPrice` | Gas price, in wei, provided by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
+| `value`    | Value transferred, in wei.                | *Quantity*            | `eq`, `gt`, `lt`    |
+| `nonce`    | Number of transactions made by the sender.| *Quantity*            | `eq`, `gt`, `lt`    |
 
 Supported operators:
 

@@ -48,10 +48,10 @@ Run the following command or specify the options in a
     besu \
       --network=goerli            \
       --rpc-http-enabled=true     \
-      --rpc-http-host="0.0.0.0"   \
+      --rpc-http-host=0.0.0.0     \
       --rpc-http-cors-origins="*" \
       --rpc-ws-enabled=true       \
-      --rpc-ws-host="0.0.0.0"     \
+      --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
       --Xmerge-support=true       \
@@ -64,10 +64,10 @@ Run the following command or specify the options in a
     besu \
       --network=sepolia           \
       --rpc-http-enabled=true     \
-      --rpc-http-host="0.0.0.0"   \
+      --rpc-http-host=0.0.0.0     \
       --rpc-http-cors-origins="*" \
       --rpc-ws-enabled=true       \
-      --rpc-ws-host="0.0.0.0"     \
+      --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
       --Xmerge-support=true       \

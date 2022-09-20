@@ -46,17 +46,21 @@ besu \
   --sync-mode=X_SNAP           \
   --data-storage-format=BONSAI \
   --rpc-http-enabled=true      \
-  --rpc-http-host="0.0.0.0"    \
+  --rpc-http-host=0.0.0.0      \
   --rpc-ws-enabled=true        \
-  --rpc-ws-host="0.0.0.0"      \
-  --host-allowlist="*"         \
-  --engine-host-allowlist="*"  \
+  --rpc-ws-host=0.0.0.0        \
+  --host-allowlist=<IP of Besu node>,127.0.0.1,localhost        \
+  --engine-host-allowlist=<IP of Besu node>,127.0.0.1,localhost \
   --Xmerge-support=true        \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-Specify the path to the `jwtsecret.hex` file generated in [step 1](#1-generate-the-shared-secret)
-using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
+Specify:
+
+- The path to the `jwtsecret.hex` file generated in [step 1](#1-generate-the-shared-secret)
+  using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
+- The IP address of your Besu node using the [`--host-allowlist`](../../reference/cli/options.md#host-allowlist)
+  and [`--engine-host-allowlist`](../../reference/cli/options.md#engine-host-allowlist) options.
 
 This command also specifies the following options:
 
@@ -68,10 +72,6 @@ This command also specifies the following options:
   RPC connections.
 - [`rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) - Enable the WebSocket JSON-RPC
   service.
-- [`host-allowlist`](../../reference/cli/options.md#host-allowlist) - Allow all hostnames to access
-  the JSON-RPC API.
-- [`engine-host-allowlist`](../../reference/cli/options.md#engine-host-allowlist) - Allow all
-  hostnames to access the Engine API.
 - `Xmerge-support` - Enable Merge support.
 
 You can modify the option values and add other [command line options](../../reference/cli/options.md)

@@ -2,8 +2,10 @@
 Alethio
 [aA]llowlist(s)?
 Ansible
+API(s)?
 [aA]utogenerated
 [aA]ttester(s)?
+AZ(s)?
 Azure
 [bB]ackend
 [bB]ackoff
@@ -26,6 +28,7 @@ Codefi
 containerd
 ConsenSys
 [cC]ounterpart(y|ies)
+CPU(s)?
 [cC]rafter
 [cC]ryptocurrenc(y|ies)
 ctrl
@@ -34,6 +37,7 @@ Dapp(s)?
 Dev
 [dD]atatype(s)?
 [dD]eauthoriz(e|ing)
+EIP(s)?
 [eE]ncryptor(s)?
 [eE]node(s)?
 etcd
@@ -57,6 +61,7 @@ Gradle
 Grafana
 gRPC
 [gG]?[wW]ei
+HAProxy
 HashiCorp
 [hH]ashrate(s)?
 Helmfile(s)?
@@ -72,6 +77,7 @@ Javadoc
 JMeter
 JSON
 jnacl
+JWT(s)?
 Kafka
 kalium
 Keycloak
@@ -103,6 +109,7 @@ MkDocs
 Nginx
 Nodejs
 [nN]once(s)?
+NVMe
 [oO]ffchain
 [oO]nboard(ing)?
 [oO]nchain
@@ -113,6 +120,7 @@ Orion
 PegaSys
 [pP]ermission(ing|ed)?
 [pP]luggable
+PMT(s)?
 P[oO]A
 Poste
 Postgres
@@ -145,6 +153,7 @@ Mordor
 Slack
 [sS]lashable
 Splunk
+SSD(s)?
 statefully
 [sS]tatefulset
 [sS]ubcommand(s)?
@@ -169,6 +178,11 @@ Unix
 [vV]alidator(s)?
 Vertx
 [vV]eto(s|es)?
+VNet(s)?
+VPC(s)?
+VPN(s)?
+VSCode
+VTx
 Web
 Web3Signer
 [wW]ebservice(s)?

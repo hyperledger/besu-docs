@@ -97,10 +97,10 @@ to zero.
 
 ### 4. Enable zero base fee if using London fork or later
 
-If your network is configured to use the `londonBlock` or a later hardfork, then you must also enable the `zeroBaseFee` configuration.
+If your network is configured to use the `londonBlock` or a later hard fork, then you must also enable the `zeroBaseFee` configuration.
 You must set this on all your nodes.
-Once it is set then future blocks produced by that node will set a `baseFee` of 0.
-This is required because the London hardfork (EIP-1559) introduced a non-zero `baseFee` into the block which normally means transactions require gas.
+Once it is set, future blocks produced by that node will set a `baseFee` of 0.
+This is required because the London hard fork (EIP-1559) introduced a non-zero `baseFee` into the block which normally means transactions require gas.
 
 ```json
 {
@@ -111,7 +111,7 @@ This is required because the London hardfork (EIP-1559) introduced a non-zero `b
   },
   ...
 }
-``` 
+```
 
 ## Configure free gas in Truffle
 

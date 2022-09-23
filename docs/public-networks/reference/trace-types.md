@@ -9,7 +9,7 @@ tags:
 When [tracing transactions](../how-to/troubleshoot/trace-transactions.md), the trace type options are
 [`trace`](#trace), [`vmTrace`](#vmtrace), and [`stateDiff`](#statediff).
 
-## trace
+## `trace`
 
 An ordered list of calls to other contracts, excluding precompiled contracts.
 
@@ -54,7 +54,7 @@ An ordered list of calls to other contracts, excluding precompiled contracts.
 | `traceAddress` | Tree list address of where the call occurred, address of the parents, and order of the current sub call.
 | `type`         | Whether the transaction is a `CALL` or `CREATE` series operation.
 
-## vmTrace
+## `vmTrace`
 
 An ordered list of EVM actions when processing the transaction.
 
@@ -108,7 +108,7 @@ not executed.
 | `pc`      | Program counter.
 | `sub`     | Sub call operations.
 
-## stateDiff
+## `stateDiff`
 
 State changes in the requested block for each transaction represented as a map of accounts to an
 object. Besu lists the balance, code, nonce, and storage changes from immediately before the
@@ -116,7 +116,7 @@ transaction to after the transaction. For the `key:value` pairs:
 
 * `+` indicates the field didn’t exist before and now has the specified value
 * `-` indicates a deleted value
-* `*` has a from and a to value.
+* `*` has a `from` and a `to` value.
 
 An absent value is distinct from zero when creating accounts or clearing storage.
 

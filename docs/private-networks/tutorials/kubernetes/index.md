@@ -92,16 +92,17 @@ cloud or on premise.
 
 In Kubernetes, [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) provide a
 mechanism for isolating groups of resources within a single cluster.
-Both namespaces and resources (for example, StatefulSets or Services) within a namespace must be unique, but resources
+Both namespaces and resources (for example, Stateful Sets or Services) within a namespace must be unique, but resources
 across namespaces don't need to be.
 
 !!! note
 
-    Namespace-based scoping is not applicable for cluster-wide objects (for example, StorageClass or PersistentVolumes).
+    Namespace-based scoping is not applicable for cluster-wide objects (for example, Storage Class
+    or Persistent Volumes).
 
 ### Nodes
 
-Consider using StatefulSets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
+Consider using Stateful Sets instead of Deployments for Besu. The term 'client node' refers to bootnode, validator
 and member/RPC nodes. For Besu nodes, we only use CLI arguments to keep things consistent.
 
 ### Role-based access controls
@@ -109,7 +110,7 @@ and member/RPC nodes. For Besu nodes, we only use CLI arguments to keep things c
 We encourage using role-based access controls (RBACs) for access to the private key of each node, that is, only a specific pod or statefulset is
 allowed to access a specific secret.
 
-If you need to specify a Kube configuration file for each pod, use the KUBE_CONFIG_PATH variable.
+If you need to specify a Kube configuration file for each pod, use the `KUBE_CONFIG_PATH` variable.
 
 ### Storage
 
@@ -125,9 +126,9 @@ Select the appropriate type of [Storage Class](https://kubernetes.io/docs/concep
 on your cloud provider. In the templates, the size of the [volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
 is set to 20Gb by default; you can change this depending on your needs. If you have a different storage
 account than the one in the charts, you may edit those
-[storageClasses](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/charts/besu-node/templates/node-storage.yaml).
+[Storage Classes](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/charts/besu-node/templates/node-storage.yaml).
 
-When using PVCs, set the `allowVolumeExpansion` to `true`. This helps keep costs low and enables growing the volume
+When using Persistent Volume Claims, set the `allowVolumeExpansion` to `true`. This helps keep costs low and enables growing the volume
 over time rather than creating new volumes and copying data across.
 
 ### Monitoring

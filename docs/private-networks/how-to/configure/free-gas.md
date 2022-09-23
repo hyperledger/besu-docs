@@ -95,6 +95,24 @@ to zero.
     Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price.
     You can query a node's gas configuration using [`eth_gasPrice`](../../../public-networks/reference/api/index.md#eth_gasprice).
 
+### 4. Enable zero base fee if using London fork or later
+
+If your network is configured to use the `londonBlock` or a later hard fork, then you must also enable the `zeroBaseFee` configuration.
+You must set this on all your nodes.
+Once it is set, future blocks produced by that node will set a `baseFee` of 0.
+This is required because the London hard fork (EIP-1559) introduced a non-zero `baseFee` into the block which normally means transactions require gas.
+
+```json
+{
+  "config": {
+    "londonBlock": 0,
+    "zeroBaseFee": true,
+    ...
+  },
+  ...
+}
+```
+
 ## Configure free gas in Truffle
 
 If using Truffle to develop on your free gas network, you also need to configure free gas in

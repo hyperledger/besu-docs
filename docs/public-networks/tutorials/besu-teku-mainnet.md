@@ -77,7 +77,7 @@ as needed.
 If you're running a [beacon node only](#beacon-node-only), skip to the next step.
 
 If you're also running a [validator client](#beacon-node-and-validator-client), have a funded
-Ethereum address ready (32 ETH per validator).
+Ethereum address ready (32 ETH and gas fees for each validator).
 
 Generate validator keys and stake your ETH for one or more validators using the
 [Staking Launchpad](https://launchpad.ethereum.org/en/).

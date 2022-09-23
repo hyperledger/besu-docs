@@ -86,7 +86,7 @@ If you're running a beacon node only, skip to the next step.
 
 If you're running a validator client, create a test Ethereum address (you can do this in
 [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
-Fund this address with testnet ETH using a faucet.
+Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
 See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and
 [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 

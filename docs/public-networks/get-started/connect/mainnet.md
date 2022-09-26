@@ -100,7 +100,10 @@ Generate validator keys and stake your ETH for one or more validators using the
 ### 4. Start the consensus client
 
 Refer to your consensus client documentation to configure and start the consensus client.
-If you're running a validator client, make sure you set a fee recipient address.
+
+!!! important
+
+    If you're running a validator client, make sure you set a fee recipient address.
 
 If you're using Teku, follow the [Besu and Teku Mainnet tutorial](../../tutorials/besu-teku-mainnet.md#5-start-teku).
 

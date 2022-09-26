@@ -61,11 +61,13 @@ The consensus layer enabled the Merge configuration (Bellatrix) before reaching 
 Once the execution layer blocks reached the TTD, the Beacon Chain merged into Ethereum Mainnet, and
 Ethereum transitioned to a proof of stake network.
 
-After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the
-same time.
-To become a validator, you must also run a validator client (either
-[in the same process as the beacon node](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#start-the-clients-in-a-single-process)
-or [separately](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#run-the-clients-separately).
+!!! important
+
+    After The Merge, a Mainnet node operator must run both an execution client and a beacon node at
+    the same time.
+    To become a validator, you must also run a validator client (either
+    [in the same process as the beacon node](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#start-the-clients-in-a-single-process)
+    or [separately](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Run-Teku/#run-the-clients-separately).
 
 After The Merge, validators earn rewards for performing
 [validator duties](proof-of-stake.md), and

@@ -4,8 +4,9 @@ description: How to enable and use the Engine API
 
 # Use the Engine API
 
-After [The Merge](../concepts/the-merge.md), consensus and execution clients communicate with each other using the Engine API.
-These [API methods](../reference/engine-api/index.md) are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
+[Consensus and execution clients](../concepts/the-merge.md#execution-and-consensus-clients)
+communicate with each other using the [Engine API](../reference/engine-api/index.md).
+These API methods are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
 
 ## Configure the Engine API
 
@@ -43,11 +44,11 @@ By default, Besu accepts requests and connections from `localhost` and `127.0.0.
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.
 
-Specify "*" for `--engine-host-allowlist` to effectively disable host protection.
+Specify `*` for `--engine-host-allowlist` to effectively disable host protection.
 
 !!! caution
 
-    Specifying "*" for `--engine-host-allowlist` is not recommended for production code.
+    We don't recommend specifying `*` for `--engine-host-allowlist` in production.
 
 ## Authentication
 

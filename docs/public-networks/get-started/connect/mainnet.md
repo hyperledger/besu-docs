@@ -32,7 +32,7 @@ Run the following command:
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-You will specify `jwtsecret.hex` when starting both Besu and the consensus client.
+You will specify `jwtsecret.hex` when starting Besu and the consensus client.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../../how-to/use-engine-api.md).
 
@@ -62,19 +62,20 @@ Specify:
 - The IP address of your Besu node using the [`--host-allowlist`](../../reference/cli/options.md#host-allowlist)
   and [`--engine-host-allowlist`](../../reference/cli/options.md#engine-host-allowlist) options.
 
-This command also specifies the following options:
+Also, in the command:
 
-- [`sync-mode`](../../reference/cli/options.md#sync-mode) - Use [snap sync](sync-node.md#snap-synchronization).
-- [`data-storage-format`](../../reference/cli/options.md#data-storage-format) - Use [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
-- [`rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) - Enable the HTTP JSON-RPC
+- [`--sync-mode`](../../reference/cli/options.md#sync-mode) specifies using [snap sync](sync-node.md#snap-synchronization).
+- [`--data-storage-format`](../../reference/cli/options.md#data-storage-format) specifies using
+  [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+- [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) enables the HTTP JSON-RPC
   service.
-- [`rpc-http-host`](../../reference/cli/options.md#rpc-http-host) - Set to `0.0.0.0` to allow remote
+- [`--rpc-http-host`](../../reference/cli/options.md#rpc-http-host) is set to `0.0.0.0` to allow
+  remote RPC connections.
+- [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) enables the WebSocket JSON-RPC
+  service.
+- [`--rpc-ws-host`](../../reference/cli/options.md#rpc-ws-host) is set to `0.0.0.0` to allow remote
   RPC connections.
-- [`rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) - Enable the WebSocket JSON-RPC
-  service.
-- [`rpc-ws-host`](../../reference/cli/options.md#rpc-ws-host) - Set to `0.0.0.0` to allow remote RPC
-  connections.
-- `Xmerge-support` - Enable Merge support.
+- `--Xmerge-support` enables Merge support.
 
 You can modify the option values and add other [command line options](../../reference/cli/options.md)
 as needed.

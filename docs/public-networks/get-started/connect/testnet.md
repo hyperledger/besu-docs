@@ -33,7 +33,7 @@ Run the following command:
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-You will specify `jwtsecret.hex` when starting both Besu and the consensus client.
+You will specify `jwtsecret.hex` when starting Besu and the consensus client.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../../how-to/use-engine-api.md).
 

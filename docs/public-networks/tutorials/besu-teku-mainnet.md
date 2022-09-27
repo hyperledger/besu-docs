@@ -55,19 +55,19 @@ Specify:
 - The IP address of your Besu node using the [`--host-allowlist`](../reference/cli/options.md#host-allowlist)
   and [`--engine-host-allowlist`](../reference/cli/options.md#engine-host-allowlist) options.
 
-This command also specifies the following options:
+Also, in the command:
 
-- [`sync-mode`](../reference/cli/options.md#sync-mode) - Use [snap sync](../get-started/connect/sync-node.md#snap-synchronization).
-- [`data-storage-format`](../reference/cli/options.md#data-storage-format) - Use [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries).
-- [`rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) - Enable the HTTP JSON-RPC
+- [`--sync-mode`](../reference/cli/options.md#sync-mode) specifies using [snap sync](../get-started/connect/sync-node.md#snap-synchronization).
+- [`--data-storage-format`](../reference/cli/options.md#data-storage-format) specifies using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries).
+- [`--rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) enables the HTTP JSON-RPC
   service.
-- [`rpc-http-host`](../reference/cli/options.md#rpc-http-host) - Set to `0.0.0.0` to allow remote
+- [`--rpc-http-host`](../reference/cli/options.md#rpc-http-host) is set to `0.0.0.0` to allow remote
   RPC connections.
-- [`rpc-ws-enabled`](../reference/cli/options.md#rpc-ws-enabled) - Enable the WebSocket JSON-RPC
+- [`--rpc-ws-enabled`](../reference/cli/options.md#rpc-ws-enabled) enables the WebSocket JSON-RPC
   service.
-- [`rpc-ws-host`](../reference/cli/options.md#rpc-ws-host) - Set to `0.0.0.0` to allow remote RPC
+- [`--rpc-ws-host`](../reference/cli/options.md#rpc-ws-host) is set to `0.0.0.0` to allow remote RPC
   connections.
-- `Xmerge-support` - Enable Merge support.
+- `--Xmerge-support` enables Merge support.
 
 You can modify the option values and add other [command line options](../reference/cli/options.md)
 as needed.
@@ -112,16 +112,16 @@ Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-t
 the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file)
 option.
 
-This command also specifies the following options:
+Also, in the command:
 
-- [`data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path) -
-  Set to the path to the Teku data directory.
-- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint) -
-  Set to the default URL of Besu's Engine API.
-- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination) -
-  Output log information to the console.
-- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled) -
-  Enable Teku's REST API service.
+- [`--data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path)
+  is set to the path to the Teku data directory.
+- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+  is set to the default URL of Besu's Engine API.
+- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination)
+  specifies outputting log information to the console.
+- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+  enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
 
@@ -153,16 +153,16 @@ Specify:
   [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys) option.
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
-This command also specifies the following options:
+Also, in the command:
 
-- [`data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path) -
-  Set to the path to the Teku data directory.
-- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint) -
-  Set to the default URL of Besu's Engine API.
-- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination) -
-  Output log information to the console.
-- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled) -
-  Enable Teku's REST API service.
+- [`--data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path)
+  is set to the path to the Teku data directory.
+- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+  is set to the default URL of Besu's Engine API.
+- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination)
+  specifies outputting log information to the console.
+- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+  enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
 

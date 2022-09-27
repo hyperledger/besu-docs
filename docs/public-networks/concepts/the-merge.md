@@ -13,12 +13,12 @@ description: What is the Merge?
 [execution layer and consensus layer](#execution-and-consensus-clients).
 The Merge transitioned Mainnet from proof of work to [proof of stake consensus](proof-of-stake.md).
 
-You can run Besu as an execution client:
+You can run Besu as an execution client with:
 
-- [With any consensus client on Mainnet](../get-started/connect/mainnet.md).
-- [With any consensus client on a testnet](../get-started/connect/testnet.md).
-- [With Teku on Mainnet](../tutorials/besu-teku-mainnet.md).
-- [With Teku on a testnet](../tutorials/besu-teku-testnet.md).
+- [Any consensus client on Mainnet](../get-started/connect/mainnet.md).
+- [Any consensus client on a testnet](../get-started/connect/testnet.md).
+- [Teku on Mainnet](../tutorials/besu-teku-mainnet.md).
+- [Teku on a testnet](../tutorials/besu-teku-testnet.md).
 
 ## Execution and consensus clients
 

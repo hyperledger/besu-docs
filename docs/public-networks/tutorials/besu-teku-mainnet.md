@@ -26,7 +26,7 @@ Run the following command:
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-You will specify `jwtsecret.hex` when starting both Besu and Teku.
+You will specify `jwtsecret.hex` when starting Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../how-to/use-engine-api.md).
 
@@ -72,12 +72,15 @@ Also, in the command:
 You can modify the option values and add other [command line options](../reference/cli/options.md)
 as needed.
 
+Ensure Besu is fully synced before submitting your staking deposit in the next step.
+This can take several days.
+
 ## 4. Generate validator keys and stake ETH
 
-If you're running a [beacon node only](#beacon-node-only), skip to the next step.
+If you're running a beacon node only, skip to the next step.
 
-If you're also running a [validator client](#beacon-node-and-validator-client), have a funded
-Ethereum address ready (32 ETH and gas fees for each validator).
+If you're also running a validator client, have a funded Ethereum address ready (32 ETH and gas fees
+for each validator).
 
 Generate validator keys and stake your ETH for one or more validators using the
 [Staking Launchpad](https://launchpad.ethereum.org/en/).
@@ -101,11 +104,10 @@ options in the [Teku configuration file]:
 
 ```bash
 teku \
-  --data-path "datadir-teku"                   \
-  --ee-endpoint http://localhost:8551          \
-  --ee-jwt-secret-file <path to jwtsecret.hex> \
-  --log-destination console                    \
-  --rest-api-enabled=true                      \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true
 ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
@@ -114,13 +116,11 @@ option.
 
 Also, in the command:
 
-- [`--data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path)
-  is set to the path to the Teku data directory.
-- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+- [`--ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
   is set to the default URL of Besu's Engine API.
-- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination)
-  specifies outputting log information to the console.
-- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+- [`--metrics-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#metrics-enabled)
+  enables Teku's metrics exporter.
+- [`--rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
   enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
@@ -132,13 +132,12 @@ the options in the [Teku configuration file]:
 
 ```bash
 teku \
-  --data-path "datadir-teku"                                \
   --ee-endpoint http://localhost:8551                       \
   --ee-jwt-secret-file <path to jwtsecret.hex>              \
-  --log-destination console                                 \
+  --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
   --validators-proposer-default-fee-recipient=<ETH address> \
-  --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
 Specify:
@@ -155,13 +154,11 @@ Specify:
 
 Also, in the command:
 
-- [`--data-path`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#data-base-path-data-path)
-  is set to the path to the Teku data directory.
-- [`ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+- [`--ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
   is set to the default URL of Besu's Engine API.
-- [`log-destination`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#log-destination)
-  specifies outputting log information to the console.
-- [`rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+- [`--metrics-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#metrics-enabled)
+  enables Teku's metrics exporter.
+- [`--rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
   enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.

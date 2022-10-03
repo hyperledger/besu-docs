@@ -80,6 +80,9 @@ using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secr
 You can modify the option values and add other [command line options](../../reference/cli/options.md)
 as needed.
 
+Ensure Besu is fully synced before submitting your staking deposit in the next step.
+This can take several days.
+
 ### 3. Generate validator keys and stake ETH
 
 If you're running a beacon node only, skip to the next step.

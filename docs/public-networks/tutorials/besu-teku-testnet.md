@@ -34,7 +34,7 @@ Run the following command:
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-You will specify `jwtsecret.hex` when starting both Besu and Teku.
+You will specify `jwtsecret.hex` when starting Besu and Teku.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../how-to/use-engine-api.md).
 
@@ -80,12 +80,14 @@ Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-t
 You can modify the option values and add other [command line options](../reference/cli/options.md)
 as needed.
 
+Ensure Besu is fully synced before submitting your staking deposit in the next step.
+This can take several days.
+
 ## 4. Generate validator keys and stake ETH
 
-If you're running a [beacon node only](#beacon-node-only), skip to the next step.
+If you're running a beacon node only, skip to the next step.
 
-If you're also running a [validator client](#beacon-node-and-validator-client), create a test
-Ethereum address (you can do this in
+If you're also running a validator client, create a test Ethereum address (you can do this in
 [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
 See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
@@ -118,24 +120,22 @@ options in the [Teku configuration file]:
 
     ```bash
     teku \
-      --data-path "datadir-teku"                   \
-      --network goerli                             \
-      --ee-endpoint http://localhost:8551          \
-      --ee-jwt-secret-file <path to jwtsecret.hex> \
-      --log-destination console                    \
-      --rest-api-enabled=true                      \
+      --network=goerli                             \
+      --ee-endpoint=http://localhost:8551          \
+      --ee-jwt-secret-file=<path to jwtsecret.hex> \
+      --metrics-enabled=true                       \
+      --rest-api-enabled=true
     ```
 
 === "Sepolia"
 
     ```bash
     teku \
-      --data-path "datadir-teku"                   \
-      --network sepolia                            \
-      --ee-endpoint http://localhost:8551          \
-      --ee-jwt-secret-file <path to jwtsecret.hex> \
-      --log-destination console                    \
-      --rest-api-enabled=true                      \
+      --network=sepolia                            \
+      --ee-endpoint=http://localhost:8551          \
+      --ee-jwt-secret-file=<path to jwtsecret.hex> \
+      --metrics-enabled=true                       \
+      --rest-api-enabled=true
     ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
@@ -153,14 +153,13 @@ the options in the [Teku configuration file]:
 
     ```bash
     teku \
-      --data-path "datadir-teku"                                \
-      --network goerli                                          \
-      --ee-endpoint http://localhost:8551                       \
-      --ee-jwt-secret-file <path to jwtsecret.hex>              \
-      --log-destination console                                 \
+      --network=goerli                                          \
+      --ee-endpoint=http://localhost:8551                       \
+      --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+      --metrics-enabled=true                                    \
       --rest-api-enabled=true                                   \
       --validators-proposer-default-fee-recipient=<ETH address> \
-      --validator-keys=<path to key file>:<path to mnemonic file>[,<path to key file>:<path to mnemonic file>,...] \
+      --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
     ```
 
 === "Sepolia"

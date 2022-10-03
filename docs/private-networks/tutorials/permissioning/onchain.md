@@ -306,15 +306,15 @@ The command line specifies:
 
 Clone the `permissioning-smart-contracts` repository:
 
-    ```bash
-    git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
-    ```
+```bash
+git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
+```
 
 Change into the `permissioning-smart-contracts` directory and run:
 
-    ```bash
-    yarn install
-    ```
+```bash
+yarn install
+```
 
 ### 12. Set the environment variables
 

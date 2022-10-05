@@ -34,4 +34,3 @@ jobs:
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_PYTHON: false
           IGNORE_GITIGNORED_FILES: true
-          VALIDATE_GITLEAKS: false

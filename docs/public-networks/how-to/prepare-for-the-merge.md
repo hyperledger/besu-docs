@@ -4,6 +4,12 @@ description: How to prepare for The Merge
 
 # Prepare for The Merge
 
+!!! warning "Important"
+
+    [The Merge](../concepts/the-merge.md) was executed on **September 15, 2022**.
+    This page will remain up for a short period of time for your reference.
+    Please see the [guide on connecting Besu to Mainnet](../get-started/connect/mainnet.md).
+
 If you're running one or more [beacon nodes](../concepts/the-merge.md#consensus-clients) with Besu on Ethereum Mainnet,
 prepare for [The Merge](../concepts/the-merge.md) by
 [configuring Besu as an execution client](#configure-besu-as-an-execution-client) and
@@ -13,7 +19,7 @@ If you're using Besu with [Teku] as the consensus client,
 [prepare Teku for the Merge](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/).
 
 You can also
-[run Besu with Teku on the Merge testnet](../tutorials/merge-testnet.md).
+[run Besu with Teku on the Merge testnet](../tutorials/besu-teku-testnet.md).
 
 ## Configure Besu as an execution client
 
@@ -63,8 +69,12 @@ Engine API. Besu uses the same key to validate the token presented.
 ### 3. Sync Besu
 
 Validators can't produce attestations or blocks without a fully synced execution endpoint.
-To expedite network participation, [sync Besu](connect/sync-node.md) on Ethereum Mainnet before the Merge
+To expedite network participation, [sync Besu](../get-started/connect/sync-node.md) on Ethereum Mainnet before the Merge
 configuration (Bellatrix) comes online.
+
+!!! caution
+
+    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
 
 ## Update Besu
 

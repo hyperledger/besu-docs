@@ -24,6 +24,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Lint repository
-        uses: philips-labs/github-action-repolinter@v1
+        uses: philips-labs/github-action-repolinter@2d7dc7e43a8d8d52db80b010434df2b8388b5817
         env:
           CUSTOM_REPOLINT_FILE: https://github.com/hyperledger-labs/hyperledger-community-management-tools/raw/main/repo_structure/repolint.json

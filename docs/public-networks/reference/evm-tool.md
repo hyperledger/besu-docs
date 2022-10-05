@@ -321,7 +321,7 @@ Most of the options from EVM execution do not apply.
     ```
 
 Provide an operation by operation trace of the command in JSON when set to true.
-Set to `true` for EVMLab Fuzzing.
+Set to `true` for EVM Lab Fuzzing.
 Whether or not `json` is set, a summary JSON object is printed to standard output for each
 state test executed.
 

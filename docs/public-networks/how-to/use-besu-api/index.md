@@ -88,11 +88,11 @@ If your application publishes RPC ports, specify the hostnames when starting Bes
     besu --host-allowlist=example.com
     ```
 
-Specify "*" for `--host-allowlist` to effectively disable host protection.
+Specify `*` for `--host-allowlist` to effectively disable host protection.
 
 !!! caution
 
-    Specifying "*" for `--host-allowlist` is not recommended for production code.
+    Specifying `*` for `--host-allowlist` is not recommended for production code.
 
 ## Not supported by Besu
 

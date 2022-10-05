@@ -43,6 +43,12 @@ If using Bash or Z shell, you can view option suggestions by entering `--` and p
 besu --Tab+Tab
 ```
 
+!!! caution
+
+    Characters such as smart quotes and long (em) hyphens don't work in Besu command line options.
+    Ensure quotes aren't automatically converted to smart quotes, or double hyphens combined into em
+    hyphens.
+
 ## Options
 
 ### `api-gas-price-blocks`
@@ -572,7 +578,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/the-merge.
 HTTP and WebSocket).
 Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
 May be a relative or absolute path.
-See an [example of how to generate this](../../tutorials/merge-testnet.md#prerequisites).
+See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `engine-rpc-port`
 
@@ -689,8 +695,8 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting [fast synchronization](../../how-to/connect/sync-node.md#run-a-full-node).
-The default is 5.
+The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization).
+The default is 1.
 
 !!! note
 
@@ -3175,10 +3181,10 @@ The default is `false`.
     ```
 
 The synchronization mode.
-Use `FAST` for [fast sync](../../how-to/connect/sync-node.md#fast-synchronization), `FULL` for
-[full sync](../../how-to/connect/sync-node.md#run-an-archive-node), `X_SNAP` for
-[snap sync](../../how-to/connect/sync-node.md#snap-synchronization), and `X_CHECKPOINT` for
-[checkpoint sync](../../how-to/connect/sync-node.md#checkpoint-synchronization).
+Use `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), `FULL` for
+[full sync](../../get-started/connect/sync-node.md#run-an-archive-node), `X_SNAP` for
+[snap sync](../../get-started/connect/sync-node.md#snap-synchronization), and `X_CHECKPOINT` for
+[checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.

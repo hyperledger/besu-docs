@@ -325,8 +325,8 @@ transaction data using `eea_sendRawTransaction`.
     with the chain. For example, [IBFT 2.0](../../how-to/configure/consensus/ibft.md)
     and [QBFT](../../how-to/configure/consensus/qbft.md) provide the required finality.
 
-    Using private transactions with [pruning](../../../public-networks/how-to/connect/sync-node.md) or
-    [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) is not supported.
+    Using private transactions with [pruning](../../../public-networks/concepts/data-storage-formats.md#pruning)
+    or [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
 
     Besu doesn't implement
     [`eea_sendTransaction`](../../how-to/send-transactions/private-transactions.md).

@@ -90,8 +90,8 @@ alternatively alert via Cloudwatch or Azure Monitoring.
 ## Multi-cluster support
 
 When CNI is used, multi-cluster support is simple, but you have to cater for cross-cluster DNS names.
-Ideally, you want to create two separate VPCs (or VNets) and make sure they have different base CIDR blocks so that IPs
-don't conflict.
+Ideally, you want to create two separate VPCs (or VNets) and make sure they have different base CIDR
+blocks so that IP addresses don't conflict.
 Once done, peer the VPCs together and update the subnet route table, so they are effectively a giant single network.
 
 ![multi-cluster](../../../assets/images/kubernetes-3.png)
@@ -99,7 +99,7 @@ Once done, peer the VPCs together and update the subnet route table, so they are
 When you [spin up clusters](cluster.md), use [CNI](index.md#limitations) and CIDR blocks to match the
 subnet's CIDR settings.
 Then deploy the genesis chart on one cluster and copy across the genesis file and static nodes config maps.
-Depending on your DNS settings, they might be fine as is or they might need to be actual IPs.
+Depending on your DNS settings, they might be fine as is, or they might need to be actual IP addresses.
 That is, you can provision cluster B only after cluster A has Besu nodes up and running.
 
 Deploy the network on cluster A, and then on cluster B.

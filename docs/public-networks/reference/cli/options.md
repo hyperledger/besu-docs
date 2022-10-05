@@ -3267,8 +3267,7 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
     tx-pool-future-max-by-account="100"
     ```
 
-The maximum number of currently non-executable future transactions kept in the transaction pool, per
-account.
+The maximum number of future transactions kept in the transaction pool, per account.
 The default is 64.
 
 ### `tx-pool-max-size`

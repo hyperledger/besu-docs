@@ -695,8 +695,8 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#run-a-full-node).
-The default is 5.
+The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization).
+The default is 1.
 
 !!! note
 

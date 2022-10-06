@@ -3241,6 +3241,35 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated
 `target-gas-limit` value.
 
+### `tx-pool-future-max-by-account`
+
+=== "Syntax"
+
+    ```bash
+    --tx-pool-future-max-by-account=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --tx-pool-future-max-by-account=100
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_TX_POOL_FUTURE_MAX_BY_ACCOUNT=100
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    tx-pool-future-max-by-account="100"
+    ```
+
+The maximum number of future transactions kept in the transaction pool, per account.
+The default is 64.
+
 ### `tx-pool-max-size`
 
 === "Syntax"

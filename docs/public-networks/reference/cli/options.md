@@ -3298,38 +3298,6 @@ The default is 64.
 
 The maximum number of transactions kept in the transaction pool. The default is 4096.
 
-### `tx-pool-hashes-max-size`
-
-=== "Syntax"
-
-    ```bash
-    --tx-pool-hashes-max-size=<INTEGER>
-    ```
-
-=== "Example"
-
-    ```bash
-    --tx-pool-hashes-max-size=2000
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    BESU_TX_POOL_HASHES_MAX_SIZE=2000
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    tx-pool-hashes-max-size="2000"
-    ```
-
-!!! important
-
-    `tx-pool-hashes-max-size` is deprecated. The option will be removed in a future release.
-
-The maximum number of transaction hashes kept in the transaction pool. The default is 4096.
-
 ### `tx-pool-price-bump`
 
 === "Syntax"

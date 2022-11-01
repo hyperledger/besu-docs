@@ -12,6 +12,7 @@ These API methods are a separate subsection of the [JSON-RPC API](../how-to/use-
 
 To configure the Engine API:
 
+- [Enable the Engine API](#enable-the-engine-api) (it's disabled by default).
 - [Enable the JSON-RPC API](use-besu-api/index.md#enable-api-access).
   Ensure the [`ETH` method is enabled](use-besu-api/json-rpc.md#api-methods-enabled-by-default) (it's enabled by default).
 - Specify the [service ports](#service-ports).
@@ -20,8 +21,17 @@ To configure the Engine API:
 !!! example "Example Engine API configuration"
 
     ```bash
-    besu --rpc-http-enabled --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine-jwt-secret=jwt.hex
+    besu --engine-rpc-enabled --rpc-http-enabled --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine-jwt-secret=jwt.hex
     ```
+
+### Enable the Engine API
+
+Enable the Engine API with the [`--engine-rpc-enabled`](../reference/cli/options.md#engine-rpc-enabled) CLI option.
+
+!!! note
+
+    The `--engine-rpc-enabled` CLI option enables the Engine API even if no consensus client
+    configuration exists.
 
 ### Service ports
 

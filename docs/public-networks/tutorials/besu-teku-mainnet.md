@@ -44,7 +44,7 @@ besu \
   --rpc-ws-host="0.0.0.0"      \
   --host-allowlist=<IP of Besu node>,127.0.0.1,localhost        \
   --engine-host-allowlist=<IP of Besu node>,127.0.0.1,localhost \
-  --Xmerge-support=true        \
+  --engine-rpc-enabled         \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
@@ -67,7 +67,8 @@ Also, in the command:
   service.
 - [`--rpc-ws-host`](../reference/cli/options.md#rpc-ws-host) is set to `0.0.0.0` to allow remote RPC
   connections.
-- `--Xmerge-support` enables Merge support.
+- [`--engine-rpc-enabled`](../reference/cli/options.md#engine-rpc-enabled) enables the
+    [Engine API](../reference/engine-api/index.md).
 
 You can modify the option values and add other [command line options](../reference/cli/options.md)
 as needed.

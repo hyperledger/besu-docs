@@ -54,7 +54,6 @@ Run the following command or specify the options in a [configuration file](../ho
       --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
-      --Xmerge-support=true       \
       --engine-jwt-secret=<path to jwtsecret.hex>
     ```
 
@@ -70,7 +69,6 @@ Run the following command or specify the options in a [configuration file](../ho
       --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
-      --Xmerge-support=true       \
       --engine-jwt-secret=<path to jwtsecret.hex>
     ```
 

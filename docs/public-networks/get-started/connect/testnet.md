@@ -54,6 +54,7 @@ Run the following command or specify the options in a
       --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
+      --engine-rpc-enabled        \
       --engine-jwt-secret=<path to jwtsecret.hex>
     ```
 
@@ -69,6 +70,7 @@ Run the following command or specify the options in a
       --rpc-ws-host=0.0.0.0       \
       --host-allowlist="*"        \
       --engine-host-allowlist="*" \
+      --engine-rpc-enabled        \
       --engine-jwt-secret=<path to jwtsecret.hex>
     ```
 

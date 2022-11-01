@@ -580,6 +580,35 @@ Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
 May be a relative or absolute path.
 See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
+### `engine-rpc-enabled`
+
+=== "Syntax"
+
+    ```bash
+    --engine-rpc-enabled[=<true|false]>
+    ```
+
+=== "Example"
+
+    ```bash
+    --engine-rpc-enabled
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ENGINE_RPC_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    engine-rpc-enabled=true
+    ```
+
+Enables or disables the [Engine API](../engine-api/index.md).
+The default is `false`.
+
 ### `engine-rpc-port`
 
 === "Syntax"

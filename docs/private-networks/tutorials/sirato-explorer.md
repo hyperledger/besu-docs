@@ -5,14 +5,15 @@ description: Using the Sirato Explorer on a privacy enabled Besu
 
 # Epirus Explorer
 
-Epirus is an EVM explorer that provides an overview over the whole network, such as block information, wiew contracts metadata as well as search for transactions. Epirus supports public and private networks, this tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
+Epirus is an EVM explorer that provides an overview over the whole network, such as block information, wiew contracts metadata as well as search for transactions. Epirus supports public and private networks. This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
 
-The instructions assumes you have setup a privacy enabled-network in your local development environment.
+The instructions recommends you have setup a privacy enabled-network in your local development environment. But the configuration should apply to any compatible EVM network.
 
 ## Prerequisites
  
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 * [Git command line](https://git-scm.com/)
+* [Truffle](https://trufflesuite.com/truffle/) (For contracts deployment)
 
 ## Start Private Besu Network
 
@@ -67,11 +68,22 @@ Clone Epirus Explorer repository
 git clone https://github.com/web3labs/epirus-free
 ```
 
-The repo contains a docker-compose extension to allow Epirus to start with
+The repo contains a docker-compose extension to allow Epirus to start with quorum quickstart test network.
 
 ```
 NODE_ENDPOINT=http://member1besu:8545 docker-compose -f docker-compose.yml -f epirus-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
+
+Then open http://localhost/ on your browser. You’ll see our new initialisation page while it’s booting up. This may take sometime for the all service to start and ingestion sync is complete.
+
+![`Epirus-dashboard`](../../assets/images/sirato-loading.png)
+
+---
+**NOTE**
+
+We are connecting to one of the privacy nodes `member1besu` not the dedicated RPC. This is required to allow access for Besu privacy APIs, in production access to RPC nodes must be securted, recommended approach is configure [authentication](../../public-networks/how-to/use-besu-api/authenticate.md) with JWT and enable TLS flags.
+
+---
 
 ## Explorer Dashboard
 
@@ -79,20 +91,28 @@ The **Explorer Dashbord** page gives you a an aggregated view on network activit
 
 ![`Epirus-dashboard`](../../assets/images/sirato-dashboard.png)
 
+## Network
+
+The **Network** page provides an overview of the network status and connected peers
+
+![`sirato-network`](../../assets/images/sirato-network.png)
+
 ## Blocks
+
+This **Blocks** page shows a realtime view of the finalised blocks
 
 ![`sirato-blocks`](../../assets/images/sirato-blocks.png)
 
-## Block details
+You can view a given block details by clicking over block hash or block number
 
 ![`sirato-blocks`](../../assets/images/sirato-block-details.png)
 
 ## Transactions
 
+The **Transaction** page shows a paginated view of the new and historical transactions
+
 ![`sirato-blocks`](../../assets/images/sirato-transactions.png)
 
-## Network
+## Find out more
 
-The **Network** page shows the network peers
-
-![`sirato-network`](../../assets/images/sirato-network.png)
+Epirus free version have some feature limitations, find out more about Epirus [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15)

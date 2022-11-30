@@ -35,7 +35,96 @@ You can run a full node using [fast synchronization (fast sync)](#fast-synchroni
 [snap synchronization (snap sync)](#snap-synchronization), or
 [checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization).
 
+To bring Besu in sync with a public network, it runs two processes in parallel. These are the worldstate download and the blockchain download. Average worldstate sync times are below. The blockchain download is largely dependent upon CPU, your network, Besu's peers, and disk speed. While we do not provide those estimates, expect it to take longer than the worldstate sync. Each sync mode will also have a differnet sized worldstate database.
+
+All times are hardware dependent. We tabulate these running AWS instances m6gd.2xlarge.
+
+| Sync Mode      | Time to Sync Worldstate | Disk Usage |
+| ----------- | ----------- | ----------- |
+| Snap        | ~6 hours    | Average Disk |
+| Checkpoint  | ~5 hours    | Smallest Disk |
+| Fast        | ~1.5 days   | Average Disk |
+| Full        | ~weeks      | Most Disk Usage | 
+   
+As of late 2022, an average Mainnet Snap Sync will consume around ~650GB on Bonsai. While the worldstate is syncing, Besu will download and import the blockchain in the background. It will need to catch up to the current chain head and sync the worldstate to participate on Mainnet. 
+
+### Snap synchronization
+
+!!! important
+
+    We recommend using snap sync over fast sync even in certain production environments (for example, staking),
+    because snap sync can be faster by several days.
+    If your snap sync completes successfully, you have the correct world state.
+
+    We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+    data storage format for the fastest sync and lowest storage requirements.
+
+Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
+You need Besu version 22.4.0 or later to use snap sync.
+
+Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the
+trie as possible, and reconstructs the trie locally.
+
+You can't switch from fast sync to snap sync.
+If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
+deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
+
+See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
+
+Besu can be restarted during a Snap Sync in case of hardware or software problems. It will resume from the last valid worldstate and will continue to download blocks starting from its last downloaded block. 
+
+### Checkpoint synchronization
+
+!!! important
+
+    Checkpoint sync is an early access feature.
+
+Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
+You need Besu version 22.4.3 or later to use checkpoint sync.
+
+Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
+genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
+file](../../concepts/genesis-file.md).
+
+Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
+don't have to add this yourself.
+
+For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
+number, and total difficulty as in the following example.
+
+!!! example "Checkpoint configuration example"
+
+    ```json
+    "checkpoint": {
+      "hash": "0x844d581cb00058d19f0584fb582fa2de208876ee56bbae27446a679baf4633f4",
+      "number": 14700000,
+      "totalDifficulty": "0xA2539264C62BF98CFC6"
+    }
+    ```
+Besu can be restarted during a Checkpoint Sync in case of hardware or software problems. It will resume from the last valid worldstate and will continue to download blocks starting from its last downloaded block. 
+
+
+!!! note
+
+    If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
+    checkpoint must be the beginning of an epoch.
+
+If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
+sync from the genesis block.
+
+## Run an archive node
+
+To run an archive node, enable full synchronization (full sync) using
+[`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
+
+Full sync starts from the genesis block and reprocesses all transactions.
+
 ### Fast synchronization
+
+!!! note
+ 
+    It may become impossible to sync Ethereum Mainnet with 
+    Fast sync in the future. Make sure to update Besu to a version that supports newer sync methods.
 
 Enable fast sync using [`--sync-mode=FAST`](../../reference/cli/options.md#sync-mode).
 
@@ -96,79 +185,3 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     ![Fast synchronization](../../../assets/images/fastsync.png)
 
     The easiest solution in this scenario is to restart fast sync to obtain a new pivot block.
-
-### Snap synchronization
-
-!!! important
-
-    Snap sync is an early access feature.
-    We recommend using snap sync over fast sync even in certain production environments (for example, staking),
-    because snap sync can be faster by several days.
-    If your snap sync completes successfully, you have the correct world state.
-
-    We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
-    data storage format for the fastest sync and lowest storage requirements.
-
-Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
-You need Besu version 22.4.0 or later to use snap sync.
-
-Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the
-trie as possible, and reconstructs the trie locally.
-
-You can't switch from fast sync to snap sync.
-If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
-deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
-
-See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
-
-!!! caution
-
-    If you restart your node before snap sync completes, syncing restarts from scratch.
-
-### Checkpoint synchronization
-
-!!! important
-
-    Checkpoint sync is an early access feature.
-
-Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
-You need Besu version 22.4.3 or later to use checkpoint sync.
-
-Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
-genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
-file](../../concepts/genesis-file.md).
-
-Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
-don't have to add this yourself.
-
-For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
-number, and total difficulty as in the following example.
-
-!!! example "Checkpoint configuration example"
-
-    ```json
-    "checkpoint": {
-      "hash": "0x844d581cb00058d19f0584fb582fa2de208876ee56bbae27446a679baf4633f4",
-      "number": 14700000,
-      "totalDifficulty": "0xA2539264C62BF98CFC6"
-    }
-    ```
-
-!!! caution
-
-    If you restart your node before checkpoint sync completes, syncing restarts from scratch.
-
-!!! note
-
-    If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
-    checkpoint must be the beginning of an epoch.
-
-If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
-sync from the genesis block.
-
-## Run an archive node
-
-To run an archive node, enable full synchronization (full sync) using
-[`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
-
-Full sync starts from the genesis block and reprocesses all transactions.

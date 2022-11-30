@@ -3210,10 +3210,10 @@ The default is `false`.
     ```
 
 The synchronization mode.
-Use `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), `FULL` for
-[full sync](../../get-started/connect/sync-node.md#run-an-archive-node), `X_SNAP` for
-[snap sync](../../get-started/connect/sync-node.md#snap-synchronization), and `X_CHECKPOINT` for
-[checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization).
+Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization),
+`X_CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization),
+`FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for
+[full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
 
 * The default is `FULL` when connecting to a private network by not using the [`--network`](#network)
   option and specifying the [`--genesis-file`](#genesis-file) option.
@@ -3224,11 +3224,10 @@ Use `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchroni
 
 !!! important
 
-    Snap sync and checkpoint sync are early access features.
-
-    We recommend using snap sync over fast sync even in certain production environments (for example, staking), because
-    snap sync can be faster by several days.
-    If your snap sync completes successfully, you have the correct world state.
+    * We recommend using snap sync over fast sync because snap sync can be faster by several days.
+    * Checkpoint sync is an early access feature.
+    * It might become impossible to sync Ethereum Mainnet using fast sync in the future.
+      Update Besu to a version that supports newer sync methods.
 
 ### `target-gas-limit`
 

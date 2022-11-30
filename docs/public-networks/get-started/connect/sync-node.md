@@ -76,11 +76,11 @@ You can't switch from fast sync to snap sync.
 If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
 deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
 
-See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
-
 You can restart Besu during a snap sync in case of hardware or software problems.
 The sync resumes from the last valid world state and continues to download blocks starting from the
 last downloaded block.
+
+See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
 
 ### Checkpoint synchronization
 
@@ -110,10 +110,6 @@ number, and total difficulty as in the following example.
       "totalDifficulty": "0xA2539264C62BF98CFC6"
     }
     ```
-You can restart Besu during a checkpoint sync in case of hardware or software problems.
-The sync resumes from the last valid world state and continues to download blocks starting from the
-last downloaded block.
-
 
 !!! note
 
@@ -122,6 +118,10 @@ last downloaded block.
 
 If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu snap
 syncs from the genesis block.
+
+You can restart Besu during a checkpoint sync in case of hardware or software problems.
+The sync resumes from the last valid world state and continues to download blocks starting from the
+last downloaded block.
 
 ### Fast synchronization
 

@@ -46,7 +46,7 @@ All times are hardware dependent. We tabulate these running AWS instances m6gd.2
 | Fast        | ~1.5 days   | Average Disk |
 | Full        | ~weeks      | Most Disk Usage | 
    
-As of late 2022, an average Mainnet Snap Sync will consume around ~650GB on Bonsai. While the worldstate is syncing, Besu will download and import the blockchain in the background. It will need to catch up to the current chain head and sync the worldstate to participate on Mainnet. 
+As of late 2022, an average Mainnet Snap Sync will consume around ~750GB on Bonsai. While the worldstate is syncing, Besu will download and import the blockchain in the background. It will need to catch up to the current chain head and sync the worldstate to participate on Mainnet. 
 
 ### Snap synchronization
 

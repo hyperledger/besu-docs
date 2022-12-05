@@ -23,7 +23,7 @@ Archive nodes require more disk space than full nodes.
 To sync with a public network, Besu runs two processes in parallel: the world state sync and the
 blockchain download.
 
-The following table shows the average world state sync time for each sync mode.
+The following table shows the average world state sync time for each sync mode on Mainnet.
 All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge.
 Each sync mode also has its own world state database size.
 
@@ -36,9 +36,11 @@ Each sync mode also has its own world state database size.
 
 !!! note
 
-    As of late 2022, an average Mainnet snap sync consumes around 750 GB using Bonsai Tries.
-    Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements)
-    across data storage formats and sync modes.
+    - As of late 2022, an average Mainnet snap sync consumes around 750 GB using Bonsai Tries.
+      Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements)
+      across data storage formats and sync modes.
+
+    - Testnets take significantly less time and space to sync.
 
 While the world state syncs, Besu downloads and imports the blockchain in the background.
 The blockchain download time depends on CPU, the network, Besu's peers, and disk speed.
@@ -128,7 +130,8 @@ last downloaded block.
 !!! important
 
     It might become impossible to sync Ethereum Mainnet using fast sync in the future.
-    Update Besu to a version that supports newer sync methods.
+    If you sync for the first time or ever need to re-sync, update Besu to a version that supports
+    newer sync methods.
 
 Enable fast sync using [`--sync-mode=FAST`](../../reference/cli/options.md#sync-mode).
 

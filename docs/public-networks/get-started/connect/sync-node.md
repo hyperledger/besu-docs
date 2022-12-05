@@ -4,26 +4,51 @@ description: Full and archive node types
 
 # Sync Besu
 
-Besu supports two node types, commonly referred to as _full nodes_ and _archive nodes_.
+Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and
+[archive nodes](#run-an-archive-node).
 
-Full nodes have the current state of the blockchain so cannot serve the network with all data
-requests (for example, the balance of an account at an old block). Full nodes can guarantee the
-latest state for the blockchain (and some older states, but not all). You can check current
-balances, sign and send transactions, and look at current dapp data.
+Full nodes have the current state of the blockchain.
+They can't serve the network with all data requests (for example, the balance of an account at an
+old block).
+Full nodes can guarantee the latest state for the blockchain (and some older states, but not all).
+You can check current balances, sign and send transactions, and look at current dapp data.
 
-Archive nodes have all of this and they also store the intermediary state of every account and
-contract for every block since the genesis block. An archive node can do everything a full node
-does, and it can access historical state data.
+Archive nodes also store the intermediary state of every account and contract for every block since
+the genesis block.
+Archive nodes can do everything full nodes do, and they can access historical state data.
+Archive nodes require more disk space than full nodes.
 
-For Besu on Mainnet, archive nodes [require more disk space](../../concepts/data-storage-formats.md#storage-requirements)
-than full nodes.
+## Sync times
+
+To sync with a public network, Besu runs two processes in parallel: the world state sync and the
+blockchain download.
+
+The following table shows the average world state sync time for each sync mode on Mainnet.
+All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge.
+Each sync mode also has its own world state database size.
+
+| Sync mode   | Time to sync world state | Disk usage    |
+| ----------- | ------------------------ | ------------- |
+| Snap        | ~6 hours                 | Average disk  |
+| Checkpoint  | ~5 hours                 | Smallest disk |
+| Fast        | ~1.5 days                | Average disk  |
+| Full        | ~weeks                   | Largest disk  |
 
 !!! note
 
-    Besu running on other public testnets and other Ethereum clients have
-    different disk space requirements.
+    - As of late 2022, an average Mainnet snap sync consumes around 750 GB using Bonsai Tries.
+      Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements)
+      across data storage formats and sync modes.
 
-## Store data
+    - Testnets take significantly less time and space to sync.
+
+While the world state syncs, Besu downloads and imports the blockchain in the background.
+The blockchain download time depends on CPU, the network, Besu's peers, and disk speed.
+It generally takes longer than the world state sync.
+
+Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
+
+## Storage
 
 You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
 or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
@@ -31,11 +56,82 @@ We recommend using Bonsai Tries for the lowest storage requirements.
 
 ## Run a full node
 
-You can run a full node using [fast synchronization (fast sync)](#fast-synchronization),
-[snap synchronization (snap sync)](#snap-synchronization), or
-[checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization).
+You can run a full node using [snap synchronization (snap sync)](#snap-synchronization),
+[checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization), or
+[fast synchronization (fast sync)](#fast-synchronization).
+
+### Snap synchronization
+
+!!! important
+
+    We recommend using snap sync over fast sync because snap sync can be faster by several days.
+    We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+    data storage format for the fastest sync and lowest storage requirements.
+
+Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
+You need Besu version 22.4.0 or later to use snap sync.
+
+Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the
+trie as possible, and reconstructs the trie locally.
+
+You can't switch from fast sync to snap sync.
+If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
+deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
+
+You can restart Besu during a snap sync in case of hardware or software problems.
+The sync resumes from the last valid world state and continues to download blocks starting from the
+last downloaded block.
+
+See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
+
+### Checkpoint synchronization
+
+!!! important
+
+    Checkpoint sync is an early access feature.
+
+Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
+You need Besu version 22.4.3 or later to use checkpoint sync.
+
+Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
+genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
+file](../../concepts/genesis-file.md).
+
+Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
+don't have to add this yourself.
+
+For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
+number, and total difficulty as in the following example.
+
+!!! example "Checkpoint configuration example"
+
+    ```json
+    "checkpoint": {
+      "hash": "0x844d581cb00058d19f0584fb582fa2de208876ee56bbae27446a679baf4633f4",
+      "number": 14700000,
+      "totalDifficulty": "0xA2539264C62BF98CFC6"
+    }
+    ```
+
+!!! note
+
+    If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
+    checkpoint must be the beginning of an epoch.
+
+If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu snap
+syncs from the genesis block.
+
+You can restart Besu during a checkpoint sync in case of hardware or software problems.
+The sync resumes from the last valid world state and continues to download blocks starting from the
+last downloaded block.
 
 ### Fast synchronization
+
+!!! important
+
+    It might become impossible to sync Ethereum Mainnet using fast sync in the future.
+    If you sync for the first time or ever need to re-sync, update Besu to a version that supports
+    newer sync methods.
 
 Enable fast sync using [`--sync-mode=FAST`](../../reference/cli/options.md#sync-mode).
 
@@ -96,75 +192,6 @@ You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world
     ![Fast synchronization](../../../assets/images/fastsync.png)
 
     The easiest solution in this scenario is to restart fast sync to obtain a new pivot block.
-
-### Snap synchronization
-
-!!! important
-
-    Snap sync is an early access feature.
-    We recommend using snap sync over fast sync even in certain production environments (for example, staking),
-    because snap sync can be faster by several days.
-    If your snap sync completes successfully, you have the correct world state.
-
-    We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
-    data storage format for the fastest sync and lowest storage requirements.
-
-Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode).
-You need Besu version 22.4.0 or later to use snap sync.
-
-Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the
-trie as possible, and reconstructs the trie locally.
-
-You can't switch from fast sync to snap sync.
-If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node,
-deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
-
-See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using snap sync.
-
-!!! caution
-
-    If you restart your node before snap sync completes, syncing restarts from scratch.
-
-### Checkpoint synchronization
-
-!!! important
-
-    Checkpoint sync is an early access feature.
-
-Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode).
-You need Besu version 22.4.3 or later to use checkpoint sync.
-
-Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
-genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis
-file](../../concepts/genesis-file.md).
-
-Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you
-don't have to add this yourself.
-
-For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,
-number, and total difficulty as in the following example.
-
-!!! example "Checkpoint configuration example"
-
-    ```json
-    "checkpoint": {
-      "hash": "0x844d581cb00058d19f0584fb582fa2de208876ee56bbae27446a679baf4633f4",
-      "number": 14700000,
-      "totalDifficulty": "0xA2539264C62BF98CFC6"
-    }
-    ```
-
-!!! caution
-
-    If you restart your node before checkpoint sync completes, syncing restarts from scratch.
-
-!!! note
-
-    If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the
-    checkpoint must be the beginning of an epoch.
-
-If you enable checkpoint sync without a checkpoint configuration in the genesis file, Besu will snap
-sync from the genesis block.
 
 ## Run an archive node
 

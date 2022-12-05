@@ -12,7 +12,7 @@ When upgrading your Besu node, we recommend:
 
 ## Ansible
 
-You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/pegasyseng/hyperledger_besu)
+You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/consensys/hyperledger_besu)
 directly or customize it to suit your needs.
 
 Upgrade the Besu version on nodes by running the play with the new version. For more information,

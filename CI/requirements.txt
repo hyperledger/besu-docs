@@ -1,5 +1,5 @@
 markdown-fenced-code-tabs==1.0.5
-markdown-include==0.7.0
+markdown-include==0.8.0
 mkdocs-markdownextradata-plugin==0.2.5
 mkdocs-exclude==1.0.2
 mkdocs-redirects==1.2.0

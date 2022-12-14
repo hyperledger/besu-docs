@@ -136,7 +136,6 @@ nav:
           - Use privacy:
               - Use EEA-compliant privacy: private-networks/how-to/use-privacy/eea-compliant.md
               - Use Besu-extended privacy: private-networks/how-to/use-privacy/besu-extended.md
-              - Use GoQuorum-compatible privacy: private-networks/how-to/use-privacy/goquorum-compatible.md
               - Run Tessera with Besu: private-networks/how-to/use-privacy/tessera.md
               - Create and manage privacy groups: private-networks/how-to/use-privacy/privacy-groups.md
               - Use flexible privacy groups: private-networks/how-to/use-privacy/flexible.md

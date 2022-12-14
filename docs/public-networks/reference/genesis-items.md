@@ -24,7 +24,6 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `transitions`       | Specifies block at which to [change IBFT 2.0 or QBFT validators](../../private-networks/how-to/configure/consensus/add-validators-without-voting.md).                                                                   |
 | `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../../private-networks/how-to/configure/free-gas.md). The default is `24576` and the maximum size is `2147483647`.                                 |
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                     |
-| `isQuorum`          | Set to `true` to allow [interoperable private transactions] between Hyperledger Besu and [GoQuorum clients] using the Tessera private transaction manager.                                  |
 | `ecCurve`           | Specifies [the elliptic curve to use](../../private-networks/how-to/configure/curves.md). Default is `secp256k1`.                                                                                 |
 | `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                        |
 

@@ -126,6 +126,8 @@ plugins:
       Reference/Resources.md: index.md
       HowTo/Use-Privacy/EEA-compliant.md: private-networks/how-to/use-privacy/eea-compliant.md
       HowTo/Use-Privacy/Privacy.md: private-networks/how-to/use-privacy/besu-extended.md
+      HowTo/Use-Privacy/Use-GoQuorum-compatible-privacy.md: private-networks/concepts/privacy/index.md
+      private-networks/how-to/use-privacy/goquorum-compatible.md: private-networks/concepts/privacy/index.md
       HowTo/Use-Privacy/Run-Tessera-With-Besu.md: private-networks/how-to/use-privacy/tessera.md
       HowTo/Use-Privacy/Create-Manage-Privacy-Groups.md: private-networks/how-to/use-privacy/privacy-groups.md
       HowTo/Use-Privacy/Use-FlexiblePrivacy.md: private-networks/how-to/use-privacy/flexible.md

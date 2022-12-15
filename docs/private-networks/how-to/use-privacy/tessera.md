@@ -18,7 +18,7 @@ and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 
 !!! note
 
-    You can also [configure Besu for high availability] using load balancers.
+    You can also configure Besu for high availability using load balancers.
 
 ## High availability
 

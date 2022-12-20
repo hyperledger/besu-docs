@@ -2813,8 +2813,16 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
     rpc-max-logs-range=500
     ```
 
-When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum range of blocks to query.
+When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum number of blocks to get logs
+from.
+Set to 0 to specify no limit.
 The default is 1000.
+
+!!! warning
+
+    Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
+    its genesis block, can cause Besu to hang and never return a response.
+    We recommend setting a range limit or leaving this option at its default value.
 
 ### `rpc-tx-feecap`
 

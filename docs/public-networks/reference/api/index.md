@@ -845,6 +845,221 @@ None
         }
         ```
 
+### `debug_metrics`
+
+Returns metrics providing information on the internal operation of Besu.
+
+The available metrics might change over time.
+The JVM metrics might vary based on the JVM implementation used.
+
+The metric types are:
+
+* Timer
+
+* Counter
+
+* Gauge
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *object* - metrics object
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "jvm": {
+              "memory_bytes_init": {
+                "heap": 268435456,
+                "nonheap": 2555904
+              },
+              "threads_current": 41,
+              "memory_bytes_used": {
+                "heap": 696923976,
+                "nonheap": 63633456
+              },
+              "memory_pool_bytes_used": {
+                "PS Eden Space": 669119360,
+                "Code Cache": 19689024,
+                "Compressed Class Space": 4871144,
+                "PS Survivor Space": 2716320,
+                "PS Old Gen": 25088296,
+                "Metaspace": 39073288
+              },
+              ...
+            },
+            "process": {
+              "open_fds": 546,
+              "cpu_seconds_total": 67.148992,
+              "start_time_seconds": 1543897699.589,
+              "max_fds": 10240
+            },
+            "rpc": {
+              "request_time": {
+                "debug_metrics": {
+                  "bucket": {
+                    "+Inf": 2,
+                    "0.01": 1,
+                    "0.075": 2,
+                    "0.75": 2,
+                    "0.005": 1,
+                    "0.025": 2,
+                    "0.1": 2,
+                    "1.0": 2,
+                    "0.05": 2,
+                    "10.0": 2,
+                    "0.25": 2,
+                    "0.5": 2,
+                    "5.0": 2,
+                    "2.5": 2,
+                    "7.5": 2
+                  },
+                  "count": 2,
+                  "sum": 0.015925392
+                }
+              }
+            },
+            "blockchain": {
+              "difficulty_total": 3533501,
+              "announcedBlock_ingest": {
+                "bucket": {
+                  "+Inf": 0,
+                  "0.01": 0,
+                  "0.075": 0,
+                  "0.75": 0,
+                  "0.005": 0,
+                  "0.025": 0,
+                  "0.1": 0,
+                  "1.0": 0,
+                  "0.05": 0,
+                  "10.0": 0,
+                  "0.25": 0,
+                  "0.5": 0,
+                  "5.0": 0,
+                  "2.5": 0,
+                  "7.5": 0
+                },
+                "count": 0,
+                "sum": 0
+              },
+              "height": 1908793
+            },
+            "peers": {
+              "disconnected_total": {
+                "remote": {
+                  "SUBPROTOCOL_TRIGGERED": 5
+                },
+                "local": {
+                  "TCP_SUBSYSTEM_ERROR": 1,
+                  "SUBPROTOCOL_TRIGGERED": 2,
+                  "USELESS_PEER": 3
+                }
+              },
+              "peer_count_current": 2,
+              "connected_total": 10
+            }
+          }
+        }
+        ```
+
+### `debug_replayBlock`
+
+Re-imports the block matching the specified block number, by rolling the head of the local chain
+back to the block right before the specified block, then importing the specified block.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - `Success` or `error`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "Success"
+        }
+        ```
+
+### `debug_setHead`
+
+Sets the current head of the local chain to the block matching the specified block number.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - `Success` or `error`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "Success"
+        }
+        ```
+
 ### `debug_standardTraceBlockToFile`
 
 Generates files containing the block trace. A separate file is generated for each
@@ -990,144 +1205,6 @@ Returns the contract storage for the specified range.
               }
             },
             "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
-          }
-        }
-        ```
-
-### `debug_metrics`
-
-Returns metrics providing information on the internal operation of Besu.
-
-The available metrics might change over time.
-The JVM metrics might vary based on the JVM implementation used.
-
-The metric types are:
-
-* Timer
-
-* Counter
-
-* Gauge
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`: *object* - metrics object
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "jvm": {
-              "memory_bytes_init": {
-                "heap": 268435456,
-                "nonheap": 2555904
-              },
-              "threads_current": 41,
-              "memory_bytes_used": {
-                "heap": 696923976,
-                "nonheap": 63633456
-              },
-              "memory_pool_bytes_used": {
-                "PS Eden Space": 669119360,
-                "Code Cache": 19689024,
-                "Compressed Class Space": 4871144,
-                "PS Survivor Space": 2716320,
-                "PS Old Gen": 25088296,
-                "Metaspace": 39073288
-              },
-              ...
-            },
-            "process": {
-              "open_fds": 546,
-              "cpu_seconds_total": 67.148992,
-              "start_time_seconds": 1543897699.589,
-              "max_fds": 10240
-            },
-            "rpc": {
-              "request_time": {
-                "debug_metrics": {
-                  "bucket": {
-                    "+Inf": 2,
-                    "0.01": 1,
-                    "0.075": 2,
-                    "0.75": 2,
-                    "0.005": 1,
-                    "0.025": 2,
-                    "0.1": 2,
-                    "1.0": 2,
-                    "0.05": 2,
-                    "10.0": 2,
-                    "0.25": 2,
-                    "0.5": 2,
-                    "5.0": 2,
-                    "2.5": 2,
-                    "7.5": 2
-                  },
-                  "count": 2,
-                  "sum": 0.015925392
-                }
-              }
-            },
-            "blockchain": {
-              "difficulty_total": 3533501,
-              "announcedBlock_ingest": {
-                "bucket": {
-                  "+Inf": 0,
-                  "0.01": 0,
-                  "0.075": 0,
-                  "0.75": 0,
-                  "0.005": 0,
-                  "0.025": 0,
-                  "0.1": 0,
-                  "1.0": 0,
-                  "0.05": 0,
-                  "10.0": 0,
-                  "0.25": 0,
-                  "0.5": 0,
-                  "5.0": 0,
-                  "2.5": 0,
-                  "7.5": 0
-                },
-                "count": 0,
-                "sum": 0
-              },
-              "height": 1908793
-            },
-            "peers": {
-              "disconnected_total": {
-                "remote": {
-                  "SUBPROTOCOL_TRIGGERED": 5
-                },
-                "local": {
-                  "TCP_SUBSYSTEM_ERROR": 1,
-                  "SUBPROTOCOL_TRIGGERED": 2,
-                  "USELESS_PEER": 3
-                }
-              },
-              "peer_count_current": 2,
-              "connected_total": 10
-            }
           }
         }
         ```

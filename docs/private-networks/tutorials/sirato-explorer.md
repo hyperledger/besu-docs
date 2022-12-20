@@ -3,9 +3,9 @@ title: Privacy Enabled Besu - Sirato (Epirus) Explorer
 description: Using the Sirato Explorer on a privacy enabled Besu
 ---
 
-# Epirus Explorer
+# Sirato Explorer
 
-Epirus is an EVM explorer that provides an overview over the whole network, such as block information, wiew contracts metadata as well as search for transactions. Epirus supports public and private networks. This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
+Sirato is an EVM explorer that provides an overview over the whole network, such as block information, wiew contracts metadata as well as search for transactions. Sirato supports public and private networks. This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
 
 The instructions recommends you have setup a privacy enabled-network in your local development environment. But the configuration should apply to any compatible EVM network.
 
@@ -60,23 +60,25 @@ Collated logs using Grafana and Loki           : http://localhost:3000/d/Ak6eXLs
 
 For the complete tutorial see this [page](./quickstart.md)
 
-## Start Epirus Docker
+## Start Sirato Docker
 
-Clone Epirus Explorer repository
-
-```
-git clone https://github.com/web3labs/epirus-free
-```
-
-The repo contains a docker-compose extension to allow Epirus to start with quorum quickstart test network.
+Clone Sirato Explorer repository
 
 ```
-NODE_ENDPOINT=http://member1besu:8545 docker-compose -f docker-compose.yml -f epirus-extensions/docker-compose-quorum-dev-quickstart.yml up
+git clone https://github.com/web3labs/sirato-free
+```
+
+The repo contains a docker-compose scripts to allow Sirato to start with quorum quickstart test network.
+
+From sirato-free repo change to docker-compose directory, and then run the following command
+
+```
+NODE_ENDPOINT=http://member1besu:8545 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
 Then open http://localhost/ on your browser. You’ll see our new initialisation page while it’s booting up. This may take sometime for the all service to start and ingestion sync is complete.
 
-![`Epirus-dashboard`](../../assets/images/sirato-loading.png)
+![`Sirato-dashboard`](../../assets/images/sirato-loading.png)
 
 ---
 **NOTE**
@@ -87,7 +89,7 @@ We are connecting to one of the privacy nodes `member1besu` not the dedicated RP
 
 ## Explorer Dashboard
 
-The **Explorer Dashbord** page gives you a an aggregated view on network activities.
+The **Explorer Dashbord** page gives you a an aggregated view on network activities
 
 ![`Epirus-dashboard`](../../assets/images/sirato-dashboard.png)
 
@@ -109,10 +111,10 @@ You can view a given block details by clicking over block hash or block number
 
 ## Transactions
 
-The **Transaction** page shows a paginated view of the new and historical transactions
+The **Transactions** page shows a paginated view of the new and historical transactions
 
 ![`sirato-blocks`](../../assets/images/sirato-transactions.png)
 
 ## Find out more
 
-Epirus free version have some feature limitations, find out more about Epirus [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15)
+Sirato free version have some feature limitations, find out more about Sirato [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15)

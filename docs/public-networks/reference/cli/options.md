@@ -724,22 +724,15 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization).
+The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization)
+in [proof of work](../../how-to/use-pow/mining.md) networks.
 The default is 1.
 
-!!! note
+!!! important
 
-    If synchronizing in `FAST` mode, most historical world state data is unavailable. Any methods
-    attempting to access unavailable world state data return `null`.
+    This option only applies to proof of work networks.
 
 ### `genesis-file`
-
-Use the genesis file to create a custom network.
-
-!!!tip
-
-    To use a public Ethereum network such as Goerli, use the [`--network`](#network) option. The
-    network option defines the genesis file for public networks.
 
 === "Syntax"
 
@@ -765,11 +758,11 @@ Use the genesis file to create a custom network.
     genesis-file="/home/me/me_node/customGenesisFile.json"
     ```
 
-The path to the genesis file.
+The path to the [genesis file](../../concepts/genesis-file.md).
 
 !!!important
 
-    You cannot use the [`--genesis-file`](#genesis-file) and [`--network`](#network) options at the
+    You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) options at the
     same time.
 
 ### `graphql-http-cors-origins`

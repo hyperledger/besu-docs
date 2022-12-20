@@ -2787,6 +2787,35 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
     The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are available and are two names for
     the same option.
 
+### `rpc-max-logs-range`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-max-logs-range=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-max-logs-range=500
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_MAX_LOGS_RANGE=500
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    rpc-max-logs-range=500
+    ```
+
+When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum range of blocks to query.
+The default is 1000.
+
 ### `rpc-tx-feecap`
 
 === "Syntax"

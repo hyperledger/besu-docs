@@ -726,7 +726,7 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
 
 The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization)
 in [proof of work](../../how-to/use-pow/mining.md) networks.
-The default is 1.
+The default is 5.
 
 !!! important
 

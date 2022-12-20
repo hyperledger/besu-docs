@@ -268,7 +268,6 @@ The block parameter can have the following values:
   honest majority and certain synchronicity assumptions.
 
 !!! note
-
-    If [synchronizing in FAST mode](../../reference/cli/options.md#sync-mode), most
+    When [synchronizing a full node](../../get-started/connect/sync-node.md#run-a-full-node), most
     historical world state data is unavailable. Any methods attempting to access unavailable world
     state data return `null`.

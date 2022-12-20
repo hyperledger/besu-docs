@@ -507,7 +507,9 @@ Removes a [static node](../../how-to/connect/static-nodes.md).
 The `DEBUG` API methods allow you to inspect and debug the network.
 The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
 compatibility with tools such as [Remix](https://remix.ethereum.org/).
-We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
+Where these APIs overlap, we recommend using the [`TRACE` API](#trace-methods) for production use over the
+`DEBUG` API. Specifically, we recommend `trace_block` over `debug_traceBlock`, and `trace_transaction` over
+`debug_traceTransaction`.
 
 !!! note
 

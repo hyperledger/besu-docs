@@ -266,8 +266,3 @@ The block parameter can have the following values:
   It cannot be reorganized outside manual intervention driven by community coordination.
 * `safe` : `tag` - The most recent block that is safe from reorganization under
   honest majority and certain synchronicity assumptions.
-
-!!! note
-    When [synchronizing a full node](../../get-started/connect/sync-node.md#run-a-full-node), most
-    historical world state data is unavailable. Any methods attempting to access unavailable world
-    state data return `null`.

@@ -3221,6 +3221,8 @@ Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchro
     * Checkpoint sync is an early access feature.
     * It might become impossible to sync Ethereum Mainnet using fast sync in the future.
       Update Besu to a version that supports newer sync methods.
+    * When synchronizing in a mode other than `FULL`, most historical world state data is unavailable.
+      Any methods attempting to access unavailable world state data return `null`.
 
 ### `target-gas-limit`
 

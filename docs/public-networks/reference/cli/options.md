@@ -2916,25 +2916,25 @@ service.
 === "Syntax"
 
     ```bash
-    --rpc-http-authentication-jwt-public-key-file=<FILE>
+    --rpc-ws-authentication-jwt-public-key-file=<FILE>
     ```
 
 === "Example"
 
     ```bash
-    --rpc-http-authentication-jwt-public-key-file=publicKey.pem
+    --rpc-ws-authentication-jwt-public-key-file=publicKey.pem
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_RPC_HTTP_AUTHENTICATION-JWT-PUBLIC-KEY-FILE="publicKey.pem"
+    BESU_RPC_WS_AUTHENTICATION_JWT_PUBLIC_KEY_FILE="publicKey.pem"
     ```
 
 === "Configuration file"
 
     ```bash
-    rpc-http-authentication-jwt-public-key-file="publicKey.pem"
+    rpc-ws-authentication-jwt-public-key-file="publicKey.pem"
     ```
 
 The [JWT provider's public key file] used for JSON-RPC WebSocket authentication with an external

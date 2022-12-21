@@ -2814,7 +2814,7 @@ The default is 1000.
 !!! warning
 
     Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
-    its genesis block, may cause Besu to hang for an indeterminable amount of time while generating
+    its genesis block, might cause Besu to hang for an indeterminable amount of time while generating
     the response.
     We recommend setting a range limit or leaving this option at its default value.
 

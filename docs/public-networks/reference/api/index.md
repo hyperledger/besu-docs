@@ -2641,7 +2641,7 @@ command line option at the default value of `true` to improve log retrieval perf
 
 !!! important
     Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
-    its genesis block, may cause Besu to hang for an indeterminable amount of time while generating
+    its genesis block, might cause Besu to hang for an indeterminable amount of time while generating
     the response.
     We recommend setting a range limit using the [`--rpc-max-logs-range`](../cli/options.md#rpc-max-logs-range)
     option (or leaving it at its default value of 1000).

@@ -202,8 +202,6 @@ and
 | `hash`                 | Data, 32&nbsp;bytes | Hash of the transaction.                                                                   |
 | `input`                | Data                | Data sent with the transaction to create or invoke a contract. For [private transactions](../../../private-networks/concepts/privacy/index.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
 | `nonce`                | Quantity            | Number of transactions made by the sender before this one.                                 |
-| `publicKey`            | Data, 64&nbsp;bytes | Public key of the sender.                                                                  |
-| `raw`                  | Data                | This signed transaction in Recursive Length Prefix (RLP) encoded form.                     |
 | `to`                   | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction.                        |
 | `transactionIndex`     | Quantity, Integer   | Index position of the transaction in the block. `null` when transaction is pending.        |
 | `transactionType`      | String              | [Transaction type](../../concepts/transactions/types.md).                         |
@@ -229,6 +227,7 @@ All transaction call object parameters are optional.
 | `maxFeePerGas`         | Quantity, Integer   | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
 | `value`                | Quantity, Integer   | Value transferred, in Wei.                                     |
 | `data`                 | Data                | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+| `accessList`           | Array               | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
 | `strict`               | Tag                 | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, the `gasPrice` and `baseFee` are set to zero, in order to simulate a transaction without enforcing a balance check. The default is `false`. |
 
 ## Transaction receipt object

@@ -724,22 +724,15 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
     fast-sync-min-peers=8
     ```
 
-The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization).
-The default is 1.
+The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization)
+in [proof of work](../../how-to/use-pow/mining.md) networks.
+The default is 5.
 
-!!! note
+!!! important
 
-    If synchronizing in `FAST` mode, most historical world state data is unavailable. Any methods
-    attempting to access unavailable world state data return `null`.
+    This option only applies to proof of work networks.
 
 ### `genesis-file`
-
-Use the genesis file to create a custom network.
-
-!!!tip
-
-    To use a public Ethereum network such as Goerli, use the [`--network`](#network) option. The
-    network option defines the genesis file for public networks.
 
 === "Syntax"
 
@@ -765,11 +758,11 @@ Use the genesis file to create a custom network.
     genesis-file="/home/me/me_node/customGenesisFile.json"
     ```
 
-The path to the genesis file.
+The path to the [genesis file](../../concepts/genesis-file.md).
 
 !!!important
 
-    You cannot use the [`--genesis-file`](#genesis-file) and [`--network`](#network) options at the
+    You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) options at the
     same time.
 
 ### `graphql-http-cors-origins`
@@ -2788,6 +2781,44 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
     The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are available and are two names for
     the same option.
 
+### `rpc-max-logs-range`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-max-logs-range=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-max-logs-range=500
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_MAX_LOGS_RANGE=500
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    rpc-max-logs-range=500
+    ```
+
+When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum number of blocks to retrieve
+logs from.
+Set to 0 to specify no limit.
+The default is 1000.
+
+!!! warning
+
+    Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
+    its genesis block, might cause Besu to hang for an indeterminable amount of time while generating
+    the response.
+    We recommend setting a range limit or leaving this option at its default value.
+
 ### `rpc-tx-feecap`
 
 === "Syntax"
@@ -3229,6 +3260,8 @@ Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchro
     * Checkpoint sync is an early access feature.
     * It might become impossible to sync Ethereum Mainnet using fast sync in the future.
       Update Besu to a version that supports newer sync methods.
+    * When synchronizing in a mode other than `FULL`, most historical world state data is unavailable.
+      Any methods attempting to access unavailable world state data return `null`.
 
 ### `target-gas-limit`
 

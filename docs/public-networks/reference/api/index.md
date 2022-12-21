@@ -2716,11 +2716,12 @@ Returns an array of [logs](../../concepts/events-and-logs.md) matching a specifi
 Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
-!!! attention
-
-    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from
-    its genesis block, can cause Besu to hang and never return a response.
-    We recommend splitting one large query into multiple ones for better performance.
+!!! important
+    Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
+    its genesis block, might cause Besu to hang for an indeterminable amount of time while generating
+    the response.
+    We recommend setting a range limit using the [`--rpc-max-logs-range`](../cli/options.md#rpc-max-logs-range)
+    option (or leaving it at its default value of 1000).
 
 #### Parameters
 

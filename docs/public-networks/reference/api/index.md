@@ -507,7 +507,9 @@ Removes a [static node](../../how-to/connect/static-nodes.md).
 The `DEBUG` API methods allow you to inspect and debug the network.
 The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is
 compatibility with tools such as [Remix](https://remix.ethereum.org/).
-We recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API.
+Where these APIs overlap, we recommend using the [`TRACE` API](#trace-methods) for production use over the
+`DEBUG` API. Specifically, we recommend `trace_block` over `debug_traceBlock`, and `trace_transaction` over
+`debug_traceTransaction`.
 
 !!! note
 
@@ -845,6 +847,221 @@ None
         }
         ```
 
+### `debug_metrics`
+
+Returns metrics providing information on the internal operation of Besu.
+
+The available metrics might change over time.
+The JVM metrics might vary based on the JVM implementation used.
+
+The metric types are:
+
+* Timer
+
+* Counter
+
+* Gauge
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: *object* - metrics object
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "jvm": {
+              "memory_bytes_init": {
+                "heap": 268435456,
+                "nonheap": 2555904
+              },
+              "threads_current": 41,
+              "memory_bytes_used": {
+                "heap": 696923976,
+                "nonheap": 63633456
+              },
+              "memory_pool_bytes_used": {
+                "PS Eden Space": 669119360,
+                "Code Cache": 19689024,
+                "Compressed Class Space": 4871144,
+                "PS Survivor Space": 2716320,
+                "PS Old Gen": 25088296,
+                "Metaspace": 39073288
+              },
+              ...
+            },
+            "process": {
+              "open_fds": 546,
+              "cpu_seconds_total": 67.148992,
+              "start_time_seconds": 1543897699.589,
+              "max_fds": 10240
+            },
+            "rpc": {
+              "request_time": {
+                "debug_metrics": {
+                  "bucket": {
+                    "+Inf": 2,
+                    "0.01": 1,
+                    "0.075": 2,
+                    "0.75": 2,
+                    "0.005": 1,
+                    "0.025": 2,
+                    "0.1": 2,
+                    "1.0": 2,
+                    "0.05": 2,
+                    "10.0": 2,
+                    "0.25": 2,
+                    "0.5": 2,
+                    "5.0": 2,
+                    "2.5": 2,
+                    "7.5": 2
+                  },
+                  "count": 2,
+                  "sum": 0.015925392
+                }
+              }
+            },
+            "blockchain": {
+              "difficulty_total": 3533501,
+              "announcedBlock_ingest": {
+                "bucket": {
+                  "+Inf": 0,
+                  "0.01": 0,
+                  "0.075": 0,
+                  "0.75": 0,
+                  "0.005": 0,
+                  "0.025": 0,
+                  "0.1": 0,
+                  "1.0": 0,
+                  "0.05": 0,
+                  "10.0": 0,
+                  "0.25": 0,
+                  "0.5": 0,
+                  "5.0": 0,
+                  "2.5": 0,
+                  "7.5": 0
+                },
+                "count": 0,
+                "sum": 0
+              },
+              "height": 1908793
+            },
+            "peers": {
+              "disconnected_total": {
+                "remote": {
+                  "SUBPROTOCOL_TRIGGERED": 5
+                },
+                "local": {
+                  "TCP_SUBSYSTEM_ERROR": 1,
+                  "SUBPROTOCOL_TRIGGERED": 2,
+                  "USELESS_PEER": 3
+                }
+              },
+              "peer_count_current": 2,
+              "connected_total": 10
+            }
+          }
+        }
+        ```
+
+### `debug_replayBlock`
+
+Re-imports the block matching the specified block number, by rolling the head of the local chain
+back to the block right before the specified block, then importing the specified block.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - `Success` or `error`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "Success"
+        }
+        ```
+
+### `debug_setHead`
+
+Sets the current head of the local chain to the block matching the specified block number.
+
+#### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: *string* - `Success` or `error`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS request"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "jsonrpc" : "2.0",
+          "id" : 1,
+          "result" : "Success"
+        }
+        ```
+
 ### `debug_standardTraceBlockToFile`
 
 Generates files containing the block trace. A separate file is generated for each
@@ -990,144 +1207,6 @@ Returns the contract storage for the specified range.
               }
             },
             "nextKey": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6"
-          }
-        }
-        ```
-
-### `debug_metrics`
-
-Returns metrics providing information on the internal operation of Besu.
-
-The available metrics might change over time.
-The JVM metrics might vary based on the JVM implementation used.
-
-The metric types are:
-
-* Timer
-
-* Counter
-
-* Gauge
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`: *object* - metrics object
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
-        ```
-
-    === "wscat WS request"
-
-        ```bash
-        {"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc": "2.0",
-          "id": 1,
-          "result": {
-            "jvm": {
-              "memory_bytes_init": {
-                "heap": 268435456,
-                "nonheap": 2555904
-              },
-              "threads_current": 41,
-              "memory_bytes_used": {
-                "heap": 696923976,
-                "nonheap": 63633456
-              },
-              "memory_pool_bytes_used": {
-                "PS Eden Space": 669119360,
-                "Code Cache": 19689024,
-                "Compressed Class Space": 4871144,
-                "PS Survivor Space": 2716320,
-                "PS Old Gen": 25088296,
-                "Metaspace": 39073288
-              },
-              ...
-            },
-            "process": {
-              "open_fds": 546,
-              "cpu_seconds_total": 67.148992,
-              "start_time_seconds": 1543897699.589,
-              "max_fds": 10240
-            },
-            "rpc": {
-              "request_time": {
-                "debug_metrics": {
-                  "bucket": {
-                    "+Inf": 2,
-                    "0.01": 1,
-                    "0.075": 2,
-                    "0.75": 2,
-                    "0.005": 1,
-                    "0.025": 2,
-                    "0.1": 2,
-                    "1.0": 2,
-                    "0.05": 2,
-                    "10.0": 2,
-                    "0.25": 2,
-                    "0.5": 2,
-                    "5.0": 2,
-                    "2.5": 2,
-                    "7.5": 2
-                  },
-                  "count": 2,
-                  "sum": 0.015925392
-                }
-              }
-            },
-            "blockchain": {
-              "difficulty_total": 3533501,
-              "announcedBlock_ingest": {
-                "bucket": {
-                  "+Inf": 0,
-                  "0.01": 0,
-                  "0.075": 0,
-                  "0.75": 0,
-                  "0.005": 0,
-                  "0.025": 0,
-                  "0.1": 0,
-                  "1.0": 0,
-                  "0.05": 0,
-                  "10.0": 0,
-                  "0.25": 0,
-                  "0.5": 0,
-                  "5.0": 0,
-                  "2.5": 0,
-                  "7.5": 0
-                },
-                "count": 0,
-                "sum": 0
-              },
-              "height": 1908793
-            },
-            "peers": {
-              "disconnected_total": {
-                "remote": {
-                  "SUBPROTOCOL_TRIGGERED": 5
-                },
-                "local": {
-                  "TCP_SUBSYSTEM_ERROR": 1,
-                  "SUBPROTOCOL_TRIGGERED": 2,
-                  "USELESS_PEER": 3
-                }
-              },
-              "peer_count_current": 2,
-              "connected_total": 10
-            }
           }
         }
         ```
@@ -2637,11 +2716,12 @@ Returns an array of [logs](../../concepts/events-and-logs.md) matching a specifi
 Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled)
 command line option at the default value of `true` to improve log retrieval performance.
 
-!!! attention
-
-    Using `eth_getLogs` to get the logs from a large range of blocks, especially an entire chain from
-    its genesis block, can cause Besu to hang and never return a response.
-    We recommend splitting one large query into multiple ones for better performance.
+!!! important
+    Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from
+    its genesis block, might cause Besu to hang for an indeterminable amount of time while generating
+    the response.
+    We recommend setting a range limit using the [`--rpc-max-logs-range`](../cli/options.md#rpc-max-logs-range)
+    option (or leaving it at its default value of 1000).
 
 #### Parameters
 
@@ -2952,43 +3032,6 @@ from untrusted sources, by using a trusted block hash.
         }
         ```
 
-### `eth_getQuorumPayload`
-
-When using [GoQuorum-compatible privacy](../../../private-networks/how-to/use-privacy/goquorum-compatible.md), returns the
-[unencrypted payload from Tessera](https://docs.tessera.consensys.net/Concepts/Transaction-manager/#private-transaction-flow).
-
-#### Parameters
-
-`id`: *string* - the generated SHA3-512 hash of the encrypted payload from Tessera, in hex (the `input` value in the transaction)
-
-#### Returns
-
-`result`: *string* - unencrypted transaction payload in hex
-
-!!! example
-
-    === "curl HTTP"
-
-        ```bash
-        curl -X POST http://127.0.0.1:22000 --data '{"jsonrpc":"2.0","method":"eth_getQuorumPayload","params":["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id":67}'
-        ```
-
-    === "wscat WS"
-
-        ```bash
-        {"jsonrpc":"2.0","method": "eth_getQuorumPayload","params": ["0x5e902fa2af51b186468df6ffc21fd2c26235f4959bf900fc48c17dc1774d86d046c0e466230225845ddf2cf98f23ede5221c935aac27476e77b16604024bade0"],"id": 67}
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-          "jsonrpc":"2.0",
-          "id":67,
-          "result":"0x6060604052341561000f57600080fd5b604051602080610149833981016040528080519060200190919050505b806000819055505b505b610104806100456000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632a1afcd914605157806360fe47b11460775780636d4ce63c146097575b600080fd5b3415605b57600080fd5b606160bd565b6040518082815260200191505060405180910390f35b3415608157600080fd5b6095600480803590602001909190505060c3565b005b341560a157600080fd5b60a760ce565b6040518082815260200191505060405180910390f35b60005481565b806000819055505b50565b6000805490505b905600a165627a7a72305820d5851baab720bba574474de3d09dbeaabc674a15f4dd93b974908476542c23f00029000000000000000000000000000000000000000000000000000000000000002a"
-        }
-        ```
-
 ### `eth_getStorageAt`
 
 Returns the value of a storage position at a specified address.
@@ -3106,8 +3149,6 @@ transaction
             "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
             "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
             "nonce" : "0x2cb2",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
             "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
             "transactionIndex" : "0x2",
             "value" : "0x0",
@@ -3207,8 +3248,6 @@ transaction
             "hash" : "0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6",
             "input" : "0x51a34eb8000000000000000000000000000000000000000000000029b9e659e41b780000",
             "nonce" : "0x2cb2",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf86401018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a8412a7b9141ba0ed2e0f715eccaab4362c19c1cf35ad8031ab1cabe71ada3fe8b269fe9d726712a06691074f289f826d23c92808ae363959eb958fb7a91fc721875ece4958114c65",
             "to" : "0xcfdc98ec7f01dab1b67b36373524ce0208dc3953",
             "transactionIndex" : "0x2",
             "value" : "0x0",
@@ -3300,8 +3339,6 @@ transaction
             "hash" : "0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44",
             "input" : "0x",
             "nonce" : "0x1",
-            "publicKey": "0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3",
-            "raw": "0xf8641d018304cb2f946295ee1b4f6dd65047762f924ecd367c17eabf8f0a84e8beef5b1ca011232cac2f935ab8dd5d5972438fde90e05d0dd620860b42886e7d54dc5c4a0ca03dd467b5faa6e5a0f3c22a5396fefa5b03f07d8114d8434e0e1493736aad8d0e",
             "to" : "0x627306090abab3a6e1400e9345bc60c78a8bef57",
             "transactionIndex" : "0x0",
             "value" : "0x4e1003b28d9280000",

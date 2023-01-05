@@ -5,7 +5,7 @@ description: Using the Sirato Explorer on a privacy enabled Besu
 
 # Sirato Explorer
 
-Sirato is an EVM explorer that provides an overview over the whole network, such as block information, wiew contracts metadata as well as search for transactions. Sirato supports public and private networks. This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
+Sirato is an EVM explorer that provides an overview over the whole network, such as block information, view contracts metadata as well as search for transactions. Sirato supports public and private networks. This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
 
 The instructions recommends you have setup a privacy enabled-network in your local development environment. But the configuration should apply to any compatible EVM network.
 
@@ -14,6 +14,13 @@ The instructions recommends you have setup a privacy enabled-network in your loc
 * [Docker and Docker-compose](https://docs.docker.com/compose/install/)
 * [Git command line](https://git-scm.com/)
 * [Truffle](https://trufflesuite.com/truffle/) (For contracts deployment)
+
+### System requirements
+
+* Set Docker memory to at least 8 GB
+
+Check Besu [system requirements](https://besu.hyperledger.org/en/stable/private-networks/get-started/system-requirements/
+) for the complete list.
 
 ## Start Private Besu Network
 
@@ -76,7 +83,7 @@ From sirato-free repo change to docker-compose directory, and then run the follo
 NODE_ENDPOINT=http://member1besu:8545 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
-Then open http://localhost/ on your browser. You’ll see our new initialisation page while it’s booting up. This may take sometime for the all service to start and ingestion sync is complete.
+Then open http://localhost/ on your browser. You’ll see our new initialisation page while it’s booting up. This may take 5~10 minutes for the all service to start and ingestion sync is complete.
 
 ![`Sirato-dashboard`](../../assets/images/sirato-loading.png)
 

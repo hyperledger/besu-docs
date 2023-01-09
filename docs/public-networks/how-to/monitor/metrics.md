@@ -9,7 +9,7 @@ tags:
 To enable the [Prometheus](https://prometheus.io/) monitoring and alerting service to access Hyperledger Besu metrics,
 use the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
 Use [Grafana](https://grafana.com/) to visualize the collected data.
-See the sample [Besu Grafana dashboard](https://grafana.com/dashboards/16455).
+See the sample [Besu Grafana dashboard](https://grafana.com/grafana/dashboards/10273-besu-overview/).
 
 The Besu example networks have [monitoring with Prometheus and Grafana configured].
 

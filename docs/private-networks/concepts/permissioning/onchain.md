@@ -43,7 +43,7 @@ Permissioning implements three allowlists:
     [privacy marker transactions](../privacy/private-transactions/processing.md).
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [--privacy-marker-transaction-signing-key-file]
+    [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option and the corresponding public key
     included in the accounts allowlist.
 
@@ -72,5 +72,4 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[--privacy-marker-transaction-signing-key-file]: ../../reference/cli/options.md#privacy-marker-transaction-signing-key-file
 [specify the permissioning contract interface]: ../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version

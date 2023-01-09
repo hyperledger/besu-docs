@@ -5,17 +5,11 @@ description: Setting up and using Hyperledger Besu onchain permissioning
 # Get started with onchain permissioning
 
 The following steps describe bootstrapping a permissioned network using a Hyperledger Besu
-node and a development server to run the permissioning management dapp.
+node.
 
 This tutorial configures permissioning on a [IBFT 2.0 proof of authority (PoA)] network.
 
-!!! note
-
-    Production environments require a Web server to [host the permissioning management dapp](../../how-to/use-permissioning/onchain.md).
-
 ## Prerequisites
-
-For the development server to run the dapp:
 
 * [Node.js](https://nodejs.org/en/) v10.16.0 or later
 * [Yarn](https://yarnpkg.com/en/) v1.15 or later
@@ -310,11 +304,7 @@ Clone the `permissioning-smart-contracts` repository:
 git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
 ```
 
-Change into the `permissioning-smart-contracts` directory and run:
-
-```bash
-yarn install
-```
+Change into the `permissioning-smart-contracts` directory.
 
 ### 12. Set the environment variables
 
@@ -329,7 +319,8 @@ Create the following environment variables and set to the specified values:
   port (`http://127.0.0.1:8545`). Set to JSON-RPC host and port. When bootstrapping the network,
   Besu uses the specified node to deploy the contracts and is the first node in the network.
 * `CHAIN_ID` - The chain ID from the genesis file.
-* `INITIAL_ALLOWLISTED_NODES`(optional) - The enode URLs of permitted nodes. Specify multiple nodes as a comma-separated list.
+* `INITIAL_ALLOWLISTED_NODES`(optional) - The enode URLs of permitted nodes. Specify multiple nodes
+(Node-1, Node-2, Node-3) as a comma-separated list.
 
 !!! tip
 
@@ -347,15 +338,7 @@ Create the following environment variables and set to the specified values:
 
     If using a `.env` file, save the file to the `permissioning-smart-contracts` directory.
 
-### 13. Build the project
-
-In the `permissioning-smart-contracts` directory, build the project:
-
-```bash
-yarn run build
-```
-
-### 14. Deploy the contracts
+### 13. Deploy the contracts
 
 In the `permissioning-smart-contracts` directory, while your network is running, deploy the Admin and Rules contracts:
 
@@ -369,43 +352,6 @@ The migration logs the addresses of the Admin and Rules contracts.
 !!! important
 
     The account that deploys the contracts is automatically an [admin account].
-
-### 15. Start the permissioning management dapp
-
-!!! note
-
-    Production environments require a Web server to
-    [host the permissioning management dapp](../../how-to/use-permissioning/onchain.md).
-
-1. In the `permissioning-smart-contracts` directory, start the Web server serving the dapp:
-
-    ```bash
-    yarn start
-    ```
-
-    The dapp displays at [`http://localhost:3000`](http://localhost:3000).
-
-1. Ensure MetaMask connects to your local node (by default [`http://localhost:8545`](http://localhost:8545)).
-
-    A MetaMask notification displays requesting permission for Besu Permissioning to connect to your
-    account.
-
-1. Select the **Connect** button.
-
-    The dapp displays with the account specified by the `BESU_NODE_PERM_ACCOUNT` environment
-    variable in the **Accounts** and **Admins** tabs.
-
-!!! note
-
-    Only an [admin account] can add or remove nodes from the allowlist.
-
-### 16. Add nodes to the allowlist
-
-In the [permissioning management dapp started in step 15](#15-start-the-permissioning-management-dapp),
-add [Node-1, Node-2, Node-3, and Node-4 to the allowlist].
-
-Alternatively, You can add the enode URLs in `INITIAL_ALLOWLISTED_NODES`,
-when specifying environment variables in [step 12](#12-set-the-environment-variables).
 
 <!-- Links -->
 [Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../how-to/use-permissioning/onchain.md#update-nodes-allowlist

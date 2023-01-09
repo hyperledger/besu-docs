@@ -351,9 +351,8 @@ The migration logs the addresses of the Admin and Rules contracts.
 
 !!! important
 
-    The account that deploys the contracts is automatically an [admin account].
+    The account that deploys the contracts is automatically an admin account.
 
 <!-- Links -->
 [Node-1, Node-2, Node-3, and Node-4 to the allowlist]: ../../how-to/use-permissioning/onchain.md#update-nodes-allowlist
-[admin account]: ../../how-to/use-permissioning/onchain.md#update-nodes-allowlist
 [IBFT 2.0 proof of authority (PoA)]: ../../how-to/configure/consensus/ibft.md

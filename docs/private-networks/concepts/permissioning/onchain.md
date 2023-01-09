@@ -18,36 +18,15 @@ source, the blockchain.
 
 !!! note
 
-    The permissioning smart contracts and [permissioning management dapp] are a separate product to Hyperledger Besu,
-    located in the
-    [`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts) repository.
-
     Custom smart contracts and dapps can be implemented to work with onchain permissioning.
 
 ## Permissioning contracts
-
-The permissioning smart contracts provided in the
-[`ConsenSys/permissioning-smart-contracts`](https://github.com/ConsenSys/permissioning-smart-contracts) repository are:
-
-* Ingress contracts for nodes and accounts - proxy contracts defined in the genesis file to defer
-  the permissioning logic to the Node Rules and Account Rules contracts. The Ingress contracts deploy
-  to static addresses.
-* Node Rules - stores the node allowlist and node allowlist operations (for example, add and
-  remove).
-* Account Rules - stores the accounts allowlist and account allowlist operations (for example, add
-  and remove).
-* Admin - stores the list of admin accounts and admin list operations (for example, add and
-  remove). Admin accounts are stored in a single list for both nodes and accounts.
 
 !!! important
 
     The permissioning contract has multiple interfaces, and each interface maps to a specific
     version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/).
     Ensure that you [specify the permissioning contract interface] being used when starting Besu.
-
-## Permissioning management dapp
-
-The [permissioning management dapp] provides view and maintain access to the allowlists.
 
 ### Allowlists
 
@@ -64,7 +43,7 @@ Permissioning implements three allowlists:
     [privacy marker transactions](../privacy/private-transactions/processing.md).
 
     If using account permissioning and privacy, a signing key must be specified using the
-    [`--privacy-marker-transaction-signing-key-file`]
+    [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file)
     command line option and the corresponding public key
     included in the accounts allowlist.
 
@@ -93,6 +72,4 @@ bootnodes to rediscover peers.
     All bootnodes must be on the nodes allowlist.
 
 <!-- Links -->
-[permissioning management dapp]: ../../how-to/use-permissioning/onchain.md#deploy-the-permissioning-management-dapp
-[`--privacy-marker-transaction-signing-key-file`]: ../../reference/cli/options.md#privacy-marker-transaction-signing-key-file
 [specify the permissioning contract interface]: ../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version

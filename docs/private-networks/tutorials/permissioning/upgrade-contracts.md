@@ -9,8 +9,6 @@ version.
 
 ## Prerequisites
 
-For the development server to run the dapp:
-
 <!-- vale off -->
 * [Node.js](https://nodejs.org/en/) v10.16.0 or later
 <!-- vale on -->
@@ -31,20 +29,6 @@ For the development server to run the dapp:
     ```bash
     git clone https://github.com/ConsenSys/permissioning-smart-contracts.git
     ```
-
-1. Change into the `permissioning-smart-contracts` directory and run:
-
-    ```bash
-    yarn install
-    ```
-
-### 2. Build the project
-
-In the `permissioning-smart-contracts` directory, build the project:
-
-```bash
-yarn run build
-```
 
 ### 3. Update environment variables
 
@@ -76,7 +60,6 @@ the file must be in the `permissioning-smart-contracts` directory.
 !!! note
 
     This step enables you to export the current allowlists to assist in updating.
-    You can set these lists via the dapp if you prefer.
 
 1. Export the current allowlists by setting the following environment variables:
 
@@ -144,17 +127,7 @@ the file must be in the `permissioning-smart-contracts` directory.
     truffle migrate --reset
     ```
 
-### 6. Start the permissioning management dapp
-
-In the `permissioning-smart-contracts` directory, start the Web server:
-
-```bash
-yarn start
-```
-
-The dapp displays at [`http://localhost:3000`](http://localhost:3000).
-
-### 7. Restart Besu nodes
+### 6. Restart Besu nodes
 
 Restart the Besu nodes with the updated [`NodeIngress`](#5-deploy-the-contracts)
 contract address and [permissioning contract interface](../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version)

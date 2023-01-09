@@ -6,7 +6,6 @@ description: Use onchain permissioning allowlists
 
 This page contains some extra info if you're using [onchain permissioning](../../concepts/permissioning/onchain.md).
 
-
 !!! tip
 
     If your node has two different IP addresses for ingress and egress

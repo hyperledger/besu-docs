@@ -10,8 +10,8 @@ JSON-RPC APIs allow you to interact with your node. JSON-RPC endpoints are not e
 
 !!! caution
 
-    You should secure access to your nodes JSON-RPC endpoints. Users with access to your node
-    via JSON-RPC are making calls directly to your node, hence can cause your node to consume resources.
+    You should secure access to your node's JSON-RPC endpoints. Users with access to your node
+    via JSON-RPC can make calls directly to your node, causing your node to consume resources.
 
 To enable JSON-RPC over HTTP or WebSocket, use the
 [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) and

@@ -77,7 +77,7 @@ By default, Besu accepts requests and connections from `localhost` and `127.0.0.
 !!! important
 
     This isn't a permissioning feature.
-    If you want to restrict access to the API, we recommend using the [Besu authentication mechanism](authenticate.md)
+    To restrict access to the API, we recommend using the [Besu authentication mechanism](authenticate.md)
     with username and password authentication or JWT public key authentication.
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.

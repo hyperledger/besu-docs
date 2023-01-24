@@ -102,7 +102,11 @@ The **Explorer Dashbord** page gives you a an aggregated view on network activit
 
 ## Network
 
-The **Network** page provides an overview of the network status and connected peers
+The **Network** page provides an overview of the network status and connected peers. This page is disabled by default, and can only be visible if `DISPLAY_NETWOR_TAB=enabled` is set when you run the following command.
+
+```
+NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+``` 
 
 ![`sirato-network`](../../assets/images/sirato-network.png)
 

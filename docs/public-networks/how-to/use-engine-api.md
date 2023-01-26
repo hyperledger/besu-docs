@@ -50,7 +50,7 @@ By default, Besu accepts requests and connections from `localhost` and `127.0.0.
 !!! important
 
     This isn't a permissioning feature.
-    If you want to restrict access to the Engine API, we recommend using [authentication](#authentication).
+    To restrict access to the Engine API, we recommend using [authentication](#authentication).
 
 If your application publishes RPC ports, specify the hostnames when starting Besu.
 

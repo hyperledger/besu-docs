@@ -930,7 +930,7 @@ By default, Besu accepts requests from `localhost` and `127.0.0.1`.
 !!! important
 
     This isn't a permissioning feature.
-    If you want to restrict access to the API, we recommend using the
+    To restrict access to the API, we recommend using the
     [Besu authentication mechanism](../../how-to/use-besu-api/authenticate.md) with username and password
     authentication or JWT public key authentication.
 

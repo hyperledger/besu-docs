@@ -188,6 +188,7 @@ nav:
               - private-networks/tutorials/permissioning/index.md
               - Get started with onchain permissioning: private-networks/tutorials/permissioning/onchain.md
               - Upgrade permissioning contracts: private-networks/tutorials/permissioning/upgrade-contracts.md
+          - Deploy Besu with Sirato explorer: private-networks/tutorials/sirato-explorer.md
           - Deploy a smart contract:
               - private-networks/tutorials/contracts/index.md
               - Transfer account funds: private-networks/tutorials/contracts/transfer-funds.md

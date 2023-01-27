@@ -163,4 +163,3 @@ Anything listed in the configuration file also takes precedence.
 
 <!--links-->
 [GoQuorum clients]: https://consensys.net/docs/goquorum/en/stable/
-[interoperable private transactions]: ../../private-networks/how-to/use-privacy/goquorum-compatible.md

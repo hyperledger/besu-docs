@@ -122,7 +122,7 @@ You can view a given block details by clicking over block hash or block number
 
 ## Transactions
 
-The **Transactions** page shows a paginated view of the new and historical transactions
+The **Transactions** page shows a paginated view of the new and historical transactions 
 
 ![`sirato-blocks`](../../assets/images/sirato-transactions.png)
 

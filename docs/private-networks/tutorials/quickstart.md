@@ -220,7 +220,7 @@ Sirato free version have some feature limitations, find out more about Sirato [h
 
 ---
 
-### Alethio Ethereum Lite Explorer
+## Alethio Ethereum Lite Explorer
 This tutorial uses a modified version of the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer).
 
 Access the explorer at [`http://localhost:25000`](http://localhost:25000) as displayed when starting

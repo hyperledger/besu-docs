@@ -123,7 +123,7 @@ This tutorial will walk you through how to setup Sirato Explorer with privacy-en
 We are connecting to one of the privacy nodes `member1besu` not the dedicated RPC. This is required to allow access for Besu privacy APIs, in production access to RPC nodes must be securted, recommended approach is configure [authentication](../../public-networks/how-to/use-besu-api/authenticate.md) with JWT and enable TLS flags.
 
 ---
-### Start Sirato Docker
+#### Start Sirato Docker
 Clone Sirato Explorer repository
 
 ```
@@ -157,7 +157,7 @@ Services
 Sirato explorer HTTP endpoint                 : http://localhost:26000
 Sirato is connected to node                   : http://rpcnode:8545
 ```
-### Stop Sirato Docker
+#### Stop Sirato Docker
 To stop all the services from running. Simply execute the script below.
 ```
 ./stop.sh
@@ -182,13 +182,13 @@ Then open http://localhost/ on your browser. You’ll see our new initialisation
 ![`Sirato-dashboard`](../../assets/images/sirato-loading.png)
 
 
-### Explorer Dashboard
+#### Explorer Dashboard
 
 The **Explorer Dashbord** page gives you a an aggregated view on network activities
 
 ![`Epirus-dashboard`](../../assets/images/sirato-dashboard.png)
 
-### Network
+#### Network
 
 The **Network** page provides an overview of the network status and connected peers. This page is disabled by default, and can only be visible if `DISPLAY_NETWOR_TAB=enabled` is set when you run the following command.
 
@@ -198,7 +198,7 @@ NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose
 
 ![`sirato-network`](../../assets/images/sirato-network.png)
 
-### Blocks
+#### Blocks
 
 This **Blocks** page shows a realtime view of the finalised blocks
 
@@ -208,19 +208,19 @@ You can view a given block details by clicking over block hash or block number
 
 ![`sirato-blocks`](../../assets/images/sirato-block-details.png)
 
-### Transactions
+#### Transactions
 
 The **Transactions** page shows a paginated view of the new and historical transactions
 
 ![`sirato-blocks`](../../assets/images/sirato-transactions.png)
 
-### Find out more
+#### Find out more
 
 Sirato free version have some feature limitations, find out more about Sirato [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15)
 
 ---
 
-## Alethio Ethereum Lite Explorer
+### Alethio Ethereum Lite Explorer
 This tutorial uses a modified version of the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer).
 
 Access the explorer at [`http://localhost:25000`](http://localhost:25000) as displayed when starting

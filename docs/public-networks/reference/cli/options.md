@@ -3328,10 +3328,15 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
     tx-pool-limit-by-account-percentage=0.4
     ```
 
-The maximum percentage of future transactions kept in the transaction pool, per account. The default is .1 or 10% of transactions from a single account to be kept in the pool. 
+The maximum percentage of future transactions kept in the transaction pool, per account.
+The default is .1 or 10% of transactions from a single account to be kept in the pool.
 
-!!! Caution
-  The default value is often unsuitable for private networks. This feature mitigates future-nonce transactions from filling the pool without ever being executable by Besu. This is important for Mainnet, but may cause issues with your use-case on a private network. Please check this value or set to 1 if you know the nodes gossiping transactions in your network. 
+!!! warning
+    The default value is often unsuitable for [private networks](../../../private-networks/index.md).
+    This feature mitigates future-nonce transactions from filling the pool without ever being
+    executable by Besu.
+    This is important for Mainnet, but may cause issues on private networks.
+    Please update this value or set to 1 if you know the nodes gossiping transactions in your network.
 
 ### `tx-pool-max-size`
 

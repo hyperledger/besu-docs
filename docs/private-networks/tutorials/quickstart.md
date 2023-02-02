@@ -132,49 +132,11 @@ git clone https://github.com/web3labs/sirato-free
 
 The repo contains a docker-compose scripts to allow Sirato to start with quorum quickstart test network.
 
-From sirato-free repo, run the following script
+From sirato-free repo, run the following command
 
 ```
-./start_sirato_besu.sh
-```
-
-once successful, you should see the following output
-```
-*************************************
-Sirator Explorer for Besu
-*************************************
-Starting explorer
---------------------
-[+] Running 5/5
- ⠿ Container docker-compose-mongodb-1    Started                                                                                                                    3.3s
- ⠿ Container docker-compose-api-1        Started                                                                                                                    4.1s
- ⠿ Container docker-compose-ingestion-1  Started                                                                                                                    4.2s
- ⠿ Container docker-compose-web-1        Started                                                                                                                    4.4s
- ⠿ Container docker-compose-nginx-1      Started                                                                                                                    5.0s
-----------------------------------
-Services
-----------------------------------
-Sirato explorer HTTP endpoint                 : http://localhost:26000
-Sirato is connected to node                   : http://rpcnode:8545
-```
-#### Stop Sirato Docker
-To stop all the services from running. Simply execute the script below.
-```
-./stop.sh
-```
-
-Once all services are stopped successfully
-```
-*************************************
-Sirator Explorer for Besu
-*************************************
-Stopping explorer
-[+] Running 5/5
- ⠿ Container docker-compose-nginx-1      Stopped                                                                                                                    0.5s
- ⠿ Container docker-compose-ingestion-1  Stopped                                                                                                                    4.0s
- ⠿ Container docker-compose-web-1        Stopped                                                                                                                   10.3s
- ⠿ Container docker-compose-api-1        Stopped                                                                                                                    2.9s
- ⠿ Container docker-compose-mongodb-1    Stopped
+cd docker-compose
+NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
 Then open http://localhost/ on your browser. You’ll see our new initialisation page while it’s booting up. This may take 5~10 minutes for the all service to start and ingestion sync is complete.
@@ -213,6 +175,13 @@ You can view a given block details by clicking over block hash or block number
 The **Transactions** page shows a paginated view of the new and historical transactions
 
 ![`sirato-blocks`](../../assets/images/sirato-transactions.png)
+
+
+#### Stop Sirato Docker
+To stop all the services from running. Run the following command.
+```
+docker-compose down -v
+```
 
 #### Find out more
 

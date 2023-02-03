@@ -81,28 +81,7 @@ Also, in the command:
 You can modify the option values and add other [command line options](../../reference/cli/options.md)
 as needed.
 
-Ensure Besu is fully synced before submitting your staking deposit in the next step.
-This can take several days.
-
-### 3. Generate validator keys and stake ETH
-
-If you're running a beacon node only, skip to the next step.
-
-If you're also running a validator client, have a funded Ethereum address ready (32 ETH and gas fees
-for each validator).
-
-Generate validator keys and stake your ETH for one or more validators using the
-[Staking Launchpad](https://launchpad.ethereum.org/en/).
-
-!!! important
-
-    Save the password you use to generate each key pair in a `.txt` file.
-    You should also have a `.json` file for each validator key pair.
-
-    Ensure your Besu node is fully synced before submitting your staking deposit.
-    This can take several days.
-
-### 4. Start the consensus client
+### 3. Start the consensus client
 
 Refer to your consensus client documentation to configure and start the consensus client.
 
@@ -110,9 +89,10 @@ Refer to your consensus client documentation to configure and start the consensu
 
     If you're running a validator client, make sure you set a fee recipient address.
 
-If you're using Teku, follow the [Besu and Teku Mainnet tutorial](../../tutorials/besu-teku-mainnet.md#5-start-teku).
+If you're using Teku, follow the
+[Besu and Teku Mainnet tutorial](../../tutorials/besu-teku-mainnet.md#5-start-teku).
 
-### 5. After starting the clients
+### 4. Wait for the clients to sync
 
 After starting Besu and the consensus client, your node starts syncing and connecting to peers.
 
@@ -138,12 +118,30 @@ After starting Besu and the consensus client, your node starts syncing and conne
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-You can check your validator status by searching your Ethereum address on the [Beacon Chain explorer](https://beaconcha.in/).
-It may take up to multiple days for your validator to be activated and start proposing blocks.
+If you're running a beacon node only, you're all set.
+If you're also running a validator client, ensure your clients are fully synced before submitting
+your staking deposit in the next step.
+This can take several days.
 
 !!! caution
 
     If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
+
+### 5. Generate validator keys and stake ETH
+
+Have a funded Ethereum address ready (32 ETH and gas fees for each validator).
+
+Generate validator keys and stake your ETH for one or more validators using the
+[Staking Launchpad](https://launchpad.ethereum.org/en/).
+
+!!! important
+
+    Save the password you use to generate each key pair in a `.txt` file.
+    You should also have a `.json` file for each validator key pair.
+
+You can check your validator status by searching your Ethereum address on the
+[Beacon Chain explorer](https://beaconcha.in/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!-- links -->
 [Teku]: https://docs.teku.consensys.net/en/stable/

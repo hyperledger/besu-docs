@@ -73,28 +73,7 @@ Also, in the command:
 You can modify the option values and add other [command line options](../reference/cli/options.md)
 as needed.
 
-Ensure Besu is fully synced before submitting your staking deposit in the next step.
-This can take several days.
-
-## 4. Generate validator keys and stake ETH
-
-If you're running a beacon node only, skip to the next step.
-
-If you're also running a validator client, have a funded Ethereum address ready (32 ETH and gas fees
-for each validator).
-
-Generate validator keys and stake your ETH for one or more validators using the
-[Staking Launchpad](https://launchpad.ethereum.org/en/).
-
-!!! important
-
-    Save the password you use to generate each key pair in a `.txt` file.
-    You should also have a `.json` file for each validator key pair.
-
-    Ensure your Besu node is fully synced before submitting your staking deposit.
-    This can take several days.
-
-## 5. Start Teku
+## 4. Start Teku
 
 Open a new terminal window.
 
@@ -164,7 +143,7 @@ Also, in the command:
 
 You can modify the option values and add other [Teku command line options] as needed.
 
-## After starting Besu and Teku
+## 5. Wait for Besu and Teku to sync
 
 After starting Besu and Teku, your node starts syncing and connecting to peers.
 
@@ -190,12 +169,30 @@ After starting Besu and Teku, your node starts syncing and connecting to peers.
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-You can check your validator status by searching your Ethereum address on the [Beacon Chain explorer](https://beaconcha.in/).
-It may take up to multiple days for your validator to be activated and start proposing blocks.
+If you're running a beacon node only, you're all set.
+If you're also running a validator client, ensure Besu and Teku are fully synced before submitting
+your staking deposit in the next step.
+This can take several days.
 
 !!! caution
 
     If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
+
+## 6. Generate validator keys and stake ETH
+
+Have a funded Ethereum address ready (32 ETH and gas fees for each validator).
+
+Generate validator keys and stake your ETH for one or more validators using the
+[Staking Launchpad](https://launchpad.ethereum.org/en/).
+
+!!! important
+
+    Save the password you use to generate each key pair in a `.txt` file.
+    You should also have a `.json` file for each validator key pair.
+
+You can check your validator status by searching your Ethereum address on the
+[Beacon Chain explorer](https://beaconcha.in/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!--links-->
 

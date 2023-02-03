@@ -9,12 +9,13 @@ tags:
 Options for running:
 
 * [Arbitrary EVM programs](#run-options)
-* [Ethereum State Tests](#state-test-options).
+* [Ethereum state tests](#state-test-options)
+* [EOF formatted code](#eof-code-validation)
 
 ## Run options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command Line
-Options specify the code and other contextual information.
+The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.
+Command line options specify the code and other contextual information.
 
 ### `code`
 
@@ -31,8 +32,7 @@ Options specify the code and other contextual information.
     ```
 
 The code to be executed, in compiled hex code form.
-
-No default value: execution fails if this is not set.
+There is no default value: execution fails if this is not set.
 
 ### `gas`
 
@@ -48,8 +48,8 @@ No default value: execution fails if this is not set.
     --gas=100000000
     ```
 
-Amount of gas to make available to the EVM.  The default value is 10 Billion, an incredibly large number
-unlikely to be seen in any production blockchain.
+Amount of gas to make available to the EVM.
+The default is 10 billion, an incredibly large number unlikely to be seen in any production blockchain.
 
 ### `price`
 
@@ -66,7 +66,7 @@ unlikely to be seen in any production blockchain.
     ```
 
 Price of gas in GWei.
-The default is zero.
+The default is `0`.
 If set to a non-zero value, the sender account must have enough value to cover the gas fees.
 
 ### `sender`
@@ -84,8 +84,9 @@ If set to a non-zero value, the sender account must have enough value to cover t
     ```
 
 The account the invocation is sent from.
-The specified account must exist in the world state, which unless specified by `--genesis`
-or `--prestate` is the set of [accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
+The specified account must exist in the world state, which, unless specified by `--genesis` or
+`--prestate`, is the set of
+[accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
 
 ### `receiver`
 
@@ -153,7 +154,25 @@ The amount is not reduced to cover intrinsic cost and gas fees.
     --json=true
     ```
 
-Provide an operation-by-operation trace of the command in JSON when set to true.
+When set to `true`, provides an operation-by-operation trace of the command in JSON.
+The default is `false`.
+
+### `json-alloc`
+
+=== "Syntax"
+
+    ```bash
+    --json-alloc=<boolean>
+    ```
+
+=== "Example"
+
+    ```bash
+    --json-alloc=true
+    ```
+
+When set to `true`, output the final allocations after a run.
+The default is `false`.
 
 ### `nomemory`
 
@@ -169,8 +188,9 @@ Provide an operation-by-operation trace of the command in JSON when set to true.
     --nomemory=true
     ```
 
-By default, when tracing operations the memory is traced for each operation.
-For memory heavy scripts, setting this option may reduce the volume of JSON output.
+When set to `true`, disable tracing the memory output for each operation.
+For memory heavy scripts, setting this option to `true` may reduce the volume of JSON output.
+The default is `false`.
 
 ### `genesis`
 
@@ -186,9 +206,8 @@ For memory heavy scripts, setting this option may reduce the volume of JSON outp
     --genesis=/opt/besu/genesis.json
     ```
 
-The Besu Genesis file to use when evaluating the EVM.
+The [Besu genesis file](genesis-items.md) to use when evaluating the EVM.
 Most useful are the `alloc` items that set up accounts and their stored memory states.
-For a complete description of this file see [Genesis file items](genesis-items.md).
 
 `--prestate` is a deprecated alternative option name.
 
@@ -225,6 +244,7 @@ These values are an alternative to the `--genesis` option for well known network
 
 Number of times to repeat the contract before gathering timing information.
 This is useful when benchmarking EVM operations.
+The default is `0`.
 
 ### `revert-reason-enabled`
 
@@ -237,10 +257,27 @@ This is useful when benchmarking EVM operations.
 === "Example"
 
     ```bash
-    --revert-reason-enabled=true
+    --revert-reason-enabled=false
     ```
 
-If enabled, the JSON tracing includes the reason included in `REVERT` operations.
+When set to `true`, the JSON tracing includes the reason included in `REVERT` operations.
+The default is `true`.
+
+### `fork`
+
+=== "Syntax"
+
+    ```bash
+    --fork=<string>
+    ```
+
+=== "Example"
+
+    ```bash
+    --fork=FutureEips
+    ```
+
+Specific fork to evaluate, overriding network settings.
 
 ### `key-value-storage`
 
@@ -320,10 +357,12 @@ Most of the options from EVM execution do not apply.
     --json=true
     ```
 
-Provide an operation by operation trace of the command in JSON when set to true.
+When set to `true`, provides an operation-by-operation trace of the command in JSON.
+The default is `false`.
+
 Set to `true` for EVM Lab Fuzzing.
-Whether or not `json` is set, a summary JSON object is printed to standard output for each
-state test executed.
+Whether or not `json` is set, a summary JSON object is printed to standard output for each state
+test executed.
 
 #### `nomemory`
 
@@ -339,10 +378,11 @@ state test executed.
     --nomemory=true
     ```
 
-By default, when tracing operations the memory is traced for each operation.
+When set to `true`, disable tracing the memory output for each operation.
 For memory heavy scripts, setting this option to `true` may reduce the volume of JSON output.
+The default is `false`.
 
-### Using command arguments
+### Use command arguments
 
 If you use command arguments, you can list one or more state tests.
 All the state tests are evaluated in the order they are specified.
@@ -359,7 +399,7 @@ All the state tests are evaluated in the order they are specified.
     evm --json state-test stExample/add11.json
     ```
 
-### Using standard input
+### Use standard input
 
 If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
 from standard input and executes that state test.
@@ -375,3 +415,7 @@ from standard input and executes that state test.
     ```bash
     evm --json state-test < stExample/add11.json
     ```
+
+## EOF code validation
+
+The `code-validate` subcommand allows EOF formatted code to be validated.

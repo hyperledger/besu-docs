@@ -37,7 +37,32 @@ You will specify `jwtsecret.hex` when starting Besu and the consensus client.
 This is a shared JWT secret the clients use to authenticate each other when using the
 [Engine API](../../how-to/use-engine-api.md).
 
-### 2. Start Besu
+### 2. Generate validator keys
+
+If you're running the consensus client as a beacon node only, skip to the [next step](#3-start-besu).
+
+If you're also running the consensus client as a validator client, create a test Ethereum address
+(you can do this in
+[MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
+See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and
+[Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+
+!!! note
+
+    If you can't get ETH using the faucet, you can ask for help on the
+    [EthStaker Discord](https://discord.io/ethstaker).
+
+Generate validator keys for one or more validators using the
+[Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/) (or
+[request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
+
+!!! important
+
+    Save the password you use to generate each key pair in a `.txt` file.
+    You should also have a `.json` file for each validator key pair.
+
+### 3. Start Besu
 
 Run the following command or specify the options in a
 [configuration file](../../how-to/configuration-file.md):
@@ -80,7 +105,7 @@ using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secr
 You can modify the option values and add other [command line options](../../reference/cli/options.md)
 as needed.
 
-### 3. Start the consensus client
+### 4. Start the consensus client
 
 Refer to your consensus client documentation to configure and start the consensus client.
 
@@ -91,7 +116,7 @@ Refer to your consensus client documentation to configure and start the consensu
 If you're using Teku, follow the
 [Besu and Teku testnet tutorial](../../tutorials/besu-teku-testnet.md#5-start-teku).
 
-### 4. Wait for the clients to sync
+### 5. Wait for the clients to sync
 
 After starting Besu and the consensus client, your node starts syncing and connecting to peers.
 
@@ -100,11 +125,18 @@ After starting Besu and the consensus client, your node starts syncing and conne
     === "Besu logs"
 
         ```bash
-        2022-03-21 20:42:09.295-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
-        2022-03-21 20:42:14.298-07:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 0
-        2022-03-21 20:42:14.848-07:00 | nioEventLoopGroup-3-8 | INFO  | FullSyncTargetManager | No sync target, waiting for peers. Current peers: 4
-        2022-03-21 20:42:18.452-07:00 | nioEventLoopGroup-3-8 | INFO  | SyncTargetManager | Found common ancestor with peer Peer 0xab3a286b181721c794... at block 55127
-        2022-03-21 20:42:18.454-07:00 | nioEventLoopGroup-3-8 | INFO  | PipelineChainDownloader | PipelineChain download complete
+        {"@timestamp":"2023-02-03T04:43:49,555","level":"INFO","thread":"main","class":"DefaultSynchronizer","message":"Starting synchronizer.","throwable":""}
+        {"@timestamp":"2023-02-03T04:43:49,556","level":"INFO","thread":"main","class":"FastSyncDownloader","message":"Starting sync","throwable":""}
+        {"@timestamp":"2023-02-03T04:43:49,559","level":"INFO","thread":"main","class":"Runner","message":"Ethereum main loop is up.","throwable":""}
+        {"@timestamp":"2023-02-03T04:43:53,106","level":"INFO","thread":"Timer-0","class":"DNSResolver","message":"Resolved 2409 nodes","throwable":""}
+        {"@timestamp":"2023-02-03T04:45:04,803","level":"INFO","thread":"nioEventLoopGroup-3-10","class":"SnapWorldStateDownloader","message":"Downloading world state from peers for pivot block 16545859 (0x616ae3c4cf85f95a9bce2814a7282d75dc2eac36
+        cb9f0fcc6f16386df70da3c5). State root 0xa7114541f42c62a72c8b6bb9901c2ccf4b424cd7f76570a67b82a183b02f25dc pending requests 0","throwable":""}
+        {"@timestamp":"2023-02-03T04:46:04,834","level":"INFO","thread":"EthScheduler-Services-3 (batchPersistAccountData)","class":"SnapsyncMetricsManager","message":"Worldstate download progress: 0.08%, Peer count: 8","throwable":""}
+        {"@timestamp":"2023-02-03T04:48:01,840","level":"INFO","thread":"EthScheduler-Services-3 (batchPersistAccountData)","class":"SnapsyncMetricsManager","message":"Worldstate download progress: 0.23%, Peer count: 8","throwable":""}
+        {"@timestamp":"2023-02-03T04:49:09,931","level":"INFO","thread":"EthScheduler-Services-3 (batchPersistAccountData)","class":"SnapsyncMetricsManager","message":"Worldstate download progress: 0.41%, Peer count: 11","throwable":""}
+        {"@timestamp":"2023-02-03T04:50:12,466","level":"INFO","thread":"EthScheduler-Services-3 (batchPersistAccountData)","class":"SnapsyncMetricsManager","message":"Worldstate download progress: 0.61%, Peer count: 10","throwable":""}
+        {"@timestamp":"2023-02-03T04:51:20,977","level":"INFO","thread":"EthScheduler-Services-3 (batchPersistAccountData)","class":"SnapsyncMetricsManager","message":"Worldstate download progress: 0.75%, Peer count: 10","throwable":""}
+        {"@timestamp":"2023-02-03T04:51:28,985","level":"INFO","thread":"EthScheduler-Services-29 (importBlock)","class":"FastImportBlocksStep","message":"Block import progress: 180400 of 16545859 (1%)","throwable":""}
         ```
 
     === "Teku logs"
@@ -117,35 +149,15 @@ After starting Besu and the consensus client, your node starts syncing and conne
         2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
         ```
 
-If you're running a beacon node only, you're all set.
-If you're also running a validator client, ensure your clients are fully synced before submitting
-your staking deposit in the next step.
+If you're running the consensus client as a beacon node only, you're all set.
+If you're also running the consensus client as a validator client, ensure your clients are fully
+synced before submitting your staking deposit in the next step.
 This can take several days.
 
-!!! caution
+### 6. Stake ETH
 
-    If you restart your node before snap or checkpoint sync completes, syncing restarts from scratch.
-
-### 5. Generate validator keys and stake ETH
-
-Create a test Ethereum address (you can do this in
-[MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
-Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
-See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and
-[Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
-
-!!! note
-
-    If you can't get ETH using the faucet, you can ask for help on the
-    [EthStaker Discord](https://discord.io/ethstaker).
-
-Generate validator keys and stake your testnet ETH for one or more validators using the
+Stake your testnet ETH for one or more validators using the
 [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
-
-!!! important
-
-    Save the password you use to generate each key pair in a `.txt` file.
-    You should also have a `.json` file for each validator key pair.
 
 You can check your validator status by searching your Ethereum address on the
 [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/).

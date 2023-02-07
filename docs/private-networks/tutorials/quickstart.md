@@ -113,7 +113,7 @@ To display the list of endpoints again, run:
 ## Block explorer
 
 ### Sirato Explorer
-Sirato is an EVM explorer that provides an overview over the whole network, and provides a bunch of additional functionality like block information, contracts metadata, transaction searches etc and an overview can be found [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15). Sirato supports public and private networks. Sirato free (used here) has some [feature limitations](https://www.web3labs.com/sirato) and you can find out more information about Sirato [here](https://www.web3labs.com/sirato)
+[Sirato](https://www.web3labs.com/sirato) is an EVM explorer for public and private networks that provides an overview of the whole network and a bunch of additional functionalities like block information, contracts metadata, transaction searches, etc. An overview can be found [here](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15). [Feature limitations](https://www.web3labs.com/sirato)
 
 This tutorial will walk you through how to setup Sirato Explorer with privacy-enabled Besu network.
 
@@ -178,7 +178,7 @@ The **Transactions** page shows a paginated view of the new and historical trans
 
 
 #### Stop Sirato Docker
-To stop all the services from running. Run the following command.
+From sirato-free repo, run the following command in the `docker-compose` directory.
 ```
 docker-compose down -v
 ```

@@ -10,7 +10,7 @@ Options for running:
 
 * [Arbitrary EVM programs](#run-options)
 * [Ethereum state tests](#state-test-options)
-* [EOF formatted code](#eof-code-validation)
+* [Ethereum object formatted code](#eof-code-validation)
 
 ## Run options
 
@@ -339,11 +339,9 @@ specific world state when running with `rocksdb` for `key-value-storage`.
 ## State test options
 
 The `state-test` subcommand allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
-Most of the options from EVM execution do not apply.
+The only applicable options are `--json` and `--nomemory`.
 
-### Applicable options
-
-#### `json`
+### `json`
 
 === "Syntax"
 
@@ -364,7 +362,7 @@ Set to `true` for EVM Lab Fuzzing.
 Whether or not `json` is set, a summary JSON object is printed to standard output for each state
 test executed.
 
-#### `nomemory`
+### `nomemory`
 
 === "Syntax"
 
@@ -401,7 +399,7 @@ All the state tests are evaluated in the order they are specified.
 
 ### Use standard input
 
-If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
+If no reference tests are passed in using the command line, the EVM tool loads one complete JSON object
 from standard input and executes that state test.
 
 === "Docker example"
@@ -418,4 +416,40 @@ from standard input and executes that state test.
 
 ## EOF code validation
 
-The `code-validate` subcommand allows EOF formatted code to be validated.
+The `code-validate` subcommand allows
+[Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
+It accepts candidate EOF containers or EVM bytecode using the `--file` option, command arguments,
+or standard input.
+
+
+### `file`
+
+=== "Syntax"
+
+    ```bash
+    --file=<file>
+    ```
+
+=== "Example"
+
+    ```bash
+    --file=eof.txt
+    ```
+
+File containing one or more EOF containers or EVM bytecode.
+Each line is considered a separate program.
+
+### Use command arguments
+
+If you use command arguments, each argument is considered as a separate program.
+
+=== "CLI example"
+
+    ```bash
+    evm code-validate
+    ```
+
+### Use standard input
+
+If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
+from standard input and executes that state test.

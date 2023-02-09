@@ -4,12 +4,6 @@ description: Flexible privacy groups
 
 # Flexible privacy groups
 
-!!! warning
-
-    Orion features have been merged into Tessera!
-    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
-    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
-
 Flexible [privacy groups](privacy-groups.md) use smart contracts to store and maintain the group membership.
 You can [add and remove members to and from flexible privacy groups](../../how-to/use-privacy/flexible.md).
 

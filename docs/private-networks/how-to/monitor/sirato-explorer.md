@@ -51,11 +51,11 @@ From the Sirato directory, run the following script:
     Starting explorer
     --------------------
     [+] Running 5/5
-     ⠿ Container docker-compose-mongodb-1    Started                                                                                                                    3.3s
-     ⠿ Container docker-compose-api-1        Started                                                                                                                    4.1s
-     ⠿ Container docker-compose-ingestion-1  Started                                                                                                                    4.2s
-     ⠿ Container docker-compose-web-1        Started                                                                                                                    4.4s
-     ⠿ Container docker-compose-nginx-1      Started                                                                                                                    5.0s
+      ⠿ Container docker-compose-mongodb-1    Started                                                                                                                    3.3s
+      ⠿ Container docker-compose-api-1        Started                                                                                                                    4.1s
+      ⠿ Container docker-compose-ingestion-1  Started                                                                                                                    4.2s
+      ⠿ Container docker-compose-web-1        Started                                                                                                                    4.4s
+      ⠿ Container docker-compose-nginx-1      Started                                                                                                                    5.0s
     ----------------------------------
     Services
     ----------------------------------
@@ -83,19 +83,19 @@ the following command:
 NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
-![`sirato-network`](../../../assets/images/sirato-network.png)
+![Sirato network](../../../assets/images/sirato-network.png)
 
 The **Blocks** page shows a real-time view of the finalized blocks.
 
-![`sirato-blocks`](../../../assets/images/sirato-blocks.png)
+![Sirato blocks](../../../assets/images/sirato-blocks.png)
 
 You can view a given block details by selecting a block hash or number.
 
-![`sirato-blocks`](../../../assets/images/sirato-block-details.png)
+![Sirato block details](../../../assets/images/sirato-block-details.png)
 
 The **Transactions** page shows a paginated view of new and historical transactions.
 
-![`sirato-blocks`](../../../assets/images/sirato-transactions.png)
+![Sirato transactions](../../../assets/images/sirato-transactions.png)
 
 ## Stop Sirato
 
@@ -115,9 +115,9 @@ To stop all the services from running, run the following script:
     *************************************
     Stopping explorer
     [+] Running 5/5
-     ⠿ Container docker-compose-nginx-1      Stopped                                                                                                                    0.5s
-     ⠿ Container docker-compose-ingestion-1  Stopped                                                                                                                    4.0s
-     ⠿ Container docker-compose-web-1        Stopped                                                                                                                   10.3s
-     ⠿ Container docker-compose-api-1        Stopped                                                                                                                    2.9s
-     ⠿ Container docker-compose-mongodb-1    Stopped
+      ⠿ Container docker-compose-nginx-1      Stopped                                                                                                                    0.5s
+      ⠿ Container docker-compose-ingestion-1  Stopped                                                                                                                    4.0s
+      ⠿ Container docker-compose-web-1        Stopped                                                                                                                   10.3s
+      ⠿ Container docker-compose-api-1        Stopped                                                                                                                    2.9s
+      ⠿ Container docker-compose-mongodb-1    Stopped
     ```

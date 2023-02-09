@@ -4,12 +4,6 @@ description: Hyperledger Besu-extended privacy
 
 # Use Besu-extended privacy
 
-!!! warning
-
-    Orion features have been merged into Tessera!
-    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
-    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
-
 Hyperledger Besu provides an extended implementation of privacy allowing you to
 [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You
 must specify the privacy group ID when sending private transactions.

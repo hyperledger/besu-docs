@@ -4,12 +4,6 @@ description: Use flexible privacy groups
 
 # Use flexible privacy groups
 
-!!! warning
-
-    Orion features have been merged into Tessera!
-    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
-    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
-
 Use the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum) to create and update
 membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.md).
 

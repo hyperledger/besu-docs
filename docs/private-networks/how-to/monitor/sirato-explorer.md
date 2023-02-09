@@ -65,7 +65,7 @@ From the Sirato directory, run the following script:
 
 Open `http://localhost/` on your browser.
 You’ll see the new initialization page while it boots up.
-This may take 5-10 minutes for the all services to start and the ingestion sync to complete.
+This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
 ![`Sirato-dashboard`](../../../assets/images/sirato-loading.png)
 
@@ -85,7 +85,7 @@ NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose
 
 ![`sirato-network`](../../../assets/images/sirato-network.png)
 
-The **Blocks** page shows a realtime view of the finalized blocks.
+The **Blocks** page shows a real-time view of the finalized blocks.
 
 ![`sirato-blocks`](../../../assets/images/sirato-blocks.png)
 

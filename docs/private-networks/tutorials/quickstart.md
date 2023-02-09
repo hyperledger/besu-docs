@@ -137,7 +137,7 @@ NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sir
 
 Open `http://localhost/` on your browser.
 You’ll see the new initialization page while it boots up.
-This may take 5-10 minutes for the all services to start and the ingestion sync to complete.
+This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
 To stop all the services from running, run the following script from the `docker-compose` directory:
 

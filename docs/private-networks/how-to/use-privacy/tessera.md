@@ -3,6 +3,7 @@ description: Running ConsenSys Quorum Tessera with Hyperledger Besu
 ---
 
 # Run Tessera with Besu
+
 To enable [privacy functionality](../../concepts/privacy/index.md) in production
 systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability)
 and [run in a separate instance](#separate-instances) to Hyperledger Besu.

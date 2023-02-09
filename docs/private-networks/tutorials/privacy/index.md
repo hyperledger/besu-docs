@@ -24,7 +24,7 @@ a Tessera node.
 
 ## Prerequisites
 
-* [Install Tessera](https://docs.tessera.consensys.net/HowTo/Get-started/Distribution/).
+* [Install Tessera](https://docs.tessera.consensys.net/category/install).
 
 ## 1. Create Tessera directories
 

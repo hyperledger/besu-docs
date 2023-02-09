@@ -16,7 +16,7 @@ and [run in a separate instance](#separate-instances) to Hyperledger Besu.
 ## High availability
 
 Privacy requires you to [configure Tessera for high availability].
-Besu also requires [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/)
+Besu also requires [`orion` mode](https://docs.tessera.consensys.net/HowTo/Configure/Orion-Mode)
 to be enabled in Tessera.
 
 To successfully distribute a private transaction, all private transaction participants must be

@@ -126,7 +126,7 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 
 !!! note
 
-    Besu requires [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/). Add the line
+    Besu requires [`orion` mode](https://docs.tessera.consensys.net/HowTo/Configure/Orion-Mode). Add the line
     `"mode": "orion",` to the Tessera configuration file.
 
 ## 4. Start Tessera

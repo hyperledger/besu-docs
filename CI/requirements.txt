@@ -5,4 +5,4 @@ mkdocs-exclude==1.0.2
 mkdocs-redirects==1.2.0
 mkdocs-git-revision-date-localized-plugin==1.1.0
 mkdocs-minify-plugin==0.6.2
-plantuml-markdown==3.8.0
+plantuml-markdown==3.8.1

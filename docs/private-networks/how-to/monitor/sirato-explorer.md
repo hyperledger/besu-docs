@@ -9,7 +9,7 @@ This page describes how to use the free version of Sirato with its built-in supp
 [privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the
 [Developer Quickstart](../../tutorials/quickstart.md).
 
-Sirato provides an overview over the entire network, block information, contract metadata,
+Sirato provides an overview of the entire network, including block information, contract metadata,
 transaction searches, and
 [more](https://medium.com/web3labs/epirus-ethereum-saas-blockchain-explorer-d5d961717d15).
 

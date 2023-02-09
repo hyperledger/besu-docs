@@ -110,25 +110,40 @@ To display the list of endpoints again, run:
 ./list.sh
 ```
 
-## Block explorer
+## Use a block explorer
 
-This tutorial uses a modified version of the [Alethio Ethereum Lite Explorer](https://github.com/Alethio/ethereum-lite-explorer).
+You can [use Sirato Blockchain Explorer](../how-to/monitor/sirato-explorer.md) to analyze block
+information, contract metadata, transaction searches, and more.
+Sirato has built-in support for privacy-enabled Besu networks.
 
-Access the explorer at [`http://localhost:25000`](http://localhost:25000) as displayed when starting
-the private network.
+!!! note
+    You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC,
+    in order to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods).
+    In production networks, you must
+    [secure access](../../public-networks/how-to/use-besu-api/authenticate.md) to RPC nodes.
 
-The block explorer displays a summary of the private network, indicating four peers.
+Clone the [Sirato GitHub repository](https://github.com/web3labs/sirato-free):
 
-Select the block number to the right of **Best Block** to display the block details:
+```bash
+git clone https://github.com/web3labs/sirato-free
+```
 
-![Block Details](../../assets/images/ExplorerBlockDetails.png)
+From the Sirato directory, run the following command:
 
-You can explore blocks by selecting the blocks under **`Bk`** on the left-hand side.
+```bash
+cd docker-compose
+NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+```
 
-You can search for a specific block, transaction hash, or address by selecting the :mag:
-in the top left-hand corner.
+Open `http://localhost/` on your browser.
+You’ll see the new initialization page while it boots up.
+This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
-![Explorer Search](../../assets/images/ExplorerSearch.png)
+To stop all the services from running, run the following script from the `docker-compose` directory:
+
+```bash
+docker-compose down -v
+```
 
 ## Monitor nodes with Prometheus and Grafana
 

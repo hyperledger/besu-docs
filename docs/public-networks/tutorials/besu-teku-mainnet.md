@@ -5,13 +5,13 @@ Description: How to run Besu and Teku on Mainnet
 # Run Besu and Teku on Mainnet
 
 Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and
-[Teku](https://docs.teku.consensys.net/en/stable/)
+[Teku](https://docs.teku.consensys.net/)
 as a [consensus client](../concepts/the-merge.md#consensus-clients) on Ethereum Mainnet.
 
 ## 1. Install Besu and Teku
 
 Install [Besu](../get-started/install/binary-distribution.md) and
-[Teku](https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Install-Binaries/).
+[Teku](https://docs.teku.consensys.net/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
 Ensure you meet the prerequisites for the installation option you use.
 For example, you must have Java 17+ if using the Besu and Teku binary distributions.
@@ -106,16 +106,16 @@ teku \
 ```
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using
-the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file)
+the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file)
 option.
 
 Also, in the command:
 
-- [`--ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+- [`--ee-endpoint`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-endpoint)
   is set to the default URL of Besu's Engine API.
-- [`--metrics-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#metrics-enabled)
+- [`--metrics-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#metrics-enabled)
   enables Teku's metrics exporter.
-- [`--rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+- [`--rest-api-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#rest-api-enabled)
   enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
@@ -138,22 +138,22 @@ teku \
 Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
-  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 - An Ethereum address you own as the default fee recipient using the
-  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient)
   option.
 - The paths to the keystore `.json` file and password `.txt` file created in
   [step 3](#3-generate-validator-keys) for each validator using the
-  [`--validator-keys`](https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#validator-keys) option.
+  [`--validator-keys`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validator-keys) option.
   Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
 Also, in the command:
 
-- [`--ee-endpoint`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint)
+- [`--ee-endpoint`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-endpoint)
   is set to the default URL of Besu's Engine API.
-- [`--metrics-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#metrics-enabled)
+- [`--metrics-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#metrics-enabled)
   enables Teku's metrics exporter.
-- [`--rest-api-enabled`](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-enabled)
+- [`--rest-api-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#rest-api-enabled)
   enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
@@ -206,5 +206,5 @@ It may take up to multiple days for your validator to be activated and start pro
 
 <!--links-->
 
-[Teku configuration file]: https://docs.teku.consensys.net/en/latest/HowTo/Configure/Use-Configuration-File/
-[Teku command line options]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/
+[Teku configuration file]: https://docs.teku.consensys.net/HowTo/Configure/Use-Configuration-File/
+[Teku command line options]: https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/

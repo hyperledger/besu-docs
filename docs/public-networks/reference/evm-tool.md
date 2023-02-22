@@ -6,7 +6,8 @@ tags:
 
 # EVM tool reference
 
-Options for running:
+This reference describes options for running the following
+[using the EVM tool](../how-to/troubleshoot/evm-tool.md):
 
 * [Arbitrary EVM programs](#run-options)
 * [Ethereum state tests](#state-test-options)
@@ -32,7 +33,7 @@ Command line options specify the code and other contextual information.
     ```
 
 The code to be executed, in compiled hex code form.
-There is no default value: execution fails if this is not set.
+Execution fails if this is not set.
 
 ### `gas`
 
@@ -405,7 +406,7 @@ from standard input and executes that state test.
 === "Docker example"
 
     ```bash
-    docker run --rm  -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
+    docker run --rm -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
     ```
 
 === "CLI example"
@@ -420,7 +421,6 @@ The `code-validate` subcommand allows
 [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
 It accepts candidate EOF containers or EVM bytecode using the `--file` option, command arguments,
 or standard input.
-
 
 ### `file`
 
@@ -437,19 +437,28 @@ or standard input.
     ```
 
 File containing one or more EOF containers or EVM bytecode.
-Each line is considered a separate program.
+Each line in the file is considered a separate program.
 
 ### Use command arguments
 
-If you use command arguments, each argument is considered as a separate program.
+If you use command arguments, each argument is considered a separate program.
+If a code segment includes spaces, it must be contained in quotes.
+
+=== "Docker example"
+
+    ```bash
+    docker run --rm hyperledger/besu-evmtool:develop code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
+    ```
 
 === "CLI example"
 
     ```bash
-    evm code-validate
+    evm code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
     ```
 
 ### Use standard input
 
-If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
-from standard input and executes that state test.
+If no reference tests are passed in using the command line, the EVM tool loads and validates code
+from standard input.
+Each line is considered a separate program.
+Comment lines and blanks are ignored.

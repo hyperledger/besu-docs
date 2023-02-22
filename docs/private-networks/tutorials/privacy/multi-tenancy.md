@@ -4,12 +4,6 @@ description: Configure multi-tenancy
 
 # Configure a multi-tenant node
 
-!!! warning
-
-    Orion features have been merged into Tessera!
-    Read our [Orion to Tessera migration guide](https://docs.orion.consensys.net/en/latest/Tutorials/Migrating-from-Orion-to-Tessera/)
-    and about all the [new Tessera features](https://consensys.net/blog/quorum/tessera-the-privacy-manager-of-choice-for-consensys-quorum-networks).
-
 You can configure Besu and associated Tessera node in a privacy-enabled network to host
 [multiple tenants](../../concepts/privacy/multi-tenancy.md).
 
@@ -132,7 +126,7 @@ In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the 
 
 !!! note
 
-    Besu requires [`orion` mode](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/Orion-Mode/). Add the line
+    Besu requires [`orion` mode](https://docs.tessera.consensys.net/HowTo/Configure/Orion-Mode). Add the line
     `"mode": "orion",` to the Tessera configuration file.
 
 ## 4. Start Tessera
@@ -195,6 +189,6 @@ token. For example, ensure you enable the `PRIV` and `EEA` APIs for privacy.
 [username and password authentication]: ../../../public-networks/how-to/use-besu-api/authenticate.md#username-and-password-authentication
 [generate the private and public key pair]: ../../../public-networks/how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../../public-networks/how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
-[Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Concepts/TesseraAPI/#quorum-to-tessera-api
+[Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Reference/TesseraAPI
 <!-- Abbreviations -->
 *[JWT]: JSON Web Token

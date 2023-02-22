@@ -132,6 +132,7 @@ nav:
               - Use Quorum Hibernate: private-networks/how-to/monitor/quorum-hibernate.md
               - Use Splunk: private-networks/how-to/monitor/splunk.md
               - Use OpenTelemtry: private-networks/how-to/monitor/opentelemetry.md
+              - Use Sirato Explorer: private-networks/how-to/monitor/sirato-explorer.md
           - Use privacy:
               - Use EEA-compliant privacy: private-networks/how-to/use-privacy/eea-compliant.md
               - Use Besu-extended privacy: private-networks/how-to/use-privacy/besu-extended.md

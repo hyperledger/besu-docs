@@ -15,6 +15,7 @@ You can also use the following monitoring tools in private networks:
 - [Quorum Hibernate](quorum-hibernate.md)
 - [Splunk](splunk.md)
 - [OpenTelemetry](opentelemetry.md)
+- [Sirato Explorer](sirato-explorer.md)
 
 For an overview of monitoring Hyperledger Besu, view
 [this recording](https://www.youtube.com/watch?v=7BuutRe0I28&feature=youtu.be).

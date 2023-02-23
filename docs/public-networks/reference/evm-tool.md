@@ -13,6 +13,12 @@ This reference describes options for running the following
 * [Ethereum state tests](#state-test-options)
 * [Ethereum object formatted code](#eof-code-validation)
 
+!!! note
+    Option names that include `trace`, such as [`--trace`](#json-trace) and
+    [`--trace.[no]memory`](#nomemory-tracenomemory) exist to support
+    [`t8ntool`](https://ethereum-tests.readthedocs.io/en/latest/t8ntool.html) reference testing, and
+    are interchangeable with their standard option names.
+
 ## Run options
 
 The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.
@@ -23,7 +29,7 @@ Command line options specify the code and other contextual information.
 === "Syntax"
 
     ```bash
-    --code=<code as hex string>
+    --code=<code>
     ```
 
 === "Example"
@@ -40,7 +46,7 @@ Execution fails if this is not set.
 === "Syntax"
 
     ```bash
-    --gas=<gas as a decimal integer>
+    --gas=<integer>
     ```
 
 === "Example"
@@ -50,14 +56,14 @@ Execution fails if this is not set.
     ```
 
 Amount of gas to make available to the EVM.
-The default is 10 billion, an incredibly large number unlikely to be seen in any production blockchain.
+The default is 10 billion, a number unlikely to be seen in any production blockchain.
 
 ### `price`
 
 === "Syntax"
 
     ```bash
-    --price=<gas price in GWei as a decimal integer>
+    --price=<integer>
     ```
 
 === "Example"
@@ -66,7 +72,7 @@ The default is 10 billion, an incredibly large number unlikely to be seen in any
     --price=10
     ```
 
-Price of gas in GWei.
+Price of gas in Gwei.
 The default is `0`.
 If set to a non-zero value, the sender account must have enough value to cover the gas fees.
 
@@ -85,8 +91,8 @@ If set to a non-zero value, the sender account must have enough value to cover t
     ```
 
 The account the invocation is sent from.
-The specified account must exist in the world state, which, unless specified by `--genesis` or
-`--prestate`, is the set of
+The specified account must exist in the world state, which, unless specified by
+[`--genesis`](#genesis), is the set of
 [accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
 
 ### `receiver`
@@ -111,7 +117,7 @@ The specified account does not need to exist.
 === "Syntax"
 
     ```bash
-    --input=<hex binary>
+    --input=<code>
     ```
 
 === "Example"
@@ -121,14 +127,14 @@ The specified account does not need to exist.
     ```
 
 The data passed into the call.
-Corresponds to the `data` field of the transaction and is returned by  the `CALLDATA` and related opcodes.
+Corresponds to the `data` field of the transaction and is returned by the `CALLDATA` and related opcodes.
 
 ### `value`
 
 === "Syntax"
 
     ```bash
-    --value=<Wei in decimal>
+    --value=<integer>
     ```
 
 === "Example"
@@ -137,61 +143,84 @@ Corresponds to the `data` field of the transaction and is returned by  the `CALL
     --value=1000000000000000000
     ```
 
-The value of Ether attached to this transaction.
+The value, in wei, attached to this transaction.
 For operations that query the value or transfer it to other accounts this is the amount that is available.
 The amount is not reduced to cover intrinsic cost and gas fees.
 
-### `json`
+### `json`, `trace`
 
 === "Syntax"
 
     ```bash
-    --json=<boolean>
+    --json
     ```
 
-=== "Example"
+Provides an operation-by-operation trace of the command in JSON.
 
-    ```bash
-    --json=true
-    ```
-
-When set to `true`, provides an operation-by-operation trace of the command in JSON.
-The default is `false`.
+`--trace` is an alias for `--json`.
 
 ### `json-alloc`
 
 === "Syntax"
 
     ```bash
-    --json-alloc=<boolean>
+    --json-alloc
     ```
 
-=== "Example"
+Outputs a JSON summary of the post-execution world state and allocations.
 
-    ```bash
-    --json-alloc=true
-    ```
-
-When set to `true`, output the final allocations after a run.
-The default is `false`.
-
-### `nomemory`
+### `[no]memory`, `trace.[no]memory`
 
 === "Syntax"
 
     ```bash
-    --nomemory=<boolean>
+    --nomemory, --memory
     ```
 
-=== "Example"
+Setting `--nomemory` disables tracing the memory output for each operation.
+Setting `--memory` enables it.
+Memory traces are disabled by default.
+
+For memory heavy scripts, disabling memory traces may reduce the volume of JSON output.
+
+`--trace.[no]memory` is an alias for `--[no]memory`.
+
+### `trace.[no]stack`
+
+=== "Syntax"
 
     ```bash
-    --nomemory=true
+    --trace.nostack, --trace.stack
     ```
 
-When set to `true`, disable tracing the memory output for each operation.
-For memory heavy scripts, setting this option to `true` may reduce the volume of JSON output.
-The default is `false`.
+Setting `--trace.nostack` disables tracing the operand stack for each operation.
+Setting `--trace.stack` enables it.
+Stack traces are enabled by default.
+
+### `trace.[no]returndata`
+
+=== "Syntax"
+
+    ```bash
+    --trace.noreturndata, --trace.returndata
+    ```
+
+Setting `--trace.noreturndata` disables tracing the return data for each operation.
+Setting `--trace.returndata` enables it.
+Return data traces are enabled by default.
+
+### `[no]time`
+
+=== "Syntax"
+
+    ```bash
+    --notime, --time
+    ```
+
+Setting `--notime` disables including time data in the summary output.
+Setting `--time` enables it.
+
+This is useful for testing and differential evaluations.
 
 ### `genesis`
 
@@ -210,7 +239,7 @@ The default is `false`.
 The [Besu genesis file](genesis-items.md) to use when evaluating the EVM.
 Most useful are the `alloc` items that set up accounts and their stored memory states.
 
-`--prestate` is a deprecated alternative option name.
+`--prestate` is a deprecated alias for `--genesis`.
 
 ### `chain`
 
@@ -227,7 +256,7 @@ Most useful are the `alloc` items that set up accounts and their stored memory s
     ```
 
 The well-known network genesis file to use when evaluating the EVM.
-These values are an alternative to the `--genesis` option for well known networks.
+These values are an alternative to the [`--genesis`](#genesis) option for well-known networks.
 
 ### `repeat`
 
@@ -252,17 +281,11 @@ The default is `0`.
 === "Syntax"
 
     ```bash
-    --revert-reason-enabled=<boolean>
+    --revert-reason-enabled
     ```
 
-=== "Example"
-
-    ```bash
-    --revert-reason-enabled=false
-    ```
-
-When set to `true`, the JSON tracing includes the reason included in `REVERT` operations.
-The default is `true`.
+Enables tracing the reason included in `REVERT` operations.
+The revert reason is enabled by default.
 
 ### `fork`
 
@@ -296,12 +319,14 @@ Specific fork to evaluate, overriding network settings.
 
 Kind of key value storage to use.
 
-Occasionally it may be useful to execute isolated EVM calls in context of an actual world state.
-The default is `memory`, which executes the call only in context of the world provided by `--genesis`
-or `--network` at block zero.
-When set to `rocksdb` and combined with `--data-path`, `--block-number`, and `--genesis` a Besu
-node that is not currently running can be used to provide the appropriate world state for a transaction.
-Useful when evaluating consensus failures.
+It might be useful to execute isolated EVM calls in the context of an actual world state.
+The default is `memory`, which executes the call only in the context of the world provided by
+[`--genesis`](#genesis) or [`--chain`](#chain) at block zero.
+
+When set to `rocksdb` and combined with [`--data-path`](#data-path), [`--block-number`](#block-number),
+and [`--genesis`](#genesis), a Besu node that isn't currently running can be used to provide the
+appropriate world state for a transaction.
+This is useful when evaluating consensus failures.
 
 ### `data-path`
 
@@ -317,7 +342,8 @@ Useful when evaluating consensus failures.
     --data-path=/opt/besu/data
     ```
 
-When using `rocksdb` for `key-value-storage`, specifies the location of the database on disk.
+When [`--key-value-storage`](#key-value-storage) is set to `rocksdb`, specifies the location of the
+database on disk.
 
 ### `block-number`
 
@@ -335,51 +361,56 @@ When using `rocksdb` for `key-value-storage`, specifies the location of the data
 
 The block number to evaluate the code against.
 Used to ensure that the EVM is evaluating the code against the correct fork, or to specify the
-specific world state when running with `rocksdb` for `key-value-storage`.
+world state when [`--key-value-storage`](#key-value-storage) is set to `rocksdb`.
+
+### `version`
+
+=== "Syntax"
+
+    ```bash
+    --version
+    ```
+
+Displays the version information.
+
+`-v` is an alias for `--version`.
 
 ## State test options
 
 The `state-test` subcommand allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
 The only applicable options are `--json` and `--nomemory`.
 
-### `json`
+### `json`, `trace`
 
 === "Syntax"
 
     ```bash
-    --json=<boolean>
+    --json
     ```
 
-=== "Example"
+Provides an operation-by-operation trace of the command in JSON.
 
-    ```bash
-    --json=true
-    ```
-
-When set to `true`, provides an operation-by-operation trace of the command in JSON.
-The default is `false`.
-
-Set to `true` for EVM Lab Fuzzing.
-Whether or not `json` is set, a summary JSON object is printed to standard output for each state
+Set this option for EVM Lab Fuzzing.
+Whether or not `--json` is set, a summary JSON object is printed to standard output for each state
 test executed.
 
-### `nomemory`
+`--trace` is an alias for `--json`.
+
+### `[no]memory`, `trace.[no]memory`
 
 === "Syntax"
 
     ```bash
-    --nomemory=<boolean>
+    --[no]memory
     ```
 
-=== "Example"
+Setting `--nomemory` disables tracing the memory output for each operation.
+Setting `--memory` enables it.
+Memory traces are disabled by default.
 
-    ```bash
-    --nomemory=true
-    ```
+For memory heavy scripts, disabling memory traces may reduce the volume of JSON output.
 
-When set to `true`, disable tracing the memory output for each operation.
-For memory heavy scripts, setting this option to `true` may reduce the volume of JSON output.
-The default is `false`.
+`--trace.[no]memory` is an alias for `--[no]memory`.
 
 ### Use command arguments
 

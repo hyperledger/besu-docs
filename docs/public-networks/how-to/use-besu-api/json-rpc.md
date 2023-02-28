@@ -96,8 +96,10 @@ To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/downlo
         }
         ```
 
-You can use `curl` to make multiple RPC requests over HTTP at the same time.
-Send the requests as an array, and receive an array of responses.
+You can use `curl` to make multiple RPC requests (batch requests) over HTTP at the same time.
+Send the requests as an array, and receive an array of responses. The default number of allowed requests
+in a RPC batch request is `1024`. Use the [`--rpc-http-max-batch-size`](../../reference/cli/options.md#rpc-http-max-batch-size)
+command line option to update the default value.
 
 !!! example
 

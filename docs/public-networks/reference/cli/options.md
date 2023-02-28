@@ -2491,6 +2491,35 @@ To allow remote connections, set to `0.0.0.0`.
 
 The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reached, incoming connections are rejected. The default is 80.
 
+### `rpc-http-max-batch-size`
+
+=== "Syntax"
+
+    ```bash
+    --rpc-http-max-batch-size=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --rpc-http-max-batch-size=1200
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_RPC_HTTP_MAX_BATCH_SIZE=1200
+    ```
+
+=== "Configuration file"
+
+    ```toml
+    rpc-http-max-batch-size=1200
+    ```
+
+The maximum number of allowed requests in a [RPC batch request](../../how-to/use-besu-api/json-rpc.md#http).
+The default limit is `1024`, and `-1` specifies no limit.
+
 ### `rpc-http-port`
 
 === "Syntax"

@@ -52,6 +52,7 @@ If blocks in the specified block range are not available, then only the fee hist
 | `oldestBlock`        | Quantity, Integer     | Lowest number block of the returned range.                        |
 | `baseFeePerGas`      | Array                 | Array of block base fees per gas, including an extra block value. The extra value is the next block after the newest block in the returned range. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/2d8a95e14e56de27c5465d93747b0006bd8ac47f/EIPS/eip-1559.md). |
 | `gasUsedRatio`       | Array                 | Array of block gas used ratios. These are calculated as the ratio of `gasUsed` and `gasLimit`.   |
+| `reward`             | Array                 | Array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty. |
 
 ## Filter options object
 

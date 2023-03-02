@@ -1961,7 +1961,7 @@ If blocks in the specified block range are not available, then only the fee hist
                     ]
                 ]
             },
-            "id": 0
+            "id": 1
         }
         ```
 

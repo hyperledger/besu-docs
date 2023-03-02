@@ -6,22 +6,30 @@ tags:
 
 # EVM tool reference
 
-Options for running:
+This reference describes options for running the following
+[using the EVM tool](../how-to/troubleshoot/evm-tool.md):
 
 * [Arbitrary EVM programs](#run-options)
-* [Ethereum State Tests](#state-test-options).
+* [Ethereum state tests](#state-test-options)
+* [Ethereum object formatted code](#eof-code-validation)
+
+!!! note
+    Option names that include `trace`, such as [`--trace`](#json-trace) and
+    [`--trace.[no]memory`](#nomemory-tracenomemory) exist to support
+    [`t8ntool`](https://ethereum-tests.readthedocs.io/en/latest/t8ntool.html) reference testing, and
+    are interchangeable with their standard option names.
 
 ## Run options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command Line
-Options specify the code and other contextual information.
+The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.
+Command line options specify the code and other contextual information.
 
 ### `code`
 
 === "Syntax"
 
     ```bash
-    --code=<code as hex string>
+    --code=<code>
     ```
 
 === "Example"
@@ -31,15 +39,14 @@ Options specify the code and other contextual information.
     ```
 
 The code to be executed, in compiled hex code form.
-
-No default value: execution fails if this is not set.
+Execution fails if this is not set.
 
 ### `gas`
 
 === "Syntax"
 
     ```bash
-    --gas=<gas as a decimal integer>
+    --gas=<integer>
     ```
 
 === "Example"
@@ -48,15 +55,15 @@ No default value: execution fails if this is not set.
     --gas=100000000
     ```
 
-Amount of gas to make available to the EVM.  The default value is 10 Billion, an incredibly large number
-unlikely to be seen in any production blockchain.
+Amount of gas to make available to the EVM.
+The default is 10 billion, a number unlikely to be seen in any production blockchain.
 
 ### `price`
 
 === "Syntax"
 
     ```bash
-    --price=<gas price in GWei as a decimal integer>
+    --price=<integer>
     ```
 
 === "Example"
@@ -65,8 +72,8 @@ unlikely to be seen in any production blockchain.
     --price=10
     ```
 
-Price of gas in GWei.
-The default is zero.
+Price of gas in Gwei.
+The default is `0`.
 If set to a non-zero value, the sender account must have enough value to cover the gas fees.
 
 ### `sender`
@@ -84,8 +91,9 @@ If set to a non-zero value, the sender account must have enough value to cover t
     ```
 
 The account the invocation is sent from.
-The specified account must exist in the world state, which unless specified by `--genesis`
-or `--prestate` is the set of [accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
+The specified account must exist in the world state, which, unless specified by
+[`--genesis`](#genesis), is the set of
+[accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
 
 ### `receiver`
 
@@ -109,7 +117,7 @@ The specified account does not need to exist.
 === "Syntax"
 
     ```bash
-    --input=<hex binary>
+    --input=<code>
     ```
 
 === "Example"
@@ -119,14 +127,14 @@ The specified account does not need to exist.
     ```
 
 The data passed into the call.
-Corresponds to the `data` field of the transaction and is returned by  the `CALLDATA` and related opcodes.
+Corresponds to the `data` field of the transaction and is returned by the `CALLDATA` and related opcodes.
 
 ### `value`
 
 === "Syntax"
 
     ```bash
-    --value=<Wei in decimal>
+    --value=<integer>
     ```
 
 === "Example"
@@ -135,42 +143,84 @@ Corresponds to the `data` field of the transaction and is returned by  the `CALL
     --value=1000000000000000000
     ```
 
-The value of Ether attached to this transaction.
+The value, in wei, attached to this transaction.
 For operations that query the value or transfer it to other accounts this is the amount that is available.
 The amount is not reduced to cover intrinsic cost and gas fees.
 
-### `json`
+### `json`, `trace`
 
 === "Syntax"
 
     ```bash
-    --json=<boolean>
+    --json
     ```
 
-=== "Example"
+Provides an operation-by-operation trace of the command in JSON.
 
-    ```bash
-    --json=true
-    ```
+`--trace` is an alias for `--json`.
 
-Provide an operation-by-operation trace of the command in JSON when set to true.
-
-### `nomemory`
+### `json-alloc`
 
 === "Syntax"
 
     ```bash
-    --nomemory=<boolean>
+    --json-alloc
     ```
 
-=== "Example"
+Outputs a JSON summary of the post-execution world state and allocations.
+
+### `[no]memory`, `trace.[no]memory`
+
+=== "Syntax"
 
     ```bash
-    --nomemory=true
+    --nomemory, --memory
     ```
 
-By default, when tracing operations the memory is traced for each operation.
-For memory heavy scripts, setting this option may reduce the volume of JSON output.
+Setting `--nomemory` disables tracing the memory output for each operation.
+Setting `--memory` enables it.
+Memory traces are disabled by default.
+
+For memory heavy scripts, disabling memory traces may reduce the volume of JSON output.
+
+`--trace.[no]memory` is an alias for `--[no]memory`.
+
+### `trace.[no]stack`
+
+=== "Syntax"
+
+    ```bash
+    --trace.nostack, --trace.stack
+    ```
+
+Setting `--trace.nostack` disables tracing the operand stack for each operation.
+Setting `--trace.stack` enables it.
+Stack traces are enabled by default.
+
+### `trace.[no]returndata`
+
+=== "Syntax"
+
+    ```bash
+    --trace.noreturndata, --trace.returndata
+    ```
+
+Setting `--trace.noreturndata` disables tracing the return data for each operation.
+Setting `--trace.returndata` enables it.
+Return data traces are enabled by default.
+
+### `[no]time`
+
+=== "Syntax"
+
+    ```bash
+    --notime, --time
+    ```
+
+Setting `--notime` disables including time data in the summary output.
+Setting `--time` enables it.
+
+This is useful for testing and differential evaluations.
 
 ### `genesis`
 
@@ -186,11 +236,10 @@ For memory heavy scripts, setting this option may reduce the volume of JSON outp
     --genesis=/opt/besu/genesis.json
     ```
 
-The Besu Genesis file to use when evaluating the EVM.
+The [Besu genesis file](genesis-items.md) to use when evaluating the EVM.
 Most useful are the `alloc` items that set up accounts and their stored memory states.
-For a complete description of this file see [Genesis file items](genesis-items.md).
 
-`--prestate` is a deprecated alternative option name.
+`--prestate` is a deprecated alias for `--genesis`.
 
 ### `chain`
 
@@ -207,7 +256,7 @@ For a complete description of this file see [Genesis file items](genesis-items.m
     ```
 
 The well-known network genesis file to use when evaluating the EVM.
-These values are an alternative to the `--genesis` option for well known networks.
+These values are an alternative to the [`--genesis`](#genesis) option for well-known networks.
 
 ### `repeat`
 
@@ -225,22 +274,34 @@ These values are an alternative to the `--genesis` option for well known network
 
 Number of times to repeat the contract before gathering timing information.
 This is useful when benchmarking EVM operations.
+The default is `0`.
 
 ### `revert-reason-enabled`
 
 === "Syntax"
 
     ```bash
-    --revert-reason-enabled=<boolean>
+    --revert-reason-enabled
+    ```
+
+Enables tracing the reason included in `REVERT` operations.
+The revert reason is enabled by default.
+
+### `fork`
+
+=== "Syntax"
+
+    ```bash
+    --fork=<string>
     ```
 
 === "Example"
 
     ```bash
-    --revert-reason-enabled=true
+    --fork=FutureEips
     ```
 
-If enabled, the JSON tracing includes the reason included in `REVERT` operations.
+Specific fork to evaluate, overriding network settings.
 
 ### `key-value-storage`
 
@@ -258,12 +319,14 @@ If enabled, the JSON tracing includes the reason included in `REVERT` operations
 
 Kind of key value storage to use.
 
-Occasionally it may be useful to execute isolated EVM calls in context of an actual world state.
-The default is `memory`, which executes the call only in context of the world provided by `--genesis`
-or `--network` at block zero.
-When set to `rocksdb` and combined with `--data-path`, `--block-number`, and `--genesis` a Besu
-node that is not currently running can be used to provide the appropriate world state for a transaction.
-Useful when evaluating consensus failures.
+It might be useful to execute isolated EVM calls in the context of an actual world state.
+The default is `memory`, which executes the call only in the context of the world provided by
+[`--genesis`](#genesis) or [`--chain`](#chain) at block zero.
+
+When set to `rocksdb` and combined with [`--data-path`](#data-path), [`--block-number`](#block-number),
+and [`--genesis`](#genesis), a Besu node that isn't currently running can be used to provide the
+appropriate world state for a transaction.
+This is useful when evaluating consensus failures.
 
 ### `data-path`
 
@@ -279,7 +342,8 @@ Useful when evaluating consensus failures.
     --data-path=/opt/besu/data
     ```
 
-When using `rocksdb` for `key-value-storage`, specifies the location of the database on disk.
+When [`--key-value-storage`](#key-value-storage) is set to `rocksdb`, specifies the location of the
+database on disk.
 
 ### `block-number`
 
@@ -297,52 +361,58 @@ When using `rocksdb` for `key-value-storage`, specifies the location of the data
 
 The block number to evaluate the code against.
 Used to ensure that the EVM is evaluating the code against the correct fork, or to specify the
-specific world state when running with `rocksdb` for `key-value-storage`.
+world state when [`--key-value-storage`](#key-value-storage) is set to `rocksdb`.
+
+### `version`
+
+=== "Syntax"
+
+    ```bash
+    --version
+    ```
+
+Displays the version information.
+
+`-v` is an alias for `--version`.
 
 ## State test options
 
 The `state-test` subcommand allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
-Most of the options from EVM execution do not apply.
+The only applicable options are `--json` and `--nomemory`.
 
-### Applicable options
-
-#### `json`
+### `json`, `trace`
 
 === "Syntax"
 
     ```bash
-    --json=<boolean>
+    --json
     ```
 
-=== "Example"
+Provides an operation-by-operation trace of the command in JSON.
 
-    ```bash
-    --json=true
-    ```
+Set this option for EVM Lab Fuzzing.
+Whether or not `--json` is set, a summary JSON object is printed to standard output for each state
+test executed.
 
-Provide an operation by operation trace of the command in JSON when set to true.
-Set to `true` for EVM Lab Fuzzing.
-Whether or not `json` is set, a summary JSON object is printed to standard output for each
-state test executed.
+`--trace` is an alias for `--json`.
 
-#### `nomemory`
+### `[no]memory`, `trace.[no]memory`
 
 === "Syntax"
 
     ```bash
-    --nomemory=<boolean>
+    --[no]memory
     ```
 
-=== "Example"
+Setting `--nomemory` disables tracing the memory output for each operation.
+Setting `--memory` enables it.
+Memory traces are disabled by default.
 
-    ```bash
-    --nomemory=true
-    ```
+For memory heavy scripts, disabling memory traces may reduce the volume of JSON output.
 
-By default, when tracing operations the memory is traced for each operation.
-For memory heavy scripts, setting this option to `true` may reduce the volume of JSON output.
+`--trace.[no]memory` is an alias for `--[no]memory`.
 
-### Using command arguments
+### Use command arguments
 
 If you use command arguments, you can list one or more state tests.
 All the state tests are evaluated in the order they are specified.
@@ -359,15 +429,15 @@ All the state tests are evaluated in the order they are specified.
     evm --json state-test stExample/add11.json
     ```
 
-### Using standard input
+### Use standard input
 
-If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
+If no reference tests are passed in using the command line, the EVM tool loads one complete JSON object
 from standard input and executes that state test.
 
 === "Docker example"
 
     ```bash
-    docker run --rm  -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
+    docker run --rm -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
     ```
 
 === "CLI example"
@@ -375,3 +445,51 @@ from standard input and executes that state test.
     ```bash
     evm --json state-test < stExample/add11.json
     ```
+
+## EOF code validation
+
+The `code-validate` subcommand allows
+[Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
+It accepts candidate EOF containers or EVM bytecode using the `--file` option, command arguments,
+or standard input.
+
+### `file`
+
+=== "Syntax"
+
+    ```bash
+    --file=<file>
+    ```
+
+=== "Example"
+
+    ```bash
+    --file=eof.txt
+    ```
+
+File containing one or more EOF containers or EVM bytecode.
+Each line in the file is considered a separate program.
+
+### Use command arguments
+
+If you use command arguments, each argument is considered a separate program.
+If a code segment includes spaces, it must be contained in quotes.
+
+=== "Docker example"
+
+    ```bash
+    docker run --rm hyperledger/besu-evmtool:develop code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
+    ```
+
+=== "CLI example"
+
+    ```bash
+    evm code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
+    ```
+
+### Use standard input
+
+If no reference tests are passed in using the command line, the EVM tool loads and validates code
+from standard input.
+Each line is considered a separate program.
+Comment lines and blanks are ignored.

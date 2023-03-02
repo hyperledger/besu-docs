@@ -58,7 +58,7 @@ plugins:
       HowTo/Get-Started/Installation-Options/Run-Docker-Image.md: public-networks/get-started/install/run-docker-image.md
       HowTo/Get-Started/Installation-Options/Options.md: public-networks/get-started/install/index.md
       HowTo/Get-Started/Starting-node.md: public-networks/get-started/start-node.md
-      HowTo/Upgrade/Prepare-for-The-Merge.md: public-networks/how-to/prepare-for-the-merge.md
+      HowTo/Upgrade/Prepare-for-The-Merge.md: public-networks/concepts/the-merge.md
       HowTo/Interact/APIs/API.md: public-networks/how-to/use-besu-api/index.md
       HowTo/Interact/APIs/Using-JSON-RPC-API.md: public-networks/how-to/use-besu-api/json-rpc.md
       HowTo/Interact/APIs/RPC-PubSub.md: public-networks/how-to/use-besu-api/rpc-pubsub.md
@@ -203,3 +203,4 @@ plugins:
       public-networks/how-to/troubleshoot/java-flight-recorder.md: public-networks/how-to/configure-jvm/java-flight-recorder.md
       public-networks/how-to/connect/sync-node.md: public-networks/get-started/connect/sync-node.md
       public-networks/tutorials/merge-testnet.md: public-networks/tutorials/besu-teku-testnet.md
+      public-networks/how-to/prepare-for-the-merge.md: public-networks/concepts/the-merge.md

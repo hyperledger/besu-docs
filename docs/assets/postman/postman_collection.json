@@ -4946,7 +4946,7 @@
               ],
               "port": "{{rpc-http-port}}"
             },
-            "description": "Creates a group of nodes, specified by their [Orion](https://docs.orion.consensys.net/) public key.\n\n#### Parameters\n\n`Object` - Request options:\n\n* `addresses`: `array of data` - Array of nodes, specified by\n  [Orion](https://docs.orion.consensys.net/) public keys.\n* `name`: `string` - Privacy group name. Optional.\n* `description`: `string` - Privacy group description. Optional.\n\n#### Returns\n\nPrivacy group ID"
+            "description": "Creates a group of nodes, specified by their [Tessera](https://docs.tessera.consensys.net/) public key.\n\n#### Parameters\n\n`Object` - Request options:\n\n* `addresses`: `array of data` - Array of nodes, specified by\n  [Tessera](https://docs.tessera.consensys.net/) public keys.\n* `name`: `string` - Privacy group name. Optional.\n* `description`: `string` - Privacy group description. Optional.\n\n#### Returns\n\nPrivacy group ID"
           },
           "response": [
             {
@@ -5058,7 +5058,7 @@
               ],
               "port": "{{rpc-http-port}}"
             },
-            "description": "Distributes a signed, RLP encoded\n[private transaction](https://besu.hyperledger.org/en/stable/HowTo/Send-Transactions/Creating-Sending-Private-Transactions).\n\n> **tip**\n\n    If you want to sign the Privacy Marker Transaction outside of Besu,\n    use [`priv_distributeRawTransaction`](https://besu.hyperledger.org/en/stable//HowTo/Send-Transactions/Creating-Sending-Private-Transactions#priv_distributerawtransaction)\n    instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).\n\n#### Parameters\n\n`data` -  Signed RLP-encoded private transaction. For example:\n\n`params: [\"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\"]`\n\n#### Returns\n\n`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in\n[Orion](https://docs.orion.consensys.net/)."
+            "description": "Distributes a signed, RLP encoded\n[private transaction](https://besu.hyperledger.org/en/stable/HowTo/Send-Transactions/Creating-Sending-Private-Transactions).\n\n> **tip**\n\n    If you want to sign the Privacy Marker Transaction outside of Besu,\n    use [`priv_distributeRawTransaction`](https://besu.hyperledger.org/en/stable//HowTo/Send-Transactions/Creating-Sending-Private-Transactions#priv_distributerawtransaction)\n    instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction).\n\n#### Parameters\n\n`data` -  Signed RLP-encoded private transaction. For example:\n\n`params: [\"0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833\"]`\n\n#### Returns\n\n`result` : `data` - 32-byte enclave key. The enclave key is a pointer to the private transaction in\n[Tessera](https://docs.tessera.consensys.net/)."
           },
           "response": [
             {
@@ -5114,7 +5114,7 @@
               ],
               "port": "{{rpc-http-port}}"
             },
-            "description": "Returns a list of privacy groups containing only the listed members. For example, if the listed\nmembers are A and B, a privacy group containing A, B, and C is not returned.\n\n#### Parameters\n\n`array of data` - Members specified by [Orion](https://docs.orion.consensys.net/) public keys.\n\n#### Returns\n\nPrivacy groups containing only the specified members. Privacy groups are\n[EEA-compliant](https://besu.hyperledger.org/en/stable/Concepts/Privacy/Privacy-Groups#enterprise-ethereum-alliance-privacy)\nor [Besu-extended](https://besu.hyperledger.org/en/stable/Concepts/Privacy/Privacy-Groups#besu-extended-privacy) with types:\n\n* `LEGACY` for EEA-compliant groups.\n* `PANTHEON` for Besu-extended groups."
+            "description": "Returns a list of privacy groups containing only the listed members. For example, if the listed\nmembers are A and B, a privacy group containing A, B, and C is not returned.\n\n#### Parameters\n\n`array of data` - Members specified by [Tessera](https://docs.tessera.consensys.net/) public keys.\n\n#### Returns\n\nPrivacy groups containing only the specified members. Privacy groups are\n[EEA-compliant](https://besu.hyperledger.org/en/stable/Concepts/Privacy/Privacy-Groups#enterprise-ethereum-alliance-privacy)\nor [Besu-extended](https://besu.hyperledger.org/en/stable/Concepts/Privacy/Privacy-Groups#besu-extended-privacy) with types:\n\n* `LEGACY` for EEA-compliant groups.\n* `PANTHEON` for Besu-extended groups."
           },
           "response": [
             {
@@ -5226,7 +5226,7 @@
               ],
               "port": "{{rpc-http-port}}"
             },
-            "description": "Returns the private transaction count for the specified account and\n[group of sender and recipients].\n\n> **Important**\n\n> If sending more than one transaction to be mined in the same block (that is, you are not\n> waiting for the transaction receipt), you must calculate the private transaction nonce outside\n> Besu instead of using `priv_getEeaTransactionCount`.\n\n#### Parameters\n\n`data` - Account address.\n\n`data` - Base64 encoded Orion address of the sender.\n\n`array of data` - Base64 encoded Orion addresses of recipients.\n\n#### Returns\n\n`quantity` - Integer representing the number of private transactions sent from the address to the\nspecified group of sender and recipients.\n"
+            "description": "Returns the private transaction count for the specified account and\n[group of sender and recipients].\n\n> **Important**\n\n> If sending more than one transaction to be mined in the same block (that is, you are not\n> waiting for the transaction receipt), you must calculate the private transaction nonce outside\n> Besu instead of using `priv_getEeaTransactionCount`.\n\n#### Parameters\n\n`data` - Account address.\n\n`data` - Base64 encoded Tessera address of the sender.\n\n`array of data` - Base64 encoded Tessera addresses of recipients.\n\n#### Returns\n\n`quantity` - Integer representing the number of private transactions sent from the address to the\nspecified group of sender and recipients.\n"
           },
           "response": [
             {

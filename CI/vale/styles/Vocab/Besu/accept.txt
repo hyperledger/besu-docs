@@ -150,6 +150,7 @@ Ropsten
 Mordor
 [sS]andbox(ed|ing)
 [sS]epolia
+Sirato
 Slack
 [sS]lashable
 Splunk

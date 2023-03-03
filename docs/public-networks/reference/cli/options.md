@@ -3336,7 +3336,7 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
 === "Syntax"
 
     ```bash
-    --tx-pool-limit-by-account-percentage=<LONG>
+    --tx-pool-limit-by-account-percentage=<DOUBLE>
     ```
 
 === "Example"

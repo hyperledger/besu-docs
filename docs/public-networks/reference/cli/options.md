@@ -3331,34 +3331,42 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated
 `target-gas-limit` value.
 
-### `tx-pool-future-max-by-account`
+### `tx-pool-limit-by-account-percentage`
 
 === "Syntax"
 
     ```bash
-    --tx-pool-future-max-by-account=<INTEGER>
+    --tx-pool-limit-by-account-percentage=<DOUBLE>
     ```
 
 === "Example"
 
     ```bash
-    --tx-pool-future-max-by-account=100
+    --tx-pool-limit-by-account-percentage=0.1
     ```
 
 === "Environment variable"
 
     ```bash
-    BESU_TX_POOL_FUTURE_MAX_BY_ACCOUNT=100
+    BESU_TX_POOL_LIMIT_BY_ACCOUNT_PERCENTAGE=0.1
     ```
 
 === "Configuration file"
 
     ```bash
-    tx-pool-future-max-by-account="100"
+    tx-pool-limit-by-account-percentage=0.4
     ```
 
-The maximum number of future transactions kept in the transaction pool, per account.
-The default is 64.
+The maximum percentage of future transactions kept in the transaction pool, per account.
+Accepted values are in the range (0–1].
+The default is .001 or 0.1% of transactions from a single account to be kept in the pool.
+
+!!! warning
+    The default value is often unsuitable for [private networks](../../../private-networks/index.md).
+    This feature mitigates future-nonce transactions from filling the pool without ever being
+    executable by Besu.
+    This is important for Mainnet, but may cause issues on private networks.
+    Please update this value or set to 1 if you know the nodes gossiping transactions in your network.
 
 ### `tx-pool-max-size`
 

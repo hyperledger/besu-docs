@@ -3358,7 +3358,8 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
     ```
 
 The maximum percentage of future transactions kept in the transaction pool, per account.
-Accepted values are in the range (0-1]. The default is .001 or 0.1% of transactions from a single account to be kept in the pool.
+Accepted values are in the range (0–1].
+The default is .001 or 0.1% of transactions from a single account to be kept in the pool.
 
 !!! warning
     The default value is often unsuitable for [private networks](../../../private-networks/index.md).

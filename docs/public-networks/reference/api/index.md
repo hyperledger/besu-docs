@@ -212,11 +212,11 @@ Removes cache files for the specified range of blocks.
 
 * `fromBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `toBlock`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 You can skip a parameter by using an empty string, `""`.
 If you specify:
@@ -994,7 +994,7 @@ back to the block right before the specified block, then importing the specified
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1032,7 +1032,7 @@ Sets the current head of the local chain to the block matching the specified blo
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1401,7 +1401,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *object* - request options object with the following fields (all optional and default to `false`):
 
@@ -1591,9 +1591,9 @@ the `eth_call` error response includes the [revert reason](../../../private-netw
 
 `call`: *object* - [transaction call object](objects.md#transaction-call-object)
 
-`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 !!! note
 
@@ -2006,9 +2006,9 @@ Returns the account balance of the specified address.
 
 * `address`: *string* - 20-byte account address from which to retrieve the balance
 
-* `blockNumber`: *string*  - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+* `blockNumber` or `blockHash`: *string*  - integer representing a block number, block hash, or one
+of the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2201,7 +2201,7 @@ Returns information about the block matching the specified block number.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, `pending`, `finalized`, or `safe` as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `verbose`: *boolean* - if `true`, returns the full [transaction objects](objects.md#transaction-object);
 if `false`, returns only the hashes of the transactions.
@@ -2419,7 +2419,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2487,9 +2487,9 @@ Besu stores compiled smart contract code as a hexadecimal value.
 
 `address`: *string* - 20-byte contract address
 
-`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2899,7 +2899,7 @@ Returns miner data for the specified block.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2957,9 +2957,9 @@ from untrusted sources, by using a trusted block hash.
 
 `keys`: *array* of *strings* - list of 32-byte storage keys to generate proofs for
 
-`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3042,9 +3042,9 @@ Returns the value of a storage position at a specified address.
 
 `index`: *string* - integer index of the storage position
 
-`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3205,7 +3205,7 @@ Returns transaction information for the specified block number and transaction i
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 `index`: *string* - transaction index position
 
@@ -3414,9 +3414,9 @@ next account nonce not used by any pending transactions.
 
 `address`: *string* - 20-byte account address
 
-`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
-`earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3720,7 +3720,7 @@ Returns uncle specified by block number and index.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `uncleIndex`: *string* - index of the uncle
 
@@ -3891,7 +3891,7 @@ Returns the number of uncles in a block matching the specified block number.
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -5011,7 +5011,7 @@ Provides transaction processing of [type `trace`](../trace-types.md#trace) for t
 
 `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -5114,7 +5114,7 @@ Executes the given call and returns a number of possible traces for it.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any
@@ -5188,7 +5188,7 @@ Performs multiple call traces on top of the same block. You can trace dependent 
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
   `earliest`, or `pending`, as described in
-  [Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -5493,7 +5493,7 @@ Provides transaction processing tracing per block.
 
 * `blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
 `earliest`, or `pending`, as described in
-[Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 * `options`: *array* of *strings* - list of tracing options; tracing options are
 [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any

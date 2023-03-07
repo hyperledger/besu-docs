@@ -3178,8 +3178,9 @@ The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You m
     security-module="security_module"
     ```
 
-Name of the security module plugin to use. For example, a Hardware Security Module (HSM) or V3 filestore
-plugin
+Name of the
+[security module plugin](https://docs.quorumplugins.consensys.net/) to use.
+For example, a Hardware Security Module (HSM) or V3 filestore plugin.
 
 The default is the node's local private key file specified using
 [`--node-private-key-file`](#node-private-key-file).

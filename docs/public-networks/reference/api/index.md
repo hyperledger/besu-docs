@@ -1893,7 +1893,7 @@ If blocks in the specified block range are not available, then only the fee hist
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
   `earliest`, or `pending`, as described in
-  [Block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 #### Returns
 

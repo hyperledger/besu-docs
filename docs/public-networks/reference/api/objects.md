@@ -61,8 +61,8 @@ Used to [`filter logs`](../../how-to/use-besu-api/access-logs.md).
 
 | Key | Type | Required/Optional | Value |
 |-----|:----:|:-----------------:|-------|
-| `fromBlock` | Quantity &#124; Tag               | Optional | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter). Default is `latest`. |
-| `toBlock`   | Quantity &#124; Tag               | Optional | Integer block number or `latest`, `pending`, `earliest`. See [Block Parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter). Default is `latest`. |
+| `fromBlock` | Quantity &#124; Tag               | Optional | Integer block number or `latest`, `pending`, `earliest`. See [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter). Default is `latest`. |
+| `toBlock`   | Quantity &#124; Tag               | Optional | Integer block number or `latest`, `pending`, `earliest`. See [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter). Default is `latest`. |
 | `address`   | Data &#124; Array                 | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics`    | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 

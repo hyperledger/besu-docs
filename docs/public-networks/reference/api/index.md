@@ -1784,7 +1784,6 @@ send the transaction [along with the `accessList`](../../concepts/transactions/t
 the string tags `latest`, `earliest`, or `pending`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
-
 #### Returns
 
 `result`: *object* - addresses and storage keys that will be accessed by the transaction:
@@ -1793,7 +1792,6 @@ the string tags `latest`, `earliest`, or `pending`, as described in
     * `address`: *string* - addresses to be accessed by the transaction
     * `storageKeys`: *array* - storage keys to be accessed by the transaction
 * `gasUsed`: *string* - approximate gas cost to add the access list to the transaction
-
 
 !!! example
 

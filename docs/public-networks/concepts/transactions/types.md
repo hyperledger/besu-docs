@@ -33,6 +33,9 @@ array of addresses and storage keys that the transaction plans to access (an *ac
 `ACCESS_LIST` transactions must specify an access list, and they don't incorporate
 [EIP-1559 fee market changes](#eip1559-transactions).
 
+Use the [`eth_createAccessList`](../../reference/api/index.md#eth_createaccesslist) API to add an access list to
+a transaction that has already executed.
+
 ## `EIP1559` transactions
 
 Transactions with type `EIP1559` are transactions introduced in

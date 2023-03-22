@@ -1771,10 +1771,8 @@ None
 
 ### `eth_createAccessList`
 
-Creates a [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list for a transaction.
-
-If your transaction code has already been executed then use the method to generate your access list, otherwise
-send the transaction [along with the `accessList`](../../concepts/transactions/types.md#access_list-transactions) to lower gas costs.
+Creates a [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can 
+[include in a transaction](../../concepts/transactions/types.md#access_list-transactions).
 
 #### Parameters
 
@@ -1791,7 +1789,7 @@ the string tags `latest`, `earliest`, or `pending`, as described in
 * `accessList`: *array of objects* - contains the following fields:
     * `address`: *string* - addresses to be accessed by the transaction
     * `storageKeys`: *array* - storage keys to be accessed by the transaction
-* `gasUsed`: *string* - approximate gas cost to add the access list to the transaction
+* `gasUsed`: *string* - approximate gas cost for the transaction if the access list is included
 
 !!! example
 

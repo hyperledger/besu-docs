@@ -1771,7 +1771,7 @@ None
 
 ### `eth_createAccessList`
 
-Creates a [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can 
+Creates a [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can
 [include in a transaction](../../concepts/transactions/types.md#access_list-transactions).
 
 #### Parameters

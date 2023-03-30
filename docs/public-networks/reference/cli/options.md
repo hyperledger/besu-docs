@@ -2838,7 +2838,7 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
 When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum number of blocks to retrieve
 logs from.
 Set to 0 to specify no limit.
-The default is 1000.
+The default is 5000.
 
 !!! warning
 

@@ -54,28 +54,25 @@ docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool option
 
 ## EVM tool run options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.  [Command
-line options](../../reference/evm-tool.md) specify the code and other contextual information.
+The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.
+[Command line options](../../reference/evm-tool.md) specify the code and other contextual information.
 
 The EVM tool also has a [`state-test` subcommand](../../reference/evm-tool.md#state-test-options)
-that allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated.
-Most of the options from EVM execution do not apply.
+that allows [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests)
+to be evaluated, and a [`code-validate` subcommand](../../reference/evm-tool.md#eof-code-validation)
+that allows [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
+Most of the options from EVM execution don't apply.
 
-=== "Syntax"
+=== "`state-test`"
 
     ```bash
     evm state-test <state-test> --nomemory
     ```
 
-=== "CLI example"
+=== "`code-validate`"
 
     ```bash
-    evm state-test stExample/add11.json --nomemory
-    ```
-=== "Docker example"
-
-    ```bash
-    docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
+    evm code-validate --file <file>
     ```
 
-The [EVM tool reference](../../reference/evm-tool.md) provides more information on both modes.
+The [EVM tool reference](../../reference/evm-tool.md) provides more information on these modes.

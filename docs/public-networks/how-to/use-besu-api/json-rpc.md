@@ -96,8 +96,10 @@ To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/downlo
         }
         ```
 
-You can use `curl` to make multiple RPC requests over HTTP at the same time.
-Send the requests as an array, and receive an array of responses.
+You can use `curl` to make multiple RPC requests (batch requests) over HTTP at the same time.
+Send the requests as an array, and receive an array of responses. The default number of allowed requests
+in a RPC batch request is `1024`. Use the [`--rpc-http-max-batch-size`](../../reference/cli/options.md#rpc-http-max-batch-size)
+command line option to update the default value.
 
 !!! example
 
@@ -261,15 +263,31 @@ parameter specifies the block. Methods such as
 [`eth_getTransactionByBlockNumberAndIndex`](../../reference/api/index.md#eth_gettransactionbyblocknumberandindex)
 have a block parameter.
 
-The block parameter can have the following values:
+The block parameter can have one of the following values:
 
-* `blockNumber` : `quantity` - The block number, specified in hexadecimal or decimal. 0 represents
+* `blockNumber` : *quantity* - The block number, specified in hexadecimal or decimal. 0 represents
   the genesis block.
-* `earliest` : `tag` - The earliest (genesis) block.
-* `latest` : `tag` - The last block mined.
-* `pending` : `tag` - The last block mined plus pending transactions. Use only with
+* `blockHash` : *string* or *object* - 32-byte block hash or JSON object specifying the block hash.
+  If using a JSON object, you can specify `requireCanonical` to indicate whether the block must be a
+  canonical block.
+  See [this example](https://github.com/hyperledger/besu/blob/a2dedb0b2c7980cdc35db8eb4c094f2eb0dc7deb/ethereum/api/src/test/resources/org/hyperledger/besu/ethereum/api/jsonrpc/eth/eth_getBalance_blockHashObjectCanonical.json).
+
+    !!! note
+
+        Only the following methods support the `blockHash` parameter:
+
+        * [`eth_call`](../../reference/api/index.md#eth_call)
+        * [`eth_getBalance`](../../reference/api/index.md#eth_getbalance)
+        * [`eth_getCode`](../../reference/api/index.md#eth_getcode)
+        * [`eth_getProof`](../../reference/api/index.md#eth_getproof)
+        * [`eth_getStorageAt`](../../reference/api/index.md#eth_getstorageat)
+        * [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount)
+
+* `earliest` : *tag* - The earliest (genesis) block.
+* `latest` : *tag* - The last block mined.
+* `pending` : *tag* - The last block mined plus pending transactions. Use only with
   [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount).
-* `finalized` : `tag` - The most recent crypto-economically secure block.
+* `finalized` : *tag* - The most recent crypto-economically secure block.
   It cannot be reorganized outside manual intervention driven by community coordination.
-* `safe` : `tag` - The most recent block that is safe from reorganization under
+* `safe` : *tag* - The most recent block that is safe from reorganization under
   honest majority and certain synchronicity assumptions.

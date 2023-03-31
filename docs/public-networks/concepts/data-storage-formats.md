@@ -86,7 +86,7 @@ storage formats using [fast](../get-started/connect/sync-node.md#fast-synchroniz
 | Bonsai              | Fast      | 650 GB           | No                                 |
 | Bonsai              | Snap      | 650 GB           | To be implemented                  |
 | Forest              | Fast      | 750 GB           | Yes                                |
-| Forest              | Snap      | 750 GB           | To be implemented                  |
+| Forest              | Snap      | 750 GB           | No                                 |
 
 !!! important
 

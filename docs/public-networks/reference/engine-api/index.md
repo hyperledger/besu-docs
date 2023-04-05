@@ -17,6 +17,52 @@ See the [Ethereum Engine API specification](https://github.com/ethereum/executio
 
 ## Methods
 
+### `engine_exchangeCapabilities`
+
+Exchanges a list of supported Engine API methods between the consensus client and Besu.
+
+#### Parameters
+
+*remoteCapabilities*: *array* of *strings* - Array of names of the Engine API methods the consensus
+client supports
+
+#### Returns
+
+*localCapabilities*: *array* of *strings* - Array of names of the Engine API methods Besu supports
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeCapabilities","params":[["engine_exchangeTransitionConfigurationV1","engine_forkchoiceUpdatedV1","engine_getPayloadBodiesByHash","engine_getPayloadBodiesByRangeV1","engine_getPayloadV1","engine_newPayloadV1"]],"id":67}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_exchangeCapabilities","params":[["engine_exchangeTransitionConfigurationV1","engine_forkchoiceUpdatedV1","engine_getPayloadBodiesByHash","engine_getPayloadBodiesByRangeV1","engine_getPayloadV1","engine_newPayloadV1"]],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [
+              "engine_exchangeTransitionConfigurationV1",
+              "engine_forkchoiceUpdatedV1",
+              "engine_getPayloadBodiesByHashV1",
+              "engine_getPayloadBodiesByRangeV1",
+              "engine_getPayloadV1",
+              "engine_newPayloadV1"
+            ],
+            "payloadId": null
+          }
+        }
+        ```
+
 ### `engine_exchangeTransitionConfigurationV1`
 
 Sends the transition configuration to the consensus client to verify the configuration between both clients.
@@ -108,6 +154,108 @@ Updates the fork choice with the consensus client.
             },
             "payloadId": null
           }
+        }
+        ```
+
+### `engine_getPayloadBodiesByHashV1`
+
+Returns the bodies of the execution payloads corresponding to the specified block hashes.
+
+#### Parameters
+
+`blockHashes`: **array** of **strings** - Array of block hashes
+
+#### Returns
+
+`engineGetPayloadBodiesResultV1`: **array** of **objects** - Array of execution payload body objects
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":1}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [
+              {
+                ["0x...", "0x...", ...],
+                [
+                  {
+                    "index":,
+                    "validatorIndex":,
+                    "address":,
+                    "amount":
+                  },
+                  ...
+                ]
+              },
+              ...
+            ]
+        }
+        ```
+
+### `engine_getPayloadBodiesByRangeV1`
+
+Returns the bodies of the execution payloads corresponding to the specified range of block numbers
+
+#### Parameters
+
+* *startBlockNumber*: *long* - Number of the starting block of the range
+
+* *count*: *long* - Number of blocks in the range (including the starting block)
+
+#### Returns
+
+`engineGetPayloadBodiesResultV1`: *array* of *objects* - Array of execution payload body objects
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[25, 5],"id":1}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[25, 5],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [
+              {
+                ["0x...", "0x...", ...],
+                [
+                  {
+                    "index":,
+                    "validatorIndex":,
+                    "address":,
+                    "amount":
+                  },
+                  ...
+                ]
+              },
+              ...
+            ]
         }
         ```
 

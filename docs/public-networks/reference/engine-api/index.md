@@ -23,12 +23,12 @@ Exchanges a list of supported Engine API methods between the consensus client an
 
 #### Parameters
 
-*remoteCapabilities*: *array* of *strings* - Array of names of the Engine API methods the consensus
+`remoteCapabilities`: *array* of *strings* - Array of names of the Engine API methods the consensus
 client supports
 
 #### Returns
 
-*localCapabilities*: *array* of *strings* - Array of names of the Engine API methods Besu supports
+`localCapabilities`: *array* of *strings* - Array of names of the Engine API methods Besu supports
 
 !!! example
 
@@ -189,21 +189,33 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
         {
             "jsonrpc": "2.0",
             "id": 67,
-            "result": [
-              {
-                ["0x...", "0x...", ...],
-                [
-                  {
-                    "index":,
-                    "validatorIndex":,
-                    "address":,
-                    "amount":
-                  },
-                  ...
-                ]
-              },
-              ...
-            ]
+            "result": [{
+              "transactions": ["0xf865808506fc23ac00830124f8940101010101010101010101010101010101010101018031a02c4d88bfdc2f6dbf82c33d235c4e785e9fc23b2d0fc7b9d20fc5e9674f1f9d15a016d6d69b925cf26128683ab4a096e196fbb1142d6c6d4e8d3481b9bef1bd0f65", "0x02f86c0701843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a039409b4e5603dd8c3cf38232348661a8e99ac518396eeaa128ec9ec2a3eb8127a06b21ab956f5f138cb44fda1a9055bd08980ea4f8040d877c00dac025608d0d95", ...],
+              "withdrawals": [{
+                "index" : "0xf0",
+                "validatorIndex" : "0xf0",
+                "address" : "0x00000000000000000000000000000000000010f0",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf1",
+                "validatorIndex" : "0xf1",
+                "address" : "0x00000000000000000000000000000000000010f1",
+                "amount" : "0x1"
+              }]
+            }, {
+              "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
+              "withdrawls": [{
+                "index" : "0xf2",
+                "validatorIndex" : "0xf2",
+                "address" : "0x00000000000000000000000000000000000010f2",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf3",
+                "validatorIndex" : "0xf3",
+                "address" : "0x00000000000000000000000000000000000010f3",
+                "amount" : "0x1"
+              }]
+            }]
         }
         ```
 
@@ -213,9 +225,9 @@ Returns the bodies of the execution payloads corresponding to the specified rang
 
 #### Parameters
 
-* *startBlockNumber*: *long* - Number of the starting block of the range
+* `startBlockNumber`: *string* - Number of the starting block of the range, as a hexadecimal string
 
-* *count*: *long* - Number of blocks in the range (including the starting block)
+* `count`: *string* - Number of blocks in the range (including the starting block), as a hexadecimal string
 
 #### Returns
 
@@ -226,13 +238,13 @@ Returns the bodies of the execution payloads corresponding to the specified rang
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[25, 5],"id":1}' http://127.0.0.1:8550
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x20", "0x2"],"id":1}' http://127.0.0.1:8550
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[25, 5],"id":67}
+        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x20", "0x2"],"id":67}
         ```
 
     === "JSON result"
@@ -241,21 +253,33 @@ Returns the bodies of the execution payloads corresponding to the specified rang
         {
             "jsonrpc": "2.0",
             "id": 67,
-            "result": [
-              {
-                ["0x...", "0x...", ...],
-                [
-                  {
-                    "index":,
-                    "validatorIndex":,
-                    "address":,
-                    "amount":
-                  },
-                  ...
-                ]
-              },
-              ...
-            ]
+            "result": [{
+              "transactions": ["0xf865808506fc23ac00830124f8940101010101010101010101010101010101010101018031a02c4d88bfdc2f6dbf82c33d235c4e785e9fc23b2d0fc7b9d20fc5e9674f1f9d15a016d6d69b925cf26128683ab4a096e196fbb1142d6c6d4e8d3481b9bef1bd0f65", "0x02f86c0701843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a039409b4e5603dd8c3cf38232348661a8e99ac518396eeaa128ec9ec2a3eb8127a06b21ab956f5f138cb44fda1a9055bd08980ea4f8040d877c00dac025608d0d95", ...],
+              "withdrawals": [{
+                "index" : "0xf0",
+                "validatorIndex" : "0xf0",
+                "address" : "0x00000000000000000000000000000000000010f0",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf1",
+                "validatorIndex" : "0xf1",
+                "address" : "0x00000000000000000000000000000000000010f1",
+                "amount" : "0x1"
+              }]
+            }, {
+              "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
+              "withdrawls": [{
+                "index" : "0xf2",
+                "validatorIndex" : "0xf2",
+                "address" : "0x00000000000000000000000000000000000010f2",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf3",
+                "validatorIndex" : "0xf3",
+                "address" : "0x00000000000000000000000000000000000010f3",
+                "amount" : "0x1"
+              }]
+            }]
         }
         ```
 

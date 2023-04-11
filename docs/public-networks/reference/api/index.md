@@ -17,7 +17,6 @@ tags:
     * Most example requests are made against private networks.
       Depending on network configuration and activity, your example results might be different.
 
---8<-- "global/postman.md"
 
 ## `ADMIN` methods
 

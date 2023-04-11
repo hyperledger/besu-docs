@@ -204,7 +204,7 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
               }]
             }, {
               "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
-              "withdrawls": [{
+              "withdrawals": [{
                 "index" : "0xf2",
                 "validatorIndex" : "0xf2",
                 "address" : "0x00000000000000000000000000000000000010f2",
@@ -221,7 +221,7 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
 
 ### `engine_getPayloadBodiesByRangeV1`
 
-Returns the bodies of the execution payloads corresponding to the specified range of block numbers
+Returns the bodies of the execution payloads corresponding to the specified range of block numbers.
 
 #### Parameters
 
@@ -268,7 +268,7 @@ Returns the bodies of the execution payloads corresponding to the specified rang
               }]
             }, {
               "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
-              "withdrawls": [{
+              "withdrawals": [{
                 "index" : "0xf2",
                 "validatorIndex" : "0xf2",
                 "address" : "0x00000000000000000000000000000000000010f2",

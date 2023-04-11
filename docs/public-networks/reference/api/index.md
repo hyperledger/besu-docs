@@ -4266,7 +4266,7 @@ transaction data using `eth_sendRawTransaction`.
     Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md).
 
     [EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements
-    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eth_sendtransaction).
 
 #### Parameters
 

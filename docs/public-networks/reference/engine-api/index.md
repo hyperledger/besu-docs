@@ -238,13 +238,13 @@ Returns the bodies of the execution payloads corresponding to the specified rang
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x20", "0x2"],"id":1}' http://127.0.0.1:8550
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1","params":["0x20", "0x2"],"id":1}' http://127.0.0.1:8550
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x20", "0x2"],"id":67}
+        {"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1","params":["0x20", "0x2"],"id":67}
         ```
 
     === "JSON result"

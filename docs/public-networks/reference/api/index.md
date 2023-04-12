@@ -846,12 +846,17 @@ None
           ]
         }
         ```
+
 ### `debug_getRawBlock`
 
 Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
 of the specified block.
 
 #### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -887,6 +892,10 @@ Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structur
 of the header of specified block.
 
 #### Parameters
+
+`blockNumber`: *string* - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1092,6 +1101,7 @@ back to the block right before the specified block, then importing the specified
           "result" : "Success"
         }
         ```
+
 ### `debug_resyncWorldstate`
 
 Triggers a re-synchronization of the world state while retaining imported blocks.

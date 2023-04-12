@@ -57,8 +57,7 @@ client supports
               "engine_getPayloadBodiesByRangeV1",
               "engine_getPayloadV1",
               "engine_newPayloadV1"
-            ],
-            "payloadId": null
+            ]
           }
         }
         ```

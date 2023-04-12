@@ -848,13 +848,14 @@ None
         ```
 ### `debug_getRawBlock`
 
-Returns the selected block as RLP-encoded.  
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the specified block.
 
 #### Parameters
 
 #### Returns
 
-`result`: *object* - [block object](objects.md#block-object)
+`result`: *object* - RLP-encoded [block object](objects.md#block-object)
 
 !!! example
 
@@ -882,13 +883,14 @@ Returns the selected block as RLP-encoded.
 
 ### `debug_getRawHeader`
 
-Returns the header of the selected block as RLP-encoded.
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the header of specified block.
 
 #### Parameters
 
 #### Returns
 
-`result`: *string* - `Raw Header RLP` or `error`
+`result`: *string* - RLP-encoded block header or `error`
 
 !!! example
 
@@ -1090,19 +1092,20 @@ back to the block right before the specified block, then importing the specified
           "result" : "Success"
         }
         ```
-### `debug_resyncWorldstate` 
+### `debug_resyncWorldstate`
 
-Triggers a resync of just the worldstate while retaining imported blocks. This is a valuable tool if there are worldstate database inconsistencies (e.g. Bonsai database issues). 
+Triggers a re-synchronization of the world state while retaining imported blocks.
+This is useful if there are world state database inconsistencies (for example, Bonsai database issues).
 
 #### Parameters
 
 None
 
-#### Returns 
+#### Returns
 
 `result`: *string* - `Success` or `error`
 
-!!! example 
+!!! example
 
     === "curl HTTP request"
 
@@ -1110,7 +1113,7 @@ None
         curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldstate","params":[],"id":1}' http://127.0.0.1:8545
     ```
 
-    === "wscat WS request"  
+    === "wscat WS request"
 
       ```bash
       {"jsonrpc":"2.0","method":"debug_resyncWorldstate","params":[],"id":1}
@@ -5589,7 +5592,7 @@ Provides transaction processing tracing per block.
 !!! important
 
     When using Bonsai: The requested block must be within the number of [blocks retained](../cli/options.md#bonsai-maximum-back-layers-to-load) (by default, 512 from the head of the chain).
-    
+
     When using Forest: The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
     with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024 from head of the chain).
 

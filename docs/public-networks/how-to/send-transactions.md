@@ -30,7 +30,7 @@ Ether and create a smart contract.
     In production environments avoid exposing your private keys by creating signed transactions
     offline, or use [EthSigner](https://docs.ethsigner.consensys.net/) to isolate your private keys
     and sign transactions with
-    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Using-EthSigner/Using-EthSigner/#eth_sendtransaction).
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eth_sendtransaction).
 
 !!! caution
 
@@ -72,5 +72,5 @@ Besu doesn't support key management inside the client. Use:
 !!! tip
 
     [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) implements
-    [`eth_sendTransaction`](http://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eth_sendtransaction)
-    and [`eea_sendTransaction`](http://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eth_sendtransaction)
+    and [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction).

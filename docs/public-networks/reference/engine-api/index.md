@@ -23,12 +23,11 @@ Exchanges a list of supported Engine API methods between the consensus client an
 
 #### Parameters
 
-`remoteCapabilities`: *array* of *strings* - Array of names of the Engine API methods the consensus
-client supports
+`remoteCapabilities`: *array* of *strings* - Engine API method names that the consensus client supports
 
 #### Returns
 
-`localCapabilities`: *array* of *strings* - Array of names of the Engine API methods Besu supports
+`localCapabilities`: *array* of *strings* - Engine API method names that Besu supports
 
 !!! example
 
@@ -166,11 +165,11 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
 
 #### Parameters
 
-`blockHashes`: **array** of **strings** - Array of block hashes
+`blockHashes`: **array** of **strings** - Block hashes
 
 #### Returns
 
-`engineGetPayloadBodiesResultV1`: **array** of **objects** - Array of execution payload body objects
+`engineGetPayloadBodiesResultV1`: **array** of **objects** - Execution payload body objects
 
 !!! example
 
@@ -234,7 +233,7 @@ Returns the bodies of the execution payloads corresponding to the specified rang
 
 #### Returns
 
-`engineGetPayloadBodiesResultV1`: *array* of *objects* - Array of execution payload body objects
+`engineGetPayloadBodiesResultV1`: *array* of *objects* - Execution payload body objects
 
 !!! example
 

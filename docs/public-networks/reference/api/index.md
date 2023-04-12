@@ -861,13 +861,13 @@ Returns the selected block as RLP-encoded.
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"
 
         ```bash
-        {"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x1"],"id":1}
+        {"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x32026E"],"id":1}
         ```
 
     === "JSON result"
@@ -888,14 +888,14 @@ Returns the header of the selected block as RLP-encoded.
 
 #### Returns
 
-`result`: 
+`result`: *string* - `Raw Header RLP` or `error`
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0x1"],"id":1}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS request"

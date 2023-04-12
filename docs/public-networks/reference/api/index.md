@@ -5588,8 +5588,10 @@ Provides transaction processing tracing per block.
 
 !!! important
 
-    The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
-    with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
+    When using Bonsai: The requested block must be within the number of [blocks retained](../cli/options.md#bonsai-maximum-back-layers-to-load) (by default, 512 from the head of the chain).
+    
+    When using Forest: The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained)
+    with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024 from head of the chain).
 
 #### Parameters
 

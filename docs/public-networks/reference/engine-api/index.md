@@ -180,7 +180,7 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"engine_getPayloadV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":67}
+        {"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":67}
         ```
 
     === "JSON result"

@@ -8,7 +8,7 @@ Create and send [private transactions](../../concepts/privacy/index.md) using:
 
 * [web3js-quorum client library](../use-privacy/web3js-quorum.md) or
     [web3j client library](https://github.com/web3j/web3j)
-* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/)
+* [`eea_sendTransaction` with EthSigner](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction)
 * [`eea_sendRawTransaction`](#eea_sendrawtransaction)
 * [`priv_distributeRawTransaction`](#priv_distributerawtransaction).
 

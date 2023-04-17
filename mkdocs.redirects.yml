@@ -194,8 +194,8 @@ plugins:
       Concepts/Transactions/Transaction-Pool.md: public-networks/concepts/transactions/pool.md
       Concepts/Transactions/Transaction-Types.md: public-networks/concepts/transactions/types.md
       Concepts/Transctions/Transction-Validation.md: public-networks/concepts/transactions/validation.md
-      Concepts/Plugins.md: private-networks/index.md
-      Reference/Plugin-API-Interfaces.md: private-networks/index.md
+      Concepts/Plugins.md: private-networks/concepts/plugins.md
+      Reference/Plugin-API-Interfaces.md: private-networks/reference/plugin-api-interfaces.md
       HowTo/Configure/Configure-HA/High-Availability.md: public-networks/how-to/configure-ha/index.md
       HowTo/Configure/Configure-HA/Sample-Configuration.md: public-networks/how-to/configure-ha/sample-configuration.md
       Concepts/Pruning.md: public-networks/concepts/data-storage-formats.md
@@ -204,5 +204,3 @@ plugins:
       public-networks/how-to/connect/sync-node.md: public-networks/get-started/connect/sync-node.md
       public-networks/tutorials/merge-testnet.md: public-networks/tutorials/besu-teku-testnet.md
       public-networks/how-to/prepare-for-the-merge.md: public-networks/concepts/the-merge.md
-      private-networks/concepts/plugins.md: private-networks/index.md
-      private-networks/reference/plugin-api-interface.md: private-networks/index.md

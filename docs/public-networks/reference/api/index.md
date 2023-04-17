@@ -1884,6 +1884,58 @@ None
         }
         ```
 
+### `eth_createAccessList`
+
+Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can
+[include in a transaction](../../concepts/transactions/types.md#access_list-transactions).
+
+#### Parameters
+
+`transaction`: *object* - [transaction call object](objects.md#transaction-call-object)
+
+`blockNumber` or `blockHash`: *string* - integer representing a block number, block hash, or one of
+the string tags `latest`, `earliest`, or `pending`, as described in
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+
+#### Returns
+
+`result`: *object* - access list object with the following fields:
+
+* `accessList`: *array* of *objects* - list of objects with the following fields:
+    * `address`: *string* - addresses to be accessed by the transaction
+    * `storageKeys`: *array* - storage keys to be accessed by the transaction
+* `gasUsed`: *string* - approximate gas cost for the transaction if the access list is included
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"method":"eth_createAccessList","params":[{"from": "0xaeA8F8f781326bfE6A7683C2BD48Dd6AA4d3Ba63", "data": "0x608060806080608155"}, "pending"],"id":1,"jsonrpc":"2.0"}' http://127.0.0.1:8545
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"method":"eth_createAccessList","params":[{"from": "0xaeA8F8f781326bfE6A7683C2BD48Dd6AA4d3Ba63", "data": "0x608060806080608155"}, "pending"],"id":1,"jsonrpc":"2.0"}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+          "accessList": [
+            {
+              "address": "0xa02457e5dfd32bda5fc7e1f1b008aa5979568150",
+              "storageKeys": [
+                "0x0000000000000000000000000000000000000000000000000000000000000081",
+              ]
+            }
+          ]
+          "gasUsed": "0x125f8"
+        }
+        ```
+
 ### `eth_estimateGas`
 
 Returns an estimate of the gas required for a transaction to complete. The estimation process

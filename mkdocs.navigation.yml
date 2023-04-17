@@ -170,7 +170,6 @@ nav:
               - Onchain permissioning: private-networks/concepts/permissioning/onchain.md
               - Permissioning plugin: private-networks/concepts/permissioning/plugin.md
           - Public key infrastructure: private-networks/concepts/pki.md
-          - Plugins: private-networks/concepts/plugins.md
       - Tutorials:
           - Quorum Developer Quickstart: private-networks/tutorials/quickstart.md
           - Create a QBFT network: private-networks/tutorials/qbft.md
@@ -211,4 +210,3 @@ nav:
               - private-networks/reference/api/index.md
               - Private network API objects: private-networks/reference/api/objects.md
           - Accounts for testing: private-networks/reference/accounts-for-testing.md
-          - Plugin API interfaces: private-networks/reference/plugin-api-interfaces.md

@@ -1,6 +1,6 @@
 !!! tip "Besu JSON-RPC APIs documentation in Postman format"
 
-    View the [Besu JSON-RPC APIs documentation](https://api.besu.hyperledger.org/) in the Postman format
+    View the [Besu JSON-RPC APIs documentation](https://www.postman.com/hyperledger/workspace/hyperledger-besu/collection/11610746-f334929f-c8c3-43ed-bb73-69a6f0d728d8) in the Postman format
     and obtain example requests in multiple coding languages.
 
     #### Run in Postman

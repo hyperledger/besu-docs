@@ -2055,15 +2055,13 @@ for the requested block range, allowing you to track trends over time.
 
 #### Parameters
 
-* `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
+* `blockCount`: *integer* or *string* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
 If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
+Accepts hexidecimal or integer values.
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
   `earliest`, or `pending`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
-
-* `array` of `integers` - (optional) a monotonically increasing list of percentile values to sample from each block's
-    effective priority fees per gas in ascending order, weighted by gas used.
 
 * `array` of `integers` - (optional) a monotonically increasing list of percentile values to sample from each block's
     effective priority fees per gas in ascending order, weighted by gas used.

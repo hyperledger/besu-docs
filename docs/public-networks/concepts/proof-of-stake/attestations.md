@@ -4,7 +4,7 @@ description: Proof of Stake Attestations
 
 # Introduction
 
-Ethereum's move to a [proof of stake consensus](proof-of-stake-consensus.md) mechanism has brought many changes to the way the network operates. One of the important aspects of proof of stake is the need for validators to provide attestations in a timely and accurate manner. However, missing attestations have become a common occurrence among validators, leading to a loss of rewards and earnings. Here we explore the context behind missing attestations.
+Ethereum's move to a [proof of stake consensus](./index.md) mechanism has brought many changes to the way the network operates. One of the important aspects of proof of stake is the need for validators to provide attestations in a timely and accurate manner. However, missing attestations have become a common occurrence among validators, leading to a loss of rewards and earnings. Here we explore the context behind missing attestations.
 
 # Attestations
 Every epoch (6.4 minutes) a validator proposes an attestation to the network. The attestation is for a specific slot (every 12 seconds) in the epoch. The purpose of the attestation is to vote in favor of the validator's view of the chain, in particular the most recent justified block and the first block in the current epoch (known as source and target checkpoints). This information is combined for all participating validators, enabling the network to reach consensus about the state of the blockchain.

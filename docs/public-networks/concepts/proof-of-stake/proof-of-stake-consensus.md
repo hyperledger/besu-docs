@@ -2,9 +2,9 @@
 description: Ethereum proof of stake
 ---
 
-# Proof of stake
+# Proof of stake Consensus
 
-[The Merge](the-merge.md) transitioned Ethereum Mainnet to
+[The Merge](../the-merge.md) transitioned Ethereum Mainnet to
 [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
 In Ethereum's PoS, you must run a [full node](the-merge.md#execution-and-consensus-clients) and
@@ -30,7 +30,7 @@ The PoS mechanism randomly chooses validators to propose or validate blocks on t
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
 validating (attesting to) proposed blocks.
 Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
-penalized for malicious behavior.
+penalized for malicious behavior. [Attestations](./attestations.md) make up the bulk of validator rewards (~85%).
 Validators also receive [transaction fees](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient) for included
 blocks.
 

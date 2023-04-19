@@ -332,7 +332,7 @@ transaction data using `eea_sendRawTransaction`.
     [`eea_sendTransaction`](../../how-to/send-transactions/private-transactions.md).
 
     [EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and
-    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+    implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction).
 
 #### Parameters
 
@@ -1618,7 +1618,7 @@ Returns the private transaction if you are a participant, otherwise, `null`.
 #### Parameters
 
 `transaction`: *string* - transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or
-[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/en/latest/Using-EthSigner/Using-EthSigner/#eea_sendtransaction).
+[`eea_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction).
 
 #### Returns
 

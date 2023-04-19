@@ -5,10 +5,10 @@ description: How to connect to Mainnet
 # Connect to Mainnet
 
 !!! important
-
     [The Merge](../../concepts/the-merge.md) was executed on **September 15, 2022**.
-    Ethereum is now a [proof of stake](../../concepts/proof-of-stake.md) network, and a full Ethereum
-    node requires both [an execution client and a consensus client](../../concepts/the-merge.md#execution-and-consensus-clients).
+    Ethereum is now a [proof of stake](../../concepts/proof-of-stake/index.md) network, and a full
+    Ethereum node requires both
+    [an execution client and a consensus client](../../concepts/the-merge.md#execution-and-consensus-clients).
 
 Run Besu as an [execution client](../../concepts/the-merge.md#execution-clients) with any consensus
 client on Ethereum Mainnet.

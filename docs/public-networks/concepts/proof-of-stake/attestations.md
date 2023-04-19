@@ -21,9 +21,13 @@ justified block and the first block in the current epoch (known as *source* and 
 This information is collected for all participating validators, enabling the network to reach
 consensus about the state of the blockchain.
 
-Honest nodes will have 1/3 * `SECONDS_PER_SLOT` (4 seconds) from the start of the slot to either receive the block or decide there was no block produced and attest to an “empty” or “skip” slot. Once this time has elapsed, attesters should broadcast their attestation reflecting their local view of the chain.
+Honest nodes have 1/3 * `SECONDS_PER_SLOT` (4 seconds) from the start of the slot to either receive
+the block or decide there was no block produced and attest to an “empty” or “skip” slot.
+Once this time has elapsed, attesters should broadcast their attestation reflecting their local view
+of the chain.
 
-More info can be found within the [official specification.](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/validator.md#attesting)
+See the [official specification](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/validator.md#attesting)
+for more information about attestations.
 
 ## Attestation rewards
 

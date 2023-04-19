@@ -11,11 +11,62 @@ communicate with a consensus client.
 
 !!! important
 
-    Ensure you enable the Engine API methods with the [`--engine-rpc-enabled`](../cli/options.md#engine-rpc-enabled) CLI option.
+    Ensure you enable the Engine API methods with the
+    [`--engine-rpc-enabled`](../cli/options.md#engine-rpc-enabled) CLI option.
 
-See the [Ethereum Engine API specification](https://github.com/ethereum/execution-apis/blob/0b965fb714ccd3faa3c939fdce1726e56679cdec/src/engine/specification.md) for more information.
+See the [Ethereum Engine API specification](https://github.com/ethereum/execution-apis/blob/0b965fb714ccd3faa3c939fdce1726e56679cdec/src/engine/specification.md)
+for more information.
+Not all changes to the Engine API are documented on this page.
 
 ## Methods
+
+### `engine_exchangeCapabilities`
+
+Exchanges a list of supported Engine API methods between the consensus client and Besu.
+
+#### Parameters
+
+`remoteCapabilities`: *array* of *strings* - Engine API method names that the consensus client supports
+
+#### Returns
+
+`localCapabilities`: *array* of *strings* - Engine API method names that Besu supports
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeCapabilities","params":[["engine_exchangeTransitionConfigurationV1","engine_forkchoiceUpdatedV1","engine_getPayloadBodiesByHash","engine_getPayloadBodiesByRangeV1","engine_getPayloadV1","engine_newPayloadV1"]],"id":67}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_exchangeCapabilities","params":[["engine_exchangeTransitionConfigurationV1","engine_forkchoiceUpdatedV1","engine_getPayloadBodiesByHash","engine_getPayloadBodiesByRangeV1","engine_getPayloadV1","engine_newPayloadV1"]],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [
+              "engine_getPayloadV1",
+              "engine_getPayloadV2",
+              "engine_executePayloadV1",
+              "engine_newPayloadV1",
+              "engine_newPayloadV2",
+              "engine_forkchoiceUpdatedV1",
+              "engine_forkchoiceUpdatedV2",
+              "engine_exchangeTransitionConfigurationV1",
+              "engine_getPayloadBodiesByHashV1",
+              "engine_getPayloadBodiesByRangeV1"
+            ]
+          }
+        }
+        ```
 
 ### `engine_exchangeTransitionConfigurationV1`
 
@@ -108,6 +159,132 @@ Updates the fork choice with the consensus client.
             },
             "payloadId": null
           }
+        }
+        ```
+
+### `engine_getPayloadBodiesByHashV1`
+
+Returns the bodies of the execution payloads corresponding to the specified block hashes.
+
+#### Parameters
+
+`blockHashes`: **array** of **strings** - Block hashes
+
+#### Returns
+
+`engineGetPayloadBodiesResultV1`: **array** of **objects** - Execution payload body objects
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":1}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [{
+              "transactions": ["0xf865808506fc23ac00830124f8940101010101010101010101010101010101010101018031a02c4d88bfdc2f6dbf82c33d235c4e785e9fc23b2d0fc7b9d20fc5e9674f1f9d15a016d6d69b925cf26128683ab4a096e196fbb1142d6c6d4e8d3481b9bef1bd0f65", "0x02f86c0701843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a039409b4e5603dd8c3cf38232348661a8e99ac518396eeaa128ec9ec2a3eb8127a06b21ab956f5f138cb44fda1a9055bd08980ea4f8040d877c00dac025608d0d95", ...],
+              "withdrawals": [{
+                "index" : "0xf0",
+                "validatorIndex" : "0xf0",
+                "address" : "0x00000000000000000000000000000000000010f0",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf1",
+                "validatorIndex" : "0xf1",
+                "address" : "0x00000000000000000000000000000000000010f1",
+                "amount" : "0x1"
+              }]
+            }, {
+              "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
+              "withdrawals": [{
+                "index" : "0xf2",
+                "validatorIndex" : "0xf2",
+                "address" : "0x00000000000000000000000000000000000010f2",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf3",
+                "validatorIndex" : "0xf3",
+                "address" : "0x00000000000000000000000000000000000010f3",
+                "amount" : "0x1"
+              }]
+            }]
+        }
+        ```
+
+### `engine_getPayloadBodiesByRangeV1`
+
+Returns the bodies of the execution payloads corresponding to the specified range of block numbers.
+
+#### Parameters
+
+* `startBlockNumber`: *string* - Number of the starting block of the range, as a hexadecimal string
+
+* `count`: *string* - Number of blocks in the range (including the starting block), as a hexadecimal string
+
+#### Returns
+
+`engineGetPayloadBodiesResultV1`: *array* of *objects* - Execution payload body objects
+
+!!! example
+
+    === "curl HTTP"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1","params":["0x20", "0x2"],"id":1}' http://127.0.0.1:8550
+        ```
+
+    === "wscat WS"
+
+        ```bash
+        {"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1","params":["0x20", "0x2"],"id":67}
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": 67,
+            "result": [{
+              "transactions": ["0xf865808506fc23ac00830124f8940101010101010101010101010101010101010101018031a02c4d88bfdc2f6dbf82c33d235c4e785e9fc23b2d0fc7b9d20fc5e9674f1f9d15a016d6d69b925cf26128683ab4a096e196fbb1142d6c6d4e8d3481b9bef1bd0f65", "0x02f86c0701843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a039409b4e5603dd8c3cf38232348661a8e99ac518396eeaa128ec9ec2a3eb8127a06b21ab956f5f138cb44fda1a9055bd08980ea4f8040d877c00dac025608d0d95", ...],
+              "withdrawals": [{
+                "index" : "0xf0",
+                "validatorIndex" : "0xf0",
+                "address" : "0x00000000000000000000000000000000000010f0",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf1",
+                "validatorIndex" : "0xf1",
+                "address" : "0x00000000000000000000000000000000000010f1",
+                "amount" : "0x1"
+              }]
+            }, {
+              "transactions": ["0xf865108506fc23ac00830124f8940101010101010101010101010101010101010101018031a0d9712a3c40ae85aea4ad1bd95a0b7cc7bd805189a9e2517403b11a00a1530f81a053b53b0267a6dcfe9f9a1652307b396b3e8a65e65707a450e60c92baefdbcfbe", "0x02f86c0711843b9aca008506fc23ac00830124f89402020202020202020202020202020202020202020180c080a071d36bc93c7ae8cc5c01501e51e5e97a51aa541d1a89c809a2af7eb40e9bc2cba071644230e21c075c1da08916aff5efe9f95a6f6a4f94dc217f6c1bb4a3240b29", ...],
+              "withdrawals": [{
+                "index" : "0xf2",
+                "validatorIndex" : "0xf2",
+                "address" : "0x00000000000000000000000000000000000010f2",
+                "amount" : "0x1"
+              }, {
+                "index" : "0xf3",
+                "validatorIndex" : "0xf3",
+                "address" : "0x00000000000000000000000000000000000010f3",
+                "amount" : "0x1"
+              }]
+            }]
         }
         ```
 

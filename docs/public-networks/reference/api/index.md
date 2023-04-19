@@ -2057,7 +2057,7 @@ for the requested block range, allowing you to track trends over time.
 
 * `blockCount`: *integer* or *string* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
 If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
-Accepts hexidecimal or integer values.
+Accepts hexadecimal or integer values.
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
   `earliest`, or `pending`, as described in

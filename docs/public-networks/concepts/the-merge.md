@@ -71,7 +71,7 @@ Ethereum transitioned to a proof of stake network.
 
 After The Merge, validators earn rewards for performing
 [validator duties](proof-of-stake/index.md), and
-[fee recipients](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient)
+[fee recipients](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax#validators-proposer-default-fee-recipient)
 also earn rewards for the inclusion of execution layer transactions.
 
 <!-- links -->

@@ -11,7 +11,7 @@ Besu supports the following consensus protocols:
 * [IBFT 2.0](ibft.md) (proof of authority) - Supported for existing private networks.
 * [Clique](clique.md) (proof of authority) - Not recommended for
   production use.
-* [Proof of stake](../../../../public-networks/concepts/proof-of-stake.md) - Used on Ethereum
+* [Proof of stake](../../../../public-networks/concepts/proof-of-stake/index.md) - Used on Ethereum
   Mainnet and public testnets.
 * [Ethash](https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/) (proof of work) - Can
   be used in [small development networks](../../../tutorials/ethash.md).

@@ -85,15 +85,16 @@ Rewards can be impacted by:
 * The contents of a block (how long it takes to compute).
 * The hardware processing that block (execution speed).
 * How long it takes for the block to arrive to Besu from the consensus layer.
-* The arrival time of the block from other consensus layer peers. 
-  * Besu and your CL client have no control over how late into a slot they receive blocks.
+* The arrival time of the block from other consensus layer peers.
+    * Besu and your CL client have no control over how late into a slot they receive blocks.
 * General network latency.
 * The status of either Besu or the consensus layer client.
 
 [Monitoring](../../how-to/monitor/index.md) your validator carefully for uptime, execution speed,
 and a valid consensus layer connection will help you explore attestation performance for your node.
 
-## References :
+## References
+
 * [Upgrading Ethereum Book (WIP), Ben Edgington](https://eth2book.info/altair/part2/incentives/rewards/)
 * [Understanding Attestation Misses, Adrian Sutton](https://www.symphonious.net/2022/09/25/understanding-attestation-misses/)
 * [Block production in Ethereum after the Merge, Alex Stokes](https://notes.ethereum.org/DaWh-02HQ4qftum1xdphkg?view#Broadcast-attestation)

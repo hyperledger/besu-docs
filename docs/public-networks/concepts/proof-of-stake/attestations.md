@@ -31,7 +31,7 @@ for more information about attestations.
 
 ## Attestation rewards
 
-Around 84.4%, of validators' rewards come from making attestations.
+Around ~85%, of validators' rewards come from making attestations.
 Although committee and slot assignments for attesting are randomized, every active validator will be
 selected to make exactly one attestation each epoch.
 
@@ -66,16 +66,15 @@ getting the head vote wrong. Therefore, a less than 100% head vote doesn't neces
 there is a slowdown, it's essential to identify whether the issue is with the beacon node or the execution client, and block
 timing logs can be helpful in determining this.
 
-If you're using Teku as a CL, you can identify late blocks (the block didn't get to Teku in time) with this kind of logs
+If you're using [Teku](https://docs.teku.consensys.net/) as a CL, you can identify late blocks (the block didn't get to Teku in time) with this kind of log:
 
 ```
 Late Block Import *** Block: c2b911533a8f8d5e699d1a334e0576d2b9aa4caa726bde8b827548b579b47c68 (4765916) proposer 6230 arrival 3475ms, pre-state_retrieved +5ms, processed +185ms, execution_payload_result_received +1436ms, begin_importing +0ms, transaction_prepared +0ms, transaction_committed +0ms, completed +21ms
 ```
 
-The time of arrival indicates how much time elapsed after the start of the slot before your node received the block. In the example
-given, the block arrived after 3475ms, which is slower than optimal, but still in time for Teku to create an attestation 4 seconds
+The time of arrival indicates how much time elapsed after the start of the slot before your node received the block. In the given example, the block arrived after 3475ms, which is slower than optimal, but still enough time for Teku to create an attestation 4 seconds
 into the slot. Typically, delayed arrivals occur when the block producer is slow in generating the block. However, it is also possible
-that the block was published on time but took longer to propagate to your node through gossip. If delayed arrivals are a recurring issue,
+that the block was published on time but took longer to propagate to your node through peer-to-peer gossip. If delayed arrivals are a recurring issue,
 it may be due to a problem with your node - such as an incorrect system clock, network issues, or a reduction in the number of peers.
 
 ## Conclusion
@@ -86,7 +85,8 @@ Rewards can be impacted by:
 * The contents of a block (how long it takes to compute).
 * The hardware processing that block (execution speed).
 * How long it takes for the block to arrive to Besu from the consensus layer.
-* The arrival time of the block from other consensus layer peers.
+* The arrival time of the block from other consensus layer peers. 
+  * Besu and your CL client have no control over how late into a slot they receive blocks.
 * General network latency.
 * The status of either Besu or the consensus layer client.
 

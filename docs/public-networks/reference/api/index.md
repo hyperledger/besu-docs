@@ -2063,7 +2063,7 @@ Accepts hexadecimal or integer values.
   `earliest`, or `pending`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
-* `array` of `integers` - (optional) a monotonically increasing list of percentile values to sample from each block's
+* `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's
     effective priority fees per gas in ascending order, weighted by gas used.
 
 #### Returns

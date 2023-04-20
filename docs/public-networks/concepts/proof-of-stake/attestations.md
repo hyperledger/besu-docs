@@ -106,7 +106,7 @@ and a valid consensus layer connection will help you explore attestation perform
 
 ## References
 
-* [Upgrading Ethereum Book (WIP), Ben Edgington](https://eth2book.info/altair/part2/incentives/rewards/)
-* [Understanding Attestation Misses, Adrian Sutton](https://www.symphonious.net/2022/09/25/understanding-attestation-misses/)
-* [Block production in Ethereum after the Merge, Alex Stokes](https://notes.ethereum.org/DaWh-02HQ4qftum1xdphkg?view#Broadcast-attestation)
+* [Upgrading Ethereum](https://eth2book.info/bellatrix/part2/incentives/rewards/)
+* [Understanding Attestation Misses](https://www.symphonious.net/2022/09/25/understanding-attestation-misses/)
+* [Block production in Ethereum after the Merge](https://notes.ethereum.org/DaWh-02HQ4qftum1xdphkg?view#Broadcast-attestation)
 * [Ethereum Consensus Specs](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/validator.md#attesting)

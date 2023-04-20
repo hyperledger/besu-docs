@@ -85,7 +85,7 @@ for Teku to create an attestation 4 seconds into the slot.
 Typically, delayed arrivals occur when the block producer is slow in generating the block.
 It's also possible that the block was published on time but took longer to propagate to your node
 through peer-to-peer gossip.
-If delayed arrivals are a recurring issue, it might be a problem with your node – such as an
+If delayed arrivals are a recurring issue, it might be a problem with your node, such as an
 incorrect system clock, network issues, or a reduction in the number of peers.
 
 ## Conclusion

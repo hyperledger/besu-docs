@@ -60,11 +60,23 @@ weights for cumulative rewards:
 | `PROPOSER_WEIGHT`      | 12.5%      | `uint64(8)`  |
 | `WEIGHT_DENOMINATOR`   | 100%       | `uint64(64)` |
 
-At the point when validators vote on the head of the chain (block `n`), block `n+1` isn't yet proposed.
-Therefore, attestations get included one block later, so all attestations that voted on block `n`
-being the chain head got included in block `n+1` and, the inclusion delay is 1.
-If the inclusion delay doubles to two slots, the attestation reward halves, because to calculate the
-attestation reward the base reward is multiplied by the reciprocal of the inclusion delay.
+If you come across attestations with incorrect head votes, it could indicate that your node is experiencing slow block imports.
+However, it's worth noting that block producers can also be slow in publishing blocks, resulting in a majority of validators
+getting the head vote wrong. Therefore, a less than 100% head vote doesn't necessarily imply a problem with your node. In case
+there is a slowdown, it's essential to identify whether the issue is with the beacon node or the execution client, and block
+timing logs can be helpful in determining this.
+
+If you're using Teku as a CL, you can identify late blocks (the block didn't get to Teku in time) with this kind of logs
+
+```
+Late Block Import *** Block: c2b911533a8f8d5e699d1a334e0576d2b9aa4caa726bde8b827548b579b47c68 (4765916) proposer 6230 arrival 3475ms, pre-state_retrieved +5ms, processed +185ms, execution_payload_result_received +1436ms, begin_importing +0ms, transaction_prepared +0ms, transaction_committed +0ms, completed +21ms
+```
+
+The time of arrival indicates how much time elapsed after the start of the slot before your node received the block. In the example
+given, the block arrived after 3475ms, which is slower than optimal, but still in time for Teku to create an attestation 4 seconds
+into the slot. Typically, delayed arrivals occur when the block producer is slow in generating the block. However, it is also possible
+that the block was published on time but took longer to propagate to your node through gossip. If delayed arrivals are a recurring issue,
+it may be due to a problem with your node - such as an incorrect system clock, network issues, or a reduction in the number of peers.
 
 ## Conclusion
 
@@ -80,3 +92,9 @@ Rewards can be impacted by:
 
 [Monitoring](../../how-to/monitor/index.md) your validator carefully for uptime, execution speed,
 and a valid consensus layer connection will help you explore attestation performance for your node.
+
+## References :
+* [Upgrading Ethereum Book (WIP), Ben Edginton](https://eth2book.info/altair/part2/incentives/rewards/)
+* [Understanding Attestation Misses, Adrian Sutton](https://www.symphonious.net/2022/09/25/understanding-attestation-misses/)
+* [Block production in Ethereum after the Merge, Alex Stokes](https://notes.ethereum.org/DaWh-02HQ4qftum1xdphkg?view#Broadcast-attestation)
+* [Ethereum Consensus Specs](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/validator.md#attesting)

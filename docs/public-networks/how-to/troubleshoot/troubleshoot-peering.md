@@ -12,7 +12,7 @@ A number of factors can affect the ability of your node to find and maintain pee
 
 **Q: Why can’t I find enough peers to sync?**
 
-A: 
+A:
 
 - Poor hardware spec: not enough CPU, disk IOPS or bandwidth to handle all the peers
 - Your ports are not open in your firewall and/or router

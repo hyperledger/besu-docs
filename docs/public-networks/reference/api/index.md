@@ -2055,12 +2055,16 @@ for the requested block range, allowing you to track trends over time.
 
 #### Parameters
 
-* `blockCount`: *integer* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
+* `blockCount`: *integer* or *string* - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query.
 If blocks in the specified block range are not available, then only the fee history for available blocks is returned.
+Accepts hexadecimal or integer values.
 
 * `newestBlock`: *string* - Integer representing the highest number block of the requested range or one of the string tags `latest`,
   `earliest`, or `pending`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+
+* `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's
+    effective priority fees per gas in ascending order, weighted by gas used.
 
 #### Returns
 
@@ -2071,26 +2075,61 @@ If blocks in the specified block range are not available, then only the fee hist
     === "curl HTTP"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}' http://127.0.0.1:8545
+        curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5", "latest", [20,30]],"id":1}' http://127.0.0.1:8545
         ```
 
     === "wscat WS"
 
         ```bash
-        {"jsonrpc":"2.0","method":"eth_feeHistory","params":[2, "latest"],"id":28}
+        {"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5", "latest", [20,30]],"id":1}
         ```
 
     === "JSON result"
 
         ```json
         {
-          "jsonrpc" : "2.0",
-          "id" : 28,
-          "result" : {
-            "oldestBlock" : "0x53cbe6",
-            "baseFeePerGas" : ["0x7", "0x7", "0x7" ]
-            "gasUsedRatio" : [ 0.0011536265162931602, 0.10653990633315608 ]
-          }
+            "jsonrpc": "2.0",
+            "result": {
+                "baseFeePerGas": [
+                    "0x3da8e7618",
+                    "0x3e1ba3b1b",
+                    "0x3dfd72b90",
+                    "0x3d64eee76",
+                    "0x3d4da2da0",
+                    "0x3ccbcac6b"
+                ],
+                "gasUsedRatio": [
+                    0.5290747666666666,
+                    0.49240453333333334,
+                    0.4615576,
+                    0.49407083333333335,
+                    0.4669053
+                ],
+                "oldestBlock": "0xfab8ac",
+                "reward": [
+                    [
+                        "0x59682f00",
+                        "0x59682f00"
+                    ],
+                    [
+                        "0x59682f00",
+                        "0x59682f00"
+                    ],
+                    [
+                        "0x3b9aca00",
+                        "0x59682f00"
+                    ],
+                    [
+                        "0x510b0870",
+                        "0x59682f00"
+                    ],
+                    [
+                        "0x3b9aca00",
+                        "0x59682f00"
+                    ]
+                ]
+            },
+            "id": 1
         }
         ```
 

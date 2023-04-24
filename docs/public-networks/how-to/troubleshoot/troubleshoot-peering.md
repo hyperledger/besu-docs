@@ -6,13 +6,13 @@ tags:
 
 # Troubleshooting Peering
 
-Besu can have trouble peering for a number of reasons. It may have to do with your network router, machine environment, and node configuration. If you are having trouble, [configuring your ports](../connect/configure-ports.md) is a good place to start. Additionally, learning how to [manage peers](../connect/manage-peers.md) will help in maintaining healthy peer counts for your node. Below we have some frequently asked questions that may help you.
+A number of factors can affect the ability of your node to find and maintain peers. Your network router, machine environment, and node configuration are all important. If you are having peering issues, [configuring your ports](../connect/configure-ports.md) is a good place to start. Additionally, learning how to [manage peers](../connect/manage-peers.md) will help in maintaining healthy peer counts for your node. Below we have some frequently asked questions that may help you.
 
 # Peering FAQ
 
 **Q: Why can’t I find enough peers to sync?**
 
-A: Multiple possible reasons:
+A: 
 
 - Poor hardware spec: not enough CPU, disk IOPS or bandwidth to handle all the peers
 - Your ports are not open in your firewall and/or router
@@ -31,7 +31,7 @@ The Prysm team has good documentation on [EL + CL peering](https://docs.prylabs.
 
 **Q: How do I open/forward my ports?**
 
-A: If you’re behind NAT, you probably need to port forward in your router. You may also need to configure your firewall. Forward and open `30303` (if using default p2p port) for both UDP and TCP. If your router supports UPNP, you can setting the [`--nat-method`](../../reference/cli/options.md#nat-method) to `UPNPP2PONLY`. You can learn more about [NAT methods here.](../connect/specify-nat.md)
+A: If you’re behind NAT, you probably need to set up port forwarding in your router. You may also need to configure your firewall. Forward and open `30303` (if using default p2p port) for both UDP and TCP. If your router supports UPNP, you can setting the [`--nat-method`](../../reference/cli/options.md#nat-method) to `UPNPP2PONLY`. You can learn more about [NAT methods here.](../connect/specify-nat.md)
 
 **Q: How do I test that my ports are open?**
 
@@ -45,11 +45,11 @@ A: Default max is 25. Increasing the number of peers increases the bandwidth, CP
 
 A: Increasing the number of max peers will not speed up Besu sync, as the bottleneck during sync is Disk IO and CPU.
 
-Bear in mind that Besu's peers are only used for initial sync and transaction gossip, neither of which affects attestation performance. It's the beacon node connectivity that controls how quickly your receive blocks and how attestations are published. Increasing Besu's peer count won't help with attestations and will increase the load on your node which may make things worse.
+Bear in mind that Besu's peers are only used for initial sync and transaction gossip, neither of which affects attestation performance. It's the beacon node connectivity that controls how quickly you receive blocks and how attestations are published. Increasing Besu's peer count won't help with attestations and will increase the load on your node which may make things worse.
 
 ## Metrics
 
-Make sure you are capturing metrics to gain insights into peer values over time.
+Capturing metrics will help to gain insights into peering behavior over time.
 
 To enable
 [Prometheus to access Besu](../monitor/metrics.md), open

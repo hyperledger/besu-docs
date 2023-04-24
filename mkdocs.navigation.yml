@@ -63,6 +63,7 @@ nav:
           - Troubleshoot:
               - Use EVM tool: public-networks/how-to/troubleshoot/evm-tool.md
               - Trace transactions: public-networks/how-to/troubleshoot/trace-transactions.md
+              - Troubleshoot peering: public-networks/how-to/troubleshoot/peering.md
       - Concepts:
           - The Merge: public-networks/concepts/the-merge.md
           - Proof of stake consensus:

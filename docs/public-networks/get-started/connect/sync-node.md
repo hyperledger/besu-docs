@@ -18,7 +18,8 @@ the genesis block.
 Archive nodes can do everything full nodes do, and they can access historical state data.
 Archive nodes require more disk space than full nodes.
 
-Besu needs to connect with other peers in order to sync with the network. If your node is having trouble peering, try [troubleshooting peering.](../../how-to/troubleshoot/troubleshoot-peering.md)
+Besu must connect with other peers to sync with the network.
+If your node is having trouble peering, try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
 
 ## Sync times
 

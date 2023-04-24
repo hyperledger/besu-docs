@@ -19,7 +19,6 @@ A:
 - Besu sending large numbers of DNS requests may cause issues, see [issue #4375.](https://github.com/hyperledger/besu/issues/4375)
 - It is normal for peers to connect and disconnect, especially soon after you start your node.
 - Try setting [`p2p-host`](../../reference/cli/options.md#p2p-host) to your external IP address to allow inbound connections
-- In proof of stake, we can set [`fast-sync-min-peers`](../../reference/cli/options.md#fast-sync-min-peers) to less than 5, for example 3.
 - Restarting may get new peers, however, it can take a while to build up again.
 - `-Xdns-enabled=true`
 - `-Xp2p-peer-lower-bound` can be set to a minimum number of peers
@@ -49,7 +48,7 @@ Bear in mind that Besu's peers are only used for initial sync and transaction go
 
 ## Metrics
 
-Capturing metrics will help to gain insights into peering behavior over time.
+Capturing [metrics](../monitor/index.md) will help to gain insights into peering behavior over time.
 
 To enable
 [Prometheus to access Besu](../monitor/metrics.md), open

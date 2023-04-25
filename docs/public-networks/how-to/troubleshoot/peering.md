@@ -45,7 +45,7 @@ If you have peering issues, start by [configuring your ports](../connect/configu
 ??? question "What network or router/modem settings should I check?"
     - Make sure your machine and router's specified DNS supports TCP. You can check your DNS online for TCP support. Google and Cloudflare, 8.8.8.8 and 1.1.1.1, support TCP over port 853. Other DNS may as well.
     - Make sure the appropriate ports are open on your router or that it has UPNP enabled. Make sure to check your router settings, more information below.
-    - If you are using [Docker](https://docs.docker.com/network/network-tutorial-host/) or virtualization, make sure the container can create outbound connections on the host machine. 
+    - If you are using [Docker](https://docs.docker.com/network/network-tutorial-host/) or virtualization, make sure the container can create outbound connections on the host machine.
 
 ??? question "How do I open/forward my ports?"
     If you’re behind NAT, you probably need to set up port forwarding in your router.

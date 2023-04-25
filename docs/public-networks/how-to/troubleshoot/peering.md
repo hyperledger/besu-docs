@@ -42,7 +42,7 @@ If you have peering issues, start by [configuring your ports](../connect/configu
     [Prysm EL and CL peering documentation](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip)
     for more information.
 
-??? question "What can I check with my network settings or router/modem?"
+??? question "What network or router/modem settings should I check?"
     - Make sure your machine and router's specified DNS supports TCP. You can check your DNS online for TCP support. Google and Cloudflare, 8.8.8.8 and 1.1.1.1, support TCP over port 853. Other DNS may as well.
     - Make sure the appropriate ports are open on your router or that it has UPNP enabled. Make sure to check your router settings, more information below.
     - If you are using [Docker](https://docs.docker.com/network/network-tutorial-host/) or virtualization, make sure the container can create outbound connections on the host machine. 

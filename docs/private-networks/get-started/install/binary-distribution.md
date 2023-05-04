@@ -61,7 +61,13 @@ besu --help
 
 ### Prerequisites
 
-* [Java JDK](https://www.oracle.com/java/technologies/downloads/)
+* [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/)
+
+* [jemalloc](https://jemalloc.net/)
+
+!!! note
+
+    If using Ubuntu, you can install jemalloc with the command: `apt install libjemalloc-dev`.
 
 !!! note "Linux open file limit"
 

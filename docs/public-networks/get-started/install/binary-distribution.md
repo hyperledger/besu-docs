@@ -69,6 +69,11 @@ besu --help
     maximum number of open files allowed using `ulimit`. If the open files limit is not high
     enough, a `Too many open files` RocksDB exception occurs.
 
+!!! tip
+
+    We recommend installing [jemalloc](https://jemalloc.net/) to reduce memory usage.
+    If using Ubuntu, you can install it with the command: `apt install libjemalloc-dev`.
+
 ### Install from packaged binaries
 
 Download the Besu [packaged binaries](https://github.com/hyperledger/besu/releases).
@@ -80,8 +85,3 @@ Display Besu command line help to confirm installation:
 ```bash
 bin/besu --help
 ```
-
-!!! tip
-
-    We recommend installing [jemalloc](https://jemalloc.net/) to reduce memory usage.
-    If using Ubuntu, you can install it with the command: `apt install libjemalloc-dev`.

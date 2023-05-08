@@ -63,12 +63,6 @@ besu --help
 
 * [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/)
 
-* [jemalloc](https://jemalloc.net/)
-
-!!! note
-
-    If using Ubuntu, you can install jemalloc with the command: `apt install libjemalloc-dev`.
-
 !!! note "Linux open file limit"
 
     If synchronizing to Mainnet on Linux or other chains with large data requirements, increase the
@@ -86,3 +80,8 @@ Display Besu command line help to confirm installation:
 ```bash
 bin/besu --help
 ```
+
+!!! tip
+
+    We recommend installing [jemalloc](https://jemalloc.net/) to reduce memory usage.
+    If using Ubuntu, you can install it with the command: `apt install libjemalloc-dev`.

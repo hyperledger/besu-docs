@@ -214,18 +214,18 @@ You can specify the banned node IDs with or without the `0x` prefix.
     The singular `--banned-node-id` and plural `--banned-node-ids` are available and are two names
     for the same option.
 
-### `bonsai-maximum-back-layers-to-load`
+### `bonsai-historical-block-limit`
 
 === "Syntax"
 
     ```bash
-    --bonsai-maximum-back-layers-to-load=256
+    --bonsai-historical-block-limit=256
     ```
 
 === "Example"
 
     ```bash
-    --bonsai-maximum-back-layers-to-load=256
+    --bonsai-historical-block-limit=256
     ```
 
 === "Environment variable"
@@ -237,11 +237,11 @@ You can specify the banned node IDs with or without the `0x` prefix.
 === "Example configuration file"
 
     ```bash
-    bonsai-maximum-back-layers-to-load=256
+    bonsai-historical-block-limit=256
     ```
 
 When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the
-[maximum number of layers back](../../concepts/data-storage-formats.md#accessing-data) Bonsai can go to reconstruct a
+[maximum number of historical layers](../../concepts/data-storage-formats.md#accessing-data) Bonsai can go to reconstruct a
 historical state.
 The default is 512.
 

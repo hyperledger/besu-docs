@@ -5693,7 +5693,7 @@ Provides transaction processing tracing per block.
 !!! important
 
     When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested block
-    must be within the number of [blocks retained](../cli/options.md#bonsai-maximum-back-layers-to-load)
+    must be within the number of [blocks retained](../cli/options.md#bonsai-historical-block-limit)
     (by default, 512 from the head of the chain).
 
     When using [Forest](../../concepts/data-storage-formats.md#forest-of-tries), the requested block

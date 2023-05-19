@@ -16,7 +16,8 @@ Use a load balancer to distribute requests across nodes in the cluster that are 
 
 !!! important
 
-    We do not recommend putting [bootnodes] behind a load balancer.
+    We don't recommend putting [bootnodes](../../../private-networks/how-to/configure/bootnodes.md)
+    behind a load balancer.
 
 !!! important
 

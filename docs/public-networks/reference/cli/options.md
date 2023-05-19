@@ -665,6 +665,37 @@ The default is `8551`.
     ```
 
 Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.md) server.
+If specified without a port, the default port is 443 for SSL connections and 80 for non-SSL connections.
+
+### `ethstats-cacert-file`
+
+=== "Syntax"
+
+    ```bash
+    --ethstats-cacert-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ethstats-cacert-file=./root.cert
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ETHSTATS_CACERT_FILE=./root.cert
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ethstats-cacert-file="./root.cert"
+    ```
+
+Path to the root certificate authority (CA) certificate file of the Ethstats server specified by
+[`--ethstats`](#ethstats).
+This option is useful in non-production environments.
 
 ### `ethstats-contact`
 
@@ -693,10 +724,6 @@ Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.
     ```
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
-
-!!! note
-
-    A server must be specified by `--ethstats` in order to use this option.
 
 ### `fast-sync-min-peers`
 

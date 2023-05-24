@@ -21,11 +21,11 @@ though others may work and you are free to experiment based on your needs. The t
 and [OpenJ9](https://www.eclipse.org/openj9/).
 
 The two distributions come with some trade-offs. OpenJDK is the default for many Java users and is well balanced in performance and garbage collection.
-OpenJ9 consumes less memory and system resources, but can be less performant on some setups. Below is a good guide to picking an installation.
+OpenJ9 consumes less memory and system resources, but can have lesser performance on some setups. Below is a good guide to picking an installation.
 
 If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK.
 
-If you have less RAM...
+If you have less RAM…
 
 * Run OpenJ9 if you are on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel).
 * Run OpenJDK if you are on ARM-64 CPU architecture (Mac M-series, Raspberry Pi).

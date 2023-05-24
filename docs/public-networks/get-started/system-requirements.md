@@ -23,24 +23,25 @@ and [OpenJ9](https://www.eclipse.org/openj9/).
 The two distributions come with some trade-offs. OpenJDK is the default for many Java users and is well balanced in performance and garbage collection.
 OpenJ9 consumes less memory and system resources, but can be less performant on some setups. Below is a good guide to picking an installation.
 
-If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK. 
+If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK.
 
 If you have less RAM...
+
 * Run OpenJ9 if you are on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel).
 * Run OpenJDK if you are on ARM-64 CPU architecture (Mac M-series, Raspberry Pi).
 
-If you have OpenJDK installed or need a fresh Java install of OpenJ9, you can pick up the OpenJ9 docker image, or install the OpenJ9 JDK. 
+If you have OpenJDK installed or need a fresh Java install of OpenJ9, you can pick up the OpenJ9 docker image, or install the OpenJ9 JDK.
 Follow these instructions:
 
 * Get the binaries
-  * They can be found by running [here](https://github.com/ibmruntimes/semeru17-binaries/releases). You will need to grab the appropriate 
+    * They can be found [here](https://github.com/ibmruntimes/semeru17-binaries/releases). You will need to grab the appropriate images
 * Uncompress the binaries
-  * `tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz`
+    * `tar -xvf YOUR_J9_IMAGE.tar.gz`
 * Move the binaries to bin directory
-  * `sudo cp -r jdk-17.0.5+8/ /usr/bin/`
+    * `sudo cp -r YOUR_IMAGE/ /usr/bin/`
 * Next specify OpenJ9 for Java on your machine
-  * `sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java" 1` and `sudo update-alternatives --config java` (and choose OpenJ9)
-  * Change you JAVA_HOME to OpenJ9 (if using the JDK implementation) `export JAVA_HOME=jdk-install-dir` where install-dir is the location above.
+    * `sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1` and `sudo update-alternatives --config java` (and choose OpenJ9)
+    * Change you JAVA_HOME to OpenJ9 (if using the JDK implementation) `export JAVA_HOME=jdk-install-dir` where install-dir is the location above.
 
 ## Java Virtual Machine size
 

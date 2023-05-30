@@ -29,7 +29,7 @@ The PoS mechanism randomly chooses validators to propose or validate blocks on t
 
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
 validating (attesting to) proposed blocks.
-Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
+[Validators are rewarded](https://www.blocknative.com/ethereum-staking-calculator) for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 penalized for malicious behavior. [Attestations](./attestations.md) make up the bulk of validator rewards (~85%).
 Validators also receive [transaction fees](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient) for included
 blocks.

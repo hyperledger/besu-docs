@@ -1,8 +1,0 @@
-markdown-fenced-code-tabs==1.0.5
-markdown-include==0.8.1
-mkdocs-markdownextradata-plugin==0.2.5
-mkdocs-exclude==1.0.2
-mkdocs-redirects==1.2.0
-mkdocs-git-revision-date-localized-plugin==1.2.0
-mkdocs-minify-plugin==0.6.4
-plantuml-markdown==3.9.1

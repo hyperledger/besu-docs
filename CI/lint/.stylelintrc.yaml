@@ -1,5 +1,0 @@
----
-rules:
-  # disable selector-class-pattern as we mostly use class names from MkDOcs Material and they don't
-  # match the default linter pattern (kebab case) and can be overrides of generated selectors.
-  selector-class-pattern: null

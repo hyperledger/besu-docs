@@ -74,6 +74,7 @@ Infura
 Italiane
 Jasypt
 Javadoc
+jemalloc
 JMeter
 JSON
 jnacl

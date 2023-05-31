@@ -14,34 +14,89 @@ Grafana provides a [sample dashboard](https://grafana.com/grafana/dashboards/102
     CPU requirements are highest when syncing to the network and typically reduce after the node is
     synchronized to the chain head.
 
-## Java Distribution & Installation
+## Java distribution and installation
 
-Besu requires an accessible installation of Java 17 to run. We currently recommend two Java distributions,
-though others may work and you are free to experiment based on your needs. The two we recommend are [OpenJDK 17](https://jdk.java.net/17/)
-and [OpenJ9](https://www.eclipse.org/openj9/).
+Besu requires an installation of Java 17+ to run.
+We currently recommend two Java distributions, [OpenJDK 17](https://jdk.java.net/17/)
+and [OpenJ9](https://www.eclipse.org/openj9/), though you can experiment based on your needs.
 
-The two distributions come with some trade-offs. OpenJDK is the default for many Java users and is well balanced in performance and garbage collection.
-OpenJ9 consumes less memory and system resources, but can have lesser performance on some setups. Below is a good guide to picking an installation.
+OpenJDK is the default for many Java users and is balanced in performance and garbage collection.
+OpenJ9 consumes less memory and system resources, but can have worse performance on some setups.
 
 If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK.
+If you have less RAM:
 
-If you have less RAM…
+* If you're on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel), use OpenJ9.
+* If you're on ARM-64 CPU architecture (Mac M-series, Raspberry Pi), use OpenJDK.
 
-* Run OpenJ9 if you are on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel).
-* Run OpenJDK if you are on ARM-64 CPU architecture (Mac M-series, Raspberry Pi).
+If you have OpenJDK installed or need a fresh installation of OpenJ9, you can pick up the OpenJ9
+docker image, or install the OpenJ9 JDK using the following steps:
 
-If you have OpenJDK installed or need a fresh Java install of OpenJ9, you can pick up the OpenJ9 docker image, or install the OpenJ9 JDK.
-Follow these instructions:
+1. Get the [binaries](https://github.com/ibmruntimes/semeru17-binaries/releases) corresponding to
+    your OS architecture.
+    For example:
 
-* Get the binaries
-    * They can be found [here](https://github.com/ibmruntimes/semeru17-binaries/releases). You will need to grab the appropriate images
-* Uncompress the binaries
-    * `tar -xvf YOUR_J9_IMAGE.tar.gz`
-* Move the binaries to bin directory
-    * `sudo cp -r YOUR_IMAGE/ /usr/bin/`
-* Next specify OpenJ9 for Java on your machine
-    * `sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1` and `sudo update-alternatives --config java` (and choose OpenJ9)
-    * Change you JAVA_HOME to OpenJ9 (if using the JDK implementation) `export JAVA_HOME=jdk-install-dir` where install-dir is the location above.
+    ```bash
+    wget https://github.com/ibmruntimes/semeru17-binaries/releases/download/jdk-17.0.5%2B8_openj9-0.35.0/ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
+    ```
+
+2. Uncompress the binaries:
+
+    === "Command"
+
+        ```bash
+        tar -xvf YOUR_J9_IMAGE.tar.gz
+        ```
+
+    === "Example"
+
+        ```bash
+        tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
+        ```
+
+3. Move the binaries to `bin` directory:
+
+    === "Command"
+
+        ```bash
+        sudo cp -r YOUR_IMAGE/ /usr/bin/
+        ```
+
+    === "Example"
+
+        ```bash
+        sudo cp -r jdk-17.0.5+8/ /usr/bin/
+        ```
+
+4. Specify OpenJ9 for Java on your machine:
+
+    === "Command"
+
+        ```bash
+        sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
+        sudo update-alternatives --config java (and choose OpenJ9)
+        ```
+
+    === "Example"
+
+        ```bash
+        sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java"
+        ```
+
+    Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
+    the installation location you specified:
+
+    === "Command"
+
+        ```bash
+        export JAVA_HOME=jdk-install-dir`
+        ```
+
+    === "Example"
+
+        ```bash
+        export JAVA_HOME=/usr/bin/jdk-17.0.5+8
+        ```
 
 ## Java Virtual Machine size
 

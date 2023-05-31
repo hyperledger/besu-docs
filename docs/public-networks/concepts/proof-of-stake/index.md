@@ -10,10 +10,6 @@ description: Ethereum proof of stake consensus
 In Ethereum's PoS, you must run a [full node](../the-merge.md#execution-and-consensus-clients) and
 [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
 
-!!! important
-
-    Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
-
 !!! note
 
     You must run a beacon node and an execution client to operate a full node on Mainnet.
@@ -29,9 +25,9 @@ The PoS mechanism randomly chooses validators to propose or validate blocks on t
 
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
 validating (attesting to) proposed blocks.
-Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
+[Validators are rewarded](https://www.blocknative.com/ethereum-staking-calculator) for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 penalized for malicious behavior. [Attestations](./attestations.md) make up the bulk of validator rewards (~85%).
-Validators also receive [transaction fees](https://docs.teku.consensys.net/en/latest/HowTo/Prepare-for-The-Merge/#configure-the-fee-recipient) for included
+Validators also receive [transaction fees](https://docs.teku.consensys.net/concepts/proof-of-stake) for included
 blocks.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to

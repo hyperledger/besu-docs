@@ -214,18 +214,18 @@ You can specify the banned node IDs with or without the `0x` prefix.
     The singular `--banned-node-id` and plural `--banned-node-ids` are available and are two names
     for the same option.
 
-### `bonsai-maximum-back-layers-to-load`
+### `bonsai-historical-block-limit`
 
 === "Syntax"
 
     ```bash
-    --bonsai-maximum-back-layers-to-load=256
+    --bonsai-historical-block-limit=256
     ```
 
 === "Example"
 
     ```bash
-    --bonsai-maximum-back-layers-to-load=256
+    --bonsai-historical-block-limit=256
     ```
 
 === "Environment variable"
@@ -237,12 +237,12 @@ You can specify the banned node IDs with or without the `0x` prefix.
 === "Example configuration file"
 
     ```bash
-    bonsai-maximum-back-layers-to-load=256
+    bonsai-historical-block-limit=256
     ```
 
 When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the
-[maximum number of layers back](../../concepts/data-storage-formats.md#accessing-data) Bonsai can go to reconstruct a
-historical state.
+[maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which
+Bonsai can reconstruct a historical state.
 The default is 512.
 
 ### `bootnodes`
@@ -665,6 +665,37 @@ The default is `8551`.
     ```
 
 Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.md) server.
+If specified without a port, the default port is 443 for SSL connections and 80 for non-SSL connections.
+
+### `ethstats-cacert-file`
+
+=== "Syntax"
+
+    ```bash
+    --ethstats-cacert-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ethstats-cacert-file=./root.cert
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_ETHSTATS_CACERT_FILE=./root.cert
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ethstats-cacert-file="./root.cert"
+    ```
+
+Path to the root certificate authority (CA) certificate file of the Ethstats server specified by
+[`--ethstats`](#ethstats).
+This option is useful in non-production environments.
 
 ### `ethstats-contact`
 
@@ -693,10 +724,6 @@ Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.
     ```
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
-
-!!! note
-
-    A server must be specified by `--ethstats` in order to use this option.
 
 ### `fast-sync-min-peers`
 
@@ -3178,8 +3205,7 @@ The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You m
     security-module="security_module"
     ```
 
-Name of the
-[security module plugin](https://docs.quorumplugins.consensys.net/) to use.
+Name of the security module plugin to use.
 For example, a Hardware Security Module (HSM) or V3 filestore plugin.
 
 The default is the node's local private key file specified using

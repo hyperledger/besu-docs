@@ -3384,7 +3384,7 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
     tx-pool-disable-locals=true
     ```
 
-Enable or disable whether transactions sent via RPC must have the same checks, and should not be prioritized
+If this option is set to true, transactions sent via RPC must have the same checks, and should not be prioritized
 over remote transactions. The default is `false`.
 
 ### `tx-pool-enable-save-restore`

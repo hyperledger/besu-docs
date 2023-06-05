@@ -3413,10 +3413,10 @@ over remote transactions. The default is `false`.
     tx-pool-enable-save-restore=true
     ```
 
-Enable or disable whether to save the transaction pool content to a file on shutdown and reload it at startup.
+Enable or disable whether to save the transaction pool contents to a file on shutdown and reload it at startup.
 The default is `false`.
 
-You can define a custom path for the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
+You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
 
 ### `tx-pool-limit-by-account-percentage`
 
@@ -3568,7 +3568,8 @@ The maximum period, in hours, to hold pending transactions in the transaction po
 
 Path to the file that stores the transaction pool's content if the save and restore functionality is enabled
 using [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore). The
-file gets created on shutdown and reloaded during startup. The default is `txpool.dump` in the [data directory](#data-path).
+file gets created on shutdown and reloaded during startup. The default file name is `txpool.dump` in the
+[data directory](#data-path).
 
 ### `Xhelp`
 

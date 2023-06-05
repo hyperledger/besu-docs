@@ -3358,6 +3358,66 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated
 `target-gas-limit` value.
 
+### `tx-pool-disable-locals`
+
+=== "Syntax"
+
+    ```bash
+    --tx-pool-disable-locals[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --tx-pool-disable-locals=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_TX_POOL_DISABLE_LOCALS=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    tx-pool-disable-locals=true
+    ```
+
+Enable or disable whether transactions sent via RPC must have the same checks, and should not be prioritized
+over remote transactions. The default is `false`.
+
+### `tx-pool-enable-save-restore`
+
+=== "Syntax"
+
+    ```bash
+    --tx-pool-enable-save-restore[=<true|false>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --tx-pool-enable-save-restore=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_TX_POOL_ENABLE_SAVE_RESTORE=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    tx-pool-enable-save-restore=true
+    ```
+
+Enable or disable whether to save the transaction pool content to a file on shutdown and reload it at startup.
+The default is `false`.
+
+You can define a custom path for the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
+
 ### `tx-pool-limit-by-account-percentage`
 
 === "Syntax"
@@ -3479,6 +3539,36 @@ The price bump percentage to replace an existing transaction. The default is 10.
 
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
+
+### `--tx-pool-save-file`
+
+=== "Syntax"
+
+    ```bash
+    --tx-pool-save-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --tx-pool-save-file=/home/me/me_node/node_txpool.dump
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    BESU_TX_POOL_SAVE_FILE=/home/me/me_node/node_txpool.dump
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    tx-pool-save-file="/home/me/me_node/node_txpool.dump"
+    ```
+
+Path to the file that stores the transaction pool's content if the save and restore functionality is enabled
+using [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore). The
+file gets created on shutdown and reloaded during startup. The default is `txpool.dump` in the [data directory](#data-path).
 
 ### `Xhelp`
 

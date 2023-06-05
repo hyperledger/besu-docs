@@ -3540,7 +3540,7 @@ The price bump percentage to replace an existing transaction. The default is 10.
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is
 13.
 
-### `--tx-pool-save-file`
+### `tx-pool-save-file`
 
 === "Syntax"
 

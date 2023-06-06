@@ -3384,7 +3384,7 @@ the `target-gas-limit` while Besu is running. Alternatively restart Besu with an
     tx-pool-disable-locals=true
     ```
 
-If this option is set to true, transactions sent via RPC must have the same checks, and should not be prioritized
+If this option is set to true, transactions received via RPC must have the same checks, and should not be prioritized
 over remote transactions. The default is `false`.
 
 ### `tx-pool-enable-save-restore`
@@ -3413,7 +3413,7 @@ over remote transactions. The default is `false`.
     tx-pool-enable-save-restore=true
     ```
 
-Enable or disable whether to save the transaction pool contents to a file on shutdown and reload it at startup.
+Enables or disables saving the transaction pool contents to a file on shutdown and reloading it at startup.
 The default is `false`.
 
 You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
@@ -3568,7 +3568,7 @@ The maximum period, in hours, to hold pending transactions in the transaction po
 
 Path to the file that stores the transaction pool's content if the save and restore functionality is enabled
 using [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore). The
-file gets created on shutdown and reloaded during startup. The default file name is `txpool.dump` in the
+file is created on shutdown and reloaded during startup. The default file name is `txpool.dump` in the
 [data directory](#data-path).
 
 ### `Xhelp`

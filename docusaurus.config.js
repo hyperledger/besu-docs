@@ -30,18 +30,19 @@ const config = {
       "classic",
       {
         docs: {
+          breadcrumbs: false,
           sidebarPath: require.resolve("./sidebars.js"),
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           // path: "docs",
-          lastVersion: "current",
+          lastVersion: "23.4.0",
           versions: {
             //defaults to the ./docs folder
             // using 'latest' instead of 'next' as path
             current: {
               label: "latest",
               path: "latest",
-              banner: "none",
+              banner: "unreleased",
             },
             //the last stable release in the versioned_docs/version-23.4.0
             // using '23.4.0' as path
@@ -148,6 +149,7 @@ const config = {
           alt: "Hyperledger Besu logo",
           src: "img/logo.svg",
           srcDark: "img/logo-reversed.svg",
+          href: "https://www.hyperledger.org/use/besu",
           width: 250,
         },
         links: [
@@ -209,7 +211,7 @@ const config = {
                 href: "https://discord.gg/hyperledger",
               },
               {
-                label: "Hyperledger Besu wiki",
+                label: "Hyperledger Besu Wiki",
                 href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
               },
               {

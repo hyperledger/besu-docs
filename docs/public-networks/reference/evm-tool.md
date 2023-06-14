@@ -1,7 +1,7 @@
 ---
 title: EVM tool options
 sidebar_position: 5
-description: Hyperledger Besu EVM tool reference
+description: Besu EVM tool options reference
 tags:
   - private networks
 ---

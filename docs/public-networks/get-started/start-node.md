@@ -1,7 +1,7 @@
 ---
 title: Start Besu
 sidebar_position: 3
-description: Starting Hyperledger Besu
+description: Start Besu on a public Ethereum network.
 ---
 
 # Start Besu

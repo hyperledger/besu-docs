@@ -1,7 +1,7 @@
 ---
 title: Run Besu and Teku on Mainnet
 sidebar_position: 1
-Description: How to run Besu and Teku on Mainnet
+description: Run Besu and Teku on Ethereum Mainnet.
 ---
 
 # Run Besu and Teku on Mainnet

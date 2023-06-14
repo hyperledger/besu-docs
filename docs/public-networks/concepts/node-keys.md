@@ -1,7 +1,7 @@
 ---
 title: Node keys
 sidebar_position: 8
-description: Private and public key, and node address used to identify nodes
+description: Learn about node public and private keys, and the node address.
 tags:
   - private networks
 ---

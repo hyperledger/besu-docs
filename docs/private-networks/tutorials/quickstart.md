@@ -1,7 +1,7 @@
 ---
 title: Quorum Developer Quickstart
 sidebar_position: 1
-description: Rapidly generate local blockchain networks.
+description: Rapidly generate a local blockchain network using the Quickstart.
 ---
 
 import TestAccounts from '../../global/test_accounts.md';

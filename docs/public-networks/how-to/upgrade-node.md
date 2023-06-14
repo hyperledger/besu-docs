@@ -1,7 +1,7 @@
 ---
 title: Upgrade Besu
 sidebar_position: 11
-description: Upgrade Besu
+description: Upgrade your Besu node to a new version.
 ---
 
 # Upgrade your Besu node

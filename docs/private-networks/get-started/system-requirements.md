@@ -1,6 +1,6 @@
 ---
 title: System requirements
-description: System requirements to sync and run Besu
+description: Ensure you meet the system requirements to sync and run Besu.
 sidebar_position: 1
 ---
 

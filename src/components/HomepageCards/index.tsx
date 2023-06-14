@@ -20,7 +20,7 @@ type CardItem = {
 
 const CardList: CardItem[] = [
   {
-    title: "🕮 Public Networks",
+    title: "🌐 Public networks",
     link: "/latest/public-networks",
     // prettier-ignore
     description: (
@@ -28,20 +28,20 @@ const CardList: CardItem[] = [
         Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Goerli and Sepolia.
       </>
     ),
-    buttonName: "Get Started",
-    buttonType: "success",
+    buttonName: "Get started",
+    buttonType: "secondary",
   },
   {
-    title: "🔏 Private Networks",
+    title: "🔐 Private networks",
     link: "/latest/private-networks",
     // prettier-ignore
     description: (
       <>
-        Create or join a private, permissioned network. Use private networks to develop enterprise applications requiring secure, high-performance transaction processing.
+        Use private networks for enterprise applications requiring secure, high-performance transaction processing.
       </>
     ),
-    buttonName: "Get Started",
-    buttonType: "success",
+    buttonName: "Get started",
+    buttonType: "secondary",
   },
 ];
 
@@ -76,9 +76,12 @@ function Card({ title, link, description, buttonName, buttonType }: CardItem) {
 export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
-      <div className="container">
+      <div className="container homepageContainer">
         <h1>Hyperledger Besu Ethereum client</h1>
-        <hr />
+        <p>
+          Hyperledger Besu is an open source Ethereum client developed under the Apache 2.0 license
+          and written in Java. It runs on public and private networks:
+        </p>
         <div className="row">
           {CardList.map((props, idx) => (
             <Card key={idx} {...props} />

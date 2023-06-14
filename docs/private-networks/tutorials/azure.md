@@ -1,7 +1,7 @@
 ---
 title: Deploy using Microsoft Azure
 sidebar_position: 10
-description: Hyperledger Besu private network example on Azure
+description: Deploy a private IBFT 2.0 network using Microsoft Azure.
 ---
 
 # Deploy private network example on Azure

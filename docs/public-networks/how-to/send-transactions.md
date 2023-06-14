@@ -1,7 +1,7 @@
 ---
 title: Create and send transactions
 sidebar_position: 4
-description: Some use cases of creating transactions on a Hyperledger Besu network
+description: Send transactions using eth_call or eth_sendRawTransaction.
 ---
 
 # Create and send transactions

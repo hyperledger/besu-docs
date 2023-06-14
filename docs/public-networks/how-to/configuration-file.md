@@ -1,7 +1,7 @@
 ---
 title: Use a configuration file
 sidebar_position: 3
-description: Using the Hyperledger Besu configuration file
+description: Specify options in the Besu configuration file.
 tags:
   - private networks
 ---

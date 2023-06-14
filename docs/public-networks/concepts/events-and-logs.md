@@ -1,7 +1,7 @@
 ---
 title: Events and logs
 sidebar_position: 6
-description: Hyperledger Besu events and logs
+description: Learn about events and logs in Besu.
 tags:
   - private networks
 ---

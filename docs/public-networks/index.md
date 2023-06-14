@@ -1,7 +1,7 @@
 ---
-# page icon, insider only, see https://squidfunk.github.io/mkdocs-material/reference/#setting-the-page-icon
 title: Public networks
 sidebar_position: 1
+sidebar_label: Introduction
 description: Public networks overview
 ---
 

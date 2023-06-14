@@ -1,7 +1,7 @@
 ---
 title: Use the Engine API
 sidebar_position: 2
-description: How to enable and use the Engine API
+description: Use the Engine API to communicate with a consensus client.
 ---
 
 # Use the Engine API

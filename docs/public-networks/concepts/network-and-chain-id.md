@@ -1,7 +1,7 @@
 ---
 title: Network ID and chain ID
 sidebar_position: 5
-description: Besu network ID and chain ID implementation
+description: Learn about network ID and chain ID in Besu.
 tags:
   - private networks
 ---

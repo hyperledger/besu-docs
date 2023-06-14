@@ -1,7 +1,7 @@
 ---
 title: Create a Clique network
 sidebar_position: 4
-description: Hyperledger Besu private network using the Clique (proof of authority) consensus protocol
+description: Create a private network using the Clique consensus protocol.
 ---
 
 # Create a private network using Clique

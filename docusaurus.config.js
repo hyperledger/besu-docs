@@ -99,13 +99,11 @@ const config = {
         },
       },
       navbar: {
-        title: "Besu",
         logo: {
           alt: "Besu",
           src: "img/logo.svg",
           srcDark: "img/logo-reversed.svg",
-          width: 32,
-          height: 32,
+          width: 100,
         },
         items: [
           {
@@ -113,14 +111,14 @@ const config = {
             sidebarId: "publicDocSidebar",
             docId: "index",
             position: "left",
-            label: "Public Networks",
+            label: "Public networks",
           },
           {
             type: "docSidebar",
             sidebarId: "privateDocSidebar",
             docId: "index",
             position: "left",
-            label: "Private Networks",
+            label: "Private networks",
           },
           {
             type: "docsVersionDropdown",
@@ -142,17 +140,93 @@ const config = {
             className: "header-twitter-link",
             position: "right",
           },
-          {
-            href: "https://hub.docker.com/r/hyperledger/besu/tags",
-            className: "header-dockerhub-link",
-            position: "right",
-          },
         ],
       },
       footer: {
-        style: "dark",
-        copyright: `Copyright © ${new Date().getFullYear()} The Linux Foundation ®.
-        All rights reserved.`,
+        copyright: "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
+        logo: {
+          alt: "Hyperledger Besu logo",
+          src: "img/logo.svg",
+          srcDark: "img/logo-reversed.svg",
+          width: 250,
+        },
+        links: [
+          {
+            title: "Public networks",
+            items: [
+              {
+                label: "Introduction",
+                to: "/latest/public-networks",
+              },
+              {
+                label: "How to guides",
+                to: "/latest/public-networks/how-to",
+              },
+              {
+                label: "Concepts",
+                to: "/latest/public-networks/concepts",
+              },
+              {
+                label: "Tutorials",
+                to: "/latest/public-networks/tutorials",
+              },
+              {
+                label: "Reference",
+                to: "/latest/public-networks/reference",
+              },
+            ],
+          },
+          {
+            title: "Private networks",
+            items: [
+              {
+                label: "Introduction",
+                to: "/latest/private-networks",
+              },
+              {
+                label: "How to guides",
+                to: "/latest/private-networks/how-to",
+              },
+              {
+                label: "Concepts",
+                to: "/latest/private-networks/concepts",
+              },
+              {
+                label: "Tutorials",
+                to: "/latest/private-networks/tutorials",
+              },
+              {
+                label: "Reference",
+                to: "/latest/private-networks/reference",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Hyperledger Discord",
+                href: "https://discord.gg/hyperledger",
+              },
+              {
+                label: "Hyperledger Besu wiki",
+                href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
+              },
+              {
+                label: "Hyperledger Besu Twitter",
+                href: "https://twitter.com/HyperledgerBesu",
+              },
+              {
+                label: "Hyperledger Besu GitHub",
+                href: "https://github.com/hyperledger/besu/",
+              },
+              {
+                label: "Hyperledger Besu documentation GitHub",
+                href: "https://github.com/hyperledger/besu-docs",
+              },
+            ],
+          },
+        ],
       },
       prism: {
         theme: lightCodeTheme,

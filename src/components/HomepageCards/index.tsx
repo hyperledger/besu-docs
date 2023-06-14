@@ -77,7 +77,7 @@ export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
       <div className="container homepageContainer">
-        <h1>Hyperledger Besu Ethereum client</h1>
+        <h1 className="homepageTitle">Hyperledger Besu Ethereum client</h1>
         <p>
           Hyperledger Besu is an open source Ethereum client developed under the Apache 2.0 license
           and written in Java. It runs on public and private networks:

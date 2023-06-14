@@ -1,6 +1,7 @@
 ---
 description: Hyperledger Besu API
 tags:
+  - public networks
   - private networks
 ---
 

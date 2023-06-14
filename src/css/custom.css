@@ -22,7 +22,7 @@
   --ifm-color-primary-lightest: #fff;
   --ifm-color-primary-lighter: #fff;
   --ifm-color-primary-light: #feffff;
-  --ifm-color-primary: #0056DD;
+  --ifm-color-primary: #8BB8FF;
   --ifm-color-primary-dark: #0056DD;
   --ifm-color-primary-darker: #0056DD;
   --ifm-color-primary-darkest: #0056DD;
@@ -271,6 +271,7 @@ html[data-theme="dark"] .header-dockerhub-link::before {
 
 h1 {
   font-size: 32px;
+  padding-top: 5px;
 }
 
 h2 {
@@ -289,6 +290,20 @@ h4 {
   max-width: 1030px;
 }
 
+.homepageTitle {
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
 img {
   border-radius: 0.4rem;
+}
+
+.footer__copyright {
+  font-size: 13px;
+}
+
+.footer__item {
+  font-size: 14px;
 }

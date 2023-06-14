@@ -1,7 +1,7 @@
 ---
 title: Run Besu and Teku on a testnet
 sidebar_position: 2
-Description: How to run Besu and Teku on a testnet
+description: Run Besu and Teku on Goerli or Sepolia testnet.
 ---
 
 # Run Besu and Teku on a testnet

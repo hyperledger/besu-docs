@@ -1,7 +1,7 @@
 ---
 title: Transaction trace types
 sidebar_position: 6
-description: Transaction trace types
+description: Transaction trace types reference
 tags:
   - private networks
 ---

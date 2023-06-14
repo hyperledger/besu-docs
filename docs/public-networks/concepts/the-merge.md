@@ -1,7 +1,7 @@
 ---
 title: The Merge
 sidebar_position: 1
-description: What is the Merge?
+description: Learn about The Merge, and execution and consensus clients.
 ---
 
 # The Merge

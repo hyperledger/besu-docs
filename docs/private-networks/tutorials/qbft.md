@@ -1,7 +1,7 @@
 ---
 title: Create a QBFT network
 sidebar_position: 2
-description: Hyperledger Besu private network using the QBFT (proof of authority) consensus protocol
+description: Create a private network using the QBFT consensus protocol.
 ---
 
 # Create a private network using QBFT

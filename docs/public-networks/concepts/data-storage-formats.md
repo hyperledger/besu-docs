@@ -1,7 +1,7 @@
 ---
 title: Data storage formats
 sidebar_position: 3
-description: Data storage formats
+description: Learn about storing data using Forest of Tries and Bonsai Tries.
 ---
 
 # Data storage formats
@@ -14,7 +14,11 @@ Forest of Tries, also called forest mode, is the default storage format.
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed and stored by hash, which increases the size of the database and increases the resources and time needed to access account data.
 
+<p align="center">
+
 ![forest_of_tries](../../assets/images/forest_of_tries.png)
+
+</p>
 
 ### Pruning
 
@@ -45,7 +49,11 @@ Bonsai stores leaf values in a trie log, separate from the branches of the trie.
 
 To run a node with Bonsai Tries data storage format, use the command line option [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
 
+<p align="center">
+
 ![Bonsai_tries](../../assets/images/Bonsai_tries.png)
+
+</p>
 
 ## Forest of Tries vs. Bonsai Tries
 

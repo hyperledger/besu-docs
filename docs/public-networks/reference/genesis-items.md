@@ -1,7 +1,7 @@
 ---
 title: Genesis file items
 sidebar_position: 4
-description: Configuration items specified in the Hyperledger Besu genesis file
+description: Genesis file configuration items reference
 tags:
   - private networks
 ---

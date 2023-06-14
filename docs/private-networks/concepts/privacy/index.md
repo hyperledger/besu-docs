@@ -23,7 +23,11 @@ Using private transactions with [pruning] or [fast sync](../../../public-network
 
 Besu uses a private transaction manager, [Tessera](https://docs.tessera.consensys.net/), to implement privacy. Each Besu node that sends or receives [private transactions](private-transactions/index.md) requires an associated Tessera node.
 
+<p align="center">
+
 ![Tessera Nodes](../../../assets/images/TesseraNodes.png)
+
+</p>
 
 Private transactions pass from the Besu node to the associated Tessera node. The Tessera node encrypts and directly distributes (that is, point-to-point) the private transaction to the Tessera nodes participating in the transaction.
 

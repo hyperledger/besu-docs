@@ -1,5 +1,5 @@
 ---
-description: Migrate to Besu guide
+description: Migrate to Besu from a different Ethereum execution client.
 ---
 
 # Migrate to Besu

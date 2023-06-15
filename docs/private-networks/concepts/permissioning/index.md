@@ -2,6 +2,8 @@
 title: Permissioning
 sidebar_position: 1
 description: Besu permissioning feature
+tags:
+  - private networks
 ---
 
 # Permissioning

@@ -2,6 +2,8 @@
 title: Consensus protocols
 description: Besu consensus protocols
 sidebar_position: 1
+tags:
+  - private networks
 ---
 
 # Consensus protocols

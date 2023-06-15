@@ -3,6 +3,7 @@ title: Security disclosure policy
 sidebar_position: 8
 description: Hyperledger Besu responsible disclosure statement
 tags:
+  - public networks
   - private networks
 ---
 

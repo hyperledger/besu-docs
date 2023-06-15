@@ -2,6 +2,8 @@
 title: Transfer account funds
 sidebar_position: 1
 description: funds transfer transactions
+tags:
+  - private networks
 ---
 
 # Transfer funds between accounts in a transaction

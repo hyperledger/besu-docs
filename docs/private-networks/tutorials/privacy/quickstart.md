@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu privacy-enabled private network tutorial
+tags:
+  - private networks
 ---
 
 # Create a privacy-enabled network using the Quorum Developer Quickstart

@@ -2,6 +2,8 @@
 title: Run Besu and Teku on Mainnet
 sidebar_position: 1
 description: Run Besu and Teku on Ethereum Mainnet.
+tags:
+  - public networks
 ---
 
 # Run Besu and Teku on Mainnet

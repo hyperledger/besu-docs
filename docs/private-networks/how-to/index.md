@@ -1,5 +1,7 @@
 ---
-description: private networks how to overview
+description: Private networks how to overview
+tags:
+  - private networks
 ---
 
 # How to

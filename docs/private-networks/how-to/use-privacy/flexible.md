@@ -2,6 +2,8 @@
 title: Use flexible privacy groups
 description: Use flexible privacy groups
 sidebar_position: 5
+tags:
+  - private networks
 ---
 
 # Use flexible privacy groups

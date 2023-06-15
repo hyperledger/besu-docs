@@ -2,6 +2,8 @@
 title: Create and manage privacy groups
 description: Create and manage privacy groups with Hyperledger Besu
 sidebar_position: 4
+tags:
+  - private networks
 ---
 
 # Create and manage privacy groups

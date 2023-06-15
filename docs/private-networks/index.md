@@ -4,6 +4,8 @@ sidebar_position: 1
 sidebar_label: Introduction
 id: index
 description: Private networks overview
+tags:
+  - private networks
 ---
 
 # Hyperledger Besu for private networks

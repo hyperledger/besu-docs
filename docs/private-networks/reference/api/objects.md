@@ -2,6 +2,8 @@
 title: Private network API objects
 sidebar_position: 2
 description: Hyperledger Besu private network API objects reference
+tags:
+  - private networks
 ---
 
 # Private network API objects

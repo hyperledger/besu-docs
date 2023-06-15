@@ -2,6 +2,8 @@
 title: Onchain permissioning
 description: Onchain permissioning
 sidebar_position: 1
+tags:
+  - private networks
 ---
 
 # Onchain permissioning

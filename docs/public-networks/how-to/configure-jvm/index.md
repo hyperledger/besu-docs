@@ -1,6 +1,7 @@
 ---
 title: Configure Java and Besu
 tags:
+  - public networks
   - private networks
 hide:
   - feedback

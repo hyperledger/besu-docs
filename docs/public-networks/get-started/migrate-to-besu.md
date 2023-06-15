@@ -1,5 +1,7 @@
 ---
 description: Migrate to Besu from a different Ethereum execution client.
+tags:
+  - public networks
 ---
 
 # Migrate to Besu

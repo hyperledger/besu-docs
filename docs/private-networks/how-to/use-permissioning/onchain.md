@@ -2,6 +2,8 @@
 title: Use onchain permissioning
 sidebar_position: 2
 description: Use onchain permissioning allowlists
+tags:
+  - private networks
 ---
 
 # Use onchain permissioning

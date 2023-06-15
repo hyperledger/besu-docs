@@ -1,6 +1,8 @@
 ---
 title: Client and server TLS
 sidebar_position: 1
+tags:
+  - private networks
 ---
 
 # Configure client and server TLS

@@ -2,6 +2,8 @@
 title: Create a multi-tenant network
 sidebar_position: 2
 description: Configure multi-tenancy
+tags:
+  - private networks
 ---
 
 # Configure a multi-tenant node

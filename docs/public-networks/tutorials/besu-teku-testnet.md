@@ -2,6 +2,8 @@
 title: Run Besu and Teku on a testnet
 sidebar_position: 2
 description: Run Besu and Teku on Goerli or Sepolia testnet.
+tags:
+  - public networks
 ---
 
 # Run Besu and Teku on a testnet

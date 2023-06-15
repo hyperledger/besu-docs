@@ -2,11 +2,13 @@
 sidebar_position: 4
 title: Use Ethstats network monitor
 description: Ethstats network monitor
+tags:
+  - private networks
 ---
 
 # Connect to Ethstats network monitor
 
-Connect to [Ethstats](https://ethstats.net) to display real time and historical [statistics](#statistics) about the network and nodes. You can connect to the Ethstats dashboard by [connecting to a client and server](#connect-through-a-client-and-server) or by [connecting through the command line](#connect-through-the-command-line).
+Connect to [Ethstats](https://ethstats.dev) to display real time and historical [statistics](#statistics) about the network and nodes. You can connect to the Ethstats dashboard by [connecting to a client and server](#connect-through-a-client-and-server) or by [connecting through the command line](#connect-through-the-command-line).
 
 ## Components
 

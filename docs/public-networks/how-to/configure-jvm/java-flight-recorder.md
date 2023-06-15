@@ -3,6 +3,7 @@ title: Use Java Flight Recorder
 sidebar_position: 3
 description: Using Java Flight Recorder with Hyperledger Besu
 tags:
+  - public networks
   - private networks
 ---
 

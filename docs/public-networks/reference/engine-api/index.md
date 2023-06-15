@@ -1,6 +1,8 @@
 ---
 title: Engine API
 description: Engine API methods reference
+tags:
+  - public networks
 ---
 
 # Engine API methods

@@ -2,6 +2,8 @@
 title: Deploying Charts
 sidebar_position: 3
 description: Deploying Besu Helm Charts for a Kubernetes cluster
+tags:
+  - private networks
 ---
 
 # Deploy charts

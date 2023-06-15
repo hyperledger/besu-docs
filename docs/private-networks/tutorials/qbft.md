@@ -2,6 +2,8 @@
 title: Create a QBFT network
 sidebar_position: 2
 description: Create a private network using the QBFT consensus protocol.
+tags:
+  - private networks
 ---
 
 # Create a private network using QBFT

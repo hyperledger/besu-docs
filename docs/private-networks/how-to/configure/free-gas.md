@@ -2,6 +2,8 @@
 title: Free gas network
 description: Configuring free gas networks
 sidebar_position: 2
+tags:
+  - private networks
 ---
 
 # Configure free gas networks

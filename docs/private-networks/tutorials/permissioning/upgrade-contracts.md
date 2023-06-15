@@ -2,6 +2,8 @@
 title: Upgrade permissioning contracts
 sidebar_position: 2
 description: Upgrade the permissioning contracts for onchain permissioning
+tags:
+  - private networks
 ---
 
 # Upgrade permissioning contracts

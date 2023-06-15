@@ -3,6 +3,7 @@ title: Specify NAT method
 sidebar_position: 4
 description: Configuring NAT with Hyperledger Besu
 tags:
+  - public networks
   - private networks
 ---
 

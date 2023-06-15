@@ -2,6 +2,8 @@
 title: Peer-to-peer TLS
 sidebar_position: 2
 description: Configure P2P TLS communication
+tags:
+  - private networks
 ---
 
 # Configure P2P TLS

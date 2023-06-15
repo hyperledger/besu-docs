@@ -2,6 +2,8 @@
 title: Create an Ethash network
 sidebar_position: 5
 description: Create a private network using the Ethash consensus protocol.
+tags:
+  - private networks
 ---
 
 # Create a private network using Ethash

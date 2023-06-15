@@ -4,6 +4,8 @@ description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol
 sidebar_position: 4
 path: blob/master/config/src/main/resources/
 source: rinkeby.json
+tags:
+  - private networks
 ---
 
 # Configure Clique consensus

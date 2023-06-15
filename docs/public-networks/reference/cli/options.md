@@ -3,6 +3,7 @@ title: Options
 description: Hyperledger Besu command line interface reference
 sidebar_position: 1
 tags:
+  - public networks
   - private networks
 ---
 

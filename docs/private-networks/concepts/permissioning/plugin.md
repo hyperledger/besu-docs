@@ -2,6 +2,8 @@
 title: Permissioning plugin
 description: Plugin based permissioning
 sidebar_position: 2
+tags:
+  - private networks
 ---
 
 # Permissioning plugin

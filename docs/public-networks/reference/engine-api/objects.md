@@ -1,6 +1,8 @@
 ---
 title: Objects
 description: Engine API objects reference
+tags:
+  - public networks
 ---
 
 # Engine API objects

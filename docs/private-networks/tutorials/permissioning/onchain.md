@@ -2,6 +2,8 @@
 title: Get started with onchain permissioning
 sidebar_position: 1
 description: Setting up and using Hyperledger Besu onchain permissioning
+tags:
+  - private networks
 ---
 
 # Get started with onchain permissioning

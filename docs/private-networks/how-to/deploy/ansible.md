@@ -2,6 +2,8 @@
 sidebar_position: 2
 title: Use Ansible
 description: Deploying Hyperledger Besu with Ansible role on Galaxy
+tags:
+  - private networks
 ---
 
 # Deploy Besu with Ansible

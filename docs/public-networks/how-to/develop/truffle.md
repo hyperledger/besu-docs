@@ -3,6 +3,7 @@ title: Use Truffle
 sidebar_position: 1
 description: Using Hyperledger Besu with Truffle
 tags:
+  - public networks
   - private networks
 ---
 

@@ -2,6 +2,8 @@
 title: Use the Engine API
 sidebar_position: 2
 description: Use the Engine API to communicate with a consensus client.
+tags:
+  - public networks
 ---
 
 # Use the Engine API

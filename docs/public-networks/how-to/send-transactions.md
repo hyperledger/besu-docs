@@ -2,6 +2,8 @@
 title: Create and send transactions
 sidebar_position: 4
 description: Send transactions using eth_call or eth_sendRawTransaction.
+tags:
+  - public networks
 ---
 
 # Create and send transactions

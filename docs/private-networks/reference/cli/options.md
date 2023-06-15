@@ -2,6 +2,8 @@
 title: Private network options
 sidebar_position: 1
 description: Hyperledger Besu private networks CLI reference
+tags:
+  - private networks
 ---
 
 # Private network command line options

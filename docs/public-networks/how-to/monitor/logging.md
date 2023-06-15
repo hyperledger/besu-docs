@@ -5,6 +5,7 @@ description: Hyperledger Besu log level setting and log formatting
 path: blob/master/besu/src/main/resources/
 source: log4j2.xml
 tags:
+  - public networks
   - private networks
 ---
 

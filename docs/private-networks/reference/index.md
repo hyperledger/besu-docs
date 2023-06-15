@@ -1,5 +1,7 @@
 ---
 description: private networks reference overview
+tags:
+  - private networks
 ---
 
 # Reference

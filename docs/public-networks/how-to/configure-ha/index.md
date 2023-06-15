@@ -1,6 +1,7 @@
 ---
 description: Hyperledger Besu high availability
 tags:
+  - public networks
   - private networks
 ---
 

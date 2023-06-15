@@ -2,6 +2,8 @@
 title: Create a Clique network
 sidebar_position: 4
 description: Create a private network using the Clique consensus protocol.
+tags:
+  - private networks
 ---
 
 # Create a private network using Clique

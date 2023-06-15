@@ -1,6 +1,7 @@
 ---
 description: Monitoring using metrics and logging
 tags:
+  - public networks
   - private networks
 ---
 

@@ -1,5 +1,7 @@
 ---
 description: Ethereum proof of stake consensus
+tags:
+  - public networks
 ---
 
 # Proof of stake consensus

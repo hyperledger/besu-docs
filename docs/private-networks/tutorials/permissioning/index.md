@@ -2,6 +2,8 @@
 title: Create a permissioned network
 sidebar_position: 1
 description: Hyperledger Besu create a permissioned network
+tags:
+  - private networks
 ---
 
 # Create a permissioned network

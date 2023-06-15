@@ -2,6 +2,8 @@
 title: Sync Besu
 sidebar_position: 1
 description: Full and archive node types
+tags:
+  - public networks
 ---
 
 # Sync Besu

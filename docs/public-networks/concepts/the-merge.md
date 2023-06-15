@@ -2,6 +2,8 @@
 title: The Merge
 sidebar_position: 1
 description: Learn about The Merge, and execution and consensus clients.
+tags:
+  - public networks
 ---
 
 # The Merge

@@ -2,6 +2,8 @@
 title: Pre-deploy a contract
 description: Pre-deploying contracts in the genesis file
 sidebar_position: 5
+tags:
+  - private networks
 ---
 
 # Pre-deploy contracts in the genesis file

@@ -2,6 +2,8 @@
 title: Deploy to the cloud
 sidebar_position: 1
 description: Deploying Besu to the cloud
+tags:
+  - private networks
 ---
 
 # Deploy Besu to the cloud

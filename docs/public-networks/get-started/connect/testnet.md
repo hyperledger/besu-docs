@@ -2,6 +2,8 @@
 title: Connect to a testnet
 sidebar_position: 3
 Description: How to connect to a testnet
+tags:
+  - public networks
 ---
 
 # Connect to a testnet

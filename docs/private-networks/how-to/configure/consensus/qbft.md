@@ -2,6 +2,8 @@
 title: QBFT
 description: Hyperledger Besu QBFT proof of authority (PoA) consensus protocol implementation
 sidebar_position: 2
+tags:
+  - private networks
 ---
 
 # Configure QBFT consensus

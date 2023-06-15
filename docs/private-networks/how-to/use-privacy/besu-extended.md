@@ -2,6 +2,8 @@
 title: Use Besu-extended privacy
 description: Hyperledger Besu-extended privacy
 sidebar_position: 2
+tags:
+  - private networks
 ---
 
 # Use Besu-extended privacy

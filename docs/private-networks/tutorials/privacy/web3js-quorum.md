@@ -2,6 +2,8 @@
 title: Use the web3js-quorum multi-node example
 sidebar_position: 3
 description: web3js-quorum client library multi-node example
+tags:
+  - private networks
 ---
 
 # Use the multi-node example in the web3js-quorum client library

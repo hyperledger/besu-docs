@@ -2,6 +2,8 @@
 title: Deploy a smart contract
 sidebar_position: 1
 description: deploying smart contracts
+tags:
+  - private networks
 ---
 
 # Deploy smart contracts to an Ethereum chain

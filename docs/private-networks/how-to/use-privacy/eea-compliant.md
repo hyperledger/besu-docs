@@ -2,6 +2,8 @@
 title: Use EEA-compliant privacy
 description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy
 sidebar_position: 1
+tags:
+  - private networks
 ---
 
 # Use EEA-compliant privacy

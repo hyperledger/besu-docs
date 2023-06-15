@@ -2,6 +2,8 @@
 title: Private network subcommands
 sidebar_position: 2
 description: Hyperledger Besu command line interface subcommands
+tags:
+  - private networks
 ---
 
 # Private network subcommands

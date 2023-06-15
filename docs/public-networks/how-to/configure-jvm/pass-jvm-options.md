@@ -3,6 +3,7 @@ title: Pass JVM options
 sidebar_position: 1
 description: Passing Java virtual machine JVM options to Hyperledger Besu at runtime
 tags:
+  - public networks
   - private networks
 ---
 

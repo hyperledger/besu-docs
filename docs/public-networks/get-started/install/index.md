@@ -1,6 +1,8 @@
 ---
 title: Installation options
 description: Options for getting started with Hyperledger Besu
+tags:
+  - public networks
 ---
 
 # Installation options

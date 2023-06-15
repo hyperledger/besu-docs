@@ -2,6 +2,8 @@
 title: Interact with a deployed contract
 sidebar_position: 2
 description: calling smart contracts functions
+tags:
+  - private networks
 ---
 
 # Interact with deployed smart contracts

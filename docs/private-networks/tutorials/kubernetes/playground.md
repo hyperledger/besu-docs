@@ -2,6 +2,8 @@
 title: Local playground
 sidebar_position: 1
 description: Deploying a Hyperledger Besu private network locally with Kubernetes
+tags:
+  - private networks
 ---
 
 # Deploy in a local environment

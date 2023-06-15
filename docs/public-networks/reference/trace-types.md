@@ -3,6 +3,7 @@ title: Transaction trace types
 sidebar_position: 6
 description: Transaction trace types reference
 tags:
+  - public networks
   - private networks
 ---
 

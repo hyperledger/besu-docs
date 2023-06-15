@@ -3,6 +3,7 @@ title: Configure mining
 sidebar_position: 1
 description: Using Hyperledger Besu for PoW CPU mining
 tags:
+  - public networks
   - private networks
 ---
 

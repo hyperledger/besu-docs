@@ -2,6 +2,8 @@
 title: Plugins
 sidebar_position: 6
 description: Plugins overview
+tags:
+  - private networks
 ---
 
 # Plugins

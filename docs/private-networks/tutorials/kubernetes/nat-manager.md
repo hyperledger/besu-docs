@@ -2,6 +2,8 @@
 title: Configure Kubernetes mode in NAT manager
 sidebar_position: 9
 description: Tutorial to configure Kubernetes mode for Hyperledger Besu Nat Manager
+tags:
+  - private networks
 ---
 
 # Configure Kubernetes mode in NAT Manager

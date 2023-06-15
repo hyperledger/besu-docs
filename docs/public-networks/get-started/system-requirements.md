@@ -2,6 +2,8 @@
 title: System requirements
 sidebar_position: 1
 description: Ensure you meet the system requirements to sync and run Besu.
+tags:
+  - public networks
 ---
 
 # System requirements

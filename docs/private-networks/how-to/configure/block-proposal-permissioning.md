@@ -2,6 +2,8 @@
 title: Block proposal permissioning
 description: Block proposal permissioning
 sidebar_position: 7
+tags:
+  - private networks
 ---
 
 # Block proposal permissioning

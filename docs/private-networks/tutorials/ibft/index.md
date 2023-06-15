@@ -1,5 +1,7 @@
 ---
 description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
+tags:
+  - private networks
 ---
 
 # Create a private network using IBFT 2.0

@@ -3,6 +3,7 @@ title: Manage peers
 sidebar_position: 3
 description: Managing Hyperledger Besu peers
 tags:
+  - public networks
   - private networks
 ---
 

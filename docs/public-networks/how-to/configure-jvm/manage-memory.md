@@ -3,6 +3,7 @@ title: Manage JVM memory
 sidebar_position: 2
 description: Besu memory management
 tags:
+  - public networks
   - private networks
 ---
 

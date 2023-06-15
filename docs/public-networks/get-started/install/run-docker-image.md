@@ -2,6 +2,8 @@
 title: Run Besu from Docker image
 sidebar_position: 1
 description: Run Hyperledger Besu using the official docker image
+tags:
+  - public networks
 ---
 
 # Run Besu from a Docker image

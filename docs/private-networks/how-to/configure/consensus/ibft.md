@@ -2,6 +2,8 @@
 title: IBFT 2.0
 description: Hyperledger Besu IBFT 2.0 proof of authority (PoA) consensus protocol implementation
 sidebar_position: 3
+tags:
+  - private networks
 ---
 
 # Configure IBFT 2.0 consensus

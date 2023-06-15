@@ -2,6 +2,8 @@
 title: Use Splunk
 sidebar_position: 5
 description: Send Hyperledger Besu logs to Splunk
+tags:
+  - private networks
 ---
 
 # Use Splunk

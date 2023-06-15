@@ -3,6 +3,7 @@ title: Network ID and chain ID
 sidebar_position: 5
 description: Learn about network ID and chain ID in Besu.
 tags:
+  - public networks
   - private networks
 ---
 

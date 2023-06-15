@@ -2,6 +2,8 @@
 title: Deploy using Microsoft Azure
 sidebar_position: 10
 description: Deploy a private IBFT 2.0 network using Microsoft Azure.
+tags:
+  - private networks
 ---
 
 # Deploy private network example on Azure

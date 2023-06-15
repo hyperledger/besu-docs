@@ -3,6 +3,7 @@ title: Projects using Besu
 sidebar_position: 7
 description: List of projects using Besu
 tags:
+  - public networks
   - private networks
 ---
 

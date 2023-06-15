@@ -1,5 +1,7 @@
 ---
 title: Connect to a network overview
+tags:
+  - public networks
 hide:
   - feedback
 ---

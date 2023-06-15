@@ -2,6 +2,8 @@
 title: Public key infrastructure
 sidebar_position: 5
 description: Public key infrastructure
+tags:
+  - private networks
 ---
 
 # Public key infrastructure

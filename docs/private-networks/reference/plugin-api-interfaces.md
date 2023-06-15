@@ -2,6 +2,8 @@
 title: Plugin API interfaces
 sidebar_position: 4
 description: Plugin interfaces
+tags:
+  - private networks
 ---
 
 # Plugin API interfaces

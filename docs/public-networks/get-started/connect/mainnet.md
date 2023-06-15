@@ -2,6 +2,8 @@
 title: Connect to Mainnet
 sidebar_position: 2
 description: How to connect to Mainnet
+tags:
+  - public networks
 ---
 
 # Connect to Mainnet

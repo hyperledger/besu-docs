@@ -2,6 +2,8 @@
 title: Create a privacy enabled network using the Quickstart
 sidebar_position: 1
 description: Configure Hyperledger Besu privacy
+tags:
+  - private networks
 ---
 
 # Create a privacy-enabled network

@@ -3,6 +3,7 @@ title: Use client libraries
 sidebar_position: 2
 description: Hyperledger Besu client libraries
 tags:
+  - public networks
   - private networks
 ---
 

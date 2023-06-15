@@ -2,6 +2,8 @@
 title: Bootnodes
 description: Configuring bootnodes
 sidebar_position: 3
+tags:
+  - private networks
 ---
 
 # Configure bootnodes

@@ -2,6 +2,8 @@
 title: Maintenance
 sidebar_position: 5
 description: Maintenance for Besu on a Kubernetes cluster
+tags:
+  - private networks
 ---
 
 # Maintenance

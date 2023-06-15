@@ -3,6 +3,7 @@ title: EVM tool options
 sidebar_position: 5
 description: Besu EVM tool options reference
 tags:
+  - public networks
   - private networks
 ---
 

@@ -3,6 +3,7 @@ title: Transaction pool
 sidebar_position: 2
 description: Transaction pool overview
 tags:
+  - public networks
   - private networks
 ---
 

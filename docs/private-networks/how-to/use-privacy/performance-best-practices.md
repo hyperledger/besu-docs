@@ -2,6 +2,8 @@
 title: Performance best practices
 description: Performance best practices
 sidebar_position: 10
+tags:
+  - private networks
 ---
 
 # Performance best practices

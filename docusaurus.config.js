@@ -1,4 +1,4 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github");
+const lightCodeTheme = require("prism-react-renderer/themes/dracula");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -102,7 +102,7 @@ const config = {
       navbar: {
         logo: {
           alt: "Besu",
-          src: "img/logo.svg",
+          src: "img/logo-reversed.svg",
           srcDark: "img/logo-reversed.svg",
           width: 100,
         },
@@ -144,7 +144,8 @@ const config = {
         ],
       },
       footer: {
-        copyright: "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
+        copyright:
+          "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
         logo: {
           alt: "Hyperledger Besu logo",
           src: "img/logo.svg",

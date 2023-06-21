@@ -544,11 +544,11 @@ newnode:
       ipv4_address: 172.16.239.41
 ```
 
-!!! important
-
-    Select an IP address and port map not being used for the other containers.
-    Mount the newly created folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen
-    in this example.
+:::caution important
+Select an IP address and port map not being used for the other containers.
+Mount the newly created folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen
+in this example.
+:::
 
 ### 4. Update Prometheus configuration
 

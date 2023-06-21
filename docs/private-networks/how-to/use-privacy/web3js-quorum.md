@@ -10,7 +10,9 @@ tags:
 
 [web3js-quorum](https://github.com/ConsenSys/web3js-quorum) is an Ethereum JavaScript library extending [web3.js](https://github.com/ethereum/web3.js/) that adds support for Besu-specific JSON-RPC APIs and features. Use the library to create and send RLP-encoded transactions using JSON-RPC.
 
-!!! important web3js-quorum supports JSON-RPC over HTTP only.
+:::caution important
+web3js-quorum supports JSON-RPC over HTTP only.
+:::
 
 :::note
 

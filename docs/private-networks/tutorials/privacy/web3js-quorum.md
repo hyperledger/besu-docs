@@ -67,11 +67,11 @@ This example uses 3 of the 4 nodes configured in the [privacy tutorial](index.md
     export CONTRACT_ADDRESS=<Contract Address from Private Transaction Receipt>
     ```
 
-    !!! example
-
-          ```bash
-          export CONTRACT_ADDRESS=0xfee84481da8f4b9a998dfacb38091b3145bb01ab
-          ```
+    :::tip example
+    ```bash
+    export CONTRACT_ADDRESS=0xfee84481da8f4b9a998dfacb38091b3145bb01ab
+    ```
+    :::
 
 6.  Store a value in the contract from Node 1:
 

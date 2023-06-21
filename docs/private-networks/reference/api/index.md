@@ -1324,11 +1324,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP
 
 Returns the private transaction count for the specified account and [group of sender and recipients].
 
-!!! important
-
-    If sending more than one transaction to be mined in the same block (that is, you are not
-    waiting for the transaction receipt), you must calculate the private transaction nonce outside
-    Besu instead of using `priv_getEeaTransactionCount`.
+::caution important
+If sending more than one transaction to be mined in the same block (that is, you are not
+waiting for the transaction receipt), you must calculate the private transaction nonce outside
+Besu instead of using `priv_getEeaTransactionCount`.
+:::
 
 #### Parameters
 

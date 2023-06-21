@@ -4,8 +4,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageCards from "@site/src/components/HomepageCards";
 
-import styles from "./index.module.css";
-
 function HomepageText() {
   return (
     <div className="container homepageContainer margin-bottom--xl">
@@ -15,7 +13,7 @@ function HomepageText() {
         <a href="/category/public-networks/reference/cli/options.md">
           command line interface
         </a>{" "}
-         and{" "}
+        and{" "}
         <a href="/category/public-networks/how-to/use-besu-api/index.md">
           JSON-RPC API
         </a>{" "}
@@ -29,8 +27,8 @@ function HomepageText() {
         <a href="http://truffleframework.com/">Truffle</a>
         <a href="https://github.com/ethereum/remix">Remix</a>, and{" "}
         <a href="https://web3j.io/">web3js</a>. The client supports common
-        JSON-RPC API methods such as <code>eth</code>, <code>net</code>, <code>web3</code>, <code>debug</code>,{" "}
-        and <code>miner</code>.
+        JSON-RPC API methods such as <code>eth</code>, <code>net</code>,{" "}
+        <code>web3</code>, <code>debug</code>, and <code>miner</code>.
       </p>
       <p>
         Besu doesn&apos;t support key management inside the client. You can use{" "}
@@ -41,9 +39,7 @@ function HomepageText() {
       <h2>Questions?</h2>
       <p>
         If you have any questions about Besu, ask on the <b>besu</b> channel on{" "}
-        <a href="https://discord.gg/hyperledger">
-          Hyperledger Discord
-        </a>.
+        <a href="https://discord.gg/hyperledger">Hyperledger Discord</a>.
       </p>
       <p>
         Learn more about the{" "}
@@ -55,7 +51,8 @@ function HomepageText() {
         or to{" "}
         <a href="https://wiki.hyperledger.org/display/BESU/Contributing">
           Besu itself
-        </a>.
+        </a>
+        .
       </p>
     </div>
   );
@@ -65,10 +62,10 @@ export default function Home(): JSX.Element {
   // const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title={`Welcome`}>
-    <main>
-      <HomepageCards />
-      <HomepageText />
-    </main>
+      <main>
+        <HomepageCards />
+        <HomepageText />
+      </main>
     </Layout>
   );
 }

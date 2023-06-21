@@ -1,10 +1,10 @@
-import React from 'react';
-import clsx from 'clsx';
-import {ThemeClassNames} from '@docusaurus/theme-common';
-import {useDoc} from '@docusaurus/theme-common/internal';
-import LastUpdated from '@theme/LastUpdated';
-import EditThisPage from '@theme/EditThisPage';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import { ThemeClassNames } from "@docusaurus/theme-common";
+import { useDoc } from "@docusaurus/theme-common/internal";
+import LastUpdated from "@theme/LastUpdated";
+import EditThisPage from "@theme/EditThisPage";
+import styles from "./styles.module.css";
 
 function EditMetaRow({
   editUrl,
@@ -13,10 +13,10 @@ function EditMetaRow({
   formattedLastUpdatedAt,
 }) {
   return (
-    <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
+    <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, "row")}>
       <div className="col">{editUrl && <EditThisPage editUrl={editUrl} />}</div>
 
-      <div className={clsx('col', styles.lastUpdated)}>
+      <div className={clsx("col", styles.lastUpdated)}>
         {(lastUpdatedAt || lastUpdatedBy) && (
           <LastUpdated
             lastUpdatedAt={lastUpdatedAt}
@@ -29,8 +29,8 @@ function EditMetaRow({
   );
 }
 export default function DocItemFooter() {
-  const {metadata} = useDoc();
-  const {editUrl, lastUpdatedAt, formattedLastUpdatedAt, lastUpdatedBy} =
+  const { metadata } = useDoc();
+  const { editUrl, lastUpdatedAt, formattedLastUpdatedAt, lastUpdatedBy } =
     metadata;
   const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
   if (!canDisplayEditMetaRow) {
@@ -38,7 +38,7 @@ export default function DocItemFooter() {
   }
   return (
     <footer
-      className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
+      className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}>
       {canDisplayEditMetaRow && (
         <EditMetaRow
           editUrl={editUrl}

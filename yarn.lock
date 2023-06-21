@@ -1850,7 +1850,7 @@
     utility-types "^3.10.0"
     webpack "^5.73.0"
 
-"@docusaurus/plugin-content-docs@^2.0.0-rc.1", "@docusaurus/plugin-content-docs@2.4.1":
+"@docusaurus/plugin-content-docs@^2.0.0-rc.1", "@docusaurus/plugin-content-docs@^2.4.1", "@docusaurus/plugin-content-docs@2.4.1":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@docusaurus/plugin-content-docs/-/plugin-content-docs-2.4.1.tgz"
   integrity sha512-Lo7lSIcpswa2Kv4HEeUcGYqaasMUQNpjTXpV0N8G6jXgZaQurqp7E8NGYeGbDXnb48czmHWbzDL4S3+BbK0VzA==
@@ -2001,7 +2001,7 @@
     tslib "^2.4.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-common@^2.0.0", "@docusaurus/theme-common@^2.0.0-rc.1", "@docusaurus/theme-common@2.4.1":
+"@docusaurus/theme-common@^2.0.0", "@docusaurus/theme-common@^2.0.0-rc.1", "@docusaurus/theme-common@^2.4.1", "@docusaurus/theme-common@2.4.1":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@docusaurus/theme-common/-/theme-common-2.4.1.tgz"
   integrity sha512-G7Zau1W5rQTaFFB3x3soQoZpkgMbl/SYNG8PfMFIjKa3M3q8n0m/GRf5/H/e5BqOvt8c+ZWIXGCiz+kUCSHovA==

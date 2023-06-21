@@ -35,7 +35,7 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           // path: "docs",
-          lastVersion: "23.4.0",
+          lastVersion: "23.4.1",
           versions: {
             //defaults to the ./docs folder
             // using 'latest' instead of 'next' as path
@@ -44,12 +44,17 @@ const config = {
               path: "latest",
               banner: "unreleased",
             },
-            //the last stable release in the versioned_docs/version-23.4.0
-            // using '23.4.0' as path
+            //the last stable release in the versioned_docs/version-23.4.1
+            // using '23.4.1' as path
+            "23.4.1": {
+              label: "23.4.1",
+              path: "23.4.1",
+              banner: "none",
+            },
             "23.4.0": {
               label: "23.4.0",
               path: "23.4.0",
-              banner: "none",
+              banner: "unmaintained",
             },
           },
           routeBasePath: "/",

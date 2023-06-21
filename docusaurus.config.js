@@ -164,23 +164,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/latest/public-networks",
+                to: "/23.4.1/public-networks",
               },
               {
                 label: "How to guides",
-                to: "/latest/public-networks/how-to",
+                to: "/23.4.1/public-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/latest/public-networks/concepts",
+                to: "/23.4.1/public-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/latest/public-networks/tutorials",
+                to: "/23.4.1/public-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/latest/public-networks/reference",
+                to: "/23.4.1/public-networks/reference",
               },
             ],
           },
@@ -189,23 +189,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/latest/private-networks",
+                to: "/23.4.1/private-networks",
               },
               {
                 label: "How to guides",
-                to: "/latest/private-networks/how-to",
+                to: "/23.4.1/private-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/latest/private-networks/concepts",
+                to: "/23.4.1/private-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/latest/private-networks/tutorials",
+                to: "/23.4.1/private-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/latest/private-networks/reference",
+                to: "/23.4.1/private-networks/reference",
               },
             ],
           },
@@ -283,12 +283,12 @@ const config = {
       {
         redirects: [],
         createRedirects(existingPath) {
-          if (existingPath.includes("/23.4.0")) {
+          if (existingPath.includes("/23.4.1")) {
             // Redirect from /stable to /23.4.0
             return [
-              existingPath.replace("/23.4.0", "/stable"),
-              existingPath.replace("/23.4.0", "/en/stable"),
-              existingPath.replace("/23.4.0", "/en/23.4.0"),
+              existingPath.replace("/23.4.1", "/stable"),
+              existingPath.replace("/23.4.1", "/en/stable"),
+              existingPath.replace("/23.4.1", "/en/23.4.1"),
             ];
           }
           if (existingPath.includes("/latest")) {

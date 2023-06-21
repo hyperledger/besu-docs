@@ -633,6 +633,7 @@ typecheck
 typechecks
 typedoc
 typesense
+uncompress
 undergreen
 unflat
 unist

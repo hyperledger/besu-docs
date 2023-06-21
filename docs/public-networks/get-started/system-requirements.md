@@ -16,6 +16,103 @@ CPU requirements are highest when syncing to the network and typically reduce af
 
 :::
 
+## Java distribution and installation
+
+Besu requires an installation of Java 17+ to run.
+We currently recommend two Java distributions, [OpenJDK 17](https://jdk.java.net/17/) and
+[OpenJ9](https://www.eclipse.org/openj9/), though you can experiment based on your needs.
+
+OpenJDK is the default for many Java users and is balanced in performance and garbage collection.
+OpenJ9 consumes less memory and system resources, but can have worse performance on some setups.
+
+If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK.
+If you have less RAM:
+
+* If you're on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel), use OpenJ9.
+* If you're on ARM-64 CPU architecture (Mac M-series, Raspberry Pi), use OpenJDK.
+
+If you have OpenJDK installed or need a fresh installation of OpenJ9, you can pick up the OpenJ9
+docker image, or install the OpenJ9 JDK using the following steps:
+
+1. Get the [binaries](https://github.com/ibmruntimes/semeru17-binaries/releases) corresponding to
+   your OS architecture.
+   For example:
+
+    ```bash
+    wget https://github.com/ibmruntimes/semeru17-binaries/releases/download/jdk-17.0.5%2B8_openj9-0.35.0/ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
+    ```
+2. Uncompress the binaries:
+
+   <!--tabs-->
+   
+   # Command
+
+   ```bash
+   tar -xvf YOUR_J9_IMAGE.tar.gz
+   ```
+   # Example
+
+   ```bash
+   tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
+   ```
+   
+   <!--/tabs-->
+   
+3. Move the binaries to `bin` directory:
+
+   <!--tabs-->
+   
+   # Command
+
+   ```bash
+   sudo cp -r YOUR_IMAGE/ /usr/bin/
+   ```
+   # Example
+
+   ```bash
+   sudo cp -r jdk-17.0.5+8/ /usr/bin/
+   ```
+
+   <!--/tabs-->
+   
+4. Specify OpenJ9 for Java on your machine:
+
+   <!--tabs-->
+   
+   # Command
+
+   ```bash
+   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
+   sudo update-alternatives --config java (and choose OpenJ9)
+   ```
+   
+   # Example
+
+   ```bash
+   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java"
+   ```
+   
+   <!--/tabs-->
+   
+   Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
+   the installation location you specified:
+
+   <!--tabs-->
+   
+   # Command
+
+   ```bash
+   export JAVA_HOME=jdk-install-dir`
+   ```
+
+   # Example
+
+   ```bash
+   export JAVA_HOME=/usr/bin/jdk-17.0.5+8
+   ```
+   
+   <!--/tabs-->
+
 ## Java Virtual Machine size
 
 For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-jvm/manage-memory.md).

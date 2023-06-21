@@ -2919,7 +2919,7 @@ BESU_RPC_HTTP_TLS_CIPHER_SUITE=TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256
 rpc-http-tls-cipher-suite=["TLS_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"]
 ```
 
-:::
+<!--/tabs-->
 
 A list of comma-separated TLS cipher suites to support.
 
@@ -2957,7 +2957,7 @@ BESU_RPC_HTTP_TLS_ENABLED=true
 rpc-http-tls-enabled=true
 ```
 
-:::
+<!--/tabs-->
 
 Enables or disables TLS for the JSON-RPC HTTP service. The default is `false`.
 
@@ -2995,7 +2995,7 @@ BESU_RPC_HTTP_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
 rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 ```
 
-:::
+<!--/tabs-->
 
 The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
 
@@ -3249,7 +3249,7 @@ BESU_RPC_WS_AUTHENTICATION_CREDENTIALS_FILE=/home/me/me_node/auth.toml
 rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 ```
 
-:::
+<!--/tabs-->
 
 The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
@@ -3384,9 +3384,10 @@ BESU_RPC_WS_HOST=0.0.0.0
 rpc-ws-host="0.0.0.0"
 ```
 
-:::
+<!--/tabs-->
 
-The host on which WebSocket JSON-RPC listens. The default is `127.0.0.1`.
+The host on which WebSocket JSON-RPC listens.
+The default is `127.0.0.1`.
 
 To allow remote connections, set to `0.0.0.0`
 
@@ -3665,6 +3666,74 @@ If a value for `target-gas-limit` is not specified, the block gas limit remains 
 
 Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimit) API to update the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated `target-gas-limit` value.
 
+### `tx-pool-disable-locals`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-disable-locals[=<true|false>]
+```
+
+# Example
+
+```bash
+--tx-pool-disable-locals=true
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_DISABLE_LOCALS=true
+```
+
+# Configuration file
+
+```bash
+tx-pool-disable-locals=true
+```
+
+<!--/tabs-->
+
+If this option is set to true, transactions received via RPC must have the same checks, and should not be prioritized
+over remote transactions. The default is `false`.
+
+### `tx-pool-enable-save-restore`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-enable-save-restore[=<true|false>]
+```
+
+# Example
+
+```bash
+--tx-pool-enable-save-restore=true
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_ENABLE_SAVE_RESTORE=true
+```
+
+# Configuration file
+
+```bash
+tx-pool-enable-save-restore=true
+```
+
+<!--/tabs-->
+
+Enables or disables saving the transaction pool contents to a file on shutdown and reloading it at startup.
+The default is `false`.
+
+You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
+
 ### `tx-pool-limit-by-account-percentage`
 
 <!--tabs-->
@@ -3798,6 +3867,41 @@ tx-pool-retention-hours=5
 <!--/tabs-->
 
 The maximum period, in hours, to hold pending transactions in the transaction pool. The default is 13.
+
+### `tx-pool-save-file`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-save-file=<FILE>
+```
+
+# Example
+
+```bash
+--tx-pool-save-file=/home/me/me_node/node_txpool.dump
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_SAVE_FILE=/home/me/me_node/node_txpool.dump
+```
+
+# Configuration file
+
+```bash
+tx-pool-save-file="/home/me/me_node/node_txpool.dump"
+```
+
+<!--/tabs-->
+
+Path to the file that stores the transaction pool's content if the save and restore functionality is enabled
+using [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore). The
+file is created on shutdown and reloaded during startup. The default file name is `txpool.dump` in the
+[data directory](#data-path).
 
 ### `Xhelp`
 

@@ -220,6 +220,7 @@ getopts
 getwork
 gitgraph
 gitpod
+glibc
 globbing
 globby
 goquorum

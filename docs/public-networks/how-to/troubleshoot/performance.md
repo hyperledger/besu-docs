@@ -1,12 +1,9 @@
 ---
 description: Troubleshoot poor performance and resource constraints.
-<<<<<<< HEAD
 sidebar_label: Troubleshoot performance
 sidebar_position: 3
 tags:
   - public networks
-=======
->>>>>>> 64d8a8a (First draft performance troubleshooting page. (#1335))
 ---
 
 # Troubleshoot poor performance and resource constraints

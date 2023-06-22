@@ -35,20 +35,20 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           // path: "docs",
-          lastVersion: "23.4.1",
+          lastVersion: "stable",
           versions: {
             //defaults to the ./docs folder
-            // using 'latest' instead of 'next' as path
+            // using 'development' instead of 'next' as path
             current: {
-              label: "latest",
-              path: "latest",
+              label: "development",
+              path: "development",
               banner: "unreleased",
             },
-            //the last stable release in the versioned_docs/version-23.4.1
-            // using '23.4.1' as path
-            "23.4.1": {
-              label: "23.4.1",
-              path: "23.4.1",
+            //the last stable release in the versioned_docs/version-stable
+            // using 'stable' as path
+            "stable": {
+              label: "stable",
+              path: "stable",
               banner: "none",
             },
             "23.4.0": {
@@ -164,23 +164,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/23.4.1/public-networks",
+                to: "/stable/public-networks",
               },
               {
                 label: "How to guides",
-                to: "/23.4.1/public-networks/how-to",
+                to: "/stable/public-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/23.4.1/public-networks/concepts",
+                to: "/stable/public-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/23.4.1/public-networks/tutorials",
+                to: "/stable/public-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/23.4.1/public-networks/reference",
+                to: "/stable/public-networks/reference",
               },
             ],
           },
@@ -189,23 +189,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/23.4.1/private-networks",
+                to: "/stable/private-networks",
               },
               {
                 label: "How to guides",
-                to: "/23.4.1/private-networks/how-to",
+                to: "/stable/private-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/23.4.1/private-networks/concepts",
+                to: "/stable/private-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/23.4.1/private-networks/tutorials",
+                to: "/stable/private-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/23.4.1/private-networks/reference",
+                to: "/stable/private-networks/reference",
               },
             ],
           },
@@ -283,16 +283,12 @@ const config = {
       {
         redirects: [],
         createRedirects(existingPath) {
-          if (existingPath.includes("/23.4.1")) {
-            // Redirect from /stable to /23.4.0
+          if (existingPath.includes("/development")) {
             return [
-              existingPath.replace("/23.4.1", "/stable"),
-              existingPath.replace("/23.4.1", "/en/stable"),
-              existingPath.replace("/23.4.1", "/en/23.4.1"),
-            ];
-          }
-          if (existingPath.includes("/latest")) {
-            return [existingPath.replace("/latest", "/en/latest")];
+              existingPath.replace("/development", "/en/development"),
+              existingPath.replace("/development", "/en/latest"),
+              existingPath.replace("/development", "/latest"),
+            ]
           }
           return undefined; // Return a falsy value: no redirect created
         },

@@ -46,6 +46,7 @@ const config = {
             },
             //the last stable release in the versioned_docs/version-stable
             // using 'stable' as path
+            // prettier-ignore
             "stable": {
               label: "stable",
               path: "stable",
@@ -288,7 +289,7 @@ const config = {
               existingPath.replace("/development", "/en/development"),
               existingPath.replace("/development", "/en/latest"),
               existingPath.replace("/development", "/latest"),
-            ]
+            ];
           }
           return undefined; // Return a falsy value: no redirect created
         },

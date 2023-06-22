@@ -1,0 +1,312 @@
+const lightCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: "Besu documentation",
+  url: "https://besu.hyperledger.org",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
+  favicon: "img/favicon.svg",
+  trailingSlash: false,
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: "hyperledger", // Usually your GitHub org/user name.
+  projectName: "besu-docs", // Usually your repo name.
+  deploymentBranch: "gh-pages", // Github Pages deploying branch
+
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
+
+  presets: [
+    [
+      "classic",
+      {
+        docs: {
+          breadcrumbs: false,
+          sidebarPath: require.resolve("./sidebars.js"),
+          // Set a base path separate from default /docs
+          editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
+          // path: "docs",
+          lastVersion: "stable",
+          versions: {
+            //defaults to the ./docs folder
+            // using 'development' instead of 'next' as path
+            current: {
+              label: "development",
+              path: "development",
+              banner: "unreleased",
+            },
+            //the last stable release in the versioned_docs/version-stable
+            // using 'stable' as path
+            // prettier-ignore
+            "stable": {
+              label: "stable",
+              path: "stable",
+              banner: "none",
+            },
+            "23.4.0": {
+              label: "23.4.0",
+              path: "23.4.0",
+              banner: "unmaintained",
+            },
+          },
+          routeBasePath: "/",
+          // @ts-ignore
+          // eslint-disable-next-line global-require
+          remarkPlugins: [require("remark-docusaurus-tabs")],
+          include: ["**/*.md", "**/*.mdx"],
+          exclude: [
+            "**/_*.{js,jsx,ts,tsx,md,mdx}",
+            "**/_*/**",
+            "**/*.test.{js,jsx,ts,tsx}",
+            "**/__tests__/**",
+          ],
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: true,
+          includeCurrentVersion: true,
+        },
+        theme: {
+          customCss: require.resolve("./src/css/custom.css"),
+        },
+      },
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      // announcementBar: {
+      //   id: "announcement_bar",
+      //   content: "⛔️ This documentation site is still under construction! 🚧",
+      //   backgroundColor: "#fafbfc",
+      //   textColor: "#091E42",
+      //   isCloseable: false,
+      // },
+      colorMode: {
+        defaultMode: "light",
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+      navbar: {
+        logo: {
+          alt: "Besu",
+          src: "img/logo-reversed.svg",
+          srcDark: "img/logo-reversed.svg",
+          width: 100,
+        },
+        items: [
+          {
+            type: "docSidebar",
+            sidebarId: "publicDocSidebar",
+            docId: "index",
+            position: "left",
+            label: "Public networks",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "privateDocSidebar",
+            docId: "index",
+            position: "left",
+            label: "Private networks",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
+          },
+          {
+            href: "https://github.com/hyperledger/besu/",
+            className: "header-github-link",
+            position: "right",
+          },
+          {
+            href: "https://discord.gg/hyperledger",
+            className: "header-discord-link",
+            position: "right",
+          },
+          {
+            href: "https://twitter.com/HyperledgerBesu",
+            className: "header-twitter-link",
+            position: "right",
+          },
+        ],
+      },
+      footer: {
+        copyright:
+          "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
+        logo: {
+          alt: "Hyperledger Besu logo",
+          src: "img/logo.svg",
+          srcDark: "img/logo-reversed.svg",
+          href: "https://www.hyperledger.org/use/besu",
+          width: 250,
+        },
+        links: [
+          {
+            title: "Public networks",
+            items: [
+              {
+                label: "Introduction",
+                to: "/stable/public-networks",
+              },
+              {
+                label: "How to guides",
+                to: "/stable/public-networks/how-to",
+              },
+              {
+                label: "Concepts",
+                to: "/stable/public-networks/concepts",
+              },
+              {
+                label: "Tutorials",
+                to: "/stable/public-networks/tutorials",
+              },
+              {
+                label: "Reference",
+                to: "/stable/public-networks/reference",
+              },
+            ],
+          },
+          {
+            title: "Private networks",
+            items: [
+              {
+                label: "Introduction",
+                to: "/stable/private-networks",
+              },
+              {
+                label: "How to guides",
+                to: "/stable/private-networks/how-to",
+              },
+              {
+                label: "Concepts",
+                to: "/stable/private-networks/concepts",
+              },
+              {
+                label: "Tutorials",
+                to: "/stable/private-networks/tutorials",
+              },
+              {
+                label: "Reference",
+                to: "/stable/private-networks/reference",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Hyperledger Discord",
+                href: "https://discord.gg/hyperledger",
+              },
+              {
+                label: "Hyperledger Besu Wiki",
+                href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
+              },
+              {
+                label: "Hyperledger Besu Twitter",
+                href: "https://twitter.com/HyperledgerBesu",
+              },
+              {
+                label: "Hyperledger Besu GitHub",
+                href: "https://github.com/hyperledger/besu/",
+              },
+              {
+                label: "Hyperledger Besu documentation GitHub",
+                href: "https://github.com/hyperledger/besu-docs",
+              },
+            ],
+          },
+        ],
+      },
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ["solidity", "toml"],
+      },
+      languageTabs: [
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+        },
+        {
+          highlight: "go",
+          language: "go",
+          logoClass: "go",
+        },
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+        },
+      ],
+    }),
+  plugins: [
+    [
+      "@docusaurus/plugin-google-gtag",
+      {
+        trackingID: "G-KD07N5GM2B",
+        anonymizeIP: true,
+      },
+    ],
+    [
+      "@docusaurus/plugin-google-tag-manager",
+      {
+        containerId: "GTM-THG37T4",
+      },
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/development")) {
+            return [
+              existingPath.replace("/development", "/en/development"),
+              existingPath.replace("/development", "/en/latest"),
+              existingPath.replace("/development", "/latest"),
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
+      },
+    ],
+  ],
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        docsRouteBasePath: "/",
+        indexBlog: false,
+      }),
+    ],
+  ],
+};
+
+module.exports = config;

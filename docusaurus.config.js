@@ -35,7 +35,7 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           // path: "docs",
-          lastVersion: "stable",
+          lastVersion: "23.4.1",
           versions: {
             //defaults to the ./docs folder
             // using 'development' instead of 'next' as path
@@ -46,9 +46,8 @@ const config = {
             },
             //the last stable release in the versioned_docs/version-stable
             // using 'stable' as path
-            // prettier-ignore
-            "stable": {
-              label: "stable",
+            "23.4.1": {
+              label: "stable (23.4.1)",
               path: "stable",
               banner: "none",
             },

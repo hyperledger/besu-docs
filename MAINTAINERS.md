@@ -5,23 +5,23 @@
 <!-- Please keep this sorted alphabetically by github -->
 
 <!-- vale off -->
-| Name             | GitHub           | LFID             |
-| ---------------- | ---------------- | ---------------- |
-| Alexandra Tran   | alexandratran    | alexandratran    |
-| Byron Gravenorst | bgravenorst      | bgravenorst      |
-| Madeline Murray  | MadelineMurray   | madelinemurray   |
-| Nicolas Massart  | NicolasMassart   | NicolasMassart   |
-| Roland Tyler     | rolandtyler      | rolandtyler      |
+| Name             | GitHub         | LFID           |
+|------------------|----------------|----------------|
+| Alexandra Tran   | alexandratran  | alexandratran  |
+| Byron Gravenorst | bgravenorst    | bgravenorst    |
+| Madeline Murray  | MadelineMurray | madelinemurray |
 <!-- vale on -->
 
 ## Emeritus maintainers
 
 <!-- vale off -->
-| Name             | GitHub           | LFID             |
-| ---------------- | ---------------- | ---------------- |
-| Steven Gregg     | sgregglives      | sagregg          |
-| Grant Noble      | grantnoble       | grantnoble       |
-| Tim Beiko        | timbeiko         | timbeiko       |
+| Name            | GitHub         | LFID           |
+|-----------------|----------------|----------------|
+| Steven Gregg    | sgregglives    | sagregg        |
+| Grant Noble     | grantnoble     | grantnoble     |
+| Tim Beiko       | timbeiko       | timbeiko       |
+| Nicolas Massart | NicolasMassart | NicolasMassart |
+| Roland Tyler    | rolandtyler    | rolandtyler    |
 <!-- vale on -->
 
 ## Becoming a maintainer

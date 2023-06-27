@@ -281,7 +281,16 @@ const config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
-        redirects: [],
+        redirects: [
+          {
+            from: "/en/latest",
+            to: "/development",
+          },
+          {
+            from: "/en/stable",
+            to: "/stable",
+          },
+        ],
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {
             return [

@@ -46,7 +46,6 @@ jobs:
     needs: get-commit-hash
     permissions:
       contents: write
-      pull-requests: write      
     uses: ./.github/workflows/publish-docs.yml
     with:
       destination_dir: ${{ github.head_ref }}

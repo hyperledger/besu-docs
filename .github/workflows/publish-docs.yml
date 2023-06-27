@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write      
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -31,11 +30,10 @@ jobs:
       - name: Run build script
         run: DEST="/${{ inputs.destination_dir }}" yarn build
       - name: Deploy to `${{ inputs.destination_dir }}` directory of `gh-pages` branch
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./build
-          branch: 'gh-pages'
-          target-folder: ${{ inputs.destination_dir }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          destination_dir: ${{ inputs.destination_dir }}
           keep_files: true
 

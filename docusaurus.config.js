@@ -284,11 +284,11 @@ const config = {
         redirects: [
           {
             from: "/en/latest",
-            to: "/development",
+            to: "/",
           },
           {
             from: "/en/stable",
-            to: "/stable",
+            to: "/",
           },
         ],
         createRedirects(existingPath) {

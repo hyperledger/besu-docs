@@ -29,4 +29,3 @@ Having the following accounts is necessary for contributing code/issues to Besu:
 [Linux Foundation (LF) account]: https://wiki.hyperledger.org/display/CA/Setting+up+an+LFID
 [GitHub account]: https://www.github.com/
 [Hyperledger Discord]: https://discord.gg/hyperledger
-

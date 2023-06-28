@@ -54,7 +54,7 @@ You can use this [open port checker](https://www.yougetsignal.com/tools/open-por
 
 The default maximum is 25. Increasing the number of peers increases the bandwidth, CPU, and disk access Besu uses to respond to peers. Hardware with low specifications might result in low peer numbers. You'll experience diminishing returns with a larger number of peers (>100).
 
-### question "What's the benefit of increasing the number of peers?"
+### "What's the benefit of increasing the number of peers?"
 
 Increasing the number of max peers won't speed up Besu syncing, because the bottleneck during sync is disk IO and CPU.
 

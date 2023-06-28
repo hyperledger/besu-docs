@@ -35,7 +35,7 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           // path: "docs",
-          lastVersion: "stable",
+          lastVersion: "23.4.1",
           versions: {
             //defaults to the ./docs folder
             // using 'development' instead of 'next' as path
@@ -46,9 +46,8 @@ const config = {
             },
             //the last stable release in the versioned_docs/version-stable
             // using 'stable' as path
-            // prettier-ignore
-            "stable": {
-              label: "stable",
+            "23.4.1": {
+              label: "stable (23.4.1)",
               path: "stable",
               banner: "none",
             },
@@ -282,7 +281,16 @@ const config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
-        redirects: [],
+        redirects: [
+          {
+            from: "/en/latest",
+            to: "/",
+          },
+          {
+            from: "/en/stable",
+            to: "/",
+          },
+        ],
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {
             return [
@@ -290,6 +298,9 @@ const config = {
               existingPath.replace("/development", "/en/latest"),
               existingPath.replace("/development", "/latest"),
             ];
+          }
+          if (existingPath.includes("/stable")) {
+            return [existingPath.replace("/stable", "/en/stable")];
           }
           return undefined; // Return a falsy value: no redirect created
         },

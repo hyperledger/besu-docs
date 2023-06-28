@@ -97,7 +97,7 @@ function DocVersionBannerEnabled({ className, versionMetadata }) {
       <div>
         <BannerLabel siteTitle={siteTitle} versionMetadata={versionMetadata} />
         <LatestVersionSuggestionLabel
-          versionLabel={latestVersionSuggestion.label}
+          versionLabel={latestVersionSuggestion.name}
           to={latestVersionSuggestedDoc.path}
           onClick={() => savePreferredVersionName(latestVersionSuggestion.name)}
         />

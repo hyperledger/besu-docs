@@ -24,7 +24,7 @@ jobs:
     needs: is-fork-pull-request
     permissions:
       contents: write
-    if: ${{ needs.is-fork-pull-request.outputs.IS_FORK == 'false' && github.event.pull_request.head.ref != 'wallet' && github.event.pull_request.head.ref != 'snaps' && github.event.pull_request.head.ref != 'guide' && github.event.pull_request.head.ref != 'assets' && github.event.pull_request.head.ref != 'img' && github.event.pull_request.head.ref != 'search' }}
+    if: ${{ needs.is-fork-pull-request.outputs.IS_FORK == 'true' }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3

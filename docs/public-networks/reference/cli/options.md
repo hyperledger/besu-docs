@@ -1569,6 +1569,12 @@ min-block-occupancy-ratio="0.5"
 
 Minimum occupancy ratio for a mined block if the transaction pool is not empty. When filling a block during mining, the occupancy ratio indicates the threshold at which the node stops waiting for smaller transactions to fill the remaining space. The default is 0.8.
 
+:::note
+
+Besu ignores the `--min-block-occupancy-ratio` option for proof of stake networks (for example, Mainnet).
+
+:::
+
 ### `miner-coinbase`
 
 <!--tabs-->

@@ -1571,7 +1571,7 @@ Minimum occupancy ratio for a mined block if the transaction pool is not empty. 
 
 :::note
 
-The `--min-block-occupancy-ratio` option is currently ignored for PoS (Proof of Stake) networks in Hyperledger Besu. This means that setting this option will not have any effect when running Besu with a PoS consensus mechanism.
+Besu ignores the `--min-block-occupancy-ratio` option for proof of stake networks (for example, Mainnet).
 
 :::
 

@@ -30,7 +30,7 @@ Values must conform to TOML specifications for string, numbers, arrays, and bool
 - Comma-separated lists on the command line are string arrays in the TOML file.
 - Enclose file paths, hexadecimal numbers, URLs, and &lt;host:port> values in quotes.
 
-Table headings are ignored in TOML files. If a valid Besu option is specified under a table heading in a configuration file, Besu will ignore the table heading and read the option in the same way it does for options not under table headings.
+Table headings are ignored in TOML files. If you specify a valid Besu option under a table heading in the configuration file, Besu ignores the table heading and reads the option in the same way it does for options not under table headings.
 
 :::tip
 

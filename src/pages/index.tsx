@@ -22,7 +22,7 @@ function HomepageText() {
       <p>
         Besu supports common smart contract and dapp development, deployment,
         and operational use cases, using tools such as{" "}
-        <a href="http://truffleframework.com/">Truffle</a>
+        <a href="http://truffleframework.com/">Truffle</a>,{" "}
         <a href="https://github.com/ethereum/remix">Remix</a>, and{" "}
         <a href="https://web3j.io/">web3js</a>. The client supports common
         JSON-RPC API methods such as <code>eth</code>, <code>net</code>,{" "}

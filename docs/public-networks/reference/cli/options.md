@@ -2756,6 +2756,32 @@ rpc-http-max-active-connections=100
 
 The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reached, incoming connections are rejected. The default is 80.
 
+### `rpc-http-max-request-content-length`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--rpc-http-max-request-content-length=<length>
+```
+
+# Environment variable
+
+```bash
+BESU_RPC_HTTP_MAX_REQUEST_CONTENT_LENGTH=<length>
+```
+
+# Configuration file
+
+```bash
+rpc-http-max-request-content-length=<length>
+```
+
+<!--/tabs-->
+
+The default body size limit is `5MB`. If you set the `rpc-http-max-request-content-length` option to a value greater than the default, the Besu node will only accept requests with a body size that is less than or equal to the specified value.
+
 ### `rpc-http-max-batch-size`
 
 <!--tabs-->

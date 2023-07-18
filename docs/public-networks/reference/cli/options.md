@@ -2780,7 +2780,7 @@ BESU_RPC_HTTP_MAX_REQUEST_CONTENT_LENGTH=2097152
 
 # Configuration file
 
-```bash
+```toml
 rpc-http-max-request-content-length=2097152
 ```
 

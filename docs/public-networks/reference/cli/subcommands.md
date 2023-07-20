@@ -57,6 +57,8 @@ You can specify the starting index of the block range to import with `--start-bl
 
 You can specify the ending index (exclusive) of the block range to import with `--end-block`. If omitted, all blocks after the start block will be imported.
 
+You can specify multiple `--from` arguments. This can be useful when blocks have been exported over time to multiple files.
+
 Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
 
 :::note

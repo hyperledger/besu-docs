@@ -46,7 +46,7 @@ besu blocks import [--skip-pow-validation-enabled] [--start-block=<LONG>] [--end
 # Example
 
 ```bash
-besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet.blocks
+besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet-export1.blocks --from=/home/me/me_project/mainnet-export2.blocks
 ```
 
 <!--/tabs-->

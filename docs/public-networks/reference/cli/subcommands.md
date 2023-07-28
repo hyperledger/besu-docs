@@ -46,7 +46,7 @@ besu blocks import [--skip-pow-validation-enabled] [--start-block=<LONG>] [--end
 # Example
 
 ```bash
-besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet.blocks
+besu blocks import --skip-pow-validation-enabled --start-block=100 --end-block=300 --from=/home/me/me_project/mainnet-export1.blocks --from=/home/me/me_project/mainnet-export2.blocks
 ```
 
 <!--/tabs-->
@@ -55,7 +55,9 @@ Imports a block or range of blocks from the specified file into the blockchain d
 
 You can specify the starting index of the block range to import with `--start-block`. If omitted, the default start block is 0 (the beginning of the chain).
 
-You can specify the ending index (exclusive) of the block range to import with `--end-block`. If omitted, all blocks after the start block will be imported.
+You can specify the ending index (exclusive) of the block range to import with `--end-block`. If omitted, all blocks after the start block are imported.
+
+You can specify multiple `--from` arguments. This can be useful when blocks have been exported over time to multiple files. If multiple files are provided they are read in the order specified in the command.
 
 Including `--skip-pow-validation-enabled` skips validation of the `mixHash` when importing blocks.
 

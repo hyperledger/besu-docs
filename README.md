@@ -1,31 +1,19 @@
 # Hyperledger Besu documentation
 
-[Hyperledger Besu](https://github.com/hyperledger/besu/) is a Hyperledger enterprise-grade, Java-based, Apache 2.0 licensed Ethereum client.
+[Hyperledger Besu](https://github.com/hyperledger/besu/) is an open source Ethereum client developed
+under the Apache 2.0 license and written in Java.
+It runs on public and private networks.
 
-Welcome to the **Besu Documentation** repository. If you're looking for the software sources, go to [Besu GitHub source code repository](https://github.com/hyperledger/besu).
+This repository contains documentation for Besu, and is built using [Docusaurus](https://docusaurus.io/).
+The doc site is hosted at [`besu.hyperledger.org`](https://besu.hyperledger.org).
 
-This repository only contains the sources for [Besu documentation website hosted by ReadTheDocs][Besu User Documentation].
+If you're looking for the software source code, go to the [Besu software repository](https://github.com/hyperledger/besu).
 
-## Useful links
+### Contribute to the docs
 
-- [Besu user documentation][Besu User Documentation]
-- [Besu issues](https://github.com/hyperledger/besu/issues)
-- [Besu docs issues](https://github.com/hyperledger/besu-docs/issues)
-- [Besu wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)
-- [How to contribute to the documentation](CONTRIBUTING.md)
-- How to contribute to the [Besu codebase](https://github.com/hyperledger/besu/blob/master/CONTRIBUTING.md).
+See the [documentation section in the Hyperledger Besu wiki](https://wiki.hyperledger.org/display/BESU/Documentation)
+for information about submitting documentation changes and previewing the site locally.
 
-## GitHub/Discord/Linux Foundation accounts
+### Questions?
 
-Having the following accounts is necessary for contributing code/issues to Besu:
-
-- If you want to contribute code, create a [Linux Foundation (LF) account] and a [GitHub account].
-- If you want to raise an issue, login to your [GitHub account].
-- [Hyperledger Discord] also requires a Discord account.
-
-<!-- Links -->
-
-[Besu User Documentation]: https://besu.hyperledger.org
-[Linux Foundation (LF) account]: https://wiki.hyperledger.org/display/CA/Setting+up+an+LFID
-[GitHub account]: https://www.github.com/
-[Hyperledger Discord]: https://discord.gg/hyperledger
+If you have questions about Besu, ask on the **besu** channel on [Hyperledger Discord](https://discord.gg/hyperledger).

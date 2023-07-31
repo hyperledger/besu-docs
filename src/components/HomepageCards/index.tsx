@@ -21,7 +21,7 @@ type CardItem = {
 const CardList: CardItem[] = [
   {
     title: "🌐 Public networks",
-    link: "/stable/public-networks",
+    link: "/public-networks",
     // prettier-ignore
     description: (
       <>
@@ -33,7 +33,7 @@ const CardList: CardItem[] = [
   },
   {
     title: "🔐 Private networks",
-    link: "/stable/private-networks",
+    link: "/private-networks",
     // prettier-ignore
     description: (
       <>

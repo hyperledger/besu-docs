@@ -40,7 +40,7 @@ contract VendingMachine {
 
 ## Enable revert reason
 
-Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled) command line option to include the revert reason in the transaction receipt, [`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) error, [`eth_call`](../../../public-networks/reference/api/index.md#eth_call) error, and [`trace`](../../../public-networks/reference/trace-types.md#trace) response in Hyperledger Besu.
+Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled) command line option to include the revert reason in the transaction receipt and the [`trace`](../../../public-networks/reference/trace-types.md#trace) response in Hyperledger Besu.
 
 :::caution
 
@@ -54,11 +54,11 @@ With revert reason enabled, the transaction receipt returned by [`eth_getTransac
 
 :::info
 
-The revert reason is not included in the transactions receipt's root hash. Not including the revert reason in the transactions receipt's root hash means the revert reason is only available to nodes that execute the transaction when importing the block. That is, the revert reason is not available if using fast synchronization ([`--sync-mode=FAST`](../../../public-networks/reference/cli/options.md#sync-mode)).
+The revert reason is not included in the transaction receipt's root hash. Not including the revert reason in the transactions receipt's root hash means the revert reason is only available to nodes that execute the transaction when importing the block. That is, the revert reason is not available if using fast synchronization ([`--sync-mode=FAST`](../../../public-networks/reference/cli/options.md#sync-mode)).
 
 :::
 
-```json
+```json title="Example of transaction receipt"
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -80,15 +80,9 @@ The revert reason is not included in the transactions receipt's root hash. Not i
 }
 ```
 
-The error returned by [`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) and [`eth_call`](../../../public-networks/reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
+With revert reason enabled, the list items in the [`trace`](../../../public-networks/reference/trace-types.md#trace) response returned by [`trace_replayBlockTransactions`](../../../public-networks/reference/api/index.md#trace_replayblocktransactions), [`trace_block`](../../../public-networks/reference/api/index.md#trace_block), and [`trace_transaction`](../../../public-networks/reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
 
-```json title="Exampleof `eth_estimateGas`and`eth_call` error" { "jsonrpc": "2.0", "id": 3, "error": { "code": -32000, "message": "Execution reverted", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000" } }
-
-````
-
-The list items in the [`trace`](../../../public-networks/reference/trace-types.md#trace) response returned by [`trace_replayBlockTransactions`](../../../public-networks/reference/api/index.md#trace_replayblocktransactions), [`trace_block`](../../../public-networks/reference/api/index.md#trace_block), and [`trace_transaction`](../../../public-networks/reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
-
-```json title="Example of `trace` response list item"
+```json title="Example of trace response list item"
 {
   "jsonrpc": "2.0",
   "id": 415,
@@ -114,7 +108,21 @@ The list items in the [`trace`](../../../public-networks/reference/trace-types.m
     }
   ]
 }
-````
+```
+
+By default, the error returned by [`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) and [`eth_call`](../../../public-networks/reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
+
+```json title="Example of eth_estimateGas and eth_call error"
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "error": {
+    "code": -32000,
+    "message": "Execution reverted",
+    "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
+  }
+}
+```
 
 ## Revert reason format
 

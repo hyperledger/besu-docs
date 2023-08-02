@@ -1816,7 +1816,7 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
-If revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the `eth_call` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_call` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
@@ -2080,7 +2080,7 @@ Returns an estimate of the gas required for a transaction to complete. The estim
 
 The `eth_estimateGas` call does not send a transaction. You must call [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
-If revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the `eth_estimateGas` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_estimateGas` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 

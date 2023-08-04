@@ -9,9 +9,12 @@ tags:
 
 # Use GraphQL over HTTP
 
-GraphQL can reduce the overhead needed for common queries. For example, instead of querying each receipt in a block, GraphQL can get the same result with a single query for the entire block.
+GraphQL can reduce the overhead needed for common queries.
+For example, instead of querying each receipt in a block, GraphQL can get the same result with a
+single query for the entire block.
 
-The [Besu GraphQL schema] describes the GraphQL implementation for Ethereum. Enable the GraphQL service using [command line options](index.md#enable-api-access).
+The [Besu GraphQL schema] describes the GraphQL implementation for Ethereum.
+Enable the GraphQL service using [command line options](index.md#enable-api-access).
 
 :::note
 
@@ -19,21 +22,106 @@ GraphQL is not supported over WebSocket.
 
 :::
 
-Access the GraphQL endpoint at `http://<HOST>:<PORT>/graphql`. Configure `<HOST>` and `<PORT>` using [`graphql-http-host`](../../reference/cli/options.md#graphql-http-host) and [`graphql-http-port`](../../reference/cli/options.md#graphql-http-port). The default endpoint is `http://127.0.0.1:8547/graphql`.
+Access the GraphQL endpoint at `http://<HOST>:<PORT>/graphql`.
+Configure `<HOST>` and `<PORT>` using [`graphql-http-host`](../../reference/cli/options.md#graphql-http-host)
+and [`graphql-http-port`](../../reference/cli/options.md#graphql-http-port).
+The default endpoint is `http://127.0.0.1:8547/graphql`.
 
 ## GraphQL requests with cURL
 
-[Hyperledger Besu JSON-RPC API methods](../../reference/api/index.md) with an equivalent [GraphQL](graphql.md) query include a GraphQL request and result in the method example.
+[Hyperledger Besu JSON-RPC API methods](../../reference/api/index.md) with an equivalent
+[GraphQL](graphql.md) query include a GraphQL request and result in the method example.
 
-The following [`syncing`](../../reference/api/index.md#eth_syncing) request returns data about the synchronization status.
+For example, the following request returns the block number:
+
+<!--tabs-->
+
+# Request
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{number}}"}' http://localhost:8547/graphql
+```
+
+# Response
+
+```json
+{
+  "data" : {
+    "block" : {
+      "number" : "0x281"
+    }
+  }
+}
+```
+
+<!--/tabs-->
+
+The following request returns the gas price:
+
+<!--tabs-->
+
+# Request
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"}' http://localhost:8547/graphql
+```
+
+# Response
+
+```json
+{
+  "data" : {
+    "gasPrice" : "0x0"
+  }
+}
+```
+
+<!--/tabs-->
+
+The following [`syncing`](../../reference/api/index.md#eth_syncing) request returns data about the
+synchronization status:
+
+<!--tabs-->
+
+# Request
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
 ```
 
+# Response
+
+```json
+{
+  "data" : {
+    "syncing" : {
+      "startingBlock" : 665,
+      "currentBlock" : 3190,
+      "highestBlock" : 26395
+    }
+  }
+}
+```
+
+<!--/tabs-->
+
+:::info note
+In some cases, for example, when your node is fully synced, the syncing request returns a `null` response:
+
+```json
+{
+  "data" : {
+    "syncing" : null
+  }
+}
+```
+:::
+
 ## GraphQL requests with GraphiQL app
 
-The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provides a tabbed interface for editing and testing GraphQL queries and mutations. GraphiQL also provides access to the [Besu GraphQL schema] from within the app.
+The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provides a tabbed interface
+for editing and testing GraphQL queries and mutations.
+GraphiQL also provides access to the [Besu GraphQL schema] from within the app.
 
 ![GraphiQL](../../../assets/images/GraphiQL.png)
 
@@ -43,7 +131,8 @@ The third-party tool, [GraphiQL](https://github.com/skevy/graphiql-app), provide
 
 :::info
 
-Besu does not execute pending transactions so results from `account`, `call`, and `estimateGas` for Pending do not reflect pending transactions.
+Besu does not execute pending transactions so results from `account`, `call`, and `estimateGas` for
+Pending do not reflect pending transactions.
 
 :::
 

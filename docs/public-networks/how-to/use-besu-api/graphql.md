@@ -3,6 +3,7 @@ title: Use GraphQL over HTTP
 sidebar_position: 3
 description: How to access the Hyperledger Besu API using GraphQL
 tags:
+  - public networks
   - private networks
 ---
 

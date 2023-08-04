@@ -3,6 +3,7 @@ title: Use RPC Pub/Sub over WS
 sidebar_position: 2
 description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
 tags:
+  - public networks
   - private networks
 ---
 

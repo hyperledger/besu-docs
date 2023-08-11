@@ -3,6 +3,7 @@ title: Use JSON-RPC over HTTP, WS, and IPC
 sidebar_position: 1
 description: How to access the Hyperledger Besu API using JSON-RPC
 tags:
+  - public networks
   - private networks
 ---
 

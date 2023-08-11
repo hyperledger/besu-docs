@@ -34,7 +34,8 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
-          // path: "docs",
+          path: "./docs",
+          includeCurrentVersion: true,
           lastVersion: "23.4.1",
           versions: {
             //defaults to the ./docs folder
@@ -42,19 +43,13 @@ const config = {
             current: {
               label: "development",
               path: "development",
-              banner: "unreleased",
             },
             //the last stable release in the versioned_docs/version-stable
-            // using 'stable' as path
             "23.4.1": {
               label: "stable (23.4.1)",
-              path: "stable",
-              banner: "none",
             },
             "23.4.0": {
               label: "23.4.0",
-              path: "23.4.0",
-              banner: "unmaintained",
             },
           },
           routeBasePath: "/",
@@ -70,7 +65,6 @@ const config = {
           ],
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
-          includeCurrentVersion: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -164,23 +158,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/stable/public-networks",
+                to: "/public-networks",
               },
               {
                 label: "How to guides",
-                to: "/stable/public-networks/how-to",
+                to: "/public-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/stable/public-networks/concepts",
+                to: "/public-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/stable/public-networks/tutorials",
+                to: "/public-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/stable/public-networks/reference",
+                to: "/public-networks/reference",
               },
             ],
           },
@@ -189,23 +183,23 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/stable/private-networks",
+                to: "/private-networks",
               },
               {
                 label: "How to guides",
-                to: "/stable/private-networks/how-to",
+                to: "/private-networks/how-to",
               },
               {
                 label: "Concepts",
-                to: "/stable/private-networks/concepts",
+                to: "/private-networks/concepts",
               },
               {
                 label: "Tutorials",
-                to: "/stable/private-networks/tutorials",
+                to: "/private-networks/tutorials",
               },
               {
                 label: "Reference",
-                to: "/stable/private-networks/reference",
+                to: "/private-networks/reference",
               },
             ],
           },
@@ -276,34 +270,6 @@ const config = {
       "@docusaurus/plugin-google-tag-manager",
       {
         containerId: "GTM-THG37T4",
-      },
-    ],
-    [
-      "@docusaurus/plugin-client-redirects",
-      {
-        redirects: [
-          {
-            from: "/en/latest",
-            to: "/",
-          },
-          {
-            from: "/en/stable",
-            to: "/",
-          },
-        ],
-        createRedirects(existingPath) {
-          if (existingPath.includes("/development")) {
-            return [
-              existingPath.replace("/development", "/en/development"),
-              existingPath.replace("/development", "/en/latest"),
-              existingPath.replace("/development", "/latest"),
-            ];
-          }
-          if (existingPath.includes("/stable")) {
-            return [existingPath.replace("/stable", "/en/stable")];
-          }
-          return undefined; // Return a falsy value: no redirect created
-        },
       },
     ],
   ],

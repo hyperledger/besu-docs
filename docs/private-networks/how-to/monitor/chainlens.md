@@ -1,0 +1,118 @@
+---
+title: Use Chainlens Explorer
+sidebar_position: 7
+description: Use Chainlens Explorer on a privacy-enabled Besu network
+tags:
+  - private networks
+---
+
+# Use Chainlens Blockchain Explorer
+
+[Chainlens Blockchain Explorer](https://www.web3labs.com/chainlens) supports public and private EVM networks. This page describes how to use the free version of Chainlens with its built-in support for [privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the [Developer Quickstart](../../tutorials/quickstart.md).
+
+Chainlens provides an overview of the entire network, including block information, contract metadata, transaction searches, and [more](https://chainlens.com/).
+
+:::note
+
+You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC, in order to allow access for Besu [privacy API methods](../../reference/api/index.md#priv-methods). In production networks, you must [secure access](../../../public-networks/how-to/use-besu-api/authenticate.md) to RPC nodes.
+
+:::
+
+## Prerequisites
+
+[Docker and Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+## Start Chainlens
+
+Clone the [Chainlens GitHub repository](https://github.com/web3labs/sirato-free):
+
+```bash
+git clone https://github.com/web3labs/sirato-free
+```
+
+The repository contains Docker Compose directory to allow Chainlens to start with a Developer Quickstart test network.
+
+From the docker-compose directory, run the following command:
+
+<!--tabs-->
+
+# Command
+
+```bash
+NODE_ENDPOINT=http://rpcnode:8545 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+```
+
+The command above does two things:
+
+- It sets up the node endpoint
+- Tells docker to run by using the two docker compose files provided.
+
+The first docker-compose file in the command contains all the services required for Chainlens.
+
+The second file named docker-compose-besu contains the network settings required to start Chainlens on the same network as Besu dev node.
+
+
+
+# Result
+
+<!--/tabs-->
+
+Open `http://localhost/` on your browser. You’ll see the new initialization page while it boots up. This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
+
+![`Chainlens_loading`](../../../assets/images/chainlens-loading.png)
+
+## Chainlens Overview
+
+*screenshots are taken from [Chainlens Goerli network](https://goerli.chainlens.com/dashboard)
+
+The **Dashboard** page provides an aggregated view of network activities.
+
+![`Chainlens_dashboard`](../../../assets/images/chainlens-dashboard.png)
+
+The **Network** page provides an overview of the network status and connected peers. This page is disabled by default, and is only visible if you set `DISPLAY_NETWOR_TAB=enabled` using the following command:
+
+```bash
+NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+```
+
+
+
+The **Blocks** page shows a real-time view of the finalized blocks.
+
+![Chainlens blocks](../../../assets/images/chainlens-block.png)
+
+You can view a given block details by selecting a block hash or number.
+
+![Chainlens block details](../../../assets/images/chainlens-block-details.png)
+
+The **Transactions** page shows a paginated view of new and historical transactions.
+
+![Chainlens transactions](../../../assets/images/chainlens-transactions.png)
+
+If you click on any transaction hash, you can get the **transaction details.**
+
+![Chainlens transaction_details](../../../assets/images/chainlens-transaction-details.png)
+
+The **Contracts** page shows all the smart contracts deployed on the network.
+
+![Chainlens contracts](../../../assets/images/chainlens-contracts.png)
+
+You can view a smart contract details by selecting the contract address.
+
+![Chainlens contract details](../../../assets/images/chainlens-contract-details.png)
+
+The **Events** page shows all the events generated on the network.
+
+![Chainlens events](../../../assets/images/chainlens-events.png)
+
+## Stop Chainlens
+
+To stop all the services from running, run the following command:
+
+<!--tabs-->
+
+# Command
+
+```bash
+docker-compose down
+```

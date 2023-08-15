@@ -105,7 +105,7 @@ To display the list of endpoints again, run:
 
 ## Use a block explorer
 
-You can [use Sirato Blockchain Explorer](../how-to/monitor/sirato-explorer.md) to analyze block information, contract metadata, transaction searches, and more. Sirato has built-in support for privacy-enabled Besu networks.
+You can [use Chainlens Blockchain Explorer](../how-to/monitor/chainlens.md) to analyze block information, contract metadata, transaction searches, and more. Chainlens has built-in support for privacy-enabled Besu networks.
 
 :::note
 
@@ -113,13 +113,13 @@ You must connect to one of the privacy nodes (for example, `member1besu`), not t
 
 :::
 
-Clone the [Sirato GitHub repository](https://github.com/web3labs/sirato-free):
+Clone the [Chainlens GitHub repository](https://github.com/web3labs/sirato-free):
 
 ```bash
 git clone https://github.com/web3labs/sirato-free
 ```
 
-From the Sirato directory, run the following command:
+From the docker-compose directory, run the following command:
 
 ```bash
 cd docker-compose

@@ -8,6 +8,7 @@ PONLY
 Prysm
 Randao
 Chainlens
+Sirato
 Snapsync
 UPNPP
 Worldstate

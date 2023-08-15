@@ -113,10 +113,10 @@ You must connect to one of the privacy nodes (for example, `member1besu`), not t
 
 :::
 
-Clone the [Chainlens GitHub repository](https://github.com/web3labs/sirato-free):
+Clone the [Chainlens GitHub repository](https://github.com/web3labs/chainlens-free):
 
 ```bash
-git clone https://github.com/web3labs/sirato-free
+git clone https://github.com/web3labs/chainlens-free
 ```
 
 From the docker-compose directory, run the following command:

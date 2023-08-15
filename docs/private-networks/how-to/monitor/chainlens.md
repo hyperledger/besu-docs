@@ -8,7 +8,7 @@ tags:
 
 # Use Chainlens Blockchain Explorer
 
-[Chainlens Blockchain Explorer](https://www.web3labs.com/chainlens) supports public and private EVM networks. This page describes how to use the free version of Chainlens with its built-in support for [privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the [Developer Quickstart](../../tutorials/quickstart.md).
+[Chainlens Blockchain Explorer](https://chainlens.com/) supports public and private EVM networks. This page describes how to use the free version of Chainlens with its built-in support for [privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the [Developer Quickstart](../../tutorials/quickstart.md).
 
 Chainlens provides an overview of the entire network, including block information, contract metadata, transaction searches, and [more](https://chainlens.com/).
 
@@ -24,10 +24,10 @@ You must connect to one of the privacy nodes (for example, `member1besu`), not t
 
 ## Start Chainlens
 
-Clone the [Chainlens GitHub repository](https://github.com/web3labs/sirato-free):
+Clone the [Chainlens GitHub repository](https://github.com/web3labs/chainlens-free):
 
 ```bash
-git clone https://github.com/web3labs/sirato-free
+git clone https://github.com/web3labs/chainlens-free
 ```
 
 The repository contains Docker Compose directory to allow Chainlens to start with a Developer Quickstart test network.

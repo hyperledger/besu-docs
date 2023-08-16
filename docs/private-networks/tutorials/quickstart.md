@@ -105,12 +105,15 @@ To display the list of endpoints again, run:
 
 ## Use a block explorer
 
-You can [use Chainlens Blockchain Explorer](../how-to/monitor/chainlens.md) to analyze block information, contract metadata, transaction searches, and more. Chainlens has built-in support for privacy-enabled Besu networks.
+You can [use Chainlens Blockchain Explorer](../how-to/monitor/chainlens.md) to analyze block
+information, contract metadata, transaction searches, and more.
+Chainlens has built-in support for privacy-enabled Besu networks.
 
 :::note
-
-You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC, in order to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods). In production networks, you must [secure access](../../public-networks/how-to/use-besu-api/authenticate.md) to RPC nodes.
-
+You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC,
+to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods). 
+In production networks, you must [secure access](../../public-networks/how-to/use-besu-api/authenticate.md)
+to RPC nodes.
 :::
 
 Clone the [Chainlens GitHub repository](https://github.com/web3labs/chainlens-free):
@@ -119,16 +122,18 @@ Clone the [Chainlens GitHub repository](https://github.com/web3labs/chainlens-fr
 git clone https://github.com/web3labs/chainlens-free
 ```
 
-From the docker-compose directory, run the following command:
+From the `docker-compose` directory, run the following command:
 
 ```bash
 cd docker-compose
 NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
-Open `http://localhost/` on your browser. You’ll see the new initialization page while it boots up. This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
+Open `http://localhost/` on your browser.
+You’ll see the new initialization page while it boots up.
+This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
-To stop all the services from running, run the following script from the `docker-compose` directory:
+To stop all the services from running, run the following command from the `docker-compose` directory:
 
 ```bash
 docker-compose down -v

@@ -40,7 +40,7 @@ Quickstart test network.
 From the `docker-compose` directory, run the following command:
 
 ```bash
-NODE_ENDPOINT=http://rpcnode:8545 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+NODE_ENDPOINT=http://rpcnode:8545 docker-compose -f docker-compose.yml -f chainlens-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
 This command does two things:
@@ -50,7 +50,7 @@ This command does two things:
 
 The first `docker-compose.yml` file in the command contains all the services required for Chainlens.
 
-The second file named `docker-compose-besu` contains the network settings required to start
+The second file named `docker-compose-quorum-dev-quickstart` contains the network settings required to start
 Chainlens on the same network as the Besu development node.
 
 Next, open `http://localhost/` on your browser.
@@ -76,7 +76,7 @@ This page is disabled by default, and is only visible if you set `DISPLAY_NETWOR
 the following command:
 
 ```bash
-NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+NODE_ENDPOINT=http://member1besu:8545 DISPLAY_NETWORK_TAB=enabled docker-compose -f docker-compose.yml -f chainlens-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
 The **Blocks** page shows a real-time view of the finalized blocks.

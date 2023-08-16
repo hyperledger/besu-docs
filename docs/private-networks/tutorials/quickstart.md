@@ -126,7 +126,7 @@ From the `docker-compose` directory, run the following command:
 
 ```bash
 cd docker-compose
-NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f chainlens-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
 Open `http://localhost/` on your browser.

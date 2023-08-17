@@ -698,7 +698,7 @@ The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over 
 # Syntax
 
 ```bash
---ethstats=<nodename:secret@host:port>
+--ethstats=<[ws://|wss://]nodename:secret@host:[port]>
 ```
 
 # Example
@@ -721,7 +721,11 @@ ethstats="Dev-Node-1:secret@127.0.0.1:3001"
 
 <!--/tabs-->
 
-Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.md) server. If specified without a port, the default port is 443 for SSL connections and 80 for non-SSL connections.
+Reporting URL of an [Ethstats](../../../private-networks/how-to/deploy/ethstats.md) server.
+If specified without a port, the default port is 443 for SSL connections and 80 for non-SSL connections.
+
+You can optionally specify `ws://` or `wss://` in the Ethstats URL.
+If you specify this scheme, the connection doesn't need to switch from SSL to non-SSL on each retry logic.
 
 ### `ethstats-cacert-file`
 

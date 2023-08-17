@@ -976,6 +976,85 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0
 
 <!--/tabs-->
 
+### `debug_getRawReceipts`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the transaction receipts of the specified block.
+
+#### Parameters
+
+`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: _object_ - array of RLP-encoded [transaction receipts](objects.md#transaction-receipt-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x7ef9010c0182fa0db9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c08353766d"
+}
+```
+
+<!--/tabs-->
+
+### `debug_getRawTransaction`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the specified transaction.
+
+#### Parameters
+
+`transaction`: _string_ - 32-byte transaction hash
+
+#### Returns
+
+`result`: _object_ - RLP-encoded [transaction object](objects.md#transaction-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xe6808609184e72a0008303000094b0920c523d582040f2bcb1bd7fb1c7c1ecebdb3480801c8080"
+}
+```
+
+<!--/tabs-->
+
 ### `debug_metrics`
 
 Returns metrics providing information on the internal operation of Besu.

@@ -118,7 +118,7 @@ By default, the error returned by [`eth_estimateGas`](../../../public-networks/r
   "id": 3,
   "error": {
     "code": -32000,
-    "message": "Execution reverted",
+    "message": "Execution reverted: ERC20: transfer amount exceeds balance",
     "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000"
   }
 }

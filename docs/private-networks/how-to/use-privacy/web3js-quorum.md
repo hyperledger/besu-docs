@@ -46,7 +46,7 @@ Initialize your client where:
 # Syntax
 
 ```js
-const Web3 = require("web3");
+const { Web3 } = require("web3");
 const Web3Quorum = require("web3js-quorum");
 const web3 = new Web3Quorum(new Web3("<JSON-RPC HTTP endpoint>"));
 ```
@@ -54,7 +54,7 @@ const web3 = new Web3Quorum(new Web3("<JSON-RPC HTTP endpoint>"));
 # Example
 
 ```js
-const Web3 = require("web3");
+const { Web3 } = require("web3");
 const Web3Quorum = require("web3js-quorum");
 const web3 = new Web3Quorum(new Web3("http://localhost:8545"));
 ```

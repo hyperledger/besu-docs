@@ -45,8 +45,10 @@ const config = {
               path: "development",
             },
             //the last stable release in the versioned_docs/version-stable
+            "23.7.1": {
+              label: "stable (23.7.1)",
             "23.4.1": {
-              label: "stable (23.4.1)",
+              label: "23.4.1",
             },
             "23.4.0": {
               label: "23.4.0",

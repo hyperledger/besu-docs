@@ -3532,38 +3532,6 @@ rpc-ws-port="6174"
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
-### `json-pretty-print-enabled`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---json-pretty-print-enabled[=<true|false>]
-```
-
-# Example
-
-```bash
---json-pretty-print-enabled=true
-```
-
-# Environment variable
-
-```bash
-JSON_PRETTY_PRINT_ENABLED=true
-```
-
-# Configuration file
-
-```bash
-json-pretty-print-enabled=true
-```
-
-<!--/tabs-->
-
-Enables or disables the pretty-print the output for HTTP and Websockets responses. The default is `false`.
-
 ### `security-module`
 
 <!--tabs-->

@@ -286,12 +286,12 @@ Besu doesn't incorporate [account management](../../public-networks/how-to/send-
 
 ## Smart contract and dapp usage
 
-You can use a demo dapp called QuorumToken which makes use of an ERC20 token that is deployed to the chain.
+You can use a demo dapp called QuorumToken which uses an ERC20 token that is deployed to the network.
 
-Behind the scenes uses [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www.npmjs.com/package/ethers) and [MetaMask](https://metamask.io/) to interact with the chain. As such the process comprises two parts:
+We'll use [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www.npmjs.com/package/ethers) and [MetaMask](https://metamask.io/) to interact with the network, which involves the following steps:
 
-1. Deploy the contract to the chain and **save the contract's address**
-2. Start the DApp and use the UI to read and transact on the chain with the token.
+1. Deploy the contract and **save the contract's address**.
+1. Start the dapp, and read and transact with the deployed token.
 
 The `dapps/quorumToken` folder is this structured in this manner (only relevant paths shown):
 
@@ -301,7 +301,7 @@ quorumToken
 ├── contracts               // the QuorumToken.sol
 ├── scripts                 // handy scripts eg: to deploy to a chain
 ├── test                    // contract tests
-└── frontend                // DApp done in next.js
+└── frontend                // dapp done in next.js
   ├── public
   ├── src
   ├── styles
@@ -309,7 +309,8 @@ quorumToken
 ```
 
 ### Deploy the contract 
-Once the chain is up and running, enter the `quorumToken` folder and run the following:
+
+Once the network is up and running, enter the `quorumToken` directory and run the following:
 
 ```bash
 # install dependencies
@@ -320,7 +321,8 @@ npm run test
 # deploy the contract to the quickstart network
 npm run deploy-quorumtoken
 ```
-with the output
+The output is similar to the following:
+
 ```bash
 
 # compile
@@ -346,20 +348,20 @@ Compiled 5 Solidity files successfully
 # deploy
 Contract deploy at: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
-This will deploy the contract to the network and return the address. **Please save this address for the next step.**
+This will deploy the contract to the network and return the address. **Please save this address for the next step**.
 
-### Run the DApp
+### Run the dapp
 
-The dapp runs a local website using next.js, and uses the contract in the previous step deployed on the network.
+The dapp runs a local website using Next.js, and uses the contract in the previous step deployed on the network.
 
-With the blockchain running, and MetaMask connected to **Localhost 8545**, import one of [our test accounts via private key](../reference/accounts-for-testing.md). Then run the following command:
+With the blockchain running, and MetaMask connected to `localhost` on port `8545`, import one of [our test accounts via private key](../reference/accounts-for-testing.md), and run the following command:
 
 ```bash
 cd frontend
 npm i
 npm run dev
 ```
-This starts the DApp, binding it to port 3001 on your system.
+This starts the dapp, binding it to port `3001` on your machine.
 
 ```text
 
@@ -372,10 +374,12 @@ This starts the DApp, binding it to port 3001 on your system.
 - event compiled client and server successfully in 173 ms (18 modules)
 ```
 
-In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate to [the QuorumToken dapp](http://localhost:3001).
+In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate to
+[the QuorumToken dapp](http://localhost:3001).
 Connect to MetaMask and input the address from the previous step. Fox example our contract above deployed to `0x5FbDB2315678afecb367f032d93F642f64180aa3`. 
 
-The DApp will then read the balance of the account from MetaMask and get details of the contract. You can then send funds to another address (any of the other test accounts) on the network and MetaMask will sign and send the transaction.
+The dapp will then read the balance of the account from MetaMask and get details of the contract. You can then send funds
+to another address (any of the other test accounts) on the network, and MetaMask will sign and send the transaction.
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
@@ -389,7 +393,9 @@ The MetMask UI also keeps a record of the transaction.
 
 You can deploy your own dapp to the Quorum Developer Quickstart by configuring your dapp to point to the Quickstart network.
 
-We recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/project-setup), and you can use the sample `hardhat.config.js` to configure the networks object in the [Hardhat configuration file](https://hardhat.org/hardhat-network/docs/reference#config) to specify which networks to connect to for deployments and testing. The Quickstart's RPC service endpoint is `http://localhost:8545`.
+We recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/project-setup), and you can use the sample
+`hardhat.config.js` to configure the `networks` object in the [Hardhat configuration file](https://hardhat.org/hardhat-network/docs/reference#config)
+to specify which networks to connect to for deployments and testing. The Quickstart's RPC service endpoint is `http://localhost:8545`.
 
 For example, the following is the Hardhat configuration file for the QuorumToken dapp used in the Quickstart GoQuorum network:
 

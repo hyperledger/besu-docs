@@ -30,7 +30,7 @@ The following features are shared with [public networks](../../public-networks/i
   - [Manage JVM memory](../../public-networks/how-to/configure-jvm/manage-memory.md)
   - [Use Java Flight Recorder](../../public-networks/how-to/configure-jvm/java-flight-recorder.md)
 - Develop dapps:
-  - [Use Truffle](../../public-networks/how-to/develop/truffle.md)
+  - [Use Hardhat](../../public-networks/how-to/develop/hardhat.md)
   - [Use client libraries](../../public-networks/how-to/develop/client-libraries.md)
 - Troubleshoot:
   - [Use EVM tool](../../public-networks/how-to/troubleshoot/evm-tool.md)

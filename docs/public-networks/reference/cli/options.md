@@ -3551,7 +3551,7 @@ The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You m
 # Environment variable
 
 ```bash
-JSON_PRETTY_PRINT_ENABLED=true
+BESU_JSON_PRETTY_PRINT_ENABLED=true
 ```
 
 # Configuration file
@@ -3562,7 +3562,7 @@ json-pretty-print-enabled=true
 
 <!--/tabs-->
 
-Enables or disables the pretty-print the output for HTTP and Websockets responses. The default is `false`.
+Enables or disables the pretty-print output for HTTP and WebSocket responses. The default is `false`.
 
 ### `security-module`
 

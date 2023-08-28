@@ -18,7 +18,7 @@ The [permissioning-contract-repo](https://github.com/ConsenSys/permissioning-sma
 Please update all dependencies in there before proceeding. 
 
 In addition, we also recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/deploying) instead of [Truffle](https://trufflesuite.com/),
-as the development environment. Please refer to the Quorum Dev Quickstart for an [example](../../tutorials/quickstart.md)
+as the development environment. Please refer to the [Quorum Dev Quickstart](../../tutorials/quickstart.md) for an example.
 
 :::
 

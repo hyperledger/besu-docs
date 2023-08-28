@@ -14,7 +14,7 @@ import Postman from '../../global/postman.md';
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private [IBFT 2.0](../how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
 
-:::danger
+:::caution
 
 This tutorial runs a private network suitable for education or demonstration purposes and is not intended for running production networks.
 

@@ -293,7 +293,7 @@ We'll use [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www
 1. Deploy the contract and **save the contract's address**.
 1. Start the dapp, and read and transact with the deployed token.
 
-The `dapps/quorumToken` folder is this structured in this manner (only relevant paths shown):
+The `dapps/quorumToken` directory is this structured in this manner (only relevant paths shown):
 
 ```bash
 quorumToken

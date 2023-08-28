@@ -12,14 +12,12 @@ The following steps describe bootstrapping a permissioned network using a Hyperl
 
 This tutorial configures permissioning on a [IBFT 2.0 proof of authority (PoA)] network.
 
-:::warning Security warning
-
-**Please use this as reference material only!**
+:::caution Please use this as reference material only!
 
 The [permissioning-contract-repo](https://github.com/ConsenSys/permissioning-smart-contracts) has been archived and is intended as reference material only.
 Please update all dependencies in there before proceeding. 
 
-In addition we also recommend you using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/deploying) instead of [Truffle](https://trufflesuite.com/),
+In addition, we also recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/deploying) instead of [Truffle](https://trufflesuite.com/),
 as the development environment. Please refer to the Quorum Dev Quickstart for an [example](../../tutorials/quickstart.md)
 
 :::

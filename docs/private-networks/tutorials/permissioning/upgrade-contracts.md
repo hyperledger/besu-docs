@@ -10,6 +10,18 @@ tags:
 
 The following tutorial describes the steps to upgrade the onchain permissioning contracts to the latest version.
 
+:::warning Security warning
+
+**Please use this as reference material only!**
+
+The [permissioning-contract-repo](https://github.com/ConsenSys/permissioning-smart-contracts) has been archived and is intended as reference material only.
+Please update all dependencies in there before proceeding. 
+
+In addition we also recommend you using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/deploying) instead of [Truffle](https://trufflesuite.com/),
+as the development environment. Please refer to the Quorum Dev Quickstart for an [example](../../tutorials/quickstart.md)
+
+:::
+
 ## Prerequisites
 
 <!-- vale off -->
@@ -19,7 +31,9 @@ The following tutorial describes the steps to upgrade the onchain permissioning 
 - [Yarn](https://yarnpkg.com/en/) v1.15 or later
 - Browser with [MetaMask installed](https://metamask.io/).
 
+
 ## Steps
+
 
 ### 1. Get the latest contracts and install dependencies
 

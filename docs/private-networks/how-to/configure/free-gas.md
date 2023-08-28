@@ -34,7 +34,7 @@ When gas is free, limiting block and contract sizes is less important. In free g
 
 ### 1. Set the block size
 
-If you want to remove gas from consideration and don't mind blocks potentially taking longer to create, in the genesis file set the block size limit (measured in gas) to the maximum accepted by Truffle (`0x1fffffffffffff`). In the genesis file, specify `gasLimit` following the `config` key.
+If you want to remove gas from consideration and don't mind blocks potentially taking longer to create, in the genesis file set the block size limit (measured in gas) to the maximum accepted by Hardhat (`0x1fffffffffffff`). In the genesis file, specify `gasLimit` following the `config` key.
 
 ```json
 {
@@ -107,21 +107,21 @@ If your network is configured to use the `londonBlock` or a later hard fork, the
 }
 ```
 
-## Configure free gas in Truffle
+## Configure free gas in Hardhat
 
-If using Truffle to develop on your free gas network, you also need to configure free gas in Truffle.
+If using Hardhat to develop on your free gas network, you also need to configure free gas in Hardhat.
 
-Like setting block and contract size limits to their maximum values for Besu, set the transaction gas limit in Truffle to the maximum possible.
+Like setting block and contract size limits to their maximum values for Besu, set the transaction gas limit in Hardhat to the maximum possible.
 
 :::info
 
-Besu does not support private key management. To use Besu with Truffle, you must configure a [Truffle wallet](../../../public-networks/how-to/develop/truffle.md).
+Besu does not support private key management. To use Besu with Hardhat, you must configure a [Hardhat wallet](../../../public-networks/how-to/develop/hardhat.md).
 
 :::
 
-### Update `truffle-config.js`
+### Update `hardhat.config.js`
 
-Update the `truffle-config.js` file:
+Update the `hardhat.config.js` file:
 
 1. Set the gas price to zero.
 

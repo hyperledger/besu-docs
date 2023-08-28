@@ -5529,7 +5529,6 @@ None
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
 | `7`        | ETC   | Mordor  | PoW test network              |
 | `6`        | ETC   | Kotti   | PoA test network using Clique |
-| `212`      | ETC   | Astor   | PoW test network              |
 
 :::note
 

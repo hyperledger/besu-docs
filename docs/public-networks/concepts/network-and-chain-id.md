@@ -43,7 +43,6 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 | `classic` | ETC   | 61       | 1          | Production  |
 | `mordor`  | ETC   | 63       | 7          | Test        |
 | `kotti`   | ETC   | 6        | 6          | Test        |
-| `astor`   | ETC   | 212      | 212        | Test        |
 
 :::info
 

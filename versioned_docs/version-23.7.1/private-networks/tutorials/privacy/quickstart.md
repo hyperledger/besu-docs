@@ -101,13 +101,13 @@ Navigate to the `smart_contracts` directory and deploy the private transaction:
 ```bash
 cd smart_contracts
 npm install
-node scripts/private_tx.js
+node scripts/private/private_tx.js
 ```
 
 The script deploys the contract and sends an arbitrary value (47) from `Member1` to `Member3`. Once done, it queries all three members (Tessera) to check the value at an address. Only `Member1` & `Member3` has this information as they were involved in the transaction, `Member2` responds with a `0x` to indicate it is unaware of the transaction.
 
 ```bash
-node scripts/private_tx.js
+node scripts/private/private_tx.js
 Creating contract...
 Getting contractAddress from txHash:  0xc1b57f6a7773fe887afb141a09a573d19cb0fdbb15e0f2b9ed0dfead6f5b5dbf
 Waiting for transaction to be mined ...

@@ -1900,8 +1900,6 @@ Possible values are:
 | `dev` | ETH | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
 | `classic` | ETC | Production | [FAST](#sync-mode) | The main Ethereum Classic network |
 | `mordor ` | ETC | Test | [FAST](#sync-mode) | A PoW network |
-| `kotti` | ETC | Test | [FAST](#sync-mode) | A PoA network using Clique |
-| `astor` | ETC | Test | [FAST](#sync-mode) | A PoW network |
 
 :::tip
 

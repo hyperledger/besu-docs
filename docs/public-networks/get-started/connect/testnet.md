@@ -77,6 +77,22 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
+# Holesky
+
+```bash
+besu \
+  --network=holesky           \
+  --rpc-http-enabled=true     \
+  --rpc-http-host=0.0.0.0     \
+  --rpc-http-cors-origins="*" \
+  --rpc-ws-enabled=true       \
+  --rpc-ws-host=0.0.0.0       \
+  --host-allowlist="*"        \
+  --engine-host-allowlist="*" \
+  --engine-rpc-enabled        \
+  --engine-jwt-secret=<path to jwtsecret.hex>
+```
+
 # Sepolia
 
 ```bash

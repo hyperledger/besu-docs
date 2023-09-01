@@ -42,7 +42,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redocusaurus": "^1.6.1",
-    "remark-docusaurus-tabs": "^0.2.0"
+    "remark-docusaurus-tabs": "^0.2.0",
+    "stylelint": "^14.16.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
@@ -71,7 +72,6 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "semantic-release": "^21.0.0",
-    "stylelint": "^15.10.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
     "tsc-files": "^1.1.3",

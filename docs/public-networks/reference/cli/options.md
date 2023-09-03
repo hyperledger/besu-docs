@@ -1895,9 +1895,9 @@ Possible values are:
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
 | :-------- | :---- | :-----------| :----------------- | :------------------------------------------------------------- |
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoA network                                                  |
-| `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoA network                                                  |
-| `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoA network                                                  |
+| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
+| `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
+| `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |

@@ -92,6 +92,18 @@ Where `<path>` and `<goerlidata-path>` are the path and directory to save the Go
 
 See the [guide on connecting to a testnet](connect/testnet.md) for more information.
 
+## Run a node on Holesky testnet
+
+To run a node on [Holesky](https://github.com/eth-clients/holesky) specifying a data directory:
+
+```bash
+besu --network=holesky --data-path=<path>/<holeskydata-path>
+```
+
+Where `<path>` and `<holeskydata-path>` are the path and directory to save the Holesky chain data to.
+
+See the [guide on connecting to a testnet](connect/testnet.md) for more information.
+
 ## Run a node on Sepolia testnet
 
 To run a node on [Sepolia](https://github.com/goerli/sepolia) specifying a data directory:

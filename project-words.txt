@@ -245,6 +245,7 @@ heuristical
 hideable
 hids
 hola
+holesky
 horiz
 hostman
 hostnames

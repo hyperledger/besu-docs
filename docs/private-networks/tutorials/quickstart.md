@@ -14,7 +14,7 @@ import Postman from '../../global/postman.md';
 
 The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private [IBFT 2.0](../how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
 
-:::danger
+:::caution
 
 This tutorial runs a private network suitable for education or demonstration purposes and is not intended for running production networks.
 
@@ -30,7 +30,7 @@ This tutorial runs a private network suitable for education or demonstration pur
     - Docker desktop configured to use the WSL2-based engine
 - [Docker and Docker Compose](https://docs.docker.com/compose/install/)
 - [Node.js](https://nodejs.org/en/download/) version 12 or higher
-- [Truffle](https://www.trufflesuite.com/truffle)
+- [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started#overview)
 - [cURL command line](https://curl.haxx.se/download.html)
 - [MetaMask](https://metamask.io/)
 
@@ -105,30 +105,35 @@ To display the list of endpoints again, run:
 
 ## Use a block explorer
 
-You can [use Sirato Blockchain Explorer](../how-to/monitor/sirato-explorer.md) to analyze block information, contract metadata, transaction searches, and more. Sirato has built-in support for privacy-enabled Besu networks.
+You can [use Chainlens Blockchain Explorer](../how-to/monitor/chainlens.md) to analyze block
+information, contract metadata, transaction searches, and more.
+Chainlens has built-in support for privacy-enabled Besu networks.
 
 :::note
-
-You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC, in order to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods). In production networks, you must [secure access](../../public-networks/how-to/use-besu-api/authenticate.md) to RPC nodes.
-
+You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC,
+to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods). 
+In production networks, you must [secure access](../../public-networks/how-to/use-besu-api/authenticate.md)
+to RPC nodes.
 :::
 
-Clone the [Sirato GitHub repository](https://github.com/web3labs/sirato-free):
+Clone the [Chainlens GitHub repository](https://github.com/web3labs/chainlens-free):
 
 ```bash
-git clone https://github.com/web3labs/sirato-free
+git clone https://github.com/web3labs/chainlens-free
 ```
 
-From the Sirato directory, run the following command:
+From the `docker-compose` directory, run the following command:
 
 ```bash
 cd docker-compose
-NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f sirato-extensions/docker-compose-quorum-dev-quickstart.yml up
+NODE_ENDPOINT=member1besu PORT=26000 docker-compose -f docker-compose.yml -f chainlens-extensions/docker-compose-quorum-dev-quickstart.yml up
 ```
 
-Open `http://localhost/` on your browser. You’ll see the new initialization page while it boots up. This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
+Open `http://localhost/` on your browser.
+You’ll see the new initialization page while it boots up.
+This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
-To stop all the services from running, run the following script from the `docker-compose` directory:
+To stop all the services from running, run the following command from the `docker-compose` directory:
 
 ```bash
 docker-compose down -v
@@ -244,6 +249,74 @@ The result indicates the highest block number synchronized on this node.
 
 Here the hexadecimal value `0x2a` translates to decimal as `42`, the number of blocks received by the node so far, about two minutes after the new network started.
 
+## Public transactions
+
+This example uses the [web3.js](https://www.npmjs.com/package/web3) library to make the API calls, using the `rpcnode`
+accessed on `http://localhost:8545`.
+
+Navigate to the `smart_contracts` directory and deploy the public transaction:
+
+```bash
+cd smart_contracts
+npm install
+node scripts/public/public_tx.js
+# or via ethers
+node scripts/public/public_tx_ethers.js
+```
+
+This deploys the contract and sends an arbitrary value (`47`) from `Member1` to `Member3`. The script then performs:
+
+1. A read operation on the contract using the `get` function and the contract's ABI, at the specified address.
+1. A write operation using the `set` function and the contract's ABI, at the address and sets the value to `123`.
+1. A read operation on all events emitted.
+
+The script output is as follows:
+
+```bash
+{
+  address: '0x2b224e70f606267586616586850aC6f4Ae971eCb',
+  privateKey: '0xb3f2ab4d7bb07a4168432fb572ceb57fd9b842ed8dc41256255db6ff95784000',
+  signTransaction: [Function: signTransaction],
+  sign: [Function: sign],
+  encrypt: [Function: encrypt]
+}
+create and sign the txn
+sending the txn
+tx transactionHash: 0x423d56f958a316d2691e05e158c6a3f37004c27a1ec9697cf9fed2a5c2ae2c2b
+tx contractAddress: 0xB9A44d3BeF64ABfA1485215736B61880eDe630D9
+Contract deployed at address: 0xB9A44d3BeF64ABfA1485215736B61880eDe630D9
+Use the smart contracts 'get' function to read the contract's constructor initialized value .. 
+Obtained value at deployed contract is: 47
+Use the smart contracts 'set' function to update that value to 123 .. 
+sending the txn
+tx transactionHash: 0xab460da2544687c5fae4089d01b14bbb9bea765449e1fd2c30b30e1761481344
+tx contractAddress: null
+Verify the updated value that was set .. 
+Obtained value at deployed contract is: 123
+Obtained all value events from deployed contract : [47,123]
+```
+
+We also have a second example that shows how to transfer ETH between accounts. Navigate to the `smart_contracts` directory
+and deploy the `eth_tx` transaction:
+
+```bash
+cd smart_contracts
+npm install
+node scripts/public/eth_tx.js
+```
+
+The output is as follows:
+
+```bash
+Account A has balance of: 90000
+Account B has balance of: 0
+create and sign the txn
+sending the txn
+tx transactionHash: 0x8b9d247900f2b50a8dded3c0d73ee29f04487a268714ec4ebddf268e73080f98
+Account A has an updated balance of: 89999.999999999999999744
+Account B has an updated balance of: 0.000000000000000256
+```
+
 ## Create a transaction using MetaMask
 
 You can use [MetaMask](https://metamask.io/) to send a transaction on your private network.
@@ -281,138 +354,100 @@ Besu doesn't incorporate [account management](../../public-networks/how-to/send-
 
 ## Smart contract and dapp usage
 
-You can use a demo dapp called Pet Shop, provided by [Truffle](https://www.trufflesuite.com/tutorial).
+You can use a demo dapp called QuorumToken which uses an ERC20 token that is deployed to the network.
 
-The dapp runs a local website using Docker, and uses smart contracts deployed on the network.
+We'll use [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www.npmjs.com/package/ethers) and [MetaMask](https://metamask.io/) to interact with the network, which involves the following steps:
 
-The directory created by `quorum-dev-quickstart` includes a `dapps` directory with a `pet-shop` subdirectory, which contains the source code for the dapp, including the smart contracts, website, and configurations to run this tutorial.
+1. Deploy the contract and **save the contract's address**.
+1. Start the dapp, and read and transact with the deployed token.
 
-With the blockchain running and MetaMask connected to `Localhost 8545` via the browser, run the following command to start the Pet Shop dapp:
+The `dapps/quorumToken` directory is this structured in this manner (only relevant paths shown):
 
 ```bash
-cd dapps/pet-shop
-./run_dapp.sh
+quorumToken
+├── hardhat.config.ts       // hardhat network config
+├── contracts               // the QuorumToken.sol
+├── scripts                 // handy scripts eg: to deploy to a chain
+├── test                    // contract tests
+└── frontend                // dapp done in next.js
+  ├── public
+  ├── src
+  ├── styles
+  ├── tsconfig.json
 ```
 
-The script:
+### Deploy the contract 
 
-1. Installs the dapp Node dependencies (you may see some warnings here, but it will not prevent the dapp from running).
-1. Compiles the contracts.
-1. Deploys the contracts to the blockchain.
-1. Runs tests.
-1. Builds and runs a Docker image to serve the dapp website.
+Once the network is up and running, enter the `quorumToken` directory and run the following:
 
-```text './run_dapp.sh' example output
-Compiling your contracts...
-===========================
-> Compiling ./contracts/Adoption.sol
-> Compiling ./contracts/Migrations.sol
-> Artifacts written to /Users/demo/quorum-test-network/dapps/pet-shop/pet-shop-box/build/contracts
-> Compiled successfully using:
-    - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
-
-Starting migrations...
-======================
-> Network name:    'quickstartWallet'
-> Network id:      1337
-> Block gas limit: 16234336 (0xf7b760)
-
-1_initial_migration.js
-======================
-
-    Deploying 'Migrations'
-    ----------------------
-    > transaction hash:    0xdd27f5bc5b0c4a42bb4f4d9ba00b4d33742de10ba8f03484cbf095ee824ba11a
-    > Blocks: 0            Seconds: 0
-    > contract address:    0xFB88dE099e13c3ED21F80a7a1E49f8CAEcF10df6
-    > block number:        2747
-    > block timestamp:     1618000437
-    > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-    > balance:             89999.97435026
-    > gas used:            221555 (0x36173)
-    > gas price:           20 gwei
-    > value sent:          0 ETH
-    > total cost:          0.0044311 ETH
-
-
-    > Saving migration to chain.
-    > Saving artifacts
-      -------------------------------------
-    > Total cost:           0.0044311 ETH
-
-2_deploy_contracts.js
-=====================
-
-    Deploying 'Adoption'
-    --------------------
-    > transaction hash:    0xd6f5b11807a0727a92b6063c95b9101769d310592b0d3cf35d6df233d05d50e6
-    > Blocks: 0            Seconds: 0
-    > contract address:    0xf204a4Ef082f5c04bB89F7D5E6568B796096735a
-    > block number:        2749
-    > block timestamp:     1618000441
-    > account:             0x627306090abaB3A6e1400e9345bC60c78a8BEf57
-    > balance:             89999.968712
-    > gas used:            239915 (0x3a92b)
-    > gas price:           20 gwei
-    > value sent:          0 ETH
-    > total cost:          0.0047983 ETH
-
-
-    > Saving migration to chain.
-    > Saving artifacts
-      -------------------------------------
-    > Total cost:           0.0047983 ETH
-
-Summary
-=======
-> Total deployments:   2
-> Final cost:          0.0092294 ETH
-
-
-Using network 'quickstartWallet'.
-
-Compiling your contracts...
-===========================
-> Compiling ./test/TestAdoption.sol
-
-TestAdoption
-✓ testUserCanAdoptPet (2071ms)
-✓ testGetAdopterAddressByPetId (6070ms)
-✓ testGetAdopterAddressByPetIdInArray (6077ms)
-
-3 passing (37s)
+```bash
+# install dependencies
+npm i
+# compile the contract
+npm run compile
+npm run test
+# deploy the contract to the quickstart network
+npm run deploy-quorumtoken
 ```
+The output is similar to the following:
 
-After these tests are successful, the script builds a container for the Pet Shop dapp and deploys it, binding it to port 3001 on your system.
+```bash
+
+# compile
+> quorumToken@1.0.0 compile
+> npx hardhat compile
+
+Generating typings for: 5 artifacts in dir: typechain-types for target: ethers-v6
+Successfully generated 24 typings!
+Compiled 5 Solidity files successfully
+
+# test
+> quorumToken@1.0.0 test
+> npx hardhat test
+
+  QuorumToken
+    Deployment
+      ✔ Should have the correct initial supply (1075ms)
+      ✔ Should token transfer with correct balance (78ms)
+
+
+  2 passing (1s)
+
+# deploy
+Contract deploy at: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+```
+This will deploy the contract to the network and return the address. **Please save this address for the next step**.
+
+### Run the dapp
+
+The dapp runs a local website using Next.js, and uses the contract in the previous step deployed on the network.
+
+With the blockchain running, and MetaMask connected to `localhost` on port `8545`, import one of [our test accounts via private key](../reference/accounts-for-testing.md), and run the following command:
+
+```bash
+cd frontend
+npm i
+npm run dev
+```
+This starts the dapp, binding it to port `3001` on your machine.
 
 ```text
-Sending build context to Docker daemon  489.4MB
-Step 1/5 : FROM node:12.14.1-stretch-slim
----> 2f7e25ad14ea
-Step 2/5 : EXPOSE 3001
----> Using cache
----> 2ef0665a040a
-Step 3/5 : WORKDIR /app
----> Using cache
----> e8e97cedb575
-Step 4/5 : COPY . /app
----> f70e4265e598
-Step 5/5 : CMD npm run dev
----> Running in 3c6e8bdb3f3b
-Removing intermediate container 3c6e8bdb3f3b
----> ce2588e47ab0
-Successfully built ce2588e47ab0
-Successfully tagged quorum-dev-quickstart_pet_shop:latest
-b1615ab765656bc027f63fc60019dba1ca572305766c820f41eaf113b7e14cf8
+
+> webapp@0.1.0 dev
+> next dev -p 3001
+
+- ready started server on [::]:3001, url: http://localhost:3001
+- event compiled client and server successfully in 270 ms (18 modules)
+- wait compiling...
+- event compiled client and server successfully in 173 ms (18 modules)
 ```
 
-In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate to [the Pet Shop dapp](http://localhost:3001) where you can adopt lovely pets (sorry, not for real, it's a demo).
+In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate to
+[the QuorumToken dapp](http://localhost:3001).
+Connect to MetaMask and input the address from the previous step. Fox example our contract above deployed to `0x5FbDB2315678afecb367f032d93F642f64180aa3`. 
 
-When you select **Adopt**, a MetaMask window pops up and requests your permission to continue with the transaction.
-
-After the transaction is complete and successful, the status of the pet you adopted shows **Success**.
-
-![Dapp UI](../../assets/images/dapp-ui.png)
+The dapp will then read the balance of the account from MetaMask and get details of the contract. You can then send funds
+to another address (any of the other test accounts) on the network, and MetaMask will sign and send the transaction.
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 
@@ -424,42 +459,41 @@ The MetMask UI also keeps a record of the transaction.
 
 ### Deploy your own dapp
 
-You can deploy your own dapp to the Quorum Developer Quickstart, by configuring your dapp to point to the Quickstart network.
+You can deploy your own dapp to the Quorum Developer Quickstart by configuring your dapp to point to the Quickstart network.
 
-If you're using [Truffle](https://trufflesuite.com/truffle/), update the `networks` object in the [Truffle configuration file](https://trufflesuite.com/docs/truffle/reference/configuration#networks) to specify which networks to connect to for deployments and testing. The Quickstart RPC service endpoint is `http://localhost:8545`.
+We recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/project-setup), and you can use the sample
+`hardhat.config.js` to configure the `networks` object in the [Hardhat configuration file](https://hardhat.org/hardhat-network/docs/reference#config)
+to specify which networks to connect to for deployments and testing. The Quickstart's RPC service endpoint is `http://localhost:8545`.
 
-For example, the following is the Truffle configuration file for the Pet Shop dapp used in the Quickstart Besu network:
+For example, the following is the Hardhat configuration file for the QuorumToken dapp used in the Quickstart GoQuorum network:
 
 ```js
-const PrivateKeyProvider = require("@truffle/hdwallet-provider");
-
-// insert the private key of the account used in MetaMask, e.g. Account 1 (Miner Coinbase Account)
-const privateKey =
-  "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3";
-
 module.exports = {
   networks: {
-    development: {
-      host: "127.0.0.1",
-      port: 7545,
-      network_id: "*", // Match any network id
+    // in built test network to use when developing contracts
+    hardhat: {
+      chainId: 1337
     },
-    develop: {
-      port: 8545,
-    },
-    quickstartWallet: {
-      provider: () =>
-        new PrivateKeyProvider(privateKey, "http://localhost:8545"),
-      network_id: "*",
-    },
-  },
-};
+    quickstart: {
+      url: "http://127.0.0.1:8545",
+      chainId: 1337,
+      // test accounts only, all good ;)
+      accounts: [
+        "0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
+        "0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+        "0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f"
+      ]
+    }
+  },  
+  defaultNetwork: "hardhat",
+  ...
+  ...
 ```
 
-Deploy the dapp using:
+Deploy the contract using:
 
 ```bash
-truffle migrate --network quickstartWallet
+npx hardhat run ./scripts/deploy_quorumtoken.ts --network quickstart
 ```
 
 ## Stop and restart the private network without removing containers

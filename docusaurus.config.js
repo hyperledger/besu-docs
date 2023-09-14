@@ -36,7 +36,8 @@ const config = {
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           path: "./docs",
           includeCurrentVersion: true,
-          lastVersion: "23.4.1",
+          // Set to the last stable release
+          lastVersion: "23.7.2",
           versions: {
             //defaults to the ./docs folder
             // using 'development' instead of 'next' as path
@@ -44,9 +45,15 @@ const config = {
               label: "development",
               path: "development",
             },
-            //the last stable release in the versioned_docs/version-stable
+            // The last stable release in the versioned_docs/version-stable
+            "23.7.2": {
+              label: "stable (23.7.2)",
+            },
+            "23.7.1": {
+              label: "23.7.1",
+            },
             "23.4.1": {
-              label: "stable (23.4.1)",
+              label: "23.4.1",
             },
             "23.4.0": {
               label: "23.4.0",

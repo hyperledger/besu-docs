@@ -976,6 +976,88 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0
 
 <!--/tabs-->
 
+### `debug_getRawReceipts`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the transaction receipts of the specified block.
+
+#### Parameters
+
+`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`,
+`earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: _object_ - array of RLP-encoded [transaction receipts](objects.md#transaction-receipt-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    "0xf901a60182c70eb9010000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000002000000000000000000000008000000000000000000000000000000000040000000001000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000100000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000002000000000100000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000020000000000000000f89df89b947753cfad258efbc52a9a1452e42ffbce9be486cbf863a0ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3efa00000000000000000000000000828d0386c1122e565f07dd28c7d1340ed5b3315a000000000000000000000000021849e99c31e3113a489d7eb0fd4d8c0edbe47afa00000000000000000000000000000000000000000000000000000000029b92700",
+    "0xf901a70183018e1cb9010000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000002000000000000000000000008000000000000000000000000000000000040000000001000000000000000000000000000000000000000000000000010000000000000000000000000000000008000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000002000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000020000000000000000f89df89b947753cfad258efbc52a9a1452e42ffbce9be486cbf863a0ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3efa00000000000000000000000000828d0386c1122e565f07dd28c7d1340ed5b3315a000000000000000000000000069cda9d6cc6ce05982d0b4fdf9480f2991f39b5aa00000000000000000000000000000000000000000000000000000000029b92700"
+  ]
+}
+```
+
+<!--/tabs-->
+
+### `debug_getRawTransaction`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the specified transaction.
+
+#### Parameters
+
+`transaction`: _string_ - 32-byte transaction hash
+
+#### Returns
+
+`result`: _object_ - RLP-encoded [transaction object](objects.md#transaction-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xf8678084342770c182520894658bdf435d810c91414ec09147daa6db624063798203e880820a95a0af5fc351b9e457a31f37c84e5cd99dd3c5de60af3de33c6f4160177a2c786a60a0201da7a21046af55837330a2c52fc1543cd4d9ead00ddf178dd96935b607ff9b"
+}
+```
+
+<!--/tabs-->
+
 ### `debug_metrics`
 
 Returns metrics providing information on the internal operation of Besu.
@@ -5446,8 +5528,6 @@ None
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
 | `7`        | ETC   | Mordor  | PoW test network              |
-| `6`        | ETC   | Kotti   | PoA test network using Clique |
-| `212`      | ETC   | Astor   | PoW test network              |
 
 :::note
 

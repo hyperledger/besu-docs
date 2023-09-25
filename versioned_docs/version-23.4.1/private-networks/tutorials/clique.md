@@ -133,9 +133,7 @@ Do not use the accounts in `alloc` in the genesis file on Mainnet or any public 
 
 ### 4. Start the first node as the bootnode
 
-Change to the `Node-1` directory.
-
-Start Node-1:
+In the `Node-1` directory, start Node-1:
 
 <!--tabs-->
 

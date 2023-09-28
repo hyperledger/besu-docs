@@ -15,8 +15,7 @@ Access the [Hyperledger Besu API](../../reference/api/index.md) using:
 
 :::note
 
-HTTP and WebSocket responses are compact JSON by default. You can use `--json-pretty-print-enabled`
-to pretty-print the output.
+HTTP and WebSocket responses are compact JSON by default. You can use [`--json-pretty-print-enabled`](../../reference/cli/options.md#json-pretty-print-enabled) to pretty-print the output.
 
 :::
 

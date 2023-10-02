@@ -13,6 +13,12 @@ Access the [Hyperledger Besu API](../../reference/api/index.md) using:
 - [RPC Pub/Sub over WebSockets](rpc-pubsub.md)
 - [GraphQL over HTTP](graphql.md).
 
+:::note
+
+HTTP and WebSocket responses are compact JSON by default. You can use [`--json-pretty-print-enabled`](../../reference/cli/options.md#json-pretty-print-enabled) to pretty-print the output.
+
+:::
+
 The following sections provide information about JSON-RPC, RPC Pub/Sub, and GraphQL.
 
 ## Enable API access

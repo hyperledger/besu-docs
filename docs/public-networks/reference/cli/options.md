@@ -1101,6 +1101,38 @@ The name for the node. If specified, it's the second section of the client ID pr
 
 If a name is not specified, the name section is not included in the client ID. For example, `besu/v1.3.4/linux-x86_64/oracle_openjdk-java-11`.
 
+### `json-pretty-print-enabled`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--json-pretty-print-enabled[=<true|false>]
+```
+
+# Example
+
+```bash
+--json-pretty-print-enabled=true
+```
+
+# Environment variable
+
+```bash
+BESU_JSON_PRETTY_PRINT_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+json-pretty-print-enabled=true
+```
+
+<!--/tabs-->
+
+Enables or disables the pretty-print output for HTTP and WebSocket responses. The default is `false`.
+
 ### `key-value-storage`
 
 <!--tabs-->
@@ -3530,38 +3562,6 @@ rpc-ws-port="6174"
 <!--/tabs-->
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
-
-### `json-pretty-print-enabled`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---json-pretty-print-enabled[=<true|false>]
-```
-
-# Example
-
-```bash
---json-pretty-print-enabled=true
-```
-
-# Environment variable
-
-```bash
-BESU_JSON_PRETTY_PRINT_ENABLED=true
-```
-
-# Configuration file
-
-```bash
-json-pretty-print-enabled=true
-```
-
-<!--/tabs-->
-
-Enables or disables the pretty-print output for HTTP and WebSocket responses. The default is `false`.
 
 ### `security-module`
 

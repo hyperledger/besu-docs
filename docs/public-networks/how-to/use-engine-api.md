@@ -12,7 +12,7 @@ tags:
 
 ## Configure the Engine API
 
-The Engine API is enabled by default. You may configure the Engine API, for example, to change the service port number or to specify the host allowlist:
+The Engine API is enabled by default even if no consensus client configuration exists. You may configure the Engine API, for example, to change the service port number or to specify the host allowlist:
 
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).

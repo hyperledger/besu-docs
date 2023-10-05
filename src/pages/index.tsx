@@ -8,11 +8,11 @@ function HomepageText() {
       <h2>What does Besu support?</h2>
       <p>
         Besu includes a{" "}
-        <a href="/public-networks/reference/cli/options.md">
+        <a href="/docs/public-networks/reference/cli/options.md">
           command line interface
         </a>{" "}
         and{" "}
-        <a href="/public-networks/how-to/use-besu-api/index.md">
+        <a href="/docs/public-networks/how-to/use-besu-api/index.md">
           JSON-RPC API
         </a>{" "}
         for running, maintaining, debugging, and monitoring nodes in an Ethereum

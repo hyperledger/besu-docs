@@ -12,7 +12,7 @@ tags:
 
 ## Configure the Engine API
 
-The Engine API is enabled by default even if no consensus client configuration exists. You may configure the Engine API, for example, to change the service port number or to specify the host allowlist:
+The Engine API is enabled by default even if no consensus client configuration exists. You can configure the Engine API to:
 
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).
@@ -24,7 +24,7 @@ besu --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine
 
 ### Service ports
 
-To specify the port the Engine API service listens on for HTTP and WebSocket, use the [`--engine-rpc-port`](../reference/cli/options.md#engine-rpc-port) option. The default is `8551`. This is useful when you have another execution engine running that is using the port 8551, in which you can use this flag to specify Besu to use another port, e.g., `--engine-rpc-port 8552`.
+To specify the port the Engine API service listens on for HTTP and WebSocket, use the [`--engine-rpc-port`](../reference/cli/options.md#engine-rpc-port) option. The default is `8551`. This option is useful when you have another execution engine running on port 8551, in which case you can specify Besu to use another port, for example, `--engine-rpc-port 8552`.
 
 ### Host allowlist
 

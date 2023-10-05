@@ -12,30 +12,19 @@ tags:
 
 ## Configure the Engine API
 
-To configure the Engine API:
+The Engine API is enabled by default even if no consensus client configuration exists. You can configure the Engine API to:
 
-- [Enable the Engine API](#enable-the-engine-api) (it's disabled by default).
-- [Enable the JSON-RPC API](use-besu-api/index.md#enable-api-access). Ensure the [`ETH` method is enabled](use-besu-api/json-rpc.md#api-methods-enabled-by-default) (it's enabled by default).
 - Specify the [service ports](#service-ports).
 - Specify the [host allowlist](#host-allowlist).
 
 ```bash title="Example Engine API configuration"
-besu --engine-rpc-enabled --rpc-http-enabled --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine-jwt-secret=jwt.hex
+besu --engine-rpc-port=8551 --engine-host-allowlist=localhost,127.0.0.1 --engine-jwt-secret=jwt.hex
 ```
 
-### Enable the Engine API
-
-Enable the Engine API with the [`--engine-rpc-enabled`](../reference/cli/options.md#engine-rpc-enabled) CLI option.
-
-:::note
-
-The `--engine-rpc-enabled` CLI option enables the Engine API even if no consensus client configuration exists.
-
-:::
 
 ### Service ports
 
-To specify the port the Engine API service listens on for HTTP and WebSocket, use the [`--engine-rpc-port`](../reference/cli/options.md#engine-rpc-port) option. The default is `8551`.
+To specify the port the Engine API service listens on for HTTP and WebSocket, use the [`--engine-rpc-port`](../reference/cli/options.md#engine-rpc-port) option. The default is `8551`. This option is useful when you have another execution engine running on port 8551, in which case you can specify Besu to use another port, for example, `--engine-rpc-port 8552`.
 
 ### Host allowlist
 

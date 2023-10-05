@@ -11,7 +11,7 @@ tags:
 
 :::info
 
-Ensure you enable the Engine API methods with the [`--engine-rpc-enabled`](../cli/options.md#engine-rpc-enabled) CLI option.
+The engine API is enabled by default.
 
 :::
 

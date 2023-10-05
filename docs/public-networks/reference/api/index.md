@@ -2775,6 +2775,194 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 <!--/tabs-->
 
+### `eth_getBlockReceipts`
+
+This JSON-RPC method returns all transaction receipts for a given block and takes the block identifier as a parameter. Transaction receipts are useful because they provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of gas used and any event logs that might have been produced by a smart contract during the transaction.
+
+Transaction receipts also contain the transaction hash, the block number and hash in which the transaction was included, and the contract address of any contract created as a result of the transaction.
+
+#### Parameters
+
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, returns only the hashes of the transactions.
+
+#### Returns
+
+`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
+
+<!--tabs-->
+
+# curl HTTP
+
+```bash
+curl -X POST "CHAINSTACK_ARCHIVE_NODE_URL" \
+  -H 'Content-Type: application/json' \
+  --data '{"method":"eth_getBlockReceipts","params":["latest"], "jsonrpc":"2.0","id":1}'
+```
+
+# wscat WS
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_getBlockReceipts",
+  "params": ["0x6f55"],
+  "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x18c36",
+      "from": "0x22896bfc68814bfd855b1a167255ee497006e730",
+      "gasUsed": "0x18c36",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [
+        {
+          "address": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+          "topics": [
+            "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+            "0x4be29e0e4eb91f98f709d98803cba271592782e293b84a625e025cbb40197ba8",
+            "0x000000000000000000000000835281a2563db4ebf1b626172e085dc406bfc7d2",
+            "0x00000000000000000000000022896bfc68814bfd855b1a167255ee497006e730"
+          ],
+          "data": "0x",
+          "blockNumber": "0x6f55",
+          "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+          "transactionIndex": "0x0",
+          "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000004000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000080020000000000000200010000000000000000000001000000800000000000000000000000000000000000000000000000000000100100000000000000000000008000000000000000000000000000000002000000000000000000000",
+      "status": "0x1",
+      "to": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+      "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    },
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x1de3e",
+      "from": "0x712e3a792c974b3e3dbe41229ad4290791c75a82",
+      "gasUsed": "0x5208",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "status": "0x1",
+      "to": "0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338",
+      "transactionHash": "0xefb83b4e3f1c317e8da0f8e2fbb2fe964f34ee184466032aeecac79f20eacaf6",
+      "transactionIndex": "0x1",
+      "type": "0x2"
+    }
+  ]
+}
+```
+
+# curl GraphQL
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (number : 100) {transactions{hash} timestamp difficulty totalDifficulty gasUsed gasLimit hash nonce ommerCount logsBloom mixHash ommerHash extraData stateRoot receiptsRoot transactionCount transactionsRoot ommers{hash} ommerAt(index : 1){hash} miner{address} account(address: \"0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338\"){balance} parent{hash} }}"}' http://localhost:8547/graphql
+```
+
+# GraphQL
+
+```text
+{
+  block(number: 100) {
+    transactions {
+      hash
+    }
+    timestamp
+    difficulty
+    totalDifficulty
+    gasUsed
+    gasLimit
+    hash
+    nonce
+    ommerCount
+    logsBloom
+    mixHash
+    ommerHash
+    extraData
+    stateRoot
+    receiptsRoot
+    transactionCount
+    transactionsRoot
+    ommers {
+      hash
+    }
+    ommerAt(index: 1) {
+      hash
+    }
+    miner {
+      address
+    }
+    account(address: "0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338") {
+      balance
+    }
+    parent {
+      hash
+    }
+  }
+}
+```
+
+# GraphQL result
+
+```json
+{
+  "data": {
+    "block": {
+      "transactions": [],
+      "timestamp": "0x5cd10933",
+      "difficulty": "0x1",
+      "totalDifficulty": "0x65",
+      "gasUsed": 0,
+      "gasLimit": 4700000,
+      "hash": "0x63b3ea2bc37fec8f82680eb823652da6af8acebb4f6c4d0ff659c55be473c8b0",
+      "nonce": "0x0000000000000000",
+      "ommerCount": 0,
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+      "ommerHash": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "extraData": "0xf882a00000000000000000000000000000000000000000000000000000000000000000d5949811ebc35d7b06b3fa8dc5809a1f9c52751e1deb808400000000f843b8414d877d8d0ced37ea138fab55a978f3740367a24a31731322ecdc3368f11e0d4966c9ce17ae59a76fb94eb436e8a386868f6bd6b0a5678e58daf49f5dd940558b00",
+      "stateRoot": "0xd650578a04b39f50cc979155f4510ec28c2c0a7c1e5fdbf84609bc7b1c430f48",
+      "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "transactionCount": 0,
+      "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "ommers": [],
+      "ommerAt": null,
+      "miner": {
+        "address": "0x9811ebc35d7b06b3fa8dc5809a1f9c52751e1deb"
+      },
+      "account": {
+        "balance": "0xad0f47f269cbf31ac"
+      },
+      "parent": {
+        "hash": "0x7bca25e1fa5e395fd6029eb496a70b6b5495843976bf9e49b993c723ded29d9e"
+      },
+      "baseFeePerGas": "0x7"
+    }
+  }
+}
+```
+
+<!--/tabs-->
+
 ### `eth_getBlockTransactionCountByHash`
 
 Returns the number of transactions in the block matching the specified block hash.

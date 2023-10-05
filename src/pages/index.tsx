@@ -8,11 +8,11 @@ function HomepageText() {
       <h2>What does Besu support?</h2>
       <p>
         Besu includes a{" "}
-        <a href="/category/public-networks/reference/cli/options.md">
+        <a href="/public-networks/reference/cli/options.md">
           command line interface
         </a>{" "}
         and{" "}
-        <a href="/category/public-networks/how-to/use-besu-api/index.md">
+        <a href="/public-networks/how-to/use-besu-api/index.md">
           JSON-RPC API
         </a>{" "}
         for running, maintaining, debugging, and monitoring nodes in an Ethereum
@@ -22,15 +22,15 @@ function HomepageText() {
       <p>
         Besu supports common smart contract and dapp development, deployment,
         and operational use cases, using tools such as{" "}
-        <a href="http://truffleframework.com/">Truffle</a>,{" "}
+        <a href="https://github.com/NomicFoundation/hardhat">Hardhat</a>, {" "}
         <a href="https://github.com/ethereum/remix">Remix</a>, and{" "}
-        <a href="https://web3j.io/">web3js</a>. The client supports common
+        <a href="https://web3j.io/">web3j</a>. The client supports common
         JSON-RPC API methods such as <code>eth</code>, <code>net</code>,{" "}
         <code>web3</code>, <code>debug</code>, and <code>miner</code>.
       </p>
       <p>
         Besu doesn&apos;t support key management inside the client. You can use{" "}
-        <a href="http://docs.ethsigner.consensys.net/en/latest/">Ethsigner</a>{" "}
+        <a href="https://docs.web3signer.consensys.net/">Web3Signer</a>{" "}
         with Besu to access your keystore and sign transactions.
       </p>
 

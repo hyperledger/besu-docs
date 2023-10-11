@@ -2777,9 +2777,8 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 ### `eth_getBlockReceipts`
 
-This JSON-RPC method returns all transaction receipts for a given block and takes the block identifier as a parameter. Transaction receipts are useful because they provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of gas used and any event logs that might have been produced by a smart contract during the transaction.
-
-Transaction receipts also contain the transaction hash, the block number and hash in which the transaction was included, and the contract address of any contract created as a result of the transaction.
+Returns all transaction receipts for a given block. Transaction receipts provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of
+gas used and any event logs that might have been produced by a smart contract during the transaction.
 
 #### Parameters
 
@@ -2805,10 +2804,7 @@ curl -X POST "CHAINSTACK_ARCHIVE_NODE_URL" \
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "eth_getBlockReceipts",
-  "params": ["0x6f55"],
-  "id": 1
+  "jsonrpc": "2.0", "method": "eth_getBlockReceipts", "params": ["0x6f55"], "id": 1
 }
 ```
 
@@ -2882,41 +2878,28 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 ```text
 {
-  block(number: 100) {
-    transactions {
+  transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
+    block {
       hash
+      logsBloom
     }
-    timestamp
-    difficulty
-    totalDifficulty
-    gasUsed
-    gasLimit
     hash
-    nonce
-    ommerCount
-    logsBloom
-    mixHash
-    ommerHash
-    extraData
-    stateRoot
-    receiptsRoot
-    transactionCount
-    transactionsRoot
-    ommers {
-      hash
-    }
-    ommerAt(index: 1) {
-      hash
-    }
-    miner {
+    createdContract {
       address
     }
-    account(address: "0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338") {
-      balance
+    cumulativeGasUsed
+    gas
+    gasUsed
+    logs {
+      topics
     }
-    parent {
-      hash
+    from {
+      address
     }
+    to {
+      address
+    }
+    index
   }
 }
 ```

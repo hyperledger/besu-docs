@@ -1174,25 +1174,25 @@ For development use only, the `memory` option provides ephemeral storage for syn
 # Syntax
 
 ```bash
---kzg-trusted-setup=<LEVEL>
+--kzg-trusted-setup=<PATH>
 ```
 
 # Example
 
 ```bash
---kzg-trusted-setup=DEBUG
+--kzg-trusted-setup=/etc/besu/kzg-trusted-setup.txt
 ```
 
 # Environment variable
 
 ```bash
-BESU_KZG_TRUSTED_SETUP=DEBUG
+BESU_KZG_TRUSTED_SETUP=/etc/besu/kzg-trusted-setup.txt
 ```
 
 # Configuration file
 
 ```bash
-kzg-trusted-setup="DEBUG"
+kzg-trusted-setup=/etc/besu/kzg-trusted-setup.txt
 ```
 
 <!--/tabs-->

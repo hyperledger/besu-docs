@@ -657,7 +657,7 @@ engine-rpc-enabled=true
 
 <!--/tabs-->
 
-Enables or disables the [Engine API](../engine-api/index.md). The default is `false`.
+Enables or disables the [Engine API](../engine-api/index.md). The default is `true`.
 
 ### `engine-rpc-port`
 

@@ -1167,6 +1167,38 @@ The key-value storage to use. Use this option only if using a storage system pro
 
 For development use only, the `memory` option provides ephemeral storage for sync testing and debugging.
 
+### `kzg-trusted-setup`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--kzg-trusted-setup=<PATH>
+```
+
+# Example
+
+```bash
+--kzg-trusted-setup=/etc/besu/kzg-trusted-setup.txt
+```
+
+# Environment variable
+
+```bash
+BESU_KZG_TRUSTED_SETUP=/etc/besu/kzg-trusted-setup.txt
+```
+
+# Configuration file
+
+```bash
+kzg-trusted-setup=/etc/besu/kzg-trusted-setup.txt
+```
+
+<!--/tabs-->
+
+The path to the [C-KZG-4844](https://github.com/ethereum/c-kzg-4844) trusted setup file. Use this option to pass a custom setup file for custom networks or to override the default setup file for named networks.
+
 ### `logging`
 
 <!--tabs-->

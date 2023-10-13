@@ -1197,9 +1197,7 @@ kzg-trusted-setup=/etc/besu/kzg-trusted-setup.txt
 
 <!--/tabs-->
 
-Use the `--kzg-trusted-setup` CLI option to pass a custom setup file for custom networks or to
-override the default setup file for named networks.
-
+The path to the [C-KZG-4844](https://github.com/ethereum/c-kzg-4844) trusted setup file. Use this option to pass a custom setup file for custom networks or to override the default setup file for named networks.
 
 ### `logging`
 

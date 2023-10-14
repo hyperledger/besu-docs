@@ -96,7 +96,7 @@ const rawTxOptions = {
   from: account.address,
   to: null, //public tx
   value: "0x00",
-  data: "0x" + contractBin + contractInit, // contract binary appended with initialization value
+  data: "0x" + contractBin + contractConstructorInit, // contract binary appended with initialization value
   gasPrice: "0x0", //ETH per unit of gas
   gasLimit: "0x24A22", //max number of gas units the tx is allowed to use
 };

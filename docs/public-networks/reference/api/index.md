@@ -2871,35 +2871,37 @@ curl -X POST "CHAINSTACK_ARCHIVE_NODE_URL" \
 # curl GraphQL
 
 ```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (number : 100) {transactions{hash} timestamp difficulty totalDifficulty gasUsed gasLimit hash nonce ommerCount logsBloom mixHash ommerHash extraData stateRoot receiptsRoot transactionCount transactionsRoot ommers{hash} ommerAt(index : 1){hash} miner{address} account(address: \"0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338\"){balance} parent{hash} }}"}' http://localhost:8547/graphql
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block  (hash: \"0x0ed9da11f2b4afdf19710402c1891fd23b9e7494a7c38036832d9db1296e846c\") {transactions{block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}}"}' http://localhost:8547/graphql
 ```
 
 # GraphQL
 
 ```text
 {
-  transaction(hash: "0x5f5366af89e8777d5ae62a1af94a0876bdccbc22417bed0aff361eefa3e37f86") {
-    block {
+  block (hash: "0x0ed9da11f2b4afdf19710402c1891fd23b9e7494a7c38036832d9db1296e846c") {
+    transactions { 
+      block { 
+        hash
+        logsBloom
+      } 
       hash
-      logsBloom
+      createdContract {
+        address
+      } 
+      cumulativeGasUsed
+      gas
+      gasUsed
+      logs{ 
+        topics
+      } 
+      from{ 
+        address
+      }
+      to { 
+        address
+      } 
+      index
     }
-    hash
-    createdContract {
-      address
-    }
-    cumulativeGasUsed
-    gas
-    gasUsed
-    logs {
-      topics
-    }
-    from {
-      address
-    }
-    to {
-      address
-    }
-    index
   }
 }
 ```

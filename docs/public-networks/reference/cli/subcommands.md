@@ -91,6 +91,68 @@ If you omit `--start-block`, the default start block is 0 (the beginning of the 
 
 If you are not running the command against the default network (Mainnet), specify the `--network` or `--genesis-file` parameter.
 
+## `operator`
+
+Provides operator actions.
+
+### `generate-log-bloom-cache`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
+```
+
+# Example
+
+```bash
+besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
+```
+
+<!--/tabs-->
+
+:::tip
+
+Manually executing `generate-log-bloom-cache` is not required unless you set the [`--auto-log-bloom-caching-enabled`](options.md#auto-log-bloom-caching-enabled) command line option to false.
+
+:::
+
+Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log query performance.
+
+:::note
+
+Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
+
+:::
+
+To generate cached log bloom indexes while the node is running, use the [`admin_generateLogBloomCache`](../api/index.md#admin_generatelogbloomcache) API.
+
+## `password`
+
+Provides password related actions.
+
+### `hash`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+besu password hash --password=<my-password>
+```
+
+# Example
+
+```bash
+besu password hash --password=myPassword123
+```
+
+<!--/tabs-->
+
+Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+
 ## `public-key`
 
 Provides node public key related actions.
@@ -153,68 +215,6 @@ besu --data-path=<node data path> public-key export-address --node-private-key-f
 
 Outputs the node address to standard output or to the file specified by `--to=<address-file>`. You can output the address associated with a specific private key file using the [`--node-private-key-file`](options.md#node-private-key-file) option. The default elliptic curve used for the key is `secp256k1`. Use the `--ec-curve` option to choose between `secp256k1` or `secp256r1`.
 
-## `password`
-
-Provides password related actions.
-
-### `hash`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
-besu password hash --password=<my-password>
-```
-
-# Example
-
-```bash
-besu password hash --password=myPassword123
-```
-
-<!--/tabs-->
-
-Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
-
-## `operator`
-
-Provides operator actions.
-
-### `generate-log-bloom-cache`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
-besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-block=<BLOCK_NUMBER>]
-```
-
-# Example
-
-```bash
-besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
-```
-
-<!--/tabs-->
-
-:::tip
-
-Manually executing `generate-log-bloom-cache` is not required unless you set the [`--auto-log-bloom-caching-enabled`](options.md#auto-log-bloom-caching-enabled) command line option to false.
-
-:::
-
-Generates cached log bloom indexes for blocks. APIs use the cached indexes for improved log query performance.
-
-:::note
-
-Each index file contains 100000 blocks. The last fragment of blocks less that 100000 are not indexed.
-
-:::
-
-To generate cached log bloom indexes while the node is running, use the [`admin_generateLogBloomCache`](../api/index.md#admin_generatelogbloomcache) API.
-
 ## `retesteth`
 
 <!--tabs-->
@@ -243,6 +243,33 @@ The command accepts the following command line options:
 - [`--rpc-http-port`](options.md#rpc-http-port)
 - [`--logging`](options.md#logging)
 
+## `storage`
+
+Provides storage related actions.
+
+### `revert-variables`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+besu storage revert-variables --config-file <PATH-TO-CONFIG-FILE>
+```
+
+# Example
+
+```bash
+besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu1.conf
+```
+
+<!--/tabs-->
+
+Reverts the modifications made by the variables storage feature.
+If you need to downgrade Besu, first run this subcommand specifying the path to
+the [configuration file](../../how-to/configuration-file.md) normally used to
+start Besu.
+
 ## `validate-config`
 
 <!--tabs-->
@@ -261,4 +288,4 @@ besu validate-config --config-file ../besu-local-nodes/config/besu/besu1.conf
 
 <!--/tabs-->
 
-Performs basic syntax validation of the specified [TOML configuration file](../../how-to/configuration-file.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).
+Performs basic syntax validation of the specified [configuration file](../../how-to/configuration-file.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

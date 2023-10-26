@@ -265,7 +265,7 @@ besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu
 
 <!--/tabs-->
 
-Reverts the modifications made by the variables storage feature.
+Reverts the modifications made by the [variables storage feature](https://github.com/hyperledger/besu/pull/5471).
 If you need to downgrade Besu, first run this subcommand specifying the path to
 the [configuration file](../../how-to/configuration-file.md) normally used to
 start Besu.

@@ -13,7 +13,7 @@ The Besu EVM tool is a CLI program that executes arbitrary EVM programs and Ethe
 
 ## Get the EVM tool
 
-The Besu EVM tool does not have a standard zip file distribution. To use, you need to either build from the source repository or use a pre-published docker image.
+The Besu EVM tool is a part of the standard zip file distribution. To use the EVM tool, you can download the standard Besu distributuon on the [releases page](https://github.com/hyperledger/besu/releases). You may also build from the source repository or use a pre-published docker image.
 
 ### Build from source
 

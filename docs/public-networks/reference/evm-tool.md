@@ -20,8 +20,6 @@ Option names that include `trace`, such as [`--trace`](#json-trace) and [`--trac
 
 ## Options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command line options specify the code and other contextual information.
-
 ### `code`
 
 <!--tabs-->
@@ -491,9 +489,10 @@ Comment lines and blanks are ignored.
 
 Allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests)
 to be evaluated.
-The only applicable options are [`--json`](#json-trace) and [`--nomemory`](#nomemory-tracenomemory).
+Run `evmtool state-test --help` for the full list of supported options.
+Notable options are [`--json`](#json-trace) and [`--nomemory`](#nomemory-tracenomemory).
 
-Set `--json` option for EVM Lab Fuzzing.
+Set `--json` for EVM Lab Fuzzing.
 Whether or not `--json` is set, a summary JSON object is printed to standard output for each state
 test executed.
 
@@ -539,7 +538,7 @@ evmtool --json state-test < stExample/add11.json
 
 <!--/tabs-->
 
-### `transition`, `t8n`
+### `transition`, `t8n`, `t8n-server`
 
 Allows the Ethereum state transition and blockchain tests to be evaluated.
 See the [transition tool reference](https://ethereum-tests.readthedocs.io/en/develop/t8ntool-ref.html)

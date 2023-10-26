@@ -56,7 +56,7 @@ The `develop` tag is the current main branch code that will go into a future rel
 
 ## EVM tool options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command.
+The first mode of the EVM tool runs arbitrary EVM bytecode and is invoked without an extra command.
 Use [command line options](../../reference/evm-tool.md#options) to specify the code and other
 contextual information.
 For example:

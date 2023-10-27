@@ -9,11 +9,8 @@ tags:
 
 # EVM tool reference
 
-This reference describes options for running the following [using the EVM tool](../how-to/troubleshoot/evm-tool.md):
-
-- [Arbitrary EVM programs](#run-options)
-- [Ethereum state tests](#state-test-options)
-- [Ethereum object formatted code](#eof-code-validation)
+This reference describes [options](#options) and [subcommands](#subcommands) for the
+[EVM tool](../how-to/troubleshoot/evm-tool.md).
 
 :::note
 
@@ -21,9 +18,7 @@ Option names that include `trace`, such as [`--trace`](#json-trace) and [`--trac
 
 :::
 
-## Run options
-
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command line options specify the code and other contextual information.
+## Options
 
 ### `code`
 
@@ -433,113 +428,39 @@ Displays the version information.
 
 `-v` is an alias for `--version`.
 
-## State test options
+## Subcommands
 
-The `state-test` subcommand allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated. The only applicable options are `--json` and `--nomemory`.
+:::caution
+The following subcommands are used for testing code bases and not meant for typical user interactions.
+:::
 
-### `json`, `trace`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---json
-```
-
-<!--/tabs-->
-
-Provides an operation-by-operation trace of the command in JSON.
-
-Set this option for EVM Lab Fuzzing. Whether or not `--json` is set, a summary JSON object is printed to standard output for each state test executed.
-
-`--trace` is an alias for `--json`.
-
-### `[no]memory`, `trace.[no]memory`
+### `code-validate`
 
 <!--tabs-->
 
 # Syntax
 
 ```bash
---[no]memory
-```
-
-<!--/tabs-->
-
-Setting `--nomemory` disables tracing the memory output for each operation. Setting `--memory` enables it. Memory traces are disabled by default.
-
-For memory heavy scripts, disabling memory traces may reduce the volume of JSON output.
-
-`--trace.[no]memory` is an alias for `--[no]memory`.
-
-### Use command arguments
-
-If you use command arguments, you can list one or more state tests. All the state tests are evaluated in the order they are specified.
-
-<!--tabs-->
-
-# Docker example
-
-```bash
-docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop --json state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
-```
-
-# CLI example
-
-```bash
-evm --json state-test stExample/add11.json
-```
-
-<!--/tabs-->
-
-### Use standard input
-
-If no reference tests are passed in using the command line, the EVM tool loads one complete JSON object from standard input and executes that state test.
-
-<!--tabs-->
-
-# Docker example
-
-```bash
-docker run --rm -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
-```
-
-# CLI example
-
-```bash
-evm --json state-test < stExample/add11.json
-```
-
-<!--/tabs-->
-
-## EOF code validation
-
-The `code-validate` subcommand allows [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated. It accepts candidate EOF containers or EVM bytecode using the `--file` option, command arguments, or standard input.
-
-### `file`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---file=<file>
+evmtool code-validate --file=<file>
 ```
 
 # Example
 
 ```bash
---file=eof.txt
+evmtool code-validate --file=eof.txt
 ```
 
 <!--/tabs-->
 
-File containing one or more EOF containers or EVM bytecode. Each line in the file is considered a separate program.
+Allows [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
 
-### Use command arguments
+You can specify a file containing one or more EOF containers or EVM bytecode using the `--file` option.
+Each line in the file is considered a separate program.
 
-If you use command arguments, each argument is considered a separate program. If a code segment includes spaces, it must be contained in quotes.
+#### Use command arguments
+
+If you use command arguments, each argument is considered a separate program.
+If a code segment includes spaces, it must be contained in quotes.
 
 <!--tabs-->
 
@@ -552,11 +473,74 @@ docker run --rm hyperledger/besu-evmtool:develop code-validate "0xef0001 010008 
 # CLI example
 
 ```bash
-evm code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
+evmtool code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
 ```
 
 <!--/tabs-->
 
-### Use standard input
+#### Use standard input
 
-If no reference tests are passed in using the command line, the EVM tool loads and validates code from standard input. Each line is considered a separate program. Comment lines and blanks are ignored.
+If no reference tests are passed in using the command line, the EVM tool loads and validates code
+from standard input.
+Each line is considered a separate program.
+Comment lines and blanks are ignored.
+
+### `state-test`
+
+Allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests)
+to be evaluated.
+Run `evmtool state-test --help` for the full list of supported options.
+Notable options are [`--json`](#json-trace) and [`--nomemory`](#nomemory-tracenomemory).
+
+Set `--json` for EVM Lab Fuzzing.
+Whether or not `--json` is set, a summary JSON object is printed to standard output for each state
+test executed.
+
+#### Use command arguments
+
+If you use command arguments, you can list one or more state tests.
+All the state tests are evaluated in the order they are specified.
+
+<!--tabs-->
+
+# Docker example
+
+```bash
+docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop --json state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
+```
+
+# CLI example
+
+```bash
+evmtool --json state-test stExample/add11.json
+```
+
+<!--/tabs-->
+
+#### Use standard input
+
+If no reference tests are passed in using the command line, the EVM tool loads one complete JSON
+object from standard input and executes that state test.
+
+<!--tabs-->
+
+# Docker example
+
+```bash
+docker run --rm -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
+```
+
+# CLI example
+
+```bash
+evmtool --json state-test < stExample/add11.json
+```
+
+<!--/tabs-->
+
+### `transition`, `t8n`, `t8n-server`
+
+Allows the Ethereum state transition and blockchain tests to be evaluated.
+See the [transition tool reference](https://ethereum-tests.readthedocs.io/en/develop/t8ntool-ref.html)
+and [Execution Spec Tests](https://ethereum.github.io/execution-spec-tests/v1.0.6/) for more
+information about this subcommand.

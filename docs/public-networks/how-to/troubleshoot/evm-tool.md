@@ -50,13 +50,13 @@ docker run -rm <docker options> hyperledger/besu-evmtool:develop <evmtool option
   `-v ${PWD}:/opt/data`, which maps the current directory to the `/opt/data` directory in the container.
 
 :::note
-The `latest` tag is the latest released version of Besu, starting with 1.5.3.
+The `latest` tag is the latest released version of Besu.
 The `develop` tag is the current main branch code that will go into a future release version of Besu.
 :::
 
 ## EVM tool options
 
-The first mode of the EVM tool runs arbitrary EVM bytecode and is invoked without an extra command.
+The first mode of the EVM tool runs arbitrary EVM bytecode.
 Use [command line options](../../reference/evm-tool.md#options) to specify the code and other
 contextual information.
 For example:

@@ -53,7 +53,7 @@ azure:
   keyvaultName: azure-keyvault
   # the tenant ID of the key vault
   tenantId: azure-tenantId
-  # the subscription ID to use - this needs to be set explictly when using multi tenancy
+  # the subscription ID to use - this needs to be set explicitly when using multi tenancy
   subscriptionId: azure-subscriptionId
 ```
 
@@ -223,7 +223,7 @@ azure:
   keyvaultName: azure-keyvault
   # the tenant ID of the key vault
   tenantId: azure-tenantId
-  # the subscription ID to use - this needs to be set explictly when using multi tenancy
+  # the subscription ID to use - this needs to be set explicitly when using multi tenancy
   subscriptionId: azure-subscriptionId
 
 # the raw Genesis config
@@ -297,7 +297,7 @@ azure:
   keyvaultName: azure-keyvault
   # the tenant ID of the key vault
   tenantId: azure-tenantId
-  # the subscription ID to use - this needs to be set explictly when using multi tenancy
+  # the subscription ID to use - this needs to be set explicitly when using multi tenancy
   subscriptionId: azure-subscriptionId
 
 node:

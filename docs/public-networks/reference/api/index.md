@@ -2784,7 +2784,10 @@ gas used and any event logs that might have been produced by a smart contract du
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, returns only the hashes of the transactions.
+- name: Block
+      required: true
+      schema:
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
 
 #### Returns
 

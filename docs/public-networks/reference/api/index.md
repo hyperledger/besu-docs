@@ -2793,9 +2793,7 @@ gas used and any event logs that might have been produced by a smart contract du
 # curl HTTP
 
 ```bash
-curl -X POST "CHAINSTACK_ARCHIVE_NODE_URL" \
-  -H 'Content-Type: application/json' \
-  --data '{"method":"eth_getBlockReceipts","params":["latest"], "jsonrpc":"2.0","id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["latest"],"id":1}' http://127.0.0.1:8545
 ```
 
 # wscat WS

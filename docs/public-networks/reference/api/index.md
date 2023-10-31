@@ -2784,11 +2784,6 @@ gas used and any event logs that might have been produced by a smart contract du
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- name: Block
-      required: true
-      schema:
-        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
-
 #### Returns
 
 `result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
@@ -2874,14 +2869,14 @@ curl -X POST "CHAINSTACK_ARCHIVE_NODE_URL" \
 # curl GraphQL
 
 ```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block  (hash: \"0x0ed9da11f2b4afdf19710402c1891fd23b9e7494a7c38036832d9db1296e846c\") {transactions{block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}}"}' http://localhost:8547/graphql
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block  (hash: \"0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d\") {transactions{block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}}"}' http://localhost:8547/graphql
 ```
 
 # GraphQL
 
 ```text
 {
-  block (hash: "0x0ed9da11f2b4afdf19710402c1891fd23b9e7494a7c38036832d9db1296e846c") {
+  block (hash: "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d") {
     transactions { 
       block { 
         hash

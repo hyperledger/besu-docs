@@ -3813,40 +3813,6 @@ The legacy transaction pool implementation will be deprecated soon, so we recomm
 default layered transaction pool.
 :::
 
-### `tx-pool-disable-locals`
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---tx-pool-disable-locals[=<true|false>]
-```
-
-# Example
-
-```bash
---tx-pool-disable-locals=true
-```
-
-# Environment variable
-
-```bash
-BESU_TX_POOL_DISABLE_LOCALS=true
-```
-
-# Configuration file
-
-```bash
-tx-pool-disable-locals=true
-```
-
-<!--/tabs-->
-
-If this option is set to `true`, transactions received via RPC must have the same checks, and should
-not be prioritized over remote transactions in the [transaction pool](../../concepts/transactions/pool.md).
-The default is `false`.
-
 ### `tx-pool-enable-save-restore`
 
 <!--tabs-->
@@ -4036,7 +4002,7 @@ tx-pool-max-prioritized="1500"
 
 <!--/tabs-->
 
-The maximum number of transactions that are prioritized and thus kept sorted in the
+The maximum number of transactions that are prioritized in the
 [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 The default is `2000`.
 
@@ -4083,6 +4049,40 @@ instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
 :::
 
+### `tx-pool-no-local-priority`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-no-local-priority[=<true|false>]
+```
+
+# Example
+
+```bash
+--tx-pool-no-local-priority=true
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_NO_LOCAL_PRIORITY=true
+```
+
+# Configuration file
+
+```bash
+tx-pool-no-local-priority=true
+```
+
+<!--/tabs-->
+
+If this option is set to `true`, senders of transactions submitted via RPC are *not* prioritized over
+remote transactions in the [transaction pool](../../concepts/transactions/pool.md).
+The default is `false`.
+
 ### `tx-pool-price-bump`
 
 <!--tabs-->
@@ -4116,6 +4116,41 @@ tx-pool-price-bump=25
 The price bump percentage to [replace an existing transaction in the transaction
 pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
 The default is `10`, or 10%.
+
+### `tx-pool-priority-senders`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-priority-senders=<address>[,<address>,...]
+```
+
+# Example
+
+```bash
+--tx-pool-priority-senders=0x13003d886a7be927d9451c27eb3bc8d3616e26e9
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_PRIORITY_SENDERS=0x13003d886a7be927d9451c27eb3bc8d3616e26e9
+```
+
+# Configuration file
+
+```bash
+tx-pool-priority-senders="0x13003d886a7be927d9451c27eb3bc8d3616e26e9"
+```
+
+<!--/tabs-->
+
+A comma-separated list of sender addresses to prioritize in the [transaction pool](../../concepts/transactions/pool.md).
+Transactions sent from these addresses, from any source, are prioritized and only evicted after all others.
+If not specified, only senders submitting transactions via RPC have priority (unless
+[`--tx-pool-no-local-priority`](#tx-pool-no-local-priority) is set to `true`).
 
 ### `tx-pool-retention-hours`
 

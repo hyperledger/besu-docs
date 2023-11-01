@@ -4221,7 +4221,7 @@ tx-pool-save-file="/home/me/me_node/node_txpool.dump"
 
 <!--/tabs-->
 
-The path to the file that stores the [transaction pool](../../concepts/transactions/pool.md)'s
+The path to the file that stores the [transaction pool's](../../concepts/transactions/pool.md)
 content if the save and restore functionality is enabled using
 [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore).
 The file is created on shutdown and reloaded during startup.

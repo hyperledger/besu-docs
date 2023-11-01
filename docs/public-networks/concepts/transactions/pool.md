@@ -21,9 +21,8 @@ Options and methods for configuring and monitoring the transaction pool include:
   to specify the maximum memory capacity of the transaction pool.
 - [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) option to specify the
   price bump percentage to replace an existing transaction.
-- [`--tx-pool-max-future-by-sender`](../../reference/cli/options.md#tx-pool-max-future-by-sender)
-  option to specify the maximum number of sequential transactions from a single sender kept in the
-  transaction pool.
+- [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)
+  option to specify sender addresses to prioritize in the transaction pool.
 - [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions) and
   [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) RPC
   subscriptions to notify you of transactions added to and dropped from the transaction pool.

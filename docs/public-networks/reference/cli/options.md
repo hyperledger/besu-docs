@@ -3700,7 +3700,7 @@ Enables or disables replay protection, in accordance with [EIP-155](https://eips
 # Syntax
 
 ```bash
---sync-mode=X_SNAP
+--sync-mode=<MODE>
 ```
 
 # Example
@@ -3773,6 +3773,46 @@ If a value for `target-gas-limit` is not specified, the block gas limit remains 
 
 Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimit) API to update the `target-gas-limit` while Besu is running. Alternatively restart Besu with an updated `target-gas-limit` value.
 
+### `tx-pool`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool=<TYPE>
+```
+
+# Example
+
+```bash
+--tx-pool=legacy
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL=legacy
+```
+
+# Configuration file
+
+```bash
+tx-pool="legacy"
+```
+
+<!--/tabs-->
+
+Type of [transaction pool](../../concepts/transactions/pool.md) to use.
+Set to `layered` to use the layered transaction pool implementation.
+Set to `legacy` to opt out of the layered transaction pool.
+The default is `layered`.
+
+:::caution
+The legacy transaction pool implementation will be deprecated soon, so we recommend using the
+default layered transaction pool.
+:::
+
 ### `tx-pool-disable-locals`
 
 <!--tabs-->
@@ -3803,8 +3843,9 @@ tx-pool-disable-locals=true
 
 <!--/tabs-->
 
-If this option is set to true, transactions received via RPC must have the same checks, and should not be prioritized
-over remote transactions. The default is `false`.
+If this option is set to `true`, transactions received via RPC must have the same checks, and should
+not be prioritized over remote transactions in the [transaction pool](../../concepts/transactions/pool.md).
+The default is `false`.
 
 ### `tx-pool-enable-save-restore`
 
@@ -3836,10 +3877,49 @@ tx-pool-enable-save-restore=true
 
 <!--/tabs-->
 
-Enables or disables saving the transaction pool contents to a file on shutdown and reloading it at startup.
+Enables or disables saving the [transaction pool](../../concepts/transactions/pool.md) contents to a
+file on shutdown and reloading it at startup.
 The default is `false`.
 
 You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
+
+### `tx-pool-layer-max-capacity`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-layer-max-capacity=<INTEGER>
+```
+
+# Example
+
+```bash
+--tx-pool-layer-max-capacity=20000000
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_LAYER_MAX_CAPACITY=20000000
+```
+
+# Configuration file
+
+```bash
+tx-pool-layer-max-capacity="20000000"
+```
+
+<!--/tabs-->
+
+Maximum amount of memory, in bytes, that any layer within the [layered transaction
+pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
+The default is `12500000`, or 12.5 MB.
+
+There are two memory-limited layers in the transaction pool, so the expected memory consumption is
+twice the value specified by this option, or 25 MB by default.
+Increase this value if you have spare RAM and the eviction rate is high for your network.
 
 ### `tx-pool-limit-by-account-percentage`
 
@@ -3871,13 +3951,97 @@ tx-pool-limit-by-account-percentage=0.4
 
 <!--/tabs-->
 
-The maximum percentage of future transactions kept in the transaction pool, per account. Accepted values are in the range (0–1]. The default is .001 or 0.1% of transactions from a single account to be kept in the pool.
+The maximum percentage of transactions from a single sender kept in the [transaction pool](../../concepts/transactions/pool.md).
+Accepted values are in the range `(0–1]`.
+The default is `.001`, or 0.1% of transactions from a single sender to be kept in the pool.
 
 :::caution
+- With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+  implementation, this option is not applicable.
+  Replace this option with [`--tx-pool-max-future-by-sender`](#tx-pool-max-future-by-sender) to
+  specify the maximum number of sequential transactions from a single sender kept in the pool.
 
-The default value is often unsuitable for [private networks](../../../private-networks/index.md). This feature mitigates future-nonce transactions from filling the pool without ever being executable by Besu. This is important for Mainnet, but may cause issues on private networks. Please update this value or set to 1 if you know the nodes gossiping transactions in your network.
-
+- The default value is often unsuitable for [private networks](../../../private-networks/index.md).
+  This feature mitigates future-nonce transactions from filling the pool without ever being
+  executable by Besu.
+  This is important for Mainnet, but may cause issues on private networks.
+  Please update this value or set to `1` if you know the nodes gossiping transactions in your network.
 :::
+
+### `tx-pool-max-future-by-sender`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-max-future-by-sender=<INTEGER>
+```
+
+# Example
+
+```bash
+--tx-pool-max-future-by-sender=250
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_MAX_FUTURE_BY_SENDER=250
+```
+
+# Configuration file
+
+```bash
+tx-pool-max-future-by-sender="250"
+```
+
+<!--/tabs-->
+
+The maximum number of sequential transactions from a single sender kept in the
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+The default is `200`.
+
+Increase this value to allow a single sender to fit more transactions in a single block.
+For private networks, you can set this in the hundreds or thousands if you want to ensure
+transactions with large nonce gaps remain in the transaction pool.
+
+### `tx-pool-max-prioritized`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--tx-pool-max-prioritized=<INTEGER>
+```
+
+# Example
+
+```bash
+--tx-pool-max-prioritized=1500
+```
+
+# Environment variable
+
+```bash
+BESU_TX_POOL_MAX_PRIORITIZED=1500
+```
+
+# Configuration file
+
+```bash
+tx-pool-max-prioritized="1500"
+```
+
+<!--/tabs-->
+
+The maximum number of transactions that are prioritized and thus kept sorted in the
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+The default is `2000`.
+
+For private networks, we recommend setting this value to the maximum number of transactions that fit
+in a block in your network.
 
 ### `tx-pool-max-size`
 
@@ -3909,7 +4073,15 @@ tx-pool-max-size="2000"
 
 <!--/tabs-->
 
-The maximum number of transactions kept in the transaction pool. The default is 4096.
+The maximum number of transactions kept in the [transaction pool](../../concepts/transactions/pool.md).
+The default is `4096`.
+
+:::caution
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+implementation, this option is not applicable because the layered pool is limited by memory size
+instead of the number of transactions.
+To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
+:::
 
 ### `tx-pool-price-bump`
 
@@ -3941,7 +4113,9 @@ tx-pool-price-bump=25
 
 <!--/tabs-->
 
-The price bump percentage to replace an existing transaction. The default is 10.
+The price bump percentage to [replace an existing transaction in the transaction
+pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
+The default is `10`, or 10%.
 
 ### `tx-pool-retention-hours`
 
@@ -3973,7 +4147,14 @@ tx-pool-retention-hours=5
 
 <!--/tabs-->
 
-The maximum period, in hours, to hold pending transactions in the transaction pool. The default is 13.
+The maximum period, in hours, to hold pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+The default is `13`.
+
+:::caution
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+implementation, this option is not applicable because old transactions will expire when the memory
+cache is full.
+:::
 
 ### `tx-pool-save-file`
 
@@ -4005,10 +4186,11 @@ tx-pool-save-file="/home/me/me_node/node_txpool.dump"
 
 <!--/tabs-->
 
-Path to the file that stores the transaction pool's content if the save and restore functionality is enabled
-using [`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore). The
-file is created on shutdown and reloaded during startup. The default file name is `txpool.dump` in the
-[data directory](#data-path).
+The path to the file that stores the [transaction pool](../../concepts/transactions/pool.md)'s
+content if the save and restore functionality is enabled using
+[`--tx-pool-enable-save-restore`](#tx-pool-enable-save-restore).
+The file is created on shutdown and reloaded during startup.
+The default file name is `txpool.dump` in the [data directory](#data-path).
 
 ### `Xhelp`
 

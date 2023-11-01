@@ -2775,6 +2775,185 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 <!--/tabs-->
 
+### `eth_getBlockReceipts`
+
+Returns all transaction receipts for a given block. Transaction receipts provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of
+gas used and any event logs that might have been produced by a smart contract during the transaction.
+
+#### Parameters
+
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
+
+<!--tabs-->
+
+# curl HTTP
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["latest"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS
+
+```json
+{
+  "jsonrpc": "2.0", "method": "eth_getBlockReceipts", "params": ["0x6f55"], "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x18c36",
+      "from": "0x22896bfc68814bfd855b1a167255ee497006e730",
+      "gasUsed": "0x18c36",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [
+        {
+          "address": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+          "topics": [
+            "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+            "0x4be29e0e4eb91f98f709d98803cba271592782e293b84a625e025cbb40197ba8",
+            "0x000000000000000000000000835281a2563db4ebf1b626172e085dc406bfc7d2",
+            "0x00000000000000000000000022896bfc68814bfd855b1a167255ee497006e730"
+          ],
+          "data": "0x",
+          "blockNumber": "0x6f55",
+          "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+          "transactionIndex": "0x0",
+          "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000004000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000080020000000000000200010000000000000000000001000000800000000000000000000000000000000000000000000000000000100100000000000000000000008000000000000000000000000000000002000000000000000000000",
+      "status": "0x1",
+      "to": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+      "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    },
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x1de3e",
+      "from": "0x712e3a792c974b3e3dbe41229ad4290791c75a82",
+      "gasUsed": "0x5208",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "status": "0x1",
+      "to": "0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338",
+      "transactionHash": "0xefb83b4e3f1c317e8da0f8e2fbb2fe964f34ee184466032aeecac79f20eacaf6",
+      "transactionIndex": "0x1",
+      "type": "0x2"
+    }
+  ]
+}
+```
+
+# curl GraphQL
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block  (hash: \"0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d\") {transactions{block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}}"}' http://localhost:8547/graphql
+```
+
+# GraphQL
+
+```text
+{
+  block (hash: "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d") {
+    transactions { 
+      block { 
+        hash
+        logsBloom
+      } 
+      hash
+      createdContract {
+        address
+      } 
+      cumulativeGasUsed
+      gas
+      gasUsed
+      logs{ 
+        topics
+      } 
+      from{ 
+        address
+      }
+      to { 
+        address
+      } 
+      index
+    }
+  }
+}
+```
+
+# GraphQL result
+
+```json
+{
+  "data" : {
+    "block" : {
+      "transactions" : [ {
+        "block" : {
+          "hash" : "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d",
+          "logsBloom" : "0x2e0a8080520608000e38181e0c9081e813a00c184a010d1900c9602240428dc6480004444098428b945010802454104002827420426591a200224016802841900031bd4440828ec9b113081880027c01cc47105c1885d556216200880026160810050028422a4b0c4bc8087372860851000802c8d901158504a482100d488040119c08045e500824402054a0d91cc433188909020a06ac841914a2a082c104a1260460014b8b001b28030202518c040008266038a880026208041d082503589054581223c188004396804801280c00020c492816060a421831c8820ac04460303a9e48128238e0098f319030083808150c4914b8840000206715481500690000"
+        },
+        "hash" : "0x7afe779fd0c6d4a1b6f330e679a5cf94095eaa57d2ce0c0ef991dfb2b405374f",
+        "createdContract" : null,
+        "cumulativeGasUsed" : "0x5208",
+        "gas" : "0x61a8",
+        "gasUsed" : "0x5208",
+        "logs" : [ ],
+        "from" : {
+          "address" : "0x66f962241b8ff853849c85a63a0ce20bae4f68d5"
+        },
+        "to" : {
+          "address" : "0x6be8356826a9fc7b2d911fcc1de6342ae5f5b9a3"
+        },
+        "index" : "0x0"
+      }, {
+        "block" : {
+          "hash" : "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d",
+          "logsBloom" : "0x2e0a8080520608000e38181e0c9081e813a00c184a010d1900c9602240428dc6480004444098428b945010802454104002827420426591a200224016802841900031bd4440828ec9b113081880027c01cc47105c1885d556216200880026160810050028422a4b0c4bc8087372860851000802c8d901158504a482100d488040119c08045e500824402054a0d91cc433188909020a06ac841914a2a082c104a1260460014b8b001b28030202518c040008266038a880026208041d082503589054581223c188004396804801280c00020c492816060a421831c8820ac04460303a9e48128238e0098f319030083808150c4914b8840000206715481500690000"
+        },
+        "hash" : "0x412f04ba27c1c096dadb2d8af54ee61034c3d4679fdd025a634e95fa2238713c",
+        "createdContract" : null,
+        "cumulativeGasUsed" : "0xbcdb2",
+        "gas" : "0xbdfe0",
+        "gasUsed" : "0xb7baa",
+        "logs" : [ {
+          "topics" : [ "0xd93fde3ea1bb11dcd7a4e66320a05fc5aa63983b6447eff660084c4b1b1b499b", "0x00000000000000000000000000000000000000000000000000000000000e4d3a" ]
+        } ],
+        "from" : {
+          "address" : "0xe253f7a6533c62755f470b33fa5bcd659a5db3cd"
+        },
+        "to" : {
+          "address" : "0x95ff8d3ce9dcb7455beb7845143bea84fe5c4f6f"
+        },
+        "index" : "0x1"
+      } ]
+    }
+  }
+}
+```
+
+<!--/tabs-->
+
 ### `eth_getBlockTransactionCountByHash`
 
 Returns the number of transactions in the block matching the specified block hash.

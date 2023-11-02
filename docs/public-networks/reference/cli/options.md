@@ -3879,7 +3879,7 @@ tx-pool-layer-max-capacity="20000000"
 
 <!--/tabs-->
 
-Maximum amount of memory, in bytes, that any layer within the [layered transaction
+Maximum amount of memory (in bytes) that any layer within the [layered transaction
 pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
 The default is `12500000`, or 12.5 MB.
 
@@ -4182,7 +4182,7 @@ tx-pool-retention-hours=5
 
 <!--/tabs-->
 
-The maximum period, in hours, to hold pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+The maximum period (in hours) to hold pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
 The default is `13`.
 
 :::caution

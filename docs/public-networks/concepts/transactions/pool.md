@@ -13,17 +13,55 @@ All nodes maintain a transaction pool to store pending transactions before proce
 
 Options and methods for configuring and monitoring the transaction pool include:
 
-- [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions) JSON-RPC API method to list transactions in the transaction pool.
-- [`--tx-pool-max-size`](../../reference/cli/options.md#tx-pool-max-size) command line option to specify the maximum number of transactions in the transaction pool.
-- [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) command line option to specify the price bump percentage to replace an existing transaction.
-- [`--tx-pool-retention-hours`](../../reference/cli/options.md#tx-pool-retention-hours) command line option to specify the maximum number of hours to keep pending transactions in the transaction pool.
-- [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions) and [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) RPC subscriptions to notify of transactions added to and dropped from the transaction pool.
+- [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions) API method to
+  list transactions in the transaction pool.
+- [`--tx-pool`](../../reference/cli/options.md#tx-pool) option to specify the type of transaction
+  pool to use.
+- [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity) option
+  to specify the maximum memory capacity of the transaction pool.
+- [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) option to specify the
+  price bump percentage to replace an existing transaction.
+- [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)
+  option to specify sender addresses to prioritize in the transaction pool.
+- [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions) and
+  [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) RPC
+  subscriptions to notify you of transactions added to and dropped from the transaction pool.
 
-:::tip
-
-When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation), the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md) is submitted to the transaction pool, not the private transaction itself.
-
+:::note
+When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation),
+the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md)
+is submitted to the transaction pool, not the private transaction itself.
 :::
+
+## Layered transaction pool
+
+The [layered transaction pool](https://github.com/hyperledger/besu/pull/5290) is the default
+transaction pool implementation.
+This implementation separates the pool into layers according to value and executability of the transactions.
+That is, the first layer keeps only transactions with the highest value and that could feasibly go
+into the next produced block.
+The two other layers ensure that Besu always has a backlog of transactions to fill blocks, gaining
+the maximum amount of fees.
+
+With the layered transaction pool, Besu produces more profitable blocks more quickly, with more
+denial-of-service protection, and using less CPU than with the legacy transaction pool.
+
+If you previously configured transaction pool behavior, upgrade to the layered transaction pool by:
+
+- Removing the [`--tx-pool-retention-hours`](../../reference/cli/options.md#tx-pool-retention-hours)
+  option, which is not applicable because old transactions will expire when the memory cache is full.
+- Replacing the [`--tx-pool-limit-by-account-percentage`](../../reference/cli/options.md#tx-pool-limit-by-account-percentage)
+  option with [`--tx-pool-max-future-by-sender`](../../reference/cli/options.md#tx-pool-max-future-by-sender)
+  to limit the number of sequential transactions, instead of percentage of transactions, from a single
+  sender kept in the pool.
+- Removing the [`--tx-pool-max-size`](../../reference/cli/options.md#tx-pool-max-size) option,
+  which is not applicable because the layered pool is limited by memory size instead of the number
+  of transactions.
+  To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity).
+
+You can opt out of the layered transaction pool implementation by setting the
+[`--tx-pool`](../../reference/cli/options.md#tx-pool) option to `legacy`, but the legacy
+implementation will be deprecated soon, so we recommend using the layered pool.
 
 ## Dropping transactions when the transaction pool is full
 
@@ -42,7 +80,3 @@ If sending an [`EIP1559` transaction](types.md#eip1559-transactions), the old tr
 - The new transaction's effective gas price is the equal to the existing gas price AND the new effective priority fee is higher than the existing priority fee by the percentage specified by [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump).
 
 The default value for [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) is 10%.
-
-## Size of the transaction pool
-
-Decreasing the maximum size of the transaction pool reduces memory use. If the network is busy and there is a backlog of transactions, increasing the size of the transaction pool reduces the risk of removing transactions from the transaction pool.

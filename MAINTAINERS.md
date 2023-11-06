@@ -10,6 +10,7 @@
 | Alexandra Tran   | alexandratran  | alexandratran  |
 | Byron Gravenorst | bgravenorst    | bgravenorst    |
 | Madeline Murray  | MadelineMurray | madelinemurray |
+| Mike Sanko       | mjsmike62      | mjsmike62      |
 <!-- vale on -->
 
 ## Emeritus maintainers

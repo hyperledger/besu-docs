@@ -7,7 +7,7 @@ tags:
   - private networks
 ---
 
-# Manage JVM memory
+# Manage JVM memoryx
 
 You can manage Java Virtual Machine (JVM) memory usage for Besu by modifying the maximum heap size.
 

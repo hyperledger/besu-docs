@@ -7,7 +7,7 @@ tags:
   - private networks
 ---
 
-# Manage JVM memoryx
+# Manage JVM memory
 
 You can manage Java Virtual Machine (JVM) memory usage for Besu by modifying the maximum heap size.
 
@@ -72,3 +72,15 @@ The heap dump file might be large and can saturate your drive. It can be up to t
 ```bash
 BESU_OPTS="-XX:HeapDumpPath=/<path>/<to>/<directory>"
 ```
+
+## Default options
+
+To reduce Besu memory footprint, the following G1GC Java options are enabled by default: 
+
+```bash
+-XX:G1ConcRefinementThreads=2
+-XX:G1HeapWastePercent=15
+-XX:MaxGCPauseMillis=100
+```
+
+To run Besu without the default G1GC options, use the `besu-untuned` start script. 

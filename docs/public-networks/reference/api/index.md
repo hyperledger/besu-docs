@@ -1771,11 +1771,12 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
 
 ### `debug_traceCall`
 
-Returns a detailed trace of the executed opcodes for a specific transaction.
+Performs an eth_call within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
 
 #### Parameters
 
-- `requestContext`: _object_ - JSON-RPC request context with essential fields like `from`, `to`, `gas`, `gasPrice`, `value`, `data`, `nonce`.
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `options`: _object_ - request options object with the following fields (all optional and default to `false`):
 

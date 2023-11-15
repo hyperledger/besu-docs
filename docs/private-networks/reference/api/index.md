@@ -322,10 +322,6 @@ For production systems requiring private transactions, use a network with a cons
 
 Using private transactions with [pruning](../../../public-networks/concepts/data-storage-formats.md#pruning) or [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
 
-Besu doesn't implement [`eea_sendTransaction`](../../how-to/send-transactions/private-transactions.md).
-
-[EthSigner](https://docs.ethsigner.consensys.net/en/latest/) provides transaction signing and implements [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction).
-
 :::
 
 #### Parameters
@@ -1617,7 +1613,7 @@ Returns the private transaction if you are a participant, otherwise, `null`.
 
 #### Parameters
 
-`transaction`: _string_ - transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction) or [`eea_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eea_sendtransaction).
+`transaction`: _string_ - transaction hash returned by [`eea_sendRawTransaction`](#eea_sendrawtransaction).
 
 #### Returns
 

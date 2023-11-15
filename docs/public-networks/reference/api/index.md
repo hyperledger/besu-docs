@@ -1788,7 +1788,7 @@ Returns a list of account addresses a client owns.
 
 This method returns an empty object because Besu [doesn't support key management](../../how-to/send-transactions.md) inside the client.
 
-To provide access to your key store and and then sign transactions, use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu.
+To provide access to your key store and and then sign transactions, use [Web3Signer](https://docs.web3signer.consensys.net/) with Besu.
 
 :::
 
@@ -5028,7 +5028,7 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md).
 
-[EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eth_sendtransaction).
+[Web3Signer](https://docs.web3signer.consensys.net/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction).
 
 :::
 

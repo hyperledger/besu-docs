@@ -61,7 +61,7 @@ The properties specific to Clique are:
 
 ### Skip empty blocks
 
-By default, Clique creates empty blocks. For large private networks using Clique skipping empty blocks can reduce the storage needed.
+By default, Clique creates empty blocks. For large private networks using Clique, skipping empty blocks can reduce the storage needed.
 
 To skip creating empty blocks, set `createemptyblocks` to `false` in the genesis file: 
 
@@ -178,4 +178,3 @@ We recommend using a more updated consensus protocol such as [IBFT 2.0](ibft.md)
 
 <!-- Acronyms and Definitions -->
 
-_[vanity data]: Signers can include anything they like as vanity data.

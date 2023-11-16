@@ -56,7 +56,30 @@ The properties specific to Clique are:
 
 - `blockperiodseconds` - The block time, in seconds.
 - `epochlength` - The number of blocks after which to reset all votes.
+- `createemptyblocks` - Set to false to [skip creating empty blocks](#skip-empty-blocks).
 - `extraData` - [Extra data](#extra-data) including the initial signers.
+
+### Skip empty blocks
+
+By default, Clique creates empty blocks. For large private networks using Clique skipping empty blocks can reduce the storage needed.
+
+To skip creating empty blocks, set `createemptyblocks` to `false` in the genesis file: 
+
+```bash
+{
+  "config": {
+    "londonBlock": 0,
+    "clique": {
+      "blockperiodseconds": 10,
+      "epochlength": 30000,
+      "createemptyblocks": false
+    }
+  },
+...
+}
+```
+
+All validators must have the same value for `createemptyblocks`. 
 
 ### Extra data
 
@@ -155,4 +178,4 @@ We recommend using a more updated consensus protocol such as [IBFT 2.0](ibft.md)
 
 <!-- Acronyms and Definitions -->
 
-\*[vanity data]: Signers can include anything they like as vanity data.
+_[vanity data]: Signers can include anything they like as vanity data.

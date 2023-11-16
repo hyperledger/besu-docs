@@ -43,7 +43,8 @@
     "react-dom": "^17.0.2",
     "redocusaurus": "^1.6.1",
     "remark-docusaurus-tabs": "^0.2.0",
-    "stylelint": "^15.10.1"
+    "stylelint": "^15.10.1",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",

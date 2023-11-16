@@ -1771,7 +1771,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
 
 ### `debug_traceCall`
 
-Performs an eth_call within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
+Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
 
 #### Parameters
 

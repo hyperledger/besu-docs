@@ -152,7 +152,7 @@ Log information returned as part of the [Trace object](#trace-object).
 
 ## Trace object
 
-Returned by [`debug_traceBlock`](index.md#debug_traceblock), [`debug_traceBlockByHash`](index.md#debug_traceblockbyhash), [`debug_traceBlockByNumber`](index.md#debug_traceblockbynumber), and [`debug_traceTransaction`](index.md#debug_tracetransaction).
+Returned by [`debug_traceBlock`](index.md#debug_traceblock), [`debug_traceBlockByHash`](index.md#debug_traceblockbyhash), [`debug_traceBlockByNumber`](index.md#debug_traceblockbynumber), [`debug_traceTransaction`](index.md#debug_tracetransaction), and [`debug_traceCall`](index.md#debug_tracecall).
 
 | Key | Type | Value |
 | --- | :-: | --- |

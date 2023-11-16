@@ -1767,6 +1767,78 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
   ]
 }
 ```
+<!--/tabs-->
+
+### `debug_traceCall`
+
+Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
+
+#### Parameters
+
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+
+  - `disableStorage`: _boolean_ - `true` disables storage capture.
+
+  - `disableMemory`: _boolean_ - `true` disables memory capture.
+
+  - `disableStack` : _boolean_ - `true` disables stack capture.
+
+#### Returns
+
+`result`: _array_ of _objects_ - list of [trace objects](objects.md#trace-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from":"","to":"","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":""},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}], "id":1}' http://127.0.0.1:8545
+
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "debug_traceCall",
+  "params": [{"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","0x0050000000000000000000000000000000000000", "0xfffff2","0xef","0x0","0x0000000000000000000000000030000000000000000000000000000000000000f000000000000000000000000000000000000000000000000000000000000001"},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}],
+  "id": 1
+}
+
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "gas": 21000,
+      "failed": false,
+      "returnValue": "",
+      "structLogs": [
+        {
+          "pc": 0,
+          "op": "STOP",
+          "gas": 0,
+          "gasCost": 0,
+          "depth": 1,
+          "stack": [],
+          "memory": [],
+          "storage": null,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}
+```
 
 <!--/tabs-->
 

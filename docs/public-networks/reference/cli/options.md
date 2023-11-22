@@ -1903,9 +1903,9 @@ min-priority-fee=7
 
 <!--/tabs-->
 
-The minimum priority fee per gas (in Wei) offered by a transaction offers to be included in a block. The default is 0 Wei.
+The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The default is `0`.
 For a running node, use: 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value
+* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
 * [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
 
 ### `nat-method`

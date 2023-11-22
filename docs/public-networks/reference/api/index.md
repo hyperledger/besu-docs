@@ -5465,7 +5465,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 ### `miner_getMinPriorityFee`
 
-Gets the minimum priority fee per gas (in Wei) offered by a transaction offers to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or defaults to 0, if the command line option is not specified.
+Gets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
 Use [`miner_setMinPriorityFee`](#minersetminpriorityfee) to change the current value of the fee.
 
 #### Parameters
@@ -5474,7 +5474,7 @@ None
 
 #### Returns
 
-`result`: _string_ - Minimum priority fee per gas (in Wei) in hexadecimal
+`result`: _string_ - Minimum priority fee per gas (in Wei) as a hexadecimal string
 
 <!--tabs-->
 
@@ -5557,7 +5557,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 ### `miner_setMinPriorityFee`
 
-Sets the minimum priority fee per gas (in Wei) offered by a transaction offers to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or defaults to 0, if the command line option is not specified.
+Sets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
 Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current value of the fee.
 
 #### Parameters

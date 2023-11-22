@@ -1980,7 +1980,12 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 
 :::note
 
-By default, `eth_call` does not fail if the sender account has an insufficient balance. This is done by setting the balance of the account to a large amount of ether. To enforce balance rules, set the [`strict` parameter](objects.md#transaction-call-object) in the transaction call object to `true`.
+The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked: 
+* If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
+* If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance. 
+* If `strict` is not specified, the balance is checked against the gas parameters if supplied. 
+
+If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
 
 :::
 

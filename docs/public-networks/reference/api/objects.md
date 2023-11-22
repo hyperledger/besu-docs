@@ -217,7 +217,7 @@ All transaction call object parameters are optional.
 | `value`                | Quantity, Integer | Value transferred, in Wei. |
 | `data` or `input`       | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 | `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
-| `strict`               | Tag | If `true`, checks that the `from` account’s ether balance is sufficient to cover the transaction and gas fee. If `false`, the `gasPrice` and `baseFee` are set to zero, in order to simulate a transaction without enforcing a balance check. The default is `false`. |
+| `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
 
 ## Transaction receipt object
 

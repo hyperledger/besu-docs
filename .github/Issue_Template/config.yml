@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💡 Feature Request
+    url: https://github.com/hyperledger/besu-docs/discussions/new?category=ideas
+    about: Propose new ideas and enhancements for this project.
+  - name: ❓ Ask a Question
+    url: https://github.com/hyperledger/besu-docs/discussions/new?category=q-a
+    about: Initiate discussions or seek advice from the community.
+  

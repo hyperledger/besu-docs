@@ -292,6 +292,22 @@ const config = {
       },
     ],
   ],
+  [
+    "@docusaurus/plugin-client-redirects",
+        {
+          redirects: [
+            {
+              from: "/private-networks/tutorials/permissioning/onchain.md",
+              to: "/private-networks/how-to/use-permissioning/onchain.md",
+            },
+            {
+              from: "/private-networks/tutorials/permissioning/upgrade-contracts.md",
+              to: "/private-networks/how-to/use-permissioning/onchain.md",
+            },
+          ],
+        },
+      ],
+    ],
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),

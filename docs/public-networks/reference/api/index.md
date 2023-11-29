@@ -5506,7 +5506,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": 0x1
+  "result": "0x1"
 }
 ```
 <!--/tabs-->
@@ -5567,7 +5567,7 @@ Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current valu
 
 #### Parameters
 
-`minPriorityFeePerGas`: _integer_ - Minimum priority fee per gas
+`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal. 
 
 #### Returns
 
@@ -5578,7 +5578,7 @@ Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current valu
 # curl HTTP request
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":[1],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":["0x0a"],"id":1}' http://127.0.0.1:8545
 ```
 
 # wscat WS request
@@ -5587,7 +5587,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 {
   "jsonrpc": "2.0",
   "method": "miner_setMinPriorityFee",
-  "params": [1],
+  "params": ["0x0a"],
   "id": 1
 }
 ```

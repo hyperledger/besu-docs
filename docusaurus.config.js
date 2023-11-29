@@ -291,9 +291,8 @@ const config = {
         containerId: "GTM-THG37T4",
       },
     ],
-  ],
-  [
-    "@docusaurus/plugin-client-redirects",
+    [
+      "@docusaurus/plugin-client-redirects",
         {
           redirects: [
             {
@@ -308,7 +307,7 @@ const config = {
         },
       ],
     ],
-  themes: [
+    themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */

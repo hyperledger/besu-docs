@@ -293,21 +293,21 @@ const config = {
     ],
     [
       "@docusaurus/plugin-client-redirects",
-        {
-          redirects: [
-            {
-              from: "/private-networks/tutorials/permissioning/onchain.md",
-              to: "/private-networks/how-to/use-permissioning/onchain.md",
-            },
-            {
-              from: "/private-networks/tutorials/permissioning/upgrade-contracts.md",
-              to: "/private-networks/how-to/use-permissioning/onchain.md",
-            },
-          ],
-        },
-      ],
+      {
+        redirects: [
+          {
+            from: "/private-networks/tutorials/permissioning/onchain.md",
+            to: "/private-networks/how-to/use-permissioning/onchain.md",
+          },
+          {
+            from: "/private-networks/tutorials/permissioning/upgrade-contracts.md",
+            to: "/private-networks/how-to/use-permissioning/onchain.md",
+          },
+        ],
+      },
     ],
-    themes: [
+  ],
+  themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */

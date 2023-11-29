@@ -296,12 +296,12 @@ const config = {
       {
         redirects: [
           {
-            from: "/private-networks/tutorials/permissioning/onchain.md",
-            to: "/private-networks/how-to/use-permissioning/onchain.md",
+            from: "/private-networks/tutorials/permissioning/onchain",
+            to: "/private-networks/how-to/use-permissioning/onchain",
           },
           {
-            from: "/private-networks/tutorials/permissioning/upgrade-contracts.md",
-            to: "/private-networks/how-to/use-permissioning/onchain.md",
+            from: "/private-networks/tutorials/permissioning/upgrade-contracts",
+            to: "/private-networks/how-to/use-permissioning/onchain",
           },
         ],
       },

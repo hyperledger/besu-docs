@@ -291,6 +291,21 @@ const config = {
         containerId: "GTM-THG37T4",
       },
     ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/private-networks/tutorials/permissioning/onchain",
+            to: "/private-networks/how-to/use-permissioning/onchain",
+          },
+          {
+            from: "/private-networks/tutorials/permissioning/upgrade-contracts",
+            to: "/private-networks/how-to/use-permissioning/onchain",
+          },
+        ],
+      },
+    ],
   ],
   themes: [
     [

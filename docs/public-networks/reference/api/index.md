@@ -5506,7 +5506,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": 0x1
+  "result": "0x1"
 }
 ```
 <!--/tabs-->

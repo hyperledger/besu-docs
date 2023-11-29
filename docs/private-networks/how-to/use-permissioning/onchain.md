@@ -57,4 +57,3 @@ The permissioning contracts in the [`ConsenSys/permissioning-smart-contracts`](h
 
 [support domain names]: ../../../public-networks/concepts/node-keys.md#domain-name-support
 [projects release page]: https://github.com/ConsenSys/permissioning-smart-contracts/releases/latest
-[onchain permissioning tutorial]: ../../tutorials/permissioning/onchain.md

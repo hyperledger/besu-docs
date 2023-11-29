@@ -1873,6 +1873,41 @@ In a [free gas network](../../../private-networks/how-to/configure/free-gas.md),
 
 :::
 
+### `min-priority-fee`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--min-priority-fee=<minPriorityFeePerGas>
+```
+
+# Example
+
+```bash
+--min-gas-price=7
+```
+
+# Environment variable
+
+```bash
+BESU_MIN_PRIORITY_FEE=7
+```
+
+# Configuration file
+
+```bash
+min-priority-fee=7
+```
+
+<!--/tabs-->
+
+The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The default is `0`.
+For a running node, use: 
+* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+
 ### `nat-method`
 
 <!--tabs-->

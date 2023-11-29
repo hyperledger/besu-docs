@@ -1485,7 +1485,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":[
 }
 ```
 
-:::
+<!--/tabs-->
 
 ### `debug_traceTransaction`
 
@@ -1980,7 +1980,12 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 
 :::note
 
-By default, `eth_call` does not fail if the sender account has an insufficient balance. This is done by setting the balance of the account to a large amount of ether. To enforce balance rules, set the [`strict` parameter](objects.md#transaction-call-object) in the transaction call object to `true`.
+The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked: 
+* If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
+* If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance. 
+* If `strict` is not specified, the balance is checked against the gas parameters if supplied. 
+
+If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
 
 :::
 
@@ -5408,7 +5413,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 
 ## `MINER` methods
 
-The `MINER` API methods allow you to control the node’s mining operation.
+The `MINER` API methods allow you to control: 
+
+* The node’s mining operation.
+* Settings related to block creation. 
+
 
 :::note
 
@@ -5459,6 +5468,49 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 <!--/tabs-->
 
+### `miner_getMinPriorityFee`
+
+Gets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_setMinPriorityFee`](#minersetminpriorityfee) to change the current value of the fee.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Minimum priority fee per gas (in Wei) as a hexadecimal string
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getMinPriorityFee",
+  "params": [],
+  "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": 0x1
+}
+```
+<!--/tabs-->
+
 ### `miner_setCoinbase`
 
 Sets the coinbase, the address for the mining rewards.
@@ -5492,6 +5544,50 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
   "jsonrpc": "2.0",
   "method": "miner_setCoinbase",
   "params": ["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],
+  "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": true
+}
+```
+
+<!--/tabs-->
+
+### `miner_setMinPriorityFee`
+
+Sets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current value of the fee.
+
+#### Parameters
+
+`minPriorityFeePerGas`: _integer_ - Minimum priority fee per gas
+
+#### Returns
+
+`result`: _boolean_ - `true` when fee is set
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":[1],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setMinPriorityFee",
+  "params": [1],
   "id": 1
 }
 ```

@@ -186,7 +186,7 @@ The private key must be kept secret. Never share private keys publicly or on a W
 
 Always keep your private keys safe -- ideally using [hardware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- and define a strong security policy and [best practices](https://auth0.com/docs/best-practices/token-best-practices).
 
-Compromised keys can provide attackers access to you nodes RPC-API.
+Compromised keys can provide attackers access to your node's RPC-API.
 
 :::
 

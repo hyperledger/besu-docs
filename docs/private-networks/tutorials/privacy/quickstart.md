@@ -81,7 +81,7 @@ For more information on the endpoints and services, refer to README.md in the in
 
 ## Deploy the private contract and interact with the nodes
 
-To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu keeps account management separate for stronger security.
+To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu keeps account management separate for stronger security.
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, the example creates three Besu nodes, with each node having a corresponding Tessera node for privacy. You can access the Besu member nodes for API calls on the following ports:
 
@@ -101,13 +101,13 @@ Navigate to the `smart_contracts` directory and deploy the private transaction:
 ```bash
 cd smart_contracts
 npm install
-node scripts/private_tx.js
+node scripts/private/private_tx.js
 ```
 
 The script deploys the contract and sends an arbitrary value (47) from `Member1` to `Member3`. Once done, it queries all three members (Tessera) to check the value at an address. Only `Member1` & `Member3` has this information as they were involved in the transaction, `Member2` responds with a `0x` to indicate it is unaware of the transaction.
 
 ```bash
-node scripts/private_tx.js
+node scripts/private/private_tx.js
 Creating contract...
 Getting contractAddress from txHash:  0xc1b57f6a7773fe887afb141a09a573d19cb0fdbb15e0f2b9ed0dfead6f5b5dbf
 Waiting for transaction to be mined ...

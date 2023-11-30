@@ -7,7 +7,7 @@ tags:
 
 # Configure client and server TLS
 
-Hyperledger Besu supports TLS for client and server communication. For example, you can configure TLS for communication between [EthSigner](https://docs.ethsigner.consensys.net/en/latest/Concepts/TLS/) and Besu, and Besu and [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
+Hyperledger Besu supports TLS for client and server communication. For example, you can configure TLS for communication between [Web3Signer](https://docs.web3signer.consensys.net/concepts/tls) and Besu, and Besu and [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
 
 The following diagram displays an example client and server TLS configuration.
 
@@ -22,7 +22,7 @@ Configure TLS communication from the command line.
 
 ## Configure client TLS
 
-Allow clients (for example a dapp, curl, or EthSigner) to send and receive secure HTTP JSON-RPCs.
+Allow clients (for example a dapp, curl, or Web3Signer) to send and receive secure HTTP JSON-RPCs.
 
 **Client prerequisites**:
 
@@ -39,7 +39,7 @@ Create a file (in this example, `knownClients`) that lists one or more trusted c
 - `<hex-string>` is the SHA-256 fingerprint of the client certificate.
 
 ```bash title="Example"
-ethsigner 8E:E0:85:9F:FC:2E:2F:21:31:46:0B:82:4C:A6:88:AB:30:34:9A:C6:EA:4F:04:31:ED:0F:69:A7:B5:C2:2F:A7
+web3signer 8E:E0:85:9F:FC:2E:2F:21:31:46:0B:82:4C:A6:88:AB:30:34:9A:C6:EA:4F:04:31:ED:0F:69:A7:B5:C2:2F:A7
 curl FC:18:BF:39:45:45:9A:15:46:76:A6:E7:C3:94:64:B8:34:84:A3:8E:B8:EA:67:DC:61:C0:29:E6:38:B8:B7:99
 ```
 
@@ -115,5 +115,5 @@ The command line:
 
 <!-- Links -->
 
-[Configure the client for TLS]: https://docs.ethsigner.consensys.net/en/latest/HowTo/Configure-TLS/#server-tls-connection
+[Configure the client for TLS]: https://docs.web3signer.consensys.net/how-to/configure-tls
 [Configure the server to allow TLS communication]: https://docs.tessera.consensys.net/HowTo/Configure/TLS/

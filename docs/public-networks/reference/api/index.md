@@ -231,9 +231,9 @@ Removes cache files for the specified range of blocks.
 
 #### Parameters
 
-- `fromBlock`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `fromBlock`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlock`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `toBlock`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 You can skip a parameter by using an empty string, `""`. If you specify:
 
@@ -901,7 +901,7 @@ Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structur
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -939,7 +939,7 @@ Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structur
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -971,6 +971,88 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0xf90236a09f73691f6dabca4f0a99b05d0a701995506aa311dcaa9ce9833d6f4ca474c162a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794c6e2459991bfe27cca6d86722f35da23a1e4cb97a078103ea8c47231886481d72ec1afae6eeb06c3773ce24a91323d5c9eed69d4cca0008992da2531db404f07b0871dd620a94ba346963e1b1c6dc7b00748e8593a1ea0b6c3890d9604434fc52f722848c84d1770add20cd75bbc28cdedff42940dbb56b90100200800000400000002000e0000000401000000440100000000c0400600000002000801000000040480020840048000000000400000000000000020004220000011002000000000000204000800000010010002000002000000000040a000000000000400020000010885000000000808000000008800001004002010020300005000000010002110410402000000000000000890000008000000000000000000020040000002000000000000810400000040006000004000004080020000000000000022001000000000000840400000000220250000000000080402000420000418000000000000000400040000004080040010200000000000108020020000808332026e8401c9c380833e3c3c846436f93899d883010b05846765746888676f312e32302e32856c696e7578a0112d8f15793e7df7f8dcdb21c891cff78c0d1839cb5b6dcd06116cdbb99536ae88000000000000000008a0cdb97712af6685bb9650d21d609525913293c48adda7c45990926daada335c9b"
+}
+```
+
+<!--/tabs-->
+
+### `debug_getRawReceipts`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the transaction receipts of the specified block.
+
+#### Parameters
+
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`,
+`earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: _object_ - array of RLP-encoded [transaction receipts](objects.md#transaction-receipt-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    "0xf901a60182c70eb9010000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000002000000000000000000000008000000000000000000000000000000000040000000001000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000100000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000002000000000100000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000020000000000000000f89df89b947753cfad258efbc52a9a1452e42ffbce9be486cbf863a0ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3efa00000000000000000000000000828d0386c1122e565f07dd28c7d1340ed5b3315a000000000000000000000000021849e99c31e3113a489d7eb0fd4d8c0edbe47afa00000000000000000000000000000000000000000000000000000000029b92700",
+    "0xf901a70183018e1cb9010000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000002000000000000000000000008000000000000000000000000000000000040000000001000000000000000000000000000000000000000000000000010000000000000000000000000000000008000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000002000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000020000000000000000f89df89b947753cfad258efbc52a9a1452e42ffbce9be486cbf863a0ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3efa00000000000000000000000000828d0386c1122e565f07dd28c7d1340ed5b3315a000000000000000000000000069cda9d6cc6ce05982d0b4fdf9480f2991f39b5aa00000000000000000000000000000000000000000000000000000000029b92700"
+  ]
+}
+```
+
+<!--/tabs-->
+
+### `debug_getRawTransaction`
+
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+of the specified transaction.
+
+#### Parameters
+
+`transaction`: _string_ - 32-byte transaction hash
+
+#### Returns
+
+`result`: _object_ - RLP-encoded [transaction object](objects.md#transaction-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```bash
+{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xf8678084342770c182520894658bdf435d810c91414ec09147daa6db624063798203e880820a95a0af5fc351b9e457a31f37c84e5cd99dd3c5de60af3de33c6f4160177a2c786a60a0201da7a21046af55837330a2c52fc1543cd4d9ead00ddf178dd96935b607ff9b"
 }
 ```
 
@@ -1121,7 +1203,7 @@ Re-imports the block matching the specified block number, by rolling the head of
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1197,7 +1279,7 @@ Sets the current head of the local chain to the block matching the specified blo
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1403,7 +1485,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":[
 }
 ```
 
-:::
+<!--/tabs-->
 
 ### `debug_traceTransaction`
 
@@ -1624,7 +1706,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 #### Parameters
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `options`: _object_ - request options object with the following fields (all optional and default to `false`):
 
@@ -1685,6 +1767,78 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
   ]
 }
 ```
+<!--/tabs-->
+
+### `debug_traceCall`
+
+Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
+
+#### Parameters
+
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+
+  - `disableStorage`: _boolean_ - `true` disables storage capture.
+
+  - `disableMemory`: _boolean_ - `true` disables memory capture.
+
+  - `disableStack` : _boolean_ - `true` disables stack capture.
+
+#### Returns
+
+`result`: _array_ of _objects_ - list of [trace objects](objects.md#trace-object)
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from":"","to":"","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":""},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}], "id":1}' http://127.0.0.1:8545
+
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "debug_traceCall",
+  "params": [{"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","0x0050000000000000000000000000000000000000", "0xfffff2","0xef","0x0","0x0000000000000000000000000030000000000000000000000000000000000000f000000000000000000000000000000000000000000000000000000000000001"},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}],
+  "id": 1
+}
+
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "gas": 21000,
+      "failed": false,
+      "returnValue": "",
+      "structLogs": [
+        {
+          "pc": 0,
+          "op": "STOP",
+          "gas": 0,
+          "gasCost": 0,
+          "depth": 1,
+          "stack": [],
+          "memory": [],
+          "storage": null,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}
+```
 
 <!--/tabs-->
 
@@ -1706,7 +1860,7 @@ Returns a list of account addresses a client owns.
 
 This method returns an empty object because Besu [doesn't support key management](../../how-to/send-transactions.md) inside the client.
 
-To provide access to your key store and and then sign transactions, use [EthSigner](http://docs.ethsigner.consensys.net/en/latest/) with Besu.
+To provide access to your key store and and then sign transactions, use [Web3Signer](https://docs.web3signer.consensys.net/) with Besu.
 
 :::
 
@@ -1816,17 +1970,22 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
-If revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the `eth_call` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_call` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
 `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 :::note
 
-By default, `eth_call` does not fail if the sender account has an insufficient balance. This is done by setting the balance of the account to a large amount of ether. To enforce balance rules, set the [`strict` parameter](objects.md#transaction-call-object) in the transaction call object to `true`.
+The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked: 
+* If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
+* If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance. 
+* If `strict` is not specified, the balance is checked against the gas parameters if supplied. 
+
+If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
 
 :::
 
@@ -2020,7 +2179,7 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
 
 `transaction`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 #### Returns
 
@@ -2080,7 +2239,7 @@ Returns an estimate of the gas required for a transaction to complete. The estim
 
 The `eth_estimateGas` call does not send a transaction. You must call [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
 
-If revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the `eth_estimateGas` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_estimateGas` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
@@ -2200,7 +2359,7 @@ Returns base fee per gas and transaction effective priority fee per gas history 
 
 - `blockCount`: _integer_ or _string_ - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. If blocks in the specified block range are not available, then only the fee history for available blocks is returned. Accepts hexadecimal or integer values.
 
-- `newestBlock`: _string_ - Integer representing the highest number block of the requested range or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+- `newestBlock`: _string_ - hexadecimal or decimal integer representing the highest number block of the requested range or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 - `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used.
 
@@ -2334,7 +2493,7 @@ Returns the account balance of the specified address.
 
 - `address`: _string_ - 20-byte account address from which to retrieve the balance
 
-- `blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2543,7 +2702,7 @@ Returns information about the block matching the specified block number.
 
 #### Parameters
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe` as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, returns only the hashes of the transactions.
 
@@ -2693,6 +2852,185 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 <!--/tabs-->
 
+### `eth_getBlockReceipts`
+
+Returns all transaction receipts for a given block. Transaction receipts provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of
+gas used and any event logs that might have been produced by a smart contract during the transaction.
+
+#### Parameters
+
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+
+#### Returns
+
+`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
+
+<!--tabs-->
+
+# curl HTTP
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["latest"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS
+
+```json
+{
+  "jsonrpc": "2.0", "method": "eth_getBlockReceipts", "params": ["0x6f55"], "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x18c36",
+      "from": "0x22896bfc68814bfd855b1a167255ee497006e730",
+      "gasUsed": "0x18c36",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [
+        {
+          "address": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+          "topics": [
+            "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+            "0x4be29e0e4eb91f98f709d98803cba271592782e293b84a625e025cbb40197ba8",
+            "0x000000000000000000000000835281a2563db4ebf1b626172e085dc406bfc7d2",
+            "0x00000000000000000000000022896bfc68814bfd855b1a167255ee497006e730"
+          ],
+          "data": "0x",
+          "blockNumber": "0x6f55",
+          "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+          "transactionIndex": "0x0",
+          "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000004000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000080020000000000000200010000000000000000000001000000800000000000000000000000000000000000000000000000000000100100000000000000000000008000000000000000000000000000000002000000000000000000000",
+      "status": "0x1",
+      "to": "0xfd584430cafa2f451b4e2ebcf3986a21fff04350",
+      "transactionHash": "0x4a481e4649da999d92db0585c36cba94c18a33747e95dc235330e6c737c6f975",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    },
+    {
+      "blockHash": "0x19514ce955c65e4dd2cd41f435a75a46a08535b8fc16bc660f8092b32590b182",
+      "blockNumber": "0x6f55",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x1de3e",
+      "from": "0x712e3a792c974b3e3dbe41229ad4290791c75a82",
+      "gasUsed": "0x5208",
+      "effectiveGasPrice": "0x9502f907",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "status": "0x1",
+      "to": "0xd42e2b1c14d02f1df5369a9827cb8e6f3f75f338",
+      "transactionHash": "0xefb83b4e3f1c317e8da0f8e2fbb2fe964f34ee184466032aeecac79f20eacaf6",
+      "transactionIndex": "0x1",
+      "type": "0x2"
+    }
+  ]
+}
+```
+
+# curl GraphQL
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block  (hash: \"0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d\") {transactions{block{hash logsBloom} hash createdContract{address} cumulativeGasUsed gas gasUsed logs{topics} from{address} to{address} index}}}"}' http://localhost:8547/graphql
+```
+
+# GraphQL
+
+```text
+{
+  block (hash: "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d") {
+    transactions { 
+      block { 
+        hash
+        logsBloom
+      } 
+      hash
+      createdContract {
+        address
+      } 
+      cumulativeGasUsed
+      gas
+      gasUsed
+      logs{ 
+        topics
+      } 
+      from{ 
+        address
+      }
+      to { 
+        address
+      } 
+      index
+    }
+  }
+}
+```
+
+# GraphQL result
+
+```json
+{
+  "data" : {
+    "block" : {
+      "transactions" : [ {
+        "block" : {
+          "hash" : "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d",
+          "logsBloom" : "0x2e0a8080520608000e38181e0c9081e813a00c184a010d1900c9602240428dc6480004444098428b945010802454104002827420426591a200224016802841900031bd4440828ec9b113081880027c01cc47105c1885d556216200880026160810050028422a4b0c4bc8087372860851000802c8d901158504a482100d488040119c08045e500824402054a0d91cc433188909020a06ac841914a2a082c104a1260460014b8b001b28030202518c040008266038a880026208041d082503589054581223c188004396804801280c00020c492816060a421831c8820ac04460303a9e48128238e0098f319030083808150c4914b8840000206715481500690000"
+        },
+        "hash" : "0x7afe779fd0c6d4a1b6f330e679a5cf94095eaa57d2ce0c0ef991dfb2b405374f",
+        "createdContract" : null,
+        "cumulativeGasUsed" : "0x5208",
+        "gas" : "0x61a8",
+        "gasUsed" : "0x5208",
+        "logs" : [ ],
+        "from" : {
+          "address" : "0x66f962241b8ff853849c85a63a0ce20bae4f68d5"
+        },
+        "to" : {
+          "address" : "0x6be8356826a9fc7b2d911fcc1de6342ae5f5b9a3"
+        },
+        "index" : "0x0"
+      }, {
+        "block" : {
+          "hash" : "0x4d746a3381673a5180744a56e78cded4696b77317866c2253566e0fa16967e1d",
+          "logsBloom" : "0x2e0a8080520608000e38181e0c9081e813a00c184a010d1900c9602240428dc6480004444098428b945010802454104002827420426591a200224016802841900031bd4440828ec9b113081880027c01cc47105c1885d556216200880026160810050028422a4b0c4bc8087372860851000802c8d901158504a482100d488040119c08045e500824402054a0d91cc433188909020a06ac841914a2a082c104a1260460014b8b001b28030202518c040008266038a880026208041d082503589054581223c188004396804801280c00020c492816060a421831c8820ac04460303a9e48128238e0098f319030083808150c4914b8840000206715481500690000"
+        },
+        "hash" : "0x412f04ba27c1c096dadb2d8af54ee61034c3d4679fdd025a634e95fa2238713c",
+        "createdContract" : null,
+        "cumulativeGasUsed" : "0xbcdb2",
+        "gas" : "0xbdfe0",
+        "gasUsed" : "0xb7baa",
+        "logs" : [ {
+          "topics" : [ "0xd93fde3ea1bb11dcd7a4e66320a05fc5aa63983b6447eff660084c4b1b1b499b", "0x00000000000000000000000000000000000000000000000000000000000e4d3a" ]
+        } ],
+        "from" : {
+          "address" : "0xe253f7a6533c62755f470b33fa5bcd659a5db3cd"
+        },
+        "to" : {
+          "address" : "0x95ff8d3ce9dcb7455beb7845143bea84fe5c4f6f"
+        },
+        "index" : "0x1"
+      } ]
+    }
+  }
+}
+```
+
+<!--/tabs-->
+
 ### `eth_getBlockTransactionCountByHash`
 
 Returns the number of transactions in the block matching the specified block hash.
@@ -2772,7 +3110,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2845,7 +3183,7 @@ Returns the code of the smart contract at the specified address. Besu stores com
 
 `address`: _string_ - 20-byte contract address
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3303,7 +3641,7 @@ Returns miner data for the specified block.
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3367,7 +3705,7 @@ The API allows IoT devices or mobile apps which are unable to run light clients 
 
 `keys`: _array_ of _strings_ - list of 32-byte storage keys to generate proofs for
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3460,7 +3798,7 @@ Returns the value of a storage position at a specified address.
 
 `index`: _string_ - integer index of the storage position
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -3635,7 +3973,7 @@ Returns transaction information for the specified block number and transaction i
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 `index`: _string_ - transaction index position
 
@@ -3855,7 +4193,7 @@ Returns the number of transactions sent from a specified address. Use the `pendi
 
 `address`: _string_ - 20-byte account address
 
-`blockNumber` or `blockHash`: _string_ - integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -4182,7 +4520,7 @@ Returns uncle specified by block number and index.
 
 #### Parameters
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `uncleIndex`: _string_ - index of the uncle
 
@@ -4369,7 +4707,7 @@ Returns the number of uncles in a block matching the specified block number.
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -4767,7 +5105,7 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md).
 
-[EthSigner](https://docs.ethsigner.consensys.net/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.ethsigner.consensys.net/Reference/API-Methods#eth_sendtransaction).
+[Web3Signer](https://docs.web3signer.consensys.net/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction).
 
 :::
 
@@ -5075,7 +5413,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 
 ## `MINER` methods
 
-The `MINER` API methods allow you to control the node’s mining operation.
+The `MINER` API methods allow you to control: 
+
+* The node’s mining operation.
+* Settings related to block creation. 
+
 
 :::note
 
@@ -5126,6 +5468,49 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 <!--/tabs-->
 
+### `miner_getMinPriorityFee`
+
+Gets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_setMinPriorityFee`](#minersetminpriorityfee) to change the current value of the fee.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Minimum priority fee per gas (in Wei) as a hexadecimal string
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getMinPriorityFee",
+  "params": [],
+  "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x1"
+}
+```
+<!--/tabs-->
+
 ### `miner_setCoinbase`
 
 Sets the coinbase, the address for the mining rewards.
@@ -5159,6 +5544,50 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
   "jsonrpc": "2.0",
   "method": "miner_setCoinbase",
   "params": ["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],
+  "id": 1
+}
+```
+
+# JSON result
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": true
+}
+```
+
+<!--/tabs-->
+
+### `miner_setMinPriorityFee`
+
+Sets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current value of the fee.
+
+#### Parameters
+
+`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal. 
+
+#### Returns
+
+`result`: _boolean_ - `true` when fee is set
+
+<!--tabs-->
+
+# curl HTTP request
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":["0x0a"],"id":1}' http://127.0.0.1:8545
+```
+
+# wscat WS request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setMinPriorityFee",
+  "params": ["0x0a"],
   "id": 1
 }
 ```
@@ -5446,8 +5875,6 @@ None
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
 | `7`        | ETC   | Mordor  | PoW test network              |
-| `6`        | ETC   | Kotti   | PoA test network using Clique |
-| `212`      | ETC   | Astor   | PoW test network              |
 
 :::note
 
@@ -5568,7 +5995,7 @@ Your node must be an archive node (that is, synchronized without pruning or fast
 
 #### Parameters
 
-`blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -5666,7 +6093,7 @@ The requested transaction must be contained in a block within the number of [blo
 
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 
@@ -5752,7 +6179,7 @@ The requested block must be within the number of [blocks retained](../cli/option
 
 - `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -6088,7 +6515,7 @@ When using [Forest](../../concepts/data-storage-formats.md#forest-of-tries), the
 
 #### Parameters
 
-- `blockNumber`: _string_ - integer representing a block number or one of the string tags `latest`, `earliest`, or `pending`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 - `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 

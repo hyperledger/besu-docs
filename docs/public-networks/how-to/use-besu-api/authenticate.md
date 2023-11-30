@@ -3,6 +3,7 @@ title: Authenticate over JSON-RPC requests
 sidebar_position: 4
 description: Hyperledger Besu authentication and authorization for JSON-RPC
 tags:
+  - public networks
   - private networks
 ---
 

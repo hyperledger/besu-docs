@@ -107,6 +107,8 @@ If your network is configured to use the `londonBlock` or a later hard fork, the
 }
 ```
 
+If zero base fee is enabled, you cannot specify a value for [`--tx-pool-price-bump`](../../../public-networks/reference/cli/options.md#tx-pool-price-bump).
+
 ## Configure free gas in Hardhat
 
 If using Hardhat to develop on your free gas network, you also need to configure free gas in Hardhat.

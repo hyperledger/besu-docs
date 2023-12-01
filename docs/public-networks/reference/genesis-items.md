@@ -15,19 +15,20 @@ The [Besu genesis file](../concepts/genesis-file.md) contains [network configura
 
 Network configuration items are specified in the genesis file in the `config` object.
 
-| Item | Description |
-| --- | --: |
-| Milestone blocks | [Milestone blocks for the network](#milestone-blocks). |
-| `chainID` | [Chain ID for the network](../concepts/network-and-chain-id.md). |
-| `ethash` | Specifies network uses [Ethash](../../private-networks/how-to/configure/consensus/index.md) and contains [`fixeddifficulty`](#fixed-difficulty). |
-| `clique` | Specifies network uses [Clique](../../private-networks/how-to/configure/consensus/clique.md) and contains [Clique configuration items](../../private-networks/how-to/configure/consensus/clique.md#genesis-file). |
-| `ibft2` | Specifies network uses [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md) and contains [IBFT 2.0 configuration items](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file). |
-| `qbft` | Specifies network uses [QBFT](../../private-networks/how-to/configure/consensus/qbft.md) and contains [QBFT configuration items](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file). |
-| `transitions` | Specifies block at which to [change IBFT 2.0 or QBFT validators](../../private-networks/how-to/configure/consensus/add-validators-without-voting.md). |
-| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../../private-networks/how-to/configure/free-gas.md). The default is `24576` and the maximum size is `2147483647`. |
-| `evmStackSize` | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`. |
-| `ecCurve` | Specifies [the elliptic curve to use](../../private-networks/how-to/configure/curves.md). Default is `secp256k1`. |
-| `discovery` | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty. |
+| Item                | Description                                                                                                                                                                                                       |
+|---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Milestone blocks    | [Milestone blocks for the network](#milestone-blocks).                                                                                                                                                            |
+| `chainID`           | [Chain ID for the network](../concepts/network-and-chain-id.md).                                                                                                                                                  |
+| `ethash`            | Specifies network uses [Ethash](../../private-networks/how-to/configure/consensus/index.md) and contains [`fixeddifficulty`](#fixed-difficulty).                                                                  |
+| `clique`            | Specifies network uses [Clique](../../private-networks/how-to/configure/consensus/clique.md) and contains [Clique configuration items](../../private-networks/how-to/configure/consensus/clique.md#genesis-file). |
+| `ibft2`             | Specifies network uses [IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md) and contains [IBFT 2.0 configuration items](../../private-networks/how-to/configure/consensus/ibft.md#genesis-file). |
+| `qbft`              | Specifies network uses [QBFT](../../private-networks/how-to/configure/consensus/qbft.md) and contains [QBFT configuration items](../../private-networks/how-to/configure/consensus/qbft.md#genesis-file).         |
+| `transitions`       | Specifies block at which to [change IBFT 2.0 or QBFT validators](../../private-networks/how-to/configure/consensus/add-validators-without-voting.md).                                                             |
+| `contractSizeLimit` | Maximum contract size in bytes. Specify in [free gas networks](../../private-networks/how-to/configure/free-gas.md). The default is `24576` and the maximum size is `2147483647`.                                 |
+| `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                                           |
+| `ecCurve`           | Specifies [the elliptic curve to use](../../private-networks/how-to/configure/curves.md). Default is `secp256k1`.                                                                                                 |
+| `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                                              |
+| `zeroBaseFee`       | Specifies a base fee of `0` for [free gas networks](../../private-networks/how-to/configure/free-gas.md#4-enable-zero-base-fee-if-using-london-fork-or-later).                                                      |
 
 ## Genesis block parameters
 
@@ -39,12 +40,12 @@ The purpose of some genesis block parameters varies depending on the consensus p
 
 The following table describes the genesis block parameters with the same purpose across all consensus protocols.
 
-| Item | Description |
-| --- | --: |
-| `coinbase` | Address to pay mining rewards to. Can be any value in the genesis block (commonly set to `0x0000000000000000000000000000000000000000`). |
-| `gasLimit` | Block gas limit. Total gas limit for all transactions in a block. |
-| `nonce` | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`). |
-| `timestamp` | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file. |
+| Item | Description                                                                                                                                                      |
+| --- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `coinbase` | Address to pay mining rewards to. Can be any value in the genesis block (commonly set to `0x0000000000000000000000000000000000000000`).                          |
+| `gasLimit` | Block gas limit. Total gas limit for all transactions in a block.                                                                                                |
+| `nonce` | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`).                                                                        |
+| `timestamp` | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.                                         |
 | `alloc` | Defines [accounts with balances](../../private-networks/reference/accounts-for-testing.md) or [contracts](../../private-networks/how-to/configure/contracts.md). |
 
 :::caution
@@ -145,7 +146,3 @@ Use the `discovery` configuration items to specify the [`bootnodes`](cli/options
   }
 }
 ```
-
-<!--links-->
-
-[GoQuorum clients]: https://consensys.net/docs/goquorum/en/stable/

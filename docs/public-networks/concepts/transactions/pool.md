@@ -69,6 +69,8 @@ When the transaction pool is full, it accepts and retains local transactions in 
 
 ## Replacing transactions with the same sender and nonce
 
+### In networks with a base fee and priced gas
+
 You can replace a pending transaction with a transaction that has the same sender and nonce but a higher gas price.
 
 If sending a [legacy transaction](types.md#frontier-transactions), the old transaction is replaced if the new transaction has a gas price higher than the existing gas price by the percentage specified by [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump).
@@ -80,3 +82,13 @@ If sending an [`EIP1559` transaction](types.md#eip1559-transactions), the old tr
 - The new transaction's effective gas price is the equal to the existing gas price AND the new effective priority fee is higher than the existing priority fee by the percentage specified by [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump).
 
 The default value for [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) is 10%.
+
+### In networks with zero base base or free gas
+
+To enable replacing transactions in the transaction pool for zero base fee networks,
+or free gas networks:
+
+* If you set [`zeroBaseFee`](../../reference/genesis-items.md) to `true` in the genesis file,
+  the transaction pool price bump is set to `0`. Specifying a value for transaction pool price bump using [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)
+  will cause an error.
+* If the [minimum gas price is zero](../../../private-networks/how-to/configure/free-gas.md), the transaction pool price bump is set to `0`, unless you specify a different value using [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump). 

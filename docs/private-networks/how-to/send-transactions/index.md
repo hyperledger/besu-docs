@@ -14,3 +14,4 @@ You can also:
 - [Send private transactions](private-transactions.md).
 - [Send concurrent private transactions](concurrent-private-transactions.md).
 - [Include revert reason in transactions](revert-reason.md).
+- [Replace transactions in the transaction pool](../../../public-networks/concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas).

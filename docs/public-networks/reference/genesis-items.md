@@ -28,7 +28,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `evmStackSize`      | Maximum stack size. Specify to increase the maximum stack size in private networks with complex smart contracts. The default is `1024`.                                                                           |
 | `ecCurve`           | Specifies [the elliptic curve to use](../../private-networks/how-to/configure/curves.md). Default is `secp256k1`.                                                                                                 |
 | `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                                              |
-| `zeroBaseFee`       | Specifies a base fee of 0 for [free gas networks](../../private-networks/how-to/configure/free-gas.md#4-enable-zero-base-fee-if-using-london-fork-or-later).                                                      |
+| `zeroBaseFee`       | Specifies a base fee of `0` for [free gas networks](../../private-networks/how-to/configure/free-gas.md#4-enable-zero-base-fee-if-using-london-fork-or-later).                                                      |
 
 ## Genesis block parameters
 

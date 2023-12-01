@@ -88,8 +88,7 @@ The default value for [`--tx-pool-price-bump`](../../reference/cli/options.md#tx
 To enable replacing transactions in the transaction pool for zero base fee networks,
 or free gas networks:
 
-* If [`zeroBaseFree:true`](../../reference/genesis-items.md) is specified in the genesis file,
-  the transaction pool price bump is set to 0. Specifying a value for transaction pool price bump using [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)
+* If you set [`zeroBaseFee`](../../reference/genesis-items.md) to `true` in the genesis file,
+  the transaction pool price bump is set to `0`. Specifying a value for transaction pool price bump using [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)
   will cause an error.
-* If the [minimum gas price is 0](../../../private-networks/how-to/configure/free-gas.md), the transaction pool price bump is set to 0, unless [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)
-  is used to specify a different value. 
+* If the [minimum gas price is zero](../../../private-networks/how-to/configure/free-gas.md), the transaction pool price bump is set to `0`, unless you specify a different value using [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump). 

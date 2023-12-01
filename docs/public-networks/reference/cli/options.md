@@ -4151,7 +4151,7 @@ tx-pool-price-bump=25
 The price bump percentage to [replace an existing transaction in the transaction
 pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
 For networks with a [base fee and priced gas](../../concepts/transactions/pool.md#in-networks-with-a-base-fee-and-priced-gas), the default is `10`, or 10%.
-For networks with [zero base fee, or free gas](../../concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas), the default is 0. 
+For networks with [zero base fee, or free gas](../../concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas), the default is `0`. 
 
 ### `tx-pool-priority-senders`
 

@@ -41,7 +41,7 @@ Each of these duties carries a reward rate, a portion of the entire "weight deno
 
 ## Incorrect attestations
 
-If you have attestations with incorrect head votes, your node might be experiencing slow block imports. However, block producers can also be slow to publish blocks, resulting in a majority of validators getting the head vote wrong. A <100% head vote doesn't necessarily imply a problem with your node.
+If you have attestations with incorrect head votes, your node might be experiencing slow block imports. However, block producers can also be slow to publish blocks, resulting in a majority of validators getting the head vote wrong. A \<100% head vote doesn't necessarily imply a problem with your node.
 
 In case of a slowdown, identify whether the issue is with the beacon node or the execution client. Block timing logs can be helpful in determining this.
 

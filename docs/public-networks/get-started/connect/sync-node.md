@@ -19,27 +19,25 @@ Besu must connect with other peers to sync with the network. If your node is hav
 ## Sync times
 
 To sync with a public network, Besu runs two processes in parallel: the world state sync and the blockchain download.
+While the world state syncs, Besu downloads and imports the blockchain in the background. The blockchain download time depends on CPU, the network, Besu's peers, and disk speed. The blockchain download generally takes longer than the world state sync.
+Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
 
-The following table shows the average world state sync time for each sync mode on Mainnet. All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge. Each sync mode also has its own world state database size.
+The following table shows the average world state sync time, and blockchain download time, for each sync mode on Mainnet. All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge. Each sync mode also has its own world state database size.
 
-| Sync mode  | Time to sync world state | Disk usage    |
-| ---------- | ------------------------ | ------------- |
-| Snap       | ~6 hours                 | Average disk  |
-| Checkpoint | ~5 hours                 | Smallest disk |
-| Fast       | ~1.5 days                | Average disk  |
-| Full       | ~weeks                   | Largest disk  |
+| Sync mode  | Time to sync world state | Time to download blockchain | Disk usage    |
+| ---------- | ------------------------ |----------------------------|---------------|
+| Snap       | ~6 hours                 | ~1.5 days                  | Average disk  |
+| Checkpoint | ~5 hours                 | ~13 hours                  | Smallest disk |
+| Fast       | ~1.5 days                | ~1.5 days                  | Average disk  |
+| Full       | ~weeks                   | ~weeks                     | Largest disk  |
 
 :::note
 
-- As of late 2022, an average Mainnet snap sync consumes around 750 GB using Bonsai Tries. Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements) across data storage formats and sync modes.
+- As of late 2023, an average Mainnet snap sync consumes around 1000 GB using Bonsai Tries. Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements) across data storage formats and sync modes.
 
 - Testnets take significantly less time and space to sync.
 
 :::
-
-While the world state syncs, Besu downloads and imports the blockchain in the background. The blockchain download time depends on CPU, the network, Besu's peers, and disk speed. It generally takes longer than the world state sync.
-
-Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
 
 ## Storage
 

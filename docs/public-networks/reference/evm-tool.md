@@ -7,6 +7,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # EVM tool reference
 
 This reference describes [options](#options) and [subcommands](#subcommands) for the
@@ -22,155 +25,185 @@ Option names that include `trace`, such as [`--trace`](#json-trace) and [`--trac
 
 ### `code`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --code=<code>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --code=5B600080808060045AFA50600056
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The code to be executed, in compiled hex code form. Execution fails if this is not set.
 
 ### `gas`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --gas=<integer>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --gas=100000000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Amount of gas to make available to the EVM. The default is 10 billion, a number unlikely to be seen in any production blockchain.
 
 ### `price`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --price=<integer>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --price=10
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Price of gas in Gwei. The default is `0`. If set to a non-zero value, the sender account must have enough value to cover the gas fees.
 
 ### `sender`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --sender=<address>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --sender=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The account the invocation is sent from. The specified account must exist in the world state, which, unless specified by [`--genesis`](#genesis), is the set of [accounts used for testing](../../private-networks/reference/accounts-for-testing.md).
 
 ### `receiver`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --receiver=<address>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --receiver=0x588108d3eab34e94484d7cda5a1d31804ca96fe7
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The account the invocation is sent to. The specified account does not need to exist.
 
 ### `input`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --input=<code>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --input=9064129300000000000000000000000000000000000000000000000000000000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The data passed into the call. Corresponds to the `data` field of the transaction and is returned by the `CALLDATA` and related opcodes.
 
 ### `value`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --value=<integer>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --value=1000000000000000000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The value, in wei, attached to this transaction. For operations that query the value or transfer it to other accounts this is the amount that is available. The amount is not reduced to cover intrinsic cost and gas fees.
 
 ### `json`, `trace`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --json
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Provides an operation-by-operation trace of the command in JSON.
 
@@ -178,29 +211,33 @@ Provides an operation-by-operation trace of the command in JSON.
 
 ### `json-alloc`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --json-alloc
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Outputs a JSON summary of the post-execution world state and allocations.
 
 ### `[no]memory`, `trace.[no]memory`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --nomemory, --memory
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Setting `--nomemory` disables tracing the memory output for each operation. Setting `--memory` enables it. Memory traces are disabled by default.
 
@@ -210,43 +247,49 @@ For memory heavy scripts, disabling memory traces may reduce the volume of JSON 
 
 ### `trace.[no]stack`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --trace.nostack, --trace.stack
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Setting `--trace.nostack` disables tracing the operand stack for each operation. Setting `--trace.stack` enables it. Stack traces are enabled by default.
 
 ### `trace.[no]returndata`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --trace.noreturndata, --trace.returndata
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Setting `--trace.noreturndata` disables tracing the return data for each operation. Setting `--trace.returndata` enables it. Return data traces are enabled by default.
 
 ### `[no]time`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --notime, --time
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Setting `--notime` disables including time data in the summary output. Setting `--time` enables it.
 
@@ -254,21 +297,25 @@ This is useful for testing and differential evaluations.
 
 ### `genesis`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --genesis=<path>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --genesis=/opt/besu/genesis.json
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most useful are the `alloc` items that set up accounts and their stored memory states.
 
@@ -276,95 +323,113 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 
 ### `chain`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --chain=<mainnet|goerli|sepolia|dev|classic|mordor|kotti|astor>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --chain=goerli
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The well-known network genesis file to use when evaluating the EVM. These values are an alternative to the [`--genesis`](#genesis) option for well-known networks.
 
 ### `repeat`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --repeat=<integer>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --repeat=1000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Number of times to repeat the contract before gathering timing information. This is useful when benchmarking EVM operations. The default is `0`.
 
 ### `revert-reason-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --revert-reason-enabled
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables tracing the reason included in `REVERT` operations. The revert reason is enabled by default.
 
 ### `fork`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --fork=<string>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --fork=FutureEips
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Specific fork to evaluate, overriding network settings.
 
 ### `key-value-storage`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --key-value-storage=<memory|rocksdb>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --key-value-storage=rocksdb
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Kind of key value storage to use.
 
@@ -374,55 +439,65 @@ When set to `rocksdb` and combined with [`--data-path`](#data-path), [`--block-n
 
 ### `data-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-path=<path>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --data-path=/opt/besu/data
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 When [`--key-value-storage`](#key-value-storage) is set to `rocksdb`, specifies the location of the database on disk.
 
 ### `block-number`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --block-number=<integer>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 --block-number=10000000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The block number to evaluate the code against. Used to ensure that the EVM is evaluating the code against the correct fork, or to specify the world state when [`--key-value-storage`](#key-value-storage) is set to `rocksdb`.
 
 ### `version`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --version
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Displays the version information.
 
@@ -436,21 +511,25 @@ The following subcommands are used for testing code bases and not meant for typi
 
 ### `code-validate`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 evmtool code-validate --file=<file>
 ```
 
-# Example
+</TabItem>
+
+  <TabItem value="Example" label="Example">
 
 ```bash
 evmtool code-validate --file=eof.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Allows [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated.
 
@@ -462,21 +541,25 @@ Each line in the file is considered a separate program.
 If you use command arguments, each argument is considered a separate program.
 If a code segment includes spaces, it must be contained in quotes.
 
-<!--tabs-->
+<Tabs>
 
-# Docker example
+<TabItem value="Docker example" label="Docker example" default>
 
 ```bash
 docker run --rm hyperledger/besu-evmtool:develop code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
 ```
 
-# CLI example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 evmtool code-validate "0xef0001 010008 020002-0007-0002 030000 00 00000002-02010002 59-59-b00001-50-b1 03-b1" 0xef0002 0xef00010100040200010001030000000000000000
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 #### Use standard input
 
@@ -501,42 +584,50 @@ test executed.
 If you use command arguments, you can list one or more state tests.
 All the state tests are evaluated in the order they are specified.
 
-<!--tabs-->
+<Tabs>
 
-# Docker example
-
+<TabItem value="Docker example" label="Docker example" default>
 ```bash
 docker run --rm -v ${PWD}:/opt/referencetests hyperledger/besu-evmtool:develop --json state-test /opt/referencetests/GeneralStateTests/stExample/add11.json
 ```
 
-# CLI example
+</TabItem>
+
+<TabItem value="CLI example" label="CLI example">
+
 
 ```bash
 evmtool --json state-test stExample/add11.json
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 #### Use standard input
 
 If no reference tests are passed in using the command line, the EVM tool loads one complete JSON
 object from standard input and executes that state test.
 
-<!--tabs-->
+<Tabs>
 
-# Docker example
+<TabItem value="Docker example" label="Docker example" default>
 
 ```bash
 docker run --rm -i hyperledger/besu-evmtool:develop --json state-test < stExample/add11.json
 ```
 
-# CLI example
+</TabItem>
+
+<TabItem value="CLI example" label="CLI example">
 
 ```bash
 evmtool --json state-test < stExample/add11.json
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `transition`, `t8n`, `t8n-server`
 

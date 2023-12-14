@@ -6,6 +6,9 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Run Besu and Teku on a testnet
 
 Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
@@ -58,9 +61,9 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 Run the following command or specify the options in a [configuration file](../how-to/configuration-file.md):
 
-<!--tabs-->
+<Tabs>
 
-# Goerli
+<TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 besu \
@@ -76,7 +79,9 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-# Sepolia
+</TabItem>
+
+<TabItem value="Sepolia" label="Sepolia">
 
 ```bash
 besu \
@@ -92,7 +97,9 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret) option.
 
@@ -106,9 +113,9 @@ Open a new terminal window.
 
 To run Teku as a beacon node only (without validator duties), run the following command or specify the options in the [Teku configuration file]:
 
-<!--tabs-->
+<Tabs>
 
-# Goerli
+<TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 teku \
@@ -119,7 +126,9 @@ teku \
   --rest-api-enabled=true
 ```
 
-# Sepolia
+</TabItem>
+
+<TabItem value="Sepolia" label="Sepolia">
 
 ```bash
 teku \
@@ -130,7 +139,9 @@ teku \
   --rest-api-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
 
@@ -140,9 +151,9 @@ You can modify the option values and add other [Teku command line options] as ne
 
 To run Teku as a beacon node and validator in a single process, run the following command or specify the options in the [Teku configuration file]:
 
-<!--tabs-->
+<Tabs>
 
-# Goerli
+<TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 teku \
@@ -155,11 +166,15 @@ teku \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
-# Sepolia
+</TabItem>
+
+<TabItem value="Sepolia" label="Sepolia">
 
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Specify:
 
@@ -173,9 +188,9 @@ You can modify the option values and add other [Teku command line options] as ne
 
 After starting Besu and Teku, your node starts syncing and connecting to peers.
 
-<!--tabs-->
+<Tabs>
 
-# Besu logs
+<TabItem value="Besu logs" label="Besu logs" default>
 
 ```json
 {"@timestamp":"2023-02-03T04:43:49,555","level":"INFO","thread":"main","class":"DefaultSynchronizer","message":"Starting synchronizer.","throwable":""}
@@ -192,7 +207,9 @@ cb9f0fcc6f16386df70da3c5). State root 0xa7114541f42c62a72c8b6bb9901c2ccf4b424cd7
 {"@timestamp":"2023-02-03T04:51:28,985","level":"INFO","thread":"EthScheduler-Services-29 (importBlock)","class":"FastImportBlocksStep","message":"Block import progress: 180400 of 16545859 (1%)","throwable":""}
 ```
 
-# Teku logs
+</TabItem>
+
+<TabItem value="Teku logs" label="Teku logs">
 
 ```bash
 2022-03-21 20:43:24.355 INFO  - Syncing     *** Target slot: 76092, Head slot: 2680, Remaining slots: 73412, Connected peers: 8
@@ -202,7 +219,9 @@ cb9f0fcc6f16386df70da3c5). State root 0xa7114541f42c62a72c8b6bb9901c2ccf4b424cd7
 2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 If you're running Teku as a beacon node only, you're all set. If you're also running Teku as a validator client, ensure Besu and Teku are fully synced before submitting your staking deposit in the next step. Syncing Besu can take several days.
 

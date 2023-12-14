@@ -3880,7 +3880,7 @@ tx-pool-layer-max-capacity="20000000"
 <!--/tabs-->
 
 Maximum amount of memory (in bytes) that any layer within the [layered transaction
-pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
+pool](../../concepts/transactions/pool#layered-transaction-pool) can occupy.
 The default is `12500000`, or 12.5 MB.
 
 There are two memory-limited layers in the transaction pool, so the expected memory consumption is
@@ -3922,7 +3922,7 @@ Accepted values are in the range `(0–1]`.
 The default is `.001`, or 0.1% of transactions from a single sender to be kept in the pool.
 
 :::caution
-- With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+- With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
   implementation, this option is not applicable.
   Replace this option with [`--tx-pool-max-future-by-sender`](#tx-pool-max-future-by-sender) to
   specify the maximum number of sequential transactions from a single sender kept in the pool.
@@ -3965,7 +3965,7 @@ tx-pool-max-future-by-sender="250"
 <!--/tabs-->
 
 The maximum number of sequential transactions from a single sender kept in the
-[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
 The default is `200`.
 
 Increase this value to allow a single sender to fit more transactions in a single block.
@@ -4003,7 +4003,7 @@ tx-pool-max-prioritized="1500"
 <!--/tabs-->
 
 The maximum number of transactions that are prioritized in the
-[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
 The default is `2000`.
 
 For private networks, we recommend setting this value to the maximum number of transactions that fit
@@ -4043,7 +4043,7 @@ The maximum number of transactions kept in the [transaction pool](../../concepts
 The default is `4096`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
 implementation, this option is not applicable because the layered pool is limited by memory size
 instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
@@ -4114,7 +4114,7 @@ tx-pool-price-bump=25
 <!--/tabs-->
 
 The price bump percentage to [replace an existing transaction in the transaction
-pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
+pool](../../concepts/transactions/pool#replacing-transactions-with-the-same-sender-and-nonce).
 The default is `10`, or 10%.
 
 ### `tx-pool-priority-senders`
@@ -4186,7 +4186,7 @@ The maximum period (in hours) to hold pending transactions in the [transaction p
 The default is `13`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
 implementation, this option is not applicable because old transactions will expire when the memory
 cache is full.
 :::

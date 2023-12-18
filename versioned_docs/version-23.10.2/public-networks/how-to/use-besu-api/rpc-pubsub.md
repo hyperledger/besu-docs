@@ -7,6 +7,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use RPC Pub/Sub over WebSockets
 
 ## Introduction
@@ -215,9 +218,9 @@ If a chain reorganization occurs, the subscription publishes notifications for l
 
 The logs subscription returns [log objects](../../reference/api/objects.md#log-object).
 
-<!--tabs-->
+<Tabs>
 
-# All logs
+<TabItem value="All logs" label="All logs" default>
 
 ```json
 { "id": 1, "method": "eth_subscribe", "params": ["logs", {}] }
@@ -243,13 +246,17 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
 }
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 { "jsonrpc": "2.0", "id": 1, "result": "0x2" }
 ```
 
-# Notification
+</TabItem>
+
+<TabItem value="Notification" label="Notification">
 
 ```json
 {
@@ -275,11 +282,13 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
-<!--tabs-->
+</Tabs>
 
-# All logs for privacy group
+<Tabs>
+
+<TabItem value="All logs for privacy group" label="All logs for privacy group" default>
 
 ```json
 {
@@ -289,7 +298,9 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
 }
 ```
 
-# Specific address and topic
+</TabItem>
+
+<TabItem value="Specific address and topic" label="Specific address and topic">
 
 ```json
 {
@@ -308,13 +319,17 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
 }
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 { "jsonrpc": "2.0", "id": 1, "result": "0x1" }
 ```
 
-# Notification
+</TabItem>
+
+<TabItem value="Notification" label="Notification">
 
 ```json
 {
@@ -341,7 +356,9 @@ The logs subscription returns [log objects](../../reference/api/objects.md#log-o
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### Pending transactions
 

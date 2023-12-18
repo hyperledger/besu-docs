@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use OpenTelemetry
 
 You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces. To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. Use [Splunk](https://splunk.com) to visualize the collected data. A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
@@ -112,9 +115,9 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
 
     It is easiest to run the OpenTelemetry collector with Docker with the following command:
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     docker run -d \
@@ -125,7 +128,9 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
       otel/opentelemetry-collector-contrib:latest
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     docker run -d \
@@ -136,27 +141,33 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
       otel/opentelemetry-collector-contrib:latest
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
     You can also refer to this [Docker-compose example](https://github.com/splunk/splunk-connect-for-ethereum/blob/989dc2ccae7d8235bf3ce2a83a18cf0cd1713294/examples/besu-sync/full-sync/docker-compose.yaml).
 
 2.  Start Besu with the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. For example, run the following command to start a single node:
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     OTEL_EXPORTER_OTLP_ENDPOINT=https://<host>:<port> besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     OTEL_EXPORTER_OTLP_ENDPOINT=https://localhost:4317 besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
     The [OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/8f7cdb73618a0b3afa9532b8f8103d719e352781/specification/sdk-environment-variables.md) mandates how to configure the OpenTelemetry gRPC client, so data flows to the collector from Besu.
 

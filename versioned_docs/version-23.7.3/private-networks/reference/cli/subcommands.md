@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Private network subcommands
 
 This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) subcommands.
@@ -34,21 +37,25 @@ Provides operator actions.
 
 ### `generate-blockchain-config`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 besu operator generate-blockchain-config --config-file=config.json --to=myNetworkFiles
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Generates an [IBFT 2.0](../../how-to/configure/consensus/ibft.md#genesis-file) or [QBFT](../../how-to/configure/consensus/qbft.md#genesis-file) genesis file.
 
@@ -60,27 +67,33 @@ Provides RLP related actions.
 
 ### `encode`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
 ```
 
-# File example
+</TabItem>
+
+<TabItem value="File example" label="File example">
 
     ```bash
     besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
     ```
 
-# Standard input/output example
+</TabItem>
+
+<TabItem value="Standard input/output example" label="Standard input/output example">
 
 ```bash
 cat extra_data.json | besu rlp encode > rlp.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Encodes the RLP hexadecimal string for use in an [IBFT 2.0](../../how-to/configure/consensus/ibft.md#genesis-file) or [QBFT](../../how-to/configure/consensus/qbft.md#genesis-file) genesis file. The default type is `IBFT_EXTRA_DATA`.
 
@@ -123,9 +136,9 @@ Use the following JSON Schema to validate that your JSON data is well formed. To
 
 Example IBFT_EXTRA_DATA encoding
 
-<!--tabs-->
+<Tabs>
 
-# JSON input
+<TabItem value="JSON input" label="JSON input" default>
 
 ```json
 [
@@ -134,10 +147,14 @@ Example IBFT_EXTRA_DATA encoding
 ]
 ```
 
-# RLP output
+</TabItem>
+
+<TabItem value="RLP output" label="RLP output">
 
 ```
 0xf853a00000000000000000000000000000000000000000000000000000000000000000ea94be068f726a13c8d46c44be6ce9d275600e1735a4945ff6f4b66a46a2b2310a6f3a93aaddc0d9a1c193808400000000c0
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

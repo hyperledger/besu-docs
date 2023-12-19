@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Block proposal permissioning
 
 :::info
@@ -56,235 +59,289 @@ In the command line:
 
 ### `Xpki-block-creation-crl-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-crl-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-crl-file=/home/cert/cert.crl.pem
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_CRL_FILE=/home/cert/cert.crl.pem
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Path to the optional certificate revocation list (CRL) file.
 
 ### `Xpki-block-creation-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_ENABLED=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enable PKI integration. The default is `false`.
 
 ### `Xpki-block-creation-keystore-certificate-alias`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-keystore-certificate-alias=<NAME>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-keystore-certificate-alias=validatorA
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_KEYSTORE_CERTIFICATE_ALIAS=validatorA
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Alias of the certificate to be included in the blocks proposed by this validator. The default is `validator`.
 
 ### `Xpki-block-creation-keystore-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-keystore-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-keystore-file=/home/cert/keystore.jks
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_KEYSTORE_FILE=/home/cert/keystore.jks
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Keystore file containing the key and certificate for PKI block creation.
 
 ### `Xpki-block-creation-keystore-password-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-keystore-password-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-keystore-password-file=/home/cert/password.txt
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_KEYSTORE_PASSWORD-FILE=/home/cert/password.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Text file containing the password to unlock the keystore file.
 
 ### `Xpki-block-creation-keystore-type`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-keystore-type=<TYPE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-keystore-type=JKS
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_KEYSTORE_TYPE=JKS
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 PKI keystore type. Valid options are `JKS` and `PKCS12`. The default is `JKS`.
 
 ### `Xpki-block-creation-truststore-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-truststore-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-truststore-file=/home/cert/truststore.jks
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_FILE=/home/cert/truststore.jks
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Truststore containing the trusted certificates for PKI block creation.
 
 ### `Xpki-block-creation-truststore-password-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-truststore-password-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-truststore-password-file=/home/cert/password.txt
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_PASSWORD_FILE=/home/cert/password.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Text file containing the password to unlock the truststore file.
 
 ### `Xpki-block-creation-truststore-type`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xpki-block-creation-truststore-type=<TYPE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xpki-block-creation-truststore-type=JKS
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XPKI_BLOCK_CREATION_TRUSTSTORE_TYPE=JKS
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 PKI truststore type. Valid options are `JKS` and `PKCS12`. The default is `JKS`.
 

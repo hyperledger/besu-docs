@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure IBFT 2.0 consensus
 
 Besu implements the IBFT 2.0 proof of authority (PoA) [consensus protocol](index.md). IBFT 2.0 is supported for existing private networks, but [QBFT](qbft.md) is the recommended enterprise-grade consensus protocol for private networks.
@@ -265,9 +268,9 @@ To update an existing network with a new `blockperiodseconds`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     - `<NewValue>` is the updated value for `blockperiodseconds`.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -291,7 +294,9 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -315,8 +320,9 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-    <!--/tabs-->
+</TabItem>
 
+</Tabs>
 1.  Restart all nodes in the network using the updated genesis file.
 1.  To verify the changes after the transition block, call [`ibft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
 
@@ -330,9 +336,9 @@ To update an existing network with a new `blockreward`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     - `<NewValue>` is the updated value for `blockreward`.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -365,7 +371,9 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-    # Example
+  </TabItem>
+
+  <TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -398,8 +406,9 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-    <!--/tabs-->
+  </TabItem>
 
+</Tabs>
     :::note
 
     You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
@@ -418,9 +427,9 @@ To update an existing network with a new mining beneficiary:
     - `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
     - `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`. Starting at `<FutureBlockNumber>`, block rewards go to this address.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -451,7 +460,9 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-    # Example
+  </TabItem>
+
+  <TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -482,8 +493,9 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-    <!--/tabs-->
+  </TabItem>
 
+</Tabs>
     :::note
 
     Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the block producer rather than a global override address.

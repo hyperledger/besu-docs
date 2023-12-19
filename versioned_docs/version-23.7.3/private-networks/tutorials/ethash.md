@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Create a private network using Ethash
 
 A private network provides a configurable network for testing. By configuring a low difficulty and enabling mining, this allows for fast block creation.
@@ -94,21 +97,25 @@ Don't use the accounts in `alloc` in the genesis file on Mainnet or any public n
 
 Start Node-1:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line enables:
 
@@ -131,21 +138,25 @@ When the node starts, the [enode URL](../../public-networks/concepts/node-keys.m
 
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 
@@ -158,21 +169,25 @@ The command line specifies:
 
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 

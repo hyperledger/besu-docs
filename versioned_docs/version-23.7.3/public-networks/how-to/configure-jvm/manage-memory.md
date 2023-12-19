@@ -7,6 +7,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Manage JVM memory
 
 You can manage Java Virtual Machine (JVM) memory usage for Besu by modifying the maximum heap size.
@@ -27,9 +30,9 @@ Setting a higher maximum heap size speeds up the sync period but doesn't have mu
 
 You can set the maximum heap size using the `BESU_OPTS` environment variable and the `-Xmx` option. The following examples set the maximum heap size to 8 GB:
 
-<!--tabs-->
+<Tabs>
 
-# Exported environment variable example
+<TabItem value="Exported environment variable example" label="Exported environment variable example" default>
 
 Set the variable for the whole shell before running Besu.
 
@@ -37,7 +40,9 @@ Set the variable for the whole shell before running Besu.
 export BESU_OPTS=-Xmx8g
 ```
 
-# Inline environment variable example
+</TabItem>
+
+<TabItem value="Inline environment variable example" label="Inline environment variable example">
 
 Set the variable only for the specific Besu command.
 
@@ -55,7 +60,9 @@ ExecStart=besu [Besu options]
 ...
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## Manage the heap dump
 

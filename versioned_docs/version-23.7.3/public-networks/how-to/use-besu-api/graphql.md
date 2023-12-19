@@ -7,6 +7,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use GraphQL over HTTP
 
 GraphQL can reduce the overhead needed for common queries.
@@ -34,15 +37,16 @@ The default endpoint is `http://127.0.0.1:8547/graphql`.
 
 For example, the following request returns the block number:
 
-<!--tabs-->
-
-# Request
+<Tabs>
+<TabItem value="Request" label="Request" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{number}}"}' http://localhost:8547/graphql
 ```
 
-# Response
+</TabItem>
+
+<TabItem value="Response" label="Response">
 
 ```json
 {
@@ -54,19 +58,21 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{numb
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
+</Tabs>
 The following request returns the gas price:
 
-<!--tabs-->
-
-# Request
+<Tabs>
+<TabItem value="Request" label="Request" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"}' http://localhost:8547/graphql
 ```
 
-# Response
+</TabItem>
+
+<TabItem value="Response" label="Response">
 
 ```json
 {
@@ -76,20 +82,22 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{gasPrice}"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
+</Tabs>
 The following [`syncing`](../../reference/api/index.md#eth_syncing) request returns data about the
 synchronization status:
 
-<!--tabs-->
-
-# Request
+<Tabs>
+<TabItem value="Request" label="Request" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{startingBlock currentBlock highestBlock}}"}' http://localhost:8547/graphql
 ```
 
-# Response
+</TabItem>
+
+<TabItem value="Response" label="Response">
 
 ```json
 {
@@ -103,8 +111,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{st
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
+</Tabs>
 :::info note
 In some cases, for example, when your node is fully synced, the syncing request returns a `null` response:
 
@@ -136,15 +145,16 @@ Pending do not reflect pending transactions.
 
 :::
 
-<!--tabs-->
-
-# Pending transaction count
+<Tabs>
+<TabItem value="Pending transaction count" label="Pending transaction count" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 {
@@ -156,17 +166,19 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {t
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
-<!--tabs-->
-
-# Pending transactions
+</Tabs>
+<Tabs>
+<TabItem value="Pending transactions" label="Pending transactions" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 {
@@ -185,8 +197,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {t
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
+</Tabs>
 <!-- Links -->
 
 [Besu GraphQL schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls

@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use Sirato Blockchain Explorer
 
 [Sirato Blockchain Explorer](https://www.web3labs.com/sirato) supports public and private EVM networks. This page describes how to use the free version of Sirato with its built-in support for [privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the [Developer Quickstart](../../tutorials/quickstart.md).
@@ -34,15 +37,17 @@ The repository contains Docker Compose scripts to allow Sirato to start with a D
 
 From the Sirato directory, run the following script:
 
-<!--tabs-->
+<Tabs>
 
-# Command
+<TabItem value="Command" label="Command" default>
 
 ```bash
 ./start_sirato_besu.sh
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```bash
 *************************************
@@ -63,7 +68,9 @@ Sirato explorer HTTP endpoint                 : http://localhost:260012
 Sirato is connected to node                   : http://rpcnode:8545
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Open `http://localhost/` on your browser. You’ll see the new initialization page while it boots up. This may take 5–10 minutes for the all services to start and the ingestion sync to complete.
 
@@ -99,15 +106,17 @@ The **Transactions** page shows a paginated view of new and historical transacti
 
 To stop all the services from running, run the following script:
 
-<!--tabs-->
+<Tabs>
 
-# Command
+<TabItem value="Command" label="Command" default>
 
 ```bash
 ./stop.sh
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```bash
 *************************************
@@ -122,4 +131,6 @@ Stopping explorer
   ⠿ Container docker-compose-mongodb-1    Stopped
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

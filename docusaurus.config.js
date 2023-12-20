@@ -54,7 +54,7 @@ const config = {
             },
             "23.4.1": {
               label: "23.4.1",
-            }
+            },
           },
           routeBasePath: "/",
           // @ts-ignore

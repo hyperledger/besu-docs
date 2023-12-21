@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure QBFT consensus
 
 Hyperledger Besu implements the QBFT proof of authority (PoA) [consensus protocol](index.md). QBFT is the recommended enterprise-grade consensus protocol for private networks.
@@ -40,9 +43,9 @@ You can use a [transitions](#transitions) to change the `blockperiodseconds` or 
 
 :::
 
-<!--tabs-->
+<Tabs>
 
-# Block header validator selection
+<TabItem value="Block header validator selection" label="Block header validator selection" default>
 
 ```json
 {
@@ -82,7 +85,9 @@ You can use a [transitions](#transitions) to change the `blockperiodseconds` or 
 }
 ```
 
-# Contract validator selection
+</TabItem>
+
+<TabItem value="Contract validator selection" label="Contract validator selection">
 
 ```json
 {
@@ -139,7 +144,9 @@ You can use a [transitions](#transitions) to change the `blockperiodseconds` or 
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The QBFT properties are:
 
@@ -399,9 +406,9 @@ To update an existing network with a new `blockperiodseconds`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     - `<NewValue>` is the updated value for `blockperiodseconds`.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -425,7 +432,9 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-    # Example
+    </TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -449,7 +458,9 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 3.  Restart all nodes in the network using the updated genesis file.
 4.  To verify the changes after the transition block, call [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
@@ -464,9 +475,9 @@ To update an existing network with a new `blockreward`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     - `<NewValue>` is the updated value for `blockreward`.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -499,7 +510,9 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -532,7 +545,9 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
     :::note
 
@@ -553,9 +568,9 @@ To swap between block header validator selection and contract validator selectio
     - `<SelectionMode>` is the validator selection mode to switch to. Valid options are `contract` and `blockheader`.
     - `<ContractAddress>` is the smart contract address, if switching to the contract validator selection method.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -580,7 +595,9 @@ To swap between block header validator selection and contract validator selectio
     }
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -605,7 +622,9 @@ To swap between block header validator selection and contract validator selectio
     }
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 3.  Restart all nodes in the network using the updated genesis file.
 
@@ -619,9 +638,9 @@ To update an existing network with a new mining beneficiary:
     - `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
     - `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`. Starting at `<FutureBlockNumber>`, block rewards go to this address.
 
-    <!--tabs-->
+<Tabs>
 
-    # Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -649,7 +668,9 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-    # Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -677,7 +698,9 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-    <!--/tabs-->
+</TabItem>
+
+</Tabs>
 
     :::note
 

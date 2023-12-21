@@ -4,6 +4,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Private network API methods
 
 :::warning
@@ -35,21 +38,25 @@ Discards a proposal to [add or remove a signer with the specified address].
 
 `result`: _boolean_ - indicates if the proposal is discarded
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -59,7 +66,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `clique_getSigners`
 
@@ -73,21 +82,25 @@ Lists [signers for the specified block].
 
 `result`: _array_ of _string_ - list of 20-byte addresses of signers
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
     ```bash
     curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' http://127.0.0.1:8545
     ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
     ```bash
     {"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}
     ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
     ```json
     {
@@ -96,8 +109,8 @@ Lists [signers for the specified block].
         "result" : [ "0x42eb768f2244c8811c63729a21a3569731535f06", "0x7ffc57839b00206d1ad20c69a1981b489f772031", "0xb279182d99e65703f0076e4812653aab85fca0f0" ]
     }
     ```
-
-<!--tabs-->
+</TabItem>
+</Tabs>
 
 ### `clique_getSignerMetrics`
 
@@ -131,21 +144,25 @@ The proposer of the genesis block has address `0x0000000000000000000000000000000
 
 :::
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"clique_getSignerMetrics","params":["1", "100"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -170,8 +187,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignerMetrics","params
   ]
 }
 ```
-
-<!--tabs-->
+</TabItem>
+</Tabs>
 
 ### `clique_getSignersAtHash`
 
@@ -185,21 +202,25 @@ Lists signers for the specified block.
 
 `result`: _array_ of _string_ - list of 20-byte addresses of signers
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"clique_getSignersAtHash","params":["0x98b2ddb5106b03649d2d337d42154702796438b3c74fd25a5782940e84237a48"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -213,7 +234,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSignersAtHash","params
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `clique_proposals`
 
@@ -227,21 +250,25 @@ None
 
 `result`: _map_ of _strings_ to _booleans_ - map of account addresses to corresponding boolean values indicating the proposal for each account (if `true`, the proposal is to add a signer; if `false`, the proposal is to remove a signer.)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"clique_proposals","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -254,7 +281,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_proposals","params":[], "
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `clique_propose`
 
@@ -270,21 +299,25 @@ Proposes to [add or remove a signer with the specified address].
 
 `result`: _boolean_ - `true`
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -294,7 +327,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## `EEA` methods
 
@@ -342,21 +377,25 @@ If creating a contract, use [priv_getTransactionReceipt](#priv_gettransactionrec
 
 :::
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"eea_sendRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -366,7 +405,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eea_sendRawTransaction","params"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## `IBFT` 2.0 methods
 
@@ -390,21 +431,25 @@ Discards a proposal to [add or remove a validator] with the specified address.
 
 `result`: _boolean_ - indicates if the proposal is discarded
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -414,7 +459,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_discardValidatorVote","para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `ibft_getPendingVotes`
 
@@ -428,21 +475,25 @@ None
 
 `result`: _map_ of _strings_ to _booleans_ - map of account addresses to corresponding boolean values indicating the vote for each account; if `true`, the vote is to add a validator. If `false`, the proposal is to remove a validator.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -455,7 +506,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getPendingVotes","params":[
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `ibft_getSignerMetrics`
 
@@ -489,21 +542,25 @@ The proposer of the genesis block has address `0x0000000000000000000000000000000
 
 :::
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":["1", "100"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -529,7 +586,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getSignerMetrics","params":
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `ibft_getValidatorsByBlockHash`
 
@@ -543,21 +602,25 @@ Lists the validators defined in the specified block.
 
 `result`: _array_ of _strings_ - list of validator addresses
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -571,7 +634,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockHash","
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `ibft_getValidatorsByBlockNumber`
 
@@ -585,21 +650,25 @@ Lists the validators defined in the specified block.
 
 `result`: _array_ of _strings_ - list of validator addresses
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -613,7 +682,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `ibft_proposeValidatorVote`
 
@@ -629,21 +700,25 @@ Proposes to [add or remove a validator] with the specified address.
 
 `result`: _boolean_ - `true`
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -653,7 +728,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## `PERM` (Permissioning) methods
 
@@ -683,21 +760,25 @@ The parameters list contains a list which is why the account addresses are enclo
 
 `result`: _string_ - `Success` or `error` (errors include attempting to add accounts already on the allowlist and including invalid account addresses.)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -707,7 +788,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addAccountsToAllowlist","pa
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_addNodesToAllowlist`
 
@@ -735,21 +818,25 @@ The parameters list contains a list which is why the enode URLs are enclosed by 
 
 `result`: _string_ - `Success` or `error`; errors include attempting to add nodes already on the allowlist or including invalid enode URLs.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -759,7 +846,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_getAccountsAllowlist`
 
@@ -773,21 +862,25 @@ None
 
 `result`: _array_ of _strings_ - list of accounts (participants) in the accounts allowlist
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -800,7 +893,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getAccountsAllowlist","para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_getNodesAllowlist`
 
@@ -814,21 +909,25 @@ None
 
 `result`: _array_ of _strings_ - [enode URLs](../../../public-networks/concepts/node-keys.md#enode-url) of nodes in the nodes allowlist
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -841,7 +940,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_getNodesAllowlist","params"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_reloadPermissionsFromFile`
 
@@ -855,21 +956,25 @@ None
 
 `result`: _string_ - `Success`, or `error` if the permissions configuration file is not valid
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -879,7 +984,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile",
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_removeAccountsFromAllowlist`
 
@@ -899,21 +1006,25 @@ The parameters list contains a list which is why the account addresses are enclo
 
 `result`: _string_ - `Success` or `error` (errors include attempting to remove accounts not on the allowlist and including invalid account addresses.)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist","params":[["0xb9b81ee349c3807e46bc71aa2632203c5b462032", "0xb9b81ee349c3807e46bc71aa2632203c5b462034"]], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -923,7 +1034,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeAccountsFromAllowlist
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `perm_removeNodesFromAllowlist`
 
@@ -943,21 +1056,25 @@ The parameters list contains a list which is why the enode URLs are enclosed by 
 
 `result`: _string_ - `Success` or `error` (errors include attempting to remove nodes not on the allowlist and including invalid enode URLs.)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","params":[["enode://7e4ef30e9ec683f26ad76ffca5b5148fa7a6575f4cfad4eb0f52f9c3d8335f4a9b6f9e66fcc73ef95ed7a2a52784d4f372e7750ac8ae0b544309a5b391a23dd7@127.0.0.1:30303","enode://2feb33b3c6c4a8f77d84a5ce44954e83e5f163e7a65f7f7a7fec499ceb0ddd76a46ef635408c513d64c076470eac86b7f2c8ae4fcd112cb28ce82c0d64ec2c94@127.0.0.1:30304"]], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -967,7 +1084,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_removeNodesFromAllowlist","
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## `PRIV` methods
 
@@ -997,21 +1116,25 @@ For private contracts, `priv_call` is the same as [`eth_call`](../../../public-n
 
 `result`: _data_ - return value of the executed contract
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZnHNegf/3mYsyB+HEud4SPWn90rz3GoskRw=", {"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","data": "0x3fa4f245"}, "latest"],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1021,13 +1144,16 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_call","params":["tb8NVyQqZn
 }
 ```
 
-# curl GraphQL
+</TabItem>
+<TabItem value="curl GraphQL" label="curl GraphQL">
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13\", data :\"0x12a7b914\"}){data status}}}"}' http://localhost:8547/graphql
 ```
 
-# GraphQL
+</TabItem>
+
+<TabItem value="GraphQL" label="GraphQL">
 
 ```bash
 {
@@ -1041,7 +1167,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {num
 }
 ```
 
-# GraphQL result
+</TabItem>
+
+<TabItem value="GraphQL result" label="GraphQL result">
 
 ```json
 {
@@ -1057,7 +1185,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {num
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_createPrivacyGroup`
 
@@ -1077,21 +1207,25 @@ Creates a group of nodes, specified by their [Tessera](https://docs.tessera.cons
 
 `result`: _string_ - privacy group ID
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "params": [{"addresses":["sTZpbQhcOfd9ZaFDnC00e/N2Ofv9p4/ZTBbEeVtXJ3E=","quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="],"name":"Group A","description":"Description Group A"}],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1101,7 +1235,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method": "priv_createPrivacyGroup", "para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_debugGetStateRoot`
 
@@ -1117,21 +1253,25 @@ Returns the state root of the specified privacy group at the specified block.
 
 `result`: _string_ - 32-byte state root
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params":["xJdxvWOEmrs2MCkKWlgArTzWIXFfU/tmVxI3EKssVTk=","latest"],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1141,7 +1281,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_debugGetStateRoot","params"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_deletePrivacyGroup`
 
@@ -1155,21 +1297,25 @@ Deletes the specified privacy group.
 
 `result`: _string_ - deleted privacy group ID
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params":["ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1179,7 +1325,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_deletePrivacyGroup","params
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_distributeRawTransaction`
 
@@ -1199,21 +1347,25 @@ If you want to sign the [privacy marker transaction](../../how-to/use-privacy/si
 
 `result`: _string_ - 32-byte enclave key (the enclave key is a pointer to the private transaction in [Tessera](https://docs.tessera.consensys.net/).)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_distributeRawTransaction","params": ["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1223,7 +1375,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_distributeRawTransaction","
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_findPrivacyGroup`
 
@@ -1241,21 +1395,25 @@ Returns a list of privacy groups containing only the listed members. For example
 
 - `PANTHEON` for Besu-extended groups.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params": [["negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=", "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="]],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1276,7 +1434,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_findPrivacyGroup","params
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getCode`
 
@@ -1294,21 +1454,25 @@ Returns the code of the private smart contract at the specified address. Compile
 
 `result`: _data_ - code stored at the specified address
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP4JOp6uRn9wYsPeWwqoOP1c4nPQjylB4FExUA=", "0xeaf1c1bd00ef0bec5e39fba81740f1c5d05aa201", "latest"],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1318,7 +1482,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getCode","params":["1lJxSIP
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getEeaTransactionCount`
 
@@ -1342,21 +1508,25 @@ Besu instead of using `priv_getEeaTransactionCount`.
 
 `result`: _string_ - integer representing the number of private transactions sent from the address to the specified group of sender and recipients
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=", ["KkOjNLmCI6r+mICrC6l+XuEDjFEzQllaMQMpWLl4y1s=","eLb69r4K8/9WviwlfDiZ4jf97P9czyS3DkKu0QYGLjg="]], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1366,7 +1536,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getEeaTransactionCount","pa
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getFilterChanges`
 
@@ -1384,21 +1556,25 @@ Filters for private contracts can only be created by [`priv_newFilter`](#priv_ne
 
 `result`: _array_ of _objects_ - list of [log objects](../../../public-networks/reference/api/objects.md#log-object), or an empty list if nothing has changed since the last poll
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_getFilterChanges","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1423,7 +1599,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterChanges","params
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getFilterLogs`
 
@@ -1447,21 +1625,25 @@ For private contracts, `priv_getFilterLogs` is the same as [`eth_getFilterLogs`]
 
 `result`: _array_ of _objects_ - list of [log objects](../../../public-networks/reference/api/objects.md#log-object)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_getFilterLogs","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1500,7 +1682,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getFilterLogs","params":[
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getLogs`
 
@@ -1518,21 +1702,25 @@ For private contracts, `priv_getLogs` is the same as [`eth_getLogs`](../../../pu
 
 `result`: _array_ of _objects_ - list of [log objects](../../../public-networks/reference/api/objects.md#log-object)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/TZgO6y8VPMVeJAQ99MF1NaTf5ohA3TFfzoEF71k=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x630c507ff633312087dc33c513b66276abcd2fc3"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1571,7 +1759,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/T
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getPrivacyPrecompileAddress`
 
@@ -1585,21 +1775,25 @@ None
 
 `result`: _string_ - address of the privacy precompile
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1609,7 +1803,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivacyPrecompileAddress
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getPrivateTransaction`
 
@@ -1623,21 +1819,25 @@ Returns the private transaction if you are a participant, otherwise, `null`.
 
 `result`: _object_ - [private transaction object](objects.md#private-transaction-object), or `null` if not a participant in the private transaction
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getPrivateTransaction","params":["0x623c4ce5275a87b91f4f1c521012d39ca19311c787bde405490f4c0426a71498"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1662,7 +1862,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getPrivateTransaction","par
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getTransactionCount`
 
@@ -1684,21 +1886,25 @@ If sending more than one transaction to be mined in the same block (that is, you
 
 `result`: _string_ - integer representing the number of private transactions sent from the address to the specified privacy group
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getTransactionCount","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "kAbelwaVW7okoEn1+okO+AbA4Hhz/7DaCOWVQz9nx5M="], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1708,7 +1914,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionCount","param
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_getTransactionReceipt`
 
@@ -1722,21 +1930,25 @@ Returns information about the private transaction after mining the transaction. 
 
 `result`: _object_ - [private Transaction receipt object](objects.md#private-transaction-receipt-object), or `null` if no receipt found
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"priv_getTransactionReceipt","params":["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"],"id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1765,7 +1977,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_getTransactionReceipt","par
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_newFilter`
 
@@ -1789,21 +2003,25 @@ For private contracts, `priv_newFilter` is the same as [`eth_newFilter`](../../.
 
 `result`: _string_ - filter ID
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_newFilter","params": ["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",{"fromBlock": "earliest","toBlock": "latest","addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],"topics": ["0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"]}],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1813,7 +2031,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `priv_uninstallFilter`
 
@@ -1833,21 +2053,25 @@ For private contracts, `priv_uninstallFilter` is the same as [`eth_uninstallFilt
 
 `result`: _boolean_ - indicates if the filter is successfully uninstalled
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc": "2.0","method": "priv_uninstallFilter","params":["4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=","0x4a35b92809d73f4f53a2355d62125442"],"id": 1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1857,7 +2081,9 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_uninstallFilter","params"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## `QBFT` methods
 
@@ -1881,21 +2107,25 @@ Discards a proposal to [add or remove a validator](../../how-to/configure/consen
 
 `result`: _boolean_ - indicates if the proposal is discarded
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_discardValidatorVote","params":["0xef1bfb6a12794615c9b0b5a21e6741f01e570185"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1905,7 +2135,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_discardValidatorVote","para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `qbft_getPendingVotes`
 
@@ -1919,21 +2151,25 @@ None
 
 `result`: _map_ of _strings_ to _booleans_ - map of account addresses to corresponding boolean values indicating the vote for each account; if `true`, the vote is to add a validator. If `false`, the proposal is to remove a validator.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getPendingVotes","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_getPendingVotes","params":[], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -1946,7 +2182,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getPendingVotes","params":[
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `qbft_getSignerMetrics`
 
@@ -1980,21 +2218,25 @@ The proposer of the genesis block has address `0x0000000000000000000000000000000
 
 :::
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getSignerMetrics","params":["1", "100"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_getSignerMetrics","params":["1", "100"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -2020,7 +2262,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getSignerMetrics","params":
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `qbft_getValidatorsByBlockHash`
 
@@ -2034,21 +2278,25 @@ Lists the validators defined in the specified block.
 
 `result`: _array_ of _strings_ - list of validator addresses
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockHash","params":["0xbae7d3feafd743343b9a4c578cab5e5d65eb735f6855fb845c00cab356331256"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -2062,7 +2310,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockHash","
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `qbft_getValidatorsByBlockNumber`
 
@@ -2076,21 +2326,25 @@ Lists the validators defined in the specified block.
 
 `result`: _array_ of _strings_ - list of validator addresses
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -2104,7 +2358,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `qbft_proposeValidatorVote`
 
@@ -2120,21 +2376,25 @@ Proposes to [add or remove a validator](../../how-to/configure/consensus/qbft.md
 
 `result`: _boolean_ - `true`
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}' http://127.0.0.1:8545
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","params":["42d4287eac8078828cf5f3486cfe601a275a49a5",true], "id":1}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -2144,7 +2404,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","para
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 <!-- Links -->
 

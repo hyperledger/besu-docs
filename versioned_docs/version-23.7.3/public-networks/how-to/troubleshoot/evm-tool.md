@@ -7,6 +7,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use the EVM tool
 
 The Besu EVM tool is a CLI program that executes arbitrary EVM programs and Ethereum State Tests outside the context of an operating node. Use the EVM tool for benchmarking and fuzz testing.
@@ -55,20 +58,24 @@ The first mode of the EVM tool runs an arbitrary EVM and is invoked without an e
 
 The EVM tool also has a [`state-test` subcommand](../../reference/evm-tool.md#state-test-options) that allows [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests) to be evaluated, and a [`code-validate` subcommand](../../reference/evm-tool.md#eof-code-validation) that allows [Ethereum object formatted (EOF)](https://eips.ethereum.org/EIPS/eip-3540) code to be validated. Most of the options from EVM execution don't apply.
 
-<!--tabs-->
+<Tabs>
 
-# `state-test`
+<TabItem value="state-test" label="state-test" default>
 
 ```bash
 evm state-test <state-test> --nomemory
 ```
 
-# `code-validate`
+</TabItem>
+
+<TabItem value="code-validate" label="code-validate">
 
 ```bash
 evm code-validate --file <file>
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The [EVM tool reference](../../reference/evm-tool.md) provides more information on these modes.

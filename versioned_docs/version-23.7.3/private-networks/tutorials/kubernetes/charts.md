@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Deploy charts
 
 You can deploy Besu Helm charts for a Kubernetes cluster.
@@ -448,15 +451,17 @@ Once complete, view the IP address listed under the `Ingress` section if you're 
 
 The following is an example RPC call, which confirms that the node running the JSON-RPC service is syncing:
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://<INGRESS_IP>/rpc
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -466,7 +471,9 @@ curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 10. Blockchain explorer
 

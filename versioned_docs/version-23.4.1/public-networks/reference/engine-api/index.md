@@ -5,6 +5,9 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Engine API methods
 
 [Consensus and execution clients](../../concepts/the-merge.md#execution-and-consensus-clients) communicate with each other using the Engine API. When running Besu as an execution client, [use these API calls](../../how-to/use-engine-api.md) to communicate with a consensus client.
@@ -31,15 +34,17 @@ Exchanges a list of supported Engine API methods between the consensus client an
 
 `localCapabilities`: _array_ of _strings_ - Engine API method names that Besu supports
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeCapabilities","params":[["engine_exchangeTransitionConfigurationV1","engine_forkchoiceUpdatedV1","engine_getPayloadBodiesByHash","engine_getPayloadBodiesByRangeV1","engine_getPayloadV1","engine_newPayloadV1"]],"id":67}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -59,7 +64,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeCapabilities","pa
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -80,7 +87,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeCapabilities","pa
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_exchangeTransitionConfigurationV1`
 
@@ -100,15 +109,17 @@ The execution client runs this call every 60 seconds in the background. The log 
 
 `transitionConfiguration`: _object_ - [Transition configuration object](objects.md#transition-configuration-object)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeTransitionConfigurationV1","params":[{"terminalTotalDifficulty": 0, "terminalBlockHash": "0x0000000000000000000000000000000000000000000000000000000000000000", "terminalBlockNumber": "0x1"}],"id":67}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -125,7 +136,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeTransitionConfigu
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -140,7 +153,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_exchangeTransitionConfigu
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_forkchoiceUpdatedV1`
 
@@ -158,15 +173,17 @@ Updates the fork choice with the consensus client.
 
 - `payloadId`: _data_ - identifier of the payload build process or `null`
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","params":[{"headBlockHash": "0x3559e851470f6e7bbed1db474980683e8c315bfce99b2a6ef47c057c04de7858", "safeBlockHash": "0x3559e851470f6e7bbed1db474980683e8c315bfce99b2a6ef47c057c04de7858", "finalizedBlockHash": "0x3b8fb240d288781d4aac94d3fd16809ee413bc99294a085798a589dae51ddd4a"},null],"id":67}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -184,7 +201,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","par
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -201,7 +220,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","par
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_getPayloadBodiesByHashV1`
 
@@ -215,15 +236,17 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
 
 `engineGetPayloadBodiesResultV1`: **array** of **objects** - Execution payload body objects
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1","params":[["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c","0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553"]],"id":1}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -239,7 +262,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1"
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -275,7 +300,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByHashV1"
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_getPayloadBodiesByRangeV1`
 
@@ -291,15 +318,17 @@ Returns the bodies of the execution payloads corresponding to the specified rang
 
 `engineGetPayloadBodiesResultV1`: _array_ of _objects_ - Execution payload body objects
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1","params":["0x20", "0x2"],"id":1}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -310,7 +339,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -346,7 +377,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadBodiesByRangeV1
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_getPayloadV1`
 
@@ -360,15 +393,17 @@ Prepares the payload to send to the consensus client.
 
 `executionPayload`: _object_ - [Execution payload object](objects.md#execution-payload-object)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x0000000021f32cc1"],"id":1}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -379,7 +414,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -404,7 +441,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### `engine_newPayloadV1`
 
@@ -418,9 +457,9 @@ Executes the payload with the consensus client.
 
 - `payloadStatus`: _object_ - [Payload status object](objects.md#payload-status-object)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP
+<TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
@@ -443,7 +482,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
 ],"id":67}' http://127.0.0.1:8550
 ```
 
-# wscat WS
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
 
 ```json
 {
@@ -471,7 +512,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
 }
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -485,4 +528,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

@@ -82,13 +82,13 @@ The revert reason is not included in the transactions receipt's root hash. Not i
 
 The error returned by [`eth_estimateGas`](../../../public-networks/reference/api/index.md#eth_estimategas) and [`eth_call`](../../../public-networks/reference/api/index.md#eth_call) includes the revert reason as an ABI-encoded string in the `data` field.
 
-```json title="Exampleof `eth_estimateGas`and`eth_call` error" { "jsonrpc": "2.0", "id": 3, "error": { "code": -32000, "message": "Execution reverted", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000" } }
+```json title="Exampleof eth_estimateGas and eth_call error" { "jsonrpc": "2.0", "id": 3, "error": { "code": -32000, "message": "Execution reverted", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001a4e6f7420656e6f7567682045746865722070726f76696465642e000000000000" } }
 
 ````
 
 The list items in the [`trace`](../../../public-networks/reference/trace-types.md#trace) response returned by [`trace_replayBlockTransactions`](../../../public-networks/reference/api/index.md#trace_replayblocktransactions), [`trace_block`](../../../public-networks/reference/api/index.md#trace_block), and [`trace_transaction`](../../../public-networks/reference/api/index.md#trace_transaction) include the revert reason as an ABI-encoded string.
 
-```json title="Example of `trace` response list item"
+```json title="Example of trace response list item"
 {
   "jsonrpc": "2.0",
   "id": 415,
@@ -114,7 +114,7 @@ The list items in the [`trace`](../../../public-networks/reference/trace-types.m
     }
   ]
 }
-````
+```
 
 ## Revert reason format
 

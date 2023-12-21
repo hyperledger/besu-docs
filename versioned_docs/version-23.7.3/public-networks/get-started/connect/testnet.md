@@ -6,6 +6,9 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Connect to a testnet
 
 Run Besu as an [execution client](../../concepts/the-merge.md#execution-clients) with any consensus client on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) testnets.
@@ -59,9 +62,9 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 Run the following command or specify the options in a [configuration file](../../how-to/configuration-file.md):
 
-<!--tabs-->
+<Tabs>
 
-# Goerli
+<TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 besu \
@@ -77,7 +80,9 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-# Holesky
+</TabItem>
+
+<TabItem value="Holesky" label="Holesky">
 
 ```bash
 besu \
@@ -93,7 +98,9 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-# Sepolia
+</TabItem>
+
+<TabItem value="Sepolia" label="Sepolia">
 
 ```bash
 besu \
@@ -109,7 +116,9 @@ besu \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Specify the path to the `jwtsecret.hex` file generated in [step 1](#1-generate-the-shared-secret) using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
 
@@ -131,9 +140,9 @@ If you're using Teku, follow the [Besu and Teku testnet tutorial](../../tutorial
 
 After starting Besu and the consensus client, your node starts syncing and connecting to peers.
 
-<!--tabs-->
+<Tabs>
 
-# Besu logs
+<TabItem value="Besu logs" label="Besu logs" default>
 
 ```bash
 {"@timestamp":"2023-02-03T04:43:49,555","level":"INFO","thread":"main","class":"DefaultSynchronizer","message":"Starting synchronizer.","throwable":""}
@@ -150,7 +159,8 @@ cb9f0fcc6f16386df70da3c5). State root 0xa7114541f42c62a72c8b6bb9901c2ccf4b424cd7
 {"@timestamp":"2023-02-03T04:51:28,985","level":"INFO","thread":"EthScheduler-Services-29 (importBlock)","class":"FastImportBlocksStep","message":"Block import progress: 180400 of 16545859 (1%)","throwable":""}
 ```
 
-# Teku logs
+</TabItem>
+<TabItem value="Teku logs" label="Teku logs">
 
 ```bash
 2022-03-21 20:43:24.355 INFO  - Syncing     *** Target slot: 76092, Head slot: 2680, Remaining slots: 73412, Connected peers: 8
@@ -160,7 +170,9 @@ cb9f0fcc6f16386df70da3c5). State root 0xa7114541f42c62a72c8b6bb9901c2ccf4b424cd7
 2022-03-21 20:44:12.353 INFO  - Syncing     *** Target slot: 76096, Head slot: 3519, Remaining slots: 72577, Connected peers: 9
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 If you're running the consensus client as a beacon node only, you're all set. If you're also running the consensus client as a validator client, ensure your clients are fully synced before submitting your staking deposit in the next step. This can take several days.
 

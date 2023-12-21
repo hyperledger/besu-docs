@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Create a private network using Clique
 
 A private network provides a configurable network for testing. This private network uses the [Clique (proof of authority) consensus protocol].
@@ -47,21 +50,25 @@ In Clique networks, you must include the address of at least one initial signer 
 
 To get the address for Node-1, in the `Node-1` directory, use the [`public-key export-address`](../../public-networks/reference/cli/subcommands.md#export-address) subcommand to write the node address to the specified file (`node1Address` in this example).
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data public-key export-address --to=data/node1Address
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data public-key export-address --to=data\node1Address
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 3. Create the genesis file
 
@@ -135,21 +142,25 @@ Do not use the accounts in `alloc` in the genesis file on Mainnet or any public 
 
 Start Node-1:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line enables:
 
@@ -166,21 +177,25 @@ When the node starts, the [enode URL](../../public-networks/concepts/node-keys.m
 
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 
@@ -194,21 +209,25 @@ The command line specifies:
 
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 

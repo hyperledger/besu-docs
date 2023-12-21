@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Private network command line options
 
 This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) options.
@@ -54,33 +57,41 @@ Characters such as smart quotes and long (em) hyphens don't work in Besu command
 
 ### `permissions-accounts-config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-accounts-config-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-accounts-config-file=/home/me/me_configFiles/myPermissionsFile
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-accounts-config-file="/home/me/me_configFiles/myPermissionsFile"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The [accounts permissions configuration file]. The default is the `permissions_config.toml` file in the [data directory](../../../public-networks/reference/cli/options.md#data-path).
 
@@ -92,129 +103,161 @@ The [accounts permissions configuration file]. The default is the `permissions_c
 
 ### `permissions-accounts-config-file-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-accounts-config-file-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-accounts-config-file-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_ACCOUNTS_CONFIG_FILE_ENABLED=true
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-accounts-config-file-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables file-based account level permissions. The default is `false`.
 
 ### `permissions-accounts-contract-address`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-accounts-contract-address=<ContractAddress>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-accounts-contract-address=xyz
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ADDRESS=xyz
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-accounts-contract-address="xyz"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The contract address for [onchain account permissioning](../../concepts/permissioning/onchain.md).
 
 ### `permissions-accounts-contract-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-accounts-contract-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-accounts-contract-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_ACCOUNTS_CONTRACT_ENABLED=true
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-accounts-contract-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables contract-based [onchain account permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
 
 ### `permissions-nodes-config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-nodes-config-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-nodes-config-file=/home/me/me_configFiles/myPermissionsFile
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_NODES_CONFIG_FILE=/home/me/me_configFiles/myPermissionsFile
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-nodes-config-file="/home/me/me_configFiles/myPermissionsFile"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The [nodes permissions configuration file]. The default is the `permissions_config.toml` file in the [data directory](../../../public-networks/reference/cli/options.md#data-path).
 
@@ -226,161 +269,201 @@ The [nodes permissions configuration file]. The default is the `permissions_conf
 
 ### `permissions-nodes-config-file-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-nodes-config-file-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-nodes-config-file-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_NODES_CONFIG_FILE_ENABLED=true
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-nodes-config-file-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables file-based node level permissions. The default is `false`.
 
 ### `permissions-nodes-contract-address`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-nodes-contract-address=<ContractAddress>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-nodes-contract-address=xyz
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_NODES_CONTRACT_ADDRESS=xyz
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-nodes-contract-address="xyz"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The contract address for [onchain node permissioning](../../concepts/permissioning/onchain.md).
 
 ### `permissions-nodes-contract-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-nodes-contract-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-nodes-contract-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_NODES_CONTRACT_ENABLED=true
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-nodes-contract-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables contract-based [onchain node permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
 
 ### `permissions-nodes-contract-version`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --permissions-nodes-contract-version=<ContractVersion>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --permissions-nodes-contract-version=2
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PERMISSIONS_NODES_CONTRACT_VERSION=2
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 permissions-nodes-contract-version=2
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Version of the EEA [node permissioning interface](../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version). The default is 1.
 
 ### `privacy-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-enabled=false
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_ENABLED=false
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-enabled=false
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables [private transactions](../../concepts/privacy/index.md). The default is `false`.
 
@@ -392,33 +475,41 @@ Using private transactions with [pruning](../../../public-networks/concepts/data
 
 ### `privacy-marker-transaction-signing-key-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-marker-transaction-signing-key-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-marker-transaction-signing-key-file=/home/me/me_node/myPrivateKey
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_MARKER_TRANSACTION_SIGNING_KEY_FILE=/home/me/me_node/myPrivateKey
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-marker-transaction-signing-key-file="/home/me/me_node/myPrivateKey"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 `<FILE>` is the name of the private key file used to [sign privacy marker transactions](../../how-to/use-privacy/sign-pmts.md).
 
@@ -437,65 +528,81 @@ If you do not specify this option (for example, in a free gas network), Besu sig
 
 ### `privacy-multi-tenancy-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-multi-tenancy-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-multi-tenancy-enabled=false
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_MULTI_TENANCY_ENABLED=false
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-multi-tenancy-enabled=false
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables [multi-tenancy](../../concepts/privacy/multi-tenancy.md) for private transactions. The default is `false`.
 
 ### `privacy-flexible-groups-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-flexible-groups-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-flexible-groups-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_FLEXIBLE_GROUPS_ENABLED=true
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-flexible-groups-enabled=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables [flexible privacy groups](../../concepts/privacy/flexible-privacy.md). The default is `false`.
 
@@ -503,33 +610,41 @@ Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
 ### `privacy-public-key-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-public-key-file=<privacyPublicKeyFile>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-public-key-file=Tessera/nodeKey.pub
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_PUBLIC_KEY_FILE=Tessera/nodeKey.pub
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-public-key-file="Tessera/nodeKey.pub"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The [public key of the Tessera node](https://docs.tessera.consensys.net/).
 
@@ -541,65 +656,81 @@ You cannot specify `privacy-public-key-file` when [`--privacy-multi-tenancy-enab
 
 ### `privacy-tls-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-tls-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-tls-enabled=false
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_TLS_ENABLED=false
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-tls-enabled=false
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enables or disables [TLS on communication with the private transaction manager]. The default is false.
 
 ### `privacy-tls-keystore-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-tls-keystore-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy--keystore-file=/home/me/me_node/key
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_TLS_KEYSTORE_FILE=/home/me/me_node/key
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-tls-keystore-file="/home/me/me_node/key"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The keystore file (in PKCS #12 format) containing the private key and the certificate presented during authentication.
 
@@ -607,97 +738,121 @@ You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#priva
 
 ### `privacy-tls-keystore-password-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-tls-keystore-password-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-tls-keystore-password-file=/home/me/me_node/password
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-tls-keystore-password-file="/home/me/me_node/password"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The path to the file containing the password to decrypt the keystore.
 
 ### `privacy-tls-known-enclave-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-tls-known-enclave-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-tls-known-enclave-file=/home/me/me_node/knownEnclave
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_TLS_KNOWN_ENCLAVE_FILE=/home/me/me_node/knownEnclave
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the [authorized privacy enclave](../../how-to/configure/tls/client-and-server.md#create-the-known-servers-file).
 
 ### `privacy-url`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --privacy-url=<privacyUrl>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --privacy-url=http://127.0.0.1:8888
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_PRIVACY_URL=http://127.0.0.1:8888
 ```
 
-# Configuration file
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
 
 ```bash
 privacy-url="http://127.0.0.1:8888"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The URL on which the [Tessera node](../../tutorials/privacy/index.md#3-create-tessera-configuration-files) is running.
 

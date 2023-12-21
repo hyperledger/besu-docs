@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Add and remove IBFT 2.0 validators
 
 This example walks through [adding and removing an IBFT 2.0 validator](../../how-to/configure/consensus/ibft.md#add-and-remove-validators).
@@ -50,35 +53,41 @@ Copy the address of the node. You can find the address in the logs when starting
 
 Or use the [`public-key export-address`](../../../public-networks/reference/cli/subcommands.md#export-address) subcommand:
 
-<!--tabs-->
+<Tabs>
 
-# Subcommand
+<TabItem value="Subcommand" label="Subcommand" default>
 
 ```bash
 besu --data-path=IBFT-Network/Node-5/data public-key export-address
 ```
 
-# Output
+</TabItem>
+
+<TabItem value="Output" label="Output">
 
 ```bash
 0x90626e6a67445aabf1c0615410d108d4733aa90b
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 4. Propose adding the new validator
 
 Propose adding the new validator from more than half the number of current validators, using [`ibft_proposeValidatorVote`](../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the proposed validator and `true`:
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0x90626e6a67445aabf1c0615410d108d4733aa90b", true], "id":1}' http://127.0.0.1:8545
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -87,8 +96,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","para
   "result": true
 }
 ```
+</TabItem>
 
-<!--/tabs-->
+</Tabs>
 
 Repeat the proposal process for this candidate node from at least two of the other nodes.
 
@@ -96,15 +106,17 @@ Repeat the proposal process for this candidate node from at least two of the oth
 
 Verify that the new validator is now in the list of validators using [`ibft_getValidatorsByBlockNumber`](../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber):
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
 ```
+</TabItem>
 
-# JSON result
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 [
@@ -115,8 +127,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber"
   "0x90626e6a67445aabf1c0615410d108d4733aa90b"
 ]
 ```
+</TabItem>
 
-<!--tabs-->
+</Tabs>
 
 The list of validators contains 5 addresses now.
 

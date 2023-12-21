@@ -8,6 +8,8 @@ tags:
 ---
 
 import Postman from '../../../global/postman.md';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Use JSON-RPC over HTTP, WebSocket, and IPC
 
@@ -41,19 +43,25 @@ To use the geth console with Besu:
 1. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 1. Start the geth console specifying the JSON-RPC endpoint:
 
-<!--tabs-->
+<Tabs>
 
-# HTTP endpoint
+<TabItem value="HTTP endpoint" label="HTTP endpoint" default>
 
 ```bash
 geth attach http://localhost:8545
 ```
 
-# IPC endpoint
+</TabItem>
+
+<TabItem value="IPC endpoint" label="IPC endpoint">
 
 ```bash
 geth attach /path/to/besu.ipc
 ```
+
+</TabItem>
+
+</Tabs>
 
 Use the geth console to call [JSON-RPC API methods](../../reference/api/index.md) that geth and Besu share.
 
@@ -71,21 +79,25 @@ Besu disables [Authentication](authenticate.md) by default.
 
 To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/download.html).
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port>
 ```
 
-# curl HTTP request
+</TabItem>
+
+<TabItem value="curl HTTP request" label="curl HTTP request">
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -95,19 +107,23 @@ curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","param
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 You can use `curl` to make multiple RPC requests (batch requests) over HTTP at the same time. Send the requests as an array, and receive an array of responses. The default number of allowed requests in a RPC batch request is `1024`. Use the [`--rpc-http-max-batch-size`](../../reference/cli/options.md#rpc-http-max-batch-size) command line option to update the default value.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 [
@@ -124,7 +140,9 @@ curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","para
 ]
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### WebSocket
 
@@ -138,21 +156,25 @@ wscat -c ws://<JSON-RPC-ws-endpoint:port>
 
 After you establish a connection, the terminal displays a '>' prompt. Send individual requests as a JSON data package at each prompt.
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 {"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}
 ```
 
-# wscat WS request
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 {"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -162,19 +184,23 @@ After you establish a connection, the terminal displays a '>' prompt. Send indiv
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 You can use `wscat` to make multiple RPC requests over WebSocket at the same time. Send the requests as an array, and receive an array of responses.
 
-<!--tabs-->
+<Tabs>
 
-# wscat WS request
+<TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
 [{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 [
@@ -191,7 +217,9 @@ You can use `wscat` to make multiple RPC requests over WebSocket at the same tim
 ]
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 :::note
 
@@ -209,47 +237,57 @@ By default, the readiness check requires a connected peer and the node to be wit
 
 Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required and the number of blocks tolerance.
 
-<!--tabs-->
+<Tabs>
 
-# Readiness endpoint
+<TabItem value="Readiness endpoint" label="Readiness endpoint" default>
 
 ```bash
 http://<JSON-RPC-HTTP-endpoint:port>/readiness
 ```
 
-# curl request example
+</TabItem>
+
+<TabItem value="curl request example" label="curl request example">
 
 ```bash
 curl -v 'http://localhost:8545/readiness'
 ```
 
-# Query parameters example
+</TabItem>
+
+<TabItem value="Query parameters example" label="Query parameters example">
 
 ```bash
 curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### Liveness
 
 The liveness check requires the JSON-RPC server to be up. You can use the endpoint to verify that the node can respond to RPC calls. The status in the response will always be `UP`.
 
-<!--tabs-->
+<Tabs>
 
-# Liveness endpoint
+<TabItem value="Liveness endpoint" label="Liveness endpoint" default>
 
 ```bash
 http://<JSON-RPC-HTTP-endpoint:port>/liveness
 ```
 
-# curl request example
+</TabItem>
+
+<TabItem value="curl request example" label="curl request example">
 
 ```bash
 curl -v 'http://localhost:8545/liveness'
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ## API methods enabled by default
 

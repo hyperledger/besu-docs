@@ -6,6 +6,9 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use the Engine API
 
 [Consensus and execution clients](../concepts/the-merge.md#execution-and-consensus-clients) communicate with each other using the [Engine API](../reference/engine-api/index.md). These API methods are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
@@ -77,15 +80,17 @@ Set the [JWT secret](use-besu-api/authenticate.md#jwt-public-key-authentication)
 
 Prepare to send a payload using [`engine_forkchoiceUpdatedV1`](../reference/engine-api/index.md#engine_forkchoiceupdatedv1).
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","params":[{"headBlockHash": "0x3b8fb240d288781d4aac94d3fd16809ee413bc99294a085798a589dae51ddd4a", "safeBlockHash": "0x3b8fb240d288781d4aac94d3fd16809ee413bc99294a085798a589dae51ddd4a", "finalizedBlockHash": "0x0000000000000000000000000000000000000000000000000000000000000000"},{"timestamp": "0x5","prevRandao": "0x0000000000000000000000000000000000000000000000000000000000000000","suggestedFeeRecipient": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"}],"id":67}' http://127.0.0.1:8550
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -102,21 +107,25 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","par
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 2. Get the payload
 
 Get the payload using [`engine_getPayloadV1`](../reference/engine-api/index.md#engine_getpayloadv1)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["0x1"],"id":1}' http://127.0.0.1:8550
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -141,15 +150,17 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getPayloadV1","params":["
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 3. Execute the payload
 
 Execute the payload using [`engine_newPayloadV1`](../reference/engine-api/index.md#engine_newpayloadv1)
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
@@ -172,7 +183,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
 ],"id":67}' http://127.0.0.1:8550
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -186,21 +199,25 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_newPayloadV1","params":[
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 4. Update the fork choice
 
 Update the fork choice using [`engine_forkchoiceUpdatedV1`](../reference/engine-api/index.md#engine_forkchoiceupdatedv1) again.
 
-<!--tabs-->
+<Tabs>
 
-# curl HTTP request
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","params":[{"headBlockHash": "0x3559e851470f6e7bbed1db474980683e8c315bfce99b2a6ef47c057c04de7858", "safeBlockHash": "0x3559e851470f6e7bbed1db474980683e8c315bfce99b2a6ef47c057c04de7858", "finalizedBlockHash": "0x3b8fb240d288781d4aac94d3fd16809ee413bc99294a085798a589dae51ddd4a"},null],"id":67}' http://127.0.0.1:8550
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -217,4 +234,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","par
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

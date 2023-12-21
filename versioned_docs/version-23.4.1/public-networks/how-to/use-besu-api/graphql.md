@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use GraphQL over HTTP
 
 GraphQL can reduce the overhead needed for common queries. For example, instead of querying each receipt in a block, GraphQL can get the same result with a single query for the entire block.
@@ -46,15 +49,16 @@ Besu does not execute pending transactions so results from `account`, `call`, an
 
 :::
 
-<!--tabs-->
-
-# Pending transaction count
+<Tabs>
+<TabItem value="Pending transaction count" label="Pending transaction count" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactionCount}}"}' http://localhost:8547/graphql
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 {
@@ -66,17 +70,19 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {t
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
-<!--tabs-->
-
-# Pending transactions
+</Tabs>
+<Tabs>
+<TabItem value="Pending transactions" label="Pending transactions" default>
 
 ```bash
 curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {transactions{hash}}}"}' http://localhost:8547/graphql
 ```
 
-# Result
+</TabItem>
+
+<TabItem value="Result" label="Result">
 
 ```json
 {
@@ -95,8 +101,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{pending {t
 }
 ```
 
-<!--/tabs-->
+</TabItem>
 
+</Tabs>
 <!-- Links -->
 
 [Besu GraphQL schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls

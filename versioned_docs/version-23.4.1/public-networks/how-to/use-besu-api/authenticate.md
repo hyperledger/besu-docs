@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Authenticate and authorize JSON-RPC
 
 Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Hyperledger Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
@@ -62,21 +65,25 @@ Each user requiring JSON-RPC access the configuration file lists the:
 - [JSON-RPC permissions](#json-rpc-permissions).
 - Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md).
 
-<!--tabs-->
+<Tabs>
 
-# Command
+<TabItem value="Command" label="Command" default>
 
 ```bash
 besu password hash --password=MyPassword
 ```
 
-# Hash output
+</TabItem>
+
+<TabItem value="Hash output" label="Hash output">
 
 ```text
 $2a$10$L3Xb5G/AJOsEK5SuOn9uzOhpCCfuVWTajc5hwWerY6N5xBM/xlrMK
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 2. Enable authentication
 
@@ -88,33 +95,41 @@ To specify the [credentials file](#1-create-the-credentials-file), use the [`--r
 
 To generate an authentication token, make a request to the `/login` endpoint with your username and password. Specify the HTTP port or the WS port to generate a token to authenticate over HTTP or WS respectively. HTTP and WS requires a different token.
 
-<!--tabs-->
+<Tabs>
 
-# Generate a token for HTTP
+<TabItem value="Generate a token for HTTP" label="Generate a token for HTTP" default>
 
 ```bash
 curl -X POST --data '{"username":"username1","password":"MyPassword"}' <JSON-RPC-http-hostname:http-port>/login
 ```
 
-# Example for HTTP
+</TabItem>
+
+<TabItem value="Example for HTTP" label="Example for HTTP">
 
 ```bash
 curl -X POST --data '{"username":"username1","password":"MyPassword"}' http://localhost:8545/login
 ```
 
-# Generate a token for WS
+</TabItem>
+
+<TabItem value="Generate a token for WS" label="Generate a token for WS">
 
 ```bash
 curl -X POST --data '{"username":"username1","password":"MyPassword"}' <JSON-RPC-ws-hostname:ws-port>/login
 ```
 
-# Example for WS
+</TabItem>
+
+<TabItem value="Example for WS" label="Example for WS">
 
 ```bash
 curl -X POST --data '{"username":"username1","password":"MyPassword"}' http://localhost:8546/login
 ```
 
-# JSON result
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
 
 ```json
 {
@@ -122,7 +137,9 @@ curl -X POST --data '{"username":"username1","password":"MyPassword"}' http://lo
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Authentication tokens expire five minutes after generation. If you require access after the token expires, you need to generate a new token.
 
@@ -147,9 +164,8 @@ The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) c
 
 Besu default is `RS256`.
 
-<!--tabs-->
-
-# `RS256` RSA Keys
+<Tabs>
+<TabItem value="RS256 RSA Keys" label="RS256 RSA Keys" default>
 
 1. Generate the private key:
 
@@ -163,7 +179,9 @@ Besu default is `RS256`.
    openssl rsa -pubout -in privateRSAKey.pem -pubout -out publicRSAKey.pem
    ```
 
-# `ES256` `secp256r1` ECDSA Keys
+</TabItem>
+
+<TabItem value="ES256 secp256r1 ECDSA Keys" label="`ES256 secp256r1 ECDSA Keys">
 
 1.  Generate the private key:
 
@@ -177,7 +195,9 @@ Besu default is `RS256`.
     openssl ec -in privateECDSAKey.pem -pubout -out publicECDSAKey.pem
     ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 :::danger Private key security
 
@@ -209,9 +229,9 @@ Each payload for the JWT must contain:
 - [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
 - Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md).
 
-<!--tabs-->
+<Tabs>
 
-# Example JSON Payload
+<TabItem value="Example JSON Payload" label="Example JSON Payload" default>
 
 ```json
 {
@@ -221,11 +241,15 @@ Each payload for the JWT must contain:
 }
 ```
 
-# Example JWT result
+</TabItem>
+
+<TabItem value="Example JWT result" label="Example JWT result">
 
 ![Example result](jwt.png)
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 ### 3. Enable authentication
 
@@ -255,18 +279,22 @@ In the **Authorization** tab in the **TYPE** drop-down list, select **Bearer Tok
 
 Specify the `Bearer` in the header.
 
-<!--tabs-->
+<Tabs>
 
-# cURL Request with authentication placeholders
+<TabItem value="cURL Request with authentication placeholders" label="cURL Request with authentication placeholders" default>
 
 ```bash
 curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
 ```
 
-# cURL Request with authentication
+</TabItem>
+
+<TabItem value="cURL Request with authentication" label="cURL Request with authentication">
 
 ```bash
 curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

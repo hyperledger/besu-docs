@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure P2P TLS
 
 You can configure TLS to secure the P2P communication between nodes by ensuring only authorized nodes can communicate with each other. Use certificates issued by a trusted authority to connect authorized nodes in the network.
@@ -52,209 +55,257 @@ In the command line:
 
 ### `Xp2p-tls-crl-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-crl-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-crl-file=/home/cert/cert.crl.pem
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_CRL_FILE=/home/cert/cert.crl.pem
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Path to the optional certificate revocation list (CRL) file.
 
 ### `Xp2p-tls-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-enabled[=<true|false>]
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-enabled=true
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_ENABLED=true
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Enable TLS for P2P communication. The default is `false`.
 
 ### `Xp2p-tls-keystore-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-keystore-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-keystore-file=/home/cert/keystore.jks
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_KEYSTORE_FILE=/home/cert/keystore.jks
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Keystore file containing the key and certificate to allow TLS for P2P communication.
 
 ### `Xp2p-tls-keystore-password-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-keystore-password-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-keystore-password-file=/home/cert/password.txt
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_KEYSTORE_PASSWORD_FILE=/home/cert/password.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Text file containing the password to unlock the keystore file.
 
 ### `Xp2p-tls-keystore-type`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-keystore-type=<TYPE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-keystore-type=JKS
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_KEYSTORE_TYPE=JKS
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Keystore type that allows TLS for P2P communication. Valid options are `JKS`, `PKCS11`, and `PKCS12`. The default is `JKS`.
 
 ### `Xp2p-tls-truststore-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-truststore-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-truststore-file=/home/cert/truststore.jks
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_TRUSTSTORE_FILE=/home/cert/truststore.jks
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Truststore containing the trusted certificates that allows TLS for P2P communication.
 
 ### `Xp2p-tls-truststore-password-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-truststore-password-file=<FILE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-truststore-password-file=/home/cert/password.txt
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_TRUSTSTORE_PASSWORD_FILE=/home/cert/password.txt
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Text file containing the password to unlock the truststore file.
 
 ### `Xp2p-tls-truststore-type`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --Xp2p-tls-truststore-type=<TYPE>
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```bash
 --Xp2p-tls-truststore-type=JKS
 ```
 
-# Environment variable
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
 
 ```bash
 BESU_XP2P_TLS_TRUSTSTORE_TYPE=JKS
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 Truststore type. Valid options are `JKS`, `PKCS11`, and `PKCS12`. The default is `JKS`.
 

@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use the web3js-quorum client library
 
 [web3js-quorum](https://github.com/ConsenSys/web3js-quorum) is an Ethereum JavaScript library extending [web3.js](https://github.com/ethereum/web3.js/) that adds support for Besu-specific JSON-RPC APIs and features. Use the library to create and send RLP-encoded transactions using JSON-RPC.
@@ -41,9 +44,9 @@ Initialize your client where:
 
 - `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified by the [`--rpc-http-host`](../../../public-networks/reference/cli/options.md#rpc-http-host) and [`--rpc-http-port`](../../../public-networks/reference/cli/options.md#rpc-http-port) command line options.
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+<TabItem value="Syntax" label="Syntax" default>
 
 ```js
 const { Web3 } = require("web3");
@@ -51,7 +54,9 @@ const Web3Quorum = require("web3js-quorum");
 const web3 = new Web3Quorum(new Web3("<JSON-RPC HTTP endpoint>"));
 ```
 
-# Example
+</TabItem>
+
+<TabItem value="Example" label="Example">
 
 ```js
 const { Web3 } = require("web3");
@@ -59,7 +64,9 @@ const Web3Quorum = require("web3js-quorum");
 const web3 = new Web3Quorum(new Web3("http://localhost:8545"));
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 :::note
 

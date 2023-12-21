@@ -1,5 +1,5 @@
-const lightCodeTheme = require("prism-react-renderer/themes/dracula");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -49,32 +49,16 @@ const config = {
             "23.10.2": {
               label: "stable (23.10.2)",
             },
-            "23.10.1": {
-              label: "23.10.1",
-            },
-            "23.10.0": {
-              label: "23.10.0",
-            },
             "23.7.3": {
               label: "23.7.3",
             },
-            "23.7.2": {
-              label: "23.7.2",
-            },
-            "23.7.1": {
-              label: "23.7.1",
-            },
             "23.4.1": {
               label: "23.4.1",
-            },
-            "23.4.0": {
-              label: "23.4.0",
             },
           },
           routeBasePath: "/",
           // @ts-ignore
           // eslint-disable-next-line global-require
-          remarkPlugins: [require("remark-docusaurus-tabs")],
           include: ["**/*.md", "**/*.mdx"],
           exclude: [
             "**/_*.{js,jsx,ts,tsx,md,mdx}",

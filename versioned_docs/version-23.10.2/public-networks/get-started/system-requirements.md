@@ -6,6 +6,9 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # System requirements
 
 Determine public network system requirements by checking CPU and disk space requirements using [Prometheus](../how-to/monitor/metrics.md). Grafana provides a [sample dashboard](https://grafana.com/grafana/dashboards/10273) for Besu.
@@ -43,75 +46,91 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```
 2. Uncompress the binaries:
 
-   <!--tabs-->
+<Tabs>
    
-   # Command
+   <TabItem value="Command" label="Command" default>
 
    ```bash
    tar -xvf YOUR_J9_IMAGE.tar.gz
    ```
-   # Example
+   </TabItem>
+
+  <TabItem value="Example" label="Example">
 
    ```bash
    tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
    ```
    
-   <!--/tabs-->
+   </TabItem>
+
+</Tabs>
    
 3. Move the binaries to `bin` directory:
 
-   <!--tabs-->
+<Tabs>
    
-   # Command
+   <TabItem value="Command" label="Command" default>
 
    ```bash
    sudo cp -r YOUR_IMAGE/ /usr/bin/
    ```
-   # Example
+   </TabItem>
+
+  <TabItem value="Example" label="Example">
 
    ```bash
    sudo cp -r jdk-17.0.5+8/ /usr/bin/
    ```
 
-   <!--/tabs-->
+   </TabItem>
+
+</Tabs>
    
 4. Specify OpenJ9 for Java on your machine:
 
-   <!--tabs-->
+<Tabs>
    
-   # Command
+   <TabItem value="Command" label="Command" default>
 
    ```bash
    sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
    sudo update-alternatives --config java (and choose OpenJ9)
    ```
    
-   # Example
+   </TabItem>
+
+  <TabItem value="Example" label="Example">
 
    ```bash
    sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java"
    ```
    
-   <!--/tabs-->
+   </TabItem>
+
+</Tabs>
    
    Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
    the installation location you specified:
 
-   <!--tabs-->
+<Tabs>
    
-   # Command
+   <TabItem value="Command" label="Command" default>
 
    ```bash
    export JAVA_HOME=jdk-install-dir`
    ```
 
-   # Example
+   </TabItem>
+
+  <TabItem value="Example" label="Example">
 
    ```bash
    export JAVA_HOME=/usr/bin/jdk-17.0.5+8
    ```
    
-   <!--/tabs-->
+   </TabItem>
+
+</Tabs>
 
 ## Java Virtual Machine size
 

@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Create a private network using QBFT
 
 A private network provides a configurable network for testing. This private network uses the [QBFT (proof of authority) consensus protocol](../how-to/configure/consensus/qbft.md).
@@ -176,21 +179,25 @@ QBFT-Network/
 
 In the `Node-1` directory, start Node-1:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line:
 
@@ -208,21 +215,25 @@ When the node starts, the [enode URL](../../public-networks/concepts/node-keys.m
 
 Start another terminal, change to the `Node-2` directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 
@@ -236,21 +247,26 @@ The command line specifies:
 
 Start another terminal, change to the `Node-3` directory and start Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
+
 
 ```bash
 besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 
@@ -264,21 +280,25 @@ The command line specifies:
 
 Start another terminal, change to the `Node-4` directory and start Node-4 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
-<!--tabs-->
+<Tabs>
 
-# MacOS
+<TabItem value="MacOS" label="MacOS" default>
 
 ```bash
 besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
 ```
 
-# Windows
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
 
 ```bash
 besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 The command line specifies:
 

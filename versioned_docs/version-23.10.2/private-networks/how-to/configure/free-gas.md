@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure free gas networks
 
 Transactions use computational resources so have an associated cost. Gas is the cost unit and the gas price is the price per gas unit. The transaction cost is the gas used \* gas price.
@@ -68,21 +71,25 @@ In the `config` section of the genesis file, set the contract size limit to the 
 
 When starting nodes, set the [minimum gas price](../../../public-networks/reference/cli/options.md#min-gas-price) to zero.
 
-<!--tabs-->
+<Tabs>
 
-# Command Line
+<TabItem value="Command Line" label="Command Line" default>
 
 ```bash
 --min-gas-price=0
 ```
 
-# Configuration File
+</TabItem>
+
+<TabItem value="Configuration File" label="Configuration File">
 
 ```bash
 min-gas-price=0
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>
 
 # Command Line
 

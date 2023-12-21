@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Consensus protocols
 
 Besu supports the following consensus protocols:
@@ -20,9 +23,9 @@ See a [comparison of the proof of authority consensus protocols](../../../concep
 
 The `config` property in the genesis file specifies the consensus protocol for a chain.
 
-<!--tabs-->
+<Tabs>
 
-# Ethash
+<TabItem value="Ethash" label="Ethash" default>
 
 ```json
 {
@@ -36,7 +39,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
 }
 ```
 
-# Clique
+</TabItem>
+
+<TabItem value="Clique" label="Clique">
 
 ```json
 {
@@ -50,7 +55,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
 }
 ```
 
-# IBFT 2.0
+</TabItem>
+
+<TabItem value="IBFT 2.0" label="IBFT 2.0">
 
 ```json
 {
@@ -64,7 +71,9 @@ The `config` property in the genesis file specifies the consensus protocol for a
 }
 ```
 
-# QBFT
+</TabItem>
+
+<TabItem value="QBFT" label="QBFT">
 
 ```json
 {
@@ -78,4 +87,6 @@ The `config` property in the genesis file specifies the consensus protocol for a
 }
 ```
 
-<!--/tabs-->
+</TabItem>
+
+</Tabs>

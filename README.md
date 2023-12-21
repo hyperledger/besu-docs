@@ -9,10 +9,9 @@ The doc site is hosted at [`besu.hyperledger.org`](https://besu.hyperledger.org)
 
 If you're looking for the software source code, go to the [Besu software repository](https://github.com/hyperledger/besu).
 
-### Viewing older versions of docs 
+### View older doc versions
 
-See the [versions section in the Hyperledger Besu wiki](https://wiki.hyperledger.org/display/BESU/Versions+of+docs+and+how+to+host+previous+versions)
-for information about viewing and hosting older versions of the documentation on your own infrastructure
+See the Hyperledger Besu wiki for information about [viewing and hosting older versions of the documentation](https://wiki.hyperledger.org/display/BESU/View+older+documentation+versions) on your own infrastructure.
 
 ### Contribute to the docs
 

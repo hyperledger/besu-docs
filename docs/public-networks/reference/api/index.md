@@ -1357,7 +1357,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x
 
 </Tabs>
 
-### `debug_resyncWorldstate`
+### `debug_resyncWorldState`
 
 Triggers a re-synchronization of the world state while retaining imported blocks. This is useful if there are world state database inconsistencies (for example, Bonsai database issues).
 
@@ -1374,7 +1374,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldstate","params":[],"id":1}' http://127.0.0.1:8545
+    curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params":[],"id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -1382,7 +1382,7 @@ None
 <TabItem value="wscat WS request" label="wscat WS request">
 
 ```json
-{ "jsonrpc": "2.0", "method": "debug_resyncWorldstate", "params": [], "id": 1 }
+{ "jsonrpc": "2.0", "method": "debug_resyncWorldState", "params": [], "id": 1 }
 ```
 
 </TabItem>

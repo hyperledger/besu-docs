@@ -966,14 +966,14 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
-### `fast-sync-min-peers`
+### `sync-min-peers`
 
 <Tabs>
 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---fast-sync-min-peers=<INTEGER>
+--sync-min-peers=<INTEGER>
 ```
 
 </TabItem>
@@ -981,7 +981,7 @@ Contact email address to send to the Ethstats server specified by [`--ethstats`]
 <TabItem value="Example" label="Example">
 
 ```bash
---fast-sync-min-peers=8
+--sync-min-peers=8
 ```
 
 </TabItem>
@@ -997,18 +997,18 @@ BESU_FAST_SYNC_MIN_PEERS=8
 <TabItem value="Example configuration file" label="Example configuration file"> 
 
 ```bash
-fast-sync-min-peers=8
+sync-min-peers=8
 ```
 
 </TabItem>
 
 </Tabs>
 
-The minimum number of peers required before starting [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization) in [proof of work](../../how-to/use-pow/mining.md) networks. The default is 5.
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5.
 
 :::info
 
-This option only applies to proof of work networks.
+This option does not apply to PoS networks.
 
 :::
 

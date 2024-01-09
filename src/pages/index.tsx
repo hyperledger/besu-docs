@@ -11,8 +11,7 @@ function HomepageText() {
         <a href="/public-networks/reference/cli/options">
           command line interface
         </a>{" "}
-        and
-        <a href="/public-networks/how-to/use-besu-api">JSON-RPC API</a> for
+        and <a href="/public-networks/how-to/use-besu-api">JSON-RPC API</a> for
         running, maintaining, debugging, and monitoring nodes in an Ethereum
         network. You can use the API via RPC over HTTP or via WebSocket. Besu
         also supports Pub/Sub.

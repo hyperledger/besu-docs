@@ -278,7 +278,7 @@ The singular `--banned-node-id` and plural `--banned-node-ids` are available and
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bonsai-historical-block-limit=256
+--bonsai-historical-block-limit=<INTEGER>
 ```
 
 </TabItem>
@@ -294,7 +294,7 @@ The singular `--banned-node-id` and plural `--banned-node-ids` are available and
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_BONSAI_MAXIMUM_BACK_LAYERS_TO_LOAD=256
+BESU_BONSAI_HISTORICAL_BLOCK_LIMIT=256
 ```
 
 </TabItem>

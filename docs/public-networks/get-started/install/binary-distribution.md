@@ -39,15 +39,12 @@ To upgrade an existing Besu installation using Homebrew:
 brew upgrade hyperledger/besu/besu
 ```
 
-:::note
+:::note notes
 
-If you've upgraded your MacOS version between installing and upgrading Besu, when running `brew upgrade hyperledger/besu/besu` you may be prompted to reinstall command line tools with `xcode-select --install`.
+- If you upgraded your MacOS version between installing and upgrading Besu, when running `brew upgrade hyperledger/besu/besu` you
+    might be prompted to reinstall command line tools with `xcode-select --install`.
 
-:::
-
-:::note
-
-When upgrading Besu, you might be prompted to fix the remote branch names in Homebrew by using the command `brew tap --repair`.
+- When upgrading Besu, you might be prompted to fix the remote branch names in Homebrew by using the command `brew tap --repair`.
 
 :::
 

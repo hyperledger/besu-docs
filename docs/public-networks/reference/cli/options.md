@@ -1050,7 +1050,7 @@ fast-sync-min-peers=8
 
 </Tabs>
 
-The default number peers required to start [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization) in [proof of work](../../how-to/use-pow/mining.md) networks is set to `5`. For static peers to contribute to the initial sync, set the `fast-sync-min-peers` to `1`.
+The default number of peers required to start [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization) in [proof of work](../../how-to/use-pow/mining.md) networks. The default is set to `5`. Set the `fast-sync-min-peers` to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 

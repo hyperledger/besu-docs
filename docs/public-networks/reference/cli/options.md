@@ -2814,7 +2814,7 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 :::caution
 
-Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space is recommended.
+Forest pruning (using the [`--pruning-enabled`](../../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 

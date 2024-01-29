@@ -1008,9 +1008,56 @@ The minimum number of peers required before starting [sync](../../get-started/co
 
 :::info
 
-This option does not apply to PoS networks.
+This option does not apply to Proof of Stake networks.
 
 :::
+
+### `fast-sync-min-peers`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--fast-sync-min-peers=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--fast-sync-min-peers=8
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_FAST_SYNC_MIN_PEERS=8
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+fast-sync-min-peers=8
+```
+
+</TabItem>
+
+</Tabs>
+
+The default number peers required to start [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization) in [proof of work](../../how-to/use-pow/mining.md) networks is set to `5`. For static peers to contribute to the initial sync, set the `fast-sync-min-peers` to `1`.
+
+:::info
+
+This option only applies to Proof of Work networks.
+
+:::
+
 
 ### `genesis-file`
 

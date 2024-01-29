@@ -2812,6 +2812,12 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 ### `pruning-enabled`
 
+:::caution
+
+Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using [Bonsai Tries](#bonsai-tries) as an alternative for saving disk space is recommended.
+
+:::
+
 <Tabs>
 
 <TabItem value="Syntax" label="Syntax" default>

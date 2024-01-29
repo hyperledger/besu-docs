@@ -966,7 +966,7 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
-### `sync-min-peers`
+### `sync-min-peers`, `fast-sync-min-peers`
 
 <Tabs>
 
@@ -1004,60 +1004,13 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5.
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5. Set the `fast-sync-min-peers` to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 
 This option does not apply to Proof of Stake networks.
 
 :::
-
-### `fast-sync-min-peers`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---fast-sync-min-peers=<INTEGER>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---fast-sync-min-peers=8
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_FAST_SYNC_MIN_PEERS=8
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-fast-sync-min-peers=8
-```
-
-</TabItem>
-
-</Tabs>
-
-The default number of peers required to start [fast synchronization](../../get-started/connect/sync-node.md#fast-synchronization) in [Proof of Work](../../how-to/use-pow/mining.md) networks. The default is set to `5`. Set the `fast-sync-min-peers` to `1` to enable static peers to contribute to the initial sync.
-
-:::info
-
-This option only applies to Proof of Work networks.
-
-:::
-
 
 ### `genesis-file`
 

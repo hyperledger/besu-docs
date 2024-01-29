@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 
 :::caution Forest pruning deprecation notice
 
-Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using [Bonsai Tries](#bonsai-tries) as an alternative for saving disk space is recommended.
+Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using Bonsai Tries as an alternative for saving disk space is recommended.
 
 :::
 
@@ -7218,7 +7218,7 @@ Provides transaction processing tracing per block.
 
 :::caution Forest pruning deprecation notice
 
-Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using [Bonsai Tries](#bonsai-tries) as an alternative for saving disk space is recommended.
+Forest pruning (the `pruning-enabled` option) is being deprecated and will be removed in a future release. This option is no longer being maintained. Using Bonsai Tries as an alternative for saving disk space is recommended.
 
 :::
 

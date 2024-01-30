@@ -4983,6 +4983,47 @@ instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
 :::
 
+### `tx-pool-min-gas-price`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-min-size=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-min-size=2000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MIN_SIZE=2000
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-max-size="2000"
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum gas price required for a transaction to be accepted into the[transaction pool](../../concepts/transactions/pool.md).
+
+
 ### `tx-pool-no-local-priority`
 
 <Tabs>

@@ -4547,7 +4547,7 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5. Set to `1` to enable static peers to contribute to the initial sync.
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 

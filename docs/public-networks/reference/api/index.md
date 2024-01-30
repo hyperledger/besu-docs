@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 
 :::caution Forest pruning deprecation notice
 
-Forest pruning (using the [`--pruning-enabled`](../../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
+Forest pruning (using the [`--pruning-enabled`](../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 
@@ -7218,7 +7218,7 @@ Provides transaction processing tracing per block.
 
 :::caution Forest pruning deprecation notice
 
-Forest pruning (using the [`--pruning-enabled`](../../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
+Forest pruning (using the [`--pruning-enabled`](../cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 

@@ -2812,12 +2812,6 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 ### `pruning-enabled`
 
-:::caution
-
-Forest pruning (using the [`--pruning-enabled`](../../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
-
-:::
-
 <Tabs>
 
 <TabItem value="Syntax" label="Syntax" default>
@@ -2859,6 +2853,12 @@ Enables [pruning](../../concepts/data-storage-formats.md#pruning) to reduce stor
 :::info
 
 Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
+
+:::
+
+:::caution
+
+Forest pruning (using the `--pruning-enabled` option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 

@@ -5021,7 +5021,7 @@ tx-pool-max-size="2000"
 
 </Tabs>
 
-The minimum gas price required for a transaction to be accepted into the[transaction pool](../../concepts/transactions/pool.md).
+The minimum gas price required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
 
 
 ### `tx-pool-no-local-priority`

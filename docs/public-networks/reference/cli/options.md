@@ -4532,7 +4532,7 @@ Enables or disables replay protection, in accordance with [EIP-155](https://eips
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_FAST_SYNC_MIN_PEERS=8
+BESU_SYNC_MIN_PEERS=8
 ```
 
 </TabItem>
@@ -4547,7 +4547,7 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5. Set `fast-sync-min-peers` to `1` to enable static peers to contribute to the initial sync.
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5. Set to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 

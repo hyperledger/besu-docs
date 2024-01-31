@@ -2810,9 +2810,9 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 :::
 
-:::note
+:::caution
 
-Pruning is being deprecated for [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) and is currently not being updated.
+This option is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 

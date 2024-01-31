@@ -966,52 +966,6 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
-### `sync-min-peers`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---sync-min-peers=<INTEGER>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---sync-min-peers=8
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_FAST_SYNC_MIN_PEERS=8
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-sync-min-peers=8
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5.
-
-:::info
-
-This option does not apply to PoS networks.
-
-:::
-
 ### `genesis-file`
 
 <Tabs>
@@ -2856,9 +2810,9 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 :::
 
-:::note
+:::caution
 
-Pruning is being deprecated for [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) and is currently not being updated.
+This option is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 
@@ -4554,6 +4508,52 @@ strict-tx-replay-protection-enabled=false
 </Tabs>
 
 Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. The default is `false`.
+
+### `sync-min-peers`, `fast-sync-min-peers`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--sync-min-peers=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--sync-min-peers=8
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SYNC_MIN_PEERS=8
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+sync-min-peers=8
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
+
+:::info
+
+This option does not apply to Proof of Stake networks.
+
+:::
 
 ### `sync-mode`
 

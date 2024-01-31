@@ -114,7 +114,7 @@ To configure Prometheus and run with Besu:
     (any host other than `localhost`), add the hostname that Prometheus uses to
     [`--host-allowlist`](../../reference/cli/options.md#host-allowlist).
     For example, if Prometheus is configured to get metrics from `http://besu.local:8008/metrics`,
-    then `besu.local` has to be in `--host-allowlist`.
+    then `besu.local` must be in `--host-allowlist`.
     :::
 
 3.  In another terminal, run Prometheus specifying the `prometheus.yml` file:

@@ -143,3 +143,17 @@ Update the `hardhat.config.js` file:
    ```js
    gas: "0x1ffffffffffffe";
    ```
+
+   >  Setting `gasPrice` to `0` should cover transaction costs for most deployments.
+
+1. Specify `evmVersion` when using the latest Solidity version:
+
+   ```js
+   solidity: {
+      version: "0.8.20",
+      settings: {
+        evmVersion: "london", // required for Besu
+        optimizer: {...},
+      },
+    },
+   ```

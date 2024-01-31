@@ -9,6 +9,12 @@ tags:
 
 # Trace transactions
 
+:::caution Forest pruning deprecation notice
+
+Forest pruning (using the [`--pruning-enabled`](../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
+
+:::
+
 To get detailed information about transaction processing, use the [`TRACE` API](../../reference/api/index.md#trace-methods). Enable the `TRACE` API using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) command line options.
 
 The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-tracing-apis) and [transaction-trace filtering APIs](#transaction-trace-filtering-apis).

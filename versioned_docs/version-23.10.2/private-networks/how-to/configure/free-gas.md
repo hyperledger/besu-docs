@@ -136,8 +136,23 @@ Update the `hardhat.config.js` file:
    gasPrice: 0;
    ```
 
-1. Set the gas limit for a transaction (that is, contract creation) to be the block gas limit - 1.
+2. Set the gas limit for a transaction (that is, contract creation) to be the block gas limit - 1.
 
    ```js
    gas: "0x1ffffffffffffe";
+   ```
+   
+> In most deployments, setting the `gasPrice` to 0 is enough (if contract is not that big).
+
+
+3. Specify the `evmVersion` when using latest Solidity versions:
+
+   ```js
+   solidity: {
+      version: "0.8.20",
+      settings: {
+        evmVersion: "london", // required for besu
+        optimizer: {...},
+      },
+    },
    ```

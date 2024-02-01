@@ -6960,6 +6960,8 @@ Returns traces matching the specified filter.
 
 Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
+
+
 :::
 
 #### Parameters
@@ -7054,6 +7056,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBl
 
 </TabItem>
 </Tabs>
+
+The default block range limit for `trace_filter` is 1000. You can adjust this limit using the `--rpc-max-trace-filter-range` option. 
 
 ### `trace_get`
 

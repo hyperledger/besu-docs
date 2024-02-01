@@ -1,7 +1,7 @@
 ---
 title: Limit Trie Logs for Bonsai
 sidebar_position: 12
-description: Enable this early access feature to reduce the size of your database
+description: Enable this feature to reduce the size of your database
 tags:
   - public networks
 ---
@@ -10,15 +10,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Limit Trie Logs for Bonsai
+
+The early access feature `--Xbonsai-limit-trie-logs-enabled` minimizes the database size of Besu if you are using `data-storage-format=BONSAI`. When enabled, this feature can reduce database growth by more than 3 GB each week on mainnet.
+
 ## Step by Step Guide
 
 :::caution
 
-We strongly recommend reading the rest of this documentation before running these commands because your node’s configuration may require changes to these commands.
+Limiting trie logs is an early access feature. Before executing the commands in this guide, ensure you review your node configuration.
 
 :::
-
-*Targeting 24.1.2 release, but currently you must be on the Besu `main` branch for this to work*
 
 1. Update Besu config to add --Xbonsai-limit-trie-logs-enabled but don’t restart yet
 1. Stop Besu
@@ -26,30 +27,16 @@ We strongly recommend reading the rest of this documentation before running thes
 `sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
 1. Start Besu (remembering to run sudo systemctl daemon-reload if you use a systemd service file as per CoinCashew and Somer)
 1. Look out for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu config printout during startup
-1. Enjoy more GBs
+1. Enjoy more free space
 
-## What?
-We have a new experimental feature available: `--Xbonsai-limit-trie-logs-enabled` which aims to keep Besu’s database as small as it can be. After a brief grace period, we intend to make this enabled by default for stakers. This is only relevant if you're using `data-storage-format=BONSAI`.
-
-From our testing, we estimate this will **save users > 3 GB per week** in database growth. Early testing indicates Besu’s **overall database growth with this enabled is ~7 GB per week** (thanks Yorick!) which is on par with geth.
-
-## Why?
-Some users noticed that resyncing Besu can free up disk space, especially for longer running nodes. This is despite `--data-storage-format=BONSAI` having “implicit pruning”. More on this reddit thread: https://www.reddit.com/r/ethstaker/comments/12xnxxi/clearing_up_besubonsai_confusion_on_state_growth/
-
-In reality, whilst the Merkle Patricia Trie is implicitly pruned, the BONSAI feature did introduce an extra data structure: the Trie Log (more detail about BONSAI and trie logs here: https://consensys.io/blog/bonsai-tries-guide)
-
-The Trie Logs are retained in order to cope with chain reorgs. After each block is finalized, Trie Logs older than that are no longer required so it is safe to remove them from both the node's and the network's point of view.
 
 ## How?
 If you want to use this feature before it is enabled by default, simply add this option to your Besu command: `--Xbonsai-limit-trie-logs-enabled`
-When you restart Besu it will begin pruning, block by block (and a cheeky bit during Besu startup).
+When you restart Besu it will begin pruning, block by block after an initial reduction in the database during each startup.
 
-If you want **maximum database size reduction**, read on.
+If you have a long-running node, this will not immediately clear your backlog of trie logs in the same way that resyncing does. Instead of resyncing, in order to do this we’re providing a “run once” **offline** command to immediately **prune all your old trie logs in a few minutes or less**. Note, this requires Besu to be shutdown before running, but downtime will be minimal. You will **not** need to run this command a second time if you keep `--Xbonsai-limit-trie-logs-enabled`.
 
-If you have a long-running node, this will not immediately clear your backlog of trie logs in the same way that resyncing does. In order to do this we’re providing a “run once” **offline** command to immediately **prune all your old trie logs in a few minutes or less**. Note, this requires Besu to be shutdown before running, but downtime will be minimal. You will **not** need to run this command a second time if you keep `--Xbonsai-limit-trie-logs-enabled`.
-
-## I’m impatient, reduce my database size now!
-Okay, okay - we got you! We built a one-off Besu command to remove this extra data (usually in seconds) and avoid having to resync. For minimal downtime, we recommend running this command **before** restarting Besu `--Xbonsai-limit-trie-logs-enabled` (easiest to do it all at the same time).
+For minimal downtime, we recommend running this command **before** restarting Besu with `--Xbonsai-limit-trie-logs-enabled` (easiest to do it all at the same time).
 
 If you followed Somer Esat’s (https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee ) or CoinCashew’s guide (https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) then you likely have these options set in your `besu.service` or `execution.service` systemd file:
 
@@ -92,7 +79,7 @@ If you use a toml config file, then you can simply do something like:
 
 `sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-log prune`
 
-## Subcommand Troubleshooting
+## Troubleshoot
 The prune command should look something like this for mainnet users:
 `sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
 

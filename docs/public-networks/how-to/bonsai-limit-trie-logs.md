@@ -17,7 +17,7 @@ The early access feature `--Xbonsai-limit-trie-logs-enabled` minimizes the datab
 
 :::caution
 
-Limiting trie logs is an early access feature. Before executing the commands in this guide, ensure you review your node configuration.
+The commands in this guide are an example. Before executing the commands on your node, ensure you tailor it to your own node configuration.
 
 :::
 

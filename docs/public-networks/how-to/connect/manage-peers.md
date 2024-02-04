@@ -31,9 +31,10 @@ To reduce the maximum number of peers, use the [`--max-peers`](../../reference/c
 
 The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, which also has a default of 25. If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound` option to the same value or lower. For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
 
-Note, `Xp2p-peer-lower-bound` is an early access option.
+`--Xp2p-peer-lower-bound` is an early access option.
 
 :::
+
 
 ## Limit remote connections
 
@@ -83,6 +84,8 @@ With discovery disabled, peers can't open connections with the node unless they 
 
 If your nodes fail to connect, ensure the [required ports are open](configure-ports.md).
 
-If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
+If your nodes are running in AWS, ensure you have the appropriate `SecurityGroups` configured to allow access to the required ports.
 
 Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](static-nodes.md) match the enode URLs displayed when starting the remote nodes.
+
+If your node is having trouble peering, see the[troubleshoot peering documentation](../how-to/troubleshoot/peering.md).

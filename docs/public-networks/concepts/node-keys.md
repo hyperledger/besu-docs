@@ -49,7 +49,7 @@ besu --node-private-key-file="/Users/username/privatekeyfile"
 
 ## Enode URL
 
-The enode URL identifies a node. For example, the [`--bootnodes`](../reference/cli/options.md#bootnodes) option and the [`perm_addNodesToAllowlist`](../reference/api/index.md#perm_addnodestoallowlist) method specify nodes by enode URL.
+The enode URL identifies a node. For example, the [`--bootnodes`](../reference/cli/options.md#bootnodes) option and the [`admin_addPeer`](../reference/api/index.md#admin_addpeer) method specify nodes by the enode URL.
 
 The enode URL format is `enode://<id>@<host:port>[?discport=<port>]` where:
 

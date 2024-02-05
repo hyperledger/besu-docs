@@ -88,4 +88,4 @@ If your nodes are running in AWS, ensure you have the appropriate `SecurityGroup
 
 Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](static-nodes.md) match the enode URLs displayed when starting the remote nodes.
 
-If your node is having trouble peering, see the[troubleshoot peering documentation](../how-to/troubleshoot/peering.md).
+If your node is having trouble peering, see the [troubleshoot peering documentation](../../how-to/troubleshoot/peering.md).

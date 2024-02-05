@@ -34,7 +34,6 @@ The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, whic
 The `--Xp2p-peer-lower-bound` option is deprecated and no longer supported. Manage the number of peers using the `--max-peers` option.
 :::
 
-
 ## Limit remote connections
 
 Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and [`--fast-sync-min-peers`](../../reference/cli/options.md##sync-min-peers-fast-sync-min-peers) on public networks by enabling the [remote connection limits](../../reference/cli/options.md#remote-connections-limit-enabled).

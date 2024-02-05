@@ -3120,6 +3120,46 @@ Enabling revert reason may use a significant amount of memory. We don't recommen
 
 :::
 
+### `rpc-gas-cap`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-gas-cap=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-gas-cap=50000000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_GAS_CAP=50000000
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-gas-cap=50000000
+```
+
+</TabItem>
+
+</Tabs>
+
+Sets a limit on the amount of gas that can be used for executing a transaction using HTTP JSON-RPC methods. This limit prevents gas amounts from being set too high, which can cause network congestion and increase transaction costs.
+
 ### `rpc-http-api`
 
 <Tabs>

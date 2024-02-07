@@ -9,8 +9,8 @@
 |------------------|--------------------|--------------------|
 | Alexandra Tran   | alexandratran      | alexandratran      |
 | Byron Gravenorst | bgravenorst        | bgravenorst        |
-| Madeline Murray  | MadelineMurray     | madelinemurray     |
 | Joan Edwards     | joaniefromtheblock | joaniefromtheblock |
+| Madeline Murray  | MadelineMurray     | madelinemurray     |
 <!-- vale on -->
 
 ## Emeritus maintainers

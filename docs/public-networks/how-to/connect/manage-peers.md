@@ -76,8 +76,8 @@ The console logs connection and disconnection events when the log level is `DEBU
 
 To disable P2P discovery, set the [`--discovery-enabled`](../../reference/cli/options.md#discovery-enabled) option to `false`.
 
-With discovery disabled, peers can't open connections with the node unless they were previously discovered or manually peered (for example, using [`admin_addPeer`](../../reference/api/index.md#admin_addpeer)). [Static nodes](static-nodes.md) can also open connections.
+With discovery disabled, peers can't open connections with the node unless they were previously discovered or manually peered (for example, using [`admin_addPeer`](../../reference/api/index.md#admin_addpeer)). [Static nodes](../static-nodes.md) can also open connections.
 
 ## Troubleshoot
 
-If you encounter issues with peering, refer to the [troubleshoot peering documentation](/../how-to/troubleshoot/peering.md), which provides detailed guidance on identifying and resolving common problems that can occcur during the peering process.
+If you encounter issues with peering, refer to the [troubleshoot peering documentation](../../how-to/troubleshoot/peering.md) which provides guidance on identifying and resolving common problems that can occcur during the peering process.

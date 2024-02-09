@@ -4046,7 +4046,7 @@ rpc-max-trace-filter-range=100
 
 </Tabs>
 
-Specifies the maximum number of blocks for the [`trace_filter`]() method. The value must be equal to or greater than `0`. Setting the `--rpc-max-trace-filter-range` option to `0` indicates there is no limit imposed.
+Specifies the maximum number of blocks for the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting the `--rpc-max-trace-filter-range` option to `0` indicates there is no limit imposed.
 
 
 ### `rpc-tx-feecap`

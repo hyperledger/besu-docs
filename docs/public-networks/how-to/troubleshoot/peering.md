@@ -10,6 +10,8 @@ tags:
 
 Many factors can affect the ability of your node to find and maintain peers. Your network router, machine environment, and node configuration are all important. If you have peering issues, start by [configuring your ports](../connect/configure-ports.md) and [managing peers](../connect/manage-peers.md).
 
+If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
+
 ## Peering FAQ
 
 ### "Why can’t I find enough peers to sync?"
@@ -41,6 +43,10 @@ Check the following settings:
 - Your machine and router's specified DNS should support TCP. You can check your DNS online for TCP support. Google and Cloudflare, 8.8.8.8 and 1.1.1.1, support TCP over port 853. Other DNS might as well.
 - The appropriate ports should be open on your router, or your router should have UPNP enabled. See the next FAQ for more information on router settings.
 - If you use [Docker](https://docs.docker.com/network/network-tutorial-host/) or virtualization, the container should be able to create outbound connections on the host machine.
+
+### What URLs should be checked for matching?
+
+Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](static-nodes.md) match the enode URLs displayed when starting the remote nodes.
 
 ### "How do I open/forward my ports?"
 

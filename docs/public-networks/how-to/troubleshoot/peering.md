@@ -46,7 +46,7 @@ Check the following settings:
 
 ### "What URLs should be checked for matching?"
 
-Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](../connect/static-nodes.mdstatic-nodes.md) match the enode URLs displayed when starting the remote nodes.
+Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](../connect/static-nodes.md) match the enode URLs displayed when starting the remote nodes.
 
 ### "How do I open/forward my ports?"
 

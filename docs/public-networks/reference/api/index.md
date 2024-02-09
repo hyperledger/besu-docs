@@ -6960,7 +6960,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 
 ### `trace_filter`
 
-Returns traces matching the specified filter.
+Returns traces matching the specified filter. The default block range limit for `trace_filter` is 1000. You can adjust this limit using the [`--rpc-max-trace-filter-range`]() option. 
 
 :::info
 
@@ -7060,8 +7060,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBl
 
 </TabItem>
 </Tabs>
-
-The default block range limit for `trace_filter` is 1000. You can adjust this limit using the `--rpc-max-trace-filter-range` option. 
 
 ### `trace_get`
 

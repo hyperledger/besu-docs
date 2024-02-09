@@ -81,5 +81,3 @@ With discovery disabled, peers can't open connections with the node unless they 
 ## Troubleshoot
 
 If you encounter issues with peering, refer to the [troubleshoot peering documentation](../../how-to/troubleshoot/peering.md), which provides detailed guidance on identifying and resolving common problems that can occcur during the peering process.
-
-

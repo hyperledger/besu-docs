@@ -6964,7 +6964,7 @@ Returns traces matching the specified filter. The default block range limit for 
 
 :::info
 
-Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
+Your node must be an archive node - synchronized without pruning or fast sync, or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 :::
 

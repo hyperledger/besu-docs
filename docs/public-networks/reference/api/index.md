@@ -6960,7 +6960,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 
 ### `trace_filter`
 
-Returns traces matching the specified filter. The default block range limit for `trace_filter` is 1000. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
+Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
 
 :::info
 

@@ -6960,11 +6960,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 
 ### `trace_filter`
 
-Returns traces matching the specified filter.
+Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
 
 :::info
 
-Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
+Your node must be an archive node (synchronized without pruning or fast sync), or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
 
 :::
 

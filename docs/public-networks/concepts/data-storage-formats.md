@@ -82,9 +82,10 @@ The following table shows the ways you can [sync a full node](../get-started/con
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 | --- | --- | --- | --- |
 | Bonsai | Fast | 650 GB | No |
-| Bonsai | Snap | 650 GB | To be implemented |
+| Bonsai | Snap | 994 GB | To be implemented |
 | Forest | Fast | 750 GB | Yes |
 | Forest | Snap | 750 GB | No |
+
 
 :::tip
 

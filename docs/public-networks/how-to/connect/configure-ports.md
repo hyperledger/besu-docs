@@ -9,7 +9,7 @@ tags:
 
 # Configure ports
 
-To enable communication you must expose Hyperledger Besu ports appropriately. The following shows an example port configuration for a Besu node on AWS.
+To enable communication you must expose Hyperledger Besu ports appropriately. If your nodes are running in AWS, ensure you have appropriate `SecurityGroups` to allow access to the required ports. The following shows an example port configuration for a Besu node on AWS. 
 
 ![Port Configuration](../../../assets/images/PortConfiguration.png)
 

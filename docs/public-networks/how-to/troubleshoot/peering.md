@@ -10,8 +10,6 @@ tags:
 
 Many factors can affect the ability of your node to find and maintain peers. Your network router, machine environment, and node configuration are all important. If you have peering issues, start by [configuring your ports](../connect/configure-ports.md) and [managing peers](../connect/manage-peers.md).
 
-If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports. See documentation on [configuring ports](../connect/configure-ports.md) for more information. 
-
 ## Peering FAQ
 
 ### "Why can’t I find enough peers to sync?"

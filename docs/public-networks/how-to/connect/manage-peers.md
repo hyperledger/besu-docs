@@ -29,13 +29,15 @@ To reduce the maximum number of peers, use the [`--max-peers`](../../reference/c
 
 :::caution
 
-The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, which also has a default of 25. If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound` option to the same value or lower. For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower. The `Xp2p-peer-lower-bound` option is deprecated. 
+The minimum number of peers is set by the `--Xp2p-peer-lower-bound` option, which also has a default of 25. If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound` option to the same value or lower. For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower. 
+
+The `Xp2p-peer-lower-bound` option is deprecated. 
 
 :::
 
 ## Limit remote connections
 
-Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and [`--fast-sync-min-peers`](../../reference/cli/options.md#fast-sync-min-peers) on public networks by enabling the [remote connection limits](../../reference/cli/options.md#remote-connections-limit-enabled).
+Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and [`--fast-sync-min-peers`](../../reference/cli/options.md##sync-min-peers-fast-sync-min-peers) on public networks by enabling the [remote connection limits](../../reference/cli/options.md#remote-connections-limit-enabled).
 
 In private and permissioned networks with only trusted peers, enabling the remote connection limits is unnecessary and might adversely affect the speed at which nodes can join the network. Limiting remote connections can cause a closed group of peers to form when the number of nodes in the network is slightly higher than [`--max-peers`](../../reference/cli/options.md#max-peers). The nodes in this closed group are all connected to each other and can't accept more connections.
 
@@ -79,8 +81,4 @@ With discovery disabled, peers can't open connections with the node unless they 
 
 ## Troubleshoot
 
-If your nodes fail to connect, ensure the [required ports are open](configure-ports.md).
-
-If your nodes are running in AWS, check you have appropriate `SecurityGroups` to allow access to the required ports.
-
-Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](static-nodes.md) match the enode URLs displayed when starting the remote nodes.
+If you encounter issues with peering, see the [troubleshoot peering documentation](../../how-to/troubleshoot/peering.md), which helps you identify and resolve common problems that can occur during the peering process.

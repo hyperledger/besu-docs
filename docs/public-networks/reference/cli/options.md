@@ -966,52 +966,6 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
-### `sync-min-peers`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---sync-min-peers=<INTEGER>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---sync-min-peers=8
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_FAST_SYNC_MIN_PEERS=8
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-sync-min-peers=8
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is 5.
-
-:::info
-
-This option does not apply to PoS networks.
-
-:::
-
 ### `genesis-file`
 
 <Tabs>
@@ -2855,9 +2809,9 @@ Using pruning with [private transactions](../../../private-networks/concepts/pri
 
 :::
 
-:::note
+:::caution
 
-Pruning is being deprecated for [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) and is currently not being updated.
+This option is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
 
 :::
 
@@ -3118,6 +3072,46 @@ Enables or disables including the [revert reason](../../../private-networks/how-
 Enabling revert reason may use a significant amount of memory. We don't recommend enabling revert reason when connected to public Ethereum networks.
 
 :::
+
+### `rpc-gas-cap`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-gas-cap=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-gas-cap=50000000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_GAS_CAP=50000000
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-gas-cap=50000000
+```
+
+</TabItem>
+
+</Tabs>
+
+Sets a limit on the amount of gas for transaction simulation RPC methods. Its value must be greater than or equal to `0`. The default is `0`, which indicates there is no limit. This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
 
 ### `rpc-http-api`
 
@@ -4013,6 +4007,47 @@ We recommend setting a range limit or leaving this option at its default value.
 
 :::
 
+### `rpc-max-trace-filter-range`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-max-trace-filter-range=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+--BESU_RPC_MAX_TRACE_FILTER_RANGE=100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum number of blocks you can supply to the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting this option to `0` indicates there is no limit. The default is `1000`.
+
+
 ### `rpc-tx-feecap`
 
 <Tabs>
@@ -4554,6 +4589,52 @@ strict-tx-replay-protection-enabled=false
 
 Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. The default is `false`.
 
+### `sync-min-peers`, `fast-sync-min-peers`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--sync-min-peers=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--sync-min-peers=8
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SYNC_MIN_PEERS=8
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+sync-min-peers=8
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
+
+:::info
+
+This option does not apply to Proof of Stake networks.
+
+:::
+
 ### `sync-mode`
 
 <Tabs>
@@ -4981,6 +5062,47 @@ implementation, this option is not applicable because the layered pool is limite
 instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
 :::
+
+### `tx-pool-min-gas-price`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-min-gas-price=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-min-gas-price=2000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MIN_GAS_PRICE=2000
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-min-gas-price="2000"
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
+
 
 ### `tx-pool-no-local-priority`
 

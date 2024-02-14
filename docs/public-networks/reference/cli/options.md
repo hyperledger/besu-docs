@@ -4008,6 +4008,47 @@ We recommend setting a range limit or leaving this option at its default value.
 
 :::
 
+### `rpc-max-trace-filter-range`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-max-trace-filter-range=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+--BESU_RPC_MAX_TRACE_FILTER_RANGE=100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum number of blocks you can supply to the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting this option to `0` indicates there is no limit. The default is `1000`.
+
+
 ### `rpc-tx-feecap`
 
 <Tabs>

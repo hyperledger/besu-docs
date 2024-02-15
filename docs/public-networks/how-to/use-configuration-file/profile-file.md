@@ -4,8 +4,8 @@ sidebar_position: 1
 
 # Use a profile file
 
-You can load TOML configuration files containing custom settings for specific user profiles using
-the [`--profile`](../../reference/cli/options.md#profile) CLI option.
+Besu provides pre-configured profile files containing custom settings for some common use cases.
+You can load these profile files using the [`--profile`](../../reference/cli/options.md#profile) CLI option.
 For example:
 
 ```bash

@@ -2681,7 +2681,6 @@ The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose 
 --profile=<PROFILE>
 ```
 
-
 </TabItem>
 <TabItem value="Example">
 
@@ -2700,7 +2699,7 @@ BESU_PROFILE=staker
 <TabItem value="Configuration file">
 
 ```bash
-profiles="staker"
+profile="staker"
 ```
 
 </TabItem>

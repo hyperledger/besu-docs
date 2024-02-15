@@ -4747,7 +4747,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool=legacy
+--tx-pool=sequenced
 ```
 
 </TabItem>
@@ -4755,7 +4755,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL=legacy
+BESU_TX_POOL=sequenced
 ```
 
 </TabItem>
@@ -4763,7 +4763,7 @@ BESU_TX_POOL=legacy
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool="legacy"
+tx-pool="sequenced"
 ```
 
 </TabItem>
@@ -4772,13 +4772,8 @@ tx-pool="legacy"
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
 Set to `layered` to use the layered transaction pool implementation.
-Set to `legacy` to opt out of the layered transaction pool.
+Set to `sequenced` (previously known as `legacy`) to opt out of the layered transaction pool.
 The default is `layered`.
-
-:::caution
-The legacy transaction pool implementation will be deprecated soon, so we recommend using the
-default layered transaction pool.
-:::
 
 ### `tx-pool-enable-save-restore`
 

@@ -2705,7 +2705,7 @@ profile="staker"
 </TabItem>
 </Tabs>
 
-Load a TOML configuration file containing custom settings for a specific user profile.
+Loads a TOML configuration file containing custom settings for a specific user profile.
 Possible values are:
 
 - [`minimalist_staker`](../../how-to/use-configuration-file/profile-file.md#minimalist-staker-profile)

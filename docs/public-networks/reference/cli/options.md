@@ -3295,10 +3295,7 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 <TabItem value="Example" label="Example">
 
 ```bash
-
-$# You can allow one or more domains with a comma-separated list.
-
---rpc-http-cors-origins=http://medomain.com,https://meotherdomain.com
+--rpc-http-cors-origins=http://medomain.com,http://remix.ethereum.org
 ```
 
 </TabItem>
@@ -3317,20 +3314,11 @@ BESU_RPC_HTTP_CORS_ORIGINS=http://medomain.com,https://meotherdomain.com
 rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
 ```
 
-# Remix example
-
-```bash
-
-$# The following allows Remix to interact with your Besu node.
-
---rpc-http-cors-origins=http://remix.ethereum.org
-```
-
 </TabItem>
 
 </Tabs>
 
-A list of domain URLs for CORS validation.
+A comma-separated list of domain URLs for CORS validation.
 
 Listed domains can access the node using JSON-RPC. If your client interacts with Besu using a browser app (such as Remix or a block explorer), add the client domain to the list.
 

@@ -7,19 +7,34 @@ tags:
   - private networks
 ---
 
-# Use the Hyperledger Besu configuration file
+# Use a configuration file
 
-To specify command line options in a file, use a TOML configuration file.
+You can specify command line options in a TOML configuration file.
+Save the configuration file and reuse it across node startups.
+Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) CLI option.
 
-Save the configuration file and reuse it across node startups. To specify the configuration file, use the [`--config-file`](../reference/cli/options.md#config-file) option.
-
-To override an option specified in the configuration file, either specify the same option on the command line or as an [environment variable](../reference/cli/options.md#specify-options). For options specified in more than one place, the order of precedence is command line, environment variable, configuration file.
+You can also [use a pre-configured profile file](profile-file.md).
 
 :::note
 
-The configuration file is used for node-level settings. You can specify network-wide settings in the [genesis file](../concepts/genesis-file.md).
+The configuration file is used for node-level settings. You can specify network-wide settings in the [genesis file](../../concepts/genesis-file.md).
 
 :::
+
+## Configuration order of precedence
+
+For options specified in multiple places, the order of precedence is as follows:
+
+1. Command line
+2. Environment variable
+3. Configuration file specified by `--config-file`
+4. [Profile file](profile-file.md) specified by `--profile`
+5. Default values (used if no other configuration source is available)
+
+For example, if you specify a `config.toml` configuration file and `staker` profile, and an option
+is not found in the environment variables, Besu looks for it in `config.toml`.
+If the option is not found in the `config.toml` file, Besu looks for it in `staker.toml`.
+If the option is not found in the `staker.toml` file, Besu uses the default value for that option.
 
 ## TOML specification
 
@@ -34,7 +49,7 @@ Table headings are ignored in TOML files. If you specify a valid Besu option und
 
 :::tip
 
-The [command line reference](../reference/cli/options.md) includes configuration file examples for each option.
+The [command line reference](../../reference/cli/options.md) includes configuration file examples for each option.
 
 :::
 

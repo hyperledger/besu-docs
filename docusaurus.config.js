@@ -293,6 +293,10 @@ const config = {
             from: "/private-networks/tutorials/permissioning/upgrade-contracts",
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
+          {
+            from: "/public-networks/how-to/configuration-file",
+            to: "/public-networks/how-to/use-configuration-file",
+          },
         ],
       },
     ],

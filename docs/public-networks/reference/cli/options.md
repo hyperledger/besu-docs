@@ -38,7 +38,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/configuration-file.md).
+- In a [configuration file](../../how-to/use-configuration-file/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -476,7 +476,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/configuration-file.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -2671,6 +2671,47 @@ p2p-port="1789"
 </Tabs>
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
+
+### `profile`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--profile=<PROFILE>
+```
+
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--profile=staker
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PROFILE=staker
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+profiles="staker"
+```
+
+</TabItem>
+</Tabs>
+
+Load a TOML configuration file containing custom settings for a specific user profile.
+Possible values are:
+
+- [`minimalist_staker`](../../how-to/use-configuration-file/profile-file.md#minimalist-staker-profile)
+- [`staker`](../../how-to/use-configuration-file/profile-file.md#staker-profile)
+- [`enterprise` or `private`](../../how-to/use-configuration-file/profile-file.md#enterpriseprivate-profile) (aliases for the same profile)
 
 ### `pruning-block-confirmations`
 

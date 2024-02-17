@@ -13,7 +13,7 @@ You can specify command line options in a TOML configuration file.
 Save the configuration file and reuse it across node startups.
 Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) CLI option.
 
-You can also [use a pre-configured profile file](profile-file.md).
+You can also [use a pre-configured profile](profile.md) for some common use cases.
 
 :::note
 
@@ -28,13 +28,13 @@ For options specified in multiple places, the order of precedence is as follows:
 1. Command line
 2. Environment variable
 3. Configuration file specified by `--config-file`
-4. [Profile file](profile-file.md) specified by `--profile`
+4. [Pre-configured profile](profile.md) specified by `--profile`
 5. Default values (used if no other configuration source is available)
 
 For example, if you specify a `config.toml` configuration file and `staker` profile, and an option
 is not found in the environment variables, Besu looks for it in `config.toml`.
-If the option is not found in the `config.toml` file, Besu looks for it in `staker.toml`.
-If the option is not found in the `staker.toml` file, Besu uses the default value for that option.
+If the option is not found in `config.toml`, Besu looks for it in `staker.toml`.
+If the option is not found in `staker.toml`, Besu uses the default value for that option.
 
 ## TOML specification
 

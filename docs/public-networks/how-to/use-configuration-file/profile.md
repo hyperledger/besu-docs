@@ -2,10 +2,11 @@
 sidebar_position: 1
 ---
 
-# Use a profile file
+# Use a profile
 
-Besu provides pre-configured profile files containing custom settings for some common use cases.
-You can load these profile files using the [`--profile`](../../reference/cli/options.md#profile) CLI option.
+To help you get started quickly, Besu provides pre-configured profiles containing custom settings
+for some common use cases.
+You can load these profiles using the [`--profile`](../../reference/cli/options.md#profile) CLI option.
 For example:
 
 ```bash
@@ -16,7 +17,7 @@ In this example, `config.toml` is the user-provided [configuration file](index.m
 the pre-configured profile containing custom settings.
 
 Any configuration options explicitly set in the configuration file or command line will overwrite
-the same options set in the profile file.
+the same options set in the profile.
 See the [configuration order of precedence](index.md#configuration-order-of-precedence) for more information.
 
 You can use the following profiles:
@@ -30,7 +31,7 @@ You can use the following profiles:
 For stakers who want to maximize their hardware value but don't want to serve full sets of data to
 their peers, Besu provides a minimalist staker profile.
 See the
-[minimalist staker profile file](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/minimalist-staker.toml)
+[minimalist staker profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/minimalist-staker.toml)
 for the custom settings.
 
 To use the minimalist staker profile, run Besu with
@@ -45,7 +46,7 @@ besu --profile=minimalist_staker
 For stakers who want to maximize their hardware value and also want to serve full sets of data to
 their peers, Besu providers a staker profile.
 See the
-[staker profile file](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/staker.toml)
+[staker profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/staker.toml)
 for the custom settings.
 
 To use the staker profile, run Besu with [`--profile`](../../reference/cli/options.md#profile) set to `staker`:
@@ -60,14 +61,14 @@ For private network operators who want to minimize confusion by setting sensible
 provides an enterprise/private profile.
 This profile is designed to handle specific use cases for private network operators.
 See the
-[enterprise/private profile file](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
+[enterprise/private profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.
 
 To use the enterprise/private profile, run Besu with
 [`--profile`](../../reference/cli/options.md#profile) set to `enterprise` or `private`:
 
 ```bash
-besu --profile=staker
+besu --profile=enterprise
 ```
 
 or

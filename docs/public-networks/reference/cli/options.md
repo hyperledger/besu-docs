@@ -2705,12 +2705,12 @@ profile="staker"
 </TabItem>
 </Tabs>
 
-Loads a TOML configuration file containing custom settings for a specific user profile.
+Loads a pre-configured TOML file containing custom settings for a specific user profile.
 Possible values are:
 
-- [`minimalist_staker`](../../how-to/use-configuration-file/profile-file.md#minimalist-staker-profile)
-- [`staker`](../../how-to/use-configuration-file/profile-file.md#staker-profile)
-- [`enterprise` or `private`](../../how-to/use-configuration-file/profile-file.md#enterpriseprivate-profile) (aliases for the same profile)
+- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
+- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
+- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
 
 ### `pruning-block-confirmations`
 

@@ -533,7 +533,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Example" label="Example">
 
 ```bash
---data-storage-format=BONSAI
+--data-storage-format=FOREST
 ```
 
 </TabItem>
@@ -541,7 +541,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_DATA_STORAGE_FORMAT=BONSAI
+BESU_DATA_STORAGE_FORMAT=FOREST
 ```
 
 </TabItem>
@@ -556,7 +556,7 @@ data-storage-format="BONSAI"
 
 </Tabs>
 
-The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `FOREST`.
+The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `BONSAI`.
 
 ### `discovery-dns-url`
 

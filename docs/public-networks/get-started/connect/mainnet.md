@@ -54,7 +54,7 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ### 3. Start Besu
 
-Run the following command or specify the options in a [configuration file](../../how-to/configuration-file.md):
+Run the following command or specify the options in a [configuration file](../../how-to/use-configuration-file/index.md):
 
 ```bash
 besu \

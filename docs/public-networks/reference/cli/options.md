@@ -38,7 +38,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/configuration-file.md).
+- In a [configuration file](../../how-to/use-configuration-file/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -476,7 +476,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/configuration-file.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -2666,6 +2666,46 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `profile`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--profile=<PROFILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--profile=staker
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PROFILE=staker
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+profile="staker"
+```
+
+</TabItem>
+</Tabs>
+
+Loads a pre-configured TOML file containing custom settings for a specific user profile.
+Possible values are:
+
+- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
+- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
+- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+
 ### `pruning-block-confirmations`
 
 <Tabs>
@@ -4741,7 +4781,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool=legacy
+--tx-pool=sequenced
 ```
 
 </TabItem>
@@ -4749,7 +4789,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL=legacy
+BESU_TX_POOL=sequenced
 ```
 
 </TabItem>
@@ -4757,7 +4797,7 @@ BESU_TX_POOL=legacy
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool="legacy"
+tx-pool="sequenced"
 ```
 
 </TabItem>
@@ -4766,13 +4806,8 @@ tx-pool="legacy"
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
 Set to `layered` to use the layered transaction pool implementation.
-Set to `legacy` to opt out of the layered transaction pool.
+Set to `sequenced` (previously known as `legacy`) to opt out of the layered transaction pool.
 The default is `layered`.
-
-:::caution
-The legacy transaction pool implementation will be deprecated soon, so we recommend using the
-default layered transaction pool.
-:::
 
 ### `tx-pool-enable-save-restore`
 

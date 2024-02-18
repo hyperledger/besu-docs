@@ -60,8 +60,7 @@ If you previously configured transaction pool behavior, upgrade to the layered t
   To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity).
 
 You can opt out of the layered transaction pool implementation by setting the
-[`--tx-pool`](../../reference/cli/options.md#tx-pool) option to `legacy`, but the legacy
-implementation will be deprecated soon, so we recommend using the layered pool.
+[`--tx-pool`](../../reference/cli/options.md#tx-pool) option to `sequenced`.
 
 ## Dropping transactions when the transaction pool is full
 

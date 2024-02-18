@@ -49,7 +49,7 @@ You should also have a `.json` file for each validator key pair.
 
 ## 4. Start Besu
 
-Run the following command or specify the options in a [configuration file](../how-to/configuration-file.md):
+Run the following command or specify the options in a [configuration file](../how-to/use-configuration-file/index.md):
 
 ```bash
 besu \

@@ -1498,12 +1498,6 @@ max-peers=42
 
 The maximum number of P2P connections you can establish. The default is 25.
 
-:::caution
-
-The minimum number of peers is set by the early access option `--Xp2p-peer-lower-bound`, which also has a default of 25. If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound` option to the same value or lower. For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
-
-:::
-
 ### `metrics-category`
 
 <Tabs>

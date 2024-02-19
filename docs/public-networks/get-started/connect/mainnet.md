@@ -75,8 +75,6 @@ Specify:
 
 Also, in the command:
 
-- [`--sync-mode`](../../reference/cli/options.md#sync-mode) specifies using [snap sync](sync-node.md#snap-synchronization).
-- [`--data-storage-format`](../../reference/cli/options.md#data-storage-format) specifies using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
 - [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) enables the HTTP JSON-RPC service.
 - [`--rpc-http-host`](../../reference/cli/options.md#rpc-http-host) is set to `0.0.0.0` to allow remote RPC connections.
 - [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) enables the WebSocket JSON-RPC service.

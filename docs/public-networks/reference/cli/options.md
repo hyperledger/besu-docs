@@ -533,7 +533,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Example" label="Example">
 
 ```bash
---data-storage-format=BONSAI
+--data-storage-format=FOREST
 ```
 
 </TabItem>
@@ -541,7 +541,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_DATA_STORAGE_FORMAT=BONSAI
+BESU_DATA_STORAGE_FORMAT=FOREST
 ```
 
 </TabItem>
@@ -556,7 +556,7 @@ data-storage-format="BONSAI"
 
 </Tabs>
 
-The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `FOREST`.
+The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `BONSAI`.
 
 ### `discovery-dns-url`
 
@@ -4685,7 +4685,7 @@ This option does not apply to Proof of Stake networks.
 <TabItem value="Example" label="Example">
 
 ```bash
---sync-mode=X_SNAP
+--sync-mode=SNAP
 ```
 
 </TabItem>
@@ -4693,7 +4693,7 @@ This option does not apply to Proof of Stake networks.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_SYNC_MODE=X_SNAP
+BESU_SYNC_MODE=SNAP
 ```
 
 </TabItem>
@@ -4701,23 +4701,22 @@ BESU_SYNC_MODE=X_SNAP
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-sync-mode="X_SNAP"
+sync-mode="SNAP"
 ```
 
 </TabItem>
 
 </Tabs>
 
-The synchronization mode. Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `X_CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
-- The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `FAST` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
+- The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
 :::tip
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- Checkpoint sync is an early access feature.
-- It might become impossible to sync Ethereum Mainnet using fast sync in the future. Update Besu to a version that supports newer sync methods.
+- It might become impossible to sync Ethereum Mainnet using fast sync in the future, as clients drop support for fast sync. We recommend you update Besu to a version that supports newer sync methods.
 - When synchronizing in a mode other than `FULL`, most historical world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
 
 :::

@@ -37,7 +37,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../../public-networks/how-to/configuration-file.md).
+- In a [configuration file](../../../public-networks/how-to/use-configuration-file/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 

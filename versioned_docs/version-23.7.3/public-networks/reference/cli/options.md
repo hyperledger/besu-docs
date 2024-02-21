@@ -3123,46 +3123,6 @@ rpc-http-authentication-enabled=true
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the HTTP JSON-RPC service.
 
-### `rpc-http-authentication-jwt-algorithm`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
----rpc-http-authentication-jwt-algorithm=<jwt algorithm>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---rpc-http-authentication-jwt-algorithm=ES256
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_RPC_HTTP_AUTHENTICATION_JWT_ALGORITHM=ES256
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-rpc-http-authentication-jwt-algorithm="ES256"
-```
-
-</TabItem>
-
-</Tabs>
-
-The [key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair) used to generate the keypair for [JWT public key authentication](../../how-to/use-besu-api/authenticate#jwt-public-key-authentication). The available API options are: `RS256`, `RS384`, `RS512`, `ES256`, `ES384` and `ES512`.
-
 ### `rpc-http-authentication-jwt-public-key-file`
 
 <Tabs>
@@ -4104,46 +4064,6 @@ Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) 
 `wscat` doesn't support headers. [Authentication](../../how-to/use-besu-api/authenticate.md) requires you to pass an authentication token in the request header. To use authentication with WebSockets, you need an app that supports headers.
 
 :::
-
-### `rpc-ws-authentication-jwt-algorithm`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
----rpc-ws-authentication-jwt-algorithm=<jwt algorithm>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---rpc-ws-authentication-jwt-algorithm=ES256
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_RPC_WS_AUTHENTICATION_JWT_ALGORITHM=ES256
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-rpc-ws-authentication-jwt-algorithm="ES256"
-```
-
-</TabItem>
-
-</Tabs>
-
-The [key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair) used to generate the keypair for [JWT public key authentication](../../how-to/use-besu-api/authenticate#jwt-public-key-authentication).
 
 ### `rpc-ws-authentication-jwt-public-key-file`
 

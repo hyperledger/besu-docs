@@ -163,7 +163,7 @@ The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) c
 - RSA with private key length of at least 2048 bits using algorithm `RS256`, `RS384` or `RS512`.
 - ECDSA private key, using `ES256` (`secp256r1` or `secp256k1`), `ES384` or `ES512`.
 
-Besu default is `RS256`. When you use a different key algorithm you must specify the [`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options#rpc-http-authentication-jwt-algorithm) and/or [`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options#rpc-ws-authentication-jwt-algorithm) option depending on your needs.
+Besu default is `RS256`.
 
 <Tabs>
 <TabItem value="RS256 RSA Keys" label="RS256 RSA Keys" default>

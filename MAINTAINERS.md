@@ -5,12 +5,12 @@
 <!-- Please keep this sorted alphabetically by github -->
 
 <!-- vale off -->
-| Name             | GitHub         | LFID           |
-|------------------|----------------|----------------|
-| Alexandra Tran   | alexandratran  | alexandratran  |
-| Byron Gravenorst | bgravenorst    | bgravenorst    |
-| Madeline Murray  | MadelineMurray | madelinemurray |
-| Mike Sanko       | mjsmike62      | mjsmike62      |
+| Name             | GitHub             | LFID               |
+|------------------|--------------------|--------------------|
+| Alexandra Tran   | alexandratran      | alexandratran      |
+| Byron Gravenorst | bgravenorst        | bgravenorst        |
+| Joan Edwards     | joaniefromtheblock | joaniefromtheblock |
+| Madeline Murray  | MadelineMurray     | madelinemurray     |
 <!-- vale on -->
 
 ## Emeritus maintainers
@@ -23,6 +23,7 @@
 | Tim Beiko       | timbeiko       | timbeiko       |
 | Nicolas Massart | NicolasMassart | NicolasMassart |
 | Roland Tyler    | rolandtyler    | rolandtyler    |
+| Mike Sanko      | mjsmike62      | mjsmike62      |
 <!-- vale on -->
 
 ## Becoming a maintainer

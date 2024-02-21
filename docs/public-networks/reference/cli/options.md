@@ -38,7 +38,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/configuration-file.md).
+- In a [configuration file](../../how-to/use-configuration-file/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -476,7 +476,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/configuration-file.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -533,7 +533,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Example" label="Example">
 
 ```bash
---data-storage-format=BONSAI
+--data-storage-format=FOREST
 ```
 
 </TabItem>
@@ -541,7 +541,7 @@ The path to the Besu data directory. The default is the directory you installed 
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_DATA_STORAGE_FORMAT=BONSAI
+BESU_DATA_STORAGE_FORMAT=FOREST
 ```
 
 </TabItem>
@@ -556,7 +556,7 @@ data-storage-format="BONSAI"
 
 </Tabs>
 
-The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `FOREST`.
+The [data storage format](../../concepts/data-storage-formats.md) to use. Set to `BONSAI` for Bonsai Tries or `FOREST` for Forest of Tries. The default is `BONSAI`.
 
 ### `discovery-dns-url`
 
@@ -1497,12 +1497,6 @@ max-peers=42
 </Tabs>
 
 The maximum number of P2P connections you can establish. The default is 25.
-
-:::caution
-
-The minimum number of peers is set by the early access option `--Xp2p-peer-lower-bound`, which also has a default of 25. If you reduce the `--max-peers` from the default, you must also set the `--Xp2p-peer-lower-bound` option to the same value or lower. For example, if you decrease `--max-peers` to 20, set `--Xp2p-peer-lower-bound` to 20 or lower.
-
-:::
 
 ### `metrics-category`
 
@@ -2672,6 +2666,46 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `profile`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--profile=<PROFILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--profile=staker
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PROFILE=staker
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+profile="staker"
+```
+
+</TabItem>
+</Tabs>
+
+Loads a pre-configured TOML file containing custom settings for a specific user profile.
+Possible values are:
+
+- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
+- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
+- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+
 ### `pruning-block-confirmations`
 
 <Tabs>
@@ -3338,10 +3372,7 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 <TabItem value="Example" label="Example">
 
 ```bash
-
-$# You can allow one or more domains with a comma-separated list.
-
---rpc-http-cors-origins=http://medomain.com,https://meotherdomain.com
+--rpc-http-cors-origins=http://medomain.com,http://remix.ethereum.org
 ```
 
 </TabItem>
@@ -3360,20 +3391,11 @@ BESU_RPC_HTTP_CORS_ORIGINS=http://medomain.com,https://meotherdomain.com
 rpc-http-cors-origins=["http://medomain.com","https://meotherdomain.com"]
 ```
 
-# Remix example
-
-```bash
-
-$# The following allows Remix to interact with your Besu node.
-
---rpc-http-cors-origins=http://remix.ethereum.org
-```
-
 </TabItem>
 
 </Tabs>
 
-A list of domain URLs for CORS validation.
+A comma-separated list of domain URLs for CORS validation.
 
 Listed domains can access the node using JSON-RPC. If your client interacts with Besu using a browser app (such as Remix or a block explorer), add the client domain to the list.
 
@@ -4051,6 +4073,47 @@ We recommend setting a range limit or leaving this option at its default value.
 
 :::
 
+### `rpc-max-trace-filter-range`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-max-trace-filter-range=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+--BESU_RPC_MAX_TRACE_FILTER_RANGE=100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-max-trace-filter-range=100
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum number of blocks you can supply to the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting this option to `0` indicates there is no limit. The default is `1000`.
+
+
 ### `rpc-tx-feecap`
 
 <Tabs>
@@ -4696,7 +4759,7 @@ This option does not apply to Proof of Stake networks.
 <TabItem value="Example" label="Example">
 
 ```bash
---sync-mode=X_SNAP
+--sync-mode=SNAP
 ```
 
 </TabItem>
@@ -4704,7 +4767,7 @@ This option does not apply to Proof of Stake networks.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_SYNC_MODE=X_SNAP
+BESU_SYNC_MODE=SNAP
 ```
 
 </TabItem>
@@ -4712,23 +4775,22 @@ BESU_SYNC_MODE=X_SNAP
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-sync-mode="X_SNAP"
+sync-mode="SNAP"
 ```
 
 </TabItem>
 
 </Tabs>
 
-The synchronization mode. Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `X_CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
-- The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `FAST` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
+- The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
 :::tip
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- Checkpoint sync is an early access feature.
-- It might become impossible to sync Ethereum Mainnet using fast sync in the future. Update Besu to a version that supports newer sync methods.
+- It might become impossible to sync Ethereum Mainnet using fast sync in the future, as clients drop support for fast sync. We recommend you update Besu to a version that supports newer sync methods.
 - When synchronizing in a mode other than `FULL`, most historical world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
 
 :::
@@ -4792,7 +4854,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool=legacy
+--tx-pool=sequenced
 ```
 
 </TabItem>
@@ -4800,7 +4862,7 @@ Use the [`miner_changeTargetGasLimit`](../api/index.md#miner_changetargetgaslimi
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL=legacy
+BESU_TX_POOL=sequenced
 ```
 
 </TabItem>
@@ -4808,7 +4870,7 @@ BESU_TX_POOL=legacy
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool="legacy"
+tx-pool="sequenced"
 ```
 
 </TabItem>
@@ -4817,13 +4879,8 @@ tx-pool="legacy"
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
 Set to `layered` to use the layered transaction pool implementation.
-Set to `legacy` to opt out of the layered transaction pool.
+Set to `sequenced` (previously known as `legacy`) to opt out of the layered transaction pool.
 The default is `layered`.
-
-:::caution
-The legacy transaction pool implementation will be deprecated soon, so we recommend using the
-default layered transaction pool.
-:::
 
 ### `tx-pool-enable-save-restore`
 

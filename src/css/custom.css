@@ -290,20 +290,20 @@ html[data-theme="dark"] .header-dockerhub-link::before {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 34px;
   padding-top: 5px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .homepageContainer {

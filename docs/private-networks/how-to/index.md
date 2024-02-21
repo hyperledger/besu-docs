@@ -11,7 +11,7 @@ This section provides instructional content for private network features.
 The following features are shared with [public networks](../../public-networks/index.md) and the content can be found in the public networks section:
 
 - Configure and manage:
-  - [Use a configuration file](../../public-networks/how-to/configuration-file.md)
+  - [Use a configuration file](../../public-networks/how-to/use-configuration-file/index.md)
   - [Configure high availability](../../public-networks/how-to/configure-ha/index.md)
   - [Configure mining](../../public-networks/how-to/use-pow/mining.md)
 - [Use the Besu API](../../public-networks/how-to/use-besu-api/index.md):

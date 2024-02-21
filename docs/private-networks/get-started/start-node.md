@@ -66,7 +66,7 @@ To run a node that mines blocks at a rate suitable for testing purposes:
 besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
-You can also use the following [configuration file](../../public-networks/how-to/configuration-file.md) on the command line to start a node with the same options as above:
+You can also use the following [configuration file](../../public-networks/how-to/use-configuration-file/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"

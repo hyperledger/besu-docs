@@ -160,10 +160,15 @@ The private and accompanying public key files must be in `.pem` format.
 
 The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) can be:
 
-- RSA with private key length of at least 2048 bits using algorithm `RS256`, `RS384` or `RS512`.
-- ECDSA private key, using `ES256` (`secp256r1` or `secp256k1`), `ES384` or `ES512`.
+- RSA with private key length of at least 2048 bits using algorithm `RS256`, `RS384`, or `RS512`.
+- ECDSA private key, using `ES256` (`secp256r1` or `secp256k1`), `ES384`, or `ES512`.
 
-Besu default is `RS256`.
+The default value for Besu is `RS256`.
+When you use a different key algorithm, you must specify the
+[`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options#rpc-http-authentication-jwt-algorithm)
+option and/or the
+[`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options#rpc-ws-authentication-jwt-algorithm)
+option depending on your needs.
 
 <Tabs>
 <TabItem value="RS256 RSA Keys" label="RS256 RSA Keys" default>
@@ -179,10 +184,10 @@ Besu default is `RS256`.
    ```bash
    openssl rsa -pubout -in privateRSAKey.pem -pubout -out publicRSAKey.pem
    ```
-   
+
 </TabItem>
 
-<TabItem value="ES256 secp256r1 ECDSA Keys" label="`ES256 secp256r1 ECDSA Keys">
+<TabItem value="ES256 secp256r1 ECDSA Keys" label="ES256 secp256r1 ECDSA Keys">
 
 1.  Generate the private key:
 

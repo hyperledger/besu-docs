@@ -179,7 +179,7 @@ Besu default is `RS256`.
    ```bash
    openssl rsa -pubout -in privateRSAKey.pem -pubout -out publicRSAKey.pem
    ```
-   
+
 </TabItem>
 
 <TabItem value="ES256 secp256r1 ECDSA Keys" label="`ES256 secp256r1 ECDSA Keys">

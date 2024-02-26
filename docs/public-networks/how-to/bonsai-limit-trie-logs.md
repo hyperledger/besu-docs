@@ -1,5 +1,5 @@
 ---
-title: Limit Trie Logs for Bonsai
+title: Use Bonsai Tries to reduce database size
 sidebar_position: 12
 description: Enable this feature to reduce the size of your database
 tags:
@@ -9,29 +9,30 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Limit Trie Logs for Bonsai
+# Reduce database size
 
-The early access feature `--Xbonsai-limit-trie-logs-enabled` minimizes the database size of Besu if you are using `data-storage-format=BONSAI`. When enabled, this feature can reduce database growth by more than 3 GB each week on mainnet.
+You can use the the early access feature `--Xbonsai-limit-trie-logs-enabled` to minimize the database size of Besu, if you are using `data-storage-format=BONSAI`. When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
 
-## Step by Step Guide
+To use this feature before it is enabled by default, add the `--Xbonsai-limit-trie-logs-enabled` option to your Besu command.
+
+## Limit Trie Logs for Bonsai
 
 :::caution
 
-The commands in this guide are an example. Before executing the commands on your node, ensure you tailor it to your own node configuration.
+The following commands are examples. Before executing these example commands on your node, m,modify them to apply to your node's configuration.
 
 :::
 
-1. Update Besu config to add --Xbonsai-limit-trie-logs-enabled but don’t restart yet
-1. Stop Besu
+1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](configuration-file).
+1. Stop Besu.
 1. (optional) Run: 
 `sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
-1. Start Besu (remembering to run sudo systemctl daemon-reload if you use a systemd service file as per CoinCashew and Somer)
-1. Look out for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu config printout during startup
-1. Enjoy more free space
+1. Restart Besu. If you're using a `systemd` service file, as recommended by CoinCashew and Somer, ensure you execute `sudo systemctl daemon-reload`.
+1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout during startup.
 
 
-## How?
-If you want to use this feature before it is enabled by default, simply add this option to your Besu command: `--Xbonsai-limit-trie-logs-enabled`
+## Restart Besu
+
 When you restart Besu it will begin pruning, block by block after an initial reduction in the database during each startup.
 
 If you have a long-running node, this will not immediately clear your backlog of trie logs in the same way that resyncing does. Instead of resyncing, in order to do this we’re providing a “run once” **offline** command to immediately **prune all your old trie logs in a few minutes or less**. Note, this requires Besu to be shutdown before running, but downtime will be minimal. You will **not** need to run this command a second time if you keep `--Xbonsai-limit-trie-logs-enabled`.
@@ -49,7 +50,7 @@ ExecStart=/usr/local/bin/besu/bin/besu \
   --data-storage-format=BONSAI \
 ...
 ```
-So in order to prune the trie logs, your command should be something like:
+To prune the trie logs, your command should be something like:
 
 `sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
 
@@ -77,19 +78,22 @@ The logs should look something like this:
 Prune ran successfully. We estimate you freed up 9 GiB!
 ```
 
-If you use a toml config file, then you can simply do something like:
+If you are using a TOML config file, then you can simply do something like:
 
 `sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-log prune`
 
 ## Troubleshoot
-The prune command should look something like this for mainnet users:
+
+### Troubleshoot common errors
+
+The prune command should look like the following for mainnet users:
 `sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
 
-and Besu should be shutdown before running it.
+Ensure you stop Besu before running the command.
 
 ---
 
-> java.lang.IllegalArgumentException: Subcommand only works with data-storage-format=BONSAI
+`java.lang.IllegalArgumentException: Subcommand only works with data-storage-format=BONSAI`
 
 Are you missing --data-storage-format=BONSAI? It must be add before the storage subcommand, i.e.
 
@@ -97,13 +101,15 @@ Are you missing --data-storage-format=BONSAI? It must be add before the storage 
 
 ---
 
-java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE
+
+`java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE`
 
 Did you specify the `data-path`?
 
 `sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
 
 ---
+
 
 > ... 
 > | INFO | RocksDBKeyValueStorageFactory | No existing database detected at /tmp/besu. Using version 2
@@ -116,7 +122,7 @@ Did you specify the correct data-path for your node?
 
 ---
 
-> java.lang.IllegalArgumentException: Cannot store generated private key.
+#### `java.lang.IllegalArgumentException: Cannot store generated private key`
 
 Did you specify the correct data-path for your node?
 
@@ -133,8 +139,8 @@ Check your file permission, you made need to run the command as sudo:
 
 ---
 
-> java.lang.RuntimeException: Column handle not found for segment WORLD_STATE
 
+#### `java.lang.RuntimeException: Column handle not found for segment WORLD_STATE`
 Are you using data-storage-format=FOREST instead of data-storage-format=BONSAI on an existing bonsai database?
 
 ---
@@ -145,8 +151,8 @@ Is Besu already running? You need to shut the Besu client down before running th
 
 ---
 
-> java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode
 
+> java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode
 Have you specified the sync-mode? Default is sync-mode=FAST. Most mainnet users use X_SNAP or X_CHECKPOINT
 
 `sudo /usr/local/bin/besu/bin/besu --sync-mode=X_SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`
@@ -159,18 +165,8 @@ If your node is relatively new or recently resynced, you might not need to run t
 
 ---
 
-> org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.
 
+> org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.
 Are you running this command for a network other than mainnet? You need to specify the network…
 
 `sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=X_SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`
-
----
-
-
-## The Details
-Too much detail for users but if you’re interested:
-
-- https://github.com/hyperledger/besu/issues/5390
-
-- https://github.com/hyperledger/besu/pull/6026

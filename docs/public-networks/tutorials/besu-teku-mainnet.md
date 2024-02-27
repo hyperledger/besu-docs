@@ -49,11 +49,11 @@ You should also have a `.json` file for each validator key pair.
 
 ## 4. Start Besu
 
-Run the following command or specify the options in a [configuration file](../how-to/configuration-file.md):
+Run the following command or specify the options in a [configuration file](../how-to/use-configuration-file/index.md):
 
 ```bash
 besu \
-  --sync-mode=X_SNAP           \
+  --sync-mode=SNAP           \
   --data-storage-format=BONSAI \
   --rpc-http-enabled=true      \
   --rpc-http-host="0.0.0.0"    \

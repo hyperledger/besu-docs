@@ -45,7 +45,7 @@ By default, Besu syncs to the current state of the blockchain using [fast sync](
 - Networks specified using [`--network`](../reference/cli/options.md#network) except for the `dev` development network.
 - Ethereum Mainnet.
 
-We recommend using [snap sync](connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu with [`--sync-mode=X_SNAP`](../reference/cli/options.md#sync-mode).
+We recommend using [snap sync](connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu with [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode).
 
 By default, Besu stores data in the [Forest of Tries](../concepts/data-storage-formats.md#forest-of-tries) format. We recommend using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements, by starting Besu with [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
 
@@ -57,7 +57,7 @@ To run a node that mines blocks at a rate suitable for testing purposes:
 besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
-You can also use the following [configuration file](../how-to/configuration-file.md) on the command line to start a node with the same options as above:
+You can also use the following [configuration file](../how-to/use-configuration-file/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"

@@ -306,7 +306,7 @@ besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu
 
 Reverts the modifications made by the [variables storage feature](https://github.com/hyperledger/besu/pull/5471).
 If you need to downgrade Besu, first run this subcommand specifying the path to
-the [configuration file](../../how-to/configuration-file.md) normally used to
+the [configuration file](../../how-to/use-configuration-file/index.md) normally used to
 start Besu.
 
 ## `validate-config`
@@ -331,4 +331,4 @@ besu validate-config --config-file ../besu-local-nodes/config/besu/besu1.conf
 
 </Tabs>
 
-Performs basic syntax validation of the specified [configuration file](../../how-to/configuration-file.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).
+Performs basic syntax validation of the specified [configuration file](../../how-to/use-configuration-file/index.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

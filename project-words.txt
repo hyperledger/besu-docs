@@ -577,6 +577,7 @@ ssszzz
 stackblitz
 stackblitzrc
 staker
+stakers
 statefulset
 storepass
 storeraw

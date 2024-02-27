@@ -30,7 +30,7 @@ Pruning is disabled by default, and can be enabled with the [`--pruning-enabled`
 
 :::info
 
-Using pruning with [private transactions](../../private-networks/concepts/privacy/private-transactions)\
+Using pruning with [private transactions](../../private-networks/concepts/privacy/private-transactions)
 isn't supported.
 
 :::

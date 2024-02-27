@@ -33,30 +33,29 @@ The following commands are examples. Before executing these example commands on 
 
 ## Restart Besu
 
-When you restart Besu it will begin pruning, block by block after an initial reduction in the database during each startup.
+When you restart Besu, it will begin pruning and remove unnecessary data, one block at a time. This process begins after an initial reduction in the database size during the initial startup.
 
-If you have a long-running node, this will not immediately clear your backlog of trie logs in the same way that resyncing does. Instead of resyncing, in order to do this we’re providing a “run once” **offline** command to immediately **prune all your old trie logs in a few minutes or less**. Note, this requires Besu to be shutdown before running, but downtime will be minimal. You will **not** need to run this command a second time if you keep `--Xbonsai-limit-trie-logs-enabled`.
+Running a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. Instead of resyncing, you can run an offline command to immediately prune old trie logs. To run the offline command, you must shutdown Besu for a minimal period. If you enable the `--Xbonsai-limit-trie-logs-enabled` option, you do not need to run this command again.
 
-For minimal downtime, we recommend running this command **before** restarting Besu with `--Xbonsai-limit-trie-logs-enabled` (easiest to do it all at the same time).
+For minimal downtime, we recommend running the offline command before restarting Besu with `--Xbonsai-limit-trie-logs-enabled`.
 
-If you followed Somer Esat’s (https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee ) or CoinCashew’s guide (https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) then you likely have these options set in your `besu.service` or `execution.service` systemd file:
+If you followed the guides by Somer Esat (https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or CoinCashew (https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you set these options in your `besu.service` or `execution.service` systemd file:
 
 ```
 ...
 ExecStart=/usr/local/bin/besu/bin/besu \
 ...
-  --sync-mode=X_SNAP \
+  --sync-mode=SNAP \
   --data-path="/var/lib/besu" \
   --data-storage-format=BONSAI \
 ...
 ```
-To prune the trie logs, your command should be something like:
+To prune trie logs, your command should look like the following:
 
-`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune`
 
 
-
-The logs should look something like this:
+The logs should look something like the following:
 
 ```
 2024-02-02 05:45:41.162+00:00 | main | INFO  | KeyPairUtil | Attempting to load public key from /data/besu/key
@@ -87,7 +86,7 @@ If you are using a TOML config file, then you can simply do something like:
 ### Troubleshoot common errors
 
 The prune command should look like the following for mainnet users:
-`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune`
 
 Ensure you stop Besu before running the command.
 
@@ -97,7 +96,7 @@ Ensure you stop Besu before running the command.
 
 Are you missing --data-storage-format=BONSAI? It must be add before the storage subcommand, i.e.
 
-`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune`
 
 ---
 
@@ -106,7 +105,7 @@ Are you missing --data-storage-format=BONSAI? It must be add before the storage 
 
 Did you specify the `data-path`?
 
-`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune`
 
 ---
 
@@ -118,7 +117,7 @@ Did you specify the `data-path`?
 
 Did you specify the correct data-path for your node?
 
-`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune`
 
 ---
 
@@ -126,7 +125,7 @@ Did you specify the correct data-path for your node?
 
 Did you specify the correct data-path for your node?
 
-`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=X_SNAP storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune`
 
 ---
 
@@ -135,7 +134,7 @@ Did you specify the correct data-path for your node?
 > java.lang.IllegalArgumentException: Supplied file does not contain valid keyPair pair.
 
 Check your file permission, you made need to run the command as sudo:
-`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=X_SNAP x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP x-trie-log prune`
 
 ---
 
@@ -169,4 +168,4 @@ If your node is relatively new or recently resynced, you might not need to run t
 > org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.
 Are you running this command for a network other than mainnet? You need to specify the network…
 
-`sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=X_SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`
+`sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`

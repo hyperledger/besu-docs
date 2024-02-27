@@ -25,10 +25,10 @@ The following commands are examples. Before executing these example commands on 
 
 1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](configuration-file).
 1. Stop Besu.
-1. (optional) Run: 
-`sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
-1. Restart Besu. If you're using a `systemd` service file, as recommended by CoinCashew and Somer, ensure you execute `sudo systemctl daemon-reload`.
-1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout during startup.
+1. (optional) Run the following command to run the Besu client for the Bonsai data storage format, specifying a data directory for pruned trie logs:
+   `sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune`
+1. Restart Besu. If you're using a `systemd` service file, as recommended by [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) and [Somer](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
+1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout at startup.
 
 
 ## Restart Besu

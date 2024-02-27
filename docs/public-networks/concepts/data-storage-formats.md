@@ -83,7 +83,7 @@ The following table shows the ways you can [sync a full node](../get-started/con
 | --- | --- | --- | --- |
 | Bonsai | Fast | 1140 GB | No |
 | Bonsai | Snap | 1090 GB | To be implemented |
-| Bonsai | Checkpoint | 833 GB | No |
+| Bonsai | Checkpoint | 840 GB | No |
 | Forest | Fast | 1200 GB | Yes |
 | Forest | Snap | 1180 GB | No |
 

@@ -123,7 +123,8 @@ teku \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
-  --rest-api-enabled=true
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 </TabItem>
@@ -136,14 +137,20 @@ teku \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
-  --rest-api-enabled=true
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 </TabItem>
 
 </Tabs>
 
-Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
+Specify:
+
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 
 You can modify the option values and add other [Teku command line options] as needed.
 
@@ -162,6 +169,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>               \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
@@ -178,9 +186,18 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 Specify:
 
-- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
-- The test Ethereum address created in [step 3](#3-generate-validator-keys) as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 3](#3-generate-validator-keys) for each validator using the [`--validator-keys`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
+- The test Ethereum address created in [step 3](#3-generate-validator-keys) as the default fee
+  recipient using the
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.io/reference/cli#validators-proposer-default-fee-recipient)
+  option.
+- The paths to the keystore `.json` file and password `.txt` file created in
+  [step 3](#3-generate-validator-keys) for each validator using the
+  [`--validator-keys`](https://docs.teku.consensys.io/reference/cli#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
 You can modify the option values and add other [Teku command line options] as needed.
 

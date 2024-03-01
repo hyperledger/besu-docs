@@ -95,16 +95,22 @@ teku \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
-  --rest-api-enabled=true
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
-Specify the path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
+Specify:
+
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 
 Also, in the command:
 
-- [`--ee-endpoint`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-endpoint) is set to the default URL of Besu's Engine API.
-- [`--metrics-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#metrics-enabled) enables Teku's metrics exporter.
-- [`--rest-api-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#rest-api-enabled) enables Teku's REST API service.
+- [`--ee-endpoint`](https://docs.teku.consensys.io/reference/cli#ee-endpoint) is set to the default URL of Besu's Engine API.
+- [`--metrics-enabled`](https://docs.teku.consensys.io/reference/cli#metrics-enabled) enables Teku's metrics exporter.
+- [`--rest-api-enabled`](https://docs.teku.consensys.io/reference/cli#rest-api-enabled) enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
 
@@ -118,21 +124,30 @@ teku \
   --ee-jwt-secret-file <path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>               \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
 Specify:
 
-- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--ee-jwt-secret-file`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-jwt-secret-file) option.
-- An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 3](#3-generate-validator-keys) for each validator using the [`--validator-keys`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+- The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
+  [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
+- An Ethereum address you own as the default fee recipient using the
+  [`--validators-proposer-default-fee-recipient`](https://docs.teku.consensys.io/reference/cli#validators-proposer-default-fee-recipient)
+  option.
+- The paths to the keystore `.json` file and password `.txt` file created in
+  [step 3](#3-generate-validator-keys) for each validator using the
+  [`--validator-keys`](https://docs.teku.consensys.io/reference/cli#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
 
 Also, in the command:
 
-- [`--ee-endpoint`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#ee-endpoint) is set to the default URL of Besu's Engine API.
-- [`--metrics-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#metrics-enabled) enables Teku's metrics exporter.
-- [`--rest-api-enabled`](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#rest-api-enabled) enables Teku's REST API service.
+- [`--ee-endpoint`](https://docs.teku.consensys.io/reference/cli#ee-endpoint) is set to the default URL of Besu's Engine API.
+- [`--metrics-enabled`](https://docs.teku.consensys.io/reference/cli#metrics-enabled) enables Teku's metrics exporter.
+- [`--rest-api-enabled`](https://docs.teku.consensys.io/reference/cli#rest-api-enabled) enables Teku's REST API service.
 
 You can modify the option values and add other [Teku command line options] as needed.
 

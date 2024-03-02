@@ -10,7 +10,7 @@ tags:
 
 The following objects are parameters for or returned by Besu private network API methods.
 
-:::warning
+:::caution Important
 
 This reference contains API objects that apply to only private networks. For API objects that apply to both private and public networks, see the [public network API objects reference](../../../public-networks/reference/api/objects.md).
 

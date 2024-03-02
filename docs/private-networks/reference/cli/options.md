@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) options.
 
-:::danger
+:::caution Important
 
 This reference contains options that apply to only private networks. For options that apply to both private and public networks, see the [public network options reference](../../../public-networks/reference/cli/options.md).
 

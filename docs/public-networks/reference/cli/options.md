@@ -5426,6 +5426,59 @@ content if the save and restore functionality is enabled using
 The file is created on shutdown and reloaded during startup.
 The default file name is `txpool.dump` in the [data directory](#data-path).
 
+### `version`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+-V, --version
+```
+
+</TabItem>
+
+</Tabs>
+
+Prints version information and exit.
+
+### `version-compatibility-protection`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--version-compatibility-protection[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--version-compatibility-protection=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_VERSION_COMPATIBILITY_PROTECTION=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+version-compatibility-protection=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables performing version compatibility checks when starting Besu.
+If set to `true`, it checks that the version of Besu being started is the same
+or later than the version of Besu that previously started with the same data directory.
+
 ### `Xhelp`
 
 <Tabs>
@@ -5447,22 +5500,6 @@ Displays the early access options and their descriptions, and exit.
 The displayed options are unstable and may change between releases.
 
 :::
-
-### `version`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
--V, --version
-```
-
-</TabItem>
-
-</Tabs>
-
-Prints version information and exit.
 
 <!-- Links -->
 

@@ -5440,7 +5440,7 @@ The default file name is `txpool.dump` in the [data directory](#data-path).
 
 </Tabs>
 
-Prints version information and exit.
+Prints version information and exits.
 
 ### `version-compatibility-protection`
 
@@ -5493,7 +5493,7 @@ or later than the version of Besu that previously started with the same data dir
 
 </Tabs>
 
-Displays the early access options and their descriptions, and exit.
+Displays the early access options and their descriptions, and exits.
 
 :::caution
 

@@ -2092,6 +2092,90 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":5
 
 </Tabs>
 
+### `eth_blobBaseFee`
+
+Returns the base fee per blob gas in wei.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - hexadecimal integer representing ...
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 51 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 51,
+  "result": "0x2377"
+}
+```
+
+</TabItem>
+
+<TabItem value="curl GraphQL" label="curl GraphQL">
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{number}}"}' http://localhost:8547/graphql
+```
+
+</TabItem>
+
+<TabItem value="GraphQL" label="GraphQL">
+
+```text
+{
+  block {
+    number
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="GraphQL result" label="GraphQL result">
+
+```json
+{
+  "data": {
+    "block": {
+      "number": 16221
+    }
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+
+
+
+
+
+
 ### `eth_blockNumber`
 
 Returns the index corresponding to the block number of the current chain head.

@@ -5479,6 +5479,9 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
+The default is `false` for named networks, such as Mainnet or Goerli, and `true`
+for non-named networks.
+
 ### `Xhelp`
 
 <Tabs>

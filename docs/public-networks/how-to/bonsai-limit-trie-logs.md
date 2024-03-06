@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Reduce database size
 
-You can use the the early access feature `--Xbonsai-limit-trie-logs-enabled` to minimize the database size of Besu, if you are using `data-storage-format=BONSAI`. When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
+If you are using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage policy`, use the the early access feature `--Xbonsai-limit-trie-logs-enabled` to minimize the Besu database size. When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
 
 To use this feature before it is enabled by default, add the `--Xbonsai-limit-trie-logs-enabled` option to your Besu command.
 

@@ -33,7 +33,7 @@ The following commands are examples. Before executing these example commands on 
 
 ## Restart Besu
 
-When you restart Besu, it will begin pruning and remove unnecessary data, one block at a time. This process begins after an initial reduction in the database size during the initial startup.
+When Besu restarts, it will prune and remove unnecessary data, one block at a time. This process begins after an initial reduction in the database size during startup.
 
 Running a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. Instead of resyncing, you can run an offline command to immediately prune old trie logs. To run the offline command, you must shutdown Besu for a minimal period. If you enable the `--Xbonsai-limit-trie-logs-enabled` option, you do not need to run this command again.
 

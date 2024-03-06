@@ -19,7 +19,7 @@ To use this feature before it is enabled by default, add the `--Xbonsai-limit-tr
 
 :::caution
 
-The following commands are examples. Before executing these example commands on your node, m,modify them to apply to your node's configuration.
+The following commands are examples. Before executing these example commands on your node, modify them to apply to your node's configuration.
 
 :::
 

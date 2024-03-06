@@ -5426,28 +5426,6 @@ content if the save and restore functionality is enabled using
 The file is created on shutdown and reloaded during startup.
 The default file name is `txpool.dump` in the [data directory](#data-path).
 
-### `Xhelp`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
--X, --Xhelp
-```
-
-</TabItem>
-
-</Tabs>
-
-Displays the early access options and their descriptions, and exit.
-
-:::caution
-
-The displayed options are unstable and may change between releases.
-
-:::
-
 ### `version`
 
 <Tabs>
@@ -5462,7 +5440,69 @@ The displayed options are unstable and may change between releases.
 
 </Tabs>
 
-Prints version information and exit.
+Prints version information and exits.
+
+### `version-compatibility-protection`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--version-compatibility-protection[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--version-compatibility-protection=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_VERSION_COMPATIBILITY_PROTECTION=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+version-compatibility-protection=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables performing version compatibility checks when starting Besu.
+If set to `true`, it checks that the version of Besu being started is the same
+or later than the version of Besu that previously started with the same data directory.
+
+The default is `false` for named networks, such as Mainnet or Goerli, and `true`
+for non-named networks.
+
+### `Xhelp`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+-X, --Xhelp
+```
+
+</TabItem>
+
+</Tabs>
+
+Displays the early access options and their descriptions, and exits.
+
+:::caution
+
+The displayed options are unstable and may change between releases.
+
+:::
 
 <!-- Links -->
 

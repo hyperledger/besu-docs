@@ -8,7 +8,7 @@ tags:
 
 # Backup and restore Besu
 
-In a decentralized blockchain, data replicates between nodes so it's not lost. But backing up configuration and data ensures a smoother recovery from corrupted data or other failures.
+In a decentralized blockchain, data replicates between nodes so it is not lost. But backing up configuration and data ensures a smoother recovery from corrupted data or other failures.
 
 ## Genesis file
 
@@ -41,6 +41,13 @@ If log messages signify a corrupt database, the cleanest way to recover is:
 1. Stop the node.
 1. Restore the data from a [previous backup](#data-backups).
 1. Restart the node.
+
+## Prevent accidental downgrade
+
+When restarting Besu, accidentally using an earlier version of Besu might risk corrupting your database.
+To protect against incompatibility between versions, set the
+[`--version-compatibility-protection`](../../public-networks/reference/cli/options.md#version-compatibility-protection)
+option to `true`.
 
 ## Find peers after restarting
 

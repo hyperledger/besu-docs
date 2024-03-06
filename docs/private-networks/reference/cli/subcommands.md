@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) subcommands.
 
-:::danger
+:::caution Important
 
 This reference contains subcommands that apply to only private networks. For subcommands that apply to both private and public networks, see the [public network subcommands reference](../../../public-networks/reference/cli/subcommands.md).
 

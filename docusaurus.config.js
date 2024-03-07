@@ -47,7 +47,10 @@ const config = {
             },
             // The last stable release in the versioned_docs/version-stable
             "24.3.0": {
-              label: "stable (24.1.0)",
+              label: "stable (24.3.0)",
+            },
+            "24.1.0": {
+              label: "24.1.0",
             },
             "23.10.3": {
               label: "23.10.3",

@@ -313,7 +313,7 @@ The maximum time, in milliseconds, that can be spent selecting transactions to b
 This value must be less than or equal to the default, `5000`.
 
 :::note
-This option only applies to proof of stake and proof of work networks.
+This option only applies to proof-of-stake and proof-of-work networks.
 For proof-of-authority networks, see
 [`--poa-block-txs-selection-max-time`](../../../private-networks/reference/cli/options.md#poa-block-txs-selection-max-time).
 :::

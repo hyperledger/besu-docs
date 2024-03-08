@@ -3279,9 +3279,11 @@ rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
 
 </Tabs>
 
-A comma-separated list of JSON-RPC API methods to exclude from [authentication
-services](../../how-to/use-besu-api/authenticate.md).
-JSON-RPC HTTP authentication must be enabled using [`--rpc-http-authentication-enabled`](#rpc-http-authentication-enabled).
+A comma-separated list of JSON-RPC API methods to exclude from [authentication services](../../how-to/use-besu-api/authenticate.md).
+
+:::note
+You must enable JSON-RPC HTTP authentication using [`--rpc-http-authentication-enabled`](#rpc-http-authentication-enabled).
+:::
 
 ### `rpc-http-authentication-credentials-file`
 
@@ -4329,9 +4331,11 @@ rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
 
 </Tabs>
 
-A comma-separated list of JSON-RPC API methods to exclude from [authentication
-services](../../how-to/use-besu-api/authenticate.md).
-JSON-RPC WebSocket authentication must be enabled using [`--rpc-ws-authentication-enabled`](#rpc-ws-authentication-enabled).
+A comma-separated list of JSON-RPC API methods to exclude from [authentication services](../../how-to/use-besu-api/authenticate.md).
+
+:::note
+You must enable JSON-RPC WebSocket authentication using [`--rpc-ws-authentication-enabled`](#rpc-ws-authentication-enabled).
+:::
 
 ### `rpc-ws-authentication-credentials-file`
 

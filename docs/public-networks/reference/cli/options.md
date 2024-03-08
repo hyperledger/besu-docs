@@ -271,6 +271,53 @@ The singular `--banned-node-id` and plural `--banned-node-ids` are available and
 
 :::
 
+### `block-txs-selection-max-time`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--block-txs-selection-max-time=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--block-txs-selection-max-time=1700
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_BLOCK_TXS_SELECTION_MAX_TIME=1700
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+block-txs-selection-max-time=1700
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum time, in milliseconds, that can be spent selecting transactions to be included in a block.
+This value must be less than or equal to the default, `5000`.
+
+:::note
+This option only applies to proof-of-stake and proof-of-work networks.
+For proof-of-authority networks, see
+[`--poa-block-txs-selection-max-time`](../../../private-networks/reference/cli/options.md#poa-block-txs-selection-max-time).
+:::
+
 ### `bonsai-historical-block-limit`
 
 <Tabs>

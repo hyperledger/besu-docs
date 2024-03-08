@@ -3321,7 +3321,7 @@ rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
 
 </Tabs>
 
-The [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+The [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-http-authentication-enabled`
 
@@ -3401,7 +3401,7 @@ rpc-http-authentication-jwt-algorithm="ES256"
 
 </Tabs>
 
-The [JWT key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair)
+The [JWT key algorithm](../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair)
 used to generate the keypair for JSON-RPC HTTP authentication.
 Possible values are `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, and `ES512`.
 The default is `RS256`.
@@ -4371,7 +4371,7 @@ rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 
 </Tabs>
 
-The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-ws-authentication-enabled`
 
@@ -4457,7 +4457,7 @@ rpc-ws-authentication-jwt-algorithm="ES256"
 
 </Tabs>
 
-The [JWT key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair)
+The [JWT key algorithm](../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair)
 used to generate the keypair for JSON-RPC WebSocket authentication.
 Possible values are `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, and `ES512`.
 The default is `RS256`.
@@ -5637,5 +5637,5 @@ The displayed options are unstable and may change between releases.
 
 <!-- Links -->
 
-[push gateway integration]: ../../how-to/monitor/metrics.md#running-prometheus-with-besu-in-push-mode
+[push gateway integration]: ../../how-to/monitor/metrics.md#run-prometheus-with-besu-in-push-mode
 [JWT provider's public key file]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication

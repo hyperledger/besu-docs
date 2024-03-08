@@ -470,7 +470,7 @@ as a percentage of the fixed block time of the network.
 The default is `75`, or 75%.
 
 :::note
-This option only applies to proof of authority networks.
+This option only applies to proof-of-authority networks.
 For proof of stake and proof of work networks, see
 [`--block-txs-selection-max-time`](../../../public-networks/reference/cli/options.md#block-txs-selection-max-time).
 :::

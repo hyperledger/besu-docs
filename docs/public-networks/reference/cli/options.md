@@ -3202,7 +3202,7 @@ Sets a limit on the amount of gas for transaction simulation RPC methods. Its va
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-api=<api name>[,<api name>...]...
+--rpc-http-api=<api name>[,<api name>,...]
 ```
 
 </TabItem>
@@ -3233,13 +3233,55 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
 The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are two names for the same option.
 
 :::
+
+### `rpc-http-api-methods-no-auth`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-api-methods-no-auth=<api method>[,<api method>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-api-methods-no-auth=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of JSON-RPC API methods to exclude from [authentication
+services](../../how-to/use-besu-api/authenticate.md).
+JSON-RPC HTTP authentication must be enabled using [`--rpc-http-authentication-enabled`](#rpc-http-authentication-enabled).
 
 ### `rpc-http-authentication-credentials-file`
 
@@ -3500,7 +3542,7 @@ rpc-http-enabled=true
 
 </Tabs>
 
-Enables or disables the HTTP JSON-RPC service. The default is `false`.
+Enables or disables the JSON-RPC HTTP service. The default is `false`.
 
 ### `rpc-http-host`
 
@@ -3541,7 +3583,7 @@ rpc-http-host="0.0.0.0"
 
 </Tabs>
 
-The host on which HTTP JSON-RPC listens. The default is `127.0.0.1`.
+The host on which JSON-RPC HTTP listens. The default is `127.0.0.1`.
 
 To allow remote connections, set to `0.0.0.0`.
 
@@ -3589,7 +3631,7 @@ rpc-http-max-active-connections=100
 
 </Tabs>
 
-The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reached, incoming connections are rejected. The default is 80.
+The maximum number of allowed JSON-RPC HTTP connections. Once this limit is reached, incoming connections are rejected. The default is 80.
 
 ### `rpc-http-max-request-content-length`
 
@@ -3712,7 +3754,7 @@ rpc-http-port="3435"
 
 </Tabs>
 
-The port (TCP) on which HTTP JSON-RPC listens. The default is `8545`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
+The port (TCP) on which JSON-RPC HTTP listens. The default is `8545`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `rpc-http-tls-ca-clients-enabled`
 
@@ -4248,6 +4290,48 @@ A comma-separated list of APIs to enable on the WebSockets channel. When you use
 The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and are two names for the same option.
 
 :::
+
+### `rpc-ws-api-methods-no-auth`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-api-methods-no-auth=<api method>[,<api method>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-api-methods-no-auth=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of JSON-RPC API methods to exclude from [authentication
+services](../../how-to/use-besu-api/authenticate.md).
+JSON-RPC WebSocket authentication must be enabled using [`--rpc-ws-authentication-enabled`](#rpc-ws-authentication-enabled).
 
 ### `rpc-ws-authentication-credentials-file`
 

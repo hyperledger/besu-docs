@@ -3202,7 +3202,7 @@ Sets a limit on the amount of gas for transaction simulation RPC methods. Its va
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-api=<api name>[,<api name>...]...
+--rpc-http-api=<api name>[,<api name>,...]
 ```
 
 </TabItem>
@@ -3233,12 +3233,56 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the HTTP JSON-RPC channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
 The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are two names for the same option.
 
+:::
+
+### `rpc-http-api-methods-no-auth`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-api-methods-no-auth=<api method>[,<api method>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-api-methods-no-auth=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of JSON-RPC API methods to exclude from [authentication services](../../how-to/use-besu-api/authenticate.md).
+
+:::note
+You must enable JSON-RPC HTTP authentication using [`--rpc-http-authentication-enabled`](#rpc-http-authentication-enabled).
 :::
 
 ### `rpc-http-authentication-credentials-file`
@@ -3279,7 +3323,7 @@ rpc-http-authentication-credentials-file="/home/me/me_node/auth.toml"
 
 </Tabs>
 
-The [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+The [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-http-authentication-enabled`
 
@@ -3359,7 +3403,7 @@ rpc-http-authentication-jwt-algorithm="ES256"
 
 </Tabs>
 
-The [JWT key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair)
+The [JWT key algorithm](../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair)
 used to generate the keypair for JSON-RPC HTTP authentication.
 Possible values are `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, and `ES512`.
 The default is `RS256`.
@@ -3500,7 +3544,7 @@ rpc-http-enabled=true
 
 </Tabs>
 
-Enables or disables the HTTP JSON-RPC service. The default is `false`.
+Enables or disables the JSON-RPC HTTP service. The default is `false`.
 
 ### `rpc-http-host`
 
@@ -3541,7 +3585,7 @@ rpc-http-host="0.0.0.0"
 
 </Tabs>
 
-The host on which HTTP JSON-RPC listens. The default is `127.0.0.1`.
+The host on which JSON-RPC HTTP listens. The default is `127.0.0.1`.
 
 To allow remote connections, set to `0.0.0.0`.
 
@@ -3589,7 +3633,7 @@ rpc-http-max-active-connections=100
 
 </Tabs>
 
-The maximum number of allowed HTTP JSON-RPC connections. Once this limit is reached, incoming connections are rejected. The default is 80.
+The maximum number of allowed JSON-RPC HTTP connections. Once this limit is reached, incoming connections are rejected. The default is 80.
 
 ### `rpc-http-max-request-content-length`
 
@@ -3712,7 +3756,7 @@ rpc-http-port="3435"
 
 </Tabs>
 
-The port (TCP) on which HTTP JSON-RPC listens. The default is `8545`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
+The port (TCP) on which JSON-RPC HTTP listens. The default is `8545`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `rpc-http-tls-ca-clients-enabled`
 
@@ -4249,6 +4293,50 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 
 :::
 
+### `rpc-ws-api-methods-no-auth`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-api-methods-no-auth=<api method>[,<api method>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-api-methods-no-auth=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of JSON-RPC API methods to exclude from [authentication services](../../how-to/use-besu-api/authenticate.md).
+
+:::note
+You must enable JSON-RPC WebSocket authentication using [`--rpc-ws-authentication-enabled`](#rpc-ws-authentication-enabled).
+:::
+
 ### `rpc-ws-authentication-credentials-file`
 
 <Tabs>
@@ -4287,7 +4375,7 @@ rpc-ws-authentication-credentials-file="/home/me/me_node/auth.toml"
 
 </Tabs>
 
-The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ### `rpc-ws-authentication-enabled`
 
@@ -4373,7 +4461,7 @@ rpc-ws-authentication-jwt-algorithm="ES256"
 
 </Tabs>
 
-The [JWT key algorithm](../../how-to/use-besu-api/authenticate#1-generate-a-private-and-public-key-pair)
+The [JWT key algorithm](../../how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair)
 used to generate the keypair for JSON-RPC WebSocket authentication.
 Possible values are `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, and `ES512`.
 The default is `RS256`.
@@ -5553,5 +5641,5 @@ The displayed options are unstable and may change between releases.
 
 <!-- Links -->
 
-[push gateway integration]: ../../how-to/monitor/metrics.md#running-prometheus-with-besu-in-push-mode
+[push gateway integration]: ../../how-to/monitor/metrics.md#run-prometheus-with-besu-in-push-mode
 [JWT provider's public key file]: ../../how-to/use-besu-api/authenticate.md#jwt-public-key-authentication

@@ -25,7 +25,15 @@ and integrity of the large data blobs.
 
 This mechanism significantly reduces the computational and storage burden on the Ethereum network while ensuring
 that the data is available for those who need it (for example, rollups or other layer 2 solutions that rely on data 
-vailability for their security and operation).
+availability for their security and operation).
 
-Blobs are temporarily stored by consensus clients such as Teku, and blocks on the network permanently store
-the commitment.
+Blobs are temporarily stored by consensus clients such as Teku, and blocks on the execution layer permanently store
+the the reference to the blob.
+
+## View blob transaction costs
+
+Use the [`eth_blobBaseFee`](../../reference/api/index.md#eth_blobbasefee) method to view the current base
+fee per blog gas in wei.
+
+You can also use [`eth_feeHistory`](../../reference/api/index.md#eth_feehistory) to view the historical
+blob transaction cost details.

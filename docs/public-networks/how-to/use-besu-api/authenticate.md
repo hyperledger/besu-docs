@@ -88,9 +88,19 @@ $2a$10$L3Xb5G/AJOsEK5SuOn9uzOhpCCfuVWTajc5hwWerY6N5xBM/xlrMK
 
 ### 2. Enable authentication
 
-To require authentication for the JSON-RPC API, use the [`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled) or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled) options.
+Enable authentication for the JSON-RPC API using the
+[`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled)
+or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled) option.
 
-To specify the [credentials file](#1-create-the-credentials-file), use the [`--rpc-http-authentication-credentials-file`](../../reference/cli/options.md#rpc-http-authentication-credentials-file) and [`--rpc-ws-authentication-credentials-file`](../../reference/cli/options.md#rpc-ws-authentication-credentials-file) options.
+Specify the [credentials file](#1-create-the-credentials-file) using the
+[`--rpc-http-authentication-credentials-file`](../../reference/cli/options.md#rpc-http-authentication-credentials-file)
+or [`--rpc-ws-authentication-credentials-file`](../../reference/cli/options.md#rpc-ws-authentication-credentials-file) option.
+
+:::note
+With authentication enabled, you can specify methods that don't require authentication using
+[`--rpc-http-api-methods-no-auth`](../../reference/cli/options.md#rpc-http-api-methods-no-auth) or
+[`--rpc-ws-api-methods-no-auth`](../../reference/cli/options.md#rpc-ws-api-methods-no-auth).
+:::
 
 ### 3. Generate an authentication token
 
@@ -148,7 +158,7 @@ Authentication tokens expire five minutes after generation. If you require acces
 
 Enable authentication from the command line and supply the external JWT provider's public key.
 
-:::danger
+:::caution
 
 JWT public authentication disables the Besu `/login` endpoint, meaning [username and password authentication](#username-and-password-authentication) will not work.
 
@@ -223,7 +233,7 @@ Create the JWT using a trusted authentication provider[^1] or [library](https://
 
 See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/) for an example implementation.
 
-:::caution
+:::caution Important
 
 The JWT must use one of the `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, or `ES512` algorithms.
 
@@ -259,9 +269,19 @@ Each payload for the JWT must contain:
 
 ### 3. Enable authentication
 
-To require authentication for the JSON-RPC API, use the [`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled) or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled) options.
+Enable authentication for the JSON-RPC API using the
+[`--rpc-http-authentication-enabled`](../../reference/cli/options.md#rpc-http-authentication-enabled)
+or [`--rpc-ws-authentication-enabled`](../../reference/cli/options.md#rpc-ws-authentication-enabled) option.
 
-To specify the JWT provider's public key file to use with the externally created JWT, use the [`--rpc-http-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file) or [`--rpc-ws-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-ws-authentication-jwt-public-key-file) options.
+Specify the JWT provider's public key file to use with the externally created JWT, using the
+[`--rpc-http-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-http-authentication-jwt-public-key-file)
+or [`--rpc-ws-authentication-jwt-public-key-file`](../../reference/cli/options.md#rpc-ws-authentication-jwt-public-key-file) option.
+
+:::note
+With authentication enabled, you can specify methods that don't require authentication using
+[`--rpc-http-api-methods-no-auth`](../../reference/cli/options.md#rpc-http-api-methods-no-auth) or
+[`--rpc-ws-api-methods-no-auth`](../../reference/cli/options.md#rpc-ws-api-methods-no-auth).
+:::
 
 ## JSON-RPC permissions
 

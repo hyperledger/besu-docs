@@ -293,6 +293,7 @@ keyalg
 keyfile
 keyid
 keymanager
+keypair
 keyscan
 keysize
 keystorstore

@@ -221,7 +221,7 @@ All transaction call object parameters are optional.
 | `data` or `input`       | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 | `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
 | `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
-| `blobVersionedHashes`  | Array | List of references to transaction blobs used in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
+| `blobVersionedHashes`  | Array | List of references to transaction blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
 
 ## Transaction receipt object
 
@@ -244,7 +244,7 @@ Returned by [`eth_getTransactionReceipt`](index.md#eth_gettransactionreceipt).
 | `transactionIndex` | Quantity, Integer | Index position of transaction in the block. |
 | `transactionType` | String | [Transaction type](../../concepts/transactions/types.md). |
 | `revertReason` | String | ABI-encoded string that displays the [reason for reverting the transaction](../../../private-networks/how-to/send-transactions/revert-reason.md). Only available if revert reason is [enabled](../cli/options.md#revert-reason-enabled). |
-| `type` | Quantity | Transaction type, `0x00` for legacy transactions, `0x01` for access list types, `0x02` for dynamic fees. |
+| `type` | Quantity | Transaction type, `0x00` for legacy transactions, `0x01` for access list types, `0x02` for dynamic fees, and `0x03` for blob transactions. |
 
 :::note
 

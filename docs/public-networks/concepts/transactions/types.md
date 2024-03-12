@@ -46,14 +46,14 @@ Shard blob transactions introduced in [EIP-4844](https://eips.ethereum.org/EIPS/
 Ethereum network by allowing large amounts of data (blobs) to be included that cannot be directly accessed or
 processed by the Ethereum Virtual Machine (EVM).
 
-When a blob-carrying transaction is included in a block, the transaction doesn't contain the blob data itself,
-but rather a commitment to this data. This commitment can be verified by the EVM, ensuring the data's availability and
-integrity without the EVM needing to access the data directly.
+When the network includes a blob-carrying transaction in a block, the transaction doesn't actually contain
+the blob data itself. Instead, it contains a commitment to this data. The EVM can verify this commitment to
+ensure the data's availability and integrity without directly accessing the data.
 
 :::info
 
-A commitment refers to a cryptographic proof that serves as a secure and verifiable way to attest to the existence
-and integrity of the large data blobs.
+A commitment is a type of cryptographic proof that securely and verifiably confirms the existence and integrity
+of large data blobs.
 
 :::
 

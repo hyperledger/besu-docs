@@ -28,12 +28,12 @@ that the data is available for those who need it (for example, rollups or other 
 availability for their security and operation).
 
 Blobs are temporarily stored by consensus clients such as Teku, and blocks on the execution layer permanently store
-the the reference to the blob.
+the reference to the blob.
 
 ## View blob transaction costs
 
 Use the [`eth_blobBaseFee`](../../reference/api/index.md#eth_blobbasefee) method to view the current base
-fee per blog gas in wei.
+fee per blob gas in wei.
 
 You can also use [`eth_feeHistory`](../../reference/api/index.md#eth_feehistory) to view the historical
 blob transaction cost details.

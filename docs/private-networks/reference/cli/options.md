@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) options.
 
-:::danger
+:::caution Important
 
 This reference contains options that apply to only private networks. For options that apply to both private and public networks, see the [public network options reference](../../../public-networks/reference/cli/options.md).
 
@@ -426,6 +426,54 @@ permissions-nodes-contract-version=2
 </Tabs>
 
 Version of the EEA [node permissioning interface](../../how-to/use-permissioning/onchain.md#specify-the-permissioning-contract-interface-version). The default is 1.
+
+### `poa-block-txs-selection-max-time`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--poa-block-txs-selection-max-time=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--poa-block-txs-selection-max-time=80
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_POA_BLOCK_TXS_SELECTION_MAX_TIME=80
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+poa-block-txs-selection-max-time=80
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum time that can be spent selecting transactions to be included in a block,
+as a percentage of the fixed block time of the network.
+The default is `75`, or 75%.
+
+:::note
+This option only applies to proof-of-authority networks.
+For proof-of-stake and proof-of-work networks, see
+[`--block-txs-selection-max-time`](../../../public-networks/reference/cli/options.md#block-txs-selection-max-time).
+:::
 
 ### `privacy-enabled`
 

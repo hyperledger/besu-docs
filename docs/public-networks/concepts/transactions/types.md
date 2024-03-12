@@ -40,7 +40,7 @@ An `EIP1559` transaction always pays the base fee of the block it's included in,
 
 `EIP1559` transactions must specify both `maxPriorityFeePerGas` and `maxFeePerGas`. They must not specify `gasPrice`.
 
-## Shard blob transactions
+## `BLOB` transactions
 
 Shard blob transactions introduced in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) enables scaling the
 Ethereum network by allowing large amounts of data (blobs) to be included that cannot be directly accessed or
@@ -67,7 +67,7 @@ the the reference to the blob.
 ### View blob transaction costs
 
 Use the [`eth_blobBaseFee`](../../reference/api/index.md#eth_blobbasefee) method to view the current base
-fee per blog gas in wei.
+fee per blob gas in wei.
 
 You can also use [`eth_feeHistory`](../../reference/api/index.md#eth_feehistory) to view the historical
 blob transaction cost details.

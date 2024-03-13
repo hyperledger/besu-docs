@@ -24,7 +24,7 @@ try the following suggestions:
 * Configure memory and RAM:
   * If you have RAM constraints, use [OpenJ9](../../get-started/system-requirements.md) if you're
     running on `x86_64` Linux architecture to reduce memory usage.
-  * Review and change your [Java heap size](../configure-jvm/manage-memory.md) if necessary.
+  * Review and change your [Java heap size](../configure-java/manage-memory.md) if necessary.
     5GB is an appropriate limit.
     Higher values may improve sync time, but can be reduced after completing sync.
   * Ensure Besu is using [jemalloc](../../get-started/install/binary-distribution.md).

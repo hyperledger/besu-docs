@@ -22,7 +22,7 @@ CPU requirements are highest when syncing to the network and typically reduce af
 ## Java distribution and installation
 
 Besu requires an installation of Java 17+ to run.
-We currently recommend two Java distributions, [OpenJDK 17](https://jdk.java.net/17/) and
+We currently recommend two Java distributions, [OpenJDK 21](https://jdk.java.net/21/) and
 [OpenJ9](https://www.eclipse.org/openj9/), though you can experiment based on your needs.
 
 OpenJDK is the default for many Java users and is balanced in performance and garbage collection.
@@ -134,7 +134,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
 
 ## Java Virtual Machine size
 
-For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-jvm/manage-memory.md).
+For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-java/manage-memory.md).
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized to the chain head. Monitor your system to determine your actual JVM memory needs.
 

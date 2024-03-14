@@ -171,6 +171,7 @@ entrypoints
 envr
 epochlength
 errnametoolong
+Esat
 esbenp
 esbuild
 eslintcache
@@ -530,6 +531,7 @@ reqs
 requesttimeout
 requesttimeoutseconds
 requireindex
+resynced
 resyncs
 retesteth
 retrocompatibility
@@ -573,6 +575,7 @@ sluggifies
 sluggify
 smartcard
 solana
+Somer
 spâce
 ssszzz
 stackblitz

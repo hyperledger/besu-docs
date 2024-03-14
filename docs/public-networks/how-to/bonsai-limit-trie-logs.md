@@ -20,7 +20,7 @@ The following commands are examples. Before executing these example commands on 
 
 :::
 
-1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](configuration-file).
+1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](use-configuration-file).
 
 :::caution
 

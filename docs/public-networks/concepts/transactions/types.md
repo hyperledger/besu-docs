@@ -39,3 +39,35 @@ Transactions with type `EIP1559` are transactions introduced in [EIP-1559](https
 An `EIP1559` transaction always pays the base fee of the block it's included in, and it pays a priority fee as priced by `maxPriorityFeePerGas` or, if the base fee per gas + `maxPriorityFeePerGas` exceeds `maxFeePerGas`, it pays a priority fee as priced by `maxFeePerGas` minus the base fee per gas. The base fee is burned, and the priority fee is paid to the miner that included the transaction. A transaction's priority fee per gas incentivizes miners to include the transaction over other transactions with lower priority fees per gas.
 
 `EIP1559` transactions must specify both `maxPriorityFeePerGas` and `maxFeePerGas`. They must not specify `gasPrice`.
+
+## `BLOB` transactions
+
+Shard blob transactions introduced in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) enable scaling the
+Ethereum network by allowing large amounts of data (blobs) to be included that cannot be directly accessed or
+processed by the Ethereum Virtual Machine (EVM).
+
+When the network includes a blob-carrying transaction in a block, the transaction doesn't actually contain
+the blob data itself. Instead, it contains a commitment to this data. The EVM can verify this commitment to
+ensure the data's availability and integrity without directly accessing the data.
+
+:::info
+
+A commitment is a type of cryptographic proof that securely and verifiably confirms the existence and integrity
+of large data blobs.
+
+:::
+
+This mechanism significantly reduces the computational and storage burden on the Ethereum network while ensuring
+that the data is available for those who need it (for example, rollups or other layer 2 solutions that rely on data 
+availability for their security and operation).
+
+Blobs are temporarily stored by consensus clients such as Teku, and blocks on the execution layer permanently store
+the the reference to the blob.
+
+### View blob transaction costs
+
+Use the [`eth_blobBaseFee`](../../reference/api/index.md#eth_blobbasefee) method to view the current base
+fee per blob gas in wei.
+
+You can also use [`eth_feeHistory`](../../reference/api/index.md#eth_feehistory) to view the historical
+blob transaction cost details.

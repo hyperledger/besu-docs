@@ -41,6 +41,10 @@ Check the following settings:
 - The appropriate ports should be open on your router, or your router should have UPNP enabled. See the next FAQ for more information on router settings.
 - If you use [Docker](https://docs.docker.com/network/network-tutorial-host/) or virtualization, the container should be able to create outbound connections on the host machine.
 
+### "Which URLs should I check?"
+
+Check that the [enode URLs](../../concepts/node-keys.md#enode-url) specified for [bootnodes](../../../private-networks/how-to/configure/bootnodes.md) or [static nodes](../connect/static-nodes.md) match the enode URLs displayed when starting the remote nodes.
+
 ### "How do I open/forward my ports?"
 
 If you’re behind NAT, you probably need to set up port forwarding in your router. You might also need to configure your firewall. Forward and open `30303` (if using the default p2p port) for both UDP and TCP. If your router supports UPNP, you can set [`--nat-method`](../../reference/cli/options.md#nat-method) to [`UPNPP2PONLY`](../connect/specify-nat.md#upnp).

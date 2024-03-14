@@ -2092,6 +2092,55 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":5
 
 </Tabs>
 
+### `eth_blobBaseFee`
+
+Returns the base fee per blob gas in wei.
+
+:::info
+
+[Shard blob transactions](../../concepts/transactions/types.md#blob-transactions) enable scaling Ethereum by allowing blobs of
+data to be stored temporarily by consensus clients.
+
+:::
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - hexadecimal integer representing the base fee per blob gas.
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blobBaseFee","params":[],"id":51}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
+
+```json
+{"jsonrpc":"2.0","method":"eth_blobBaseFee","params":[],"id":51}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 51,
+  "result": "0x3f5694c1f"
+}
+```
+</TabItem>
+</Tabs>
+
 ### `eth_blockNumber`
 
 Returns the index corresponding to the block number of the current chain head.
@@ -2609,7 +2658,10 @@ http://127.0.0.1:8545 \
 
 ### `eth_feeHistory`
 
-Returns base fee per gas and transaction effective priority fee per gas history for the requested block range, allowing you to track trends over time.
+Returns base fee per gas and transaction effective priority fee per gas history for the requested block
+range, allowing you to track trends over time.
+
+As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks transaction blob gas fees as well.  
 
 #### Parameters
 
@@ -2650,30 +2702,63 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5"
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "result": {
-    "baseFeePerGas": [
-      "0x3da8e7618",
-      "0x3e1ba3b1b",
-      "0x3dfd72b90",
-      "0x3d64eee76",
-      "0x3d4da2da0",
-      "0x3ccbcac6b"
-    ],
-    "gasUsedRatio": [
-      0.5290747666666666, 0.49240453333333334, 0.4615576, 0.49407083333333335,
-      0.4669053
-    ],
-    "oldestBlock": "0xfab8ac",
-    "reward": [
-      ["0x59682f00", "0x59682f00"],
-      ["0x59682f00", "0x59682f00"],
-      ["0x3b9aca00", "0x59682f00"],
-      ["0x510b0870", "0x59682f00"],
-      ["0x3b9aca00", "0x59682f00"]
-    ]
-  },
-  "id": 1
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "oldestBlock": "0x10b52f",
+        "baseFeePerGas": [
+            "0x3fa63a3f",
+            "0x37f999ee",
+            "0x3e36f20a",
+            "0x4099f79a",
+            "0x430d532d",
+            "0x46fcd4a4"
+        ],
+        "baseFeePerBlobGas": [
+            "0x7b7609c19",
+            "0x6dbe41789",
+            "0x7223341d4",
+            "0x6574a002c",
+            "0x7223341d4",
+            "0x6574a002c"
+        ],
+        "gasUsedRatio": [
+            0.017712333333333333,
+            0.9458865666666667,
+            0.6534561,
+            0.6517375666666667,
+            0.7347769666666667
+        ],
+        "blobGasUsedRatio": [
+            0.0,
+            0.6666666666666666,
+            0.0,
+            1.0,
+            0.0
+        ],
+        "reward": [
+            [
+                "0x3b9aca00",
+                "0x59682f00"
+            ],
+            [
+                "0x3a13012",
+                "0x3a13012"
+            ],
+            [
+                "0xf4240",
+                "0xf4240"
+            ],
+            [
+                "0xf4240",
+                "0xf4240"
+            ],
+            [
+                "0xf4240",
+                "0xf4240"
+            ]
+        ]
+    }
 }
 ```
 

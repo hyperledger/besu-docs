@@ -542,6 +542,8 @@ rmiz
 roadmap
 rocketvalidator
 rocksdb
+rollup
+rollups
 rootca
 rpcapi
 rpcprefix

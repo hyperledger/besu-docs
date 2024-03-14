@@ -2098,7 +2098,7 @@ Returns the base fee per blob gas in wei.
 
 :::info
 
-[Shard blob transactions](../../concepts/transactions/types.md#blob-transactions) enables scaling Ethereum by allowing blobs of
+[Shard blob transactions](../../concepts/transactions/types.md#blob-transactions) enable scaling Ethereum by allowing blobs of
 data to be stored temporarily by consensus clients.
 
 :::

@@ -42,7 +42,7 @@ An `EIP1559` transaction always pays the base fee of the block it's included in,
 
 ## `BLOB` transactions
 
-Shard blob transactions introduced in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) enables scaling the
+Shard blob transactions introduced in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) enable scaling the
 Ethereum network by allowing large amounts of data (blobs) to be included that cannot be directly accessed or
 processed by the Ethereum Virtual Machine (EVM).
 

@@ -53,7 +53,7 @@ Returned by [`eth_feeHistory`](index.md#eth_feehistory) for the requested block 
 | `baseFeePerGas` | Array | Array of block base fees per gas, including an extra block value. The extra value is the next block after the newest block in the returned range. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/2d8a95e14e56de27c5465d93747b0006bd8ac47f/EIPS/eip-1559.md). |
 | `baseFeePerBlobGas` | Array | Array of base fees per blob gas. Returns zeroes for blocks created before [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). |
 | `gasUsedRatio` | Array | Array of block gas used ratios. These are calculated as the ratio of `gasUsed` and `gasLimit`. |
-| `blobGasUsedRatio` | Array | Array of blob gas used ratios. These are calculated as the ratio of `blobGasUsed` and `currentBlobGasLimit`. |
+| `blobGasUsedRatio` | Array | Array of blob gas used ratios. These are calculated as the ratio of `blobGasUsed` and the max blob gas per block. |
 | `reward` | Array | Array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty. |
 
 ## Filter options object
@@ -221,7 +221,7 @@ All transaction call object parameters are optional.
 | `data` or `input`       | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
 | `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
 | `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
-| `blobVersionedHashes`  | Array | List of references to transaction blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
+| `blobVersionedHashes`  | Array | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
 
 ## Transaction receipt object
 

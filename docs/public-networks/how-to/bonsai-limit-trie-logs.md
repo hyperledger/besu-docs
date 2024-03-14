@@ -1,5 +1,5 @@
 ---
-title: Reduce database size using Bonsai Tries
+title: Reduce database size for Bonsai Tries
 sidebar_position: 12
 description: Enable this feature to reduce the size of your database
 tags:
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 To decrease the database size using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage policy in Besu, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
 When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
 
-## Limit Trie Logs for Bonsai
+## Limit Trie logs
 
 :::caution
 
@@ -21,23 +21,22 @@ The following commands are examples. Before executing these example commands on 
 :::
 
 1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](configuration-file).
-1. Stop Besu. If Besu is running in a terminal, you can usually stop it by pressing `Ctrl+C`.
-1. (optional) Run the Besu client. Specify the Bonsai Trie data storage format and a data directory for the pruned trie logs:
-
-    ```bash title="Specify Bonsai Trie for pruned logs"
+1. Stop Besu.
+1. (optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
+    ```bash title="Run command to prune trie logs"
     sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune
     ```
-1. Restart Besu. You can restart Besu by navigating to the directory where your Besu executable is located and running the same command you used to start it initially. 
+1. Start Besu.
 If you are using a `systemd` service file, as recommended by [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) 
 and [Somer](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
 1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout at startup.
 
-## Restart Besu
+## Prune outdated trie logs
 
-When Besu restarts, it will prune and remove unnecessary data, one block at a time. 
+When you start Besu with `--Xbonsai-limit-trie-logs-enabled`, it will continuously prune the unnecessary trie log data, removing it one block at a time.
 This process begins after an initial reduction in the database size during startup.
 
-Executing a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
+Enabling `--Xbonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
 Instead of resyncing, you can run an offline command to immediately prune old trie logs. 
 To run the offline command, you must shutdown Besu for a minimal period. 
 If the `--Xbonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
@@ -90,7 +89,7 @@ sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-
 ```
 ## Troubleshoot
 
-Troubleshoot common errors that can occur when attempting to use Bonsai Tries to reduce your database size. Ensure your command specifies the following:
+Troubleshoot common errors that can occur when attempting to use the trie log prune command to reduce your database size. Ensure your command specifies the following:
 
 - `--data-storage-format`
 - `--data-path`
@@ -112,11 +111,11 @@ Ensure you stop Besu before running the command.
 
 The `--data-storage-format=BONSAI` may be missing. To resolve, add the storage format. The command should look similar to the following:
 
-```bash title="P"
+```bash title="Specify data storage format"
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
 ```
 
-#### Column handle not found
+#### Column handle not found for segment `TRIE_BRANCH_STORAGE`
 
 - Error message: `java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE`
 
@@ -156,7 +155,7 @@ Check your file permissions and try running a `sudo` command to resolve:
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP x-trie-log prune
 ```
 
-#### Column handle not found
+#### Column handle not found for segment `WORLD_STATE`
 
 - Error message: `java.lang.RuntimeException: Column handle not found for segment WORLD_STATE`
 
@@ -166,7 +165,7 @@ Ensure you are using `data-storage-format=BONSAI` instead of `data-storage-forma
 
 - Error message: `org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: While lock file: /data/besu/database/LOCK: Resource temporarily unavailable`
 
-Check if Besu is already running. You may need to shut down the Besu client before running the subcommand.
+Check if Besu is already running. You must shut down the Besu client before running the subcommand.
 
 #### Resource temporarily unavailable
 

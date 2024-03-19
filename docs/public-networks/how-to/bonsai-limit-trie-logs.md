@@ -1,7 +1,7 @@
 ---
 title: Reduce storage for Bonsai Tries
 sidebar_position: 12
-description: Enable this feature to reduce the size of your database for Bonsai Tries
+description: Enable this feature to reduce the size of your database when using Bonsai Tries
 tags:
   - public networks
 ---
@@ -22,7 +22,7 @@ The following commands are examples. Before executing these example commands on 
 
 1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](use-configuration-file).
    
-    :::caution
+    :::note
     
     If you are using a `systemd` service file, as recommended by [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) 
     and [Somer](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
@@ -49,7 +49,7 @@ If the `--Xbonsai-limit-trie-logs-enabled` option is enabled, you do not need to
 
 For minimal downtime, we recommend running the offline command before restarting Besu with `--Xbonsai-limit-trie-logs-enabled`.
 
-If you are following the guides by [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you have set these options in your `besu.service` or `execution.service` systemd file:
+If you are following the guides by [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you have set the following options in your `besu.service` or `execution.service` systemd file:
 
 ```
 ...
@@ -101,7 +101,7 @@ Troubleshoot common errors that can occur when attempting to use the trie log pr
 - `--data-path`
 - `--sync-mode`
 
-#### Prune command for mainnet
+### Prune command for mainnet
 
 The prune command should look similar to the following:
 
@@ -111,7 +111,7 @@ sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-forma
 
 Ensure you stop Besu before running the command.
 
-####  Subcommand not working
+###  Subcommand not working
 
 `java.lang.IllegalArgumentException: Subcommand only works with data-storage-format=BONSAI`
 
@@ -121,7 +121,7 @@ The `--data-storage-format=BONSAI` may be missing. To resolve, add the storage f
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
 ```
 
-#### Column handle not found for segment `TRIE_BRANCH_STORAGE`
+### Column handle not found for segment `TRIE_BRANCH_STORAGE`
 
 `java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE`
 
@@ -131,7 +131,7 @@ Ensure you specify the `data-path`. Your command should look similar to the foll
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
 ```
 
-#### Database not detected
+### Database not detected
 
 `java.lang.IllegalArgumentException: Trying to retain more trie logs than chain length (0), skipping pruning`
 
@@ -141,7 +141,7 @@ Ensure you specify the correct `--data-path` for your node. Your command should 
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
 ```
 
-#### Cannot store generated private key
+### Cannot store generated private key
 
 `java.lang.IllegalArgumentException: Cannot store generated private key`
 
@@ -151,7 +151,7 @@ Ensure you specify the correct `--data-path` for your node. Your command should 
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
 ```
 
-#### Valid keyPair not provided
+### Valid keyPair not provided
 
 `java.lang.IllegalArgumentException: Supplied file does not contain valid keyPair pair.`
 
@@ -161,36 +161,36 @@ Check your file permissions and try running a `sudo` command to resolve:
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP x-trie-log prune
 ```
 
-#### Column handle not found for segment `WORLD_STATE`
+### Column handle not found for segment `WORLD_STATE`
 
 `java.lang.RuntimeException: Column handle not found for segment WORLD_STATE`
 
 Ensure you are using `data-storage-format=BONSAI` instead of `data-storage-format=FOREST` on an existing Bonsai database.
 
-#### Resource temporarily unavailable
+### Resource temporarily unavailable
 
 `org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: While lock file: /data/besu/database/LOCK: Resource temporarily unavailable`
 
 Check if Besu is already running. You must shut down the Besu client before running the subcommand.
 
-#### Resource temporarily unavailable
+### Unable to change the sync mode
 
 `java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode`
 
 Check that you have specified the `sync-mode`. The default is `sync-mode=FAST`. Most mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
 
-#### Cannot run trie log prune
+### Cannot run trie log prune
 
 `java.lang.RuntimeException: No finalized block present, can't safely run trie log prune`
 
-This message may appear if your node is relatively new or recently resynced. To resolve this error, ensure that your node is fully synced and properly configured to recognize finalized blocks.
+This message may appear if your node is relatively new or recently resynced. To resolve this error, ensure that your node is fully synced and correctly configured to recognize finalized blocks.
 
-#### Block does not match chain data stored
+### Block does not match stored chain data
 
 `org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.`
 
 Check if you are running the command for a network other than mainnet. To specify a network, run a command that looks similar to the following:
 
-```bash title="Specify network"
+```bash
 `sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`
 ```

@@ -158,7 +158,7 @@ Your command should look similar to the following:
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
 ```
 
-### Valid keyPair not provided
+### Valid keypair not provided
 
 `java.lang.IllegalArgumentException: Supplied file does not contain valid keyPair pair.`
 

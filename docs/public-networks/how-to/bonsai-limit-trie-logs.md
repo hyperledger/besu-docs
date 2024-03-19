@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
-When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
+When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
 
 ## Limit trie logs
 
@@ -25,7 +25,7 @@ The following commands are examples. Before executing these example commands on 
     :::note
     
     If you are using a `systemd` service file, as recommended by [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) 
-    and [Somer](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
+    and [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
     
     :::
    
@@ -44,7 +44,7 @@ This process begins after an initial reduction in the database size during start
 
 Enabling `--Xbonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
 Instead of resyncing, you can run an offline command to immediately prune old trie logs. 
-To run the offline command, you must shutdown Besu for a minimal period. 
+To run the offline command, you must shut down Besu for a minimal period. 
 If the `--Xbonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
 
 For minimal downtime, we recommend running the offline command before restarting Besu with `--Xbonsai-limit-trie-logs-enabled`.
@@ -93,16 +93,17 @@ If you are using a TOML configuration file, you can run a command similar to the
 ```bash
 sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-log prune
 ```
+
 ## Troubleshoot
 
-Troubleshoot common errors that can occur when attempting to use the trie log prune command to reduce your database size for Bonsai Tries. 
-To minimize the occurence of errors, ensure your command specifies the following:
+Troubleshoot common errors that can occur when using the trie log prune command to reduce your database size for Bonsai Tries.
+To minimize errors, ensure your command specifies the following:
 
-- `--data-storage-format`
-- `--data-path`
-- `--sync-mode`
+- [`--data-storage-format`](../reference/cli/options.md#data-storage-format)
+- [`--data-path`](../reference/cli/options.md#data-path)
+- [`--sync-mode`](../reference/cli/options.md#sync-mode)
 
-### Prune command for mainnet
+### Prune command for Mainnet
 
 The prune command should look similar to the following:
 
@@ -120,7 +121,7 @@ The `--data-storage-format=BONSAI` may be missing.
 To resolve, add the storage format. 
 The command should look similar to the following:
 
-```bash title="Specify data storage format"
+```bash
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
 ```
 
@@ -128,7 +129,7 @@ sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/
 
 `java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE`
 
-Ensure you specify the `data-path`. 
+Ensure you specify `--data-path`. 
 Your command should look similar to the following:
 
 ```bash
@@ -171,7 +172,7 @@ sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/
 
 `java.lang.RuntimeException: Column handle not found for segment WORLD_STATE`
 
-Ensure you are using `data-storage-format=BONSAI` instead of `data-storage-format=FOREST` on an existing Bonsai database.
+Ensure you are using `--data-storage-format=BONSAI` instead of `--data-storage-format=FOREST` on an existing Bonsai database.
 
 ### Resource temporarily unavailable
 
@@ -184,9 +185,9 @@ You must shut down the Besu client before running the subcommand.
 
 `java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode`
 
-Check that you have specified the `sync-mode`. 
-The default is `sync-mode=FAST`. 
-Most mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
+Check that you have specified `--sync-mode`. 
+The default is `--sync-mode=FAST`. 
+Most Mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
 
 ### Cannot run trie log prune
 
@@ -199,7 +200,7 @@ To resolve this error, ensure that your node is fully synced and correctly confi
 
 `org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.`
 
-Check if you are running the command for a network other than mainnet. 
+Check if you are running the command for a network other than Mainnet. 
 To specify a network, run a command that looks similar to the following:
 
 ```bash

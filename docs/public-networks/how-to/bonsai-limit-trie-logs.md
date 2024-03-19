@@ -9,7 +9,7 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage policy, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
+To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
 When enabled, this feature can reduce database growth by more than 3GB each week on mainnet.
 
 ## Limit trie logs

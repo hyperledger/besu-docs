@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
 
-## Limit trie logs
+## Limit and prune trie logs
 
 :::caution
 
@@ -37,7 +37,7 @@ The following commands are examples. Before executing these example commands on 
 1. Start Besu.
 1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout at startup.
 
-## Prune outdated trie logs
+### Prune outdated trie logs
 
 When you start Besu with `--Xbonsai-limit-trie-logs-enabled`, it continuously prunes the unnecessary trie log data, removing it one block at a time.
 This process begins after an initial reduction in the database size during startup.

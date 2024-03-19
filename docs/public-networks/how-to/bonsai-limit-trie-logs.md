@@ -30,7 +30,7 @@ The following commands are examples. Before executing these example commands on 
     :::
    
 1. Stop Besu.
-1. (optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
+1. (Optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
     ```bash
     sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune
     ```

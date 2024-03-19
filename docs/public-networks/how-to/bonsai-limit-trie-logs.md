@@ -95,7 +95,8 @@ sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-
 ```
 ## Troubleshoot
 
-Troubleshoot common errors that can occur when attempting to use the trie log prune command to reduce your database size for Bonsai Tries. Ensure your command specifies the following:
+Troubleshoot common errors that can occur when attempting to use the trie log prune command to reduce your database size for Bonsai Tries. 
+To minimize the occurence of errors, ensure your command specifies the following:
 
 - `--data-storage-format`
 - `--data-path`
@@ -115,7 +116,9 @@ Ensure you stop Besu before running the command.
 
 `java.lang.IllegalArgumentException: Subcommand only works with data-storage-format=BONSAI`
 
-The `--data-storage-format=BONSAI` may be missing. To resolve, add the storage format. The command should look similar to the following:
+The `--data-storage-format=BONSAI` may be missing. 
+To resolve, add the storage format. 
+The command should look similar to the following:
 
 ```bash title="Specify data storage format"
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
@@ -125,7 +128,8 @@ sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/
 
 `java.lang.RuntimeException: Column handle not found for segment TRIE_BRANCH_STORAGE`
 
-Ensure you specify the `data-path`. Your command should look similar to the following:
+Ensure you specify the `data-path`. 
+Your command should look similar to the following:
 
 ```bash
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
@@ -135,7 +139,8 @@ sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-forma
 
 `java.lang.IllegalArgumentException: Trying to retain more trie logs than chain length (0), skipping pruning`
 
-Ensure you specify the correct `--data-path` for your node. Your command should look similar to the following:
+Ensure you specify the correct `--data-path` for your node. 
+Your command should look similar to the following:
 
 ```bash
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
@@ -145,7 +150,8 @@ sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-forma
 
 `java.lang.IllegalArgumentException: Cannot store generated private key`
 
-Ensure you specify the correct `--data-path` for your node. Your command should look similar to the following:
+Ensure you specify the correct `--data-path` for your node. 
+Your command should look similar to the following:
 
 ```bash
 sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
@@ -155,7 +161,7 @@ sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-forma
 
 `java.lang.IllegalArgumentException: Supplied file does not contain valid keyPair pair.`
 
-Check your file permissions and try running a `sudo` command to resolve:
+Check your file permissions and try running a `sudo` command to resolve the issue:
 
 ```bash
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP x-trie-log prune
@@ -171,25 +177,30 @@ Ensure you are using `data-storage-format=BONSAI` instead of `data-storage-forma
 
 `org.hyperledger.besu.plugin.services.exception.StorageException: org.rocksdb.RocksDBException: While lock file: /data/besu/database/LOCK: Resource temporarily unavailable`
 
-Check if Besu is already running. You must shut down the Besu client before running the subcommand.
+Check if Besu is already running. 
+You must shut down the Besu client before running the subcommand.
 
 ### Unable to change the sync mode
 
 `java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode`
 
-Check that you have specified the `sync-mode`. The default is `sync-mode=FAST`. Most mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
+Check that you have specified the `sync-mode`. 
+The default is `sync-mode=FAST`. 
+Most mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
 
 ### Cannot run trie log prune
 
 `java.lang.RuntimeException: No finalized block present, can't safely run trie log prune`
 
-This message may appear if your node is relatively new or recently resynced. To resolve this error, ensure that your node is fully synced and correctly configured to recognize finalized blocks.
+This message may appear if your node is relatively new or recently resynced. 
+To resolve this error, ensure that your node is fully synced and correctly configured to recognize finalized blocks.
 
 ### Block does not match stored chain data
 
 `org.hyperledger.besu.util.InvalidConfigurationException: Supplied genesis block does not match chain data stored in /data/besu.`
 
-Check if you are running the command for a network other than mainnet. To specify a network, run a command that looks similar to the following:
+Check if you are running the command for a network other than mainnet. 
+To specify a network, run a command that looks similar to the following:
 
 ```bash
 `sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`

@@ -76,7 +76,7 @@ Lists [signers for the specified block].
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -124,9 +124,9 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 
@@ -518,9 +518,9 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 
@@ -640,7 +640,7 @@ Lists the validators defined in the specified block.
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1106,7 +1106,7 @@ For private contracts, `priv_call` is the same as [`eth_call`](../../../public-n
 
 - `call`: _object_ - [transaction call object](../../../public-networks/reference/api/objects.md#transaction-call-object)
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1244,7 +1244,7 @@ Returns the state root of the specified privacy group at the specified block.
 
 - `privacyGroupId`: _string_ - 32-byte [privacy Group ID](../../concepts/privacy/privacy-groups.md)
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -1445,7 +1445,7 @@ Returns the code of the private smart contract at the specified address. Compile
 
 - `address`: _string_ - 20-byte contract address
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2195,9 +2195,9 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number or one of the string tags `latest`, `earliest`, `finalized`, or `safe`, as described in [block parameter](../../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 If you specify:
 

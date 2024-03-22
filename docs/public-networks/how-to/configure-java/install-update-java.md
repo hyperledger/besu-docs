@@ -96,6 +96,8 @@ brew uninstall openjdk@17
 brew install openjdk@21
 ```
 
+If you have installed a version of Java via other means, it will be located at `/Library/Java/JavaVirtualMachines` and can be safely deleted from that directory.
+
 To update point versions of Java, simply run:
 
 ```

@@ -1,5 +1,4 @@
 ---
-title: Install and Update Java
 sidebar_position: 1
 description: Install or update Java for use with Hyperledger Besu
 tags:
@@ -7,101 +6,143 @@ tags:
   - private networks
 ---
 
-# Install Java
+# Install and update Java
 
-There are many different flavors of Java and the JVM that work with Hyperledger Besu. They may impact performance, start time, and more. It is worth considering the options carefully when installing Java on the host machine. Currently, Java 21 is recommended. 
+There are many flavors of Java and the Java Virtual Machine (JVM) that work with Besu.
+They might impact performance, start time, and more.
+Consider the options carefully when installing Java on your host machine.
+Currently, [we recommend Java 21](../../get-started/system-requirements.md#java-distribution-and-installation).
 
-## Get Started
+## Install Java
 
-First, download the version of Java you would like to install. If you are running Besu outside of a virtual environment, like Docker, you will need to have Java installed on the host machine. We currently recommend Java 21. [Downloads for OpenJDK 21 can be found here](https://jdk.java.net/21/), while others can be sourced across the web. There are platform-specific installation instructions that are likely included with the download. We use OpenJDK in the examples below.
+Download the version of Java you would like to install.
+If you are running Besu outside a virtual environment, like Docker, you must have Java installed on
+the host machine.
 
-### Ubuntu Installation
+:::tip
+Download [OpenJDK 21](https://jdk.java.net/21/).
+:::
 
-Using `apt-get`, Ubuntu users can easily install Java. First ensure `apt` libraries are installed and up-to-date.
+You can find platform-specific installation instructions with the download.
+The following installation examples use OpenJDK.
 
-```
-sudo apt update && sudo apt upgrade -y
-```
+### Install Java on Ubuntu
 
-Confirm whether Java is already installed.
+You can install OpenJDK on Ubuntu using the `apt-get` command.
 
-```
-java -version
-```
+1. Ensure `apt` libraries are installed and up-to-date:
 
-If this is non-empty, and you would like to update, skip to Upgrading Java.
+    ```bash
+    sudo apt update && sudo apt upgrade -y
+    ```
 
-Next, use `apt` to install the preferred version. 
+2. Confirm whether Java is already installed:
 
-```
-sudo apt-get install openjdk-21-jdk
-```
+    ```bash
+    java -version
+    ```
 
-Then confirm the install with `java -version`. Next, you may need to update your environment to make Java visible to Besu. Edit the `.bashrc` file in your home directory (or create it if needed) and add the following lines to the end of the file.
+    If a version is returned, and you would like to update, see how to [update Java on Ubuntu](#update-java-on-ubuntu).
 
-```
-export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-export PATH=$PATH:$JAVA_HOME/bin
-```
+3. If no version is returned, use `apt` to install the preferred version. 
 
-Make sure to save your changes and source the file running the following in your terminal: 
+    ```bash
+    sudo apt-get install openjdk-21-jdk
+    ```
 
-```
-source ~/.bashrc 
-```
+4. Confirm the installation:
 
-You can verify everything was done correctly by running:
+    ```bash
+    java -version
+    ```
+   
+5. You might need to update your environment to make Java visible to Besu.
+    Edit the `.bashrc` file in your home directory (or create it if needed) and add the following
+    lines to the end of the file:
 
-```
-echo $JAVA_HOME
-echo $PATH
-```
+    ```text title=".bashrc"
+    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+    export PATH=$PATH:$JAVA_HOME/bin
+    ```
 
-You should see the JDK versions output. If so, you're all set! 
+6. Save your changes and source the file:
 
-### MacOS 
+    ```bash
+    source ~/.bashrc 
+    ```
 
-MacOS users can install OpenJDK using Homebrew. With `brew` installed, simply run:
+7. Verify that you updated your environment:
 
-```
-brew install openjdk@21
-```
+    ```bash
+    echo $JAVA_HOME
+    echo $PATH
+    ```
 
-You can target another version if you prefer. 
+    You should see the JDK versions output.
 
-If installed correctly, `java -version` should return the OpenJDK you installed.
+### Install Java on MacOS 
 
-If the above command returns `command not found: java`, check your terminal logs. Brew may prompt you to create a symlink or update your path variables within the logs in the terminal output. If so, you should run the prompts provided. 
+You can install OpenJDK on MacOS using Homebrew.
 
-You're all set!
+1. With `brew` installed, run:
 
-# Updating Java 
+    ```bash
+    brew install openjdk@21
+    ```
 
-## Upgrade Java on Ubuntu
+    You can target another version if you prefer. 
 
-To update Java, simply uninstall the current versions and follow the installation instructions above for Ubuntu. If you started with this guide, try the following:
+2. Confirm the installation:
 
-```
+    ```bash
+    java -version
+    ```
+
+    The OpenJDK version you install should display.
+
+    If this command returns `command not found: java`, check your terminal logs.
+    Brew might prompt you to create a symlink or update your path variables within the logs in the
+    terminal output.
+    If so, run the prompts provided.
+
+## Update Java 
+
+### Update Java on Ubuntu
+
+To update Java on Ubuntu, uninstall the current versions and follow the instructions to
+[install Java on Ubuntu](#install-java-on-ubuntu) with your target version.
+
+If you started with this guide, you can uninstall Java using the following command:
+
+```bash
 sudo apt-get purge openjdk-\*
 ```
 
-You are all set to re-install the target version. 
+### Update Java on MacOS
 
-## Update Java on MacOS
+You can update Java on MacOS using Homebrew.
 
-To update Java, use Homebrew. Start by running `brew ls` to list out all of your homebrew packages. To move JDK versions (i.e. from 17 to 21), you should uninstall the Java formula and reinstall the target version.
+1. List your Homebrew packages:
 
-```
-brew uninstall openjdk@17
-brew install openjdk@21
-```
+    ```bash
+    brew ls
+    ```
 
-If you have installed a version of Java via other means, it will be located at `/Library/Java/JavaVirtualMachines` and can be safely deleted from that directory.
+2. To update the JDK version (for example, from 17 to 21), uninstall the old version and reinstall
+    the target version:
 
-To update point versions of Java, simply run:
+    ```bash
+    brew uninstall openjdk@17
+    brew install openjdk@21
+    ```
 
-```
-brew upgrade openjdk
-```
+    :::note
+    If you installed a version of Java not using Homebrew, it is located at
+    `/Library/Java/JavaVirtualMachines` and can be safely deleted from that directory.
+    :::
 
-That's it! 
+3. To update point versions of Java, run the `upgrade` command:
+
+    ```bash
+    brew upgrade openjdk
+    ```

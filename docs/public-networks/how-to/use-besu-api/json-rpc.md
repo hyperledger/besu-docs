@@ -303,12 +303,19 @@ To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGI
 
 ## Block parameter
 
-When you make requests that might have different results depending on the block accessed, the block parameter specifies the block. Methods such as [`eth_getTransactionByBlockNumberAndIndex`](../../reference/api/index.md#eth_gettransactionbyblocknumberandindex) have a block parameter.
+When you make requests that might have different results depending on the block accessed, the block
+parameter specifies the block.
+Methods such as [`eth_getTransactionByBlockNumberAndIndex`](../../reference/api/index.md#eth_gettransactionbyblocknumberandindex)
+have a block parameter.
 
 The block parameter can have one of the following values:
 
-- `blockNumber` : _quantity_ - The block number, specified in hexadecimal or decimal. 0 represents the genesis block.
-- `blockHash` : _string_ or _object_ - 32-byte block hash or JSON object specifying the block hash. If using a JSON object, you can specify `requireCanonical` to indicate whether the block must be a canonical block. See [this example](https://github.com/hyperledger/besu/blob/a2dedb0b2c7980cdc35db8eb4c094f2eb0dc7deb/ethereum/api/src/test/resources/org/hyperledger/besu/ethereum/api/jsonrpc/eth/eth_getBalance_blockHashObjectCanonical.json).
+- `blockNumber` : _quantity_ - The block number, specified in hexadecimal or decimal.
+  `0` represents the genesis block.
+- `blockHash` : _string_ or _object_ - 32-byte block hash or JSON object specifying the block hash.
+  If using a JSON object, you can specify `requireCanonical` to indicate whether the block must be a
+  canonical block.
+  See [this example](https://github.com/hyperledger/besu/blob/a2dedb0b2c7980cdc35db8eb4c094f2eb0dc7deb/ethereum/api/src/test/resources/org/hyperledger/besu/ethereum/api/jsonrpc/eth/eth_getBalance_blockHashObjectCanonical.json).
 
   :::note
 
@@ -325,6 +332,11 @@ The block parameter can have one of the following values:
 
 - `earliest` : _tag_ - The earliest (genesis) block.
 - `latest` : _tag_ - The last block mined.
-- `pending` : _tag_ - The last block mined plus pending transactions. Use only with [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount).
-- `finalized` : _tag_ - The most recent crypto-economically secure block. It cannot be reorganized outside manual intervention driven by community coordination.
-- `safe` : _tag_ - The most recent block that is safe from reorganization under honest majority and certain synchronicity assumptions.
+- `pending` : _tag_ - When used with [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount),
+  refers to the last block mined plus pending transactions.
+  When used with [`qbft_getValidatorsByBlockNumber`](../../../private-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber),
+  returns a list of validators that will be used to produce the next block.
+- `finalized` : _tag_ - The most recent crypto-economically secure block.
+  It cannot be reorganized outside manual intervention driven by community coordination.
+- `safe` : _tag_ - The most recent block that is safe from reorganization under honest majority and
+  certain synchronicity assumptions.

@@ -25,10 +25,11 @@ The following features are shared with [public networks](../../public-networks/i
   - [Configure ports](../../public-networks/how-to/connect/configure-ports.md)
   - [Manage peers](../../public-networks/how-to/connect/manage-peers.md)
   - [Specify NAT method](../../public-networks/how-to/connect/specify-nat.md)
-- [Configure the Java Virtual Machine](../../public-networks/how-to/configure-jvm/index.md)
-  - [Pass JVM options](../../public-networks/how-to/configure-jvm/pass-jvm-options.md)
-  - [Manage JVM memory](../../public-networks/how-to/configure-jvm/manage-memory.md)
-  - [Use Java Flight Recorder](../../public-networks/how-to/configure-jvm/java-flight-recorder.md)
+- Configure Java:
+  - [Install and update Java](../../public-networks/how-to/configure-java/install-update-java.md)
+  - [Pass JVM options](../../public-networks/how-to/configure-java/pass-jvm-options.md)
+  - [Manage JVM memory](../../public-networks/how-to/configure-java/manage-memory.md)
+  - [Use Java Flight Recorder](../../public-networks/how-to/configure-java/java-flight-recorder.md)
 - Develop dapps:
   - [Use Hardhat](../../public-networks/how-to/develop/hardhat.md)
   - [Use client libraries](../../public-networks/how-to/develop/client-libraries.md)

@@ -22,7 +22,7 @@ CPU requirements are highest when syncing to the network and typically reduce af
 ## Java distribution and installation
 
 Besu requires an installation of Java 17+ to run.
-We currently recommend two Java distributions, [OpenJDK 17](https://jdk.java.net/17/) and
+We currently recommend two Java distributions, [OpenJDK 21](https://jdk.java.net/21/) and
 [OpenJ9](https://www.eclipse.org/openj9/), though you can experiment based on your needs.
 
 OpenJDK is the default for many Java users and is balanced in performance and garbage collection.
@@ -46,95 +46,85 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```
 2. Uncompress the binaries:
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Command" label="Command" default>
+
+    ```bash
+    tar -xvf YOUR_J9_IMAGE.tar.gz
+    ```
    
-   <TabItem value="Command" label="Command" default>
+    </TabItem>
+    <TabItem value="Example" label="Example">
+    
+    ```bash 
+    tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
+    ```
 
-   ```bash
-   tar -xvf YOUR_J9_IMAGE.tar.gz
-   ```
-   </TabItem>
-
-  <TabItem value="Example" label="Example">
-
-   ```bash
-   tar -xvf ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz
-   ```
-   
-   </TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
    
 3. Move the binaries to `bin` directory:
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Command" label="Command" default>
+
+    ```bash
+    sudo cp -r YOUR_IMAGE/ /usr/bin/
+    ```
    
-   <TabItem value="Command" label="Command" default>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-   ```bash
-   sudo cp -r YOUR_IMAGE/ /usr/bin/
-   ```
-   </TabItem>
+    ```bash
+    sudo cp -r jdk-17.0.5+8/ /usr/bin/
+    ```
 
-  <TabItem value="Example" label="Example">
-
-   ```bash
-   sudo cp -r jdk-17.0.5+8/ /usr/bin/
-   ```
-
-   </TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
    
 4. Specify OpenJ9 for Java on your machine:
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Command" label="Command" default>
+
+    ```bash
+    sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
+    sudo update-alternatives --config java (and choose OpenJ9)
+    ```
    
-   <TabItem value="Command" label="Command" default>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-   ```bash
-   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
-   sudo update-alternatives --config java (and choose OpenJ9)
-   ```
+    ```bash
+    sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java"
+    ```
    
-   </TabItem>
-
-  <TabItem value="Example" label="Example">
-
-   ```bash
-   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-17.0.5+8/bin/java"
-   ```
+    </TabItem>
+    </Tabs>
    
-   </TabItem>
+    Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
+    the installation location you specified:
 
-</Tabs>
+    <Tabs>
+    <TabItem value="Command" label="Command" default>
+
+    ```bash
+    export JAVA_HOME=jdk-install-dir`
+    ```
+
+    </TabItem>
+    <TabItem value="Example" label="Example">
+
+    ```bash
+    export JAVA_HOME=/usr/bin/jdk-17.0.5+8
+    ```
    
-   Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
-   the installation location you specified:
-
-<Tabs>
-   
-   <TabItem value="Command" label="Command" default>
-
-   ```bash
-   export JAVA_HOME=jdk-install-dir`
-   ```
-
-   </TabItem>
-
-  <TabItem value="Example" label="Example">
-
-   ```bash
-   export JAVA_HOME=/usr/bin/jdk-17.0.5+8
-   ```
-   
-   </TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
 ## Java Virtual Machine size
 
-For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-jvm/manage-memory.md).
+For Mainnet and testnets, the minimum [Java Virtual Machine (JVM) memory requirement is 8 GB](../how-to/configure-java/manage-memory.md).
 
 JVM memory requirements are highest when syncing, but will reduce after the node is synchronized to the chain head. Monitor your system to determine your actual JVM memory needs.
 

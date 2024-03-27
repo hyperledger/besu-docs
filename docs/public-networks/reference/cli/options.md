@@ -356,7 +356,13 @@ bonsai-historical-block-limit=256
 
 </Tabs>
 
-When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the [maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which Bonsai can reconstruct a historical state. The default is 512.
+When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the [maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which Bonsai can reconstruct a historical state. The default is 512. 
+
+:::note
+
+If you plan on querying historical blocks or state via the [RPC-API](../api/index.md), you may need to adjust the default value or your configured value to avoid errors. 
+
+:::
 
 ### `bootnodes`
 

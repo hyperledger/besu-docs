@@ -8,7 +8,21 @@ tags:
 
 # Data storage formats
 
-Besu offers two formats for storing the world state, [Forest of Tries](#forest-of-tries) and [Bonsai Tries](#bonsai-tries).
+Besu offers two formats for storing the world state, [Bonsai Tries](#bonsai-tries) and [Forest of Tries](#forest-of-tries).
+
+## Bonsai Tries
+
+Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase read performance.
+
+Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the account key. This greatly reduces the disk space needed for storage and allows for less resource-demanding and faster read performance. Bonsai inherently prunes orphaned nodes and old branches.
+
+To run a node with Bonsai Tries data storage format, use the command line option [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
+
+<p align="center">
+
+![Bonsai_tries](../../assets/images/Bonsai_tries.png)
+
+</p>
 
 ## Forest of Tries
 
@@ -43,20 +57,6 @@ Pruning is being deprecated for [Bonsai Tries](#bonsai-tries) and is currently n
 
 :::
 
-## Bonsai Tries
-
-Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase read performance.
-
-Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the account key. This greatly reduces the disk space needed for storage and allows for less resource-demanding and faster read performance. Bonsai inherently prunes orphaned nodes and old branches.
-
-To run a node with Bonsai Tries data storage format, use the command line option [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
-
-<p align="center">
-
-![Bonsai_tries](../../assets/images/Bonsai_tries.png)
-
-</p>
-
 ## Forest of Tries vs. Bonsai Tries
 
 ### Storage requirements
@@ -67,7 +67,7 @@ Forest mode uses significantly more memory than Bonsai. With an [archive node](.
 
 Forest mode must go through all the branches by hash to read a leaf value. Bonsai can access the leaf from the underlying storage directly using the account key. Bonsai will generally read faster than forest mode, particularly if the blocks are more recent.
 
-However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data. To prevent this, you can limit how far Bonsai looks back while reconstructing data. The default limit Bonsai looks back is 512. To change the parameter, use the [`--bonsai-historical-block-limit`](../reference/cli/options.md#bonsai-historical-block-limit) option.
+However, Bonsai becomes increasingly more resource-intensive the further in history you try to read data. To prevent this, you can limit how far Bonsai looks back while reconstructing data. The default limit Bonsai looks back is 512. To change the parameter, use the [`--bonsai-historical-block-limit`](../reference/cli/options.md#bonsai-historical-block-limit) option. This may directly impact [RPC-API](../reference/api/index.md) queries.
 
 :::note
 

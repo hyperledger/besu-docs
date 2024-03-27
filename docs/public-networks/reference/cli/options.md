@@ -360,7 +360,7 @@ When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), 
 
 :::note
 
-If you plan on querying historical blocks or state via the [RPC-API](../api/index.md), you may need to adjust the default value or your configured value to avoid errors. 
+If you plan on querying historical blocks or state using the [JSON-RPC API](../api/index.md), you might need to adjust the default value or your configured value to avoid errors. 
 
 :::
 

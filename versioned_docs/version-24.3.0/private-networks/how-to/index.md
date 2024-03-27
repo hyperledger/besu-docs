@@ -35,3 +35,5 @@ The following features are shared with [public networks](../../public-networks/i
 - Troubleshoot:
   - [Use EVM tool](../../public-networks/how-to/troubleshoot/evm-tool.md)
   - [Trace transactions](../../public-networks/how-to/troubleshoot/trace-transactions.md)
+  - [Troubleshoot performance](../../public-networks/how-to/troubleshoot/performance.md)
+  - [Troubleshoot peering](../../public-networks/how-to/troubleshoot/peering.md)

@@ -282,6 +282,23 @@ The command accepts the following command line options:
 
 Provides storage related actions.
 
+### `revert-metadata`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu storage revert-metadata v2-to-v1
+```
+
+</TabItem>
+
+</Tabs>
+
+Reverts the modifications made by the [database metadata refactor](https://github.com/hyperledger/besu/pull/6555).
+If you need to downgrade Besu, run this subcommand before installing the previous binaries.
+
 ### `revert-variables`
 
 <Tabs>

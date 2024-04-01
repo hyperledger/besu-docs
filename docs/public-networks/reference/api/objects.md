@@ -204,7 +204,7 @@ Returned by [`eth_getTransactionByHash`](index.md#eth_gettransactionbyhash), [`e
 
 ## Transaction call object
 
-Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md#eth_createAccessList), and [`eth_estimateGas`](index.md#eth_estimategas).
+Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md#eth_createaccesslist), and [`eth_estimateGas`](index.md#eth_estimategas).
 
 All transaction call object parameters are optional.
 
@@ -218,7 +218,8 @@ All transaction call object parameters are optional.
 | `maxFeePerGas`         | Quantity, Integer | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
 | `maxFeePerBlobGas`     | Quantity, Integer | Maximum fee the sender is willing to pay per blob gas. Only used for blob transactions introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
 | `value`                | Quantity, Integer | Value transferred, in Wei. |
-| `data` or `input`       | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). |
+| `data`                 | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `input` if both parameters are provided. |
+| `input`                | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `data` if both parameters are provided.  |
 | `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
 | `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
 | `blobVersionedHashes`  | Array | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |

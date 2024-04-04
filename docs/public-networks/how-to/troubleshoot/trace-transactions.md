@@ -9,12 +9,6 @@ tags:
 
 # Trace transactions
 
-:::caution Forest pruning deprecation notice
-
-Forest pruning (using the [`--pruning-enabled`](../../reference/cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
-
-:::
-
 To get detailed information about transaction processing, use the [`TRACE` API](../../reference/api/index.md#trace-methods). Enable the `TRACE` API using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api) command line options.
 
 The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-tracing-apis) and [transaction-trace filtering APIs](#transaction-trace-filtering-apis).
@@ -23,7 +17,10 @@ The `TRACE` API has two sets of trace calls, [ad-hoc tracing APIs](#ad-hoc-traci
 
 These APIs allow you to use the [`trace`, `vmTrace`, or `stateDiff`](../../reference/trace-types.md) diagnostic options when tracing calls or transactions.
 
-To use the ad-hoc tracing APIs, the requested block or transaction must be within the number of [blocks retained](../../reference/cli/options.md#pruning-blocks-retained) with [pruning enabled](../../reference/cli/options.md#pruning-enabled) (by default, 1024).
+When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) with the ad-hoc
+tracing APIs, the requested block or transaction must be within the number of
+[blocks retained](../../reference/cli/options.md#bonsai-historical-block-limit) (by default, 512 
+from the head of the chain).
 
 The ad-hoc tracing APIs are:
 
@@ -36,7 +33,12 @@ The ad-hoc tracing APIs are:
 
 These APIs allow you to filter and search by specific information such as the block, address, or transaction. These APIs only use the [`trace` type](../../reference/trace-types.md#trace).
 
-To use the transaction-trace filtering APIs, your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested block or transaction must be within the number of [blocks retained](../../reference/cli/options.md#pruning-blocks-retained) with [pruning enabled](../../reference/cli/options.md#pruning-enabled) (by default, 1024).
+To use the transaction-trace filtering APIs, your node must be an
+[archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or the requested block
+or transaction must be within the number of
+[blocks retained](../../reference/cli/options.md#bonsai-historical-block-limit) when using
+[Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head
+of the chain).
 
 The transaction-trace filtering APIs are:
 

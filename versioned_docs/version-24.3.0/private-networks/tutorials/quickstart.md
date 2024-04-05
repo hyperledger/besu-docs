@@ -310,6 +310,7 @@ and deploy the `eth_tx` transaction:
 cd smart_contracts
 npm install
 node scripts/public/eth_tx.js
+```
 
 The output is as follows:
 

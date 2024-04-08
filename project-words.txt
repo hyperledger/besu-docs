@@ -316,6 +316,7 @@ librocksdbjni
 lifecycles
 lightchaindata
 lighthouserc
+Linea
 linenums
 linkify
 livenodes
@@ -563,6 +564,7 @@ serviceaccounts
 setaf
 setext
 shiki
+Shomei
 showinfo
 sida
 sighup

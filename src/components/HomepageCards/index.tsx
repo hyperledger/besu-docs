@@ -93,7 +93,7 @@ export default function HomepageCards(): JSX.Element {
         <p>
           Hyperledger Besu is an open source Ethereum client developed under the
           Apache 2.0 license and written in Java. It runs on public and private
-          networks. You can also extend Besu's functionality using plugins.
+          networks. You can also extend Besu&apos;s functionality using plugins.
         </p>
         <div className="row">
           {CardList.map((props, idx) => (

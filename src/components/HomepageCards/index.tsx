@@ -49,7 +49,7 @@ const CardList: CardItem[] = [
     // prettier-ignore
     description: (
       <>
-        Extend Besu's functionality on both public and private networks using the Plugin API.
+        Extend Besu&apos;s functionality on both public and private networks using the Plugin API.
       </>
     ),
     buttonName: "Get started",

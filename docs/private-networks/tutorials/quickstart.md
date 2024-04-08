@@ -266,9 +266,9 @@ Navigate to the `smart_contracts` directory and deploy the public transaction:
 ```bash
 cd smart_contracts
 npm install
-node scripts/public/public_tx.js
+node scripts/public/hre_1559_public_tx.js
 # or via ethers
-node scripts/public/public_tx_ethers.js
+node scripts/public/hre_public_tx.js
 ```
 
 This deploys the contract and sends an arbitrary value (`47`) from `Member1` to `Member3`. The script then performs:
@@ -309,7 +309,7 @@ and deploy the `eth_tx` transaction:
 ```bash
 cd smart_contracts
 npm install
-node scripts/public/eth_tx.js
+node scripts/public/hre_eth_tx.js
 ```
 
 The output is as follows:

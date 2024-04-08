@@ -25,7 +25,7 @@ const CardList: CardItem[] = [
     // prettier-ignore
     description: (
       <>
-        Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Goerli and Sepolia.
+        Run Besu as an execution client on Ethereum Mainnet and public testnets, such as Goerli and Sepolia.
       </>
     ),
     buttonName: "Get started",
@@ -38,6 +38,18 @@ const CardList: CardItem[] = [
     description: (
       <>
         Use private networks for enterprise applications requiring secure, high-performance transaction processing.
+      </>
+    ),
+    buttonName: "Get started",
+    buttonType: "secondary",
+  },
+  {
+    title: "🔌 Plugins",
+    link: "/plugins",
+    // prettier-ignore
+    description: (
+      <>
+        Extend Besu's functionality on both public and private networks using the Plugin API.
       </>
     ),
     buttonName: "Get started",
@@ -81,7 +93,7 @@ export default function HomepageCards(): JSX.Element {
         <p>
           Hyperledger Besu is an open source Ethereum client developed under the
           Apache 2.0 license and written in Java. It runs on public and private
-          networks:
+          networks. You can also extend Besu's functionality using plugins.
         </p>
         <div className="row">
           {CardList.map((props, idx) => (

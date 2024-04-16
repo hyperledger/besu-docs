@@ -4786,7 +4786,7 @@ The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/s
 
 :::note Sync nodes for BFT
 
-If you're running a node with the consensus mechanism IBFT 2.0 or QBFT, your node must use either fast sync or full sync. 
+If you're running a node on a [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) network, your node must use fast sync or full sync.
 
 :::
 

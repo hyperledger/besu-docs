@@ -49,9 +49,7 @@ You can run a full node using [snap synchronization (snap sync)](#snap-synchroni
 
 :::note Sync nodes for BFT
 
-If you're running a node on a [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) network, your node must use [fast sync](#fast-synchronization) or [full sync](#run-an-archive-node). 
-
-Full sync is set by default.
+Snap sync and checkpoint sync are not supported for [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) networks. 
 
 :::
 

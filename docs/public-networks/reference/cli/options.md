@@ -4784,6 +4784,12 @@ The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/s
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
+:::note Sync nodes for BFT
+
+If you're running a node with the consensus mechanism IBFT 2.0 or QBFT, your node must use either fast sync or full sync. 
+
+:::
+
 :::tip
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.

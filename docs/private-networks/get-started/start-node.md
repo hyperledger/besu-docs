@@ -107,7 +107,7 @@ You might need to set [`--tx-pool-limit-by-account-percentage`](../../public-net
 
 :::note Sync nodes for BFT
 
-If you're running a node on a [QBFT](../how-to/configure/consensus/qbft.md) or [IBFT 2.0](../how-to/configure/consensus/ibft.md) network, your node must use [fast sync](../public-networks/get-started/connect/sync-node#fast-synchronization) or [full sync](../public-networks/get-started/connect/sync-node#run-an-archive-node). 
+If you're running a node on a [QBFT](../how-to/configure/consensus/qbft.md) or [IBFT 2.0](../how-to/configure/consensus/ibft.md) network, your node must use [fast sync](../../public-networks/get-started/connect/sync-node#fast-synchronization) or [full sync](../../public-networks/get-started/connect/sync-node#run-an-archive-node). 
 
 Full sync is set by default.
 

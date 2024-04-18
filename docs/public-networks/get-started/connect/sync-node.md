@@ -47,6 +47,12 @@ You can store the world state using [Forest of Tries](../../concepts/data-storag
 
 You can run a full node using [snap synchronization (snap sync)](#snap-synchronization), [checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization), or [fast synchronization (fast sync)](#fast-synchronization).
 
+:::note Sync nodes for BFT
+
+Snap sync and checkpoint sync are not supported for [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) networks. 
+
+:::
+
 ### Snap synchronization
 
 :::tip

@@ -2051,9 +2051,9 @@ min-gas-price=1337
 
 </Tabs>
 
-The minimum price a transaction offers to include it in a mined block.
+The minimum price (in wei) a transaction offers to include it in a mined block.
 The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return.
-The default is 1000 Wei.
+The default is `1000`.
 
 :::tip
 
@@ -2103,7 +2103,7 @@ min-priority-fee=7
 
 </Tabs>
 
-The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block.
+The minimum priority fee per gas (in wei) offered by a transaction to be included in a block.
 The default is `0`.
 
 For a running node, use:

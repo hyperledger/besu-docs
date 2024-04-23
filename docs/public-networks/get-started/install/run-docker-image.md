@@ -85,7 +85,7 @@ When running in a Docker container, [`--nat-method`](../../how-to/connect/specif
 You can specify [Besu environment variables](../../reference/cli/options.md#specify-options) with the Docker image instead of the command line options.
 
 ```bash title="Example"
-docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=goerli hyperledger/besu:latest
+docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=holesky hyperledger/besu:latest
 ```
 
 :::caution Unsupported address type exception
@@ -110,12 +110,12 @@ To run a node that mines blocks at a rate suitable for testing purposes with Web
 docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
 ```
 
-### Run a node on Goerli testnet
+### Run a node on Holesky testnet
 
-To run a node on Goerli:
+To run a node on Holesky:
 
 ```bash
-docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/goerli>,target=/var/lib/besu hyperledger/besu:latest --network=goerli --data-path=/var/lib/besu
+docker run -p 30303:30303 --mount type=bind,source=/<myvolume/besu/holesky>,target=/var/lib/besu hyperledger/besu:latest --network=holesky --data-path=/var/lib/besu
 ```
 
 ### Run a node on Ethereum Mainnet

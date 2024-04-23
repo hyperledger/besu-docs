@@ -2080,7 +2080,7 @@ You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#
 <TabItem value="Example" label="Example">
 
 ```bash
---min-gas-price=7
+--min-priority-fee=7
 ```
 
 </TabItem>

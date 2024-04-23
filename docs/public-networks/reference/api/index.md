@@ -1540,7 +1540,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1595,7 +1595,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -6754,7 +6754,7 @@ None
 | Network ID | Chain | Network | Description                   |
 | ---------- | ----- | ------- | ----------------------------- |
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `5`        | ETH   | Goerli  | PoS test network              |
+| `17000`    | ETH   | Holesky | PoS test network              |
 | `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
@@ -6798,7 +6798,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
 
 </TabItem>
 
-<TabItem value="JSON result for Goerli" label="JSON result for Goerli"> 
+<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
 
 ```json
 {

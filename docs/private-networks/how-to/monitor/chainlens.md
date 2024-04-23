@@ -64,7 +64,7 @@ This may take 5–10 minutes for the all services to start and the ingestion syn
 After starting Chainlens, you can view information about your network.
 
 :::note
-Screenshots in this section are taken from the [Chainlens Goerli network](https://goerli.chainlens.com/dashboard).
+Screenshots in this section are taken from the [Chainlens Holesky network](https://holesky.chainlens.com/dashboard).
 :::
 
 The **Dashboard** page provides an aggregated view of network activities.

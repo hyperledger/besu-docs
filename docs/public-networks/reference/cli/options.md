@@ -2408,7 +2408,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Example" label="Example">
 
 ```bash
---network=goerli
+--network=holesky
 ```
 
 </TabItem>
@@ -2416,7 +2416,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NETWORK=goerli
+BESU_NETWORK=holesky
 ```
 
 </TabItem>
@@ -2424,7 +2424,7 @@ BESU_NETWORK=goerli
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-network="goerli"
+network="holesky"
 ```
 
 </TabItem>
@@ -2438,7 +2438,6 @@ Possible values are:
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
 | :-------- | :---- | :-----------| :----------------- | :------------------------------------------------------------- |
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
@@ -5482,7 +5481,7 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
-The default is `false` for named networks, such as Mainnet or Goerli, and `true`
+The default is `false` for named networks, such as Mainnet or Holesky, and `true`
 for non-named networks.
 
 ### `Xhelp`

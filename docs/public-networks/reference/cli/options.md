@@ -2009,9 +2009,107 @@ Minimum occupancy ratio for a mined block if the transaction pool is not empty. 
 
 :::note
 
-Besu ignores the `--min-block-occupancy-ratio` option for proof of stake networks (for example, Mainnet).
+Besu ignores the `--min-block-occupancy-ratio` option for proof-of-stake networks, such as Ethereum Mainnet.
 
 :::
+
+### `min-gas-price`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-gas-price=<minTransactionGasPrice>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-gas-price=1337
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_GAS_PRICE=1337
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-gas-price=1337
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum price (in wei) a transaction offers to include it in a mined block.
+The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return.
+The default is `1000`.
+
+:::tip
+
+In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum
+gas price is set to zero for every node.
+Any node with a minimum gas price set higher than zero will silently drop transactions with a zero
+gas price.
+You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
+
+:::
+
+### `min-priority-fee`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-priority-fee=<minPriorityFeePerGas>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-priority-fee=7
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_PRIORITY_FEE=7
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-priority-fee=7
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum priority fee per gas (in wei) offered by a transaction to be included in a block.
+The default is `0`.
+
+For a running node, use:
+
+* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
 
 ### `miner-coinbase`
 
@@ -2051,11 +2149,16 @@ miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 
 </Tabs>
 
-The account you pay mining rewards to. You must specify a valid coinbase when you enable mining using the [`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start) JSON-RPC API method.
+The account you pay mining rewards to.
+You must specify a valid coinbase when you enable mining using the
+[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start)
+JSON-RPC API method.
 
 :::note
 
-Besu ignores this option in networks using [Clique](../../../private-networks/how-to/configure/consensus/clique.md), [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md), or [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
+Besu ignores this option in [proof-of-authority](../../../private-networks/concepts/poa.md) networks.
+In proof-of-stake networks, such as Ethereum Mainnet, this option is used as a last resort for the
+fee recipient, if the consensus layer client doesn't provide any.
 
 :::
 
@@ -2137,7 +2240,8 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 
 </Tabs>
 
-A hex string representing the 32 bytes included in the extra data field of a mined block. The default is 0x.
+A hex string representing the 32 bytes included in the extra data field of a created block.
+The default is `0x`.
 
 ### `miner-stratum-enabled`
 
@@ -2169,7 +2273,8 @@ miner-stratum-enabled=true
 
 </Tabs>
 
-Enables a node to perform stratum mining. The default is `false`.
+Enables a node to perform stratum mining.
+The default is `false`.
 
 ### `miner-stratum-host`
 
@@ -2209,7 +2314,8 @@ miner-stratum-host="192.168.1.132"
 
 </Tabs>
 
-The host of the stratum mining service. The default is `0.0.0.0`.
+The host of the stratum mining service.
+The default is `0.0.0.0`.
 
 ### `miner-stratum-port`
 
@@ -2249,96 +2355,9 @@ miner-stratum-port="8010"
 
 </Tabs>
 
-The port of the stratum mining service. The default is `8008`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
-
-### `min-gas-price`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-gas-price=<minTransactionGasPrice>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=1337
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_GAS_PRICE=1337
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-gas-price=1337
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum price a transaction offers to include it in a mined block. The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return. The default is 1000 Wei.
-
-:::tip
-
-In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum gas price is set to zero for every node. Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price. You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
-
-:::
-
-### `min-priority-fee`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-priority-fee=<minPriorityFeePerGas>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=7
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_PRIORITY_FEE=7
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-priority-fee=7
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The default is `0`.
-For a running node, use: 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
-* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+The port of the stratum mining service.
+The default is `8008`.
+You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `nat-method`
 

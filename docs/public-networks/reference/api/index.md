@@ -6237,11 +6237,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 
 ## `MINER` methods
 
-The `MINER` API methods allow you to control: 
-
-* The node’s mining operation.
-* Settings related to block creation. 
-
+The `MINER` API methods allow you to control the node's mining operation, or settings related to
+block creation in general.
 
 :::note
 

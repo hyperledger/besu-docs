@@ -8,48 +8,73 @@ tags:
 
 # Sync Besu
 
-Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and [archive nodes](#run-an-archive-node).
+Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and
+[archive nodes](#run-an-archive-node).
 
-Full nodes have the current state of the blockchain. They can't serve the network with all data requests (for example, the balance of an account at an old block). Full nodes can guarantee the latest state for the blockchain (and some older states, but not all). You can check current balances, sign and send transactions, and look at current dapp data.
+A full node consists of an
+[execution and consensus client](../../concepts/the-merge.md#execution-and-consensus-clients), and
+stores a local copy of the blockchain.
+With a full node, you can check current balances, sign and send transactions, and look at current
+dapp data.
+Full nodes can guarantee the latest state of the blockchain (and some older states).
+However, they can't serve the network with all data requests (for example, the balance of an account
+at an old block).
 
-Archive nodes also store the intermediary state of every account and contract for every block since the genesis block. Archive nodes can do everything full nodes do, and they can access historical state data. Archive nodes require more disk space than full nodes.
+An archive node is a node that also stores the intermediary state of every account and contract
+for every block since the genesis block.
+Archive nodes can do everything full nodes do, and they can also access historical state data.
+However, archive nodes require more disk space than full nodes.
 
-Besu must connect with other peers to sync with the network. If your node is having trouble peering, try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
+Besu must connect with other peers to sync with the network.
+If your node is having trouble peering, try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
 
 ## Sync times
 
-To sync with a public network, Besu runs two processes in parallel: the world state sync and the blockchain download.
-While the world state syncs, Besu downloads and imports the blockchain in the background. The blockchain download time depends on CPU, the network, Besu's peers, and disk speed. The blockchain download generally takes longer than the world state sync.
+To sync with a public network, Besu runs two processes in parallel: the world state sync and the
+blockchain download.
+While the world state syncs, Besu downloads and imports the blockchain in the background.
+The blockchain download time depends on CPU, the network, Besu's peers, and disk speed.
+The blockchain download generally takes longer than the world state sync.
 Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
 
-The following table shows the average world state sync time, and blockchain download time, for each sync mode on Mainnet. All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge. Each sync mode also has its own world state database size.
+The following table shows the average world state sync time, and blockchain download time, for each
+sync mode on Mainnet.
+All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge.
+Each sync mode also has its own world state database size.
 
 | Sync mode  | Time to sync world state | Time to download blockchain | Disk usage    |
-| ---------- | ------------------------ |----------------------------|---------------|
-| Snap       | ~6 hours                 | ~1.5 days                  | Average disk  |
-| Checkpoint | ~5 hours                 | ~13 hours                  | Smallest disk |
-| Fast       | ~1.5 days                | ~1.5 days                  | Average disk  |
-| Full       | ~weeks                   | ~weeks                     | Largest disk  |
+|------------|--------------------------|-----------------------------|---------------|
+| Snap       | ~6 hours                 | ~1.5 days                   | Average disk  |
+| Checkpoint | ~5 hours                 | ~13 hours                   | Smallest disk |
+| Fast       | ~1.5 days                | ~1.5 days                   | Average disk  |
+| Full       | ~weeks                   | ~weeks                      | Largest disk  |
 
-:::note
-
-- As of late 2023, an average Mainnet snap sync consumes around 1000 GB using Bonsai Tries. Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements) across data storage formats and sync modes.
-
+:::note Notes
+- As of late 2023, an average Mainnet snap sync consumes around 1000 GB using Bonsai Tries.
+  Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements)
+  across data storage formats and sync modes.
 - Testnets take significantly less time and space to sync.
-
 :::
 
 ## Storage
 
-You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries) or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries). We recommend using Bonsai Tries for the lowest storage requirements.
+You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
+or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+If you're [running a full node](#run-a-full-node), we recommend using Bonsai Tries for the lowest
+storage requirements.
 
 ## Run a full node
 
-You can run a full node using [snap synchronization (snap sync)](#snap-synchronization), [checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization), or [fast synchronization (fast sync)](#fast-synchronization).
+A full node stores a local copy of the blockchain and the current state of the blockchain.
+You can run a full node using [snap synchronization (snap sync)](#snap-synchronization),
+[checkpoint synchronization (checkpoint sync)](#checkpoint-synchronization), or
+[fast synchronization (fast sync)](#fast-synchronization).
 
 :::note Sync nodes for BFT
 
-Snap sync and checkpoint sync are not supported for [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) networks. 
+Snap sync and checkpoint sync are not supported for
+[QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or
+[IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) networks. 
 
 :::
 
@@ -59,7 +84,8 @@ Snap sync and checkpoint sync are not supported for [QBFT](../../../private-netw
 
 We recommend using snap sync over fast sync because snap sync can be faster by several days.
 
-We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) data storage format for the fastest sync and lowest storage requirements.
+We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+data storage format for the fastest sync and lowest storage requirements.
 
 :::
 
@@ -156,6 +182,14 @@ The easiest solution in this scenario is to restart fast sync to obtain a new pi
 
 ## Run an archive node
 
-To run an archive node, enable full synchronization (full sync) using [`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
+An archive node stores all historical states of the blockchain.
+To run an archive node, enable full synchronization (full sync) using
+[`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
 
 Full sync starts from the genesis block and reprocesses all transactions.
+
+:::caution important
+Do not run an archive node with the [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries)
+data storage format.
+Bonsai is designed for retrieving recent data only.
+:::

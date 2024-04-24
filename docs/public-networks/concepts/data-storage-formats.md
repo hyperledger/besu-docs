@@ -24,6 +24,11 @@ To run a node with Bonsai Tries data storage format, use the command line option
 
 </p>
 
+:::caution important
+Do not run an [archive node](../get-started/connect/sync-node.md#run-an-archive-node) with Bonsai Tries.
+Bonsai is designed for retrieving recent data only.
+:::
+
 ## Forest of Tries
 
 Forest of Tries, also called forest mode, is the default storage format.
@@ -45,7 +50,11 @@ We recommend using [Bonsai Tries](#bonsai-tries) to save disk space.
 
 ### Storage requirements
 
-Forest mode uses significantly more memory than Bonsai. With an [archive node](../get-started/connect/sync-node.md#run-an-archive-node), forest mode uses an estimated 12 TB of storage, while Bonsai uses an estimated 1100 GB of storage. With a [full node](../get-started/connect/sync-node.md#run-a-full-node), forest mode uses an estimated 750 GB of storage, while Bonsai uses an estimated 650 GB of storage.
+Forest mode uses significantly more memory than Bonsai.
+With a [full node](../get-started/connect/sync-node.md#run-a-full-node), forest mode uses an
+estimated 750 GB of storage, while Bonsai uses an estimated 650 GB of storage.
+[Archive nodes](../get-started/connect/sync-node.md#run-an-archive-node) must use forest mode, which
+uses an estimated 12 TB of storage.
 
 ### Accessing data
 

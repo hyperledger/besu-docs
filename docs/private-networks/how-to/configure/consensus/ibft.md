@@ -174,13 +174,13 @@ Optional configuration options in the genesis file are:
 
 After [The Merge](../../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated. Their fields **must** contain only the constant values from the following chart.
 
-| Field | Constant value | Comment |
-| --- | --- | --- |
-| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))` |
-| **`difficulty`** | `0` | Replaced with `prevrandao` |
-| **`mixHash`** | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
-| **`nonce`** | `0x0000000000000000` |  |
-| **`ommers`** | `[]` | `RLP([]) = 0xc0` |
+| Field            | Constant value                                                       | Comment                    |
+|------------------|----------------------------------------------------------------------|----------------------------|
+| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))`     |
+| **`difficulty`** | `0`                                                                  | Replaced with `prevrandao` |
+| **`mixHash`**    | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
+| **`nonce`**      | `0x0000000000000000`                                                 |                            |
+| **`ommers`**     | `[]`                                                                 | `RLP([]) = 0xc0`           |
 
 Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data after The Merge.
 
@@ -250,27 +250,30 @@ Non-validator nodes don't affect performance and don't count towards the maximum
 
 ## Transitions
 
-The `transitions` genesis configuration item allows you to specify a future block number at which to change IBFT 2.0 network configuration in an existing network. For example, you can update the [block time](#configure-block-time-on-an-existing-network-deployment), [block reward](#configure-block-rewards-on-an-existing-network-deployment), or [mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network-deployment).
+The `transitions` genesis configuration item allows you to specify a future block number at which to
+change the IBFT 2.0 network configuration in an existing network.
+For example, you can update the [block time](#configure-block-time-on-an-existing-network),
+[block reward](#configure-block-rewards-on-an-existing-network), or
+[mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network).
 
 :::caution
-
-Do not specify a transition block in the past. Specifying a transition block in the past could result in unexpected behavior, such as causing the network to fork.
-
+Do not specify a transition block in the past.
+Specifying a transition block in the past can result in unexpected behavior, such as causing the
+network to fork.
 :::
 
-### Configure block time on an existing network deployment
+### Configure block time on an existing network
 
 To update an existing network with a new `blockperiodseconds`:
 
-1.  Stop all nodes in the network.
-1.  In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     - `<NewValue>` is the updated value for `blockperiodseconds`.
 
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -294,9 +297,8 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-</TabItem>
-
-<TabItem value="Example" label="Example">
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -320,25 +322,26 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    </Tabs>
 
-</Tabs>
-1.  Restart all nodes in the network using the updated genesis file.
-1.  To verify the changes after the transition block, call [`ibft_getValidatorsByBlockNumber`](../../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+3. Restart all nodes in the network using the updated genesis file.
+4. To verify the changes after the transition block, call
+   [`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber),
+   specifying `latest`.
 
-### Configure block rewards on an existing network deployment
+### Configure block rewards on an existing network
 
 To update an existing network with a new `blockreward`:
 
-1.  Stop all nodes in the network.
-1.  In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     - `<NewValue>` is the updated value for `blockreward`.
 
-<Tabs>
-
-  <TabItem value="Syntax" label="Syntax" default>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -371,9 +374,8 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-  </TabItem>
-
-  <TabItem value="Example" label="Example">
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -406,30 +408,29 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-  </TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
+    
     :::note
 
     You can add multiple `blockreward` updates in one transition object by specifying multiple future blocks.
 
     :::
 
-1.  Restart all nodes in the network using the updated genesis file.
+3. Restart all nodes in the network using the updated genesis file.
 
-### Configure the mining beneficiary on an existing network deployment
+### Configure the mining beneficiary on an existing network
 
 To update an existing network with a new mining beneficiary:
 
-1.  Stop all nodes in the network.
-1.  In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
 
     - `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
     - `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`. Starting at `<FutureBlockNumber>`, block rewards go to this address.
 
-<Tabs>
-
-  <TabItem value="Syntax" label="Syntax" default>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     {
@@ -460,9 +461,8 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-  </TabItem>
-
-  <TabItem value="Example" label="Example">
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
     ```bash
     {
@@ -493,21 +493,13 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-  </TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
+    
     :::note
 
     Setting the `miningbeneficiary` to an empty value clears out any override so that block rewards go to the block producer rather than a global override address.
 
     :::
 
-1.  Restart all nodes in the network using the updated genesis file.
-
-<!-- Acronyms and Definitions -->
-
-_[vanity data]: Validators can include anything they like as vanity data. _[RLP]: Recursive Length Prefix
-
-```
-
-```
+3. Restart all nodes in the network using the updated genesis file.

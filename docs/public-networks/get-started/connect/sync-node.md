@@ -105,7 +105,7 @@ Enable checkpoint sync using [`--sync-mode=CHECKPOINT`](../../reference/cli/opti
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](../../concepts/genesis-file.md).
 
-Ethereum Mainnet and the Goerli testnet configurations already define default checkpoints, so you don't have to add this yourself.
+Ethereum Mainnet and the Holesky testnet configurations already define default checkpoints, so you don't have to add this yourself.
 
 For other networks, you can configure a checkpoint in the genesis file by specifying the block hash, number, and total difficulty as in the following example.
 

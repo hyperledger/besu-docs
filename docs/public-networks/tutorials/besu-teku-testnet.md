@@ -1,7 +1,7 @@
 ---
 title: Run Besu and Teku on a testnet
 sidebar_position: 2
-description: Run Besu and Teku on Goerli or Sepolia testnet.
+description: Run Besu and Teku on Holesky or Sepolia testnet.
 tags:
   - public networks
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Run Besu and Teku on a testnet
 
-Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
+Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on the [Holesky](https://github.com/eth-clients/holesky) and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
 
 :::note
 
@@ -41,7 +41,7 @@ You will specify `jwtsecret.hex` when starting Besu and Teku. This is a shared J
 
 If you're running Teku as a beacon node only, skip to the [next step](#4-start-besu).
 
-If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 
 :::note
 
@@ -49,7 +49,7 @@ If you can't get ETH using the faucet, you can ask for help on the [EthStaker Di
 
 :::
 
-Generate validator keys for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/) (or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) (or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
 
 :::info
 
@@ -63,11 +63,11 @@ Run the following command or specify the options in a [configuration file](../ho
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 besu \
-  --network=goerli            \
+  --network=holesky           \
   --rpc-http-enabled=true     \
   --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \
@@ -115,11 +115,11 @@ To run Teku as a beacon node only (without validator duties), run the following 
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
-  --network=goerli                             \
+  --network=holesky                            \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
@@ -160,11 +160,11 @@ To run Teku as a beacon node and validator in a single process, run the followin
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
-  --network=goerli                                          \
+  --network=holesky                                         \
   --ee-endpoint=http://localhost:8551                       \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
@@ -244,9 +244,9 @@ If you're running Teku as a beacon node only, you're all set. If you're also run
 
 ## 7. Stake ETH
 
-Stake your testnet ETH for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
+Stake your testnet ETH for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/).
 
-You can check your validator status by searching your Ethereum address on the [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/). It may take up to multiple days for your validator to be activated and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/). It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!--links-->
 

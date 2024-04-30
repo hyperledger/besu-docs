@@ -328,7 +328,7 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---chain=<mainnet|goerli|sepolia|dev|classic|mordor|kotti|astor>
+--chain=<mainnet|sepolia|dev|classic|mordor|kotti|astor>
 ```
 
 </TabItem>
@@ -336,7 +336,7 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
   <TabItem value="Example" label="Example">
 
 ```bash
---chain=goerli
+--chain=holesky
 ```
 
 </TabItem>

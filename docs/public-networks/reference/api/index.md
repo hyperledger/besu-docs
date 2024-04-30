@@ -22,12 +22,6 @@ import TabItem from '@theme/TabItem';
 
 :::
 
-:::caution Forest pruning deprecation notice
-
-Forest pruning (using the [`--pruning-enabled`](../cli/options.md#pruning-enable.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
-
-:::
-
 <Postman />
 
 ## `ADMIN` methods
@@ -1546,7 +1540,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1601,7 +1595,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -6243,11 +6237,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 
 ## `MINER` methods
 
-The `MINER` API methods allow you to control: 
-
-* The node’s mining operation.
-* Settings related to block creation. 
-
+The `MINER` API methods allow you to control the node's mining operation, or settings related to
+block creation in general.
 
 :::note
 
@@ -6760,7 +6751,7 @@ None
 | Network ID | Chain | Network | Description                   |
 | ---------- | ----- | ------- | ----------------------------- |
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `5`        | ETH   | Goerli  | PoS test network              |
+| `17000`    | ETH   | Holesky | PoS test network              |
 | `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
@@ -6804,7 +6795,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
 
 </TabItem>
 
-<TabItem value="JSON result for Goerli" label="JSON result for Goerli"> 
+<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
 
 ```json
 {
@@ -6891,10 +6882,11 @@ The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `
 
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified block.
 
-:::tip
-
-Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+the requested block must be within the number of
+[blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
+[Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -6999,10 +6991,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"i
 
 Executes the given call and returns a number of possible traces for it.
 
-:::info
-
-The requested transaction must be contained in a block within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested block must
+be within the number of [blocks retained](../cli/options.md#bonsai-historical-block-limit) (by
+default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -7097,10 +7089,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0
 
 Performs multiple call traces on top of the same block. You can trace dependent transactions.
 
-:::info
-
-The requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested block must
+be within the number of [blocks retained](../cli/options.md#bonsai-historical-block-limit) (by
+default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -7200,10 +7192,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 
 Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
 
-:::info
-
-Your node must be an archive node (synchronized without pruning or fast sync), or the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+the requested blocks must be within the number of
+[blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
+[Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -7301,12 +7294,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBl
 
 ### `trace_get`
 
-Returns trace at given position.
+Returns a trace at the given position.
 
-:::info
-
-Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested transaction must be contained in a block within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+the requested transaction must be contained in a block within the number of
+[blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
+[Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -7382,10 +7376,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9
 
 Traces a call to `eth_sendRawTransaction` without making the call, returning the traces.
 
-:::info
-
-The requested transaction must be contained in a block within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested transaction
+must be contained in a block within the number of
+[blocks retained](../cli/options.md#bonsai-historical-block-limit) (by default, 512 from the head of
+the chain).
 :::
 
 #### Parameters
@@ -7454,18 +7449,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":[
 
 Provides transaction processing tracing per block.
 
-:::caution Forest pruning deprecation notice
-
-Forest pruning (using the [`--pruning-enabled`](../cli/options.md#pruning-enabled) option) is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
-
-:::
-
-:::info
-
-When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested block must be within the number of [blocks retained](../cli/options.md#bonsai-historical-block-limit) (by default, 512 from the head of the chain).
-
-When using [Forest](../../concepts/data-storage-formats.md#forest-of-tries), the requested block must be within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024 from head of the chain).
-
+:::info note
+When using [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries), the requested block must
+be within the number of [blocks retained](../cli/options.md#bonsai-historical-block-limit) (by
+default, 512 from the head of the chain).
 :::
 
 #### Parameters
@@ -7586,10 +7573,11 @@ curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions
 
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified transaction.
 
-:::info
-
-Your node must be an archive node (that is, synchronized without pruning or fast sync) or the requested transaction must be contained in a block within the number of [blocks retained](../cli/options.md#pruning-blocks-retained) with [pruning enabled](../cli/options.md#pruning-enabled) (by default, 1024).
-
+:::info note
+Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+the requested transaction must be contained in a block within the number of
+[blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
+[Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
 :::
 
 #### Parameters

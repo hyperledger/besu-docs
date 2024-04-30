@@ -2009,9 +2009,107 @@ Minimum occupancy ratio for a mined block if the transaction pool is not empty. 
 
 :::note
 
-Besu ignores the `--min-block-occupancy-ratio` option for proof of stake networks (for example, Mainnet).
+Besu ignores the `--min-block-occupancy-ratio` option for proof-of-stake networks, such as Ethereum Mainnet.
 
 :::
+
+### `min-gas-price`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-gas-price=<minTransactionGasPrice>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-gas-price=1337
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_GAS_PRICE=1337
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-gas-price=1337
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum price (in wei) a transaction offers to include it in a mined block.
+The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return.
+The default is `1000`.
+
+:::tip
+
+In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum
+gas price is set to zero for every node.
+Any node with a minimum gas price set higher than zero will silently drop transactions with a zero
+gas price.
+You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
+
+:::
+
+### `min-priority-fee`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-priority-fee=<minPriorityFeePerGas>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-priority-fee=7
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_PRIORITY_FEE=7
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-priority-fee=7
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum priority fee per gas (in wei) offered by a transaction to be included in a block.
+The default is `0`.
+
+For a running node, use:
+
+* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
 
 ### `miner-coinbase`
 
@@ -2051,11 +2149,16 @@ miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 
 </Tabs>
 
-The account you pay mining rewards to. You must specify a valid coinbase when you enable mining using the [`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start) JSON-RPC API method.
+The account you pay mining rewards to.
+You must specify a valid coinbase when you enable mining using the
+[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start)
+JSON-RPC API method.
 
 :::note
 
-Besu ignores this option in networks using [Clique](../../../private-networks/how-to/configure/consensus/clique.md), [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md), or [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
+Besu ignores this option in [proof-of-authority](../../../private-networks/concepts/poa.md) networks.
+In proof-of-stake networks, such as Ethereum Mainnet, this option is used as a last resort for the
+fee recipient, if the consensus layer client doesn't provide any.
 
 :::
 
@@ -2137,7 +2240,8 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 
 </Tabs>
 
-A hex string representing the 32 bytes included in the extra data field of a mined block. The default is 0x.
+A hex string representing the 32 bytes included in the extra data field of a created block.
+The default is `0x`.
 
 ### `miner-stratum-enabled`
 
@@ -2169,7 +2273,8 @@ miner-stratum-enabled=true
 
 </Tabs>
 
-Enables a node to perform stratum mining. The default is `false`.
+Enables a node to perform stratum mining.
+The default is `false`.
 
 ### `miner-stratum-host`
 
@@ -2209,7 +2314,8 @@ miner-stratum-host="192.168.1.132"
 
 </Tabs>
 
-The host of the stratum mining service. The default is `0.0.0.0`.
+The host of the stratum mining service.
+The default is `0.0.0.0`.
 
 ### `miner-stratum-port`
 
@@ -2249,96 +2355,9 @@ miner-stratum-port="8010"
 
 </Tabs>
 
-The port of the stratum mining service. The default is `8008`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
-
-### `min-gas-price`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-gas-price=<minTransactionGasPrice>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=1337
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_GAS_PRICE=1337
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-gas-price=1337
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum price a transaction offers to include it in a mined block. The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return. The default is 1000 Wei.
-
-:::tip
-
-In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum gas price is set to zero for every node. Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price. You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
-
-:::
-
-### `min-priority-fee`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-priority-fee=<minPriorityFeePerGas>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=7
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_PRIORITY_FEE=7
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-priority-fee=7
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The default is `0`.
-For a running node, use: 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
-* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+The port of the stratum mining service.
+The default is `8008`.
+You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `nat-method`
 
@@ -2408,7 +2427,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Example" label="Example">
 
 ```bash
---network=goerli
+--network=holesky
 ```
 
 </TabItem>
@@ -2416,7 +2435,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NETWORK=goerli
+BESU_NETWORK=holesky
 ```
 
 </TabItem>
@@ -2424,7 +2443,7 @@ BESU_NETWORK=goerli
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-network="goerli"
+network="holesky"
 ```
 
 </TabItem>
@@ -2438,7 +2457,6 @@ Possible values are:
 | Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
 | :-------- | :---- | :-----------| :----------------- | :------------------------------------------------------------- |
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
@@ -2758,150 +2776,6 @@ Possible values are:
 - [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
 - [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
 - [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
-
-### `pruning-block-confirmations`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---pruning-block-confirmations=<INTEGER>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---pruning-block-confirmations=5
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_PRUNING_BLOCK_CONFIRMATIONS=5
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-pruning-block-confirmations=5
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum number of confirmations on a block before marking of newly-stored or in-use state trie nodes that cannot be pruned. The default is 10.
-
-:::info
-
-Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) is not supported.
-
-:::
-
-### `pruning-blocks-retained`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---pruning-blocks-retained=<INTEGER>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---pruning-blocks-retained=10000
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_PRUNING_BLOCKS_RETAINED=10000
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-pruning-blocks-retained=10000
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum number of recent blocks to keep the entire world state for. The default is 1024.
-
-:::info
-
-Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
-
-:::
-
-### `pruning-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---pruning-enabled
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---pruning-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_PRUNING_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-pruning-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables [pruning](../../concepts/data-storage-formats.md#pruning) to reduce storage required for the world state. The default is `false`.
-
-:::info
-
-Using pruning with [private transactions](../../../private-networks/concepts/privacy/index.md) isn't supported.
-
-:::
-
-:::caution
-
-This option is deprecated and will be removed in a future release. We recommend using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) as an alternative for saving disk space.
-
-:::
 
 ### `random-peer-priority-enabled`
 
@@ -4968,6 +4842,12 @@ The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/s
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
+:::note Sync nodes for BFT
+
+If you're running a node on a [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) network, your node must use fast sync or full sync.
+
+:::
+
 :::tip
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
@@ -5660,7 +5540,7 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
-The default is `false` for named networks, such as Mainnet or Goerli, and `true`
+The default is `false` for named networks, such as Mainnet or Holesky, and `true`
 for non-named networks.
 
 ### `Xhelp`

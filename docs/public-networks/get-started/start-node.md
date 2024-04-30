@@ -24,7 +24,7 @@ To delete the local block data, delete the `database` directory in the `besu/bui
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Goerli](#run-a-node-on-goerli-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Holesky](#run-a-node-on-holesky-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
 :::info
 
@@ -80,18 +80,6 @@ The following settings are a security risk in production environments:
 
 :::
 
-## Run a node on Goerli testnet
-
-To run a node on [Goerli](https://github.com/goerli/testnet) specifying a data directory:
-
-```bash
-besu --network=goerli --data-path=<path>/<goerlidata-path>
-```
-
-Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
-
-See the [guide on connecting to a testnet](connect/testnet.md) for more information.
-
 ## Run a node on Holesky testnet
 
 To run a node on [Holesky](https://github.com/eth-clients/holesky) specifying a data directory:
@@ -106,7 +94,7 @@ See the [guide on connecting to a testnet](connect/testnet.md) for more informat
 
 ## Run a node on Sepolia testnet
 
-To run a node on [Sepolia](https://github.com/goerli/sepolia) specifying a data directory:
+To run a node on [Sepolia](https://github.com/eth-clients/sepolia) specifying a data directory:
 
 ```bash
 besu --network=sepolia --data-path=<path>/<sepoliadata-path>

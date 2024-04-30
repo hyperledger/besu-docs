@@ -36,25 +36,9 @@ In forest mode, each node in the trie is saved in a key-value store by hash. For
 
 </p>
 
-### Pruning
-
-Pruning reduces the storage required by removing state trie nodes unreachable from [recent blocks](../../public-networks/reference/cli/options.md#pruning-blocks-retained).
-
-Pruning is disabled by default, and can be enabled with the [`--pruning-enabled`](../../public-networks/reference/cli/options.md#pruning-enabled) command line option.
-
-:::info
-
-Using pruning with [private transactions](../../private-networks/concepts/privacy/private-transactions)
-isn't supported.
-
-:::
-
-Pruning might increase block import times, but it doesn't affect the ability of nodes to stay in sync.
-
-:::caution
-
-Pruning is being deprecated for [Bonsai Tries](#bonsai-tries) and is currently not being updated.
-
+:::warning
+Forest pruning using the `--pruning-enabled` option is no longer supported.
+We recommend using [Bonsai Tries](#bonsai-tries) to save disk space.
 :::
 
 ## Forest of Tries vs. Bonsai Tries

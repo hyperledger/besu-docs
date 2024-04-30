@@ -289,6 +289,14 @@ const config = {
       {
         redirects: [
           {
+            from: ["/en/latest", "/en/development", "/latest", "/development"],
+            to: "/development/public-networks",
+          },
+          {
+            from: "/public-networks/how-to/configuration-file",
+            to: "/public-networks/how-to/use-configuration-file",
+          },
+          {
             from: "/private-networks/tutorials/permissioning/onchain",
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
@@ -296,13 +304,23 @@ const config = {
             from: "/private-networks/tutorials/permissioning/upgrade-contracts",
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
-          /*
-          {
-            from: "/public-networks/how-to/configuration-file",
-            to: "/public-networks/how-to/use-configuration-file",
-          },
-          */
         ],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/development")) {
+            return [
+              existingPath.replace("/development", "/en/development"),
+              existingPath.replace("/development", "/en/latest"),
+              existingPath.replace("/development", "/latest"),
+            ];
+          }
+          if (existingPath.includes("/")) {
+            return [
+              existingPath.replace("/", "/en/stable"),
+              existingPath.replace("/", "/stable"),
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
       },
     ],
   ],

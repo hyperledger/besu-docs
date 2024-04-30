@@ -69,7 +69,7 @@ By default, Clique creates empty blocks. For large private networks using Clique
 
 To skip creating empty blocks, set `createemptyblocks` to `false` in the genesis file: 
 
-```bash
+```json
 {
   "config": {
     "londonBlock": 0,
@@ -172,7 +172,8 @@ Define the number of blocks between epoch transitions in the [Clique genesis fil
 
 The `transitions` genesis configuration item allows you to specify a future block number at which to
 change the Clique network configuration in an existing network.
-For example, you can update the [block time](#configure-block-time-on-an-existing-network).
+For example, you can update the [block time](#configure-block-time-on-an-existing-network) and
+whether to [create empty blocks](#configure-empty-blocks-on-an-existing-network).
 
 :::caution
 Do not specify a transition block in the past.
@@ -193,7 +194,7 @@ To update an existing network with a new `blockperiodseconds`:
     <Tabs>
     <TabItem value="Syntax" label="Syntax" default>
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -219,7 +220,7 @@ To update an existing network with a new `blockperiodseconds`:
     </TabItem>
     <TabItem value="Example" label="Example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -250,9 +251,75 @@ To update an existing network with a new `blockperiodseconds`:
     </Tabs>
 
 3. Restart all nodes in the network using the updated genesis file.
-4. To verify the changes after the transition block, call
-   [`clique_getSigners`](../../../reference/api/index.md#clique_getsigners),
-   specifying `latest`.
+4. To verify the changes after the transition block, view the Besu logs and check that the time
+   difference between each block matches the updated block period.
+
+### Configure empty blocks on an existing network
+
+To update an existing network with a new [`createemptyblocks`](#skip-empty-blocks):
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    - `<FutureBlockNumber>` is the upcoming block at which to change `createemptyblocks`.
+    - `<NewValue>` is the updated value for `createemptyblocks`.
+
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": <FutureBlockNumber>,
+              "createemptyblocks": <NewValue>
+            }
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    <TabItem value="Example" label="Example">
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": 10,
+              "createemptyblocks": false
+            }
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    </Tabs>
+
+3. Restart all nodes in the network using the updated genesis file.
 
 ## Limitations
 

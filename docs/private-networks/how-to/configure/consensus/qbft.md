@@ -417,7 +417,7 @@ To update an existing network with a new `blockperiodseconds`:
     <Tabs>
     <TabItem value="Syntax" label="Syntax" default>
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -442,7 +442,7 @@ To update an existing network with a new `blockperiodseconds`:
     </TabItem>
     <TabItem value="Example" label="Example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -468,9 +468,8 @@ To update an existing network with a new `blockperiodseconds`:
     </Tabs>
 
 3.  Restart all nodes in the network using the updated genesis file.
-4.  To verify the changes after the transition block, call
-    [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#qbft_getvalidatorsbyblocknumber),
-    specifying `latest`.
+4.  To verify the changes after the transition block, view the Besu logs and check that the time
+    difference between each block matches the updated block period.
 
 ### Configure block rewards on an existing network
 
@@ -485,7 +484,7 @@ To update an existing network with a new `blockreward`:
     <Tabs>
     <TabItem value="Syntax" label="Syntax" default>
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -519,7 +518,7 @@ To update an existing network with a new `blockreward`:
     </TabItem>
     <TabItem value="Example" label="Example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -575,7 +574,7 @@ To swap between block header validator selection and contract validator selectio
     <Tabs>
     <TabItem value="Syntax" label="Syntax" default>
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -601,7 +600,7 @@ To swap between block header validator selection and contract validator selectio
     </TabItem>
     <TabItem value="Example" label="Example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -642,7 +641,7 @@ To update an existing network with a new mining beneficiary:
     <Tabs>
     <TabItem value="Syntax" label="Syntax" default>
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -671,7 +670,7 @@ To update an existing network with a new mining beneficiary:
     </TabItem>
     <TabItem value="Example" label="Example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...

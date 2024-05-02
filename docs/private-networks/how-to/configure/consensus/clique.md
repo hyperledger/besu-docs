@@ -8,6 +8,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure Clique consensus
 
 Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](index.md). Private networks can use Clique.
@@ -35,7 +38,8 @@ A Clique genesis file defines properties specific to Clique.
     "berlinBlock": 0,
     "clique": {
       "blockperiodseconds": 15,
-      "epochlength": 30000
+      "epochlength": 30000,
+      "createemptyblocks": true
     }
   },
   "coinbase": "0x0000000000000000000000000000000000000000",
@@ -65,7 +69,7 @@ By default, Clique creates empty blocks. For large private networks using Clique
 
 To skip creating empty blocks, set `createemptyblocks` to `false` in the genesis file: 
 
-```bash
+```json
 {
   "config": {
     "londonBlock": 0,
@@ -102,13 +106,13 @@ The `extraData` property consists of:
 
 After [The Merge](../../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated. Their fields **must** contain only the constant values from the following chart.
 
-| Field | Constant value | Comment |
-| --- | --- | --- |
-| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))` |
-| **`difficulty`** | `0` | Replaced with `prevrandao` |
-| **`mixHash`** | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
-| **`nonce`** | `0x0000000000000000` |  |
-| **`ommers`** | `[]` | `RLP([]) = 0xc0` |
+| Field            | Constant value                                                       | Comment                    |
+|------------------|----------------------------------------------------------------------|----------------------------|
+| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))`     |
+| **`difficulty`** | `0`                                                                  | Replaced with `prevrandao` |
+| **`mixHash`**    | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
+| **`nonce`**      | `0x0000000000000000`                                                 |                            |
+| **`ommers`**     | `[]`                                                                 | `RLP([]) = 0xc0`           |
 
 Additionally, [`extraData`](#extra-data) is limited to 32 bytes of vanity data after The Merge.
 
@@ -163,6 +167,159 @@ The process for removing a signer from a Clique network is the same as [adding a
 At each epoch transition, Clique discards all pending votes collected from received blocks. Existing proposals remain in effect and signers re-add their vote the next time they create a block.
 
 Define the number of blocks between epoch transitions in the [Clique genesis file](#genesis-file).
+
+## Transitions
+
+The `transitions` genesis configuration item allows you to specify a future block number at which to
+change the Clique network configuration in an existing network.
+For example, you can update the [block time](#configure-block-time-on-an-existing-network) and
+whether to [create empty blocks](#configure-empty-blocks-on-an-existing-network).
+
+:::caution
+Do not specify a transition block in the past.
+Specifying a transition block in the past can result in unexpected behavior, such as causing the
+network to fork.
+:::
+
+### Configure block time on an existing network
+
+To update an existing network with a new `blockperiodseconds`:
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    - `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
+    - `<NewValue>` is the updated value for `blockperiodseconds`.
+
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": <FutureBlockNumber>,
+              "blockperiodseconds": <NewValue>
+            }
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    <TabItem value="Example" label="Example">
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": 3,
+              "blockperiodseconds": 1
+            },
+            {
+              "block": 6,
+              "blockperiodseconds": 2
+            },
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    </Tabs>
+
+3. Restart all nodes in the network using the updated genesis file.
+4. To verify the changes after the transition block, view the Besu logs and check that the time
+   difference between each block matches the updated block period.
+
+### Configure empty blocks on an existing network
+
+To update an existing network with a new [`createemptyblocks`](#skip-empty-blocks):
+
+1. Stop all nodes in the network.
+2. In the [genesis file](#genesis-file), add the `transitions` configuration item where:
+
+    - `<FutureBlockNumber>` is the upcoming block at which to change `createemptyblocks`.
+    - `<NewValue>` is the updated value for `createemptyblocks`.
+
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": <FutureBlockNumber>,
+              "createemptyblocks": <NewValue>
+            }
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    <TabItem value="Example" label="Example">
+
+    ```json
+    {
+      "config": {
+        ...
+        "clique": {
+          "blockperiodseconds": 3,
+          "epochlength": 30,
+          "requesttimeoutseconds": 6,
+          "createemptyblocks": true
+        },
+        "transitions": {
+          "clique": [
+            {
+              "block": 10,
+              "createemptyblocks": false
+            }
+          ]
+        }
+      },
+      ...
+    }
+    ```
+
+    </TabItem>
+    </Tabs>
+
+3. Restart all nodes in the network using the updated genesis file.
 
 ## Limitations
 

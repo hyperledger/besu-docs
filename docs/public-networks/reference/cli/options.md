@@ -2857,7 +2857,7 @@ receipt-compaction-enabled=true
 
 Enables or disables receipt compaction. 
 Compacting receipts reduces storage by trimming unnecessary data from transaction receipts. 
-Disabled by default, this option optimizes storage efficiency.
+The default is `false`.
 
 ### `remote-connections-limit-enabled`
 

@@ -2108,8 +2108,8 @@ The default is `0`.
 
 For a running node, use:
 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
-* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+* [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
 
 ### `miner-coinbase`
 

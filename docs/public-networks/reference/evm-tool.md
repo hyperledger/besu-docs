@@ -1,6 +1,7 @@
 ---
 title: EVM tool options
 sidebar_position: 5
+toc_max_heading_level: 3
 description: Besu EVM tool options reference
 tags:
   - public networks

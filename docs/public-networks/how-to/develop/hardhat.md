@@ -22,8 +22,8 @@ To add the wallet provider, update the `hardhat.config.ts` file in the project d
 
 - `<JSON-RPC-http-endpoint>` with the JSON-RPC endpoint (IP address and port) of a Besu node.
 - `<MY-ACCOUNT-MNEMONIC>` with the list of words that make up your account's mnemonic.
-- `<MY-PASSWORD`> your password if used
-- `<MY-ACCOUNT-PRIVATE-KEY>` your account's private key
+- `<MY-PASSWORD`> with your password if used.
+- `<MY-ACCOUNT-PRIVATE-KEY>` with your account's private key.
 
 ```js
 module.exports = {

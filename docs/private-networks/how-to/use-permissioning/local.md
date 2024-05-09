@@ -22,11 +22,9 @@ If using Kubernetes, enable domain name support and use the `--Xdns-update-enabl
 
 :::
 
-:::info Nodes allowlist in the permissions configuration file
-
-`nodes-allowlist=["enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.168.0.9:4567","enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.169.0.9:4568"]`
-
-:::
+```toml title="Nodes allowlist in the permissions configuration file"
+nodes-allowlist=["enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.168.0.9:4567","enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@192.169.0.9:4568"]
+```
 
 Node allowlisting is at the node level. That is, each node in the network has a [permissions configuration file](#permissions-configuration-file) file in the [data directory](../../../public-networks/reference/cli/options.md#data-path) for the node.
 
@@ -60,8 +58,8 @@ The `PERM` API methods are not enabled by default. To enable the `PERM` API meth
 
 To update the nodes allowlist while the node is running, use the following JSON-RPC API methods:
 
-- [perm_addNodesToAllowlist](../../reference/api/index.md#perm_addnodestoallowlist)
-- [perm_removeNodesFromAllowlist](../../reference/api/index.md#perm_removenodesfromallowlist)
+- [`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist)
+- [`perm_removeNodesFromAllowlist`](../../reference/api/index.md#perm_removenodesfromallowlist)
 
 You can also update the [`permissions_config.toml`](#permissions-configuration-file) file directly and then update the allowlist using the [`perm_reloadPermissionsFromFile`](../../reference/api/index.md#perm_reloadpermissionsfromfile) method.
 
@@ -69,7 +67,7 @@ Updates to the permissions configuration file persist across node restarts.
 
 ### View the node allowlist
 
-To view the nodes allowlist, use the [perm_getNodesAllowlist](../../reference/api/index.md#perm_getnodesallowlist) method.
+To view the nodes allowlist, use the [`perm_getNodesAllowlist`](../../reference/api/index.md#perm_getnodesallowlist) method.
 
 :::note
 
@@ -77,8 +75,7 @@ Each node has a [permissions configuration file](#permissions-configuration-file
 
 :::
 
-```bash Example of different node allowlists
-
+```text title="Example of different node allowlists"
 Node 1 Allowlist = [Node 2, Node 3]
 
 Node 2 Allowlist = [Node 3, Node 5]
@@ -119,8 +116,7 @@ The following diagram illustrates applying local and onchain permissioning rules
 
 ![Permissioning Flow](../../../assets/images/PermissioningFlow.png)
 
-```bash title="Example of different account allowlists"
-
+```text title="Example of different account allowlists"
 Node 1 Allowlist = [Account A, Account B]
 
 Node 2 Allowlist = [Account B, Account C]
@@ -134,7 +130,6 @@ the block created by the Mining Node.
 
 Node 2 now has a transaction in the blockchain from Account A, which is not on the accounts
 allowlist for Node 2.
-
 ```
 
 :::note

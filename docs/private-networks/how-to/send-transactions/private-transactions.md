@@ -24,7 +24,7 @@ Private transactions either deploy contracts or call contract functions. Ether t
 
 :::
 
-## eea_sendRawTransaction
+## `eea_sendRawTransaction`
 
 [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) distributes the private transaction to the participating nodes, and signs and submits the PMT, as described in [Private transaction processing](../../concepts/privacy/private-transactions/processing.md).
 
@@ -34,7 +34,7 @@ If [sending concurrent transactions](concurrent-private-transactions.md), you mu
 
 :::
 
-## priv_distributeRawTransaction
+## `priv_distributeRawTransaction`
 
 Use [`priv_distributeRawTransaction`](../../reference/api/index.md#priv_distributerawtransaction) instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction) when sending [concurrent private transactions](concurrent-private-transactions.md).
 

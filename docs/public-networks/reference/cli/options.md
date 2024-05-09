@@ -2055,6 +2055,11 @@ The minimum price (in wei) a transaction offers to include it in a mined block.
 The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return.
 The default is `1000`.
 
+For a running node, use:
+
+* [`miner_getMinGasPrice`](../api/index.md#miner_getmingasprice) to get the value.
+* [`miner_setMinGasPrice`](../api/index.md#miner_setmingasprice) to change the value.
+
 :::tip
 
 In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum
@@ -2108,8 +2113,8 @@ The default is `0`.
 
 For a running node, use:
 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
-* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+* [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
 
 ### `miner-coinbase`
 

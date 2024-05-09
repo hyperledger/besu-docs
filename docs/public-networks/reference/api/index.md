@@ -620,7 +620,7 @@ Returns account information at the specified index of the specified block.
 
 - `nonce`: _quantity_ - number of transactions made by the account before this one
 
-- `balance`: _quantity_ - balance of the account in Wei
+- `balance`: _quantity_ - balance of the account in wei
 
 - `codehash`: _data_ - code hash for the account
 
@@ -2831,9 +2831,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5"
 
 ### `eth_gasPrice`
 
-Returns a percentile gas unit price for the most recent blocks, in Wei. By default, the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value) is returned.
+Returns a percentile gas unit price for the most recent blocks, in wei. By default, the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value) is returned.
 
-If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 Wei and 500GWei.
+If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 wei and 500 gwei.
 
 Use the [`--api-gas-price-blocks`](../cli/options.md#api-gas-price-blocks), [`--api-gas-price-percentile`](../cli/options.md#api-gas-price-percentile) , and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max) command line options to configure the `eth_gasPrice` default values.
 
@@ -2843,7 +2843,7 @@ None
 
 #### Returns
 
-`result`: _string_ - percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value
+`result`: _string_ - percentile gas unit price for the most recent blocks, in wei, as a hexadecimal value
 
 <Tabs>
 
@@ -2925,7 +2925,7 @@ Returns the account balance of the specified address.
 
 #### Returns
 
-`result`: _string_ - current balance, in Wei, as a hexadecimal value
+`result`: _string_ - current balance, in wei, as a hexadecimal value
 
 <Tabs>
 
@@ -6252,7 +6252,7 @@ Updates the target gas limit set using the [`--target-gas-limit`](../cli/options
 
 #### Parameters
 
-`gasPrice`: _number_ - target gas price in Wei
+`gasPrice`: _number_ - target gas price in wei
 
 #### Returns
 
@@ -6295,10 +6295,12 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 </Tabs>
 
-### `miner_getMinPriorityFee`
+### `miner_getMinGasPrice`
 
-Gets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
-Use [`miner_setMinPriorityFee`](#minersetminpriorityfee) to change the current value of the fee.
+Gets the minimum gas price (in wei) offered by a transaction to be included in a block.
+The initial value is set using the [`--min-gas-price`](../cli/options.md#min-gas-price) command line
+option, or is set to `1000` if the command line option is not specified.
+Use [`miner_setMinGasPrice`](#miner_setmingasprice) to change the current value of the gas price.
 
 #### Parameters
 
@@ -6306,7 +6308,56 @@ None
 
 #### Returns
 
-`result`: _string_ - Minimum priority fee per gas (in Wei) as a hexadecimal string
+`result`: _string_ - Minimum gas price (in wei) as a hexadecimal string
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinGasPrice","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getMinGasPrice",
+  "params": [],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x3e8"
+}
+```
+</TabItem>
+
+</Tabs>
+
+### `miner_getMinPriorityFee`
+
+Gets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_setMinPriorityFee`](#miner_setminpriorityfee) to change the current value of the fee.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Minimum priority fee per gas (in wei) as a hexadecimal string
 
 <Tabs>
 
@@ -6399,18 +6450,70 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 </Tabs>
 
-### `miner_setMinPriorityFee`
+### `miner_setMinGasPrice`
 
-Sets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
-Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current value of the fee.
+Sets the minimum gas price (in wei) offered by a transaction to be included in a block.
+The initial value is set using the [`--min-gas-price`](../cli/options.md#min-gas-price) command line
+option, or is set to `1000` if the command line option is not specified.
+Use [`miner_getMinGasPrice`](#miner_getmingasprice) to get the current value of the gas price.
 
 #### Parameters
 
-`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal. 
+`minGasPrice`: _string_ - Minimum gas price in hexadecimal
 
 #### Returns
 
-`result`: _boolean_ - `true` when fee is set
+`result`: _boolean_ - `true` when the gas price is set
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinGasPrice","params":["0x5dc"],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setMinGasPrice",
+  "params": ["0x5dc"],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": true
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_setMinPriorityFee`
+
+Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_getMinPriorityFee`](#miner_getminpriorityfee) to get the current value of the fee.
+
+#### Parameters
+
+`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal
+
+#### Returns
+
+`result`: _boolean_ - `true` when the fee is set
 
 <Tabs>
 

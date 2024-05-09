@@ -40,9 +40,11 @@ npm install web3js-quorum
 
 ## Initialize the web3js-quorum client
 
-Initialize your client where:
-
-- `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your Hyperledger Besu node. Specified by the [`--rpc-http-host`](../../../public-networks/reference/cli/options.md#rpc-http-host) and [`--rpc-http-port`](../../../public-networks/reference/cli/options.md#rpc-http-port) command line options.
+Initialize your client where `<JSON-RPC HTTP endpoint>` is the JSON-RPC HTTP endpoint of your
+Hyperledger Besu node.
+Specified by the [`--rpc-http-host`](../../../public-networks/reference/cli/options.md#rpc-http-host)
+and [`--rpc-http-port`](../../../public-networks/reference/cli/options.md#rpc-http-port) command
+line options.
 
 <Tabs>
 

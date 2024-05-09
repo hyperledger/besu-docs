@@ -43,9 +43,7 @@ Using [public key authentication](#jwt-public-key-authentication) disables the `
 
 The `toml` credentials file defines user details and the JSON-RPC methods they can access.
 
-:::info Sample `auth.toml` credentials file
-
-```toml
+```toml title="auth.toml"
 [Users.username1]
 password = "$2a$10$l3GA7K8g6rJ/Yv.YFSygCuI9byngpEzxgWS9qEg5emYDZomQW7fGC"
 permissions=["net:*","eth:blockNumber"]
@@ -56,8 +54,6 @@ password = "$2b$10$6sHt1J0MVUGIoNKvJiK33uaZzUwNmMmJlaVLkIwinkPiS1UBnAnF2"
 permissions=["net:version","admin:*"]
 privacyPublicKey="quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="
 ```
-
-:::
 
 Each user requiring JSON-RPC access the configuration file lists the:
 

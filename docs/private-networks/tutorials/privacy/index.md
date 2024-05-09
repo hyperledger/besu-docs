@@ -29,7 +29,9 @@ In this tutorial we start Tessera nodes for the four Besu nodes and associate ea
 
 - [Install Tessera](https://docs.tessera.consensys.net/category/install).
 
-## 1. Create Tessera directories
+## Steps
+
+### 1. Create Tessera directories
 
 Inside each `Node-*` directory, create a `Tessera` directory:
 
@@ -49,7 +51,7 @@ IBFT-Network/
     ├── Tessera
 ```
 
-## 2. Generate Tessera keys
+### 2. Generate Tessera keys
 
 This example creates an unlocked private key, meaning you do not need a password to decrypt the private key file.
 
@@ -63,7 +65,7 @@ At the prompt, press **Enter** to create an unlocked key.
 
 Tessera generates the public/private key pair and saves the keys in the `nodeKey.pub` and `nodeKey.key` files.
 
-## 3. Create Tessera configuration files
+### 3. Create Tessera configuration files
 
 In the `Tessera` directory for each node, create a file called `tessera.conf`, with the following configuration:
 
@@ -315,7 +317,7 @@ In the configuration file, specify:
 - The address of the Tessera nodes to discover, in the [`peer`](https://docs.tessera.consensys.net/HowTo/Configure/Peer-discovery/#specify-peers) section.
 - The location of the public/private key pair.
 
-## 4. Start the Tessera nodes
+### 4. Start the Tessera nodes
 
 In each `Tessera` directory, start Tessera specifying the [configuration file](#3-create-tessera-configuration-files) created in the previous step:
 
@@ -329,7 +331,7 @@ After starting the first Tessera node and before starting the other nodes, the l
 
 :::
 
-## 5. Start Besu Node-1
+### 5. Start Besu Node-1
 
 In the `Node-1` directory, start Besu Node-1:
 
@@ -371,7 +373,7 @@ When the node starts, the [enode URL](../../../public-networks/concepts/node-key
 
 ![Node 1 Enode URL](../../../assets/images/EnodeStartup.png)
 
-## 6. Start Besu Node-2
+### 6. Start Besu Node-2
 
 In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
@@ -403,7 +405,7 @@ When running Besu from the [Docker image](../../get-started/install/run-docker-i
 
 :::
 
-## 7. Start Besu Node-3
+### 7. Start Besu Node-3
 
 In the `Node-3` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
@@ -429,7 +431,7 @@ besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode U
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL. The [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
-## 8. Start Besu Node-4
+### 8. Start Besu Node-4
 
 In the `Node-4` directory, start Besu Node-4 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 

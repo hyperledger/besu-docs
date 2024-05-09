@@ -32,7 +32,7 @@ You can set the maximum heap size using the `BESU_OPTS` environment variable and
 
 <Tabs>
 
-<TabItem value="Exported environment variable example" label="Exported environment variable example" default>
+<TabItem value="Exported environment variable" default>
 
 Set the variable for the whole shell before running Besu.
 
@@ -42,7 +42,7 @@ export BESU_OPTS=-Xmx8g
 
 </TabItem>
 
-<TabItem value="Inline environment variable example" label="Inline environment variable example">
+<TabItem value="Inline environment variable">
 
 Set the variable only for the specific Besu command.
 
@@ -50,7 +50,8 @@ Set the variable only for the specific Besu command.
 BESU_OPTS=-Xmx8g besu [Besu options]
 ```
 
-# `.service` file example
+</TabItem>
+<TabItem value=".service file">
 
 ```bash
 [Service]

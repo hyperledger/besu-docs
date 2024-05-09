@@ -5186,6 +5186,42 @@ The default is `2000`.
 For private networks, we recommend setting this value to the maximum number of transactions that fit
 in a block in your network.
 
+### `tx-pool-max-prioritized-by-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-max-prioritized-by-type=<TYPE=INTEGER>
+```
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-max-prioritized-by-type=BLOB=8
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=8
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-max-prioritized-by-type="BLOB=8"
+
+</TabItem>
+
+</Tabs>
+
+Specify the maximum number of transactions of a certain type that are kept in the prioritized layer of the transaction pool at any given time. The default configuration for this setting is `BLOB=6`. This is useful for tuning performance and resource allocation in your network.
+
 ### `tx-pool-max-size`
 
 <Tabs>

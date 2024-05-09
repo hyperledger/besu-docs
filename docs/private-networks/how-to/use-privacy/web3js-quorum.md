@@ -1,7 +1,7 @@
 ---
 title: Use the web3js-quorum library
 description: web3js-quorum client library
-sidebar_position: 9
+sidebar_position: 8
 tags:
   - private networks
 ---

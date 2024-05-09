@@ -153,8 +153,10 @@ Do one of the following to stop the network:
 
 ## More examples
 
-View the [web3js-quorum client library example](web3js-quorum.md) and view the [sample code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
+View the [web3js-quorum client library example](web3js-quorum.md) and
+[code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
 
-You can also test the erc20 token example by executing `erc20.js` which deploys a `HumanStandardToken` contract and transfers 1 token to Node2.
+You can also test the ERC-20 token example by executing `erc20.js`, which deploys a
+`HumanStandardToken` contract and transfers one token to Node-2.
 
-This can be verified from the `data` field of the `logs` which is `1`.
+You can verify this by observing the `data` field of the `logs`, which is `1`.

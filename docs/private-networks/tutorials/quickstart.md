@@ -399,7 +399,6 @@ npm run deploy-quorumtoken
 The output is similar to the following:
 
 ```bash
-
 # compile
 > quorumToken@1.0.0 compile
 > npx hardhat compile
@@ -438,8 +437,7 @@ npm run dev
 ```
 This starts the dapp, binding it to port `3001` on your machine.
 
-```text
-
+```bash
 > webapp@0.1.0 dev
 > next dev -p 3001
 

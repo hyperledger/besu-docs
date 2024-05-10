@@ -37,7 +37,7 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 | Network   | Chain | Chain ID | Network ID | Type        |
 | --------- | ----- | -------- | ---------- | ----------- |
 | `mainnet` | ETH   | 1        | 1          | Production  |
-| `goerli`  | ETH   | 5        | 5          | Test        |
+| `holesky` | ETH   | 17000    | 17000      | Test        |
 | `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
 | `classic` | ETC   | 61       | 1          | Production  |

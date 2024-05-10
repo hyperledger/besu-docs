@@ -199,7 +199,10 @@ When using block header validator selection, the important information in the ge
 
 :::info
 
-When using contract validator selection to manage validators, the list of validators is configured in the `alloc` property's `storage` section. View the example smart contract for more information on how to generate the `storage` section.
+When using contract validator selection to manage validators, the list of validators is configured
+in the `alloc` property's `storage` section.
+View the [example smart contract](https://github.com/ConsenSys/validator-smart-contracts) for more
+information on how to generate the `storage` section.
 
 :::
 
@@ -286,13 +289,13 @@ Optional configuration options in the genesis file are:
 
 After [The Merge](../../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated. Their fields **must** contain only the constant values from the following chart.
 
-| Field | Constant value | Comment |
-| --- | --- | --- |
-| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))` |
-| **`difficulty`** | `0` | Replaced with `prevrandao` |
-| **`mixHash`** | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
-| **`nonce`** | `0x0000000000000000` |  |
-| **`ommers`** | `[]` | `RLP([]) = 0xc0` |
+| Field            | Constant value                                                       | Comment                    |
+|------------------|----------------------------------------------------------------------|----------------------------|
+| **`ommersHash`** | `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` | `= Keccak256(RLP([]))`     |
+| **`difficulty`** | `0`                                                                  | Replaced with `prevrandao` |
+| **`mixHash`**    | `0x0000000000000000000000000000000000000000000000000000000000000000` | Replaced with `prevrandao` |
+| **`nonce`**      | `0x0000000000000000`                                                 |                            |
+| **`ommers`**     | `[]`                                                                 | `RLP([]) = 0xc0`           |
 
 Additionally, [`extraData`](#extra-data) is limited to the 32 bytes of vanity data after The Merge.
 
@@ -388,12 +391,17 @@ QBFT requires four validators to be Byzantine fault tolerant. Byzantine fault to
 
 ## Transitions
 
-The `transitions` genesis configuration item allows you to specify a future block number at which to change QBFT network configuration in an existing network. For example, you can update the [block time](#configure-block-time-on-an-existing-network), [block reward](#configure-block-rewards-on-an-existing-network-deployment), [validator management method](#swap-validator-management-methods), or [mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network-deployment).
+The `transitions` genesis configuration item allows you to specify a future block number at which to 
+the QBFT network configuration in an existing network.
+For example, you can update the [block time](#configure-block-time-on-an-existing-network),
+[block reward](#configure-block-rewards-on-an-existing-network),
+[validator management method](#swap-validator-management-methods), or
+[mining beneficiary](#configure-the-mining-beneficiary-on-an-existing-network).
 
 :::caution
-
-Do not specify a transition block in the past. Specifying a transition block in the past could result in unexpected behavior, such as causing the network to fork.
-
+Do not specify a transition block in the past.
+Specifying a transition block in the past can result in unexpected behavior, such as causing the
+network to fork.
 :::
 
 ### Configure block time on an existing network
@@ -406,11 +414,10 @@ To update an existing network with a new `blockperiodseconds`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockperiodseconds`.
     - `<NewValue>` is the updated value for `blockperiodseconds`.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -433,10 +440,9 @@ To update an existing network with a new `blockperiodseconds`:
     ```
 
     </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -458,14 +464,14 @@ To update an existing network with a new `blockperiodseconds`:
     }
     ```
 
-</TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
 3.  Restart all nodes in the network using the updated genesis file.
-4.  To verify the changes after the transition block, call [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
+4.  To verify the changes after the transition block, view the Besu logs and check that the time
+    difference between each block matches the updated block period.
 
-### Configure block rewards on an existing network deployment
+### Configure block rewards on an existing network
 
 To update an existing network with a new `blockreward`:
 
@@ -475,11 +481,10 @@ To update an existing network with a new `blockreward`:
     - `<FutureBlockNumber>` is the upcoming block at which to change `blockreward`.
     - `<NewValue>` is the updated value for `blockreward`.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -510,11 +515,10 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -545,9 +549,8 @@ To update an existing network with a new `blockreward`:
     }
     ```
 
-</TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
     :::note
 
@@ -568,11 +571,10 @@ To swap between block header validator selection and contract validator selectio
     - `<SelectionMode>` is the validator selection mode to switch to. Valid options are `contract` and `blockheader`.
     - `<ContractAddress>` is the smart contract address, if switching to the contract validator selection method.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -595,11 +597,10 @@ To swap between block header validator selection and contract validator selectio
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -622,13 +623,12 @@ To swap between block header validator selection and contract validator selectio
     }
     ```
 
-</TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
 3.  Restart all nodes in the network using the updated genesis file.
 
-### Configure the mining beneficiary on an existing network deployment
+### Configure the mining beneficiary on an existing network
 
 To update an existing network with a new mining beneficiary:
 
@@ -638,11 +638,10 @@ To update an existing network with a new mining beneficiary:
     - `<FutureBlockNumber>` is the upcoming block at which to change `miningbeneficiary`.
     - `<NewAddress>` is the updated 20-byte address for `miningbeneficiary`. Starting at `<FutureBlockNumber>`, block rewards go to this address.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -668,11 +667,10 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -698,9 +696,8 @@ To update an existing network with a new mining beneficiary:
     }
     ```
 
-</TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
     :::note
 
@@ -709,10 +706,3 @@ To update an existing network with a new mining beneficiary:
     :::
 
 3.  Restart all nodes in the network using the updated genesis file.
-
-<!-- Acronyms and Definitions -->
-
-_[vanity data]: Validators can include anything they like as vanity data. _[RLP]: Recursive Length Prefix
-
-[GoQuorum]: https://consensys.net/docs/goquorum/en/stable/
-[View the example smart contract]: https://github.com/ConsenSys/validator-smart-contracts

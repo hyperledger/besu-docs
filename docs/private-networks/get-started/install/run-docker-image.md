@@ -67,7 +67,7 @@ When running in a Docker container, [`--nat-method`](../../../public-networks/ho
 You can specify [Besu environment variables](../../../public-networks/reference/cli/options.md#specify-options) with the Docker image instead of the command line options.
 
 ```bash
-docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=goerli hyperledger/besu:latest
+docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=holesky hyperledger/besu:latest
 ```
 
 :::caution "Unsupported address type exception"

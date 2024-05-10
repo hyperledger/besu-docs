@@ -1,5 +1,5 @@
 ---
-title: Deploying Charts
+title: Deploy charts
 sidebar_position: 3
 description: Deploying Besu Helm Charts for a Kubernetes cluster
 tags:

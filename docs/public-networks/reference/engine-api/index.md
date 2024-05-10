@@ -1,6 +1,7 @@
 ---
 title: Engine API
 description: Engine API methods reference
+toc_max_heading_level: 3
 tags:
   - public networks
 ---
@@ -229,11 +230,11 @@ Returns the bodies of the execution payloads corresponding to the specified bloc
 
 #### Parameters
 
-`blockHashes`: **array** of **strings** - Block hashes
+`blockHashes`: *array* of *strings* - Block hashes
 
 #### Returns
 
-`engineGetPayloadBodiesResultV1`: **array** of **objects** - Execution payload body objects
+`engineGetPayloadBodiesResultV1`: *array* of *objects* - Execution payload body objects
 
 <Tabs>
 

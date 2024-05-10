@@ -17,5 +17,5 @@ For Bash-based executions, you can set the variable for only the scope of the pr
 
 ```bash
 BESU_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
-besu --network=goerli
+besu --network=holesky
 ```

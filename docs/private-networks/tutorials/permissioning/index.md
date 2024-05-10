@@ -2,6 +2,7 @@
 title: Create a permissioned network
 sidebar_position: 1
 description: Hyperledger Besu create a permissioned network
+toc_max_heading_level: 3
 tags:
   - private networks
 ---
@@ -452,7 +453,7 @@ The result confirms Node-1 (the node running the JSON-RPC service) has three pee
 
 #### Send a transaction from an account in the allowlist
 
-Import the first account from the genesis file into MetaMask and send transactions, as described in [Quickstart tutorial]:
+Import the first account from the genesis file into MetaMask and send transactions, as described in the [Quickstart tutorial]:
 
 :::info Account 1
 
@@ -468,9 +469,9 @@ Besu doesn't support [private key management](../../../public-networks/how-to/se
 
 :::
 
-### Try sending a transaction from an account not in the accounts allowlist
+#### Try sending a transaction from an account not in the accounts allowlist
 
-Import the third account from the genesis file into MetaMask and try to send a transaction, as described in [Quickstart tutorial]:
+Import the third account from the genesis file into MetaMask and try to send a transaction, as described in the [Quickstart tutorial]:
 
 :::info Account 3
 
@@ -480,7 +481,7 @@ Import the third account from the genesis file into MetaMask and try to send a t
 
 :::
 
-### Start a node not on the nodes allowlist
+#### Start a node not on the nodes allowlist
 
 In your `Permissioned-Network` directory, create a `Node-5` directory and `data` directory inside it.
 
@@ -524,7 +525,7 @@ The result confirms Node-5 has no peers even though it specifies Node-1 as a boo
 
 ## Stop nodes
 
-When finished using the permissioned network, stop all nodes using ++ctrl+c++ in each terminal window.
+When finished using the permissioned network, stop all nodes using Ctrl+C in each terminal window.
 
 :::tip
 
@@ -535,4 +536,4 @@ To restart the permissioned network in the future, start from [step 7](#7-start-
 <!-- Links -->
 
 [IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/consensus/ibft.md
-[Private network example tutorial]: ../quickstart.md#create-a-transaction-using-metamask
+[Quickstart tutorial]: ../quickstart.md#create-a-transaction-using-metamask

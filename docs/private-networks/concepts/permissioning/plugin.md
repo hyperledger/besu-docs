@@ -27,27 +27,23 @@ To enable permissioning in your plugin, implement the `PermissioningService` int
 ```java
 @AutoService(BesuPlugin.class)
 public class TestPermissioningPlugin implements BesuPlugin {
-    PermissioningService service;
-
-    @Override
-    public void register(final BesuContext context) {
-        service = context.getService(PermissioningService.class).get();
-    }
-
-    @Override
-    public void start() {
-        service.registerNodePermissioningProvider((sourceEnode, destinationEnode) -> {
-            // perform logic for node permissioning
-            return true;
-        });
-
-        service.registerNodeMessagePermissioningProvider((destinationEnode, code) -> {
-            // perform logic for message permissioning
-            return true;
-        });
-    }
-
-    @Override
-    public void stop() {}
+  PermissioningService service;
+  @Override
+  public void register(final BesuContext context) {
+    service = context.getService(PermissioningService.class).get();
+  }
+  @Override
+  public void start() {
+    service.registerNodePermissioningProvider((sourceEnode, destinationEnode) -> {
+      // perform logic for node permissioning
+      return true;
+    });
+    service.registerNodeMessagePermissioningProvider((destinationEnode, code) -> {
+      // perform logic for message permissioning
+      return true;
+    });
+  }
+  @Override
+  public void stop() {}
 }
 ```

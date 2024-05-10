@@ -24,7 +24,7 @@ To find peers, configure one or more bootnodes. To configure a specific set of p
 
 :::note Mainnet and public testnets
 
-For Mainnet and the Sepolia and Goerli testnets, Hyperledger Besu has an internal list of enode URLs and uses this list automatically when you specify the [`--network`](../../../public-networks/reference/cli/options.md#network) option.
+For Mainnet and the Sepolia and Holesky testnets, Hyperledger Besu has an internal list of enode URLs and uses this list automatically when you specify the [`--network`](../../../public-networks/reference/cli/options.md#network) option.
 
 :::
 

@@ -32,9 +32,9 @@ To run this tutorial, you must have the following installed:
 - [Git command line](https://git-scm.com/)
 - [Curl command line](https://curl.haxx.se/download.html).
 
-## Create Docker-compose file
+## Steps
 
-## Usage
+### 1. Create Docker-compose file
 
 To create the docker-compose file and artifacts, run:
 
@@ -44,7 +44,7 @@ npx quorum-dev-quickstart
 
 Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../how-to/monitor/elastic-stack.md). Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/).
 
-## Start the network
+### 2. Start the network
 
 :::caution
 
@@ -79,7 +79,7 @@ For more information on the endpoints and services, refer to README.md in the in
 ****************************************************************
 ```
 
-## Deploy the private contract and interact with the nodes
+### 3. Deploy the private contract and interact with the nodes
 
 To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu keeps account management separate for stronger security.
 
@@ -135,15 +135,7 @@ The general contract deployment flow is:
 
 1. Use the contract address in the privacy transaction receipt to [interact with the contract](../contracts/interact.md) from that point on.
 
-## Further examples
-
-View the [web3js-quorum client library example](web3js-quorum.md) and view the [sample code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
-
-You can also test the erc20 token example by executing `erc20.js` which deploys a `HumanStandardToken` contract and transfers 1 token to Node2.
-
-This can be verified from the `data` field of the `logs` which is `1`.
-
-## Stop the network
+### 4.  Stop the network
 
 Do one of the following to stop the network:
 
@@ -158,3 +150,13 @@ Do one of the following to stop the network:
   ```bash
   ./remove.sh
   ```
+
+## More examples
+
+View the [web3js-quorum client library example](web3js-quorum.md) and
+[code examples](https://github.com/ConsenSys/web3js-quorum/tree/master/example).
+
+You can also test the ERC-20 token example by executing `erc20.js`, which deploys a
+`HumanStandardToken` contract and transfers one token to Node-2.
+
+You can verify this by observing the `data` field of the `logs`, which is `1`.

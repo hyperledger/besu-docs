@@ -73,7 +73,7 @@ When starting nodes, set the [minimum gas price](../../../public-networks/refere
 
 <Tabs>
 
-<TabItem value="Command Line" label="Command Line" default>
+<TabItem value="Command line" default>
 
 ```bash
 --min-gas-price=0
@@ -81,7 +81,7 @@ When starting nodes, set the [minimum gas price](../../../public-networks/refere
 
 </TabItem>
 
-<TabItem value="Configuration File" label="Configuration File">
+<TabItem value="Configuration file">
 
 ```bash
 min-gas-price=0
@@ -90,8 +90,6 @@ min-gas-price=0
 </TabItem>
 
 </Tabs>
-
-# Command Line
 
 :::danger Important
 

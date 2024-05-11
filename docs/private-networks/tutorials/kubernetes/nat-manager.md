@@ -14,14 +14,16 @@ Use mode [`--nat-method=NONE`](../../../public-networks/how-to/connect/specify-n
 
 Default mode is [`AUTO`](../../../public-networks/how-to/connect/specify-nat.md#auto) but Besu will fallback to [`NONE`](../../../public-networks/how-to/connect/specify-nat.md#none) mode if automatic configuration fails.
 
-:::info The following log shows fallback to [`NONE`](../../../public-networks/how-to/connect/specify-nat.md#none) mode after an automatic detection failure.
+:::info
 
-    ```
-    INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
-    DEBUG | KubernetesNatManager | Trying to update information using Kubernetes client SDK.
-    DEBUG | NatService | Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used
-    INFO  | NetworkRunner | Starting Network.
-    ```
+The following log shows fallback to [`NONE`](../../../public-networks/how-to/connect/specify-nat.md#none) mode after an automatic detection failure.
+
+```bash
+INFO  | KubernetesNatManager | Starting kubernetes NAT manager.
+DEBUG | KubernetesNatManager | Trying to update information using Kubernetes client SDK.
+DEBUG | NatService | Nat manager failed to configure itself automatically due to the following reason Service not found. NONE mode will be used
+INFO  | NetworkRunner | Starting Network.
+```
 
 :::
 

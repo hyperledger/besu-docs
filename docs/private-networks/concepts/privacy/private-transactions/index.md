@@ -7,12 +7,17 @@ description: Private transaction overview
 Private transactions have the same parameters as public Ethereum transactions, with the following additions:
 
 - `privateFrom` - The Tessera public key of the transaction sender.
+
 - One of the following:
+
   - `privateFor` - The Tessera public keys of the transaction recipients.
+  
   - `privacyGroupId` - [The privacy group to receive the transaction](../privacy-groups.md).
+  
 - `restriction` - Whether the private transaction is `restricted` or `unrestricted`:
 
   - `restricted` - Only the nodes participating in the transaction receive and store the payload of the private transaction.
+  
   - `unrestricted` - All nodes in the network receive the payload of the private transaction, but only the nodes participating in the transaction can read the transaction.
 
   :::info

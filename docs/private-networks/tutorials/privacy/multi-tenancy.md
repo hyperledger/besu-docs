@@ -36,9 +36,11 @@ This tutorial uses [JWT public key authentication] to create the tenant's JWT, b
 
 ## Prerequisites
 
-- A [Privacy-enabled network](index.md).
+- A [privacy-enabled network](index.md).
 
-## 1. Generate a private and public key pair
+## Steps
+
+### 1. Generate a private and public key pair
 
 In the `Node-1` directory, [generate the private and public key pair]. The key pair, which must be in `.pem` format, belongs to the operator who uses the key pair to authenticate the [tenant JWTs](#6-generate-the-tenant-jwts).
 
@@ -48,7 +50,7 @@ This step is not required when using [username and password authentication] to c
 
 :::
 
-## 2. Generate Tessera keys
+### 2. Generate Tessera keys
 
 In the `Node-1/Tessera` directory, [generate a public/private key pair for each tenant](index.md#2-generate-tessera-keys).
 
@@ -60,7 +62,7 @@ The instructions creates an unlocked private key, meaning you do not need a pass
 
 Name the key pair `nodeKey2` and `nodeKey3`.
 
-## 3. Update the Tessera configuration file
+### 3. Update the Tessera configuration file
 
 In the `Node-1/Tessera` directory, update the `tessera.conf` file by adding the new key pairs:
 
@@ -132,11 +134,11 @@ Besu requires [`orion` mode](https://docs.tessera.consensys.net/HowTo/Configure/
 
 :::
 
-## 4. Start Tessera
+### 4. Start Tessera
 
 [Start the Tessera nodes](index.md#4-start-the-tessera-nodes) and specify the configuration file.
 
-## 5. Start Besu Node-1
+### 5. Start Besu Node-1
 
 In the `Node-1` directory, start Besu Node-1:
 
@@ -160,7 +162,7 @@ The command line specifies privacy options:
 
 [Start the remaining Besu nodes](index.md#6-start-besu-node-2).
 
-## 6. Generate the tenant JWTs
+### 6. Generate the tenant JWTs
 
 [Generate the JWT](../../../public-networks/how-to/use-besu-api/authenticate.md#2-create-the-jwt) for each tenant and specify the [tenant's Tessera public key](#2-generate-tessera-keys) in the `privacyPublicKey` field.
 
@@ -181,7 +183,3 @@ This step is not required when using [username and password authentication] to c
 [generate the private and public key pair]: ../../../public-networks/how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
 [Use the authentication token to make requests]: ../../../public-networks/how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
 [Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Reference/TesseraAPI
-
-<!-- Abbreviations -->
-
-\*[JWT]: JSON Web Token

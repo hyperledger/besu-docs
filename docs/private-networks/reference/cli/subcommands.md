@@ -107,9 +107,9 @@ Supported types are:
 
 To generate the RLP encoded `extraData` string, specify a JSON input that is an array of validator addresses in ascending order.
 
-:::tip JSON Schema for IBFT_EXTRA_DATA
+:::tip JSON schema for `IBFT_EXTRA_DATA`
 
-Use the following JSON Schema to validate that your JSON data is well formed. To validate your JSON content, use an online validation tool, such as [JSON Schema Validator](https://www.jsonschemavalidator.net/).
+Use the following JSON schema to validate that your JSON data is well-formatted. To validate your JSON content, use an online validation tool, such as [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
 ```json
 {
@@ -134,7 +134,7 @@ Use the following JSON Schema to validate that your JSON data is well formed. To
 }
 ```
 
-Example IBFT_EXTRA_DATA encoding
+Example `IBFT_EXTRA_DATA` encoding:
 
 <Tabs>
 

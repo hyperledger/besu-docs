@@ -72,7 +72,7 @@ Provides RLP related actions.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-besu rlp decode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+besu rlp decode [--from=<FILE>] [--to=<FILE>] [--type=<TYPE>]
 ```
 
 </TabItem>
@@ -114,7 +114,7 @@ This subcommand takes the following options:
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<TYPE>]
 ```
 
 </TabItem>

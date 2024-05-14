@@ -29,6 +29,7 @@ Network configuration items are specified in the genesis file in the `config` ob
 | `ecCurve`           | Specifies [the elliptic curve to use](../../private-networks/how-to/configure/curves.md). Default is `secp256k1`.                                                                                                 |
 | `discovery`         | Specifies [discovery configuration items](#discovery-configuration-items). The `discovery` object can be left empty.                                                                                              |
 | `zeroBaseFee`       | Specifies a base fee of `0` for [free gas networks](../../private-networks/how-to/configure/free-gas.md#4-enable-zero-base-fee-if-using-london-fork-or-later).                                                      |
+| `fixedBaseFee`      | Specifies a constant base fee for blocks, overriding the dynamic base fee calculation of [EIP-1559](../concepts/transactions/types#eip1559-transactions).  |
 
 ## Genesis block parameters
 

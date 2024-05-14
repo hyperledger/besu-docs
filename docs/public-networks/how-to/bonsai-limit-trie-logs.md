@@ -204,5 +204,5 @@ Check if you are running the command for a network other than Mainnet.
 To specify a network, run a command that looks similar to the following:
 
 ```bash
-`sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune`
+sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune
 ```

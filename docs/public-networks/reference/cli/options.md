@@ -5220,7 +5220,8 @@ tx-pool-max-prioritized-by-type="BLOB=8"
 
 </Tabs>
 
-Specify the maximum number of transactions of a certain type that are kept in the prioritized layer of the transaction pool at any given time. The default configuration for this setting is `BLOB=6`. This is useful for tuning performance and resource allocation in your network.
+Specify the maximum number of transactions that can be held in the top-priority section of the transaction pool.
+The default configuration for this setting is `BLOB=6`.
 
 ### `tx-pool-max-size`
 

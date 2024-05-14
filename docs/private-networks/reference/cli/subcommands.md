@@ -65,6 +65,48 @@ The configuration file has two nested JSON nodes. The first is the `genesis` pro
 
 Provides RLP related actions.
 
+### `decode`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu rlp decode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
+```
+
+</TabItem>
+
+<TabItem value="File example" label="File example">
+
+```bash
+besu rlp decode --from=ibft_extra_data.txt --to=decoded_ibft_extra_data.txt --type=IBFT_EXTRA_DATA
+```
+
+</TabItem>
+
+<TabItem value="Standard input/output example" label="Standard input/output example">
+
+```bash
+cat ibft_extra_data.txt | besu rlp decode > decoded_ibft_extra_data.txt
+```
+
+</TabItem>
+
+</Tabs>
+
+Decodes the RLP hexadecimal string used as `extraData` in an
+[IBFT 2.0](../../how-to/configure/consensus/ibft.md#extra-data) or
+[QBFT](../../how-to/configure/consensus/qbft.md#extra-data) genesis file into a validator list.
+
+This subcommand takes the following options:
+
+- `from` - The file containing the RLP hexadecimal string to decode.
+- `to` - The file to write the decoded validator list to.
+- `type` - `IBFT_EXTRA_DATA` for an IBFT 2.0 `extraData` string, or `QBFT_EXTRA_DATA` for a QBFT
+  `extraData` string.
+  The default is `IBFT_EXTRA_DATA`.
+
 ### `encode`
 
 <Tabs>
@@ -79,9 +121,9 @@ besu rlp encode [--from=<FILE>] [--to=<FILE>] [--type=<type>]
 
 <TabItem value="File example" label="File example">
 
-    ```bash
-    besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
-    ```
+```bash
+besu rlp encode --from=ibft_extra_data.json --to=extra_data_for_ibft_genesis.txt --type=IBFT_EXTRA_DATA
+```
 
 </TabItem>
 
@@ -95,13 +137,17 @@ cat extra_data.json | besu rlp encode > rlp.txt
 
 </Tabs>
 
-Encodes the RLP hexadecimal string for use in an [IBFT 2.0](../../how-to/configure/consensus/ibft.md#genesis-file) or [QBFT](../../how-to/configure/consensus/qbft.md#genesis-file) genesis file. The default type is `IBFT_EXTRA_DATA`.
+Encodes a validator list into an RLP hexadecimal string to use as `extraData` in an
+[IBFT 2.0](../../how-to/configure/consensus/ibft.md#extra-data) or
+[QBFT](../../how-to/configure/consensus/qbft.md#extra-data) genesis file.
 
-Supported types are:
+This subcommand takes the following options:
 
-- `IBFT_EXTRA_DATA` - The IBFT 2.0 genesis file includes the `IBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/consensus/ibft.md#extra-data) property.
-
-- `QBFT_EXTRA_DATA` - The QBFT genesis file includes the `QBFT_EXTRA_DATA` type in the [`extraData`](../../how-to/configure/consensus/qbft.md#extra-data) property.
+- `from` - The file containing the validator list to encode.
+- `to` - The file to write the RLP-encoded hexadecimal string to.
+- `type` - `IBFT_EXTRA_DATA` for an IBFT 2.0 `extraData` string, or `QBFT_EXTRA_DATA` for a QBFT
+  `extraData` string.
+  The default is `IBFT_EXTRA_DATA`.
 
 ## IBFT 2.0 extra data
 

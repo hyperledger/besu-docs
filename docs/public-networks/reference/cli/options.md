@@ -5200,28 +5200,29 @@ in a block in your network.
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool-max-prioritized-by-type=BLOB=8
-
+--tx-pool-max-prioritized-by-type=BLOB=6
+```
 </TabItem>
 
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=8
-
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
+```
 </TabItem>
 
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool-max-prioritized-by-type="BLOB=8"
-
+tx-pool-max-prioritized-by-type="BLOB=6"
+```
 </TabItem>
 
 </Tabs>
 
 Specify the maximum number of transactions that can be held in the top-priority section of the transaction pool.
-The default configuration for this setting is `BLOB=6`.
+The default is `BLOB=6`.
+Increasing the `BLOB` value increases the limit on prioritized [BLOB transactions](../../../concepts/transactions/types#blob-transactions) in the transaction pool, allowing them to be processed faster and prioritized over others in the queue based on factors like type, fees, or importance.
 
 ### `tx-pool-max-size`
 

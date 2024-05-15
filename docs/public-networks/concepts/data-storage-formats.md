@@ -75,7 +75,7 @@ The following table shows the ways you can [sync a full node](../get-started/con
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 | --- | --- | --- | --- |
 | Bonsai | Fast | 1140 GB | No |
-| Bonsai | Snap | 1090 GB | To be implemented |
+| Bonsai | Snap | 1090 GB | Yes |
 | Bonsai | Checkpoint | 840 GB | No |
 | Forest | Fast | 1200 GB | Yes |
 

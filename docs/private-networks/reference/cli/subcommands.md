@@ -102,7 +102,9 @@ Decodes the RLP hexadecimal string used as `extraData` in an
 This subcommand takes the following options:
 
 - `from` - The file containing the RLP hexadecimal string to decode.
+  The default is standard input.
 - `to` - The file to write the decoded validator list to.
+  The default is standard output.
 - `type` - `IBFT_EXTRA_DATA` for an IBFT 2.0 `extraData` string, or `QBFT_EXTRA_DATA` for a QBFT
   `extraData` string.
   The default is `IBFT_EXTRA_DATA`.
@@ -144,7 +146,9 @@ Encodes a validator list into an RLP hexadecimal string to use as `extraData` in
 This subcommand takes the following options:
 
 - `from` - The file containing the validator list to encode.
+  The default is standard input.
 - `to` - The file to write the RLP-encoded hexadecimal string to.
+  The default is standard output.
 - `type` - `IBFT_EXTRA_DATA` for an IBFT 2.0 `extraData` string, or `QBFT_EXTRA_DATA` for a QBFT
   `extraData` string.
   The default is `IBFT_EXTRA_DATA`.

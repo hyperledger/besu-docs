@@ -12,7 +12,7 @@ Besu offers two formats for storing the world state, [Bonsai Tries](#bonsai-trie
 
 ## Bonsai Tries
 
-Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase read performance.
+Bonsai Tries is a data storage layout policy designed to reduce storage requirements and increase read performance. This is the default for Besu.
 
 Bonsai stores leaf values in a trie log, separate from the branches of the trie. Bonsai stores nodes by the location of the node instead of the hash of the node. Bonsai can access the leaf from the underlying storage directly using the account key. This greatly reduces the disk space needed for storage and allows for less resource-demanding and faster read performance. Bonsai inherently prunes orphaned nodes and old branches.
 
@@ -31,7 +31,7 @@ Bonsai is designed for retrieving recent data only.
 
 ## Forest of Tries
 
-Forest of Tries, also called forest mode, is the default storage format.
+Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for [archive nodes](../get-started/connect/sync-node.md#run-an-archive-node).
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed and stored by hash, which increases the size of the database and increases the resources and time needed to access account data.
 
@@ -75,7 +75,7 @@ The following table shows the ways you can [sync a full node](../get-started/con
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 | --- | --- | --- | --- |
 | Bonsai | Fast | 1140 GB | No |
-| Bonsai | Snap | 1090 GB | To be implemented |
+| Bonsai | Snap | 1090 GB | Yes |
 | Bonsai | Checkpoint | 840 GB | No |
 | Forest | Fast | 1200 GB | Yes |
 

@@ -113,7 +113,7 @@ RLP encoding is a space-efficient object serialization scheme used in Ethereum.
 
 #### Generate extra data
 
-To generate the `extraData` RLP string for inclusion in the genesis file, use the [`rlp encode`](../../../../public-networks/reference/cli/subcommands.md#rlp) Besu subcommand.
+To generate the `extraData` RLP string for inclusion in the genesis file, use the [`rlp encode`](../../../reference/cli/subcommands.md#encode) Besu subcommand.
 
 ```bash title="Example"
 besu rlp encode --from=toEncode.json

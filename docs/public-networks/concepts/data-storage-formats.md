@@ -31,7 +31,7 @@ Bonsai is designed for retrieving recent data only.
 
 ## Forest of Tries
 
-Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for Archive nodes.
+Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for [archive nodes](../get-started/connect/sync-node.md#run-an-archive-node).
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed and stored by hash, which increases the size of the database and increases the resources and time needed to access account data.
 

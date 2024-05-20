@@ -387,9 +387,6 @@ newnode
 nextra
 ngryman
 nisarag
-nodegroup
-nodegroups
-nodepool
 nodekey
 nodekeyhex
 nodekeys

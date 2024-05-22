@@ -4947,7 +4947,7 @@ tx-pool="sequenced"
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
 Set to `layered` to use the layered transaction pool implementation.
-Set to `sequenced` (previously known as `legacy`) to opt out of the layered transaction pool.
+Set to `sequenced` to use the sequenced transaction pool.
 The default is `layered`.
 
 ### `tx-pool-enable-save-restore`

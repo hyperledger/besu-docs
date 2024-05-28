@@ -5224,9 +5224,10 @@ tx-pool-max-prioritized-by-type="BLOB=6"
 
 </Tabs>
 
-The maximum number of transactions of a specific type that can be held in the top-priority section of the transaction pool.
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
 Increasing the `BLOB` value increases the limit on prioritized [blob transactions](../../concepts/transactions/types#blob-transactions) in the transaction pool. 
-Only a few blob transactions can fit in a block. Adjusting the maximum number of each transaction type is necessary to maintain the efficiency and performance of the prioritized layer.
+Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
+Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
 The default is `BLOB=6`.
 
 ### `tx-pool-max-size`

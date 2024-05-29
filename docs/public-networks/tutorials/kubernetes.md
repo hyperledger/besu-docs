@@ -305,7 +305,7 @@ Bind this NSG with the subnet you've designated for your Ethereum nodes to ensur
 #### 2. Add a node pool to your cluster
 
 In Azure all machines get allocated a public IP by default but you need to turn this on for your
-new nodepool
+new node pool.
 
 If you are using [Terraform](https://www.terraform.io/), use something like the following for your
 new node pool:

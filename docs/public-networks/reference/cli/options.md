@@ -3127,7 +3127,7 @@ This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using exc
 
 :::note
 This option allows users to override the transaction's gas limit. 
-It helps simulate transactions that exceed anticipated gas usage without going over a predefined cap, preventing DoS attacks.
+This can prevent the simulation of transactions with high gas usage by setting a predefined cap, preventing DoS attacks.
 :::
 
 

@@ -334,7 +334,7 @@ new node pool:
 ```
 
 
-#### 3. Use Azure StorageClasses to suit youre needs
+#### 3. Use Azure StorageClasses to suit your needs
 
 We recommend using either Azure Disk or Azure Files for storage for your chain data
 using the CSI storage drivers (https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers).

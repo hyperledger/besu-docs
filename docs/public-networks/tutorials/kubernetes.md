@@ -298,9 +298,8 @@ The process for Azure is much the same as that of AWS with a couple of differenc
 
 #### 1. Create a Network Security Group (NSG)
 
-Create a network security group with ports 30303 and 9000 (or equivalent) open for TCP and UDP.
-Bind this NSG to your subnet that you choose for your ethereum nodes, so that any nodes that
-are spun up have this in effect.
+Create a NSG with ports `30303` and `9000` (or equivalent) open for TCP and UDP.
+Bind this NSG with the subnet you've designated for your Ethereum nodes to ensure that nodes initiated within this subnet will automatically inherit these security rules.
 
 
 #### 2. Add a node pool to your cluster

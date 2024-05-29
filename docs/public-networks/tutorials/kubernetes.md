@@ -337,7 +337,7 @@ new node pool:
 #### 3. Use Azure StorageClasses to suit youre needs
 
 We recommend using either Azure Disk or Azure Files for storage for your chain data
-via the CSI storage drivers (https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers).
+using the CSI storage drivers (https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers).
 If you are using a Terraform to provision your cluster e.g.
 [terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)
 the CSI drivers are provisioned automatically for you.

@@ -1,5 +1,6 @@
 
 Ethminer
+azurerm
 Ethstats
 Graphi
 Keycloak

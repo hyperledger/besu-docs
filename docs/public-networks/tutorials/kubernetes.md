@@ -6,25 +6,29 @@ tags:
   - public networks
 ---
 
-# Deploy a Besu public node using Kubernetes
+# Deploy a Besu public node using Kubernetes 
 
 You can use a cloud provider such as [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)
-to deploy a Besu public node.
+or [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-au/products/kubernetes-service) to deploy
+a Besu public node
+
 This tutorial walks you through adding an extra node group to your Besu pod.
 
-## Prerequisites
+## AWS EKS
+
+### Prerequisites
 
 Set up a Kubernetes cluster using a managed Kubernetes service such as
 [Amazon EKS](https://aws.amazon.com/eks/).
 
-## Steps
+### Steps
 
-### 1. Create a security group for discovery
+#### 1. Create a security group for discovery
 
 Create a security group in your VPC that allows traffic from anywhere on ports `30303` and `9000`
 (or equivalent ports that you are using for discovery). 
 
-#### Outbound rules
+##### Outbound rules
 
 | Type        | Protocol | Port range | Destination |
 |-------------|----------|------------|-------------|
@@ -45,7 +49,7 @@ The key here is to allow traffic on both TCP and UDP for the consensus layer cli
 execution layer client.
 :::
 
-### 2. Add a node group to your cluster
+#### 2. Add a node group to your cluster
 
 In your VPC settings, enable **Auto-assign public IPv4 address** on the public subnets on which you
 spin up your nodes.
@@ -103,12 +107,12 @@ new node pool:
         }
       ]
       labels = {
-        ng   = "ethereum"
+        workloadType   = "ethereum"
       }
     ...
 ```
 
-### 3. Install the EBS or EFS drivers 
+#### 3. Install the EBS or EFS drivers 
 
 We recommend using EBS or NvME storage for your chain data.
 For most cases, the [EBS drivers](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) or
@@ -117,7 +121,7 @@ However, if you are using instance stores, use the
 [Local Storage Static Provisioner](https://aws.amazon.com/blogs/containers/eks-persistent-volumes-for-instance-store/)
 instead.
 
-### 4. Set up the pod
+#### 4. Set up the pod
 
 Now that the infrastructure is set up, use `hostNetworking` to bind your pod to the host and use the
 host node's public IP for your Besu node.
@@ -164,11 +168,8 @@ template:
         - /bin/bash
         - -xec
         - |
-          TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-          
           # Get the existing public IP to associate with.
-          PUBLIC_IP_TO_ASSOCIATE=$(curl -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/public-ipv4)
-          
+          PUBLIC_IP_TO_ASSOCIATE=$(curl http://ifconfig.me/ip)
           # Store the public IP in a local file to be used by the container.
           echo -ne "$PUBLIC_IP_TO_ASSOCIATE" > /pip/ip
           
@@ -222,11 +223,8 @@ template:
         - /bin/bash
         - -xec
         - |
-          TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-          
           # Get the existing public IP to associate with.
-          PUBLIC_IP_TO_ASSOCIATE=$(curl -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/public-ipv4)
-          
+          PUBLIC_IP_TO_ASSOCIATE=$(curl http://ifconfig.me/ip)
           # Store the public IP in a local file to be used by the container.
           echo -ne "$PUBLIC_IP_TO_ASSOCIATE" > /pip/ip
           
@@ -292,3 +290,55 @@ template:
         persistentVolumeClaim:
           claimName: teku-pvc          
 ```
+
+
+## Azure AKS
+
+The process for Azure is much the same as that of AWS with a couple of differences.
+
+#### 1. Create a Network Security Group (NSG)
+
+Create a NSG with ports `30303` and `9000` (or equivalent) open for TCP and UDP.
+Bind this NSG with the subnet you've designated for your Ethereum nodes to ensure that nodes initiated within this subnet will automatically inherit these security rules.
+
+
+#### 2. Add a node pool to your cluster
+
+In Azure all machines get allocated a public IP by default but you need to turn this on for your
+new node pool.
+
+If you are using [Terraform](https://www.terraform.io/), use something like the following for your
+new node pool:
+
+```yaml
+  node_pools = {
+    ...
+    ethereum = {
+      name                   = "ethereum"
+      vm_size                = "Standard_D8as_v5"
+      vnet_subnet_id         = lookup(module.vnet.vnet_subnets_name_id, "subnet-....") # The ID of the security group from the previous step.
+      os_disk_size_gb        = 100
+      min_count              = 1
+      max_count              = 10
+      enable_auto_scaling    = true
+      enable_node_public_ip  = true     # This flag lets every node keep its public ip
+      enable_host_encryption = true
+      node_taints            = ["ethereum=true:NoSchedule", "ethereum=true:NoExecute"]
+      node_labels = {
+        "workloadType" = "ethereum"
+      }
+    }
+
+    ...
+  }
+```
+
+
+#### 3. Use Azure StorageClasses to suit your needs
+
+We recommend using either Azure Disk or Azure Files to store your chain data
+using the [CSI storage drivers](https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers).
+If you are using a Terraform to provision your cluster e.g.
+[terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)
+the CSI drivers are provisioned automatically for you.
+

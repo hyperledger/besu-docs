@@ -5186,6 +5186,51 @@ The default is `2000`.
 For private networks, we recommend setting this value to the maximum number of transactions that fit
 in a block in your network.
 
+### `tx-pool-max-prioritized-by-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-max-prioritized-by-type=<TYPE=INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-max-prioritized-by-type=BLOB=6
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-max-prioritized-by-type="BLOB=6"
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+
+This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types#blob-transactions) in the transaction pool. 
+Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
+Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
+The default is `BLOB=6`.
+
 ### `tx-pool-max-size`
 
 <Tabs>

@@ -6297,22 +6297,22 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 ### `miner_getExtraData`
 
-Updates the target gas limit set using the [`--target-gas-limit`](../cli/options.md#target-gas-limit) command line option.
+Retrieves the current extra data field from the mining node.
 
 #### Parameters
 
-`gasPrice`: _number_ - target gas price in wei
+None
 
 #### Returns
 
-`result`: _string_ - `Success` or `error`
+`result`: _string_ - Hexadecimal or decimal integer of the extra data bytes.
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getExtraData","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -6322,8 +6322,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "miner_changeTargetGasLimit",
-  "params": [800000],
+  "method": "miner_getExtraData",
+  "params": [],
   "id": 1
 }
 ```
@@ -6336,7 +6336,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": "Success"
+  "result": "0x68656c6c6f20776f726c64"
 }
 ```
 
@@ -6501,22 +6501,20 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 ### `miner_setExtraData`
 
-Updates the target gas limit set using the [`--target-gas-limit`](../cli/options.md#target-gas-limit) command line option.
+Sets a new value for the extra data field on the mining node.
 
 #### Parameters
 
-`gasPrice`: _number_ - target gas price in wei
-
 #### Returns
 
-`result`: _string_ - `Success` or `error`
+`result`: _string_ - `true` or `false`
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":[], "id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -6526,8 +6524,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "miner_changeTargetGasLimit",
-  "params": [800000],
+  "method": "miner_setExtraData",
+  "params": [],
   "id": 1
 }
 ```
@@ -6540,7 +6538,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": "Success"
+  "result": "true"
 }
 ```
 

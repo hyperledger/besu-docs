@@ -6295,6 +6295,55 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 </Tabs>
 
+### `miner_getExtraData`
+
+Updates the target gas limit set using the [`--target-gas-limit`](../cli/options.md#target-gas-limit) command line option.
+
+#### Parameters
+
+`gasPrice`: _number_ - target gas price in wei
+
+#### Returns
+
+`result`: _string_ - `Success` or `error`
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_changeTargetGasLimit",
+  "params": [800000],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "Success"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `miner_getMinGasPrice`
 
 Gets the minimum gas price (in wei) offered by a transaction to be included in a block.
@@ -6443,6 +6492,55 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
   "jsonrpc": "2.0",
   "id": 1,
   "result": true
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_setExtraData`
+
+Updates the target gas limit set using the [`--target-gas-limit`](../cli/options.md#target-gas-limit) command line option.
+
+#### Parameters
+
+`gasPrice`: _number_ - target gas price in wei
+
+#### Returns
+
+`result`: _string_ - `Success` or `error`
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_changeTargetGasLimit",
+  "params": [800000],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "Success"
 }
 ```
 

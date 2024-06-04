@@ -6238,7 +6238,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 ## `MINER` methods
 
 The `MINER` API methods allow you to control the node's mining operation, or settings related to
-block creation in general.
+block creation in general. 
 
 :::note
 
@@ -6305,7 +6305,7 @@ None
 
 #### Returns
 
-`result`: _string_ - Hexadecimal or decimal integer of the extra data bytes.
+`result`: _string_ - Hexadecimal string of the extra data bytes.
 
 <Tabs>
 
@@ -6501,9 +6501,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 ### `miner_setExtraData`
 
-Sets a new value for the extra data field on the mining node.
+Sets a new value for the extra data field that is used when producing blocks.
 
 #### Parameters
+
+`extraData`: _string_ - Hexadecimal with a maximum 32 bytes.
 
 #### Returns
 
@@ -6514,7 +6516,7 @@ Sets a new value for the extra data field on the mining node.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":[], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":["0x0010203"], "id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -6525,7 +6527,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":[],
 {
   "jsonrpc": "2.0",
   "method": "miner_setExtraData",
-  "params": [],
+  "params": ["0x0010203"],
   "id": 1
 }
 ```
@@ -6537,6 +6539,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":[],
 ```json
 {
   "jsonrpc": "2.0",
+  "params": ["0x0010203"],
   "id": 1,
   "result": "true"
 }

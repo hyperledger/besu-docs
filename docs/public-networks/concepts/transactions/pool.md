@@ -11,6 +11,8 @@ tags:
 
 All nodes maintain a transaction pool to store pending transactions before processing.
 
+Transaction pools are categorized into two types: Layered and Sequenced. Each type serves distinct purposes, with Layered pools recommended for public chains and Sequenced pools for private chains.
+
 Options and methods for configuring and monitoring the transaction pool include:
 
 - [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions) API method to
@@ -32,6 +34,10 @@ When submitting [private transactions](../../../private-networks/concepts/privac
 the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md)
 is submitted to the transaction pool, not the private transaction itself.
 :::
+
+## Sequenced transaction Pool
+
+Transactions are processed strictly in the order they are received, ensuring fairness and predictability. While sequenced transaction pools may lack the flexibility of layered pools, they excel in maintaining a consistent and transparent transaction order, which is often a critical requirement in private blockchain environments.
 
 ## Layered transaction pool
 

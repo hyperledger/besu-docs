@@ -11,7 +11,7 @@ tags:
 
 All nodes maintain a transaction pool to store pending transactions before processing.
 
-Transaction pools are categorized into two types: Layered and Sequenced. Each type serves distinct purposes, with Layered pools recommended for public chains and Sequenced pools for private chains.
+Transaction pools are categorized into two types: Layered and Sequenced. Each type serves distinct purposes, with Layered pools recommended for public chains and Sequenced pools for private chains. Layered handles volume and is faster for sorting/ faster speed , layered has extra parameters because you can limit and configurable for the number of transactions in the differnt layers. 
 
 Options and methods for configuring and monitoring the transaction pool include:
 

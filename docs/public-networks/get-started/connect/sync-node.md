@@ -82,7 +82,7 @@ Snap sync and checkpoint sync are not supported for
 
 :::tip
 
-We recommend using snap sync over fast sync because snap sync can be faster by several days.
+We recommend using snap sync over fast sync because snap sync can be faster than fast sync by several days (for mainnet).
 
 We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
 data storage format for the fastest sync and lowest storage requirements.

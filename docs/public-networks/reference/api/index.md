@@ -6297,7 +6297,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 ### `miner_getExtraData`
 
-Retrieves the current extra data field from the mining node.
+Retrieves the current extra data field that is used when producing blocks.
 
 #### Parameters
 
@@ -6305,7 +6305,7 @@ None
 
 #### Returns
 
-`result`: _string_ - Hexadecimal string of the extra data bytes.
+`result`: _string_ - Hexadecimal string representation of the extra data bytes.
 
 <Tabs>
 
@@ -6505,7 +6505,7 @@ Sets a new value for the extra data field that is used when producing blocks.
 
 #### Parameters
 
-`extraData`: _string_ - Hexadecimal with a maximum 32 bytes.
+`extraData`: _string_ - Hexadecimal representation of a block number, with a maximum of 32 bytes.
 
 #### Returns
 

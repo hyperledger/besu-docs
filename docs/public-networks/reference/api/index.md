@@ -6505,7 +6505,7 @@ Sets a new value for the extra data field that is used when producing blocks.
 
 #### Parameters
 
-`extraData`: _string_ - Hexadecimal representation of a block number, with a maximum of 32 bytes.
+`extraData`: _string_ - Hexadecimal representation of the extra data field, with a maximum of 32 bytes.
 
 #### Returns
 

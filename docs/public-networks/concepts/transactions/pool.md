@@ -11,33 +11,37 @@ tags:
 
 All nodes maintain a transaction pool to store pending transactions before processing.
 
-Transaction pools are categorized into two types: Layered and Sequenced. Each type serves distinct purposes, with Layered pools recommended for public chains and Sequenced pools for private chains. Layered handles volume and is faster for sorting/ faster speed , layered has extra parameters because you can limit and configurable for the number of transactions in the differnt layers. 
+Transaction pools are categorized into the following two types: 
+
+* [Sequenced](#sequenced-transaction-pool) -  Recommended for private chains. 
+* [Layered](#layered-transaction-pool) - Recommended for public chains. Layered has extra parameters because you can limit and
+  configure for the number of transactions in the different layers which handles volume and sorts transactions at a faster speed.
+  
 
 Options and methods for configuring and monitoring the transaction pool include:
 
-- [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions) API method to
-  list transactions in the transaction pool.
-- [`--tx-pool`](../../reference/cli/options.md#tx-pool) option to specify the type of transaction
-  pool to use.
-- [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity) option
-  to specify the maximum memory capacity of the transaction pool.
-- [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump) option to specify the
-  price bump percentage to replace an existing transaction.
-- [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)
-  option to specify sender addresses to prioritize in the transaction pool.
-- [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions) and
-  [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) RPC
-  subscriptions to notify you of transactions added to and dropped from the transaction pool.
-
+|                                                                                              | Description                                                                      | Transaction pool type|
+|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------|
+| [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions)            | API method to list transactions in the transaction pool.                         | Both                 |
+| [`--tx-pool`](../../reference/cli/options.md#tx-pool)                                        | Option to specify the type of transaction pool to use.                           | Both                 |
+| [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity)  | Option to specify the maximum memory capacity of the transaction pool.           | Layered only         |
+| [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)                  | Option to specify the price bump percentage to replace an existing transaction.  | Both                 |
+| [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)      | Option to specify sender addresses to prioritize in the transaction pool.        | Both                 |
+| [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions)     | RPC subscription to notify you of transactions added to the transaction pool.    | Both                 |
+| [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) | RPC subscription to notify you of transactions dropped from the transaction pool.| Both                 |
+  
 :::note
 When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation),
 the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md)
 is submitted to the transaction pool, not the private transaction itself.
 :::
 
-## Sequenced transaction Pool
+## Sequenced transaction pool
 
-Transactions are processed strictly in the order they are received, ensuring fairness and predictability. While sequenced transaction pools may lack the flexibility of layered pools, they excel in maintaining a consistent and transparent transaction order, which is often a critical requirement in private blockchain environments.
+In the sequenced transaction pool, transactions are processed strictly in the order they are received.
+Although sequenced transaction pools lack the flexibility of layered pools, they help maintain a 
+consistent and transparent transaction order, which is often a critical requirement in private blockchain 
+environments.
 
 ## Layered transaction pool
 
@@ -70,7 +74,9 @@ You can opt out of the layered transaction pool implementation by setting the
 
 ## Dropping transactions when the transaction pool is full
 
-When the transaction pool is full, it accepts and retains local transactions in preference to remote transactions. If the transaction pool is full of local transactions, Besu drops the oldest local transactions first. That is, a full transaction pool continues to accept new local transactions by first dropping remote transactions and then by dropping the oldest local transactions.
+When the transaction pool is full, it accepts and retains local transactions in preference to remote transactions. 
+If the transaction pool is full of local transactions, Besu drops the oldest local transactions first. 
+That is, a full transaction pool continues to accept new local transactions by first dropping remote transactions and then by dropping the oldest local transactions.
 
 ## Replacing transactions with the same sender and nonce
 

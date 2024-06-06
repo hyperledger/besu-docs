@@ -14,10 +14,8 @@ All nodes maintain a transaction pool to store pending transactions before proce
 Transaction pools are categorized into the following two types: 
 
 * [Sequenced](#sequenced-transaction-pool) -  Recommended for private chains. 
-* [Layered](#layered-transaction-pool) - Recommended for public chains. Layered has extra parameters because you can limit and
-  configure for the number of transactions in the different layers which handles volume and sorts transactions at a faster speed.
+* [Layered](#layered-transaction-pool) - Recommended for public chains.
   
-
 Options and methods for configuring and monitoring the transaction pool include:
 
 |                                                                                              | Description                                                                      | Transaction pool type|
@@ -40,8 +38,14 @@ is submitted to the transaction pool, not the private transaction itself.
 
 In the sequenced transaction pool, transactions are processed strictly in the order they are received.
 Although sequenced transaction pools lack the flexibility of layered pools, they help maintain a 
-consistent and transparent transaction order, which is often a critical requirement in private blockchain 
-environments.
+consistent and transparent transaction order, which is often important in private blockchain 
+environments. 
+
+To select the sequenced transaction pool, set the `--tx-pool=sequenced` configuration option. 
+If you choose the enterprise configuration profile using `--profile=enterprise`, the sequenced transaction pool is set by default.
+The sequenced transaction pool suits enterprise environments and functions like a first-in-first-out (FIFO) queue. 
+It processes transactions in the order of submission, regardless of the sender. 
+When the pool reaches capacity, the newer transactions are evicted first, reducing the likelihood of a nonce gap and avoiding the need to resubmit older transactions.
 
 ## Layered transaction pool
 
@@ -52,6 +56,7 @@ That is, the first layer keeps only transactions with the highest value and that
 into the next produced block.
 The two other layers ensure that Besu always has a backlog of transactions to fill blocks, gaining
 the maximum amount of fees.
+Layered pools have additional parameters that allow you to limit and configure the number of transactions in different layers, enabling them to handle high volumes and sort transactions at a faster speed.
 
 With the layered transaction pool, Besu produces more profitable blocks more quickly, with more
 denial-of-service protection, and using less CPU than with the legacy transaction pool.

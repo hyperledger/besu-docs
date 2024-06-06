@@ -16,7 +16,7 @@ Transaction pools are categorized into the following two types:
 * [Layered](#layered-transaction-pool) - Recommended for public blockchain networks.
 * [Sequenced](#sequenced-transaction-pool) - Recommended for private blockchain networks. 
   
-Options and methods for configuring and monitoring the transaction pool include:
+Options and methods for configuring and monitoring the transaction pool include the following:
 
 |                                                                                              | Description                                                                      | Transaction pool type|
 |----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------|

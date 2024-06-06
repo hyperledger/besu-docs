@@ -32,7 +32,7 @@ Use the [`admin_changeLogLevel`](../../reference/api/index.md#admin_changeloglev
 
 ## Advanced logging
 
-You can provide your own logging configuration using the standard Log4j 2 configuration mechanisms. For example, the following Log4j 2 configuration is the same as the [default configuration] except for the exclusion of logging of stack traces for exceptions.
+You can provide your own logging configuration using the standard Log4j 2 configuration mechanisms. For example, the following Log4j 2 configuration is the same as the [default configuration] except for the exclusion of logging of stack traces for exceptions:
 
 ```xml title="debug.xml"
 <?xml version="1.0" encoding="UTF-8"?>

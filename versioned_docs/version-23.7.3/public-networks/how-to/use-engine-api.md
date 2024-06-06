@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Use the Engine API
 
-[Consensus and execution clients](../concepts/the-merge.md#execution-and-consensus-clients) communicate with each other using the [Engine API](../reference/engine-api/index.md). These API methods are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
+[Consensus and execution clients](../concepts/p2p-clients.md#execution-and-consensus-clients) communicate with each other using the [Engine API](../reference/engine-api/index.md). These API methods are a separate subsection of the [JSON-RPC API](../how-to/use-besu-api/index.md).
 
 ## Configure the Engine API
 

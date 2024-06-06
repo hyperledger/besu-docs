@@ -6,10 +6,10 @@ tags:
 
 # Proof of stake consensus
 
-[The Merge](../the-merge.md) transitioned Ethereum Mainnet to [proof of stake
+[The Merge](https://ethereum.org/en/upgrades/merge/) transitioned Ethereum Mainnet to [proof of stake
 (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
-In Ethereum's PoS, you must run a [full node](../the-merge.md#execution-and-consensus-clients) and
+In Ethereum's PoS, you must run a [full node](../p2p-clients.md#validator-nodes) and
 [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
 
 :::note
@@ -34,7 +34,7 @@ Validators also receive transaction fees for included blocks.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to execute and validate the payload.
 
-When a node validates a consensus block, its [consensus client](../the-merge.md#consensus-clients) processes the block and sends the execution payload to the [execution client](../the-merge.md#execution-clients), which:
+When a node validates a consensus block, its [consensus client](../p2p-clients.md#consensus-clients) processes the block and sends the execution payload to the [execution client](../p2p-clients.md#execution-clients), which:
 
 1. Assembles a block on the execution layer.
 2. Verifies pre-conditions.

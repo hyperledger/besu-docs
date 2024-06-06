@@ -4,6 +4,7 @@ sidebar_position: 1
 description: Learn about The Merge, and execution and consensus clients.
 tags:
   - public networks
+todo: IF content in non-versioned public-networks/concepts/p2p-clients approved replace this content with approved content. For now -- only renaming.
 ---
 
 # The Merge

@@ -104,7 +104,7 @@ The `extraData` property consists of:
 
 ### Post-Merge configuration
 
-After [The Merge](../../../../public-networks/concepts/the-merge.md), the following block fields are modified or deprecated. Their fields **must** contain only the constant values from the following chart.
+After [The Merge](https://ethereum.org/en/upgrades/merge/), the following block fields are modified or deprecated. Their fields **must** contain only the constant values from the following chart.
 
 | Field            | Constant value                                                       | Comment                    |
 |------------------|----------------------------------------------------------------------|----------------------------|

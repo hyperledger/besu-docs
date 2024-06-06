@@ -760,7 +760,7 @@ engine-jwt-secret="jwt.hex"
 
 </Tabs>
 
-Shared secret used to authenticate [consensus clients](../../concepts/the-merge.md) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+Shared secret used to authenticate [consensus clients](../../concepts/p2p-clients.md) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `engine-rpc-enabled`
 

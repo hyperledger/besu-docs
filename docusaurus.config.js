@@ -310,6 +310,10 @@ const config = {
             from: "/private-networks/tutorials/permissioning/upgrade-contracts",
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
+                    {
+            from: "/public-networks/concepts/the-merge",
+            to: "/public-networks/concepts/p2p-clients",
+          },
         ],
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {

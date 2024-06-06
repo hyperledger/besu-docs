@@ -12,7 +12,7 @@ Besu supports two node types, commonly referred to as [full nodes](#run-a-full-n
 [archive nodes](#run-an-archive-node).
 
 A full node consists of an
-[execution and consensus client](../../concepts/the-merge.md#execution-and-consensus-clients), and
+[execution and consensus client](../../concepts/p2p-clients.md#execution-and-consensus-clients), and
 stores a local copy of the blockchain.
 With a full node, you can check current balances, sign and send transactions, and look at current
 dapp data.

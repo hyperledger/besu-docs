@@ -28,7 +28,7 @@ We currently recommend two Java distributions, [OpenJDK 21](https://jdk.java.net
 OpenJDK is the default for many Java users and is balanced in performance and garbage collection.
 OpenJ9 consumes less memory and system resources, but can have worse performance on some setups.
 
-If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/the-merge.md)), use OpenJDK.
+If you have more than 32GB RAM (for Besu and your [consensus client](../concepts/p2p-clients.md)), use OpenJDK.
 If you have less RAM:
 
 * If you're on Linux (or Unix-based) and your CPU is x86-64 bit architecture (like Intel), use OpenJ9.

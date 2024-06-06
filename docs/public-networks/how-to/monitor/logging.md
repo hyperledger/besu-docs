@@ -77,7 +77,7 @@ Use the log marker `INVALID_TX_REMOVED` and the following fields to format the l
 - `reason` - The reason the transaction is invalid.
 - `txrlp` - The RLP encoding of the transaction.
 
-For example, the following Log4j 2 configuration enables logging invalid transactions:
+For example, the following Log4j 2 configuration enables logging of invalid transactions:
 
 ```xml title="debug.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -113,7 +113,7 @@ For example, the following Log4j 2 configuration enables logging invalid transac
 
 ### Log rotation
 
-[Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) logging configuration defines a [log rotation to restrict the size of the log files].
+The [Quorum Developer Quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) logging configuration defines a [log rotation to restrict the size of the log files].
 
 <!-- Links -->
 

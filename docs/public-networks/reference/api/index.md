@@ -6238,7 +6238,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 ## `MINER` methods
 
 The `MINER` API methods allow you to control the node's mining operation, or settings related to
-block creation in general.
+block creation in general. 
 
 :::note
 
@@ -6288,6 +6288,55 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
   "jsonrpc": "2.0",
   "id": 1,
   "result": "Success"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_getExtraData`
+
+Retrieves the current extra data field that is used when producing blocks.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Hexadecimal string representation of the extra data bytes.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getExtraData","params":[], "id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getExtraData",
+  "params": [],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x68656c6c6f20776f726c64"
 }
 ```
 
@@ -6450,6 +6499,56 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 </Tabs>
 
+### `miner_setExtraData`
+
+Sets a new value for the extra data field that is used when producing blocks.
+
+#### Parameters
+
+`extraData`: _string_ - Hexadecimal representation of the extra data field, with a maximum of 32 bytes.
+
+#### Returns
+
+`result`: _string_ - `true` or `false`
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":["0x0010203"], "id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setExtraData",
+  "params": ["0x0010203"],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "params": ["0x0010203"],
+  "id": 1,
+  "result": "true"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `miner_setMinGasPrice`
 
 Sets the minimum gas price (in wei) offered by a transaction to be included in a block.
@@ -6504,7 +6603,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinGasPrice","params":[
 
 ### `miner_setMinPriorityFee`
 
-Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. 
+The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
 Use [`miner_getMinPriorityFee`](#miner_getminpriorityfee) to get the current value of the fee.
 
 #### Parameters
@@ -6554,7 +6654,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 
 ### `miner_start`
 
-Starts the mining process. To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
+Starts the mining process. 
+To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
 
 #### Parameters
 

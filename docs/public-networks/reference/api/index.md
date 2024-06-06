@@ -6603,7 +6603,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinGasPrice","params":[
 
 ### `miner_setMinPriorityFee`
 
-Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. 
+The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
 Use [`miner_getMinPriorityFee`](#miner_getminpriorityfee) to get the current value of the fee.
 
 #### Parameters
@@ -6653,7 +6654,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 
 ### `miner_start`
 
-Starts the mining process. To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
+Starts the mining process. 
+To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
 
 #### Parameters
 

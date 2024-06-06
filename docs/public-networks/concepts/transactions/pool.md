@@ -13,8 +13,8 @@ All nodes maintain a transaction pool to store pending transactions before proce
 
 Transaction pools are categorized into the following two types: 
 
-* [Sequenced](#sequenced-transaction-pool) -  Recommended for private chains. 
-* [Layered](#layered-transaction-pool) - Recommended for public chains.
+* [Layered](#layered-transaction-pool) - Recommended for public blockchain networks.
+* [Sequenced](#sequenced-transaction-pool) - Recommended for private blockchain networks. 
   
 Options and methods for configuring and monitoring the transaction pool include:
 
@@ -33,19 +33,6 @@ When submitting [private transactions](../../../private-networks/concepts/privac
 the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md)
 is submitted to the transaction pool, not the private transaction itself.
 :::
-
-## Sequenced transaction pool
-
-In the sequenced transaction pool, transactions are processed strictly in the order they are received.
-Although sequenced transaction pools lack the flexibility of layered pools, they help maintain a 
-consistent and transparent transaction order, which is often important in private blockchain 
-environments. 
-
-To select the sequenced transaction pool, set the `--tx-pool=sequenced` configuration option. 
-If you choose the enterprise configuration profile using `--profile=enterprise`, the sequenced transaction pool is set by default.
-The sequenced transaction pool suits enterprise environments and functions like a first-in-first-out (FIFO) queue. 
-It processes transactions in the order of submission, regardless of the sender. 
-When the pool reaches capacity, the newer transactions are evicted first, reducing the likelihood of a nonce gap and avoiding the need to resubmit older transactions.
 
 ## Layered transaction pool
 
@@ -77,7 +64,19 @@ If you previously configured transaction pool behavior, upgrade to the layered t
 You can opt out of the layered transaction pool implementation by setting the
 [`--tx-pool`](../../reference/cli/options.md#tx-pool) option to `sequenced`.
 
-## Dropping transactions when the transaction pool is full
+## Sequenced transaction pool
+
+In the sequenced transaction pool, transactions are processed strictly in the order they are received.
+Although sequenced transaction pools lack the flexibility of layered pools, they help maintain a 
+consistent and transparent transaction order, which is often useful in private blockchains. 
+
+You can select the sequenced transaction pool by setting `--tx-pool=sequenced`.
+
+If you set the enterprise configuration profile using `--profile=enterprise`, the sequenced transaction pool is set by default.
+The sequenced transaction pool suits enterprise environments because it functions like a first-in-first-out (FIFO) queue and processes transactions in the order of submission, regardless of the sender. 
+When the pool reaches capacity, the newer transactions are evicted first, reducing the likelihood of a nonce gap and avoiding the need to resubmit older transactions.
+
+## Dropping transactions when the layered transaction pool is full
 
 When the transaction pool is full, it accepts and retains local transactions in preference to remote transactions. 
 If the transaction pool is full of local transactions, Besu drops the oldest local transactions first. 

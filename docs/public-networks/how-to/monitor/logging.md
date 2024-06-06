@@ -11,7 +11,7 @@ tags:
 
 # Use logging
 
-Hyperledger Besu uses Log4J2 for logging and provides two methods to configure logging behavior:
+Hyperledger Besu uses [Log4j 2](https://logging.apache.org/log4j/2.x/) for logging and provides two methods to configure logging behavior:
 
 - [Basic](#basic-logging) - Changes the log level.
 - [Advanced](#advanced-logging) - Configures the output and format of the logs.
@@ -32,7 +32,7 @@ Use the [`admin_changeLogLevel`](../../reference/api/index.md#admin_changeloglev
 
 ## Advanced logging
 
-You can provide your own logging configuration using the standard Log4J2 configuration mechanisms. For example, the following Log4J2 configuration is the same as the [default configuration] except for the exclusion of logging of stack traces for exceptions.
+You can provide your own logging configuration using the standard Log4j 2 configuration mechanisms. For example, the following Log4j 2 configuration is the same as the [default configuration] except for the exclusion of logging of stack traces for exceptions.
 
 ```xml title="debug.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +56,7 @@ You can provide your own logging configuration using the standard Log4J2 configu
 
 To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the location of your configuration file.
 
-If you have more specific requirements, you can create your own [log4j2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+If you have more specific requirements, you can create your own [Log4j 2 configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 For Bash-based executions, you can set the variable for only the scope of the program execution by setting it before starting Besu.
 
@@ -64,6 +64,51 @@ To set the debug logging and start Besu connected to the Holesky testnet:
 
 ```bash
 LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=holesky
+```
+
+### Log invalid transactions
+
+You can log information about invalid transactions that have been removed from the transaction pool.
+
+Use the log marker `INVALID_TX_REMOVED` and the following fields to format the log line as required:
+
+- `txhash` - The hash of the transaction.
+- `txlog` - The human-readable log of the transaction.
+- `reason` - The reason the transaction is invalid.
+- `txrlp` - The RLP encoding of the transaction.
+
+For example, the following Log4j 2 configuration enables logging invalid transactions:
+
+```xml title="debug.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="INFO">
+  <Properties>
+    <Property name="root.log.level">INFO</Property>
+  </Properties>
+  <Appenders>
+    <Console name="Console">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZZZ} | %t | %-5level | %c{1} | %msg%n"/>
+    </Console>
+    <Routing name="Router">
+      <Routes pattern="$${event:Marker}">
+        <Route key="INVALID_TX_REMOVED">
+          <Console name="ConsoleITR" target="SYSTEM_OUT">
+            <PatternLayout pattern="Invalid tx removed:%X{txlog}, reason:%X{reason}; RLP={%X{txrlp}}}%n"/>
+          </Console>
+        </Route>
+        <Route ref="Console"/>
+      </Routes>
+    </Routing>
+  </Appenders>
+  <Loggers>
+        <Logger additivity="false" name="org.hyperledger.besu.ethereum.eth.transactions">
+            <AppenderRef ref="Router"/>
+        </Logger>
+    <Root level="${sys:root.log.level}">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
 ```
 
 ### Log rotation

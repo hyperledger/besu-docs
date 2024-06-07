@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 :::info
 
-As a [Proof of Stake network]((../../concepts/proof-of-stake/index.md), running a full Ethereum node requires both [an execution client and a consensus client](../../concepts/node-clients.md#execution-and-consensus-clients).
+As a [Proof of Stake network](../../concepts/proof-of-stake/index.md), running a full Ethereum node requires both [an execution client and a consensus client](../../concepts/node-clients.md#execution-and-consensus-clients).
 
 :::
 

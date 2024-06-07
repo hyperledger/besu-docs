@@ -300,7 +300,7 @@ const config = {
           },
           {
             from: "/public-networks/concepts/the-merge",
-            to: "/public-networks/concepts/node-clients",
+            to: "/public-networks/concepts",
           },
           {
             from: "/public-networks/how-to/configuration-file",

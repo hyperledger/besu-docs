@@ -11,34 +11,30 @@ tags:
 Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and
 [archive nodes](#run-an-archive-node).
 
-A full node consists of an
-[execution and consensus client](../../concepts/node-clients.md#execution-and-consensus-clients), and
-stores a local copy of the blockchain.
+A full node consists of an [execution and consensus client](../../concepts/node-clients.md#execution-and-consensus-clients), and stores a local copy of the blockchain.
 With a full node, you can check current balances, sign and send transactions, and look at current
 dapp data.
-Full nodes can guarantee the latest state of the blockchain (and some older states).
-However, they can't serve the network with all data requests (for example, the balance of an account
-at an old block).
+
+Full nodes can guarantee the latest state of the blockchain (and some older states). However, they can't serve the network with all data requests (for example, the balance of an account at an old block).
 
 An archive node is a node that also stores the intermediary state of every account and contract
-for every block since the genesis block.
-Archive nodes can do everything full nodes do, and they can also access historical state data.
-However, archive nodes require more disk space than full nodes.
+for every block since the genesis block. 
 
-Besu must connect with other peers to sync with the network.
-If your node is having trouble peering, try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
+Archive nodes can do everything full nodes do, and they can also access historical state data. This means that archive nodes require more disk space than full nodes.
+
+Besu must connect with other peers to sync with the network. If your node is having trouble peering, try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
 
 ## Sync times
 
 To sync with a public network, Besu runs two processes in parallel: the world state sync and the
 blockchain download.
+
 While the world state syncs, Besu downloads and imports the blockchain in the background.
 The blockchain download time depends on CPU, the network, Besu's peers, and disk speed.
-The blockchain download generally takes longer than the world state sync.
-Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
+The blockchain download generally takes longer than the world state sync. Besu must catch up to the current chain head and sync the world state to participate on Mainnet.
 
-The following table shows the average world state sync time, and blockchain download time, for each
-sync mode on Mainnet.
+The following table shows the average world state sync time, and blockchain download time, for each sync mode on Mainnet.
+
 All times are hardware dependent; this table is based on running AWS instances m6gd.2xlarge.
 Each sync mode also has its own world state database size.
 
@@ -60,6 +56,7 @@ Each sync mode also has its own world state database size.
 
 You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
 or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+
 If you're [running a full node](#run-a-full-node), we recommend using Bonsai Tries for the lowest
 storage requirements.
 

@@ -8,7 +8,7 @@ tags:
 
 # Node clients
 
-Ethereum's Proof of Stake (PoS) consensus layer leverages two separate P2P networks supporting seperate clients. Execution clients gossip transactions over their network, enabling them to manage their local transaction pool. Consensus clients gossip blocks over their network, enabling consensus and chain growth.
+Ethereum's Proof of Stake (PoS) consensus layer leverages two separate P2P networks supporting separate clients. Execution clients gossip transactions over their network, enabling them to manage their local transaction pool. Consensus clients gossip blocks over their network, enabling consensus and chain growth.
 
 :::info
 As as result of [the 2022 Merge](https://ethereum.org/en/upgrades/merge/), Ethereum Mainnet transitioned from Proof of Work (PoW) to [PoS](proof-of-stake/index.md) consensus.
@@ -28,14 +28,14 @@ Execution clients, such as Besu, manage the execution layer, including executing
 
 Besu is an execution client that you can run with:
 
-- [Any consensus client on mainnet](../get-started/connect/mainnet.md).
+- [Any consensus client on Mainnet](../get-started/connect/mainnet.md).
 - [Any consensus client on a testnet](../get-started/connect/testnet.md).
 - [Teku on mainnet](../tutorials/besu-teku-mainnet.md).
 - [Teku on a testnet](../tutorials/besu-teku-testnet.md).
 
 ### Consensus clients
 
-The consensus client (also known as the Beacon Node, CL client or, formerly, the Eth2 client) implements the PoS consensus algorithm, which enables the network to achieve agreement based on validated data from the execution client. Consensus clients serve [REST API](https://docs.teku.consensys.net/reference/rest) requests and
+The consensus client (also known as the beacon node, CL client or, formerly, the Eth2 client) implements the PoS consensus algorithm, which enables the network to achieve agreement based on validated data from the execution client. Consensus clients serve [REST API](https://docs.teku.consensys.net/reference/rest) requests and
 communicate with each other P2P.
 
 Consensus clients, such as [Teku](https://docs.teku.consensys.net/en/latest/) contain beacon node implementations. The beacon node is the primary link to the [Beacon Chain] (i.e. the consensus layer). A consensus client can run without the (bundled) validator to keep up with the head of the chain, allowing the node to stay synced.

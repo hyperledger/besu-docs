@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Engine API methods
 
-[Consensus and execution clients](../../concepts/the-merge.md#execution-and-consensus-clients) communicate with each other using the Engine API. When running Besu as an execution client, [use these API calls](../../how-to/use-engine-api.md) to communicate with a consensus client.
+[Consensus and execution clients](../../concepts/node-clients.md#execution-and-consensus-clients) communicate with each other using the Engine API. When running Besu as an execution client, [use these API calls](../../how-to/use-engine-api.md) to communicate with a consensus client.
 
 :::info
 

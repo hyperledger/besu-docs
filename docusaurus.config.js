@@ -299,6 +299,10 @@ const config = {
             to: "/development/public-networks",
           },
           {
+            from: "/public-networks//concepts/the-merge",
+            to: "/public-networks//concepts/node-clients",
+          },
+          {
             from: "/public-networks/how-to/configuration-file",
             to: "/public-networks/how-to/use-configuration-file",
           },

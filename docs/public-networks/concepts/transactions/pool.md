@@ -49,11 +49,10 @@ is submitted to the transaction pool, not the private transaction itself.
 
 The [layered transaction pool](https://github.com/hyperledger/besu/pull/5290) is the default
 transaction pool implementation.
-This implementation separates the pool into layers according to value and executability of the transactions.
-That is, the first layer keeps only transactions with the highest value and that could feasibly go
-into the next produced block.
-The two other layers ensure that Besu always has a backlog of transactions to fill blocks, gaining
-the maximum amount of fees.
+The implementation separates the pool into layers according to value and executability of the transactions.
+The first layer keeps only the highest-value transactions that can feasibly go into the next block. 
+The other two layers ensure Besu always has a backlog of transactions to fill blocks, maximizing the amount of fees.
+
 Layered pools have additional parameters that allow you to limit and configure the number of transactions in different layers, enabling them to handle high volumes and sort transactions at a faster speed.
 
 With the layered transaction pool, Besu produces more profitable blocks more quickly, with more

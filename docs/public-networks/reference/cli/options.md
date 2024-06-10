@@ -4952,8 +4952,10 @@ tx-pool="sequenced"
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
 Set to `layered` to use the layered transaction pool implementation.
-Set to `sequenced` to use the sequenced transaction pool.
 The default is `layered`.
+
+Set to `sequenced` to use the sequenced transaction pool.
+The default is `sequenced` for the [enterprise profile](../../how-to/use-configuration-file/profile#enterpriseprivate-profile).
 
 ### `tx-pool-enable-save-restore`
 

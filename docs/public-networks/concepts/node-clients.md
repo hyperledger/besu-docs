@@ -8,7 +8,7 @@ tags:
 
 # Node clients
 
-Ethereum's Proof of Stake (PoS) consensus layer leverages two separate P2P networks supporting 
+Ethereum's Proof of Stake (PoS) protocol leverages two separate P2P networks supporting 
 separate clients. Execution clients gossip transactions over their network, enabling them to manage 
 their local transaction pool. Consensus clients gossip blocks over their network, enabling consensus 
 and chain growth.

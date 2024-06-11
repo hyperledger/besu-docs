@@ -41,7 +41,7 @@ Besu is an execution client that you can run with:
 
 - [Any consensus client on Mainnet](../get-started/connect/mainnet.md).
 - [Any consensus client on a testnet](../get-started/connect/testnet.md).
-- [Teku on mainnet](../tutorials/besu-teku-mainnet.md).
+- [Teku on Mainnet](../tutorials/besu-teku-mainnet.md).
 - [Teku on a testnet](../tutorials/besu-teku-testnet.md).
 
 ### Consensus clients

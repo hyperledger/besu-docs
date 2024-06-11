@@ -11,7 +11,7 @@ tags:
 Ethereum's Proof of Stake (PoS) protocol leverages two separate P2P networks supporting 
 separate clients. Execution clients gossip transactions over their network, enabling them to manage 
 their local transaction pool. Consensus clients gossip blocks over their network, enabling consensus 
-and chain growth.
+and chain growth. A validator node also runs the [validator client]((#validator-clients).
 
 :::info
 As as result of [the 2022 Merge](https://ethereum.org/en/upgrades/merge/), Ethereum Mainnet 
@@ -23,11 +23,8 @@ transitioned from Proof of Work (PoW) to [PoS](proof-of-stake/index.md) consensu
 Under PoS, a full Ethereum Mainnet node is a combination of an execution client (previously called 
 an [Eth1 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a 
 consensus client (previously called an 
-[Eth2 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)). A 
-[validator node](#validator-nodes) also runs the validator client.
-
-Execution and consensus clients communicate with each other using the 
-[Engine API](../how-to/use-engine-api.md).
+[Eth2 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)). The consensus client 
+communicates with the execution client via the [Engine API](../how-to/use-engine-api.md).
 
 ![Ethereum Merge node](../../assets/images/Execution-Consensus-Clients.png)
 
@@ -57,11 +54,12 @@ implementations. The beacon node is the primary link to the [Beacon Chain] (i.e.
 A consensus client can run without the (bundled) validator to keep up with the head of the chain, 
 allowing the node to stay synced.
 
-#### Validator nodes
+#### Validator clients
 
-Node operators can operate a validator node by adding a validator to their consensus clients and 
-depositing 32 ETH in the deposit contract. The validator client handles attestations and block 
-proposal &mdash; i.e. performs [validator duties](proof-of-stake/index.md) on the consensus layer. 
+To operate a validator node, node operators must also run a validator client and deposit the 
+[required ETH](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#validators) into the 
+deposit contract. The validator client handles attestations and block proposal &mdash; i.e. performs 
+[validator duties](proof-of-stake/index.md) on the consensus layer. 
 The validator client may either be run 
 [in the same process](https://docs.teku.consensys.net/get-started/start-teku#start-the-clients-in-a-single-process) 
 as the beacon node or [separately](https://docs.teku.consensys.net/get-started/start-teku#run-the-clients-separately).

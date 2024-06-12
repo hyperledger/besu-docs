@@ -446,8 +446,8 @@ cache-last-blocks=2048
 
 </Tabs>
 
-Configures the number of recent blocks to cache, significantly improving the performance of several RPC calls. 
-This caching significantly improves the performance of several RPC calls, particularly [`eth_getBlockByNumber`](../api/index.md#eth_getBlockByNumber), [`eth_getBlockByHash`](../api/index.md#eth_getBlockByHash), [`eth_getTransactionReceipt`](../api/index.md#getTransactionReceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feeHistory). 
+The number of recent blocks to cache. 
+Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getBlockByNumber), [`eth_getBlockByHash`](../api/index.md#eth_getBlockByHash), [`eth_getTransactionReceipt`](../api/index.md#getTransactionReceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feeHistory). 
 The default is `0`.
 
 ### `color-enabled`

@@ -99,7 +99,7 @@ or free gas networks:
 
 ## Transaction pool methods and options
 
-Methods and options for configuring and monitoring the transaction pool include the following:
+You can configure and monitor the transaction pool using the following methods, subscriptions, and options:
 
 | Method                                                                                             | Description                                                                         |
 |----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|

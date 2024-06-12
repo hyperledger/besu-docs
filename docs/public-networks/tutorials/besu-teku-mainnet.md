@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Run Besu and Teku on Mainnet
 
-Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on Ethereum Mainnet.
+Run Besu as an [execution client](../concepts/node-clients.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/node-clients.md#consensus-clients) on Ethereum Mainnet.
 
 ## 1. Install Besu and Teku
 

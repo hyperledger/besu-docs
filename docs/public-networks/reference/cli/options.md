@@ -408,6 +408,48 @@ When connecting to Mainnet or public testnets, the default is a predefined list 
 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using [`--network=dev`](#network), the default is an empty list of bootnodes.
 
+### `cache-last-blocks`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--cache-last-blocks=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--cache-last-blocks=2048
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+CACHE_LAST_BLOCKS=2048
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+cache-last-blocks=2048
+```
+
+</TabItem>
+
+</Tabs>
+
+The number of recent blocks to cache. 
+Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getBlockByNumber), [`eth_getBlockByHash`](../api/index.md#eth_getBlockByHash), [`eth_getTransactionReceipt`](../api/index.md#getTransactionReceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feeHistory). 
+The default is `0`.
+
 ### `color-enabled`
 
 <Tabs>
@@ -813,7 +855,7 @@ engine-jwt-secret="jwt.hex"
 
 </Tabs>
 
-Shared secret used to authenticate [consensus clients](../../concepts/the-merge.md) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+Shared secret used to authenticate [consensus clients](../../concepts/node-clients.md#consensus-clients) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `engine-rpc-enabled`
 

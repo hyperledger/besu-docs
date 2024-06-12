@@ -26,7 +26,7 @@ consensus client (previously called an
 [Eth2 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)). The consensus client 
 uses the [Engine API](../how-to/use-engine-api.md) to communicate with the execution client.
 
-![Ethereum Merge node](../../assets/images/Execution-Consensus-Clients.png)
+![Ethereum Merge node](../../assets/images/Execution-Consensus-Clients-EngineAPI.png)
 
 ### Execution clients
 

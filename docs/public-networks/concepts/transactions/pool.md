@@ -108,6 +108,7 @@ You can configure and monitor the transaction pool using the following methods, 
 | [`txpool_besuPendingTransactions`](../../reference/api/index.md#txpool_besupendingtransactions)    | API method to list pending transactions in the transaction pool.                    |
 
 | Subscription |  Description |
+|--------------|-------------|
 | [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions)           | RPC subscription to notify of transactions added to the transaction pool.           |
 | [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions)       | RPC subscription to notify of transactions dropped from the transaction pool.       |
 

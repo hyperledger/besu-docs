@@ -16,7 +16,7 @@ Transaction pools are categorized into the following two types:
 * [Layered](#layered-transaction-pool) - Recommended for public blockchain networks.
 * [Sequenced](#sequenced-transaction-pool) - Recommended for private blockchain networks.
 
-You can use specific options and methods to [configure and monitor the transaction pool](#transaction-pool-options-and-methods).
+You can use specific options and methods to [configure and monitor the transaction pool](#transaction-pool-methods-and-options).
   
 :::note
 When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation),
@@ -101,34 +101,28 @@ or free gas networks:
 
 You can configure and monitor the transaction pool using the following methods, subscriptions, and options:
 
-| Method                                                                                             | Description                                                                         |
-|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions)                  | API method to list transactions in the transaction pool.                            |
-| [`txpool_besuStatistics`](../../reference/api/index.md#txpool_besustatistics)                      | API method to list statistics of the transaction pool.                              |
-| [`txpool_besuPendingTransactions`](../../reference/api/index.md#txpool_besupendingtransactions)    | API method to list pending transactions in the transaction pool.                    |
 
-| Subscription |  Description |
-|--------------|-------------|
-| [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions)           | RPC subscription to notify of transactions added to the transaction pool.           |
-| [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions)       | RPC subscription to notify of transactions dropped from the transaction pool.       |
-
-
-| Option                                                                                             | Description                                                                         |
-|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| [`--tx-pool`](../../reference/cli/options.md#tx-pool)                                              | Option to specify the type of transaction pool to use.                              |
-| [`--tx-pool-enable-save-restore`](../../reference/cli/options.md#tx-pool-enable-save-restore)      | Option to enable save and restore functionality for the transaction pool.           |
-| [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity)        | Option to specify the maximum memory capacity of the transaction pool.              |
-| [`--tx-pool-limit-by-account-percentage`](../../reference/cli/options.md#tx-pool-limit-by-account-percentage) | Option to limit the transaction pool by account percentage.              |
-| [`--tx-pool-max-future-by-sender`](../../reference/cli/options.md#tx-pool-max-future-by-sender)    | Option to specify the maximum number of future transactions by sender.              |
-| [`--tx-pool-max-prioritized`](../../reference/cli/options.md#tx-pool-max-prioritized)              | Option to specify the maximum number of prioritized transactions.                   |
-| [`--tx-pool-max-prioritized-by-type`](../../reference/cli/options.md#tx-pool-max-prioritized-by-type) | Option to specify the maximum number of prioritized transactions by type.        |
-| [`--tx-pool-max-size`](../../reference/cli/options.md#tx-pool-max-size)                            | Option to specify the maximum size of the transaction pool.                         |
-| [`--tx-pool-min-gas-price`](../../reference/cli/options.md#tx-pool-min-gas-price)                  | Option to specify the minimum gas price for transactions in the pool.               |
-| [`--tx-pool-no-local-priority`](../../reference/cli/options.md#tx-pool-no-local-priority)          | Option to disable local priority for transactions.                                  |
-| [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)                        | Option to specify the price bump percentage to replace an existing transaction.     |
-| [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)            | Option to specify sender addresses to prioritize in the transaction pool.           |
-| [`--tx-pool-retention-hours`](../../reference/cli/options.md#tx-pool-retention-hours)              | Option to specify the number of hours to retain transactions in the pool.           |
-| [`--tx-pool-save-file`](../../reference/cli/options.md#tx-pool-save-file)                          | Option to specify the file for saving the transaction pool state.                   |
+| Category       | Name                                                                                             | Description                                                                         |
+|----------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Method         | [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions)                | API method to list transactions in the transaction pool.                            |
+| Method         | [`txpool_besuStatistics`](../../reference/api/index.md#txpool_besustatistics)                    | API method to list statistics of the transaction pool.                              |
+| Method         | [`txpool_besuPendingTransactions`](../../reference/api/index.md#txpool_besupendingtransactions)  | API method to list pending transactions in the transaction pool.                    |
+| Subscription   | [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions)         | RPC subscription to notify of transactions added to the transaction pool.           |
+| Subscription   | [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions)     | RPC subscription to notify of transactions dropped from the transaction pool.       |
+| Option         | [`--tx-pool`](../../reference/cli/options.md#tx-pool)                                            | Option to specify the type of transaction pool to use.                              |
+| Option         | [`--tx-pool-enable-save-restore`](../../reference/cli/options.md#tx-pool-enable-save-restore)    | Option to enable save and restore functionality for the transaction pool.           |
+| Option         | [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity)      | Option to specify the maximum memory capacity of the layered transaction pool.      |
+| Option         | [`--tx-pool-limit-by-account-percentage`](../../reference/cli/options.md#tx-pool-limit-by-account-percentage) | Option to limit the transaction pool by account percentage.            |
+| Option         | [`--tx-pool-max-future-by-sender`](../../reference/cli/options.md#tx-pool-max-future-by-sender)  | Option to specify the maximum number of future transactions by sender.              |
+| Option         | [`--tx-pool-max-prioritized`](../../reference/cli/options.md#tx-pool-max-prioritized)            | Option to specify the maximum number of prioritized transactions.                   |
+| Option         | [`--tx-pool-max-prioritized-by-type`](../../reference/cli/options.md#tx-pool-max-prioritized-by-type) | Option to specify the maximum number of prioritized transactions by type.      |
+| Option         | [`--tx-pool-max-size`](../../reference/cli/options.md#tx-pool-max-size)                          | Option to specify the maximum size of the transaction pool.                         |
+| Option         | [`--tx-pool-min-gas-price`](../../reference/cli/options.md#tx-pool-min-gas-price)                | Option to specify the minimum gas price for transactions in the pool.               |
+| Option         | [`--tx-pool-no-local-priority`](../../reference/cli/options.md#tx-pool-no-local-priority)        | Option to disable local priority for transactions.                                  |
+| Option         | [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)                      | Option to specify the price bump percentage to replace an existing transaction.     |
+| Option         | [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)          | Option to specify sender addresses to prioritize in the transaction pool.           |
+| Option         | [`--tx-pool-retention-hours`](../../reference/cli/options.md#tx-pool-retention-hours)            | Option to specify the number of hours to retain transactions in the pool.           |
+| Option         | [`--tx-pool-save-file`](../../reference/cli/options.md#tx-pool-save-file)                        | Option to specify the file for saving the transaction pool state.                   |
 
 :::note
 The option [`--tx-pool-layer-max-capacity`](../../reference/cli/options.md#tx-pool-layer-max-capacity) is applicable only for [layered transaction pools](#layered-transaction-pool).

@@ -101,8 +101,7 @@ or free gas networks:
 
 You can configure and monitor the transaction pool using the following methods, subscriptions, and options:
 
-
-| Category       | Name                                                                                             | Description                                                                         |
+|                | Name                                                                                             | Description                                                                         |
 |----------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | Method         | [`txpool_besuTransactions`](../../reference/api/index.md#txpool_besutransactions)                | API method to list transactions in the transaction pool.                            |
 | Method         | [`txpool_besuStatistics`](../../reference/api/index.md#txpool_besustatistics)                    | API method to list statistics of the transaction pool.                              |

@@ -11,7 +11,7 @@ tags:
 Ethereum's Proof of Stake (PoS) protocol leverages two separate P2P networks supporting 
 separate clients. Execution clients gossip transactions over their network, enabling them to manage 
 their local transaction pool. Consensus clients gossip blocks over their network, enabling consensus 
-and chain growth. A validator node also runs the [validator client]((#validator-clients).
+and chain growth. A validator node also runs the [validator client](#validator-clients).
 
 :::info
 As as result of [the 2022 Merge](https://ethereum.org/en/upgrades/merge/), Ethereum Mainnet 
@@ -24,7 +24,7 @@ Under PoS, a full Ethereum Mainnet node is a combination of an execution client 
 an [Eth1 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a 
 consensus client (previously called an 
 [Eth2 client](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)). The consensus client 
-communicates with the execution client via the [Engine API](../how-to/use-engine-api.md).
+uses the [Engine API](../how-to/use-engine-api.md) to communicate with the execution client.
 
 ![Ethereum Merge node](../../assets/images/Execution-Consensus-Clients.png)
 

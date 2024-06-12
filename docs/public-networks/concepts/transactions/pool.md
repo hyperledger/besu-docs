@@ -117,6 +117,6 @@ Options and methods for configuring and monitoring the transaction pool include 
 | [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)                  | Option to specify the price bump percentage to replace an existing transaction.  | Both                 |
 | [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)      | Option to specify sender addresses to prioritize in the transaction pool.        | Both                 |
 | [`--tx-pool-retention-hours`](../../reference/cli/options.md#tx-pool-retention-hours)        | Option to specify the number of hours to retain transactions in the pool.        | Both                 |
-| [`tx-pool-save-file`](../../reference/cli/options.md#tx-pool-save-file)                      | Option to specify the file for saving the transaction pool state.                | Both                 |
+| [`--tx-pool-save-file`](../../reference/cli/options.md#tx-pool-save-file)                      | Option to specify the file for saving the transaction pool state.                | Both                 |
 | [`newPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#pending-transactions)     | RPC subscription to notify you of transactions added to the transaction pool.    | Both                 |
 | [`droppedPendingTransactions`](../../how-to/use-besu-api/rpc-pubsub.md#dropped-transactions) | RPC subscription to notify you of transactions dropped from the transaction pool.| Both                 |

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Connect to a testnet
 
-Run Besu as an [execution client](../../concepts/the-merge.md#execution-clients) with any consensus client on the [Holesky](https://github.com/eth-clients/holesky) and [Sepolia](https://github.com/eth-clients/sepolia) testnets.
+Run Besu as an [execution client](../../concepts/node-clients.md#execution-clients) with any consensus client on the [Holesky](https://github.com/eth-clients/holesky) and [Sepolia](https://github.com/eth-clients/sepolia) testnets.
 
 If you're using [Teku](https://docs.teku.consensys.net/en/latest/) as a consensus client, you can follow the [Besu and Teku testnet tutorial](../../tutorials/besu-teku-testnet.md).
 

@@ -2368,16 +2368,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockHash","
 
 ### `qbft_getValidatorsByBlockNumber`
 
-Lists the validators for the specified block. A block has two validator lists associated with it:
+Lists the validators for the specified block.
 
-1. The validators that were used at the time the block was produced.
-2. The validators that will be used to produce the next block.
+For all blocks up to the chain head block this method returns the validators that were used at the time the block was produced.
 
-In most cases, these two lists are the same. However, when voting has completed to add or remove a validator, the validators that will be used to produce the next block are different.
+Use `blockNumber` to get the list of validators for that block.
 
-Use `latest` or `blockNumber` to get the list of validators that were used at the time the block was produced.
+For the chain head block there are two validator lists associated with it:
 
-Use `pending` to get a list of validators that will be used to produce the next block.
+1. The validators that were used at the time the block was produced. This list is returned by passing `latest` as the input parameter.
+2. The validators that will be used to produce the next block. This list is returned by passing `pending` as the input parameter.
+
+In most instances the two lists for the chain head block are the same. However, when voting has completed to add or remove a validator, the validators that will be used to produce the next block are different. Comparing the two lists can be helpful when diagnosing a stalled chain.
 
 :::note
 When the validator list changes, an `INFO` log message displays, showing the previous list of validators and the new list of validators.

@@ -5609,6 +5609,50 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1
 
 </Tabs>
 
+### `eth_maxPriorityFeePerGas`
+
+Returns an estimate of how much priority fee, in wei, you need to provide to be included in a block.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _hexidecimal_ value in wei.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_maxPriorityFeePerGas", "params": [], "id": 1 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xf4240"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `eth_mining`
 
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network regardless of command settings or methods called.

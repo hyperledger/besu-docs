@@ -9,7 +9,7 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
+Since Besu version 24.6.0, when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, [`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is enabled by default, unless [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) in which case this option is disallowed and must be set to false.
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
 
 ## Limit and prune trie logs
@@ -20,7 +20,7 @@ The following commands are examples. Before executing these example commands on 
 
 :::
 
-1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](use-configuration-file).
+1. Upgrade to Besu version 24.6.0 or add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](use-configuration-file).
    
     :::note
     
@@ -39,15 +39,15 @@ The following commands are examples. Before executing these example commands on 
 
 ### Prune outdated trie logs
 
-When you start Besu with `--Xbonsai-limit-trie-logs-enabled`, it continuously prunes the unnecessary trie log data, removing it one block at a time.
+When you start Besu with `--bonsai-limit-trie-logs-enabled`, it continuously prunes the unnecessary trie log data, removing it one block at a time.
 This process begins after an initial reduction in the database size during startup.
 
-Enabling `--Xbonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
+Enabling `--bonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
 Instead of resyncing, you can run an offline command to immediately prune old trie logs. 
 To run the offline command, you must shut down Besu for a minimal period. 
-If the `--Xbonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
+If the `--bonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
 
-For minimal downtime, we recommend running the offline command before restarting Besu with `--Xbonsai-limit-trie-logs-enabled`.
+For minimal downtime, we recommend running the offline command before restarting Besu with `--bonsai-limit-trie-logs-enabled`.
 
 If you are following the guides by [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you have set the following options in your `besu.service` or `execution.service` systemd file:
 

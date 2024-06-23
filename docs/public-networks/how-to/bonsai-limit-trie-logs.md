@@ -18,6 +18,8 @@ If [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) is set, the `--bo
 
 ## Limit and prune trie logs
 
+If you've been running Besu without `--bonsai-limit-trie-logs-enabled` then you may have a backlog of redundant trie logs. These can be pruned using the instructions below.
+
 :::caution
 The following commands are examples. Before executing these example commands on your node, modify them to apply to your node's configuration.
 :::

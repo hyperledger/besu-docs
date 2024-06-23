@@ -9,7 +9,11 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Since Besu version 24.6.0, when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, [`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is enabled by default, unless [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) in which case this option is disallowed and must be set to false.
+When using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, [`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is enabled by default. 
+
+::: note
+If [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) is set, the `--bonsai-limit-trie-logs-enabled` option is disallowed and must be set to false.
+:::
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
 
 ## Limit and prune trie logs

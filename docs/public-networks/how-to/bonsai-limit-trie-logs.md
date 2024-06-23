@@ -25,7 +25,7 @@ The following commands are examples. Before executing these example commands on 
 :::
 
 :::note
-Ensure you are using Besu version 24.6.0 or later. If you are using an older verison, upgrade or refer to the older version of the documentation.
+Ensure you are using Besu version 24.6.0 or later. If you are using an older version, upgrade or refer to the older version of the documentation.
 :::
  
 1. Stop Besu.

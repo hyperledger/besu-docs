@@ -356,7 +356,10 @@ bonsai-historical-block-limit=256
 
 </Tabs>
 
-When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the [maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which Bonsai can reconstruct a historical state. The default is 512. 
+When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the
+[maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which
+Bonsai can reconstruct a historical state.
+The default is `512`. 
 
 :::note
 
@@ -402,7 +405,12 @@ bonsai-limit-trie-logs-enabled=false
 
 </Tabs>
 
-When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), limit the number of trie logs that are retained to the value of [`--bonsai-historical-block-limit`](#bonsai-historical-block-limit). The default is `true`, unless [`--sync-mode=FULL`](#sync-mode) in which case this option is disallowed and must be set to false.
+Enables or disables limiting the number of
+[Bonsai Trie](../../concepts/data-storage-formats.md#bonsai-tries) logs that are retained.
+When enabled, this limit is set to the value of
+[`--bonsai-historical-block-limit`](#bonsai-historical-block-limit).
+The default is `true`, unless [`--sync-mode=FULL`](#sync-mode) is set, in which case this option is
+disallowed and must be set to `false`.
 
 ### `bonsai-trie-logs-pruning-window-size`
 
@@ -442,7 +450,10 @@ bonsai-trie-logs-pruning-window-size=100000
 
 </Tabs>
 
-When using [`--bonsai-limit-trie-logs-enabled`](#bonsai-limit-trie-logs-enabled), the number of trie logs to prune during one pruning operation. A larger value may impact node performance. The default is `30000`. 
+When using [`--bonsai-limit-trie-logs-enabled`](#bonsai-limit-trie-logs-enabled), the number of trie
+logs to prune during one pruning operation.
+A larger value might impact node performance.
+The default is `30000`.
 
 ### `bootnodes`
 

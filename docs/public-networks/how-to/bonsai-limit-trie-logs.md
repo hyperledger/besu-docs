@@ -9,23 +9,32 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, [`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is enabled by default. 
+When using the [Bonsai Tries](../concepts/data-storage-formats#bonsai-tries) data storage format,
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is
+enabled by default. 
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
 
 :::note
-If [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) is set, the `--bonsai-limit-trie-logs-enabled` option is disallowed and must be set to false.
+If [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) is set, the
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled)
+option is disallowed and must be set to `false`.
 :::
 
 ## Limit and prune trie logs
 
-If you've been running Besu without `--bonsai-limit-trie-logs-enabled` then you may have a backlog of redundant trie logs. These can be pruned using the instructions below.
-
-:::caution
-The following commands are examples. Before executing these example commands on your node, modify them to apply to your node's configuration.
-:::
+If you're running Besu without
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled),
+you might have a backlog of redundant trie logs.
+You can prune these using the following instructions.
 
 :::note
-Ensure you are using Besu version 24.6.0 or later. If you are using an older version, upgrade or refer to the older version of the documentation.
+Ensure you are using Besu version 24.6.0 or later.
+If you are using an older version, upgrade Besu or refer to the older version of the documentation.
+:::
+
+:::caution
+The following commands are examples.
+Before executing these example commands on your node, modify them to apply to your node's configuration.
 :::
  
 1. Stop Besu.

@@ -9,26 +9,34 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To decrease the database size when using the [Bonsai Trie](../concepts/data-storage-formats#bonsai-tries) data storage format, enable the early access feature `--Xbonsai-limit-trie-logs-enabled`. 
+When using the [Bonsai Tries](../concepts/data-storage-formats#bonsai-tries) data storage format,
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is
+enabled by default.
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.
+
+:::note
+If [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode) is set, the
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled)
+option is disallowed and must be set to `false`.
+:::
 
 ## Limit and prune trie logs
 
-:::caution
+If you're running Besu without
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled),
+you might have a backlog of redundant trie logs.
+You can prune these using the following instructions.
 
-The following commands are examples. Before executing these example commands on your node, modify them to apply to your node's configuration.
-
+:::note
+Ensure you are using Besu version 24.6.0 or later.
+If you are using an older version, upgrade Besu or refer to the older version of the documentation.
 :::
 
-1. Add the `--Xbonsai-limit-trie-logs-enabled` option to the [Besu configuration file](use-configuration-file).
-   
-    :::note
-    
-    If you are using a `systemd` service file, as recommended by [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu) 
-    and [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee), ensure you execute `sudo systemctl daemon-reload`.
-    
-    :::
-   
+:::caution
+The following commands are examples.
+Before executing these example commands on your node, modify them to apply to your node's configuration.
+:::
+
 1. Stop Besu.
 1. (Optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
     ```bash
@@ -39,15 +47,17 @@ The following commands are examples. Before executing these example commands on 
 
 ### Prune outdated trie logs
 
-When you start Besu with `--Xbonsai-limit-trie-logs-enabled`, it continuously prunes the unnecessary trie log data, removing it one block at a time.
+When you start Besu with
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled), it
+continuously prunes the unnecessary trie log data, removing it one block at a time.
 This process begins after an initial reduction in the database size during startup.
 
-Enabling `--Xbonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
+Enabling `--bonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 
 Instead of resyncing, you can run an offline command to immediately prune old trie logs. 
 To run the offline command, you must shut down Besu for a minimal period. 
-If the `--Xbonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
+If the `--bonsai-limit-trie-logs-enabled` option is enabled, you do not need to run the offline command again after initially running it.
 
-For minimal downtime, we recommend running the offline command before restarting Besu with `--Xbonsai-limit-trie-logs-enabled`.
+For minimal downtime, we recommend running the offline command before restarting Besu with `--bonsai-limit-trie-logs-enabled`.
 
 If you are following the guides by [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you have set the following options in your `besu.service` or `execution.service` systemd file:
 

@@ -4,23 +4,22 @@ sidebar_position: 1
 
 # Use a profile
 
-To help you get started quickly, Besu provides pre-configured profiles containing custom settings
-for some common use cases.
-You can load these profiles using the [`--profile`](../../reference/cli/options.md#profile) CLI option.
+By default, Besu does not define a profile, However, a profile can be used to extend Besu's 
+[configurations](index.md). Configuration options explicitly set in the configuration file or command 
+line will [override the same options](index.md#configuration-order-of-precedence) set in the profile. 
+
+Load a profile using the [`--profile`](../../reference/cli/options.md#profile) CLI option.
 For example:
 
 ```bash
 besu --config-file=config.toml --profile=staker
 ```
 
-In this example, `config.toml` is the user-provided [configuration file](index.md), and `staker` is
+In this example, `config.toml` is the user-provided [configuration file], and `staker` is
 the pre-configured profile containing custom settings.
 
-Any configuration options explicitly set in the configuration file or command line will overwrite
-the same options set in the profile.
-See the [configuration order of precedence](index.md#configuration-order-of-precedence) for more information.
-
-You can use the following profiles:
+To help you get started, Besu provides pre-configured profiles containing custom settings
+for some common use cases:
 
 - [Minimalist staker profile](#minimalist-staker-profile)
 - [Staker profile](#staker-profile)
@@ -59,8 +58,7 @@ besu --profile=staker
 
 For private network operators who want to minimize confusion by setting sensible defaults, Besu
 provides an enterprise/private profile.
-This profile is designed to handle specific use cases for private network operators.
-See the
+This profile handles specific use cases for private network operators.See the
 [enterprise/private profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.
 

@@ -2808,13 +2808,13 @@ BESU_PROFILE=staker
 ```
 
 </TabItem>
-<TabItem value="Configuration file">
+<!-- <TabItem value="Configuration file">
 
 ```bash
 profile="staker"
 ```
 
-</TabItem>
+</TabItem> -->
 </Tabs>
 
 Loads a pre-configured TOML file containing custom settings for a specific user profile.
@@ -2823,6 +2823,8 @@ Possible values are:
 - [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
 - [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
 - [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+
+The default is `null`.
 
 ### `random-peer-priority-enabled`
 

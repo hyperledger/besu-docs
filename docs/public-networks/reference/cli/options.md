@@ -5588,6 +5588,52 @@ content if the save and restore functionality is enabled using
 The file is created on shutdown and reloaded during startup.
 The default file name is `txpool.dump` in the [data directory](#data-path).
 
+### `use-cached-genesis-state-hash`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--use-cached-genesis-state-hash=[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--use-cached-genesis-state-hash=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+use-cached-genesis-state-hash=true
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+use-cached-genesis-state-hash=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables fast startup from an existing genesis state hash. The default is `false`.
+
+:::danger
+
+As this method avoids validating the genesis state hash, it trades-off security for faster node startup times. Its use is only recommended if you are certain that you have not modified your genesis file or database and understand the security implications. 
+
+:::
+
 ### `version`
 
 <Tabs>

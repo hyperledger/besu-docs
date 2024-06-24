@@ -214,7 +214,7 @@ Each index file contains 100000 blocks. The last fragment of blocks less than 10
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -5602,6 +5602,50 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0x12b"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `eth_maxPriorityFeePerGas`
+
+Returns an estimate of how much priority fee, in wei, you can pay to get a transaction included in the current block.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _hexadecimal_ value in wei
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_maxPriorityFeePerGas", "params": [], "id": 1 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xf4240"
 }
 ```
 

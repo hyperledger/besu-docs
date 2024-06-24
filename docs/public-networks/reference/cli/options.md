@@ -2808,13 +2808,13 @@ BESU_PROFILE=staker
 ```
 
 </TabItem>
-<!-- <TabItem value="Configuration file">
+<TabItem value="Configuration file">
 
 ```bash
 profile="staker"
 ```
 
-</TabItem> -->
+</TabItem>
 </Tabs>
 
 Loads a pre-configured TOML file containing custom settings for a specific user profile.

@@ -47,7 +47,9 @@ Before executing these example commands on your node, modify them to apply to yo
 
 ### Prune outdated trie logs
 
-When you start Besu with `--bonsai-limit-trie-logs-enabled`, it continuously prunes the unnecessary trie log data, removing it one block at a time.
+When you start Besu with
+[`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled), it
+continuously prunes the unnecessary trie log data, removing it one block at a time.
 This process begins after an initial reduction in the database size during startup.
 
 Enabling `--bonsai-limit-trie-logs-enabled` on a long-running node does not immediately clear your backlog of trie logs in the same way resyncing does. 

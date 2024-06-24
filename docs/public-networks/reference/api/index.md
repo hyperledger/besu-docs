@@ -5611,7 +5611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1
 
 ### `eth_maxPriorityFeePerGas`
 
-Returns an estimate of how much priority fee, in wei, you need to provide to be included in a block.
+Returns an estimate of how much priority fee, in wei, you can pay to get a transaction included in the current block.
 
 #### Parameters
 

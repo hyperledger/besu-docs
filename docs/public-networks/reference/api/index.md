@@ -5619,7 +5619,7 @@ None
 
 #### Returns
 
-`result`: _hexidecimal_ value in wei
+`result`: _hexadecimal_ value in wei
 
 <Tabs>
 

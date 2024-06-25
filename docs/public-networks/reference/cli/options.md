@@ -1198,6 +1198,52 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 
 :::
 
+### `genesis-state-hash-cache-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--genesis-state-hash-cache-enabled=[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--genesis-state-hash-cache-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_GENESIS_STATE_HASH_CACHE_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+genesis-state-hash-cache-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables fast startup from an existing genesis state hash. The default is `false`.
+
+:::warning
+
+Enabling this option avoids validating the genesis state hash, trading off security for faster node startup times. We only recommend using this option if you are certain that you have not modified your genesis file or database and understand the security implications.
+
+:::
+
 ### `graphql-http-cors-origins`
 
 <Tabs>

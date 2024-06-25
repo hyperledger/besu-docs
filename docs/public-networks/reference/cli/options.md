@@ -5702,7 +5702,7 @@ The default file name is `txpool.dump` in the [data directory](#data-path).
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-use-cached-genesis-state-hash=true
+BESU_USE_CACHED_GENESIS_STATE_HASH=true
 ```
 
 </TabItem>

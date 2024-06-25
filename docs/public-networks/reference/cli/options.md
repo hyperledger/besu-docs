@@ -5721,7 +5721,7 @@ Enables or disables fast startup from an existing genesis state hash. The defaul
 
 :::warning
 
-As this method avoids validating the genesis state hash, it trades-off security for faster node startup times. Its use is only recommended if you are certain that you have not modified your genesis file or database and understand the security implications. 
+Enabling this option avoids validating the genesis state hash, trading off security for faster node startup times. We only recommend using this option if you are certain that you have not modified your genesis file or database and understand the security implications.
 
 :::
 

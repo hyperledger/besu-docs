@@ -5717,7 +5717,7 @@ use-cached-genesis-state-hash=true
 
 </Tabs>
 
-Enables fast startup from an existing genesis state hash. The default is `false`.
+Enables or disables fast startup from an existing genesis state hash. The default is `false`.
 
 :::danger
 

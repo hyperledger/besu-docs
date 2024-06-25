@@ -5719,7 +5719,7 @@ use-cached-genesis-state-hash=true
 
 Enables or disables fast startup from an existing genesis state hash. The default is `false`.
 
-:::danger
+:::warning
 
 As this method avoids validating the genesis state hash, it trades-off security for faster node startup times. Its use is only recommended if you are certain that you have not modified your genesis file or database and understand the security implications. 
 

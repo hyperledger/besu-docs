@@ -5694,7 +5694,7 @@ The default file name is `txpool.dump` in the [data directory](#data-path).
 <TabItem value="Example" label="Example">
 
 ```bash
---use-cached-genesis-state-hash=true
+--genesis-state-hash-cache-enabled=true
 ```
 
 </TabItem>

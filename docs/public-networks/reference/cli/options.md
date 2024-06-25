@@ -5710,7 +5710,7 @@ BESU_USE_CACHED_GENESIS_STATE_HASH=true
 <TabItem value="Example configuration file" label="Example configuration file"> 
 
 ```bash
-use-cached-genesis-state-hash=true
+genesis-state-hash-cache-enabled=true
 ```
 
 </TabItem>

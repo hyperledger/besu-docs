@@ -5136,6 +5136,48 @@ The default is `layered`.
 Set to `sequenced` to use the [sequenced transaction pool](../../concepts/transactions/pool#sequenced-transaction-pool).
 The default is `sequenced` for the [enterprise/private profile](../../how-to/use-configuration-file/profile#enterpriseprivate-profile).
 
+### `tx-pool-blob-price-bump`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-blob-price-bump=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-blob-price-bump=25
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_BLOB_PRICE_BUMP=25
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-blob-price-bump="25"
+```
+
+</TabItem>
+
+</Tabs>
+
+Sets the price bump policy for re-issued blob transactions as a percentage increase in price. 
+A blob transaction can only replace, or be replaced by, another blob transaction.
+The default is `100`.
+
 ### `tx-pool-enable-save-restore`
 
 <Tabs>

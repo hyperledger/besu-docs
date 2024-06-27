@@ -5174,7 +5174,9 @@ tx-pool-blob-price-bump="25"
 
 </Tabs>
 
-Sets the price bump policy for re-issued blob transactions as a percentage increase in price. Note that a blob transaction can only replace, and be replaced by, a blob transaction. The default is `100%`.
+Sets the price bump policy for re-issued blob transactions as a percentage increase in price. 
+A blob transaction can only replace, or be replaced by, another blob transaction.
+The default is `100`.
 
 ### `tx-pool-enable-save-restore`
 

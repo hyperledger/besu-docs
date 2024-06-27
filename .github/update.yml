@@ -1,0 +1,93 @@
+name: Update Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: string
+        description: 'Besu version to be updated'
+      name:
+        required: true
+        type: string
+        description: 'Name of the author to be included in git commit signature'
+      email:
+        required: true
+        type: string
+        description: 'Email of the author to be included in git commit signature'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup branch name
+        id: branch
+        run: |
+          echo "BRANCH=update-${{ inputs.version }}-${{ github.run_number }}" >> "$GITHUB_OUTPUT"
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Update version
+        run: |
+          # Configure git
+          git config --global user.name "${{ inputs.name }}"
+          git config --global user.email "${{ inputs.email }}"
+          
+          # Create branch
+          git checkout -b $BRANCH
+
+          # https://docs-template.consensys.io/configure/versioning#create-a-docs-version
+          yarn install
+          npm run docusaurus docs:version $VERSION
+          git add versioned_docs/version-$VERSION/
+          git add versioned_sidebars/version-$VERSION-sidebars.json
+          git add versions.json
+
+          # Remove stable mark from the existing version
+          sed -i 's/label\: "stable (\([0-9]*\.[0-9]*\.[0-9]*\))"/label: "\1"/' $FILE
+
+          # Add new release as stable version
+          sed -i "/\/\/ STABLE-AUTOMATION-TOKEN/a \            \"$VERSION\": {\n\              label: \"stable ($VERSION)\",\n\            }," $FILE
+
+          # Update the latest version
+          sed -i "s/lastVersion: \"[0-9]*\.[0-9]*\.[0-9]*\"/lastVersion: \"$VERSION\"/" $FILE
+
+          # Output the diff
+          git diff $FILE
+          git diff versions.json
+
+          # Commit and push branch
+          git add $FILE
+          git commit -s -m "Update version $VERSION"
+          git push origin $BRANCH
+
+          # Output Git status to see any unexpected file changes. These could be due to changes in the process
+          echo "===== Git status after commit ====="
+          git status -s
+          echo "==================================="
+        env:
+          VERSION: ${{ inputs.version }}
+          FILE: docusaurus.config.js
+          BRANCH: ${{ steps.branch.outputs.BRANCH }}
+      
+      # PR creation requires setting allow PR creation in action settings
+      - name: Create Pull Request [permission needed]
+        run: |
+          echo BASE_BRANCH=$BASE_BRANCH
+          gh pr create --base $BASE_BRANCH --title "Update Besu version $VERSION" --body "Besu version updated to $VERSION" || {
+              echo "Action does not have permission to create PRs. Ignoring..."
+          }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ inputs.version }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}

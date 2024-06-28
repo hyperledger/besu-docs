@@ -1,4 +1,3 @@
-
 ---
 title: Reduce storage for Bonsai Tries
 sidebar_position: 12

@@ -1,3 +1,4 @@
+
 ---
 title: Reduce storage for Bonsai Tries
 sidebar_position: 12
@@ -61,7 +62,7 @@ For minimal downtime, we recommend running the offline command before restarting
 
 If you are following the guides by [Somer Esat](https://someresat.medium.com/guide-to-staking-on-ethereum-ubuntu-teku-f09ecd9ef2ee) or [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/step-3-installing-execution-client/besu), you have set the following options in your `besu.service` or `execution.service` systemd file:
 
-```
+```bash
 ...
 ExecStart=/usr/local/bin/besu/bin/besu \
 ...
@@ -72,13 +73,13 @@ ExecStart=/usr/local/bin/besu/bin/besu \
 ```
 To prune trie logs, the command should look similar to the following:
 
-```
+```bash
 sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage trie-log prune
 ```
 
 The logs should look similar to the following:
 
-```
+```bash
 2024-02-02 05:45:41.162+00:00 | main | INFO  | KeyPairUtil | Attempting to load public key from /data/besu/key
  ...
 2024-02-02 05:45:43.433+00:00 | main | INFO  | TrieLogSubCommand | Estimating trie logs size before pruning...

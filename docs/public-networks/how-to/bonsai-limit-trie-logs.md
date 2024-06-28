@@ -40,7 +40,7 @@ Before executing these example commands on your node, modify them to apply to yo
 1. Stop Besu.
 1. (Optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
     ```bash
-    sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage x-trie-log prune
+    sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage trie-log prune
     ```
 1. Start Besu.
 1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout at startup.
@@ -73,7 +73,7 @@ ExecStart=/usr/local/bin/besu/bin/besu \
 To prune trie logs, the command should look similar to the following:
 
 ```
-sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage trie-log prune
 ```
 
 The logs should look similar to the following:
@@ -101,7 +101,7 @@ Prune ran successfully. We estimate you freed up 9 GiB!
 If you are using a TOML configuration file, you can run a command similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --config-file=besu-config.toml storage trie-log prune
 ```
 
 ## Troubleshoot
@@ -118,7 +118,7 @@ To minimize errors, ensure your command specifies the following:
 The prune command should look similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage trie-log prune
 ```
 
 Ensure you stop Besu before running the command.
@@ -132,7 +132,7 @@ To resolve, add the storage format.
 The command should look similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage trie-log prune
 ```
 
 ### Column handle not found for segment `TRIE_BRANCH_STORAGE`
@@ -143,7 +143,7 @@ Ensure you specify `--data-path`.
 Your command should look similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage trie-log prune
 ```
 
 ### Database not detected
@@ -154,7 +154,7 @@ Ensure you specify the correct `--data-path` for your node.
 Your command should look similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage trie-log prune
 ```
 
 ### Cannot store generated private key
@@ -165,7 +165,7 @@ Ensure you specify the correct `--data-path` for your node.
 Your command should look similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-format=BONSAI --sync-mode=SNAP storage trie-log prune
 ```
 
 ### Valid keypair not provided
@@ -175,7 +175,7 @@ sudo /usr/local/bin/besu/bin/besu --data-path=/var/lib/besu --data-storage-forma
 Check your file permissions and try running a `sudo` command to resolve the issue:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu storage --sync-mode=SNAP trie-log prune
 ```
 
 ### Column handle not found for segment `WORLD_STATE`
@@ -214,5 +214,5 @@ Check if you are running the command for a network other than Mainnet.
 To specify a network, run a command that looks similar to the following:
 
 ```bash
-sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage x-trie-log prune
+sudo /usr/local/bin/besu/bin/besu --network=holesky --sync-mode=SNAP --data-storage-format=BONSAI --data-path=/var/lib/besu storage trie-log prune
 ```

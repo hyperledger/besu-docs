@@ -350,7 +350,7 @@ besu --config-file config.toml storage rocksdb usage
 
 ```bash
 |--------------------------------|-----------------|-------------|-----------------|------------------|
-| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob Files Size  |
+| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob File Size  |
 |--------------------------------|-----------------|-------------|-----------------|------------------|
 | BLOCKCHAIN                     | 2355141414      | 933 GiB     | 166 GiB         | 767 GiB          |
 | VARIABLES                      | 26              | 240 KiB     | 240 KiB         | 0 B              |
@@ -368,11 +368,11 @@ besu --config-file config.toml storage rocksdb usage
 
 </Tabs>
 
-Displays the disk space used by the RocksDB key-value database, broken down into column families.
+Displays the disk space used by the RocksDB key-value database, categorized into column families.
 
 ### `trie-log`
 
-Provides Bonsai trie log related actions.
+Provides actions related to managing, recording, and logging changes for the Bonsai Trie data.
 
 #### `count`
 
@@ -407,7 +407,9 @@ trieLog count: 742311
 
 </Tabs>
 
-Counts the number of trie logs in the database. This is the number of keys for the `TRIE_LOG_STORAGE` column family in RocksDB. Canonical count represents the finalized blockchain, fork count represents non-finalized branches of the blockchain and orphaned count represents trie logs not in the blockchain which can happen during block creation.
+Displays the number of trie logs in the database.
+This is the number of keys for the `TRIE_LOG_STORAGE` [column family in RocksDB](#rocksdb-usage). 
+Canonical count represents the finalized blockchain, fork count represents non-finalized branches of the blockchain and orphaned count represents trie logs not in the blockchain which can happen during block creation.
 
 #### `prune`
 
@@ -439,8 +441,10 @@ besu --config-file config.toml --bonsai-historical-block-limit=1024 storage trie
 
 </Tabs>
 
-Prunes all trie log layers below the retention limit, including orphaned trie logs. The retention limit can be configured with [`--bonsai-historical-block-limit`](options.md#bonsai-historical-block-limit). This limit should match the configuration used with [`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled). The default limit is `512`.
-
+Removes all trie log layers below the specified retention limit, including orphaned trie logs. 
+You can configure the retention limit using [`--bonsai-historical-block-limit`](options.md#bonsai-historical-block-limit). 
+The retention limit should match the configuration used with [`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled). 
+The default limit is `512`.
 
 ## `validate-config`
 

@@ -350,7 +350,7 @@ besu --config-file config.toml storage rocksdb usage
 
 ```bash
 |--------------------------------|-----------------|-------------|-----------------|------------------|
-| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob File Size  |
+| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob Files Size  |
 |--------------------------------|-----------------|-------------|-----------------|------------------|
 | BLOCKCHAIN                     | 2355141414      | 933 GiB     | 166 GiB         | 767 GiB          |
 | VARIABLES                      | 26              | 240 KiB     | 240 KiB         | 0 B              |

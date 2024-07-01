@@ -409,7 +409,10 @@ trieLog count: 742311
 
 Displays the number of trie logs in the database.
 This is the number of keys for the `TRIE_LOG_STORAGE` [column family in RocksDB](#rocksdb-usage). 
-Canonical count represents the finalized blockchain, fork count represents non-finalized branches of the blockchain and orphaned count represents trie logs not in the blockchain which can happen during block creation.
+The following are specified in the `trieLog count`:
+- `canonical count` represents the finalized blockchain.
+- `fork count` represents non-finalized branches of the blockchain.
+- `orphaned count` represents trie logs not in the blockchain, which can occur  during block creation.
 
 #### `prune`
 

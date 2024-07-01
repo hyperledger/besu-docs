@@ -10,9 +10,8 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Command line options
 
-This reference describes the syntax of the Hyperledger Besu command line interface (CLI) options.
+This reference describes the syntax of the Hyperledger Besu configuration options.
 
 :::info
 
@@ -2584,7 +2583,7 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
 :::tip
 
-Use `UPNPP2PONLY` if you wish to enable UPnP for p2p traffic but not JSON-RPC.
+Use `UPNPP2PONLY` if you wish to enable UPnP for P2P traffic but not JSON-RPC.
 
 :::
 

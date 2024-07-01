@@ -7,13 +7,9 @@ tags:
   - private networks
 ---
 
-# Use a configuration file
+A TOML configuration file simplifes overriding [default configuration settings](defaults.md) and reuse of configurations across node startups.
 
-You can specify command line options in a TOML configuration file.
-Save the configuration file and reuse it across node startups.
-Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) CLI option.
-
-You can also [use a pre-configured profile](profile.md) for some common use cases.
+Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) CLI option. Configuration files may be [used alongside a pre-configured profile](profile.md) for some common use cases.
 
 :::note
 

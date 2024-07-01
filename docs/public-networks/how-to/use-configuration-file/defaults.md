@@ -1,7 +1,7 @@
 ---
 title: Default configurations 
 sidebar_position: 1
-todo: For future maintenance, this page would be better setup to import single-sourced partials that also serve the cli/options page. However, for PoC, the duplication/poor maintainability is tollerated.
+todo: For future maintenance, this page would be better setup to import single-sourced partials that also serve the cli/options page. However, for PoC, the duplication/poor maintainability is tollerated for now.
 ---
 
 While Besu is [highly-configurable](index.md#configuration-order-of-precedence), Besu's default configurations provide a viable boilerplate.

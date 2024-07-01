@@ -4,12 +4,18 @@ sidebar_position: 1
 todo: For future maintenance, this page would be better setup to import single-sourced partials that also serve the cli/options page. However, for PoC, the duplication/poor maintainability is tollerated.
 ---
 
-While Besu is [highly-configurable](index.md#configuration-order-of-precedence), Besu's default configurations provide a viable boilerplate that may also be used alongside a [pre-configured profile](profile.md) to support common use cases.
+While Besu is [highly-configurable](index.md#configuration-order-of-precedence), Besu's default configurations provide a viable boilerplate.
 
 
 ## Defaults overview
 
-The following provides a high level overview of the opinionated default configurations of vanilla Besu. By applying these defaults, a node is optimized to perform staking.
+The following provides a high level overview of the opinionated default configurations of vanilla Besu. By applying these defaults, a node is optimized for staking. These defaults may be used alongside a [pre-configured profile](profile.md) to support common use cases.
+
+:::note
+
+For example, applying the [staking profile](profile.md#staker-profile) with the boilerplate config directs Besu to use mainnet &mdash; instantiating a staking-optimized node ready to be run alongside a [validator](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#validators) and [consensus client](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#consensus-client).
+
+:::
 
 ### Configuration
 

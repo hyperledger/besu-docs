@@ -306,7 +306,7 @@ If you need to downgrade Besu, run this subcommand before installing the previou
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-besu storage revert-variables --config-file <PATH-TO-CONFIG-FILE>
+besu --config-file <PATH-TO-CONFIG-FILE> storage revert-variables
 ```
 
 </TabItem>
@@ -314,7 +314,7 @@ besu storage revert-variables --config-file <PATH-TO-CONFIG-FILE>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu1.conf
+besu --config-file config.toml storage revert-variables
 ```
 
 </TabItem>
@@ -325,6 +325,129 @@ Reverts the modifications made by the [variables storage feature](https://github
 If you need to downgrade Besu, first run this subcommand specifying the path to
 the [configuration file](../../how-to/use-configuration-file/index.md) normally used to
 start Besu.
+
+### `rocksdb usage`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage rocksdb usage
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage rocksdb usage
+```
+
+</TabItem>
+
+<TabItem value="Example output" label="Example output">
+
+```bash
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob Files Size  |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| BLOCKCHAIN                     | 2355141414      | 933 GiB     | 166 GiB         | 767 GiB          |
+| VARIABLES                      | 26              | 240 KiB     | 240 KiB         | 0 B              |
+| ACCOUNT_INFO_STATE             | 9634454         | 496 MiB     | 496 MiB         | 0 B              |
+| ACCOUNT_STORAGE_STORAGE        | 24041432        | 1 GiB       | 1 GiB           | 0 B              |
+| CODE_STORAGE                   | 37703864        | 12 GiB      | 12 GiB          | 0 B              |
+| TRIE_BRANCH_STORAGE            | 1885032116      | 138 GiB     | 138 GiB         | 0 B              |
+| TRIE_LOG_STORAGE               | 267301          | 17 GiB      | 17 GiB          | 0 B              |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| ESTIMATED TOTAL                | 4311820607      | 1104 GiB    | 337 GiB         | 767 GiB          |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+```
+
+</TabItem>
+
+</Tabs>
+
+Displays the disk space used by the RocksDB key-value database, categorized into column families.
+
+### `trie-log`
+
+Provides actions related to managing, recording, and logging changes for the Bonsai Trie data.
+
+#### `count`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log count
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage trie-log count
+```
+
+</TabItem>
+
+<TabItem value="Example output" label="Example output">
+
+```bash
+trieLog count: 742311
+ - canonical count: 681039
+ - fork count: 217
+ - orphaned count: 61055
+```
+
+</TabItem>
+
+</Tabs>
+
+Displays the number of trie logs in the database.
+This is the number of keys for the `TRIE_LOG_STORAGE` [column family in RocksDB](#rocksdb-usage). 
+The following are specified in the `trieLog count`:
+- `canonical count` represents the finalized blockchain.
+- `fork count` represents non-finalized branches of the blockchain.
+- `orphaned count` represents trie logs not in the blockchain, which can occur  during block creation.
+
+#### `prune`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log prune
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage trie-log prune
+```
+
+</TabItem>
+
+<TabItem value="Example setting retention limit" label="Example setting retention limit">
+
+```bash
+besu --config-file config.toml --bonsai-historical-block-limit=1024 storage trie-log prune
+```
+
+</TabItem>
+
+</Tabs>
+
+Removes all trie log layers below the specified retention limit, including orphaned trie logs. 
+You can configure the retention limit using [`--bonsai-historical-block-limit`](options.md#bonsai-historical-block-limit). 
+The retention limit should match the configuration used with [`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled). 
+The default limit is `512`.
 
 ## `validate-config`
 
@@ -341,7 +464,7 @@ besu validate-config --config-file <PATH-TO-CONFIG-FILE>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu validate-config --config-file ../besu-local-nodes/config/besu/besu1.conf
+besu validate-config --config-file config.toml
 ```
 
 </TabItem>

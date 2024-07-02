@@ -1,7 +1,7 @@
 ---
 title: Default configurations 
 sidebar_position: 1
-todo: For future maintenance, this page would be better setup to import single-sourced partials that also serve the cli/options page. However, for PoC, the duplication/poor maintainability is tollerated for now.
+todo: For future maintenance, this page would be better setup to import single-sourced partials that also serve the cli/options page. However, for PoC, the duplication/poor maintainability is tolerated for now.
 ---
 
 # Default configurations 

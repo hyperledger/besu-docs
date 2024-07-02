@@ -13,6 +13,23 @@ Hyperledger Besu peer-to-peer (P2P) discovery happens periodically based on the 
 
 The frequency of discovery isn't configurable, but you can [limit remote connections](#limit-remote-connections) in public networks and [randomly prioritize connections](../../reference/cli/options.md#random-peer-priority-enabled) in small, stable networks.
 
+## The peering process
+
+The peering process requires the port (default 30303) to be open to UDP and TCP traffic to the world (0.0.0.0/0). The `discovery stack` uses UDP to keep things lightweight and quick and only
+allows a node to find peers and connect to them, it does not have any additional overhead like error checking, retrys etc. Once peers have bonded, the actual data exchange between them is quite
+complex and needs a more fully featured protocol that can support retries, error checking etc which is why TCP is used for the `devP2P stack`. It is important to remember that both stacks work
+in parallel i.e the `discovery stack` adds new peers to the network, and the `devP2P` stack enables interactions and data flow between them.
+
+The proces starts starts with a client attempting to connect to as many peers as possible. The more peers it is connected to, the more confident it is of having an accurate view of the network. 
+
+1. When Besu starts up it will adverstise its presence and details like the enode etc via UDP before establishing a more formal connection with any peer (log messages look like `Enode URL enode://....`)
+2. Besu will attempt connect to the network's bootnodes (which are a list of predefined nodes whose sole functionality is to help a node join existing peers on the network)
+3. Once a connection with the bootnode is established via TCP (`ping/pong` handshake messages in the debug and trace logs), Besu requests a list of peers from the bootnode (`find node` messages in the debug and trace logs)
+4. Besu will then attempt to establish connections to each peer on that list via TCP and get status information from them - i.e. network details, what the peer believes to be the current chain head, it's list of peers, etc. It is also important to note that from this point on any traffic to that peer is only done via TCP.
+5. Depending on the type of sync, a common block (the pivot block) is picked that all these connected peers (default of 5) have and we start syncing from that block till we get to chain head. Log messages look like `Downloading world state from peers for pivot block .......`
+6. Besu also uses the peers from step 4, and will process each in the same manner as above
+7. When new peers come along (regardless of client) the same process is repeated 
+
 :::info
 
 You can use [`admin_addPeer`](../../reference/cli/options.md#admin_addpeer) to attempt a specific connection, but this isn't P2P discovery.

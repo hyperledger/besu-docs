@@ -69,10 +69,10 @@ Run the following command or specify the options in a [configuration file](../ho
 besu \
   --network=holesky           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=0.0.0.0     \
+  --rpc-http-host=127.0.0.1   \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --rpc-ws-host=0.0.0.0       \
+  --p2p-host=<YOUR PUBLIC IP> \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -87,10 +87,10 @@ besu \
 besu \
   --network=sepolia           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=0.0.0.0     \
+  --rpc-http-host=127.0.0.1   \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --rpc-ws-host=0.0.0.0       \
+  --p2p-host=<YOUR PUBLIC IP> \  
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -124,6 +124,8 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --rest-api-host-allowlist=127.0.0.1          \
+  --p2p-advertised-ip=<YOUR PUBLIC IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -138,6 +140,8 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --rest-api-host-allowlist=127.0.0.1          \
+  --p2p-advertised-ip=<YOUR PUBLIC IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -169,6 +173,8 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --rest-api-host-allowlist=127.0.0.1                       \
+  --p2p-advertised-ip=<YOUR PUBLIC IP>                      \  
   --checkpoint-sync-url=<checkpoint sync URL>               \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]

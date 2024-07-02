@@ -56,11 +56,10 @@ besu \
   --sync-mode=SNAP           \
   --data-storage-format=BONSAI \
   --rpc-http-enabled=true      \
-  --rpc-http-host="0.0.0.0"    \
-  --rpc-ws-enabled=true        \
-  --rpc-ws-host="0.0.0.0"      \
-  --host-allowlist=<IP of Besu node>,127.0.0.1,localhost        \
-  --engine-host-allowlist=<IP of Besu node>,127.0.0.1,localhost \
+  --rpc-http-host=127.0.0.1  \
+  --p2p-host=<YOUR PUBLIC IP>  \
+  --host-allowlist=<YOUR PUBLIC IP>,127.0.0.1,localhost        \
+  --engine-host-allowlist=<YOUR PUBLIC IP>,127.0.0.1,localhost \
   --engine-rpc-enabled         \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
@@ -96,6 +95,8 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --rest-api-host-allowlist=127.0.0.1          \
+  --p2p-advertised-ip=<YOUR PUBLIC IP>         \
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 

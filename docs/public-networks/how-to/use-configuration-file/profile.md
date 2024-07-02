@@ -23,17 +23,17 @@ A configuration explicitly set in the configuration file or command line will
 
 ## Minimalist staker profile
 
-[`--profile=minimalist_staker`](../../reference/cli/options.md#profile) is optimized for stakers who want to maximize their hardware value but don't want to serve full sets of data to their peers, See the
+[`--profile=MINIMALIST_STAKER`](../../reference/cli/options.md#profile) is optimized for stakers who want to maximize their hardware value but don't want to serve full sets of data to their peers, See the
 [minimalist staker profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/minimalist-staker.toml)
 for the custom settings.
 
 ## Staker profile
 
-[`--profile=staker`](../../reference/cli/options.md#profile) is optimized for stakers who want to maximize their hardware value while also serving full sets of data to their peers. See the
+[`--profile=STAKER`](../../reference/cli/options.md#profile) is optimized for stakers who want to maximize their hardware value while also serving full sets of data to their peers. See the
 [staker profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/staker.toml)
 for the custom settings.
 
 ## Enterprise/Private profile
 
-[`--profile=private` / `--profile=enterprise`](../../reference/cli/options.md#profile) supports private network operators and enterprises by handling specific use cases that apply to private network operators. See the [enterprise/private profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
+[`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) supports private network operators and enterprises by handling specific use cases that apply to private network operators. See the [enterprise/private profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.

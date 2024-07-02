@@ -13,7 +13,7 @@ The following provides a high level overview of the opinionated default configur
 
 :::note
 
-For example, applying the [staking profile](profile.md#staker-profile) with the boilerplate config directs Besu to use mainnet &mdash; instantiating a staking-optimized node ready to be run alongside a [validator](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#validators) and [consensus client](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#consensus-client).
+For example, using the [staking profile](profile.md#staker-profile) with the boilerplate config directs Besu to use Mainnet, creating a staking-optimized node ready to run with a [validator](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#validators) and [consensus client](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#consensus-client)
 
 :::
 

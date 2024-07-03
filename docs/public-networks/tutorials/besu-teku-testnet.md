@@ -69,10 +69,9 @@ Run the following command or specify the options in a [configuration file](../ho
 besu \
   --network=holesky           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=127.0.0.1   \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --p2p-host=<YOUR PUBLIC IP> \
+  --p2p-host=<your public IP> \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -87,10 +86,9 @@ besu \
 besu \
   --network=sepolia           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=127.0.0.1   \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --p2p-host=<YOUR PUBLIC IP> \  
+  --p2p-host=<your public IP> \  
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -124,8 +122,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
-  --rest-api-host-allowlist=127.0.0.1          \
-  --p2p-advertised-ip=<YOUR PUBLIC IP>         \  
+  --p2p-advertised-ip=<your public IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -140,8 +137,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
-  --rest-api-host-allowlist=127.0.0.1          \
-  --p2p-advertised-ip=<YOUR PUBLIC IP>         \  
+  --p2p-advertised-ip=<your public IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -153,6 +149,8 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The public IP address of your Teku node using the
+  [`--p2p-advertised-ip`](https://docs.teku.consensys.io/reference/cli#p2p-advertised-ip) option.
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 
@@ -173,8 +171,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
-  --rest-api-host-allowlist=127.0.0.1                       \
-  --p2p-advertised-ip=<YOUR PUBLIC IP>                      \  
+  --p2p-advertised-ip=<your public IP>                      \  
   --checkpoint-sync-url=<checkpoint sync URL>               \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
@@ -194,6 +191,8 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The public IP address of your Teku node using the
+  [`--p2p-advertised-ip`](https://docs.teku.consensys.io/reference/cli#p2p-advertised-ip) option.
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 - The test Ethereum address created in [step 3](#3-generate-validator-keys) as the default fee

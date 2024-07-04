@@ -37,3 +37,5 @@ for the custom settings.
 
 [`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) supports private network operators and enterprises by handling specific use cases that apply to private network operators. See the [enterprise/private profile on GitHub](https://github.com/hyperledger/besu/blob/8b64023a121ea996ef60e4b7e2299c5807683f90/config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.
+
+Use `sync-mode=FULL` and `data-storage-format=FOREST` for `--profile=PRIVATE` or `--profile=ENTERPRISE`.

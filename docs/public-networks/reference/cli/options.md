@@ -2933,21 +2933,21 @@ The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose 
 <TabItem value="Example">
 
 ```bash
---profile=staker
+--profile=STAKER
 ```
 
 </TabItem>
 <TabItem value="Environment variable">
 
 ```bash
-BESU_PROFILE=staker
+BESU_PROFILE=STAKER
 ```
 
 </TabItem>
 <TabItem value="Configuration file">
 
 ```bash
-profile="staker"
+profile="STAKER"
 ```
 
 </TabItem>
@@ -2956,9 +2956,16 @@ profile="staker"
 Loads a pre-configured TOML file containing custom settings for a specific user profile.
 Possible values are:
 
-- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
-- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
-- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- [`MINIMALIST_STAKER`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
+- [`STAKER`](../../how-to/use-configuration-file/profile.md#staker-profile)
+- [`ENTERPRISE` or `PRIVATE`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+
+:::note
+
+Use [`sync-mode=FULL`](#sync-mode) and [`data-storage-format=FOREST`](#data-storage-format) for the `ENTERPRISE` or `PRIVATE` profile.
+  
+:::
+
 
 The default is `null`.
 

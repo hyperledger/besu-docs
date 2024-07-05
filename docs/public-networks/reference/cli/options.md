@@ -2643,6 +2643,7 @@ Possible values are:
 | `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
 | `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
 | `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
+| `lukso`   | ETH   | Production  | [FAST](#sync-mode) | A PoS network                                                  |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
 | `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
 | `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |

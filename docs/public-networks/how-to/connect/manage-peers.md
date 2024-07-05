@@ -46,7 +46,7 @@ In detail, the P2P discovery process is as follows:
 2. Besu attempts to connect to the network's bootnodes (a set of predefined nodes used to help
    bootstrap discovery).
 
-3. Once a connection with a bootnode is established using TCP (`ping/pong` handshake messages in the
+3. Once a connection with a bootnode is established using UDP (`ping/pong` handshake messages in the
    debug and trace logs), Besu requests a list of neighbors (potential peers) from the bootnode
    (`find node` messages in the debug and trace logs).
 

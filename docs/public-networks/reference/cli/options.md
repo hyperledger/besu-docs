@@ -2603,7 +2603,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---net-restrict=[<String>,..]
+--net-restrict=<subnet>[,<subnet>,...]
 ```
 
 </TabItem>

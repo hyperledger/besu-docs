@@ -2619,7 +2619,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NET-RESTRICT=192.168.1.0/24,10.0.0.0/8
+BESU_NET_RESTRICT=192.168.1.0/24,10.0.0.0/8
 ```
 
 </TabItem>

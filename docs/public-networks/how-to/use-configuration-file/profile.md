@@ -26,6 +26,12 @@ You can use the following profiles:
 - [Staker profile](#staker-profile)
 - [Enterprise/Private profile](#enterpriseprivate-profile)
 
+You can also [load external profiles](#load-external-profiles).
+
+:::note
+Run `./besu --help` to view all available profiles.
+:::
+
 ## Minimalist staker profile
 
 For stakers who want to maximize their hardware value but don't want to serve full sets of data to
@@ -79,4 +85,21 @@ besu --profile=private
 
 :::note
 `enterprise` and `private` are aliases for the same profile.
+:::
+
+## Load external profiles
+
+You can use external profiles to create custom Besu bundles with various plugins and their default options.
+
+Add external profiles to a `profiles` directory under the root Besu directory.
+Run Besu with [`--profile`](../../reference/cli/options.md#profile) set to the external profile.
+For example, to load the `profiles/custom_profile.toml` profile, run:
+
+```bash
+besu --profile=custom_profile.toml
+```
+
+:::note
+You can overwrite the directory in which to place external profiles using the `besu.profiles.dir`
+system property.
 :::

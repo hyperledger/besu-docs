@@ -42,7 +42,7 @@ Before executing these example commands on your node, modify them to apply to yo
 1. Stop Besu.
 1. (Optional) Run the Besu trie log prune command. Specify the Bonsai Trie data storage format and the data directory for your Besu database:
     ```bash
-    sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=X_SNAP storage trie-log prune
+    sudo /usr/local/bin/besu/bin/besu --data-storage-format=BONSAI --data-path=/var/lib/besu --sync-mode=SNAP storage trie-log prune
     ```
 1. Start Besu.
 1. Look for `Limit trie logs enabled: retention: 512; prune window: 30000` in your Besu configuration printout at startup.
@@ -199,7 +199,7 @@ You must shut down the Besu client before running the subcommand.
 
 Check that you have specified `--sync-mode`. 
 The default is `--sync-mode=FAST`. 
-Most Mainnet users use `X_SNAP` or `X_CHECKPOINT`. 
+Most Mainnet users use `SNAP` or `CHECKPOINT`. 
 
 ### Cannot run trie log prune
 

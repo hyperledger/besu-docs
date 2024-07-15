@@ -92,11 +92,12 @@ besu --profile=private
 You can use external profiles to create custom Besu bundles with various plugins and their default options.
 
 Add external profiles to a `profiles` directory under the root Besu directory.
-Run Besu with [`--profile`](../../reference/cli/options.md#profile) set to the external profile.
+Run Besu with [`--profile`](../../reference/cli/options.md#profile) set to the external profile
+file name, without the `.toml` extension.
 For example, to load the `profiles/custom_profile.toml` profile, run:
 
 ```bash
-besu --profile=custom_profile.toml
+besu --profile=custom_profile
 ```
 
 :::note

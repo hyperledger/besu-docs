@@ -2636,17 +2636,17 @@ network="holesky"
 
 The predefined network configuration. The default is `mainnet`.
 
-Possible values are:
+Possible values include the following:
 
-| Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
-| :-------- | :---- | :-----------| :----------------- | :------------------------------------------------------------- |
-| `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
-| `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
-| `lukso`   | ETH   | Production  | [FAST](#sync-mode) | A PoS network                                                  |
-| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
-| `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
-| `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
+| Network   | Chain | Type        | Default Sync Mode  | Consensus Mechanism      | Description                                                                          |
+| :-------- | :---- | :-----------| :----------------- | :----------------------- | :----------------------------------------------------------------------------------- |
+| `mainnet` | ETH   | Production  | [FAST](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
+| `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |
+| `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
+| `lukso`   | ETH   | Production  | [FAST](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
+| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
+| `classic` | ETC   | Production  | [FAST](#sync-mode) | A PoS network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
+| `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
 
 :::tip
 

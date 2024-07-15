@@ -198,7 +198,7 @@ You must shut down the Besu client before running the subcommand.
 - `java.lang.IllegalStateException: Unable to change the sync mode when snap sync is incomplete, please restart with snap sync mode`
 
 Check that you have specified `--sync-mode`. 
-The default is `--sync-mode=FAST`. 
+The default is `--sync-mode=SNAP`. 
 Most Mainnet users use `SNAP` or `CHECKPOINT`. 
 
 ### Cannot run trie log prune

@@ -46,7 +46,8 @@ const config = {
               path: "development",
             },
             // The last stable release in the versioned_docs/version-stable
-            // STABLE-AUTOMATION-TOKEN. Don't remove this as this is used for version update automation
+            // Don't remove comment. It should be the line before the stable version information
+            // STABLE-AUTOMATION-TOKEN
             "24.6.0": {
               label: "stable (24.6.0)",
             },

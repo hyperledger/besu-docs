@@ -2960,13 +2960,6 @@ Possible values are:
 - [`STAKER`](../../how-to/use-configuration-file/profile.md#staker-profile)
 - [`ENTERPRISE` or `PRIVATE`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
 
-:::note
-
-Use [`sync-mode=FULL`](#sync-mode) and [`data-storage-format=FOREST`](#data-storage-format) for the `ENTERPRISE` or `PRIVATE` profile.
-  
-:::
-
-
 The default is `null`.
 
 ### `random-peer-priority-enabled`

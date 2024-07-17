@@ -2645,7 +2645,7 @@ Possible values include the following:
 | `sepolia` | ETH   | Test        | [SNAP](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
 | `lukso`   | ETH   | Production  | [SNAP](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
 | `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
-| `classic` | ETC   | Production  | [SNAP](#sync-mode) | A PoS network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
+| `classic` | ETC   | Production  | [SNAP](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
 | `mordor ` | ETC   | Test        | [SNAP](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
 
 :::tip

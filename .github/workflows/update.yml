@@ -39,6 +39,7 @@ jobs:
 
       - name: Update version
         run: |
+          # shellcheck disable=SC2086
           # Configure git
           git config --global user.name "${{ inputs.name }}"
           git config --global user.email "${{ inputs.email }}"

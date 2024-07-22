@@ -7,12 +7,17 @@ sidebar_position: 2
 
 Load a profile using the [`--profile` CLI option](../../reference/cli/options.md#profile).
 
+:::note
+Run `./besu --help` to view all available profiles.
+:::
+
 You can optionally use profiles to extend Besu's configuration. Combined with the [boilerplate configuration](defaults.md), profiles simplify the process of applying viable defaults. Besu's pre-configured profiles optimize for the following use cases:
 
 - [Minimalist staker profile](#minimalist-staker-profile)
 - [Staker profile](#staker-profile)
 - [Enterprise/Private profile](#enterpriseprivate-profile)
 
+You can also [load external profiles](#load-external-profiles).
 
 :::note
 
@@ -35,7 +40,30 @@ for the custom settings.
 
 ## Enterprise/Private profile
 
-[`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) supports private network operators and enterprises by handling specific use cases that apply to private network operators. See the [enterprise/private profile on GitHub](config/src/main/resources/profiles/enterprise-private.toml)
+`enterprise` and `private` are aliases for the same profile. [`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) 
+supports private network operators and enterprises by handling specific use cases that apply to private network operators. See the [enterprise/private profile on GitHub](config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.
 
-Use [`sync-mode=FULL`](../../reference/cli/options.md#sync-mode) and [`data-storage-format=FOREST`](../../reference/cli/options.md#data-storage-format) for `--profile=PRIVATE` or `--profile=ENTERPRISE`.
+
+To use the enterprise/private profile, run Besu with
+[`--profile`](../../reference/cli/options.md#profile) set to `--profile=PRIVATE` or `--profile=ENTERPRISE`, and use [`sync-mode=FULL`](../../reference/cli/options.md#sync-mode) 
+and [`data-storage-format=FOREST`](../../reference/cli/options.md#data-storage-format).
+
+## Load external profiles
+
+You can use external profiles to create custom Besu bundles with various plugins and their default options.
+
+Add external profiles to a `profiles` directory under the root Besu directory.
+Run Besu with [`--profile`](../../reference/cli/options.md#profile) set to the external profile
+file name, without the `.toml` extension.
+For example, to load the `profiles/custom_profile.toml` profile, run:
+
+```bash
+besu --profile=custom_profile
+```
+
+:::note
+You can overwrite the directory in which to place external profiles using the `besu.profiles.dir`
+system property.
+:::
+

@@ -2960,8 +2960,11 @@ Possible values are:
 - [`MINIMALIST_STAKER`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
 - [`STAKER`](../../how-to/use-configuration-file/profile.md#staker-profile)
 - [`ENTERPRISE` or `PRIVATE`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
-
+- File name of an [external profile](../../how-to/use-configuration-file/profile.md#load-external-profiles),
+  without the `.toml` extension.
+  
 The default is `null`.
+
 
 ### `random-peer-priority-enabled`
 

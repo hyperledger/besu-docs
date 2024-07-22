@@ -1,6 +1,5 @@
 ---
 title: Use a configuration file
-sidebar_position: 3
 description: Specify options in the Besu configuration file.
 tags:
   - public networks

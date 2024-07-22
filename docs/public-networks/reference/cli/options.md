@@ -2634,7 +2634,9 @@ net-restrict=["192.168.1.0/24","10.0.0.0/8"]
 
 </Tabs>
 
-Comma-separated array of allowed IP subnets. Enables node operators to nominate peers by their IP subnets. Default is null: no subnet-based peer permission restrictions will be applied.
+A comma-separated list of allowed IP subnets.
+Peers whose IP addresses fall within the specified subnets are granted permission to interact with the node.
+If not specified, no subnet-based peer permission restrictions are applied.
 
 ### `network`
 

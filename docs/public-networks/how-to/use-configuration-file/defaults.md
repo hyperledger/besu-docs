@@ -28,7 +28,7 @@ For example, using the [staking profile](profile.md#staker-profile) with the boi
 
 |Command|Default|Notes|
 |---------------------------|--------------------|------------------------------------------|
-|[`discovery-enabled`](../../reference/cli/options/#discovery-enabled)|True|Besu assumes the node will connect P2P|
+|[`discovery-enabled`](../../reference/cli/options/#discovery-enabled)|True|Besu assumes the node will automatically discover other Ethereum nodes using P2P|
 |[`p2p-enabled`](../../reference/cli/options/#discovery-enabled)|True|Besu assumes the node will connect P2P|
 |[`engine-rpc-enabled`](../../reference/cli/options/#engine-rpc-enabled)|True|Besu assumes the Engine API will be required to communicate with the consensus layer|
 

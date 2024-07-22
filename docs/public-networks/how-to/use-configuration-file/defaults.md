@@ -18,11 +18,6 @@ For example, using the [staking profile](profile.md#staker-profile) with the boi
 |---------------------------|--------------------|------------------------------------------|
 |[`config-file`](../../reference/cli/options/#config-file)|None|Vanilla Besu assumes no configuration file|
 
-## Storage
-
-|Command|Default|Notes|
-|---------------------------|--------------------|------------------------------------------|
-|[`data-storage-format`](../../reference/cli/options/#data-storage-format)|BONSAI|Besu applies the most space-efficient storage method|
 
 ## Peering
 
@@ -31,6 +26,19 @@ For example, using the [staking profile](profile.md#staker-profile) with the boi
 |[`discovery-enabled`](../../reference/cli/options/#discovery-enabled)|True|Besu assumes the node will automatically discover other Ethereum nodes using P2P|
 |[`p2p-enabled`](../../reference/cli/options/#discovery-enabled)|True|Besu assumes the node will connect P2P|
 |[`engine-rpc-enabled`](../../reference/cli/options/#engine-rpc-enabled)|True|Besu assumes the Engine API will be required to communicate with the consensus layer|
+
+
+## Storage
+
+|Command|Default|Notes|
+|---------------------------|--------------------|------------------------------------------|
+|[`data-storage-format`](../../reference/cli/options/#data-storage-format)|BONSAI|Besu applies the most space-efficient storage method|
+
+## Sync
+
+|Command|Default|Notes|
+|---------------------------|--------------------|------------------------------------------|
+|[`sync-mode`](../../reference/cli/options/#sync-mode)|SNAP|Besu applies the [snap sync mode](../../get-started/connect/sync-node#snap-synchronization) as the most time-efficient sync method|
 
 :::note
 For a comprehensive understanding, all defaults are provided in the [reference](../../reference/cli/options.md).

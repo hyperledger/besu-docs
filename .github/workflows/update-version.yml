@@ -1,0 +1,43 @@
+name: Update Version
+
+on:
+  release:
+    types: ["released"]
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.event.release.name }}
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Validate version
+        id: version
+        run: |
+          # Validate provided version compatible with the format
+          echo "${{ env.VERSION }}" | grep -q -e "^[0-9]*\.[0-9]*\.[0-9]*$" || {
+            echo "Version [${{ env.VERSION }}] is not in expected format '^[0-9]*\.[0-9]*\.[0-9]*$'"
+            exit 1
+          }
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Update version
+        run: .github/scripts/update-version.sh
+        env:
+          VERSION: ${{ env.VERSION }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -13,11 +13,12 @@ Hyperledger Besu peer-to-peer (P2P) discovery happens periodically based on the 
 network and the node's [peer limit](#limit-peers).
 
 The frequency of discovery isn't configurable, but you can:
-- [Limit remote connections](#limit-remote-connections) in public networks
+
+- [Limit remote connections](#limit-remote-connections) in public networks.
 - [Allowlist peers by IP subnet](#allowlist-peers) to create a private network of peers across public 
-networks
+networks.
 - [Randomly prioritize connections](../../reference/cli/options.md#random-peer-priority-enabled) in
-small, stable networks
+small, stable networks.
 
 :::info
 You can use [`admin_addPeer`](../../reference/cli/options.md#admin_addpeer) to attempt a specific

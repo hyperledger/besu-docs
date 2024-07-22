@@ -22,7 +22,7 @@ For example, using the [staking profile](profile.md#staker-profile) with the boi
 
 |Command|Default|Notes|
 |---------------------------|--------------------|------------------------------------------|
-|[`data-storage-format`](../../reference/cli/options/#data-storage-format)|BONSAI|Besu applies the most space-effiecient storage method|
+|[`data-storage-format`](../../reference/cli/options/#data-storage-format)|BONSAI|Besu applies the most space-efficient storage method|
 
 ## Peering
 

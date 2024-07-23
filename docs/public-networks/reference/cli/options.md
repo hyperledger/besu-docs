@@ -2596,6 +2596,48 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 
 :::
 
+### `net-restrict`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--net-restrict=<subnet>[,<subnet>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--net-restrict=192.168.1.0/24,10.0.0.0/8
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_NET_RESTRICT=192.168.1.0/24,10.0.0.0/8
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+net-restrict=["192.168.1.0/24","10.0.0.0/8"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of allowed IP subnets.
+Peers whose IP addresses fall within the specified subnets are granted permission to interact with the node.
+If not specified, no subnet-based peer permission restrictions are applied.
+
 ### `network`
 
 <Tabs>

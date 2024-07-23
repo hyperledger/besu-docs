@@ -11,6 +11,7 @@
 | Byron Gravenorst | bgravenorst        | bgravenorst        |
 | Joan Edwards     | joaniefromtheblock | joaniefromtheblock |
 | Madeline Murray  | MadelineMurray     | madelinemurray     |
+| Harrie Bickle    | m4sterbunny        | m4sterbunny        |
 <!-- vale on -->
 
 ## Emeritus maintainers

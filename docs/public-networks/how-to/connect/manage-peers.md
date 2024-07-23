@@ -12,9 +12,12 @@ tags:
 Hyperledger Besu peer-to-peer (P2P) discovery happens periodically based on the number of peers in a
 network and the node's [peer limit](#limit-peers).
 
-The frequency of discovery isn't configurable, but you can
-[limit remote connections](#limit-remote-connections) in public networks and
-[randomly prioritize connections](../../reference/cli/options.md#random-peer-priority-enabled) in
+The frequency of discovery isn't configurable, but you can:
+
+- [Limit remote connections](#limit-remote-connections) in public networks.
+- [Allowlist peers by IP subnet](#allowlist-peers) to create a private network of peers across public 
+networks.
+- [Randomly prioritize connections](../../reference/cli/options.md#random-peer-priority-enabled) in
 small, stable networks.
 
 :::info
@@ -69,6 +72,10 @@ The more peers Besu is connected to, the more confident it is of having an accur
 You can limit peers to reduce the bandwidth, CPU time, and disk access Besu uses to manage and respond to peers.
 
 To reduce the maximum number of peers, use the [`--max-peers`](../../reference/cli/options.md#max-peers) option. The default is 25.
+
+## Allowlist peers
+
+You can can define specific IP subnets permitted to interact with the node using the [`--net-restrict`](../../reference/cli/options.md#net-restrict) configuration. This restricts access to only those peers whose IP addresses fall within the allowed subnets. This is useful if you maintain a set of nodes and want to restrict which of those can connect to external nodes.
 
 ## Limit remote connections
 

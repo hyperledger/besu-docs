@@ -12,7 +12,7 @@ Run `./besu --help` to view all available profiles.
 :::
 
 You can optionally use profiles to extend Besu's configuration. Combined with the [boilerplate 
-configuration](defaults.md), profiles simplify the process of applying viable defaults. Besu's pre-configured profiles optimize for the following use cases:
+configuration](../defaults.md), profiles simplify the process of applying viable defaults. Besu's pre-configured profiles optimize for the following use cases:
 
 - [Minimalist staker profile](#minimalist-staker-profile)
 - [Staker profile](#staker-profile)

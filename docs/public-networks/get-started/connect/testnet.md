@@ -46,7 +46,7 @@ If you're also running the consensus client as a validator client, create a test
 
 :::note
 
-If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.gg/ethstaker).
+If you can't get testnet ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.gg/ethstaker).
 
 :::
 

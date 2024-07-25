@@ -19,7 +19,7 @@ viable defaults. Besu's pre-configured profiles optimize for the following use c
 - [Staker profile](#staker-profile)
 - [Enterprise/Private profile](#enterpriseprivate-profile)
 
-Alternatively, you can also customize and [load external profiles](#load-external-profiles).
+Alternatively, you can customize and [load external profiles](#load-external-profiles).
 
 :::note
 

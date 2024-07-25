@@ -1,6 +1,6 @@
 ---
 title: Node keys
-sidebar_position: 9
+sidebar_position: 8
 description: Learn about node public and private keys, and the node address.
 tags:
   - public networks

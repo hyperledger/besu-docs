@@ -45,7 +45,7 @@ If you're also running Teku as a validator client, create a test Ethereum addres
 
 :::note
 
-If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.com/invite/ethstaker).
 
 :::
 

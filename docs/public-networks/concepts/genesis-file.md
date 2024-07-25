@@ -19,7 +19,7 @@ The genesis file specifies the [network-wide settings](../reference/genesis-item
 
 :::note
 
-You can specify node-level settings on the command line or in the [node configuration file](../how-to/use-configuration-file/index.md).
+You can specify node-level settings on the command line or in the [node configuration file](../how-to/configure-besu/index.md).
 
 :::
 

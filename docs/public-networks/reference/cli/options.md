@@ -37,7 +37,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/use-configuration-file/index.md).
+- In a [configuration file](../../how-to/configure-besu/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -661,7 +661,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/configure-besu/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -2999,10 +2999,10 @@ profile="STAKER"
 Loads a pre-configured TOML file containing custom settings for a specific user profile.
 Possible values are:
 
-- [`MINIMALIST_STAKER`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
-- [`STAKER`](../../how-to/use-configuration-file/profile.md#staker-profile)
-- [`ENTERPRISE` or `PRIVATE`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
-- File name of an [external profile](../../how-to/use-configuration-file/profile.md#load-external-profiles),
+- [`MINIMALIST_STAKER`](../../how-to/configure-besu/profile.md#minimalist-staker-profile)
+- [`STAKER`](../../how-to/configure-besu/profile.md#staker-profile)
+- [`ENTERPRISE` or `PRIVATE`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- File name of an [external profile](../../how-to/configure-besu/profile.md#load-external-profiles),
   without the `.toml` extension.
   
 The default is `null`.

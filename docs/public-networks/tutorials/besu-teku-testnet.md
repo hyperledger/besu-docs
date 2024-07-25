@@ -59,7 +59,7 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ## 4. Start Besu
 
-Run the following command or specify the options in a [configuration file](../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../how-to/configure-besu/index.md):
 
 <Tabs>
 

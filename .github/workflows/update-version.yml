@@ -33,8 +33,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
+          registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
-          cache: 'yarn'
 
       - name: Update version
         run: .github/scripts/update-version.sh

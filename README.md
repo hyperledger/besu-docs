@@ -1,8 +1,7 @@
 # Hyperledger Besu documentation
 
 [Hyperledger Besu](https://github.com/hyperledger/besu/) is an open source Ethereum client developed
-under the Apache 2.0 license and written in Java.
-It runs on public and private networks.
+under the Apache 2.0 license and written in Java. It runs on public and private networks.
 
 This repository contains documentation for Besu, and is built using [Docusaurus](https://docusaurus.io/).
 The doc site is hosted at [`besu.hyperledger.org`](https://besu.hyperledger.org).

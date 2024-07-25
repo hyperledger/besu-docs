@@ -110,7 +110,7 @@ For example, using the [Staker profile](profile.md#staker-profile) with the boil
 
 |Command|Default|Notes|
 |---------------------------|--------------------|------------------------------------------|
-|[`sync-mode`](../../reference/cli/options.md#sync-mode)|SNAP|Besu applies the [snap sync mode](../../get-started/connect/sync-node#snap-synchronization) as the most time-efficient sync method|
+|[`sync-mode`](../../reference/cli/options.md#sync-mode)|SNAP|Besu applies the [snap sync mode](../../get-started/connect/sync-node.md#snap-synchronization) as the most time-efficient sync method|
 
 :::note
 For a comprehensive understanding, all defaults are provided in the [reference](../../reference/cli/options.md).

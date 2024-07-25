@@ -5181,7 +5181,7 @@ Set to `layered` to use the [layered transaction pool](../../concepts/transactio
 The default is `layered`.
 
 Set to `sequenced` to use the [sequenced transaction pool](../../concepts/transactions/pool.md#sequenced-transaction-pool).
-The default is `sequenced` for the [enterprise/private profile](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile).
+The default is `sequenced` for the [enterprise/private profile](../../how-to/configure-besu/profile.md#enterpriseprivate-profile).
 
 ### `tx-pool-blob-price-bump`
 
@@ -5500,7 +5500,7 @@ tx-pool-max-prioritized-by-type="BLOB=6"
 
 The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 
-This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types#blob-transactions) in the transaction pool. 
+This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
 Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
 Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
 The default is `BLOB=6`.

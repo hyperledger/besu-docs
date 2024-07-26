@@ -311,11 +311,11 @@ const config = {
           },
           {
             from: "/public-networks/how-to/configuration-file",
-            to: "/public-networks/how-to/configure-besu",
+            to: "/development/public-networks/how-to/configure-besu",
           },
           {
             from: "/public-networks/how-to/use-configuration-file",
-            to: "/public-networks/how-to/configure-besu",
+            to: "/development/public-networks/how-to/configure-besu",
           },
           {
             from: "/private-networks/tutorials/permissioning/onchain",

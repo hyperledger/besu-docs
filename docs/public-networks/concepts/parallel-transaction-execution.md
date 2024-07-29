@@ -57,17 +57,17 @@ execution:
 
 ### Conflict detection strategy
 
-Besu's conflict detection strategy uses a [Bonsai Tries](data-storage-formats.md#bonsai-tries)
-feature, the *accumulator*, that tracks addresses and slots touched or modified during a block's or
-transaction's execution.
+Besu's conflict detection strategy uses the *accumulator*, a
+[Bonsai Tries](data-storage-formats.md#bonsai-tries) feature that tracks addresses and slots touched
+or modified during a block's or transaction's execution.
 
 :::tip
-You can read more about Bonsai in [Consensys' Guide to Bonsai Tries](https://consensys.io/blog/bonsai-tries-guide).
+You can read more about Bonsai Tries in [Consensys' Guide to Bonsai Tries](https://consensys.io/blog/bonsai-tries-guide).
 :::
 
 If a slot, code, or anything else related to an account is modified, the Bonsai accumulator keeps
 track of this information.
-This strategy leverages Bonsai's storage benefits, only keeping track of state diffs block-to-block
+This strategy leverages Bonsai's storage benefits, only keeping track of block-to-block state diffs
 in Besu storage.
 
 The following flowchart outlines how Besu detects conflicts and imports transactions into the block:
@@ -143,12 +143,12 @@ graph TD;
 
 </p>
 
-Besu's conflict detection strategy is intentionally basic, to simplify debugging and edge cases.
+Besu's conflict detection strategy is intentionally simple to minimize edge cases.
 With this approach to parallel transaction execution,
 [around 40% of transactions do not require replay](#metrics), indicating its effectiveness.
-In the future, enhancements will be implemented to refine the detection strategy and reduce false positives.
+In the future, the conflict detection strategy may be refined to reduce false positives.
 
-You can enable this early access feature using the `--Xbonsai-parallel-tx-processing-enabled` option.
+You can enable parallel transaction execution using the `--Xbonsai-parallel-tx-processing-enabled` option.
 
 ## Metrics
 
@@ -178,7 +178,7 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
   - `besu_block_processing_conflicted_transactions_counter_total` - The number of transactions that
     encountered conflicts and were therefore executed sequentially.
 
-- **Sync time** - The snap synchronization time is around 27 hours and 5 minutes, with block import
+- **Sync time** - Snap synchronization time is around 27 hours and 5 minutes, with block import
   time around 6 ms on average.
 
 - **CPU profiling** - The new payload call time decreases from 251.68 ms to 172.04 ms on average,

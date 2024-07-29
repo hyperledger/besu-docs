@@ -10,8 +10,8 @@ tags:
 Besu supports parallel transaction execution, using an optimistic approach to parallelize
 transactions within a block when using the
 [Bonsai Tries](data-storage-formats.md#bonsai-tries) data storage format.
-This page provides an [overview of the mechanism](#parallelization-mechanism-overview) and some key
-[metrics](#metrics).
+This page provides an [overview of the mechanism](#parallelization-mechanism-overview), and some key
+[metrics](#metrics) indicating that this feature significantly improves Besu's performance.
 
 :::warning Important
 Parallel transaction execution is an early access feature.
@@ -144,9 +144,46 @@ graph TD;
 </p>
 
 Besu's conflict detection strategy is intentionally basic, to simplify debugging and edge cases.
-With this approach, close to 40% of transactions do not require replay.
-In the future, enhancements may be implemented to refine the detection strategy and reduce false positives.
+With this approach, [around 40% of transactions do not require replay](#metrics), indicating its
+effectiveness.
+In the future, enhancements will be implemented to refine the detection strategy and reduce false positives.
 
 You can enable this early access feature using the `--Xbonsai-parallel-tx-processing-enabled` option.
 
 ## Metrics
+
+Parallel transaction execution uses Besu's resources in a more efficient way than traditional
+sequential execution, significantly improving performance.
+
+The following metrics were collected on nodes running on Azure VMs (standard D8as v5 – 8 vCPUs, 32
+GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
+
+- **Block processing time** - With Teku as CL client, block processing time improves by at least 25%.
+  The 50th percentile decreases from 282 ms to 207 ms and the 95th
+  percentile decreases from 479 ms to 393 ms.
+
+  With Nimbus as CL client, block processing improves by around 45%, with the 50th percentile at 155
+  ms, and the 95th percentile at 299 ms.
+  This is likely due to both the EL and CL clients running on the same machine, which reduces cache
+  misses and context switching.
+
+- **Execution throughput** - Execution throughput increases, with an average of 96 Mgas/s and peaks
+  of up to 25 Mgas/s.
+
+- **Parallel transactions** - Parallel transaction execution introduces two new metrics, which
+  indicate that around 40% of transactions are parallelized using this feature:
+
+  - `besu_block_processing_parallelized_transactions_counter_total` - The number of transactions
+    executed in parallel.
+  - `besu_block_processing_conflicted_transactions_counter_total` - The number of transactions that
+    encountered conflicts and were therefore executed sequentially.
+
+- **Sync time** - The snap synchronization time is around 27 hours and 5 minutes, with block import
+  time around 6 ms on average.
+
+- **CPU profiling** - The new payload call time decreases from 251.68 ms to 172.04 ms on average,
+  with notable improvements in SLOAD operation times.
+
+Overall, parallel transaction execution improves Besu performance with almost no resource usage
+overhead.
+Future enhancements to this feature will further improve performance.

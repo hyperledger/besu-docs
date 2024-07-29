@@ -369,7 +369,7 @@ const config = {
         indexBlog: false,
       }),
     ],
-    "@docusaurus/theme-mermaid"
+    "@docusaurus/theme-mermaid",
   ],
 };
 

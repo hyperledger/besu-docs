@@ -29,6 +29,10 @@ Do not run an [archive node](../get-started/connect/sync-node.md#run-an-archive-
 Bonsai is designed for retrieving recent data only.
 :::
 
+:::tip
+You can read more about Bonsai in [Consensys' Guide to Bonsai Tries](https://consensys.io/blog/bonsai-tries-guide).
+:::
+
 ## Forest of Tries
 
 Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for [archive nodes](../get-started/connect/sync-node.md#run-an-archive-node).

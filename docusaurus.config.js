@@ -28,7 +28,6 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
 
   presets: [
     [
@@ -356,6 +355,7 @@ const config = {
         indexBlog: false,
       }),
     ],
+    "@docusaurus/theme-mermaid"
   ],
 };
 

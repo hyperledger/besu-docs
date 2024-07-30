@@ -9,8 +9,8 @@ tags:
 
 Besu supports parallel transaction execution, using an optimistic approach to parallelize
 transactions within a block.
-This page provides an [overview of the mechanism](#parallelization-mechanism-overview), and some key
-[metrics](#metrics) indicating that this feature significantly improves Besu's performance.
+This page provides an [overview of the mechanism](#parallelization-mechanism-overview), and
+[metrics](#metrics) that highlight Besu's improved performance.
 
 :::warning Important
 Parallel transaction execution is an early access feature.
@@ -59,7 +59,7 @@ execution:
 
 Besu's conflict detection strategy uses the *accumulator*, a
 [Bonsai Tries](data-storage-formats.md#bonsai-tries) feature that tracks addresses and slots touched
-or modified during a block's or transaction's execution.
+or modified during block or transaction execution.
 
 :::tip
 You can read more about Bonsai Tries in [Consensys' Guide to Bonsai Tries](https://consensys.io/blog/bonsai-tries-guide).
@@ -116,7 +116,7 @@ The following are excluded from the conflict check:
   rewards at the transaction's conclusion.
 :::
 
-The following flowchart further outlines how Besu maintains the lists of tracked addresses:
+The following flowchart outlines how Besu maintains the lists of tracked addresses:
 
 <p align="center">
 
@@ -145,14 +145,14 @@ graph TD;
 
 Besu's conflict detection strategy is intentionally simple to minimize edge cases.
 With this approach to parallel transaction execution,
-[around 40% of transactions do not require replay](#metrics), indicating its effectiveness.
+[approximately 40% of transactions do not require replay](#metrics).
 In the future, the conflict detection strategy may be refined to reduce false positives.
 
 You can enable parallel transaction execution using the `--Xbonsai-parallel-tx-processing-enabled` option.
 
 ## Metrics
 
-Parallel transaction execution uses Besu's resources in a more efficient way than traditional
+Parallel transaction execution uses Besu's resources more efficiently than traditional
 sequential execution, significantly improving performance.
 
 The following metrics were collected on nodes running on Azure VMs (Standard D8as v5 – 8 vCPUs, 32
@@ -171,7 +171,7 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
   of up to 25 Mgas/s.
 
 - **Parallel transactions** - Parallel transaction execution introduces two new metrics, which
-  indicate that around 40% of transactions are parallelized using this feature:
+  indicate that approximately 40% of transactions are parallelized using this feature:
 
   - `besu_block_processing_parallelized_transactions_counter_total` - The number of transactions
     executed in parallel.

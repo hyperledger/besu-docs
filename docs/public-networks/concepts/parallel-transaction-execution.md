@@ -9,8 +9,10 @@ tags:
 
 Besu supports parallel transaction execution, using an optimistic approach to parallelize
 transactions within a block.
-This page provides an [overview of the mechanism](#parallelization-mechanism-overview), and
-[metrics](#metrics) that highlight Besu's improved performance.
+You can enable this feature when using the [Bonsai Tries](data-storage-formats.md#bonsai-tries) data
+storage format.
+This page provides an [overview of the parallelization mechanism](#parallelization-mechanism-overview),
+and [metrics](#metrics) that highlight Besu's improved performance.
 
 :::warning Important
 Parallel transaction execution is an early access feature.
@@ -25,13 +27,14 @@ concurrently without conflict.
 This parallel execution runs in the background, and Besu proceeds to sequentially process the
 transactions without waiting for the parallel execution to complete.
 
-The following flowchart outlines the sequential processing flow:
+The following flowchart outlines the transaction execution flow:
 
 <p align="center">
 
 ```mermaid
 graph TD;
-  A(Start sequential processing) --> B{{Is transaction finalized?}};
+  X(Start parallel execution as background process) --> A(Start sequential processing);
+  A --> B{{Is transaction finalized?}};
   B --> |Yes| C{{Conflict check}};
   C --> |No conflict| D(Apply background state modifications);
   C --> |Conflict detected| E(Replay transaction using background cache);
@@ -98,18 +101,18 @@ graph TD;
 
 Besu takes what the accumulator tracks at the block and transaction level, compares the
 transaction's list of touched addresses to the block's list, and checks for conflicts.
+In particular:
 
-Besu identifies conflicts by checking whether a transaction has interacted with accounts modified by
-the block (that is, modified by previous transactions).
-If a conflict is detected, Besu replays the transaction using cached data or data fetched from disk.
-Each time a transaction is added to the block, Besu incorporates the transaction's tracked list into
-the block's list.
+1. Besu identifies conflicts by checking whether a transaction has interacted with accounts modified
+   by the block (that is, modified by previous transactions).
+2. If a conflict is detected, Besu replays the transaction using cached data or data fetched from disk.
+3. Each time a transaction is added to the block, Besu incorporates the transaction's tracked list
+   into the block's list.
 
 :::info Note
 The following are excluded from the conflict check:
 
 - Unchanged accounts read by the block.
-
 - Rewards given to the validator coinbase address at the end of each transaction.
   If these were considered, every transaction would conflict with the coinbase address.
   Besu identifies this address as a conflict only if it is accessed for reasons other than receiving
@@ -162,8 +165,8 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
   The 50th percentile decreases from 282 ms to 207 ms and the 95th
   percentile decreases from 479 ms to 393 ms.
 
-  With Nimbus as CL client, block processing improves by around 45%, with the 50th percentile at 155
-  ms, and the 95th percentile at 299 ms.
+  With Nimbus as CL client, block processing improves by approximately 45%, with the 50th percentile
+  at 155 ms, and the 95th percentile at 299 ms.
   This is likely due to both the EL and CL clients running on the same machine, which reduces cache
   misses and context switching.
 
@@ -178,12 +181,11 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
   - `besu_block_processing_conflicted_transactions_counter_total` - The number of transactions that
     encountered conflicts and were therefore executed sequentially.
 
-- **Sync time** - Snap synchronization time is around 27 hours and 5 minutes, with block import
-  time around 6 ms on average.
+- **Sync time** - Snap synchronization time is approximately 27 hours and 5 minutes, with block import
+  time approximately 6 ms on average.
 
 - **CPU profiling** - The new payload call time decreases from 251.68 ms to 172.04 ms on average,
   with notable improvements in SLOAD operation times.
 
 Overall, parallel transaction execution improves Besu performance with almost no resource usage
 overhead.
-Future enhancements to this feature will further improve performance.

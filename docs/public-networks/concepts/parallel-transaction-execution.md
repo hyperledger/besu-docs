@@ -34,7 +34,7 @@ The following flowchart outlines the transaction execution flow:
 ```mermaid
 graph TD;
   X(Start parallel execution as background process) --> A(Start sequential processing);
-  A --> B{{Is transaction finalized?}};
+  A --> B{{Is transaction completed by background process?}};
   B --> |Yes| C{{Conflict check}};
   C --> |No conflict| D(Apply background state modifications);
   C --> |Conflict detected| E(Replay transaction using background cache);
@@ -46,16 +46,15 @@ graph TD;
 
 </p>
 
-Besu first determines if a transaction has been "finalized," or completed by the background parallel
-execution:
+Besu first determines if a transaction has been completed by the background parallel execution:
 
-- **Finalized:** If the transaction is finalized, Besu examines whether there are any conflicts with
+- **Completed:** If the transaction is completed, Besu examines whether there are any conflicts with
   previously executed transactions.
   - **No conflict:** If no conflict is detected, Besu directly applies the state modifications
     generated in the background to the block, avoiding re-execution.
   - **Conflict detected:** If a conflict is detected, Besu replays the transaction, using a cache of
     background reads to improve efficiency.
-- **Not finalized:** If the transaction is not finalized, Besu executes it sequentially within the
+- **Not completed:** If the transaction is not completed, Besu executes it sequentially within the
   block to ensure its completion, independent of the background execution.
 
 ### Conflict detection strategy
@@ -83,7 +82,7 @@ graph TD;
   B --> C{{For each transaction}};
   C -->|Next transaction| D(Fetch transaction's touched addresses);
   D --> E{{Compare addresses}};
-  E -->|Conflict detected| F(Replay transaction using prior values as cache);
+  E -->|Conflict detected| F(Replay transaction using cached data);
   E -->|No conflict| G(Apply transaction result directly – no replay);
   F --> H{{Attempt to read from cache}};
   H -->|Data found in cache| I(Continue replay using cached data);
@@ -167,11 +166,11 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
 
   With Nimbus as CL client, block processing improves by approximately 45%, with the 50th percentile
   at 155 ms, and the 95th percentile at 299 ms.
-  This is likely due to both the EL and CL clients running on the same machine, which reduces cache
-  misses and context switching.
+  Besu running with Nimbus has better performance than with Teku because Nimbus has less overhead on
+  Besu, meaning less context switching and fewer cache misses.
 
 - **Execution throughput** - Execution throughput increases, with an average of 96 Mgas/s and peaks
-  of up to 25 Mgas/s.
+  of up to 250 Mgas/s.
 
 - **Parallel transactions** - Parallel transaction execution introduces two new metrics, which
   indicate that approximately 40% of transactions are parallelized using this feature:
@@ -187,5 +186,9 @@ GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
 - **CPU profiling** - The new payload call time decreases from 251.68 ms to 172.04 ms on average,
   with notable improvements in SLOAD operation times.
 
+During the faster block processing time, Besu uses more CPU and more disk accesses in parallel
+(higher IOPS).
+However, when these metrics are averaged on different monitoring tools, the resource usage looks the same as
+with sequential execution.
 Overall, parallel transaction execution improves Besu performance with almost no resource usage
 overhead.

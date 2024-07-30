@@ -1,6 +1,9 @@
 ---
 title: Use a profile 
 sidebar_position: 1
+tags:
+  - public networks
+  - private networks
 ---
 
 # Use a profile 

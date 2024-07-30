@@ -25,6 +25,10 @@ const config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       "classic",
@@ -260,6 +264,20 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ["solidity", "toml", "java"],
       },
+      mermaid: {
+        options: {
+          fontFamily: "arial, verdana, sans-serif;",
+          wrap: true,
+          sequence: {
+            diagramMarginX: 25,
+            diagramMarginY: 25,
+          },
+          flowchart: {
+            diagramPadding: 5,
+            nodeSpacing: 75,
+          },
+        },
+      },
       languageTabs: [
         {
           highlight: "bash",
@@ -351,6 +369,7 @@ const config = {
         indexBlog: false,
       }),
     ],
+    "@docusaurus/theme-mermaid",
   ],
 };
 

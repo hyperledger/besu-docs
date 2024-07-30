@@ -351,6 +351,7 @@ metastring
 metrica
 metricbeat
 metrika
+Mgas
 microdata
 middlewares
 minerthreads
@@ -572,6 +573,7 @@ simplestorage
 skipverify
 slashable
 slashprotection
+SLOAD
 slorber
 sluggified
 sluggifies

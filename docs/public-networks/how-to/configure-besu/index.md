@@ -1,6 +1,7 @@
 ---
 title: Configure Besu
 description: Specify options in the Besu configuration file.
+sidebar_position: 1
 tags:
   - public networks
   - private networks

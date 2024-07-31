@@ -88,13 +88,6 @@ You can extend these defaults using a [pre-configured profile](profile.md) to su
 
 For example, extending the default configuration using the [staker profile](profile.md#staker-profile) directs Besu to use Mainnet, creating a staking-optimized node ready to run with a [validator and consensus client](../../concepts/node-clients.md#consensus-clients).
 
-### Configuration
-
-|Command|Default|Notes|
-|---------------------------|--------------------|------------------------------------------|
-|[`config-file`](../../reference/cli/options.md#config-file)|None|Vanilla Besu assumes no configuration file|
-
-
 ### Peering
 
 |Command|Default|Notes|

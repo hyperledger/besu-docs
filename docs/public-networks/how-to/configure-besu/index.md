@@ -104,10 +104,10 @@ For example, extending the default configuration using the [staker profile](prof
 
 ### Sync
 
-|Command|Default|Notes|
+|Configuration option|Default|Description|
 |---------------------------|--------------------|------------------------------------------|
-|[`sync-mode`](../../reference/cli/options.md#sync-mode)|SNAP|Besu applies the [snap sync mode](../../get-started/connect/sync-node.md#snap-synchronization) as the most time-efficient sync method|
+|[`sync-mode`](../../reference/cli/options.md#sync-mode)|`SNAP`|Besu syncs using [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), the most time-efficient sync method.|
 
 :::note
-For a comprehensive understanding, all defaults are provided in the [reference](../../reference/cli/options.md).
+You can see all default configuration values in the [configuration options reference](../../reference/cli/options.md).
 :::

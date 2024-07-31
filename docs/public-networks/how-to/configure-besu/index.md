@@ -90,12 +90,11 @@ For example, extending the default configuration using the [staker profile](prof
 
 ### Peering
 
-|Command|Default|Notes|
+|Configuration option|Default|Description|
 |---------------------------|--------------------|------------------------------------------|
-|[`discovery-enabled`](../../reference/cli/options.md#discovery-enabled)|True|Besu assumes the node will automatically discover other Ethereum nodes using P2P|
-|[`p2p-enabled`](../../reference/cli/options.md#p2p-enabled)|True|Besu assumes the node will connect P2P|
-|[`engine-rpc-enabled`](../../reference/cli/options.md#engine-rpc-enabled)|True|Besu assumes the Engine API will be required to communicate with the consensus layer|
-
+|[`discovery-enabled`](../../reference/cli/options.md#discovery-enabled)|`true`|Besu assumes the node will automatically discover other Ethereum nodes using P2P.|
+|[`p2p-enabled`](../../reference/cli/options.md#p2p-enabled)|`true`|Besu assumes the node will connect P2P.|
+|[`engine-rpc-enabled`](../../reference/cli/options.md#engine-rpc-enabled)|`true`|Besu assumes the Engine API will be required to communicate with the consensus layer.|
 
 ### Storage
 

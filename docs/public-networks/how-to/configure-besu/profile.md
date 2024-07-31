@@ -8,15 +8,9 @@ tags:
 
 # Use a profile 
 
-Load a profile using the [`--profile` CLI option](../../reference/cli/options.md#profile).
+You can load a profile to extend Besu's [default configuration](index.md#default-configuration), using the [`--profile`](../../reference/cli/options.md#profile) option.
 
-:::note
-Run `./besu --help` to view all available profiles.
-:::
-
-You can optionally use profiles to extend Besu's configuration. Combined with the 
-[boilerplate configuration](index.md#besu-defaults), profiles simplify the process of applying 
-viable defaults. Besu's pre-configured profiles optimize for the following use cases:
+Profiles simplify the process of configuring Besu for common use cases. Besu provides the following pre-configured profiles:
 
 - [Minimalist staker profile](#minimalist-staker-profile)
 - [Staker profile](#staker-profile)

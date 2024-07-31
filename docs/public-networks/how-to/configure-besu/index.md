@@ -30,8 +30,13 @@ is not found in the environment variables, Besu looks for it in `config.toml`.
 If the option is not found in `config.toml`, Besu looks for it in `staker.toml`.
 If the option is not found in `staker.toml`, Besu uses the default value for that option.
 
-## TOML specification
+## TOML configuration file
 
+:::note
+The configuration file is used for node-level settings. You can specify network-wide settings in the [genesis file](../../concepts/genesis-file.md).
+:::
+
+Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) option.
 The configuration file must be a valid TOML file composed of key/value pairs. Each key is the same as the corresponding command line option name without the leading dashes (`--`).
 
 Values must conform to TOML specifications for string, numbers, arrays, and booleans. Specific differences between the command line and the TOML file format are:

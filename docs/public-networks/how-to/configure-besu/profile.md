@@ -51,11 +51,8 @@ private network operators. See the [enterprise/private profile on
 GitHub](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/enterprise-private.toml)
 for the custom settings.
 
-
-To use the enterprise/private profile, run Besu with
-[`--profile`](../../reference/cli/options.md#profile) set to `--profile=PRIVATE` or `--profile=ENTERPRISE`, 
-and use [`sync-mode=FULL`](../../reference/cli/options.md#sync-mode) 
-and [`data-storage-format=FOREST`](../../reference/cli/options.md#data-storage-format).
+When using this profile, set [`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode) 
+and [`--data-storage-format=FOREST`](../../reference/cli/options.md#data-storage-format).
 
 ## Load external profiles
 

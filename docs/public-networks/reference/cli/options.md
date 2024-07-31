@@ -10,9 +10,8 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Command line options
 
-This reference describes the syntax of the Hyperledger Besu command line interface (CLI) options.
+This reference describes the syntax of the Hyperledger Besu configuration options.
 
 :::info
 
@@ -38,7 +37,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/use-configuration-file/index.md).
+- In a [configuration file](../../how-to/configure-besu/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -662,7 +661,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/configure-besu/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -2584,7 +2583,7 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
 :::tip
 
-Use `UPNPP2PONLY` if you wish to enable UPnP for p2p traffic but not JSON-RPC.
+Use `UPNPP2PONLY` if you wish to enable UPnP for P2P traffic but not JSON-RPC.
 
 :::
 
@@ -2977,21 +2976,21 @@ The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose 
 <TabItem value="Example">
 
 ```bash
---profile=staker
+--profile=STAKER
 ```
 
 </TabItem>
 <TabItem value="Environment variable">
 
 ```bash
-BESU_PROFILE=staker
+BESU_PROFILE=STAKER
 ```
 
 </TabItem>
 <TabItem value="Configuration file">
 
 ```bash
-profile="staker"
+profile="STAKER"
 ```
 
 </TabItem>
@@ -3000,11 +2999,14 @@ profile="staker"
 Loads a pre-configured TOML file containing custom settings for a specific user profile.
 Possible values are:
 
-- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
-- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
-- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
-- File name of an [external profile](../../how-to/use-configuration-file/profile.md#load-external-profiles),
-  without the `.toml` extension
+- [`MINIMALIST_STAKER`](../../how-to/configure-besu/profile.md#minimalist-staker-profile)
+- [`STAKER`](../../how-to/configure-besu/profile.md#staker-profile)
+- [`ENTERPRISE` or `PRIVATE`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- File name of an [external profile](../../how-to/configure-besu/profile.md#load-external-profiles),
+  without the `.toml` extension.
+  
+The default is `null`.
+
 
 ### `random-peer-priority-enabled`
 
@@ -5175,11 +5177,11 @@ tx-pool="sequenced"
 </Tabs>
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
-Set to `layered` to use the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool) implementation.
+Set to `layered` to use the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool) implementation.
 The default is `layered`.
 
-Set to `sequenced` to use the [sequenced transaction pool](../../concepts/transactions/pool#sequenced-transaction-pool).
-The default is `sequenced` for the [enterprise/private profile](../../how-to/use-configuration-file/profile#enterpriseprivate-profile).
+Set to `sequenced` to use the [sequenced transaction pool](../../concepts/transactions/pool.md#sequenced-transaction-pool).
+The default is `sequenced` for the [enterprise/private profile](../../how-to/configure-besu/profile.md#enterpriseprivate-profile).
 
 ### `tx-pool-blob-price-bump`
 
@@ -5305,8 +5307,7 @@ tx-pool-layer-max-capacity="20000000"
 
 </Tabs>
 
-Maximum amount of memory (in bytes) that any layer within the [layered transaction
-pool](../../concepts/transactions/pool#layered-transaction-pool) can occupy.
+Maximum amount of memory (in bytes) that any layer within the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
 The default is `12500000`, or 12.5 MB.
 
 There are two memory-limited layers in the transaction pool, so the expected memory consumption is
@@ -5356,7 +5357,7 @@ Accepted values are in the range `(0–1]`.
 The default is `.001`, or 0.1% of transactions from a single sender to be kept in the pool.
 
 :::caution
-- With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+- With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
   implementation, this option is not applicable.
   Replace this option with [`--tx-pool-max-future-by-sender`](#tx-pool-max-future-by-sender) to
   specify the maximum number of sequential transactions from a single sender kept in the pool.
@@ -5407,7 +5408,7 @@ tx-pool-max-future-by-sender="250"
 </Tabs>
 
 The maximum number of sequential transactions from a single sender kept in the
-[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 The default is `200`.
 
 Increase this value to allow a single sender to fit more transactions in a single block.
@@ -5453,7 +5454,7 @@ tx-pool-max-prioritized="1500"
 </Tabs>
 
 The maximum number of transactions that are prioritized in the
-[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 The default is `2000`.
 
 For private networks, we recommend setting this value to the maximum number of transactions that fit
@@ -5497,9 +5498,9 @@ tx-pool-max-prioritized-by-type="BLOB=6"
 
 </Tabs>
 
-The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 
-This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types#blob-transactions) in the transaction pool. 
+This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
 Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
 Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
 The default is `BLOB=6`.
@@ -5546,7 +5547,7 @@ The maximum number of transactions kept in the [transaction pool](../../concepts
 The default is `4096`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
 implementation, this option is not applicable because the layered pool is limited by memory size
 instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
@@ -5673,8 +5674,8 @@ tx-pool-price-bump=25
 
 </Tabs>
 
-The price bump percentage to [replace an existing transaction in the transaction
-pool](../../concepts/transactions/pool#replacing-transactions-with-the-same-sender-and-nonce).
+The price bump percentage to 
+[replace an existing transaction in the transaction pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
 For networks with a [base fee and priced gas](../../concepts/transactions/pool.md#in-networks-with-a-base-fee-and-priced-gas), the default is `10`, or 10%.
 For networks with [zero base fee, or free gas](../../concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas), the default is `0`. 
 
@@ -5763,7 +5764,7 @@ The maximum period (in hours) to hold pending transactions in the [transaction p
 The default is `13`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
 implementation, this option is not applicable because old transactions will expire when the memory
 cache is full.
 :::

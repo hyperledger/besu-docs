@@ -46,7 +46,7 @@ If you're also running the consensus client as a validator client, create a test
 
 :::note
 
-If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+If you can't get testnet ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.gg/ethstaker).
 
 :::
 
@@ -60,7 +60,7 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ### 3. Start Besu
 
-Run the following command or specify the options in a [configuration file](../../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../../how-to/configure-besu/index.md):
 
 <Tabs>
 

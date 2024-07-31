@@ -61,7 +61,7 @@ consistent and transparent transaction order, which is often useful in private b
 
 You can select the sequenced transaction pool by setting [`--tx-pool=sequenced`](../../reference/cli/options.md#tx-pool).
 
-If you set the enterprise configuration profile using [`--profile=enterprise`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) or [`--profile=private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile), the `sequenced` transaction pool is set by default.
+If you set the enterprise configuration profile using [`--profile=enterprise`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile) or [`--profile=private`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile), the `sequenced` transaction pool is set by default.
 
 The sequenced transaction pool suits enterprise environments because it functions like a first-in-first-out (FIFO) queue and processes transactions in the order of submission, regardless of the sender. 
 When the pool reaches capacity, the newer transactions are evicted first, reducing the likelihood of a nonce gap and avoiding the need to resubmit older transactions.

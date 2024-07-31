@@ -6,6 +6,8 @@ tags:
   - private networks
 ---
 
+# Configure Besu
+
 Besu is [highly-configurable](index.md#configuration-order-of-precedence), yet its [default configurations](#besu-defaults) provide a viable boilerplate.
 
 A TOML configuration file is used to simplify overriding the default configuration settings and reuse of configurations across node startups.

@@ -19,6 +19,10 @@ Profiles simplify the process of configuring Besu for common use cases. Besu pro
 Alternatively, you can customize and [load external profiles](#load-external-profiles).
 
 :::note
+Run `./besu --help` to view all available profiles.
+:::
+
+:::note
 
 A configuration explicitly set in the configuration file or command line will 
 [override the same option/s](index.md#configuration-order-of-precedence) set in the profile.

@@ -13,7 +13,7 @@ Besu comes with a [default configuration](#default-configuration) that is suitab
 
 You can override the default values by specifying [configuration options](../../reference/cli/options.md) on the command line, as environment variables, or in a [TOML configuration file](#toml-configuration-file) that can be reused across node startups.
 
-You can also use a [pre-configured profile](profile.md) for some common use cases.
+You can also use a [pre-configured profile](profile.md) for some common use cases or create and apply a [custom profile](profile.md#load-external-profiles).
 
 ## Configuration order of precedence
 
@@ -84,7 +84,7 @@ besu --config-file=/home/me/me_node/config.toml
 
 The following tables describe important default values of Besu's configuration.
 When using the default configuration, Besu is optimized for staking.
-You can extend these defaults using a [pre-configured profile](profile.md) to support common use cases.
+You can extend these defaults using a [profile](profile.md).
 
 For example, extending the default configuration using the [staker profile](profile.md#staker-profile) directs Besu to use Mainnet, creating a staking-optimized node ready to run with a [validator and consensus client](../../concepts/node-clients.md#consensus-clients).
 

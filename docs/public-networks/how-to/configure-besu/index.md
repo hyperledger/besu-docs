@@ -80,11 +80,13 @@ miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 ```bash title="Starting Besu with a configuration file"
 besu --config-file=/home/me/me_node/config.toml
 ```
-## Besu defaults
+## Default configuration
 
-Presented below is a high level overview of the opinionated default configurations of vanilla Besu. By applying the defaults, a node is optimized for staking. These defaults may be extended with a [pre-configured profile](profile.md) to support common use cases.
+The following tables describe important default values of Besu's configuration.
+When using the default configuration, Besu is optimized for staking.
+You can extend these defaults using a [pre-configured profile](profile.md) to support common use cases.
 
-For example, using the [Staker profile](profile.md#staker-profile) with the boilerplate config directs Besu to use Mainnet, creating a staking-optimized node ready to run with a [validator](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#validators) and [consensus client](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/#consensus-client).
+For example, extending the default configuration using the [staker profile](profile.md#staker-profile) directs Besu to use Mainnet, creating a staking-optimized node ready to run with a [validator and consensus client](../../concepts/node-clients.md#consensus-clients).
 
 ### Configuration
 

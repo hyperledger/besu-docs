@@ -9,17 +9,11 @@ tags:
 
 # Configure Besu
 
-Besu is [highly-configurable](index.md#configuration-order-of-precedence), yet its [default configurations](#besu-defaults) provide a viable boilerplate.
+Besu comes with a [default configuration](#default-configuration) that is suitable for staking.
 
-A TOML configuration file is used to simplify overriding the default configuration settings and reuse of configurations across node startups.
+You can override the default values by specifying [configuration options](../../reference/cli/options.md) on the command line, as environment variables, or in a [TOML configuration file](#toml-configuration-file) that can be reused across node startups.
 
-Specify the configuration file using the [`--config-file`](../../reference/cli/options.md#config-file) CLI option. Both the default configuration and configuration files may be [used alongside a pre-configured profile](profile.md) for some common use cases.
-
-:::note
-
-The configuration file is used for node-level settings. You can specify network-wide settings in the [genesis file](../../concepts/genesis-file.md).
-
-:::
+You can also use a [pre-configured profile](profile.md) for some common use cases.
 
 ## Configuration order of precedence
 

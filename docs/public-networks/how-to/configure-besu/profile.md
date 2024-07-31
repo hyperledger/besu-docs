@@ -45,7 +45,7 @@ for the custom settings.
 
 ## Enterprise/Private profile
 
-`enterprise` and `private` are aliases for the same profile. [`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) 
+`ENTERPRISE` and `PRIVATE` are aliases for the same profile. [`--profile=PRIVATE` / `--profile=ENTERPRISE`](../../reference/cli/options.md#profile) 
 supports private network operators and enterprises by handling specific use cases that apply to 
 private network operators. See the [enterprise/private profile on 
 GitHub](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/enterprise-private.toml)

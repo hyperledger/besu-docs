@@ -98,9 +98,9 @@ For example, extending the default configuration using the [staker profile](prof
 
 ### Storage
 
-|Command|Default|Notes|
+|Configuration option|Default|Description|
 |---------------------------|--------------------|------------------------------------------|
-|[`data-storage-format`](../../reference/cli/options.md#data-storage-format)|BONSAI|Besu applies the most space-efficient storage method|
+|[`data-storage-format`](../../reference/cli/options.md#data-storage-format)|`BONSAI`|Besu uses [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the most space-efficient data storage format.|
 
 ### Sync
 

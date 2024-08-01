@@ -99,7 +99,7 @@ Enable snap sync using [`--sync-mode=SNAP`](../../reference/cli/options.md#sync-
 version 22.4.0 or later to use snap sync.
 
 Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap 
-sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
+sync downloads as many leaves of the trie as possible, and reconstructs the trie locally. 
 
 You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync, 
 you can start over using snap sync instead by stopping the node, deleting the data directory, and 
@@ -235,3 +235,10 @@ Do not run an archive node with the [Bonsai Tries](../../concepts/data-storage-f
 data storage format.
 Bonsai is designed for retrieving recent data only.
 :::
+
+| Sync Mode                 | Description         | Requirements            | Method                                                                 | Limitations    |
+|---------------------------|------------------------------------------------------------------------------|------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| Snap Synchronization      | Recommended for fastest sync and lowest storage requirements on Mainnet.     | Besu version 22.4.0 or later | Downloads as many leaves of the trie as possible, reconstructs the trie locally | Cannot switch from fast sync to snap sync mid-process                            |
+| Checkpoint Synchronization| Efficient sync from a specific checkpoint block configured in the genesis file. | Besu version 22.4.3 or later | Syncs from a checkpoint block defined in the genesis file              | Not supported for QBFT or IBFT 2.0 networks without a checkpoint configuration   |
+| Fast Synchronization      | Default for named networks except the dev development network.               | None                         | Downloads block headers and transaction receipts, verifies chain from genesis block | May become impossible to sync Ethereum Mainnet in the future; not supported with private transactions |
+| Full Synchronization      | Downloads and verifies the entire blockchain and state from the genesis block. | None                         | Downloads entire blockchain, verifies all states from genesis block  | Slowest sync mode, requires the most disk space                                  |

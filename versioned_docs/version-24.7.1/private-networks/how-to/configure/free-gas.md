@@ -130,19 +130,16 @@ Besu does not support private key management. To use Besu with Hardhat, you must
 
 Update the `hardhat.config.js` file:
 
-1. Set the gas price to zero.
+1. Set the base fee per gas to zero.
 
    ```js
-   gasPrice: 0;
+   solidity: {...},
+   networks: {
+    hardhat: {
+      initialBaseFeePerGas: 0, // Set base fee to 0 for free gas
+    },
+  },
    ```
-
-1. Set the gas limit for a transaction (that is, contract creation) to be the block gas limit - 1.
-
-   ```js
-   gas: "0x1ffffffffffffe";
-   ```
-
-   Setting `gasPrice` to `0` should cover transaction costs for most deployments.
 
 1. Specify `evmVersion` when using the latest Solidity version.
 
@@ -154,4 +151,25 @@ Update the `hardhat.config.js` file:
         optimizer: {...},
       },
     },
+   ```
+
+1. Now you can create and broadcast transactions (whether legacy or EIP-1559):
+
+Below are examples for both legacy and EIP-1559 transactions:
+
+   ```js
+   const eip1559Tx = {
+      // EIP-1559 transaction properties
+      maxFeePerGas: 0,
+      maxPriorityFeePerGas: 0,
+      gasLimit: 21000, // ... adjust as needed
+      // other properties...
+   };
+
+   const legacyTx = {
+      // Legacy transaction properties
+      gasPrice: 0,
+      gasLimit: 21000, // ... adjust as needed
+      // other properties...
+   };
    ```

@@ -135,10 +135,10 @@ Update the `hardhat.config.js` file:
    ```js
    solidity: {...},
    networks: {
-    hardhat: {
-      initialBaseFeePerGas: 0, // Set base fee to 0 for free gas
+      hardhat: {
+        initialBaseFeePerGas: 0, // Set base fee to 0 for free gas
+      },
     },
-  },
    ```
 
 1. Specify `evmVersion` when using the latest Solidity version.
@@ -155,21 +155,21 @@ Update the `hardhat.config.js` file:
 
 1. Now you can create and broadcast transactions (whether legacy or EIP-1559):
 
-Below are examples for both legacy and EIP-1559 transactions:
+   Below are examples for both legacy and EIP-1559 transactions:
 
    ```js
-   const eip1559Tx = {
+   {
       // EIP-1559 transaction properties
       maxFeePerGas: 0,
       maxPriorityFeePerGas: 0,
-      gasLimit: 21000, // ... adjust as needed
+      gasLimit: 21000, // adjust as needed
       // other properties...
    };
 
-   const legacyTx = {
+   {
       // Legacy transaction properties
       gasPrice: 0,
-      gasLimit: 21000, // ... adjust as needed
+      gasLimit: 21000, // adjust as needed
       // other properties...
    };
    ```

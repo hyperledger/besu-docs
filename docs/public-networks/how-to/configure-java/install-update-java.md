@@ -11,7 +11,7 @@ tags:
 There are many flavors of Java and the Java Virtual Machine (JVM) that work with Besu.
 They might impact performance, start time, and more.
 Consider the options carefully when installing Java on your host machine.
-Currently, [we recommend Java 21](../../get-started/system-requirements.md#java-distribution-and-installation).
+Currently, [we recommend Java 22](../../get-started/system-requirements.md#java-distribution-and-installation).
 
 ## Install Java
 
@@ -20,7 +20,7 @@ If you are running Besu outside a virtual environment, like Docker, you must hav
 the host machine.
 
 :::tip
-Download [OpenJDK 21](https://jdk.java.net/21/).
+Download [OpenJDK 22](https://jdk.java.net/22/).
 :::
 
 You can find platform-specific installation instructions with the download.

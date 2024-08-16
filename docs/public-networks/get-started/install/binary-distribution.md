@@ -64,7 +64,7 @@ besu --help
 
 ### Prerequisites
 
-- [Java JDK 21+](https://www.oracle.com/java/technologies/downloads/)
+- [Java JDK 21 or later](https://jdk.java.net)
 
 :::note Linux open file limit
 

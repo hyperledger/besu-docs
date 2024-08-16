@@ -22,7 +22,7 @@ CPU requirements are highest when syncing to the network and typically reduce af
 ## Java distribution and installation
 
 Besu requires an installation of Java 21+ to run.
-We currently recommend two Java distributions, [OpenJDK 21](https://jdk.java.net/21/) and
+We currently recommend two Java distributions, [OpenJDK 22](https://jdk.java.net/22/) and
 [OpenJ9](https://www.eclipse.org/openj9/), though you can experiment based on your needs.
 
 OpenJDK is the default for many Java users and is balanced in performance and garbage collection.

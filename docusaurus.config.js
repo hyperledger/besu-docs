@@ -53,7 +53,7 @@ const config = {
             // STABLE-AUTOMATION-TOKEN. Don't remove this as this is used for version update automation
             "24.8.0": {
               label: "stable (24.8.0)",
-            }
+            },
             "24.7.1": {
               label: "24.7.1",
             },

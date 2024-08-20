@@ -13,7 +13,7 @@ Hyperledger Besu supports CPU and GPU mining, which are configured using command
 
 GPU mining tests used [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` and `getwork` schemes.
 
-Ethminer has been used with Hyperledger Besu to mine blocks on the [Ropsten testnet](https://ropsten.etherscan.io/address/0x2f14582947E292a2eCd20C430B46f2d27CFE213c#mine), [ETC Mainnet (uncle block only)](https://etc.tokenview.com/en/uncleblock/10555173) and Mordor ETC testnet.
+Ethminer has been used with Hyperledger Besu to mine blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet.
 
 :::note
 - Some mining software supports the `getwork` scheme as the `http` scheme.
@@ -70,14 +70,6 @@ The JSON-RPC API methods for mining are:
 - [`eth_hashrate`](../../reference/api/index.md#eth_hashrate) to get the number of hashes per second with which the node is mining. Not supported for GPU mining.
 - [`eth_getWork`](../../reference/api/index.md#eth_getwork) to get the hash of the current block, the seed hash, and the target boundary condition. Only used when using the `getwork` scheme.
 - [`eth_submitWork`](../../reference/api/index.md#eth_submitwork) to submit the PoW solution. Only used when using the `getwork` scheme.
-
-## Besu mined blocks
-
-Besu has successfully mined blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet. Blocks mined by the Hyperledger Besu team contain the version number used in the block's `extraData` field. The following accounts have been used to mine on public networks with Hyperledger Besu:
-
-- **Ropsten**: [`0x2f14582947E292a2eCd20C430B46f2d27CFE213c`](https://ropsten.etherscan.io/address/0x2f14582947E292a2eCd20C430B46f2d27CFE213c#mine)
-- **ETC**: [`0x3125309aa670f5e60493b50884a7e7abf9ebb701`](https://etc.tokenview.com/en/address/0x3125309aa670f5e60493b50884a7e7abf9ebb701)
-- **Mordor**: `0x2f14582947E292a2eCd20C430B46f2d27CFE213c`
 
 ## Troubleshoot
 

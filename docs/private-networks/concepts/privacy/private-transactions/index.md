@@ -94,8 +94,6 @@ You can manage private nonces in multiple ways:
 
   :::
 
-- Use [Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) for nonce management. We recommend this for enterprise use.
-
 :::tip
 
 The [web3js-quorum library includes an example](https://github.com/ConsenSys/web3js-quorum/blob/9a0f9eb1b91a4a0d93801f77782b509ae2e7314c/example/concurrentPrivateTransactions/concurrentPrivateTransactions.js) of nonce management when [sending concurrent private transactions](../../../how-to/send-transactions/concurrent-private-transactions.md). The example calculates the correct nonces for the private transactions and PMTs outside of Besu.

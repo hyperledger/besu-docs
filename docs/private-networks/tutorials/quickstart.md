@@ -51,7 +51,7 @@ To create the tutorial `docker-compose` files and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for [Codefi Orchestrate](https://docs.orchestrate.consensys.net/en/stable/) and [private transactions](../concepts/privacy/index.md).
+Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate and [private transactions](../concepts/privacy/index.md).
 
 :::note
 

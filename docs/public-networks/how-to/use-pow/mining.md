@@ -71,14 +71,6 @@ The JSON-RPC API methods for mining are:
 - [`eth_getWork`](../../reference/api/index.md#eth_getwork) to get the hash of the current block, the seed hash, and the target boundary condition. Only used when using the `getwork` scheme.
 - [`eth_submitWork`](../../reference/api/index.md#eth_submitwork) to submit the PoW solution. Only used when using the `getwork` scheme.
 
-## Besu mined blocks
-
-Besu has successfully mined blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet. Blocks mined by the Hyperledger Besu team contain the version number used in the block's `extraData` field. The following accounts have been used to mine on public networks with Hyperledger Besu:
-
-- **Ropsten**: [`0x2f14582947E292a2eCd20C430B46f2d27CFE213c`](https://ropsten.etherscan.io/address/0x2f14582947E292a2eCd20C430B46f2d27CFE213c#mine)
-- **ETC**: [`0x3125309aa670f5e60493b50884a7e7abf9ebb701`](https://etc.tokenview.com/en/address/0x3125309aa670f5e60493b50884a7e7abf9ebb701)
-- **Mordor**: `0x2f14582947E292a2eCd20C430B46f2d27CFE213c`
-
 ## Troubleshoot
 
 ### Check block creation

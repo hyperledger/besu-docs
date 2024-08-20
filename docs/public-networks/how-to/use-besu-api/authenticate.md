@@ -171,9 +171,9 @@ The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) c
 
 The default value for Besu is `RS256`.
 When you use a different key algorithm, you must specify the
-[`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options#rpc-http-authentication-jwt-algorithm)
+[`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options.md#rpc-http-authentication-jwt-algorithm)
 option and/or the
-[`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options#rpc-ws-authentication-jwt-algorithm)
+[`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options.md#rpc-ws-authentication-jwt-algorithm)
 option depending on your needs.
 
 <Tabs>

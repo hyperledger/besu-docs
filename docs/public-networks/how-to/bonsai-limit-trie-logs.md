@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Reduce storage for Bonsai Tries
 
-When using the [Bonsai Tries](../concepts/data-storage-formats#bonsai-tries) data storage format,
+When using the [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) data storage format,
 [`--bonsai-limit-trie-logs-enabled`](../reference/cli/options.md#bonsai-limit-trie-logs-enabled) is
 enabled by default. 
 When enabled, this feature can reduce database growth by more than 3 GB each week on Mainnet.

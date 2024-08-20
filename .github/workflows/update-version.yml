@@ -1,8 +1,6 @@
 name: Update Version
 
 on:
-  release:
-    types: ["released"]
   workflow_dispatch:
     inputs:
       version:
@@ -13,7 +11,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     env:
-      VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.event.release.name }}
+      VERSION: ${{ github.event.inputs.version }}
     permissions:
       contents: write
       pull-requests: write

@@ -2076,7 +2076,60 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 ```
 
 </TabItem>
+</Tabs>
 
+### `priv_traceTransaction`
+
+Provides a transaction trace for a private transaction.
+
+#### Parameters
+- `txHash`: *string* - The hash of the private transaction to trace
+- `privacyGroupId`: *string* - The privacy group ID associated with the transaction
+
+#### Returns
+`result`: *object* - An object containing the trace of the transaction
+
+<Tabs>
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"priv_traceTransaction","params":["0x123456789abcdef", "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```bash
+{"jsonrpc":"2.0","method":"priv_traceTransaction","params":["0x123456789abcdef", "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
+```
+
+</TabItem>
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "gas": 21000,
+    "failed": false,
+    "returnValue": "",
+    "structLogs": [
+      {
+        "pc": 0,
+        "op": "PUSH1",
+        "gas": 4677881,
+        "gasCost": 3,
+        "depth": 1,
+        "stack": [],
+        "memory": []
+      },
+    ]
+  }
+}
+```
+
+</TabItem>
 </Tabs>
 
 ### `priv_uninstallFilter`

@@ -19,7 +19,7 @@
       "pattern": "^http(s)?://github.com/INFURA/docs(?:/(issues|pulls))?"
     },
     {
-      "comment": "Consensys.net now has a ddos attack protection",
+      "comment": "Consensys.net now has DDoS attack protection",
       "pattern": "^http(s)?://consensys.net"
     },
     {
@@ -27,7 +27,7 @@
       "pattern": "{{[a-zA-Z_\\-\\.\\[\\]\\']+}}"
     },
     {
-       "comment": "Exclude Infura endpoints that require API key",
+       "comment": "Exclude Infura endpoints that require an API key",
        "pattern": "^https?:\\/\\/[a-zA-Z0-9.-]*\\.infura\\.io\\/v3\\/.*$"
     },
     {
@@ -43,11 +43,11 @@
       "pattern": "^http(s)?://(docs\\.)?metamask\\.io"
     },
     {
-      "comment": "Skip urls in the redoc macro with entity",
+      "comment": "Skip URLs in the redoc macro with entity",
       "pattern": "http(s)?://.+\\&\\#39\\;"
     },
     {
-      "comment": "Skip urls in the redoc macro with char",
+      "comment": "Skip URLs in the redoc macro with char",
       "pattern": "http(s)?://.+'"
     }
   ],

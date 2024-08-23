@@ -161,6 +161,11 @@ const config = {
             dropdownActiveClassDisabled: true,
           },
           {
+            href: "/public-networks/chatbot",
+            className: "header-chatbot-link",
+            position: "right",
+          },
+          {
             href: "https://github.com/hyperledger/besu/",
             className: "header-github-link",
             position: "right",

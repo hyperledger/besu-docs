@@ -2083,27 +2083,34 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 Provides a transaction trace for a private transaction.
 
 #### Parameters
-- `txHash`: *string* - The hash of the private transaction to trace
-- `privacyGroupId`: *string* - The privacy group ID associated with the transaction
+- `transactionHash`: _string_ - the hash of the private transaction to trace.
+- `privacyGroupId`: _string_ - the privacy group ID associated with the transaction
+- `options`: _object_ - request options object with the following fields (all optional and default to `false`). 
+  - `disableStorage`: _boolean_ - `true` disables storage capture.
+  - `disableMemory`: _boolean_ - `true` disables memory capture.
+  - `disableStack`: _boolean_ - `true` disables stack capture.
 
 #### Returns
-`result`: *object* - An object containing the trace of the transaction
+`result`: _object_ - an object containing the trace of the transaction.
 
 <Tabs>
+  
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"priv_traceTransaction","params":["0x123456789abcdef", "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc": "2.0", "method": "priv_traceTransaction", "params": ["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"], "id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
+
 <TabItem value="wscat WS request" label="wscat WS request">
 
 ```bash
-{"jsonrpc":"2.0","method":"priv_traceTransaction","params":["0x123456789abcdef", "ewuTVoc5nlvWMwTFdRRK/wvV0dcyQo/Pauvx5bNEbTk="],"id":1}
+{"jsonrpc":"2.0", "method": "priv_traceTransaction", "params": ["0xf3ab9693ad92e277bf785e1772f29fb1864904bbbe87b0470455ddb082caab9d"], "id":1}
 ```
 
 </TabItem>
+
 <TabItem value="JSON result" label="JSON result">
 
 ```json
@@ -2130,6 +2137,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"priv_traceTransaction","params":
 ```
 
 </TabItem>
+
 </Tabs>
 
 ### `priv_uninstallFilter`

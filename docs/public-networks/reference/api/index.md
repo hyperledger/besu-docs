@@ -1406,7 +1406,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params":[],"id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>

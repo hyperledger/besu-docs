@@ -2080,7 +2080,7 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 
 ### `priv_traceTransaction`
 
-Provides a transaction trace for a private transaction.
+Provides a [transaction trace](../../../public-networks/reference/api#debug_tracetransaction) for a private transaction. 
 
 #### Parameters
 - `transactionHash`: _string_ - the hash of the private transaction to trace.

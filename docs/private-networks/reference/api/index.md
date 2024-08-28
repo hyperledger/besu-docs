@@ -2080,7 +2080,7 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 
 ### `priv_traceTransaction`
 
-Provides a [transaction trace](../../../public-networks/reference/api#debug_tracetransaction) for a private transaction. 
+Provides a [transaction trace](../../../public-networks/reference/api#trace_transaction) for a private transaction. 
 
 #### Parameters
 - `transactionHash`: _string_ - the hash of the private transaction to trace.
@@ -2091,7 +2091,8 @@ Provides a [transaction trace](../../../public-networks/reference/api#debug_trac
   - `disableStack`: _boolean_ - `true` disables stack capture.
 
 #### Returns
-`result`: _object_ - an object containing the trace of the transaction.
+`result`: _array_ of _objects_ - list of [calls to other contracts](../../../public-networks/reference/trace-types.md#trace) containing one object per call, in the order called by the transaction; 
+if revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
 
 <Tabs>
   

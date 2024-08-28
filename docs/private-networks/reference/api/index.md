@@ -2092,7 +2092,7 @@ Provides a [transaction trace](../../../public-networks/reference/api#trace_tran
 
 #### Returns
 `result`: _array_ of _objects_ - list of [calls to other contracts](../../../public-networks/reference/trace-types.md#trace) containing one object per call, in the order called by the transaction; 
-if revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
+if revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
 
 <Tabs>
   

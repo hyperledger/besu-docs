@@ -2083,16 +2083,23 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 Provides a [transaction trace](../../../public-networks/reference/api#trace_transaction) for a private transaction. 
 
 #### Parameters
-- `transactionHash`: _string_ - the hash of the private transaction to trace.
+
 - `privacyGroupId`: _string_ - the privacy group ID associated with the transaction
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`). 
+
+- `transactionHash`: _string_ - the hash of the private transaction to trace
+
+- `options`: _object_ - request options object with the following fields (all optional and default to `false`) 
+
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+
   - `disableStack`: _boolean_ - `true` disables stack capture.
 
 #### Returns
-`result`: _array_ of _objects_ - list of [calls to other contracts](../../../public-networks/reference/trace-types.md#trace) containing one object per call, in the order called by the transaction; 
-if revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
+
+`result`: _array_ of _objects_ - list of [calls to other contracts](../../../public-networks/reference/trace-types.md#trace) containing one object per call, in the order called by the transaction. 
+If revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
 
 <Tabs>
   

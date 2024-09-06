@@ -2076,6 +2076,142 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_newFilter","params": ["4r
 ```
 
 </TabItem>
+</Tabs>
+
+### `priv_traceTransaction`
+
+Provides a [transaction trace](../../../public-networks/reference/api#trace_transaction) for a private transaction. 
+
+#### Parameters
+
+- `privacyGroupId`: _string_ - the privacy group ID associated with the transaction
+
+- `transactionHash`: _string_ - the hash of the private transaction to trace
+
+#### Returns
+
+`result`: _array_ of _objects_ - list of [calls to other contracts](../../../public-networks/reference/trace-types.md#trace) containing one object per call, in the order called by the transaction. 
+If revert reason is enabled with [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../how-to/send-transactions/revert-reason.md).
+
+<Tabs>
+  
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc": "2.0", "method": "priv_traceTransaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7", {"privacyGroupId": "Fhya8sZ1SKKH9jMNcZrE2I3i2RJSJIQtrOaZkF8WQcM="}],"id": 1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```bash
+{
+  "jsonrpc": "2.0",
+  "method": "priv_traceTransaction",
+  "params": [
+    "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+    {
+      "privacyGroupId": "Fhya8sZ1SKKH9jMNcZrE2I3i2RJSJIQtrOaZkF8WQcM="
+    }
+  ],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "action": {
+        "creationMethod": "create",
+        "from": "0x627306090abab3a6e1400e9345bc60c78a8bef57",
+        "gas": "0xff2e26",
+        "init": "0x60006000600060006000732c2b9c9a4a25e24b174f26114e8926a9f2128fe45af2600060006000600060007300a00000000000000000000000000000000000005af2",
+        "value": "0x0"
+      },
+      "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+      "blockNumber": 19,
+      "result": {
+        "address": "0x30753e4a8aad7f8597332e813735def5dd395028",
+        "code": "0x",
+        "gasUsed": "0x1c39"
+      },
+      "subtraces": 2,
+      "traceAddress": [],
+      "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+      "transactionPosition": 3,
+      "type": "create"
+    },
+    {
+      "action": {
+        "callType": "callcode",
+        "from": "0x30753e4a8aad7f8597332e813735def5dd395028",
+        "gas": "0xfb2ea9",
+        "input": "0x",
+        "to": "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4",
+        "value": "0x0"
+      },
+      "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+      "blockNumber": 19,
+      "result": {
+        "gasUsed": "0x138e",
+        "output": "0x"
+      },
+      "subtraces": 1,
+      "traceAddress": [0],
+      "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+      "transactionPosition": 3,
+      "type": "call"
+    },
+    {
+      "action": {
+        "address": "0x30753e4a8aad7f8597332e813735def5dd395028",
+        "balance": "0x0",
+        "refundAddress": "0x0000000000000000000000000000000000000000"
+      },
+      "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+      "blockNumber": 19,
+      "result": null,
+      "subtraces": 0,
+      "traceAddress": [0, 0],
+      "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+      "transactionPosition": 3,
+      "type": "suicide"
+    },
+    {
+      "action": {
+        "callType": "callcode",
+        "from": "0x30753e4a8aad7f8597332e813735def5dd395028",
+        "gas": "0xfb18a5",
+        "input": "0x",
+        "to": "0x00a0000000000000000000000000000000000000",
+        "value": "0x0"
+      },
+      "blockHash": "0x7e9a993adc6f043c0a9b6a385e6ed3fa370586c55823251b8fa7033cf89d414e",
+      "blockNumber": 19,
+      "result": {
+        "gasUsed": "0x30b",
+        "output": "0x"
+      },
+      "subtraces": 0,
+      "traceAddress": [1],
+      "transactionHash": "0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7",
+      "transactionPosition": 3,
+      "type": "call"
+    }
+  ],
+  "id": 1,
+  "privacyGroupId": "Fhya8sZ1SKKH9jMNcZrE2I3i2RJSJIQtrOaZkF8WQcM="
+}
+```
+
+</TabItem>
 
 </Tabs>
 

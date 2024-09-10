@@ -340,11 +340,11 @@ const config = {
           },
           {
             from: "/public-networks/how-to/configuration-file",
-            to: "/development/public-networks/how-to/configure-besu",
+            to: "/public-networks/how-to/configure-besu",
           },
           {
             from: "/public-networks/how-to/use-configuration-file",
-            to: "/development/public-networks/how-to/configure-besu",
+            to: "/public-networks/how-to/configure-besu",
           },
           {
             from: "/private-networks/tutorials/permissioning/onchain",

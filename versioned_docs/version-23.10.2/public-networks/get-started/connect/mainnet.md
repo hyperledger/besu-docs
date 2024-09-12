@@ -58,7 +58,7 @@ Run the following command or specify the options in a [configuration file](../..
 
 ```bash
 besu \
-  --sync-mode=X_SNAP           \
+  --sync-mode=SNAP           \
   --data-storage-format=BONSAI \
   --rpc-http-enabled=true      \
   --rpc-http-host=0.0.0.0      \

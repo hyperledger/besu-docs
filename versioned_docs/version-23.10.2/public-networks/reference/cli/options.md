@@ -4527,7 +4527,7 @@ Enables or disables replay protection, in accordance with [EIP-155](https://eips
 <TabItem value="Example" label="Example">
 
 ```bash
---sync-mode=X_SNAP
+--sync-mode=SNAP
 ```
 
 </TabItem>
@@ -4535,7 +4535,7 @@ Enables or disables replay protection, in accordance with [EIP-155](https://eips
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_SYNC_MODE=X_SNAP
+BESU_SYNC_MODE=SNAP
 ```
 
 </TabItem>
@@ -4543,14 +4543,14 @@ BESU_SYNC_MODE=X_SNAP
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-sync-mode="X_SNAP"
+sync-mode="SNAP"
 ```
 
 </TabItem>
 
 </Tabs>
 
-The synchronization mode. Use `X_SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `X_CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `FAST` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `FAST` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).

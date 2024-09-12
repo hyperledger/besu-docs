@@ -57,11 +57,11 @@ We recommend using snap sync with the [Bonsai](../../concepts/data-storage-forma
 
 :::
 
-Enable snap sync using [`--sync-mode=X_SNAP`](../../reference/cli/options.md#sync-mode). You need Besu version 22.4.0 or later to use snap sync.
+Enable snap sync using [`--sync-mode=SNAP`](../../reference/cli/options.md#sync-mode). You need Besu version 22.4.0 or later to use snap sync.
 
 Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
 
-You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node, deleting the data directory, and starting over using `--sync-mode=X_SNAP`.
+You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync, you can start over using snap sync instead by stopping the node, deleting the data directory, and starting over using `--sync-mode=SNAP`.
 
 You can restart Besu during a snap sync in case of hardware or software problems. The sync resumes from the last valid world state and continues to download blocks starting from the last downloaded block.
 
@@ -75,7 +75,7 @@ Checkpoint sync is an early access feature.
 
 :::
 
-Enable checkpoint sync using [`--sync-mode=X_CHECKPOINT`](../../reference/cli/options.md#sync-mode). You need Besu version 22.4.3 or later to use checkpoint sync.
+Enable checkpoint sync using [`--sync-mode=CHECKPOINT`](../../reference/cli/options.md#sync-mode). You need Besu version 22.4.3 or later to use checkpoint sync.
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](../../concepts/genesis-file.md).
 

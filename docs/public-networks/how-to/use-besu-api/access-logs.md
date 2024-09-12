@@ -1,17 +1,17 @@
 ---
 title: Access logs using JSON-RPC
 sidebar_position: 5
-description: Accessing logs using the Hyperledger Besu API
+description: Accessing logs using the Besu API
 tags:
   - public networks
   - private networks
 ---
 
-# Access logs using the Hyperledger Besu API
+# Access logs using the Besu API
 
 Subscribe to events, such as logs, using either [RPC Pub/Sub over WebSockets](rpc-pubsub.md) or filters over HTTP.
 
-Access logs using the following Hyperledger Besu API methods:
+Access logs using the following Besu API methods:
 
 - [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges)
 - [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)

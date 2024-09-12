@@ -1,7 +1,7 @@
 ---
 title: Private network options
 sidebar_position: 1
-description: Hyperledger Besu private networks CLI reference
+description: Besu private networks CLI reference
 tags:
   - private networks
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Private network command line options
 
-This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) options.
+This reference describes the syntax of the Besu private network command line interface (CLI) options.
 
 :::caution Important
 

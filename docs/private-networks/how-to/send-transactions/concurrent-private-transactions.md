@@ -1,6 +1,6 @@
 ---
 title: Send concurrent private transactions
-description: Creating and sending concurrent private transactions with Hyperledger Besu
+description: Creating and sending concurrent private transactions with Besu
 sidebar_position: 2
 tags:
   - private networks

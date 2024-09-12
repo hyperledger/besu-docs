@@ -1,6 +1,6 @@
 ---
 title: Objects
-description: Hyperledger Besu API objects reference
+description: Besu API objects reference
 tags:
   - public networks
   - private networks

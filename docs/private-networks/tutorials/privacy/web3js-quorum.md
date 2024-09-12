@@ -32,8 +32,8 @@ This example uses 3 of the 4 nodes configured in the [privacy tutorial](index.md
 
     - chain ID
     - Tessera node public keys
-    - Hyperledger Besu node RPC URLs
-    - [Hyperledger Besu node private keys](../../../public-networks/concepts/node-keys.md#node-private-key).
+    - Besu node RPC URLs
+    - [Besu node private keys](../../../public-networks/concepts/node-keys.md#node-private-key).
 
 4.  In the `example/multiNodeExample` directory, deploy the contract:
 

@@ -1,7 +1,7 @@
 ---
 title: Use Quorum Hibernate
 sidebar_position: 4
-description: Use Quorum Hibernate with Hyperledger Besu
+description: Use Quorum Hibernate with Besu
 tags:
   - private networks
 ---

@@ -1,7 +1,7 @@
 ---
 title: Use RPC Pub/Sub over WS
 sidebar_position: 2
-description: Using RPC Pub/Sub with Hyperledger Besu WebSockets
+description: Using RPC Pub/Sub with Besu WebSockets
 tags:
   - public networks
   - private networks
@@ -25,7 +25,7 @@ Methods specific to RPC Pub/Sub are:
 
 :::info
 
-Unlike other [Hyperledger Besu API methods](../../reference/api/index.md), you cannot call the RPC Pub/Sub methods over HTTP. Use the [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option to enable the WebSockets JSON-RPC service.
+Unlike other [Besu API methods](../../reference/api/index.md), you cannot call the RPC Pub/Sub methods over HTTP. Use the [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option to enable the WebSockets JSON-RPC service.
 
 :::
 

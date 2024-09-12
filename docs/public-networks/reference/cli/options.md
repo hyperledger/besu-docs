@@ -1,6 +1,6 @@
 ---
 title: Options
-description: Hyperledger Besu command line interface reference
+description: Besu command line interface reference
 sidebar_position: 1
 tags:
   - public networks
@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This reference describes the syntax of the Hyperledger Besu configuration options.
+This reference describes the syntax of the Besu configuration options.
 
 :::info
 

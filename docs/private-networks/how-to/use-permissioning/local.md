@@ -1,7 +1,7 @@
 ---
 title: Use local permissioning
 sidebar_position: 1
-description: Hyperledger Besu local permissioning
+description: Besu local permissioning
 tags:
   - private networks
 ---
@@ -32,7 +32,7 @@ Local permissioning doesn't check that the node using the permissions configurat
 
 ### Specify bootnodes in the allowlist
 
-The nodes permissions list must include the [bootnodes](../configure/bootnodes.md) or Hyperledger Besu doesn't start with node permissions enabled.
+The nodes permissions list must include the [bootnodes](../configure/bootnodes.md) or Besu doesn't start with node permissions enabled.
 
 If you start Besu with specified bootnodes and have node permissioning enabled:
 

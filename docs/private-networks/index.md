@@ -8,7 +8,7 @@ tags:
   - private networks
 ---
 
-# Hyperledger Besu for private networks
+# Besu for private networks
 
 You can use Besu to develop enterprise applications requiring secure, high-performance transaction processing in a private network.
 
@@ -27,4 +27,4 @@ The following diagram outlines the high-level architecture of Besu for private n
 ![Private architecture](../assets/images/private-architecture.jpeg)
 
 If you have any questions about Besu for private networks, ask on the **besu** channel on
-[Hyperledger Discord](https://discord.gg/hyperledger).
+[Discord](https://discord.gg/hyperledger).

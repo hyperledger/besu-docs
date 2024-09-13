@@ -184,9 +184,9 @@ const config = {
       },
       footer: {
         copyright:
-          "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
+          "Besu and its documentation are licensed under the Apache 2.0 license.",
         logo: {
-          alt: "Hyperledger Besu logo",
+          alt: "Besu logo",
           src: "img/logo.svg",
           srcDark: "img/logo-reversed.svg",
           href: "https://www.hyperledger.org/use/besu",
@@ -247,23 +247,23 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Hyperledger Discord",
+                label: "Discord",
                 href: "https://discord.gg/hyperledger",
               },
               {
-                label: "Hyperledger Besu Wiki",
+                label: "Besu Wiki",
                 href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
               },
               {
-                label: "Hyperledger Besu Twitter",
+                label: "Besu Twitter",
                 href: "https://twitter.com/HyperledgerBesu",
               },
               {
-                label: "Hyperledger Besu GitHub",
+                label: "Besu GitHub",
                 href: "https://github.com/hyperledger/besu/",
               },
               {
-                label: "Hyperledger Besu documentation GitHub",
+                label: "Besu documentation GitHub",
                 href: "https://github.com/hyperledger/besu-docs",
               },
             ],
@@ -340,11 +340,11 @@ const config = {
           },
           {
             from: "/public-networks/how-to/configuration-file",
-            to: "/development/public-networks/how-to/configure-besu",
+            to: "/public-networks/how-to/configure-besu",
           },
           {
             from: "/public-networks/how-to/use-configuration-file",
-            to: "/development/public-networks/how-to/configure-besu",
+            to: "/public-networks/how-to/configure-besu",
           },
           {
             from: "/private-networks/tutorials/permissioning/onchain",

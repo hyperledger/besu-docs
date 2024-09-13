@@ -1,6 +1,6 @@
 ---
 title: Run Tessera with Besu
-description: Running ConsenSys Quorum Tessera with Hyperledger Besu
+description: Running ConsenSys Quorum Tessera with Besu
 sidebar_position: 3
 tags:
   - private networks
@@ -8,7 +8,7 @@ tags:
 
 # Run Tessera with Besu
 
-To enable [privacy functionality](../../concepts/privacy/index.md) in production systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability) and [run in a separate instance](#separate-instances) to Hyperledger Besu.
+To enable [privacy functionality](../../concepts/privacy/index.md) in production systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability) and [run in a separate instance](#separate-instances) to Besu.
 
 ![Besu-Tessera-High-Availability](../../../assets/images/Besu-Tessera-High-Availability.png)
 

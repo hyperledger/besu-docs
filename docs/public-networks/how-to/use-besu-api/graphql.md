@@ -1,7 +1,7 @@
 ---
 title: Use GraphQL over HTTP
 sidebar_position: 3
-description: How to access the Hyperledger Besu API using GraphQL
+description: How to access the Besu API using GraphQL
 tags:
   - public networks
   - private networks
@@ -32,7 +32,7 @@ The default endpoint is `http://127.0.0.1:8547/graphql`.
 
 ## GraphQL requests with cURL
 
-[Hyperledger Besu JSON-RPC API methods](../../reference/api/index.md) with an equivalent
+[Besu JSON-RPC API methods](../../reference/api/index.md) with an equivalent
 [GraphQL](graphql.md) query include a GraphQL request and result in the method example.
 
 For example, the following request returns the block number:

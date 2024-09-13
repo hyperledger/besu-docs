@@ -8,7 +8,7 @@ tags:
 
 # Plugins
 
-You can extend Hyperledger Besu functionality by building Java plugins or using existing open source Besu plugins. Use the Plugin API to take data from any Besu network, public or permissioned, and feed it into an application or system.
+You can extend Besu functionality by building Java plugins or using existing open source Besu plugins. Use the Plugin API to take data from any Besu network, public or permissioned, and feed it into an application or system.
 
 For example, create a plugin to add more monitoring functionality or stream event data to a third-party application. The API exposes data about the following components:
 

@@ -1,7 +1,7 @@
 ---
 title: Accounts for testing
 sidebar_position: 3
-description: Ethereum accounts used for Hyperledger Besu testing only on private networks
+description: Ethereum accounts used for Besu testing only on private networks
 tags:
   - private networks
 ---
@@ -10,7 +10,7 @@ import TestAccounts from '../../global/test_accounts.md';
 
 # Accounts for testing
 
-You can use existing accounts for testing by including them in the genesis file for a private network. Hyperledger Besu also provides predefined accounts for use in development mode.
+You can use existing accounts for testing by including them in the genesis file for a private network. Besu also provides predefined accounts for use in development mode.
 
 ## Development mode
 

@@ -11,7 +11,7 @@ tags:
 
 ## AWS
 
-For AWS, we recommend the Classic Load Balancer. The Classic Load Balancer is the easiest to configure and work with. Register the Hyperledger Besu instances to the load balancer and use the [liveness endpoint](../use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) for health checks.
+For AWS, we recommend the Classic Load Balancer. The Classic Load Balancer is the easiest to configure and work with. Register the Besu instances to the load balancer and use the [liveness endpoint](../use-besu-api/json-rpc.md#readiness-and-liveness-endpoints) for health checks.
 
 For finer grain control, use the Application Load Balancer:
 

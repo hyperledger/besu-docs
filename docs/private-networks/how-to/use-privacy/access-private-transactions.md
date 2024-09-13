@@ -1,6 +1,6 @@
 ---
 title: Access private and privacy marker transactions
-description: Methods for accessing and managing private transactions and privacy groups in Hyperledger Besu
+description: Methods for accessing and managing private transactions and privacy groups in Besu
 sidebar_position: 6
 tags:
   - private networks
@@ -8,7 +8,7 @@ tags:
 
 # Access private and privacy marker transactions
 
-A Hyperledger Besu private transaction creates a [privacy marker transaction](../../concepts/privacy/private-transactions/processing.md) and the private transaction itself.
+A Besu private transaction creates a [privacy marker transaction](../../concepts/privacy/private-transactions/processing.md) and the private transaction itself.
 
 ## Transaction receipts
 

@@ -1,7 +1,7 @@
 ---
 title: Create a privacy enabled network using the Quickstart
 sidebar_position: 1
-description: Configure Hyperledger Besu privacy
+description: Configure Besu privacy
 tags:
   - private networks
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Create a privacy-enabled network
 
-Configuring a network that supports private transactions requires starting a [Tessera] node for each Hyperledger Besu node. Besu command line options associate the Besu node with the Tessera node.
+Configuring a network that supports private transactions requires starting a [Tessera] node for each Besu node. Besu command line options associate the Besu node with the Tessera node.
 
 This tutorial assumes you have completed setting up an IBFT 2.0 network to the point where you have [created the genesis file and copied the private keys](../ibft/index.md#5-copy-the-node-private-keys-to-the-node-directories). If not, complete steps 1 to 5 of the [Create an IBFT 2.0](../ibft/index.md) tutorial before continuing.
 

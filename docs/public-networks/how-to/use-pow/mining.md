@@ -1,7 +1,7 @@
 ---
 title: Configure mining
 sidebar_position: 1
-description: Using Hyperledger Besu for PoW CPU mining
+description: Using Besu for PoW CPU mining
 tags:
   - public networks
   - private networks
@@ -9,11 +9,11 @@ tags:
 
 # Configure mining
 
-Hyperledger Besu supports CPU and GPU mining, which are configured using command line options.
+Besu supports CPU and GPU mining, which are configured using command line options.
 
 GPU mining tests used [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` and `getwork` schemes.
 
-Ethminer has been used with Hyperledger Besu to mine blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet.
+Ethminer has been used with Besu to mine blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet.
 
 :::note
 - Some mining software supports the `getwork` scheme as the `http` scheme.
@@ -22,7 +22,7 @@ Ethminer has been used with Hyperledger Besu to mine blocks on the Ropsten testn
 
 ## Configure CPU mining
 
-To enable CPU mining, start Hyperledger Besu with the following options:
+To enable CPU mining, start Besu with the following options:
 
 ```bash
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
@@ -36,7 +36,7 @@ Start and stop mining using the [`miner_start`](../../reference/api/index.md#min
 
 Besu supports GPU mining, tested using [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` scheme.
 
-To enable GPU mining, start Hyperledger Besu with the following options:
+To enable GPU mining, start Besu with the following options:
 
 ```bash
 besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>

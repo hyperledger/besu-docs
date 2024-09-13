@@ -1,6 +1,6 @@
 ---
 title: Create and send private transactions
-description: Creating and sending private transactions with Hyperledger Besu
+description: Creating and sending private transactions with Besu
 sidebar_position: 1
 tags:
   - private networks

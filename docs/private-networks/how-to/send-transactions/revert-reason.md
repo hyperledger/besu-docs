@@ -1,6 +1,6 @@
 ---
 title: Include revert reason
-description: Including revert reason in transactions with Hyperledger Besu
+description: Including revert reason in transactions with Besu
 sidebar_position: 3
 tags:
   - private networks
@@ -40,7 +40,7 @@ contract VendingMachine {
 
 ## Enable revert reason
 
-Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled) command line option to include the revert reason in the transaction receipt and the [`trace`](../../../public-networks/reference/trace-types.md#trace) response in Hyperledger Besu.
+Use the [`--revert-reason-enabled`](../../../public-networks/reference/cli/options.md#revert-reason-enabled) command line option to include the revert reason in the transaction receipt and the [`trace`](../../../public-networks/reference/trace-types.md#trace) response in Besu.
 
 :::caution
 

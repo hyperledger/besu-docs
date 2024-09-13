@@ -11,13 +11,13 @@ import TabItem from '@theme/TabItem';
 
 # Use OpenTelemetry
 
-You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces. To enable OpenTelemetry to access Hyperledger Besu, use the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. Use [Splunk](https://splunk.com) to visualize the collected data. A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
+You can use the OpenTelemetry monitoring and tracing service to gather node metrics and traces. To enable OpenTelemetry to access Besu, use the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. Use [Splunk](https://splunk.com) to visualize the collected data. A [Besu Sync example](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu-sync) is available.
 
 :::tip
 
 Use OpenTelemetry to monitor the sync time of your Besu node and show where time is spent internally and over the JSON-RPC interface.
 
-[This office hours recording](https://wiki.hyperledger.org/display/BESU/2021-01-19+Office+Hours+Notes) shows examples of monitoring Hyperledger Besu.
+[This office hours recording](https://wiki.hyperledger.org/display/BESU/2021-01-19+Office+Hours+Notes) shows examples of monitoring Besu.
 
 :::
 

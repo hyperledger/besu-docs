@@ -1,7 +1,7 @@
 ---
 title: Manage peers
 sidebar_position: 3
-description: Managing Hyperledger Besu peers
+description: Managing Besu peers
 tags:
   - public networks
   - private networks
@@ -9,7 +9,7 @@ tags:
 
 # Manage peers
 
-Hyperledger Besu peer-to-peer (P2P) discovery happens periodically based on the number of peers in a
+Besu peer-to-peer (P2P) discovery happens periodically based on the number of peers in a
 network and the node's [peer limit](#limit-peers).
 
 The frequency of discovery isn't configurable, but you can:

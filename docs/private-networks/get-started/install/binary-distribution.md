@@ -1,6 +1,6 @@
 ---
 title: Install binary distribution
-description: Install or upgrade Hyperledger Besu from binary distribution
+description: Install or upgrade Besu from binary distribution
 sidebar_position: 3
 tags:
   - private networks
@@ -17,7 +17,7 @@ tags:
 
 :::caution
 
-Hyperledger Besu supports:
+Besu supports:
 
 - MacOS High Sierra 10.13 or later versions.
 - Java 21+. You can install Java using `brew install openjdk@21`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/downloads).

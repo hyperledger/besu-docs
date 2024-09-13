@@ -1,7 +1,7 @@
 ---
 title: Use JSON-RPC over HTTP, WS, and IPC
 sidebar_position: 1
-description: How to access the Hyperledger Besu API using JSON-RPC
+description: How to access the Besu API using JSON-RPC
 tags:
   - public networks
   - private networks
@@ -35,7 +35,7 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the `--Xrpc-i
 
 ## Geth console
 
-The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Use JSON-RPC APIs supported by geth and Hyperledger Besu directly in the console.
+The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Use JSON-RPC APIs supported by geth and Besu directly in the console.
 
 To use the geth console with Besu:
 

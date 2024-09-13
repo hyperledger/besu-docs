@@ -1,7 +1,7 @@
 ---
 title: Authenticate over JSON-RPC requests
 sidebar_position: 4
-description: Hyperledger Besu authentication and authorization for JSON-RPC
+description: Besu authentication and authorization for JSON-RPC
 tags:
   - public networks
   - private networks
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Authenticate and authorize JSON-RPC
 
-Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Hyperledger Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
+Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 

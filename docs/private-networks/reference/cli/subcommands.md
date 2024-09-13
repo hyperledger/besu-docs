@@ -1,7 +1,7 @@
 ---
 title: Private network subcommands
 sidebar_position: 2
-description: Hyperledger Besu command line interface subcommands
+description: Besu command line interface subcommands
 tags:
   - private networks
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Private network subcommands
 
-This reference describes the syntax of the Hyperledger Besu private network command line interface (CLI) subcommands.
+This reference describes the syntax of the Besu private network command line interface (CLI) subcommands.
 
 :::caution Important
 

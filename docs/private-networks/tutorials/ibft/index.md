@@ -1,5 +1,5 @@
 ---
-description: Hyperledger Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
+description: Besu private network using the IBFT 2.0 (Proof of Authority) consensus protocol
 tags:
   - private networks
 ---
@@ -21,7 +21,7 @@ This tutorial configures a private network using IBFT 2.0 for educational purpos
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+- [Besu](../../get-started/install/binary-distribution.md)
 - [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps

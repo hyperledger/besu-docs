@@ -1,12 +1,12 @@
 ---
-description: Hyperledger Besu privacy-enabled private network tutorial
+description: Besu privacy-enabled private network tutorial
 tags:
   - private networks
 ---
 
 # Create a privacy-enabled network using the Quorum Developer Quickstart
 
-You can create a privacy-enabled network using the [Quorum Developer Quickstart](../quickstart.md). It runs a private Hyperledger Besu network that uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
+You can create a privacy-enabled network using the [Quorum Developer Quickstart](../quickstart.md). It runs a private Besu network that uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 
 You can use the [Block Explorer](../quickstart.md#block-explorer), make [JSON-RPC requests](../quickstart.md#run-json-rpc-requests), and [create transactions using MetaMask](../quickstart.md#create-a-transaction-using-metamask). This tutorial describes how to make private transactions between nodes, and perform read and write operations on private contracts.
 
@@ -42,7 +42,7 @@ To create the docker-compose file and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu, private transactions, and [logging with ELK](../../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate.
+Follow the prompts displayed to run Besu, private transactions, and [logging with ELK](../../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate.
 
 ### 2. Start the network
 
@@ -81,7 +81,7 @@ For more information on the endpoints and services, refer to README.md in the in
 
 ### 3. Deploy the private contract and interact with the nodes
 
-To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu keeps account management separate for stronger security.
+To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Besu keeps account management separate for stronger security.
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, the example creates three Besu nodes, with each node having a corresponding Tessera node for privacy. You can access the Besu member nodes for API calls on the following ports:
 

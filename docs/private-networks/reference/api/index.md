@@ -1,5 +1,5 @@
 ---
-description: Hyperledger Besu private network JSON-RPC API methods reference
+description: Besu private network JSON-RPC API methods reference
 toc_max_heading_level: 3
 tags:
   - private networks

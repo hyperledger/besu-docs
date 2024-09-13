@@ -1,13 +1,13 @@
 ---
-description: Hyperledger Besu API
+description: Besu API
 tags:
   - public networks
   - private networks
 ---
 
-# Access the Hyperledger Besu API
+# Access the Besu API
 
-Access the [Hyperledger Besu API](../../reference/api/index.md) using:
+Access the [Besu API](../../reference/api/index.md) using:
 
 - [JSON-RPC over HTTP, WebSocket, or IPC](json-rpc.md)
 - [RPC Pub/Sub over WebSockets](rpc-pubsub.md)

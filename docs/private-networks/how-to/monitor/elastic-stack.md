@@ -1,7 +1,7 @@
 ---
 title: Use Elastic Stack
 sidebar_position: 3
-description: Using Elastic Stack (ELK) with Hyperledger Besu
+description: Using Elastic Stack (ELK) with Besu
 tags:
   - private networks
 ---

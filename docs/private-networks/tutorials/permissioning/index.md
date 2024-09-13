@@ -1,7 +1,7 @@
 ---
 title: Create a permissioned network
 sidebar_position: 1
-description: Hyperledger Besu create a permissioned network
+description: Besu create a permissioned network
 toc_max_heading_level: 3
 tags:
   - private networks
@@ -22,7 +22,7 @@ A permissioned Ethereum network as described here is not protected against all a
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+- [Besu](../../get-started/install/binary-distribution.md)
 - [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps

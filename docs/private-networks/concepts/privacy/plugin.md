@@ -6,7 +6,7 @@ sidebar_position: 5
 
 # Privacy plugin
 
-You can define your own strategy for private transactions by building a plugin that extends Hyperledger Besu functionality.
+You can define your own strategy for private transactions by building a plugin that extends Besu functionality.
 
 The plugin can take many forms, but it must provide Besu with a private transaction when required.
 

@@ -1,6 +1,6 @@
 ---
 title: Use Besu-extended privacy
-description: Hyperledger Besu-extended privacy
+description: Besu-extended privacy
 sidebar_position: 2
 tags:
   - private networks
@@ -8,7 +8,7 @@ tags:
 
 # Use Besu-extended privacy
 
-Hyperledger Besu provides an extended implementation of privacy allowing you to [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You must specify the privacy group ID when sending private transactions.
+Besu provides an extended implementation of privacy allowing you to [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You must specify the privacy group ID when sending private transactions.
 
 To enable the [`PRIV` API methods](../../reference/api/index.md#priv-methods), use the [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../../../public-networks/reference/cli/options.md#rpc-ws-api) command line options.
 

@@ -9,7 +9,7 @@ tags:
 
 # Transaction types
 
-You can interact with the Hyperledger Besu JSON-RPC API using different transaction types (specified by the `transactionType` parameter).
+You can interact with the Besu JSON-RPC API using different transaction types (specified by the `transactionType` parameter).
 
 The following API objects use a unique format for each `transactionType`:
 

@@ -23,7 +23,7 @@ The steps in this tutorial create an isolated, but not protected or secure, Ethe
 
 ## Prerequisites
 
-- [Hyperledger Besu](../get-started/install/binary-distribution.md)
+- [Besu](../get-started/install/binary-distribution.md)
 - [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps

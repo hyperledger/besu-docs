@@ -1,6 +1,6 @@
 ---
 title: Clique
-description: Hyperledger Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
+description: Besu Clique Proof-of-Authority (PoA) consensus protocol implementation
 sidebar_position: 4
 path: blob/master/config/src/main/resources/
 source: rinkeby.json

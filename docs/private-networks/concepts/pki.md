@@ -14,7 +14,7 @@ Public key infrastructure (PKI) support is an early access feature, and function
 
 :::
 
-Hyperledger Besu's public key infrastructure allows you to use certificates issued by a trusted authority to manage node and account identities in the following ways:
+Besu's public key infrastructure allows you to use certificates issued by a trusted authority to manage node and account identities in the following ways:
 
 - Node permissioning - Only authorized nodes can connect to other nodes in the network using TLS for the P2P communication.
 - Block proposal permissioning - Only blocks proposed by authorized validators are accepted.

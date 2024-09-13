@@ -1,7 +1,7 @@
 ---
 title: Use Hardhat
 sidebar_position: 1
-description: Using Hyperledger Besu with Hardhat
+description: Using Besu with Hardhat
 tags:
   - public networks
   - private networks
@@ -9,7 +9,7 @@ tags:
 
 # Use Hardhat
 
-Developing for Hyperledger Besu using Hardhat is the same as developing for public Ethereum networks using Hardhat. Hardhat
+Developing for Besu using Hardhat is the same as developing for public Ethereum networks using Hardhat. Hardhat
 supports Besu with the only difference being Besu does not support private key management. 
 
 You can therefore use a wallet provider, or specify your private  key in the code.

@@ -1,6 +1,6 @@
 ---
 title: Subcommands
-description: Hyperledger Besu command line interface subcommands
+description: Besu command line interface subcommands
 sidebar_position: 2
 tags:
   - public networks
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Subcommands
 
-This reference describes the syntax of the Hyperledger Besu command line interface (CLI) subcommands.
+This reference describes the syntax of the Besu command line interface (CLI) subcommands.
 
 :::note
 

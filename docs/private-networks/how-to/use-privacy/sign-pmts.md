@@ -1,6 +1,6 @@
 ---
 title: Sign privacy marker transactions
-description: How to sign a privacy marker transaction with Hyperledger Besu
+description: How to sign a privacy marker transaction with Besu
 sidebar_position: 7
 tags:
   - private networks
@@ -8,7 +8,7 @@ tags:
 
 # Sign privacy marker transactions
 
-You can sign privacy marker transactions (PMTs) with either a random key or a specified key. To sign privacy marker transactions with a specified private key, use [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file) when starting Hyperledger Besu.
+You can sign privacy marker transactions (PMTs) with either a random key or a specified key. To sign privacy marker transactions with a specified private key, use [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file) when starting Besu.
 
 :::note
 

@@ -1,7 +1,7 @@
 ---
 title: Besu API
 sidebar_position: 2
-description: Hyperledger Besu JSON-RPC API methods reference
+description: Besu JSON-RPC API methods reference
 toc_max_heading_level: 3
 tags:
   - public networks

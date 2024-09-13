@@ -1,6 +1,6 @@
 ---
-title: Deploy a Hyperledger Besu private network with Kubernetes
-description: Deploying Hyperledger Besu with Kubernetes
+title: Deploy a Besu private network with Kubernetes
+description: Deploying Besu with Kubernetes
 tags:
   - private networks
 ---

@@ -2,7 +2,7 @@
 title: Use Splunk
 sidebar_position: 5
 toc_max_heading_level: 2
-description: Send Hyperledger Besu logs to Splunk
+description: Send Besu logs to Splunk
 tags:
   - private networks
 ---

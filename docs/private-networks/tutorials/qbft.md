@@ -25,7 +25,7 @@ This tutorial configures a private network using QBFT for educational purposes o
 
 ## Prerequisites
 
-- [Hyperledger Besu](../get-started/install/binary-distribution.md)
+- [Besu](../get-started/install/binary-distribution.md)
 - [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps

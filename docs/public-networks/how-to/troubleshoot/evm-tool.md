@@ -1,7 +1,7 @@
 ---
 title: Use EVM tool
 sidebar_position: 1
-description: Hyperledger Besu EVM tool
+description: Besu EVM tool
 tags:
   - public networks
   - private networks

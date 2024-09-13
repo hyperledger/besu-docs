@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 # Developer Quickstart
 
-The Quorum Developer Quickstart uses the Hyperledger Besu Docker image to run a private [IBFT 2.0](../how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
+The Quorum Developer Quickstart uses the Besu Docker image to run a private [IBFT 2.0](../how-to/configure/consensus/ibft.md) network of Besu nodes managed by Docker Compose.
 
 :::caution
 
@@ -51,7 +51,7 @@ To create the tutorial `docker-compose` files and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Hyperledger Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate and [private transactions](../concepts/privacy/index.md).
+Follow the prompts displayed to run Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate and [private transactions](../concepts/privacy/index.md).
 
 :::note
 

@@ -1,12 +1,11 @@
 ---
-title: Deploy Besu Teku Ethereum Nodes via AWS Blockchain Node Runners
-description: How to configure your Ethereum nodes with the besu teku execution/consensus layer client combination using AWS Blockchain Node Runners.
+title: Deploy Besu and Teku Ethereum nodes using AWS node runners
+description: Configure Ethereum nodes with the execution/consensus layer client combination using AWS blockchain node runners.
 ---
 
-[AWS Blockchain Node Runners (Node Runners)](https://aws-samples.github.io/aws-blockchain-node-runners/docs/intro) is an open-source initiative aimed at simplifying the deployment of self-managed blockchain nodes on AWS using vetted deployment blueprints and infrastructure configurations. Node Runners is designed to solve for the common challenges customers face in architecting and deploying blockchain nodes on AWS, such as identifying the optimal configurations for each specific blockchain protocol’s node client.
+## Architecture
 
-## Architecture Overview
-
+[AWS Blockchain Node Runners (Node Runners)](https://aws-samples.github.io/aws-blockchain-node-runners/docs/intro) are an open-source initiative aimed at simplifying the deployment of self-managed blockchain nodes on AWS using vetted deployment blueprints and infrastructure configurations. Node Runners is designed to solve for the common challenges customers face in architecting and deploying blockchain nodes on AWS, such as identifying the optimal configurations for each specific blockchain protocol’s node client.
 This blueprint has two configuration options for running Ethereum nodes and supports several Ethereum client combinations. You can set up a single JSON RPC node or multiple nodes in highly-available setup using the instructions below.
 
 ### Single RPC node setup
@@ -18,16 +17,11 @@ This setup is for small scale PoC or development environments. It deploys a sing
 ![Architecture](../docs/public-networks/how-to/4F4D60BC-25D0-4BB1-AF24-DCC4BE139F15.png)
 
 1.	An ongoing data synchronization process is configured with nodes in the Ethereum network with a sync node and RPC nodes.
-2.	The sync node is used to create a copy of node's state data in Amazon S3 bucket.
-3.	When new RPC nodes are provisioned, they copy state data from Amazon S3 bucket to speed up the initial sync process.
-4.	Applications and smart contract development tools access highly available RPC nodes behind the Application Load Balancer.
+1.	The sync node is used to create a copy of node's state data in Amazon S3 bucket.
+1.	When new RPC nodes are provisioned, they copy state data from Amazon S3 bucket to speed up the initial sync process.
+1.	Applications and smart contract development tools access highly available RPC nodes behind the Application Load Balancer.
 
 ## Well-Architected
-
-<details>
-<summary>Review the for pros and cons of this solution.</summary>
-
-### Well-Architected Checklist
 
 This is the Well-Architected checklist for Ethereum nodes implementation of the AWS Blockchain Node Runner app. This checklist takes into account questions from the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) which are relevant to this workload. Please feel free to add more checks from the framework if required for your workload.
 
@@ -54,7 +48,6 @@ This is the Well-Architected checklist for Ethereum nodes implementation of the 
 | Operational excellence  | Workload health                   | How is health of workload determined?                                            | Health of workload is determined via AWS Application Load Balancer Target Group Health Checks, on port 8545.  |
 | Sustainability          | Hardware & services               | Select most efficient hardware for your workload                                 | This solution uses AWS Graviton-based Amazon EC2 instances which offer the best performance per watt of energy use in Amazon EC2.  |
 
-</details>
 
 ## Solution Walkthrough
 
@@ -74,7 +67,11 @@ cd aws-blockchain-node-runners
 npm install
 ```
 
-> **NOTE:** *In this tutorial we will set all major configuration through environment variables, but you also can modify parameters in `config/config.ts`.*
+::: note
+
+In this tutorial we will set all major configuration through environment variables, but you also can modify parameters in `config/config.ts`.*
+
+:::
 
 ### Prepare to deploy nodes
 
@@ -86,9 +83,12 @@ npm install
 aws ec2 create-default-vpc
 ```
 
-> **NOTE:** *You may see the following error if the default VPC already exists: `An error occurred (DefaultVpcAlreadyExists) when calling the CreateDefaultVpc operation: A Default VPC already exists for this account in this region.`. That means you can just continue with the following steps.*
+::: note 
 
-> **NOTE:** *The default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`*
+You might see the following error if the default VPC already exists: `An error occurred (DefaultVpcAlreadyExists) when calling the CreateDefaultVpc operation: A Default VPC already exists for this account in this region.`. That means you can just continue with the following steps.*
+
+The default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`
+:::
 
 3. Configure your Node Runners Ethereum blueprint deployment
 

@@ -41,7 +41,7 @@ const config = {
           path: "./docs",
           includeCurrentVersion: true,
           // Set to the last stable release
-          lastVersion: "24.8.0",
+          lastVersion: "24.9.1",
           versions: {
             //defaults to the ./docs folder
             // using 'development' instead of 'next' as path
@@ -51,8 +51,11 @@ const config = {
             },
             // The last stable release in the versioned_docs/version-stable
             // STABLE-AUTOMATION-TOKEN. Don't remove this as this is used for version update automation
+            "24.9.1": {
+              label: "stable (24.9.1)",
+            },
             "24.8.0": {
-              label: "stable (24.8.0)",
+              label: "24.8.0",
             },
             "24.7.1": {
               label: "24.7.1",

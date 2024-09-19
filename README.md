@@ -11,7 +11,8 @@ If you're looking for the software source code, go to the [Besu software reposit
 
 ### View older doc versions
 
-See the Besu wiki for information about [viewing and hosting older versions of the documentation](https://wiki.hyperledger.org/display/BESU/View+older+documentation+versions) on your own infrastructure.
+See the Besu wiki for information about [viewing and hosting older versions of the documentation](https://wiki.hyperledger.org/display/BESU/View+older+documentation+versions)
+on your own infrastructure.
 
 ### Contribute to the docs
 

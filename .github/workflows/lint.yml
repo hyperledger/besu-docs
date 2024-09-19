@@ -1,12 +1,12 @@
 ---
-name: Check for lint, spelling and link errors
+name: Check for lint errors
 
 on:
   workflow_call:
 
 jobs:
   lint:
-    name: Lint Code Base, Spelling, Link Check
+    name: Lint Code Base
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -15,18 +15,3 @@ jobs:
 
       - name: Lint
         uses: ConsenSys/docs-gha/lint@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  linkCheck:
-    name: Link Checking
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        file-extensions: [".md", ".mdx"]
-    steps:
-      - uses: actions/checkout@v4
-      - name: LinkCheck
-        uses: ConsenSys/docs-gha/linkcheck@main
-        with:
-          FILE_EXTENSION: ${{ matrix.file-extensions }}

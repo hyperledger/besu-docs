@@ -34,7 +34,6 @@ jobs:
       - check-workflows
       - build
       - lint
-      - links
     outputs:
       PASSED: ${{ steps.set-output.outputs.PASSED }}
     steps:

@@ -1,6 +1,6 @@
 ---
 title: Sync Besu
-sidebar_position: 1
+sidebar_position: 10
 description: Full and archive node types
 tags:
   - public networks
@@ -12,7 +12,7 @@ Besu supports two node types, commonly referred to as [full nodes](#run-a-full-n
 [archive nodes](#run-an-archive-node).
 
 A full node consists of an 
-[execution and consensus client](../../concepts/node-clients.md#execution-and-consensus-clients), 
+[execution and consensus client](node-clients.md#execution-and-consensus-clients), 
 and stores a local copy of the blockchain.
 With a full node, you can check current balances, sign and send transactions, and look at current
 dapp data.
@@ -28,7 +28,45 @@ Archive nodes can do everything full nodes do, and they can also access historic
 This means that archive nodes require more disk space than full nodes.
 
 Besu must connect with other peers to sync with the network. If your node is having trouble peering, 
-try [troubleshooting peering](../../how-to/troubleshoot/peering.md).
+try [troubleshooting peering](../how-to/troubleshoot/peering.md).
+
+Besu supports several synchronization options for different network types and use cases:
+
+## Public network syncing
+
+For public networks, Besu offers the following sync modes:
+
+- [Snap synchronization](#snap-synchronization)
+- [Checkpoint synchronization](#checkpoint-synchronization)
+- [Fast synchronization](#fast-synchronization)
+- [Full synchronization](#run-an-archive-node)
+
+:::tip
+
+We recommend snap sync because it follows the Ethereum specification and enables you to serve full historical data.
+
+:::
+
+| Sync Mode | Description | Requirements | Method | Limitations |
+|-----------|-------------|--------------|--------|-------------|
+| Snap | Recommended for fastest sync and lowest storage requirements on Mainnet.| Besu version 22.4.0 or later | Downloads as many leaves of the trie as possible, reconstructs the trie locally. Snap is faster than Fast sync. | Cannot switch from fast sync to snap sync mid-process. |
+| Checkpoint | Efficient sync from a specific checkpoint block configured in the genesis file. | Besu version 22.4.3 or later | Syncs from a checkpoint block defined in the genesis file. Is the fast sync and has the lowest storage requirements. | |
+| Fast | Default for named networks except the dev development network. | None | Downloads block headers and transaction receipts, verifies chain from genesis block. | Might become impossible to sync Ethereum Mainnet in the future. |
+| Full | Downloads and verifies the entire blockchain and state from the genesis block. This builds an archive node, with full state history.| None | Downloads entire blockchain, verifies all states from genesis block. | Slowest sync mode, requires the most disk space. |
+
+:::note
+
+Ethereum nodes sync two types of data: chain data (blocks) and world state data. 
+Snap and Checkpoint syncs handle chain data similarly to Fast sync, but differ in how they process world state data.
+
+:::
+
+:::note Private network syncing
+
+Private networks can use the same sync methods as public networks, but require differnt configurations.
+See [Private network syncing](../../private-networks/concepts/private-network-syncing.md) for more information.
+
+:::
 
 ## Sync times
 
@@ -55,15 +93,15 @@ Each sync mode also has its own world state database size.
 
 :::note Notes
 - As of late 2023, an average Mainnet snap sync consumes around 1000 GB using Bonsai Tries.
-  Read more about [storage requirements](../../concepts/data-storage-formats.md#storage-requirements)
+  Read more about [storage requirements](data-storage-formats.md#storage-requirements)
   across data storage formats and sync modes.
 - Testnets take significantly less time and space to sync.
 :::
 
 ## Storage
 
-You can store the world state using [Forest of Tries](../../concepts/data-storage-formats.md#forest-of-tries)
-or [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries).
+You can store the world state using [Forest of Tries](data-storage-formats.md#forest-of-tries)
+or [Bonsai Tries](data-storage-formats.md#bonsai-tries).
 
 If you're [running a full node](#run-a-full-node), we recommend using Bonsai Tries for the lowest
 storage requirements.
@@ -78,8 +116,8 @@ You can run a full node using [snap synchronization (snap sync)](#snap-synchroni
 :::note Sync nodes for BFT
 
 Snap sync and checkpoint sync are not supported for
-[QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or
-[IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) networks. 
+[QBFT](../../private-networks/how-to/configure/consensus/qbft.md) or
+[IBFT 2.0](../../private-networks/how-to/configure/consensus/ibft.md) networks. 
 
 :::
 
@@ -90,15 +128,15 @@ Snap sync and checkpoint sync are not supported for
 We recommend using snap sync over fast sync because snap sync can be faster than fast sync by 
 several days (for Mainnet).
 
-We recommend using snap sync with the [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+We recommend using snap sync with the [Bonsai](data-storage-formats.md#bonsai-tries)
 data storage format for the fastest sync and lowest storage requirements.
 
 :::
 
-Enable snap sync using [`--sync-mode=SNAP`](../../reference/cli/options.md#sync-mode). You need Besu 
+Enable snap sync using [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode). You need Besu 
 version 22.4.0 or later to use snap sync.
 
-Instead of downloading the [state trie](../../concepts/data-storage-formats.md) node by node, snap 
+Instead of downloading the [state trie](data-storage-formats.md) node by node, snap 
 sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
 
 You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync, 
@@ -109,16 +147,16 @@ You can restart Besu during a snap sync in case of hardware or software problems
 from the last valid world state and continues to download blocks starting from the last downloaded 
 block.
 
-See [how to read the Besu metrics charts](../../how-to/monitor/understand-metrics.md) when using 
+See [how to read the Besu metrics charts](../how-to/monitor/understand-metrics.md) when using 
 snap sync.
 
 ### Checkpoint synchronization
 
-Enable checkpoint sync using [`--sync-mode=CHECKPOINT`](../../reference/cli/options.md#sync-mode). 
+Enable checkpoint sync using [`--sync-mode=CHECKPOINT`](../reference/cli/options.md#sync-mode). 
 You need Besu version 22.4.3 or later to use checkpoint sync.
 
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the 
-genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](../../concepts/genesis-file.md).
+genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](genesis-file.md).
 
 Ethereum Mainnet and the Holesky testnet configurations already define default checkpoints, so you 
 don't have to add this yourself.
@@ -136,7 +174,7 @@ number, and total difficulty as in the following example.
 
 :::note
 
-If using [Clique](../../../private-networks/how-to/configure/consensus/clique.md) consensus, the 
+If using [Clique](../../private-networks/how-to/configure/consensus/clique.md) consensus, the 
 checkpoint must be the beginning of an epoch.
 
 :::
@@ -157,7 +195,7 @@ the first time or ever need to re-sync, update Besu to a version that supports n
 
 :::
 
-Enable fast sync using [`--sync-mode=FAST`](../../reference/cli/options.md#sync-mode).
+Enable fast sync using [`--sync-mode=FAST`](../reference/cli/options.md#sync-mode).
 
 Fast sync downloads the block headers and transaction receipts, and verifies the chain of block 
 headers from the genesis block.
@@ -166,16 +204,16 @@ When starting fast sync, Besu first downloads the world state for a recent block
 peers (referred to as a pivot block), and then begins fast sync from the genesis block.
 
 Fast sync is the default for named networks specified using the 
-[`--network`](../../reference/cli/options.md#network) option, except for the `dev` development 
+[`--network`](../reference/cli/options.md#network) option, except for the `dev` development 
 network. It's also the default if connecting to Ethereum Mainnet by not specifying the 
-[`--network`](../../reference/cli/options.md#network) or 
-[`--genesis-file`](../../reference/cli/options.md#genesis-file) options.
+[`--network`](../reference/cli/options.md#network) or 
+[`--genesis-file`](../reference/cli/options.md#genesis-file) options.
 
-Using fast sync with [private transactions](../../../private-networks/concepts/privacy/index.md) 
+Using fast sync with [private transactions](../../private-networks/concepts/privacy/index.md) 
 isn't supported.
 
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*` 
-[metrics](../../how-to/monitor/metrics.md#metrics-list) to monitor fast sync.
+[metrics](../how-to/monitor/metrics.md#metrics-list) to monitor fast sync.
 
 :::note
 
@@ -216,7 +254,7 @@ In the following example, the pivot block is 0 and the pending state nodes value
 means the node isn't syncing against any peers. The fact that state nodes have been downloaded means 
 at some stage it was syncing.
 
-![Fast synchronization](../../../assets/images/fastsync.png)
+![Fast synchronization](../../assets/images/fastsync.png)
 
 The easiest solution in this scenario is to restart fast sync to obtain a new pivot block.
 
@@ -226,12 +264,12 @@ The easiest solution in this scenario is to restart fast sync to obtain a new pi
 
 An archive node stores all historical states of the blockchain.
 To run an archive node, enable full synchronization (full sync) using
-[`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode).
+[`--sync-mode=FULL`](../reference/cli/options.md#sync-mode).
 
 Full sync starts from the genesis block and reprocesses all transactions.
 
 :::caution important
-Do not run an archive node with the [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries)
+Do not run an archive node with the [Bonsai Tries](data-storage-formats.md#bonsai-tries)
 data storage format.
 Bonsai is designed for retrieving recent data only.
 :::

@@ -70,7 +70,7 @@ Specify:
 
 Also, in the command:
 
-- [`--sync-mode`](../reference/cli/options.md#sync-mode) specifies using [snap sync](../get-started/connect/sync-node.md#snap-synchronization).
+- [`--sync-mode`](../reference/cli/options.md#sync-mode) specifies using [snap sync](../concepts/sync-node.md#snap-synchronization).
 - [`--data-storage-format`](../reference/cli/options.md#data-storage-format) specifies using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries).
 - [`--rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) enables the HTTP JSON-RPC service.
 - [`--engine-rpc-enabled`](../reference/cli/options.md#engine-rpc-enabled) enables the [Engine API](../reference/engine-api/index.md).

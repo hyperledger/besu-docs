@@ -10,6 +10,6 @@ Migrate from a different Ethereum [execution client](../concepts/node-clients.md
 
 To migrate from a different client, [configure Besu as an execution client](connect/mainnet.md#2-start-besu) and connect your [consensus client](../concepts/node-clients.md#consensus-clients) to Besu instead of your original execution client.
 
-To minimize downtime while [Besu syncs](connect/sync-node.md) and avoid downtime penalties, you can sync Besu with a new consensus layer instance. Once Besu has fully synced you can connect it to your existing consensus client.
+To minimize downtime while [Besu syncs](../concepts/sync-node.md) and avoid downtime penalties, you can sync Besu with a new consensus layer instance. Once Besu has fully synced you can connect it to your existing consensus client.
 
 Find guides to switch from specific clients on the [client diversity website](https://clientdiversity.org/#switch).

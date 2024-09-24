@@ -25,17 +25,21 @@ To run a node with Bonsai Tries data storage format, use the command line option
 </p>
 
 :::caution important
-Do not run an [archive node](../get-started/connect/sync-node.md#run-an-archive-node) with Bonsai Tries.
+
+Do not run an [archive node](sync-node.md#run-an-archive-node) with Bonsai Tries.
 Bonsai is designed for retrieving recent data only.
+
 :::
 
 :::tip
+
 You can read more about Bonsai in [Consensys' Guide to Bonsai Tries](https://consensys.io/blog/bonsai-tries-guide).
+
 :::
 
 ## Forest of Tries
 
-Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for [archive nodes](../get-started/connect/sync-node.md#run-an-archive-node).
+Forest of Tries, also called forest mode, is another method of representing the world state, and is more suitable for [archive nodes](sync-node.md#run-an-archive-node).
 
 In forest mode, each node in the trie is saved in a key-value store by hash. For each block, the world state is updated with new nodes, leaf nodes, and a new state root. Old leaf nodes remain in the underlying data store. Data is accessed and stored by hash, which increases the size of the database and increases the resources and time needed to access account data.
 
@@ -46,8 +50,10 @@ In forest mode, each node in the trie is saved in a key-value store by hash. For
 </p>
 
 :::warning
+
 Forest pruning using the `--pruning-enabled` option is no longer supported.
 We recommend using [Bonsai Tries](#bonsai-tries) to save disk space.
+
 :::
 
 ## Forest of Tries vs. Bonsai Tries
@@ -55,9 +61,9 @@ We recommend using [Bonsai Tries](#bonsai-tries) to save disk space.
 ### Storage requirements
 
 Forest mode uses significantly more memory than Bonsai.
-With a [full node](../get-started/connect/sync-node.md#run-a-full-node), forest mode uses an
+With a [full node](sync-node.md#run-a-full-node), forest mode uses an
 estimated 750 GB of storage, while Bonsai uses an estimated 650 GB of storage.
-[Archive nodes](../get-started/connect/sync-node.md#run-an-archive-node) must use forest mode, which
+[Archive nodes](sync-node.md#run-an-archive-node) must use forest mode, which
 uses an estimated 12 TB of storage.
 
 ### Accessing data
@@ -74,7 +80,7 @@ Using `--bonsai-historical-block-limit` doesn't affect the size of the database 
 
 ### Syncing nodes
 
-The following table shows the ways you can [sync a full node](../get-started/connect/sync-node.md#run-a-full-node) with the different data storage formats using [fast](../get-started/connect/sync-node.md#fast-synchronization) and [snap](../get-started/connect/sync-node.md#snap-synchronization) sync.
+The following table shows the ways you can [sync a full node](sync-node.md#run-a-full-node) with the different data storage formats using [fast](sync-node.md#fast-synchronization) and [snap](sync-node.md#snap-synchronization) sync.
 
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 | --- | --- | --- | --- |

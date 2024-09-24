@@ -31,6 +31,15 @@ You can use a plugin to securely store a validator's key using the [`--security-
 
 :::
 
+:::warning Experimental feature 
+
+`--Xsnapsync-bft-enabled` is an experimental feature. It is not stable and is not fully supported in all versions of Besu. Use this option with caution.
+
+Use `--Xsnapsync-bft-enabled` in private, permissioned networks that use BFT consensus mechanisms.
+When enabled, this option allows Besu to use Snap sync on BFT networks. Use this option in combination with the `--sync-mode=SNAP` option. The default is `false`.
+
+:::
+
 ## Genesis file
 
 To use IBFT 2.0, Besu requires an IBFT 2.0 [genesis file](../../../../public-networks/concepts/genesis-file.md). The genesis file defines properties specific to IBFT 2.0.

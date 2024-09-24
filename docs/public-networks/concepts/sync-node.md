@@ -63,7 +63,7 @@ Snap and Checkpoint syncs handle chain data similarly to Fast sync, but differ i
 
 :::note Private network syncing
 
-Private networks can use the same sync methods as public networks, but require differnt configurations.
+Private networks can use the same sync methods as public networks, but might require different configurations.
 See [Private network syncing](../../private-networks/concepts/private-network-syncing.md) for more information.
 
 :::

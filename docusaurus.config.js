@@ -39,55 +39,6 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           path: "./docs",
-          includeCurrentVersion: true,
-          // Set to the last stable release
-          lastVersion: "24.8.0",
-          versions: {
-            //defaults to the ./docs folder
-            // using 'development' instead of 'next' as path
-            current: {
-              label: "development",
-              path: "development",
-            },
-            // The last stable release in the versioned_docs/version-stable
-            // STABLE-AUTOMATION-TOKEN. Don't remove this as this is used for version update automation
-            "24.8.0": {
-              label: "stable (24.8.0)",
-            },
-            "24.7.1": {
-              label: "24.7.1",
-            },
-            "24.7.0": {
-              label: "24.7.0",
-            },
-            "24.6.0": {
-              label: "24.6.0",
-            },
-            "24.5.2": {
-              label: "24.5.2",
-            },
-            "24.5.0": {
-              label: "24.5.0",
-            },
-            "24.3.0": {
-              label: "24.3.0",
-            },
-            "24.1.0": {
-              label: "24.1.0",
-            },
-            "23.10.3": {
-              label: "23.10.3",
-            },
-            "23.10.2": {
-              label: "23.10.2",
-            },
-            "23.7.3": {
-              label: "23.7.3",
-            },
-            "23.4.1": {
-              label: "23.4.1",
-            },
-          },
           routeBasePath: "/",
           // @ts-ignore
           // eslint-disable-next-line global-require
@@ -100,6 +51,7 @@ const config = {
           ],
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
+          includeCurrentVersion: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -154,11 +106,6 @@ const config = {
             docId: "index",
             position: "left",
             label: "Private networks",
-          },
-          {
-            type: "docsVersionDropdown",
-            position: "right",
-            dropdownActiveClassDisabled: true,
           },
           {
             href: "/public-networks/chatbot",
@@ -332,7 +279,7 @@ const config = {
         redirects: [
           {
             from: ["/en/latest", "/en/development", "/latest", "/development"],
-            to: "/development/public-networks",
+            to: "/public-networks",
           },
           {
             from: "/public-networks/concepts/the-merge",
@@ -358,9 +305,9 @@ const config = {
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {
             return [
-              existingPath.replace("/development", "/en/development"),
-              existingPath.replace("/development", "/en/latest"),
-              existingPath.replace("/development", "/latest"),
+              existingPath.replace("/", "/en/development"),
+              existingPath.replace("/", "/en/latest"),
+              existingPath.replace("/", "/latest"),
             ];
           }
           if (existingPath.includes("/")) {

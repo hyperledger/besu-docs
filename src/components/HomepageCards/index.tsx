@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
+import Heading from '@theme/Heading'
 // import styles from "./styles.module.css";
 
 type CardItem = {
@@ -51,7 +52,7 @@ function Card({ title, link, description, buttonName, buttonType }: CardItem) {
       <div className="card-demo">
         <div className="card">
           <div className="card__header">
-            <h3>{title}</h3>
+            <Heading as='h3'>{title}</Heading>
           </div>
           <div className="card__body">
             <p>{description}</p>
@@ -77,7 +78,7 @@ export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
       <div className="container homepageContainer">
-        <h1 className="homepageTitle">Hyperledger Besu Ethereum client</h1>
+        <Heading as='h1' className="homepageTitle">Hyperledger Besu Ethereum client</Heading>
         <p>
           Hyperledger Besu is an open source Ethereum client developed under the
           Apache 2.0 license and written in Java. It runs on public and private

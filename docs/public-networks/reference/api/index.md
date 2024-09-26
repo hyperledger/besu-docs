@@ -3329,8 +3329,7 @@ gas used and any event logs that might have been produced by a smart contract du
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
-the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
+`blockNumber` or `blockHash`:: _string_ - hexadecimal of the decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 :::note

@@ -49,14 +49,14 @@ We recommend snap sync because it follows the Ethereum specification and enables
 
 | Sync Mode | Description | Requirements | Method | Limitations |
 |-----------|-------------|--------------|--------|-------------|
-| Snap | Recommended for fastest sync and lowest storage requirements on Mainnet.| Besu version 22.4.0 or later | Downloads as many leaves of the trie as possible, reconstructs the trie locally. Snap is faster than Fast sync. | Cannot switch from fast sync to snap sync mid-process. |
-| Checkpoint | Efficient sync from a specific checkpoint block configured in the genesis file. | Besu version 22.4.3 or later | Syncs from a checkpoint block defined in the genesis file. Is the fast sync and has the lowest storage requirements. | |
+| Snap | Default for Mainnet. Efficient sync starting from the genesis block, the successor to Fast sync. | Besu version 22.4.0 or later | Downloads as many leaves of the trie as possible, reconstructs the trie locally. Snap is faster than Fast sync. | Cannot switch from fast sync to snap sync mid-process. |
+| Checkpoint | Efficient sync from a specific checkpoint block configured in the genesis file. | Besu version 22.4.3 or later | Syncs from a checkpoint block defined in the genesis file. It is the fastest sync mode and has the lowest storage requirements. | |
 | Fast | Default for named networks except the dev development network. | None | Downloads block headers and transaction receipts, verifies chain from genesis block. | Might become impossible to sync Ethereum Mainnet in the future. |
 | Full | Downloads and verifies the entire blockchain and state from the genesis block. This builds an archive node, with full state history.| None | Downloads entire blockchain, verifies all states from genesis block. | Slowest sync mode, requires the most disk space. |
 
 :::note
 
-Ethereum nodes sync two types of data: chain data (blocks) and world state data. 
+Ethereum nodes sync two types of data: chain data (blocks) and world state data (account storage). 
 Snap and Checkpoint syncs handle chain data similarly to Fast sync, but differ in how they process world state data.
 
 :::

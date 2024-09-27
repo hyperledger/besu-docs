@@ -2732,7 +2732,7 @@ As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks tr
   `pending` returns the same value as `latest`.
   :::
 
-- `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used.
+- `array` of `integers` - (required) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used. Pass empty array for null.
 
 #### Returns
 
@@ -4385,7 +4385,7 @@ Returns the value of a storage position at a specified address.
 
 - `address`: _string_ - 20-byte storage address
 
-- `index`: _string_ - integer index of the storage position
+- `index`: _string_ - hexadecimal or digital integer index of the storage position
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal of the digital integer representing a block
   number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
@@ -4842,11 +4842,11 @@ Returns the number of transactions sent from a specified address. Use the `pendi
 
 - `address`: _string_ - 20-byte account address
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal of the digital integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
-`result`: _string_ - integer representing the number of transactions sent from the specified address
+`result`: _string_ - hexadecimal of the decimal integer representing the number of transactions sent from the specified address
 
 <Tabs>
 

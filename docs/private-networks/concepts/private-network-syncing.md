@@ -17,7 +17,7 @@ When you configure syncing for a private network, ensure all nodes use compatibl
 
 :::
 
-When setting up a private network, consider the following:
+When [setting up a private network](../tutorials/privacy/quickstart.md), consider the following:
 
 - Use the same sync modes as public networks (snap, checkpoint, fast, or full sync).
 - Configure the network with a custom genesis file.

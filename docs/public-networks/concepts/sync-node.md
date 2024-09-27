@@ -1,12 +1,12 @@
 ---
-title: Sync Besu
+title: Node synchronization
 sidebar_position: 10
-description: Full and archive node types
+description: Sync full and archive node types.
 tags:
   - public networks
 ---
 
-# Sync Besu
+# Sync nodes
 
 Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and
 [archive nodes](#run-an-archive-node).

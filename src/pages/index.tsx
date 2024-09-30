@@ -36,11 +36,9 @@ function HomepageText() {
       <Heading as='h2'>Questions?</Heading>
       <p>
         If you have any questions about Besu, ask on the <b>besu</b> channel on{" "}
-        <Link to="https://discord.gg/hyperledger">Hyperledger Discord</Link>.
+        <Link to="https://discord.gg/hyperledger">Discord</Link>.
       </p>
       <p>
-        Learn more about the{" "}
-        <Link to="https://www.hyperledger.org/Linkbout">Hyperledger Foundation</Link>.
         You can{" "}
         <Link to="https://wiki.hyperledger.org/display/BESU/Documentation">
           contribute to the documentation

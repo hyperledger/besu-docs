@@ -29,7 +29,7 @@ Run the following command:
 openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 ```
 
-Specify `jwtsecret.hex` when starting Besu and Teku. This is a shared JWT secret the clients use to authenticate each other when using the [Engine API](../how-to/use-engine-api.md).
+You will specify `jwtsecret.hex` when starting Besu and Teku. This is a shared JWT secret the clients use to authenticate each other when using the [Engine API](../how-to/use-engine-api.md).
 
 ## 3. Generate validator keys
 

@@ -6,7 +6,7 @@ tags:
   - public networks
 ---
 
-# Sync nodes
+# Node synchronization
 
 Besu supports two node types, commonly referred to as [full nodes](#run-a-full-node) and
 [archive nodes](#run-an-archive-node).
@@ -30,10 +30,9 @@ This means that archive nodes require more disk space than full nodes.
 Besu must connect with other peers to sync with the network. If your node is having trouble peering, 
 try [troubleshooting peering](../how-to/troubleshoot/peering.md).
 
-Besu supports several synchronization options for different network types and use cases:
+## Sync modes
 
-## Public network syncing
-
+Besu supports several sync modes for different network types and use cases.
 For public networks, Besu offers the following sync modes:
 
 - [Snap synchronization](#snap-synchronization)

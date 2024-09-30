@@ -1,27 +1,21 @@
 ---
-title: Private network syncing
-sidebar_position: 6
-description: Sync node types for Besu private networks
+sidebar_label: Node synchronization
+sidebar_position: 4
+description: Learn about node synchronization for private networks.
 tags:
   - private networks
 ---
 
-## Private network syncing
+# Node synchronization for private networks
 
-For private, permissioned blockchain networks, Besu uses the same synchronization 
-modes as public networks, but with specific configurations for private network needs.
+For private, permissioned blockchain networks, Besu uses the same [synchronization 
+modes](/public-networks/concepts/sync-node) as public networks, but with specific configurations for private network needs.
 
-:::note
+To sync Besu on a private network:
 
-When you configure syncing for a private network, ensure all nodes use compatible sync modes and configurations.
-
-:::
-
-When [setting up a private network](../tutorials/privacy/quickstart.md), consider the following:
-
-- Use the same sync modes as public networks (snap, checkpoint, fast, or full sync).
+- Ensure all nodes use compatible sync modes and configurations.
 - Configure the network with a custom genesis file.
-- Set the network ID and bootnode(s) specific to your private network.
+- Set the network ID and bootnodes specific to your private network.
 - Implement permissioning features to control network access.
 
 :::warning Early access feature 

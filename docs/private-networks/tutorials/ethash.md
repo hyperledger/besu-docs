@@ -102,7 +102,7 @@ Start Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -110,7 +110,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabl
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -123,6 +123,8 @@ The command line enables:
 - JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
 - All-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
 - All-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
+- The [enterprise/private profile](../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
+  using the [`--profile`](../../public-networks/reference/cli/options.md#profile) option.
 
 :::info
 
@@ -143,7 +145,7 @@ Start another terminal, change to the `Node-2` directory and start Node-2 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -151,7 +153,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -163,7 +165,7 @@ The command line specifies:
 - A different port to Node-1 for P2P discovery using the [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 - The enode URL of Node-1 using the [`--bootnodes`](../../public-networks/reference/cli/options.md#bootnodes) option.
 - A data directory for Node-2 using the [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
-- A genesis file as for Node-1.
+- Other options as for [Node-1](#3-start-the-first-node-as-a-bootnode).
 
 ### 5. Start Node-3
 
@@ -174,7 +176,7 @@ Start another terminal, change to the `Node-3` directory and start Node-3 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -182,7 +184,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -193,7 +195,7 @@ The command line specifies:
 
 - A different port to Node-1 and Node-2 for P2P discovery.
 - A data directory for Node-3 using the [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
-- A bootnode and genesis file as for Node-2.
+- Other options as for [Node-2](#4-start-node-2).
 
 ### 6. Confirm the private network is working
 

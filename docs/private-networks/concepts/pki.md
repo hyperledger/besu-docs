@@ -29,17 +29,4 @@ When receiving connection requests, the incoming connection must be from another
 
 [Configure TLS for the P2P communication using the Besu command line options](../how-to/configure/tls/p2p.md).
 
-## Block proposal permissioning
 
-:::caution
-
-Only private networks using the [QBFT consensus protocol] support block proposal permissioning.
-
-:::
-
-Use certificates issued by a trusted authority to ensure only authorized validator nodes can propose new blocks in the network. The block hash is signed by the validator private certificate and included in the header of the proposed block as a [CMS (Cryptographic Message Syntax)]. This is used by other validators to verify that the proposer is authorized to create a block in the network.
-
-[Configure block proposal permissioning using the Besu command line options](../how-to/configure/block-proposal-permissioning.md).
-
-[QBFT consensus protocol]: ../how-to/configure/consensus/qbft.md
-[CMS (Cryptographic Message Syntax)]: https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax

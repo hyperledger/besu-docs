@@ -2963,6 +2963,20 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `print-paths-and-exit`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--print-paths-and-exit
+```
+
+</TabItem>
+</Tabs>
+
+Prints the Besu data directory paths and exits without starting the node.
+
 ### `profile`
 
 <Tabs>

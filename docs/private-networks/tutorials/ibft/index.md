@@ -180,7 +180,7 @@ In the `Node-1` directory, start Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -188,7 +188,7 @@ besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-ht
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -202,6 +202,8 @@ The command line:
 - Enables the ETH, NET, and IBFT APIs using the [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api) option.
 - Enables all-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../../public-networks/reference/cli/options.md#host-allowlist) option.
 - Enables all-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
+- Loads the [enterprise/private profile](../../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
+  using the [`--profile`](../../../public-networks/reference/cli/options.md#profile) option.
 
 When the node starts, the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
@@ -216,7 +218,7 @@ Start another terminal, change to the `Node-2` directory and start Node-2 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -224,7 +226,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -248,7 +250,7 @@ Start another terminal, change to the `Node-3` directory and start Node-3 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -256,7 +258,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -280,7 +282,7 @@ Start another terminal, change to the `Node-4` directory and start Node-4 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -288,7 +290,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --profile=ENTERPRISE
 ```
 
 </TabItem>

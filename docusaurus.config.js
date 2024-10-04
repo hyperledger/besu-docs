@@ -220,7 +220,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["solidity", "toml", "java"],
+        additionalLanguages: ["solidity", "toml", "java", "bash"],
       },
       mermaid: {
         options: {

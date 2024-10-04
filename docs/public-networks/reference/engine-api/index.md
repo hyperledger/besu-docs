@@ -251,7 +251,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "engine_getPayloadBodiesByHashV1",
+  "method": "engine_getBlobsV1",
   "params": [
     [
       "0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014"

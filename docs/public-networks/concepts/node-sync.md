@@ -37,9 +37,9 @@ For public networks, Besu offers the following sync modes:
 
 | Sync mode | Description | Requirements | Limitations |
 |-----------|-------------|--------------|-------------|
-| [Snap](#snap-synchronization) | Default for Mainnet. Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing locally. Faster than Fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
+| [Snap](#snap-synchronization) | Default for Mainnet. Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing locally. Faster than fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
 | [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements. | Besu version 22.4.3 or later | |
-| [Fast](#fast-synchronization) | Default for named networks except dev. Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Might become impossible to sync Ethereum Mainnet in the future. |
+| [Fast](#fast-synchronization) | Default for named networks except `dev`. Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Might become impossible to fast sync Ethereum Mainnet in the future. |
 | [Full](#run-an-archive-node) | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history. | None | Slowest sync mode, requires the most disk space. |
 
 :::tip
@@ -51,14 +51,14 @@ We recommend snap sync because it follows the Ethereum specification and enables
 :::note
 
 Ethereum nodes sync two types of data: chain data (blocks) and world state data (account storage). 
-snap and checkpoint syncs handle chain data similarly to fast sync, but differ in how they process world state data.
+Snap and checkpoint syncs handle chain data similarly to fast sync, but differ in how they process world state data.
 
 :::
 
 :::note Private network syncing
 
 Private networks can use the same sync methods as public networks, but might require different configurations.
-See [Private network syncing](../../private-networks/concepts/node-sync-private.md) for more information.
+See [Node synchronization for private networks](../../private-networks/concepts/node-sync-private.md) for more information.
 
 :::
 

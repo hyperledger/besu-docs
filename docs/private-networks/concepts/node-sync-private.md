@@ -20,14 +20,10 @@ To sync Besu on a private network:
 
 :::warning Early access feature 
 
-`--Xsnapsync-bft-enabled` is an early access feature available since the release of Besu version 24.7.1. 
-It is not stable and is not fully supported in all versions of Besu. 
-Use this option with caution.
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution.
 
-Use `--Xsnapsync-bft-enabled` in private, permissioned networks that use BFT consensus mechanisms.
-When enabled, this option allows Besu to use Snap sync on BFT networks. 
-Use this option in combination with the `--sync-mode=SNAP` option. 
-The default is `false`.
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT and IBFT 2.0 private networks.
 
 :::
 
@@ -35,7 +31,7 @@ Choose the appropriate sync mode based on your private network's requirements an
 
 | Sync mode | Description | Requirements | Limitations |
 |-----------|-------------|--------------|-------------|
-| [Snap](../../public-networks/concepts/node-sync.md#snap-synchronization) | Recommended for fastest sync and lowest storage requirements on Mainnet. Downloads as many leaves of the trie as possible, reconstructs the trie locally. Faster than Fast sync. | Available as an _early access feature_ in Besu version 24.7.1 or later | Cannot switch from fast sync to snap sync mid-process. |
+| [Snap](../../public-networks/concepts/node-sync.md#snap-synchronization) | Recommended for fastest sync and lowest storage requirements on Mainnet. Downloads as many leaves of the trie as possible, reconstructs the trie locally. Faster than fast sync. | Available as an _early access feature_ in Besu version 24.7.1 or later | Cannot switch from fast sync to snap sync mid-process. |
 | [Checkpoint](../../public-networks/concepts/node-sync.md#checkpoint-synchronization) | Efficient sync from a specific checkpoint block configured in the genesis file. Syncs from a checkpoint block defined in the genesis file. Is the fastest sync and has the lowest storage requirements. | Besu version 22.4.3 or later | Not supported for QBFT or IBFT 2.0 networks without a checkpoint configuration. |
 | [Fast](../../public-networks/concepts/node-sync.md#fast-synchronization) | Default for named networks except the dev development network. Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Not supported with private transactions. |
 | [Full](../../public-networks/concepts/node-sync.md#run-an-archive-node) | Downloads and verifies the entire blockchain and state from the genesis block. This builds an archive node, with full state history. Downloads entire blockchain, verifies all states from genesis block. | None | Slowest sync mode, requires the most disk space. |

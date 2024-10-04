@@ -57,7 +57,7 @@ In detail, the P2P discovery process is as follows:
    as network details, what the peer believes to be the current chain head, and its list of neighbors.
    From this point on any traffic to that peer is only done using TCP.
 
-5. Depending on the [synchronization method](../../get-started/connect/sync-node.md), a common block
+5. Depending on the [synchronization method](../../concepts/node-sync.md), a common block
    (the pivot block) is selected that all connected peers (default of 5) have, and Besu syncs from
    that block till it gets to chain head.
    Log messages look like `Downloading world state from peers for pivot block .......`.

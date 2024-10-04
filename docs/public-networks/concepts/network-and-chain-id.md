@@ -1,6 +1,6 @@
 ---
 title: Network ID and chain ID
-sidebar_position: 6
+sidebar_position: 7
 description: Learn about network ID and chain ID in Besu.
 tags:
   - public networks

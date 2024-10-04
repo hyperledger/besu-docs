@@ -9,7 +9,7 @@ tags:
 # Node synchronization for private networks
 
 For private, permissioned blockchain networks, Besu uses the same [synchronization 
-modes](/public-networks/concepts/sync-node) as public networks, but with specific configurations for private network needs.
+modes](/public-networks/concepts/node-sync.md) as public networks, but with specific configurations for private network needs.
 
 To sync Besu on a private network:
 

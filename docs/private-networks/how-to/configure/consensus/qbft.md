@@ -31,6 +31,15 @@ You can use a plugin to securely store a validator's key using the [`--security-
 
 :::
 
+:::warning Early access feature 
+
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution.
+
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT networks.
+
+:::
+
 ## Genesis file
 
 To use QBFT, define a [genesis file](../../../../public-networks/concepts/genesis-file.md) that contains the QBFT properties.

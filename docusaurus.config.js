@@ -199,7 +199,7 @@ const config = {
               },
               {
                 label: "Besu Wiki",
-                href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
+                href: "https://lf-hyperledger.atlassian.net/wiki/spaces/BESU/overview",
               },
               {
                 label: "Besu Twitter",

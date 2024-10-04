@@ -5043,7 +5043,7 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../concepts/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
+The minimum number of peers required before starting [sync](../../concepts/node-sync.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 
@@ -5089,7 +5089,7 @@ sync-mode="SNAP"
 
 </Tabs>
 
-The synchronization mode. Use `SNAP` for [snap sync](../../concepts/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../concepts/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization), and `FULL` for [full sync](../../concepts/node-sync.md#run-an-archive-node).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).

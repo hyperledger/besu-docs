@@ -1,7 +1,7 @@
 ---
 title: Node synchronization
-sidebar_position: 10
-description: Sync full and archive node types.
+sidebar_position: 4
+description: Learn about node synchronization for public networks.
 tags:
   - public networks
 ---
@@ -35,10 +35,12 @@ try [troubleshooting peering](../how-to/troubleshoot/peering.md).
 Besu supports several sync modes for different network types and use cases.
 For public networks, Besu offers the following sync modes:
 
-- [Snap synchronization](#snap-synchronization)
-- [Checkpoint synchronization](#checkpoint-synchronization)
-- [Fast synchronization](#fast-synchronization)
-- [Full synchronization](#run-an-archive-node)
+| Sync mode | Description | Requirements | Limitations |
+|-----------|-------------|--------------|-------------|
+| [Snap](#snap-synchronization) | Default for Mainnet. Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing locally. Faster than Fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
+| [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements. | Besu version 22.4.3 or later | |
+| [Fast](#fast-synchronization) | Default for named networks except dev. Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Might become impossible to sync Ethereum Mainnet in the future. |
+| [Full](#run-an-archive-node) | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history. | None | Slowest sync mode, requires the most disk space. |
 
 :::tip
 
@@ -46,24 +48,17 @@ We recommend snap sync because it follows the Ethereum specification and enables
 
 :::
 
-| Sync Mode | Description | Requirements | Method | Limitations |
-|-----------|-------------|--------------|--------|-------------|
-| Snap | Default for Mainnet. Efficient sync starting from the genesis block, the successor to Fast sync. | Besu version 22.4.0 or later | Downloads as many leaves of the trie as possible, reconstructs the trie locally. Snap is faster than Fast sync. | Cannot switch from fast sync to snap sync mid-process. |
-| Checkpoint | Efficient sync from a specific checkpoint block configured in the genesis file. | Besu version 22.4.3 or later | Syncs from a checkpoint block defined in the genesis file. It is the fastest sync mode and has the lowest storage requirements. | |
-| Fast | Default for named networks except the dev development network. | None | Downloads block headers and transaction receipts, verifies chain from genesis block. | Might become impossible to sync Ethereum Mainnet in the future. |
-| Full | Downloads and verifies the entire blockchain and state from the genesis block. This builds an archive node, with full state history.| None | Downloads entire blockchain, verifies all states from genesis block. | Slowest sync mode, requires the most disk space. |
-
 :::note
 
 Ethereum nodes sync two types of data: chain data (blocks) and world state data (account storage). 
-Snap and Checkpoint syncs handle chain data similarly to Fast sync, but differ in how they process world state data.
+snap and checkpoint syncs handle chain data similarly to fast sync, but differ in how they process world state data.
 
 :::
 
 :::note Private network syncing
 
 Private networks can use the same sync methods as public networks, but might require different configurations.
-See [Private network syncing](../../private-networks/concepts/private-network-syncing.md) for more information.
+See [Private network syncing](../../private-networks/concepts/node-sync-private.md) for more information.
 
 :::
 

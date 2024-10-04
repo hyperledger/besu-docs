@@ -224,6 +224,64 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_forkchoiceUpdatedV1","par
 
 </Tabs>
 
+### `engine_getBlobsV1`
+
+Returns the blobs corresponding to the specified blob versioned hashes.
+
+#### Parameters
+
+`blobHashes`: *array* of *strings* - Array of blob versioned hashes
+
+#### Returns
+
+`engineGetBlobsResultV1`: *array* of *objects* - Array of blob and proof objects
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014"]],"id":1}' http://127.0.0.1:8550
+```
+
+</TabItem>
+
+<TabItem value="wscat WS" label="wscat WS">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "engine_getPayloadBodiesByHashV1",
+  "params": [
+    [
+      "0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014"
+    ]
+  ],
+  "id": 67
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 67,
+  "result": [
+    {
+      "blob": "0x722662154e6d76b2b2b92e70c0cac3ccf534f9b74eb5b89819ec509083d00a503ae5c198d17634e79059c2cd735491...",
+      "proof": "0x80c5f2e1eb23939cf3600f61872e3e9964d0acafb440634e530d6139a193b889c56a0c07d737729dbe0626706fc9f25f"
+    }
+  ]
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `engine_getPayloadBodiesByHashV1`
 
 Returns the bodies of the execution payloads corresponding to the specified block hashes.

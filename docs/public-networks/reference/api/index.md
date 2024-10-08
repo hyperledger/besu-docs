@@ -996,7 +996,7 @@ Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structur
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1046,7 +1046,7 @@ Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structur
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1102,7 +1102,7 @@ of the transaction receipts of the specified block.
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1345,7 +1345,7 @@ Re-imports the block matching the specified block number, by rolling the head of
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1439,7 +1439,7 @@ Sets the current head of the local chain to the block matching the specified blo
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1914,7 +1914,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
   string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1997,7 +1997,7 @@ Performs an [`eth_call`](#eth_call) within the execution environment of a given 
 
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of the
   string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -2287,7 +2287,7 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 
   :::
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the decimal integer representing a block number,
   block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
   described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -2513,7 +2513,7 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
 
 - `transaction`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
@@ -2732,7 +2732,7 @@ As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks tr
   `pending` returns the same value as `latest`.
   :::
 
-- `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used.
+- `array` of `integers` - (required) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used. Pass empty array for null.
 
 #### Returns
 
@@ -2915,7 +2915,7 @@ Returns the account balance of the specified address.
 
 - `address`: _string_ - 20-byte account address from which to retrieve the balance
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the decimal integer representing a block
   number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
   `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -3154,7 +3154,7 @@ Returns information about the block matching the specified block number.
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
@@ -3329,8 +3329,7 @@ gas used and any event logs that might have been produced by a smart contract du
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
-the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
+`blockNumber` or `blockHash`:: _string_ - hexadecimal of the decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 :::note
@@ -3529,7 +3528,7 @@ Returns the number of transactions in the block matching the specified block has
 
 #### Returns
 
-`result`: _number_ - integer representing the number of transactions in the specified block, or `null` if no matching block hash is found
+`result`: _number_ - integer representing the number of transactions in the specified block, or `null` if no matching block hash is found.
 
 <Tabs>
 
@@ -3610,7 +3609,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+`blockNumber`: _string_ - hexadecimal of the digital integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
@@ -3701,7 +3700,7 @@ Returns the code of the smart contract at the specified address. Besu stores com
 
 - `address`: _string_ - 20-byte contract address
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the digital integer representing a block number,
   block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
   described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -4207,7 +4206,7 @@ Returns miner data for the specified block.
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+`blockNumber`: _string_ - hexadecimal of the digital integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
@@ -4283,7 +4282,7 @@ The API allows IoT devices or mobile apps which are unable to run light clients 
 
 - `keys`: _array_ of _strings_ - list of 32-byte storage keys to generate proofs for
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the digital integer representing a block
   number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
   `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -4386,9 +4385,9 @@ Returns the value of a storage position at a specified address.
 
 - `address`: _string_ - 20-byte storage address
 
-- `index`: _string_ - integer index of the storage position
+- `index`: _string_ - hexadecimal or digital integer index of the storage position
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the digital integer representing a block
   number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
   `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -4593,7 +4592,7 @@ Returns transaction information for the specified block number and transaction i
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the digital integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -4843,11 +4842,11 @@ Returns the number of transactions sent from a specified address. Use the `pendi
 
 - `address`: _string_ - 20-byte account address
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal of the decimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
-`result`: _string_ - integer representing the number of transactions sent from the specified address
+`result`: _string_ - hexadecimal of the decimal integer representing the number of transactions sent from the specified address
 
 <Tabs>
 
@@ -5206,7 +5205,7 @@ Returns uncle specified by block number and index.
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -5423,7 +5422,7 @@ Returns the number of uncles in a block matching the specified block number.
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+`blockNumber`: _string_ - hexadecimal of the digital integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -5524,7 +5523,7 @@ None
 
 - `target`: _string_ - 32-byte required target boundary condition: 2^256 / difficulty
 
-- `blockNumber`: _string_ - hexadecimal integer representing the current block number
+- `blockNumber`: _string_ - hexadecimal of the digital integer representing the current block number
 
 <Tabs>
 
@@ -7139,7 +7138,7 @@ the requested block must be within the number of
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+`blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -7249,7 +7248,7 @@ default, 512 from the head of the chain).
 
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -7347,7 +7346,7 @@ default, 512 from the head of the chain).
 
 - `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -7705,7 +7704,7 @@ default, 512 from the head of the chain).
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `blockNumber`: _string_ - hexadecimal of the decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 

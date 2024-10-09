@@ -230,7 +230,7 @@ Returns the blobs corresponding to the specified blob versioned hashes.
 
 #### Parameters
 
-`blobHashes`: *array* of *strings* - Array of blob versioned hashes
+`versionedHashes`: *array* of *strings* - Array of blob versioned hashes
 
 #### Returns
 

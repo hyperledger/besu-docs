@@ -234,14 +234,15 @@ Returns the blobs corresponding to the specified blob versioned hashes.
 
 #### Returns
 
-`engineGetBlobsResultV1`: *array* of *objects* - Array of blob and proof objects
+`engineGetBlobsResultV1`: *array* of *objects* - Array of [blob and proof objects](objects.md#blob-and-proof-object),
+items of which can be `null`
 
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014"]],"id":1}' http://127.0.0.1:8550
+curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014","0x01f3a5c9d8e7b6a4c2d1e0f9b8a7c6d5e4f3a2b1c0d9e8f7b6a5c4d3e2f1a0b9"]],"id":1}' http://127.0.0.1:8550
 ```
 
 </TabItem>
@@ -254,7 +255,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0
   "method": "engine_getBlobsV1",
   "params": [
     [
-      "0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014"
+      "0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014",
+      "0x01f3a5c9d8e7b6a4c2d1e0f9b8a7c6d5e4f3a2b1c0d9e8f7b6a5c4d3e2f1a0b9"
     ]
   ],
   "id": 67
@@ -273,7 +275,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0
     {
       "blob": "0x722662154e6d76b2b2b92e70c0cac3ccf534f9b74eb5b89819ec509083d00a503ae5c198d17634e79059c2cd735491...",
       "proof": "0x80c5f2e1eb23939cf3600f61872e3e9964d0acafb440634e530d6139a193b889c56a0c07d737729dbe0626706fc9f25f"
-    }
+    },
+    null
   ]
 }
 ```

@@ -137,7 +137,7 @@ networkFiles/
 
 ### 4. Copy the genesis file to the Permissioned-Network directory
 
-Copy the `genesis.json` file to the `Permisssioned-Network` directory.
+Copy the `genesis.json` file to the `Permissioned-Network` directory.
 
 ### 5. Copy the node private keys to the node directories
 

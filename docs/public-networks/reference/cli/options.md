@@ -521,7 +521,7 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-CACHE_LAST_BLOCKS=2048
+BESU_CACHE_LAST_BLOCKS=2048
 ```
 
 </TabItem>
@@ -3152,7 +3152,7 @@ In private and permissioned networks with a level of trust between peers, disabl
 
 :::danger
 
-To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#fast-sync-min-peers).
+To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#sync-min-peers-fast-sync-min-peers).
 
 :::
 
@@ -4988,7 +4988,7 @@ Static nodes JSON file containing the [static nodes](../../how-to/connect/static
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-STRICT_TX_REPLAY_PROTECTION_ENABLED=false
+BESU_STRICT_TX_REPLAY_PROTECTION_ENABLED=false
 ```
 
 </TabItem>

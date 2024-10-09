@@ -47,7 +47,7 @@ Nodes not in the list of the static nodes are not prevented from connecting. To 
 
 :::tip
 
-If the added peer does not appear in the peer list (returned by [`admin_peers`](../../reference/api/index.md#admin_peers)), check the the supplied [enode URL](../../concepts/node-keys.md#enode-url) is correct, the node is running, and the node is listening for TCP connections on the endpoint.
+If the added peer does not appear in the peer list (returned by [`admin_peers`](../../reference/api/index.md#admin_peers)), check the supplied [enode URL](../../concepts/node-keys.md#enode-url) is correct, the node is running, and the node is listening for TCP connections on the endpoint.
 
 :::
 

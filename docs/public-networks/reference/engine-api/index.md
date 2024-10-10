@@ -242,7 +242,7 @@ items of which can be `null`
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014","0x01f3a5c9d8e7b6a4c2d1e0f9b8a7c6d5e4f3a2b1c0d9e8f7b6a5c4d3e2f1a0b9"]],"id":1}' http://127.0.0.1:8550
+curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0x010657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014","0x01f3a5c9d8e7b6a4c2d1e0f9b8a7c6d5e4f3a2b1c0d9e8f7b6a5c4d3e2f1a0b9"]],"id":1}' http://127.0.0.1:8550
 ```
 
 </TabItem>
@@ -255,7 +255,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"engine_getBlobsV1","params":[["0
   "method": "engine_getBlobsV1",
   "params": [
     [
-      "0x000657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014",
+      "0x010657f37554c781402a22917dee2f75def7ab966d7b770905398eba3c444014",
       "0x01f3a5c9d8e7b6a4c2d1e0f9b8a7c6d5e4f3a2b1c0d9e8f7b6a5c4d3e2f1a0b9"
     ]
   ],

@@ -34,7 +34,7 @@ The ad-hoc tracing APIs are:
 These APIs allow you to filter and search by specific information such as the block, address, or transaction. These APIs only use the [`trace` type](../../reference/trace-types.md#trace).
 
 To use the transaction-trace filtering APIs, your node must be an
-[archive node](../../concepts/node-sync.md#run-an-archive-node), or the requested block
+[archive node](../../concepts/node-sync.md#archive-nodes), or the requested block
 or transaction must be within the number of
 [blocks retained](../../reference/cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head

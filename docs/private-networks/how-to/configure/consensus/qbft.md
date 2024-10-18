@@ -21,7 +21,7 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 
 :::caution
 
-Configure your network to ensure you never lose more than 1/3 your validators. If more than 1/3 of validators stop participating, new blocks are no longer created, and the network stalls. It may take significant time to recover once nodes are restarted.
+Configure your network to ensure you never lose more than 1/3 of your validators. If more than 1/3 of validators stop participating, new blocks are no longer created, and the network stalls. It may take significant time to recover once nodes are restarted.
 
 :::
 
@@ -31,12 +31,13 @@ You can use a plugin to securely store a validator's key using the [`--security-
 
 :::
 
-:::warning Early access feature 
+:::info Early access feature
 
 `--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
 It is not stable, so use this option with caution.
 
-Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT networks.
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable
+[snap sync](../../../concepts/node-sync-private.md) in QBFT networks.
 
 :::
 

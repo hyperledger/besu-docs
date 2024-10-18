@@ -2681,17 +2681,17 @@ Possible values include the following:
 
 | Network   | Chain | Type        | Default Sync Mode  | Consensus Mechanism      | Description                                                                          |
 | :-------- | :---- | :-----------| :----------------- | :----------------------- | :----------------------------------------------------------------------------------- |
-| `mainnet` | ETH   | Production  | [SNAP](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
-| `holesky` | ETH   | Test        | [SNAP](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |
-| `sepolia` | ETH   | Test        | [SNAP](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
-| `lukso`   | ETH   | Production  | [SNAP](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
-| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
-| `classic` | ETC   | Production  | [SNAP](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
-| `mordor ` | ETC   | Test        | [SNAP](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
+| `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
+| `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |
+| `sepolia` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
+| `lukso`   | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
+| `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
+| `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
+| `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
 
 :::tip
 
-Values are case insensitive, so either `mainnet` or `MAINNET` works.
+Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 :::
 
@@ -5089,7 +5089,7 @@ sync-mode="SNAP"
 
 </Tabs>
 
-The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization), and `FULL` for [full sync](../../concepts/node-sync.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization), and `FULL` for [full sync](../../concepts/node-sync.md#full-synchronization).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).

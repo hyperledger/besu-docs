@@ -5646,7 +5646,7 @@ tx-pool-min-score="-100"
 
 </Tabs>
 
-Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#penalize-invalid-pending-transactions)
 if its score is lower than this value. Accepts a value between `-128` and `127`.
 The default is `-128`.
 

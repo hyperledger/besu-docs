@@ -208,6 +208,7 @@ The easiest solution in this scenario is to restart fast sync to obtain a new pi
 
 ### Full synchronization
 
+Full sync is the default sync mode for the [`dev` network](../reference/cli/options.md#network).
 You can enable full sync using [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode).
 Use full sync to run an [archive node](#archive-nodes).
 Full sync starts from the genesis block and reprocesses all transactions.

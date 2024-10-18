@@ -2679,15 +2679,15 @@ The predefined network configuration. The default is `mainnet`.
 
 Possible values include the following:
 
-| Network   | Chain | Type        | Default sync mode  | Consensus mechanism      | Description                                                                          |
-| :-------- | :---- | :-----------| :----------------- | :----------------------- | :----------------------------------------------------------------------------------- |
-| `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
-| `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |
-| `sepolia` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
-| `lukso`   | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
-| `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
-| `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
-| `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
+| Network   | Chain | Type        | Default sync mode  | Consensus mechanism      | Description                                                                    |
+| :-------- | :---- | :-----------| :----------------- | :----------------------- |:-------------------------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
+| `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Holesky](https://holesky.dev)                            |
+| `sepolia` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
+| `lukso`   | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                          |
+| `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining             |
+| `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)               |
+| `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
 
 :::tip
 
@@ -5094,17 +5094,22 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
-:::note Sync nodes for BFT
+:::note Notes
 
-If you're running a node on a [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) network, your node must use fast sync or full sync.
+- We recommend using snap sync over fast sync because snap sync can be faster by several days.
+- It might become impossible to sync Mainnet using fast sync in the future, as clients drop support for fast sync.
+  We recommend updating Besu to a version that supports other sync methods.
+- When using a mode other than `FULL`, most historical world state data is unavailable.
+  Any methods attempting to access unavailable world state data return `null`.
 
 :::
 
-:::tip
+:::warning Early access feature
 
-- We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- It might become impossible to sync Ethereum Mainnet using fast sync in the future, as clients drop support for fast sync. We recommend you update Besu to a version that supports newer sync methods.
-- When synchronizing in a mode other than `FULL`, most historical world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution.
+
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT and IBFT 2.0 private networks.
 
 :::
 

@@ -21,7 +21,9 @@ You can [create a private network using QBFT](../../../tutorials/qbft.md).
 
 :::caution
 
-Configure your network to ensure you never lose more than 1/3 of your validators. If more than 1/3 of validators stop participating, new blocks are no longer created, and the network stalls. It may take significant time to recover once nodes are restarted.
+Configure your network to ensure you never lose more than 1/3 of your validators.
+If more than 1/3 of validators stop participating, the network stops creating new blocks and stalls.
+It might take significant time to recover after nodes are restarted.
 
 :::
 

@@ -53,6 +53,26 @@ If you previously configured transaction pool behavior, upgrade to the layered t
 You can opt out of the layered transaction pool implementation by setting the
 [`--tx-pool`](../../reference/cli/options.md#tx-pool) option to `sequenced`.
 
+### Penalize invalid pending transactions
+
+The layered transaction pool uses a scoring system to avoid repeatedly evaluating invalid pending
+transactions, which can block the evaluation of valid ones. Each pending transaction starts with a score
+of 127, which decreases with each penalization down to -128. This score determines the transaction's rank
+in the pool, pushing invalid transactions lower so they are evaluated only after non-penalized or
+less penalized ones.
+
+:::info
+An invalid pending transaction cannot be included in the current block but might be included in a future
+block due to transient issues, such as insufficient balance in the sender's wallet or a gas price below
+the minimum. These conditions could resolve in the future.
+:::
+
+The [`--tx-pool-min-score`](../../reference/cli/options.md#tx-pool-min-score) option, which accepts a value
+between -128 and 127, instructs the transaction pool to remove pending transactions when their score falls
+below the specified value. By default, the value is -128, meaning the pending transaction will not be
+removed and will stay in the pool with the lowest score, and selected after all other pending transactions.
+
+
 ## Sequenced transaction pool
 
 In the sequenced transaction pool, transactions are processed strictly in the order they are received.
@@ -118,6 +138,9 @@ You can configure and monitor the transaction pool using the following methods, 
 | Option         | [`--tx-pool-max-prioritized-by-type`](../../reference/cli/options.md#tx-pool-max-prioritized-by-type) | Option to specify the maximum number of prioritized transactions by type.      |
 | Option         | [`--tx-pool-max-size`](../../reference/cli/options.md#tx-pool-max-size)                          | Option to specify the maximum size of the transaction pool.                         |
 | Option         | [`--tx-pool-min-gas-price`](../../reference/cli/options.md#tx-pool-min-gas-price)                | Option to specify the minimum gas price for transactions in the pool.               |
+
+| Option         | [`--tx-pool-min-gas-price`](../../reference/cli/options.md#tx-pool-min-gas-price)                | Option to specify the minimum gas price for transactions in the pool.               |
+
 | Option         | [`--tx-pool-no-local-priority`](../../reference/cli/options.md#tx-pool-no-local-priority)        | Option to disable local priority for transactions.                                  |
 | Option         | [`--tx-pool-price-bump`](../../reference/cli/options.md#tx-pool-price-bump)                      | Option to specify the price bump percentage to replace an existing transaction.     |
 | Option         | [`--tx-pool-priority-senders`](../../reference/cli/options.md#tx-pool-priority-senders)          | Option to specify sender addresses to prioritize in the transaction pool.           |

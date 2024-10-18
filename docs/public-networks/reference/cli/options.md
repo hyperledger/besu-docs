@@ -5608,6 +5608,48 @@ tx-pool-min-gas-price="2000"
 The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
 
 
+### `tx-pool-min-score`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-min-score=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-min-score=-100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MIN_SCORE=-100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-min-score="-100"
+```
+
+</TabItem>
+
+</Tabs>
+
+Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
+if its score is lower than this value. Accepts a value between `-128` and `127`.
+The default is `-128`.
+
 ### `tx-pool-no-local-priority`
 
 <Tabs>

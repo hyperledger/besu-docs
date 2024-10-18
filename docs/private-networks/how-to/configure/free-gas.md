@@ -116,7 +116,7 @@ If zero base fee is enabled, you cannot specify a value for [`--tx-pool-price-bu
 
 ## Configure free gas in Hardhat
 
-If using Hardhat to develop on your free gas network, you also need to configure free gas in Hardhat.
+If using Hardhat to develop your free gas network, you also need to configure free gas in Hardhat.
 
 Like setting block and contract size limits to their maximum values for Besu, set the transaction gas limit in Hardhat to the maximum possible.
 

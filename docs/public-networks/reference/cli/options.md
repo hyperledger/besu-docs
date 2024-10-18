@@ -2679,7 +2679,7 @@ The predefined network configuration. The default is `mainnet`.
 
 Possible values include the following:
 
-| Network   | Chain | Type        | Default Sync Mode  | Consensus Mechanism      | Description                                                                          |
+| Network   | Chain | Type        | Default sync mode  | Consensus mechanism      | Description                                                                          |
 | :-------- | :---- | :-----------| :----------------- | :----------------------- | :----------------------------------------------------------------------------------- |
 | `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
 | `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |

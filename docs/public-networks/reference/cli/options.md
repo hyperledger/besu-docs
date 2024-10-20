@@ -5650,6 +5650,10 @@ Remove a pending transaction from the [layered transaction pool](../../concepts/
 if its score is lower than this value. Accepts a value between `-128` and `127`.
 The default is `-128`.
 
+The lowest score a pending transaction can have is `-128`. The default value of `-128` means that pending
+transactions will not be removed and will remain in the pool with the lowest score, being selected after
+all other pending transactions.
+
 ### `tx-pool-no-local-priority`
 
 <Tabs>

@@ -61,7 +61,7 @@ but might be included in a future block due to transient issues, such as an insu
 sender's wallet or a gas price below the minimum. These conditions could resolve in the future.
 
 :::note
-Invalid pending transactions where conditions can't be reolved in the future (for example, invalid nonce)
+Invalid pending transactions where conditions can't be resolved in the future (for example, invalid nonce)
 are immediately dropped from the transaction pool.
 :::
 

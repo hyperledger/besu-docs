@@ -56,9 +56,9 @@ You can opt out of the layered transaction pool implementation by setting the
 
 ### Penalize transient invalid pending transactions
 
-A transient invalid pending transaction is a transaction that cannot be included in the current block
-but might be included in a future block due to transient issues, such as an insufficient balance in the
-sender's wallet or a gas price below the minimum. These conditions could resolve in the future.
+Transient invalid pending transactions cannot be included in the current block but might be included
+in a future block due to transient issues, such as insufficient balance in the
+sender's wallet, or a gas price below the minimum. These conditions could resolve in the future.
 
 :::note
 Invalid pending transactions where conditions can't be resolved in the future (for example, invalid nonce)
@@ -75,7 +75,6 @@ The [`--tx-pool-min-score`](../../reference/cli/options.md#tx-pool-min-score) op
 between `-128` and `127`, instructs the transaction pool to remove pending transactions when their score falls
 below the specified value. By default, the value is `-128`, meaning the pending transaction will not be
 removed and will stay in the pool with the lowest score, and selected after all other pending transactions.
-
 
 ## Sequenced transaction pool
 

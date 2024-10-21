@@ -56,9 +56,9 @@ You can opt out of the layered transaction pool implementation by setting the
 
 ### Penalize transient invalid pending transactions
 
-Transient invalid pending transactions cannot be included in the current block but might be included
-in a future block due to transient issues, such as insufficient balance in the
-sender's wallet, or a gas price below the minimum. These conditions could resolve in the future.
+Transient invalid pending transactions cannot be included in the current block but might be included in a future one. 
+This can happen due to issues like insufficient balance in the sender's wallet or a gas price below the minimum. 
+These conditions could resolve in the future.
 
 :::note
 Invalid pending transactions where conditions can't be resolved in the future (for example, invalid nonce)
@@ -66,15 +66,15 @@ are immediately dropped from the transaction pool.
 :::
 
 The layered transaction pool uses a scoring system to avoid repeatedly evaluating transient invalid pending
-transactions, which can block the evaluation of valid ones. Each pending transaction starts with a score
-of `127`, which decreases with each penalization down to `-128`. This score determines the transaction's rank
-in the pool, pushing invalid transactions lower so they are evaluated only after non-penalized or
-less penalized ones.
+transactions, which can block the evaluation of valid ones. Each pending transaction starts with a score of
+`127` and is penalized over time, with the score decreasing to a minimum of -128. 
+This score determines the transaction's rank in the pool, pushing invalid transactions lower so they are 
+evaluated only after non-penalized or less penalized ones.
 
 The [`--tx-pool-min-score`](../../reference/cli/options.md#tx-pool-min-score) option, which accepts a value
 between `-128` and `127`, instructs the transaction pool to remove pending transactions when their score falls
-below the specified value. By default, the value is `-128`, meaning the pending transaction will not be
-removed and will stay in the pool with the lowest score, and selected after all other pending transactions.
+below the specified value. By default, the value is `-128`, meaning the pending transaction will remain in the
+pool with the lowest score and will only be selected after all other pending transactions have been processed.
 
 ## Sequenced transaction pool
 
@@ -89,13 +89,13 @@ If you set the enterprise configuration profile using [`--profile=enterprise`](.
 The sequenced transaction pool suits enterprise environments because it functions like a first-in-first-out (FIFO) queue and processes transactions in the order of submission, regardless of the sender. 
 When the pool reaches capacity, the newer transactions are evicted first, reducing the likelihood of a nonce gap and avoiding the need to resubmit older transactions.
 
-## Dropping transactions when the layered transaction pool is full
+## Drop transactions when the layered transaction pool is full
 
 When the transaction pool is full, it accepts and retains local transactions in preference to remote transactions. 
 If the transaction pool is full of local transactions, Besu drops the oldest local transactions first. 
 That is, a full transaction pool continues to accept new local transactions by first dropping remote transactions and then by dropping the oldest local transactions.
 
-## Replacing transactions with the same sender and nonce
+## Replace transactions with the same sender and nonce
 
 ### In networks with a base fee and priced gas
 

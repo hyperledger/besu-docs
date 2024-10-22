@@ -5486,7 +5486,7 @@ in a block in your network.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-max-prioritized-by-type=<TYPE=INTEGER>
+--tx-pool-max-prioritized-by-type=["TYPE=INTEGER","TYPE=INTEGER"]
 ```
 
 </TabItem>
@@ -5494,7 +5494,7 @@ in a block in your network.
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool-max-prioritized-by-type=BLOB=6
+--tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
@@ -5502,7 +5502,7 @@ in a block in your network.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
@@ -5510,14 +5510,16 @@ BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool-max-prioritized-by-type="BLOB=6"
+tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
 
 </Tabs>
 
-The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool). 
+
+[Frontier is the original Ethereum protocol that introduced the first transaction style with a basic gas fee system, before updates such as [EIP-1559](../../concepts/transactions/types.md##eip1559-transactions).
 
 This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
 Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 

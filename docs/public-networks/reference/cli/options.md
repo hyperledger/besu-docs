@@ -5486,7 +5486,7 @@ in a block in your network.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-max-prioritized-by-type=["TYPE=INTEGER","TYPE=INTEGER"]
+--tx-pool-max-prioritized-by-type=["<TYPE=INTEGER>",...]
 ```
 
 </TabItem>

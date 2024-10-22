@@ -5519,12 +5519,17 @@ tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
 
 The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool). 
 
-[Frontier is the original Ethereum protocol that introduced the first transaction style with a basic gas fee system, before updates such as [EIP-1559](../../concepts/transactions/types.md#eip1559-transactions).
-
 This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
 Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
 Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
 The default is `BLOB=6`.
+
+:::note
+
+[Frontier is the original Ethereum protocol that introduced the first transaction style with a basic gas fee system, 
+before updates such as [EIP-1559](../../concepts/transactions/types.md#eip1559-transactions).
+
+:::
 
 ### `tx-pool-max-size`
 

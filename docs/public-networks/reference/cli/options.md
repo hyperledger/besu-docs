@@ -5524,13 +5524,6 @@ Keeping the prioritized layer sorted is costly, and only a few blob transactions
 Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
 The default is `BLOB=6`.
 
-:::note
-
-[Frontier is the original Ethereum protocol that introduced the first transaction style with a basic gas fee system, 
-before updates such as [EIP-1559](../../concepts/transactions/types.md#eip1559-transactions).
-
-:::
-
 ### `tx-pool-max-size`
 
 <Tabs>

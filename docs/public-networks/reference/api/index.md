@@ -7131,7 +7131,7 @@ The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified block.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested block must be within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7441,7 +7441,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested blocks must be within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7545,7 +7545,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBl
 Returns a trace at the given position.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested transaction must be contained in a block within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7822,7 +7822,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified transaction.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested transaction must be contained in a block within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).

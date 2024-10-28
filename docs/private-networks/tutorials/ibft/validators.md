@@ -32,7 +32,7 @@ mkdir -p Node-5/data
 Change into the working directory for the new Node-5 and start the node, specifying the [Node-1 enode URL](index.md#6-start-the-first-node-as-the-bootnode) as the bootnode:
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30307 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8549
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30307 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8549 --profile=ENTERPRISE
 ```
 
 The command line specifies:

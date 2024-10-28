@@ -521,7 +521,7 @@ In private networks defined using [`--genesis-file`](#genesis-file) or when usin
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-CACHE_LAST_BLOCKS=2048
+BESU_CACHE_LAST_BLOCKS=2048
 ```
 
 </TabItem>
@@ -2679,19 +2679,19 @@ The predefined network configuration. The default is `mainnet`.
 
 Possible values include the following:
 
-| Network   | Chain | Type        | Default Sync Mode  | Consensus Mechanism      | Description                                                                          |
-| :-------- | :---- | :-----------| :----------------- | :----------------------- | :----------------------------------------------------------------------------------- |
-| `mainnet` | ETH   | Production  | [SNAP](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/)       |
-| `holesky` | ETH   | Test        | [SNAP](#sync-mode) | A PoS network            | Multi-client testnet [Hoelsky](https://holesky.dev)                                  |
-| `sepolia` | ETH   | Test        | [SNAP](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                                  |
-| `lukso`   | ETH   | Production  | [SNAP](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                                |
-| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining                   |
-| `classic` | ETC   | Production  | [SNAP](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)                     |
-| `mordor ` | ETC   | Test        | [SNAP](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)                |
+| Network   | Chain | Type        | Default sync mode  | Consensus mechanism      | Description                                                                    |
+| :-------- | :---- | :-----------| :----------------- | :----------------------- |:-------------------------------------------------------------------------------|
+| `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
+| `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Holesky](https://holesky.dev)                            |
+| `sepolia` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
+| `lukso`   | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                          |
+| `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining             |
+| `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)               |
+| `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
 
 :::tip
 
-Values are case insensitive, so either `mainnet` or `MAINNET` works.
+Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 :::
 
@@ -2963,6 +2963,20 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `print-paths-and-exit`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--print-paths-and-exit
+```
+
+</TabItem>
+</Tabs>
+
+Prints the Besu data directory paths and exits without starting the node.
+
 ### `profile`
 
 <Tabs>
@@ -3138,7 +3152,7 @@ In private and permissioned networks with a level of trust between peers, disabl
 
 :::danger
 
-To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#fast-sync-min-peers).
+To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#sync-min-peers-fast-sync-min-peers).
 
 :::
 
@@ -4974,7 +4988,7 @@ Static nodes JSON file containing the [static nodes](../../how-to/connect/static
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-STRICT_TX_REPLAY_PROTECTION_ENABLED=false
+BESU_STRICT_TX_REPLAY_PROTECTION_ENABLED=false
 ```
 
 </TabItem>
@@ -5029,7 +5043,7 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
+The minimum number of peers required before starting [sync](../../concepts/node-sync.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 
@@ -5075,22 +5089,27 @@ sync-mode="SNAP"
 
 </Tabs>
 
-The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization), and `FULL` for [full sync](../../concepts/node-sync.md#full-synchronization).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
-:::note Sync nodes for BFT
+:::note Notes
 
-If you're running a node on a [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) or [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md) network, your node must use fast sync or full sync.
+- We recommend using snap sync over fast sync because snap sync can be faster by several days.
+- It might become impossible to sync Mainnet using fast sync in the future, as clients drop support for fast sync.
+  We recommend updating Besu to a version that supports other sync methods.
+- When using a mode other than `FULL`, most historical world state data is unavailable.
+  Any methods attempting to access unavailable world state data return `null`.
 
 :::
 
-:::tip
+:::warning Early access feature
 
-- We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- It might become impossible to sync Ethereum Mainnet using fast sync in the future, as clients drop support for fast sync. We recommend you update Besu to a version that supports newer sync methods.
-- When synchronizing in a mode other than `FULL`, most historical world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution.
+
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT and IBFT 2.0 private networks.
 
 :::
 
@@ -5467,7 +5486,7 @@ in a block in your network.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-max-prioritized-by-type=<TYPE=INTEGER>
+--tx-pool-max-prioritized-by-type=["<TYPE=INTEGER>",...]
 ```
 
 </TabItem>
@@ -5475,7 +5494,7 @@ in a block in your network.
 <TabItem value="Example" label="Example">
 
 ```bash
---tx-pool-max-prioritized-by-type=BLOB=6
+--tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
@@ -5483,7 +5502,7 @@ in a block in your network.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
@@ -5491,14 +5510,14 @@ BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=BLOB=6
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-tx-pool-max-prioritized-by-type="BLOB=6"
+tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
 ```
 
 </TabItem>
 
 </Tabs>
 
-The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool). 
 
 This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
 Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
@@ -5593,6 +5612,52 @@ tx-pool-min-gas-price="2000"
 
 The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
 
+
+### `tx-pool-min-score`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-min-score=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-min-score=-100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MIN_SCORE=-100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-min-score="-100"
+```
+
+</TabItem>
+
+</Tabs>
+
+Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#penalize-invalid-pending-transactions)
+if its score is lower than this value. Accepts a value between `-128` and `127`.
+The default is `-128`.
+
+The lowest score a pending transaction can have is `-128`. The default value of `-128` means that pending
+transactions will not be removed and will remain in the pool with the lowest score, being selected after
+all other pending transactions.
 
 ### `tx-pool-no-local-priority`
 

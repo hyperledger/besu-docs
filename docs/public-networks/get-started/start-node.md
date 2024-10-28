@@ -40,12 +40,12 @@ To define a genesis configuration, create a genesis file (for example, `genesis.
 
 ## Syncing and storage
 
-By default, Besu syncs to the current state of the blockchain using [fast sync](connect/sync-node.md#fast-synchronization) in:
+By default, Besu syncs to the current state of the blockchain using [fast sync](../concepts/node-sync.md#fast-synchronization) in:
 
 - Networks specified using [`--network`](../reference/cli/options.md#network) except for the `dev` development network.
 - Ethereum Mainnet.
 
-We recommend using [snap sync](connect/sync-node.md#snap-synchronization) for a faster sync, by starting Besu with [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode).
+We recommend using [snap sync](../concepts/node-sync.md#snap-synchronization) for a faster sync, by starting Besu with [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode).
 
 By default, Besu stores data in the [Forest of Tries](../concepts/data-storage-formats.md#forest-of-tries) format. We recommend using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries) for lower storage requirements, by starting Besu with [`--data-storage-format=BONSAI`](../reference/cli/options.md#data-storage-format).
 

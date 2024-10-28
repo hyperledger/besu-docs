@@ -19,15 +19,27 @@ Existing validators propose and vote to [add or remove validators](#add-and-remo
 
 You can [create a private network using IBFT](../../../tutorials/ibft/index.md).
 
-:::danger
+:::caution
 
-Configure your network to ensure you never lose more than 1/3 of your validators. If more than 1/3 of validators stop participating, new blocks are no longer created, and the network stalls. It may take significant time to recover once nodes are restarted.
+Configure your network to ensure you never lose more than 1/3 of your validators.
+If more than 1/3 of validators stop participating, the network stops creating new blocks and stalls.
+It might take significant time to recover after nodes are restarted.
 
 :::
 
 :::tip
 
 You can use a plugin to securely store a validator's key using the [`--security-module`](../../../../public-networks/reference/cli/options.md#security-module) option.
+
+:::
+
+:::info Early access feature 
+
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution.
+
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable
+[snap sync](../../../concepts/node-sync-private.md) in IBFT 2.0 networks.
 
 :::
 

@@ -20,7 +20,7 @@ Flexible privacy groups are an early access feature. Don't use in production net
 
 The flexible privacy group interfaces might change between releases. There might not be an upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy group functionality in future versions.
 
-We don't recommended creating flexible privacy groups in a chain with existing [offchain privacy groups](privacy-groups.md).
+We don't recommend creating flexible privacy groups in a chain with existing [offchain privacy groups](privacy-groups.md).
 
 :::
 

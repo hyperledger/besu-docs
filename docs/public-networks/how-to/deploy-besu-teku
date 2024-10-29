@@ -1,29 +1,44 @@
 ---
-title: Deploy Besu and Teku Ethereum nodes using AWS node runners
+title: AWS Node Runners
 description: Configure Ethereum nodes with the execution/consensus layer client combination using AWS blockchain node runners.
 ---
 
-## Architecture
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-[AWS Blockchain Node Runners (Node Runners)](https://aws-samples.github.io/aws-blockchain-node-runners/docs/intro) are an open-source initiative aimed at simplifying the deployment of self-managed blockchain nodes on AWS using vetted deployment blueprints and infrastructure configurations. Node Runners is designed to solve for the common challenges customers face in architecting and deploying blockchain nodes on AWS, such as identifying the optimal configurations for each specific blockchain protocol’s node client.
-This blueprint has two configuration options for running Ethereum nodes and supports several Ethereum client combinations. You can set up a single JSON RPC node or multiple nodes in highly-available setup using the instructions below.
+# AWS Ethereum node deployment
+
+[AWS Blockchain Node Runners (Node Runners)](https://aws-samples.github.io/aws-blockchain-node-runners/docs/intro) are an open-source initiative aimed at simplifying the deployment of self-managed blockchain nodes on AWS using vetted deployment blueprints and infrastructure configurations. 
+AWS Blockchain Node Runners solves common challenges in architecting and deploying blockchain nodes on AWS. 
+It helps users identify optimal configurations for specific protocol clients
+
+This supports several Ethereum client combinations and offers two configuration options:
+
+- [Single JSON-RPC node setup for development and testing](#single-rpc-node-setup)
+- [Multiple nodes in a highly-available setup for production environments](#highly-available-setup)
+
+## Architecture
 
 ### Single RPC node setup
 ![Architecture-PoC](../docs/public-networks/how-to/89571298-F580-487E-BAEF-1CAC3B44545B.png)
 
-This setup is for small scale PoC or development environments. It deploys a single EC2 instance with both consensus and execution clients. The RPC port is exposed only to internal IP range of the VPC, while P2P ports allow external access to keep the clients synced.
+This setup is for small scale proof of concept (PoC) or development environments.
+It deploys a single EC2 instance with both consensus and execution clients.
+The RPC port is exposed only to internal IP range of the VPC, while P2P ports allow external access to keep the clients synced.
 
 ### Highly available setup
 ![Architecture](../docs/public-networks/how-to/4F4D60BC-25D0-4BB1-AF24-DCC4BE139F15.png)
 
-1.	An ongoing data synchronization process is configured with nodes in the Ethereum network with a sync node and RPC nodes.
-1.	The sync node is used to create a copy of node's state data in Amazon S3 bucket.
-1.	When new RPC nodes are provisioned, they copy state data from Amazon S3 bucket to speed up the initial sync process.
-1.	Applications and smart contract development tools access highly available RPC nodes behind the Application Load Balancer.
+1. The sync node synchronizes data continuously with the Ethereum network.
+1. The sync node copies node state data to an Amazon S3 bucket.
+1. New RPC nodes copy state data from the Amazon S3 bucket to accelerate their initial sync.
+1. The Application Load Balancer routes application and smart contract development tool requests to available RPC nodes.
 
-## Well-Architected
+### Architecture checklist
 
-This is the Well-Architected checklist for Ethereum nodes implementation of the AWS Blockchain Node Runner app. This checklist takes into account questions from the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) which are relevant to this workload. Please feel free to add more checks from the framework if required for your workload.
+The following is a checklist for Ethereum nodes implementation of the AWS Blockchain Node Runner. 
+This checklist takes into account questions from the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) which are relevant to this workload. 
+You can add more checks from the framework if required for your workload.
 
 | Pillar                  | Control                           | Question/Check                                                                   | Remarks          |
 |:------------------------|:----------------------------------|:---------------------------------------------------------------------------------|:-----------------|
@@ -49,17 +64,25 @@ This is the Well-Architected checklist for Ethereum nodes implementation of the 
 | Sustainability          | Hardware & services               | Select most efficient hardware for your workload                                 | This solution uses AWS Graviton-based Amazon EC2 instances which offer the best performance per watt of energy use in Amazon EC2.  |
 
 
-## Solution Walkthrough
+## Deploy and manage Besu and Teku Ethereum nodes on AWS
 
-### Open AWS CloudShell
+### 1. Configure the AWS CloudShell
 
-To begin, ensure you login to your AWS account with permissions to create and modify resources in IAM, EC2, EBS, VPC, S3, KMS, and Secrets Manager. 
+::: note
 
-From the AWS Management Console, open the [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html), a web-based shell environment. If unfamiliar, review the [2-minute YouTube video](https://youtu.be/fz4rbjRaiQM) for an overview and check out [CloudShell with VPC environment](https://docs.aws.amazon.com/cloudshell/latest/userguide/creating-vpc-environment.html) that we'll use to test nodes API from internal IP address space.
+In this tutorial you'll set all major configuration through environment variables, but you can also modify parameters in `config/config.ts` file. 
 
-Once ready, you can run the commands to deploy and test blueprints in the CloudShell.
+:::
 
-### Clone this repository and install dependencies
+#### 1.1 Log into AWS
+
+Log in to your AWS account with permissions to create and modify resources in IAM, EC2, EBS, VPC, S3, KMS, and Secrets Manager. 
+From the AWS Management Console, open the [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html), a web-based shell environment. \
+For more information, see the [overview](https://youtu.be/fz4rbjRaiQM) on [CloudShell with VPC environment](https://docs.aws.amazon.com/cloudshell/latest/userguide/creating-vpc-environment.html), which you'll use to test nodes API from internal IP address space.
+
+#### 1.2 Install and configure dependencies
+
+To deploy and test blueprints in the CloudShell, clone the following repository and install dependencies: 
 
 ```bash
 git clone https://github.com/aws-samples/aws-blockchain-node-runners.git
@@ -67,51 +90,57 @@ cd aws-blockchain-node-runners
 npm install
 ```
 
-::: note
+### 2. Prepare to deploy nodes
 
-In this tutorial we will set all major configuration through environment variables, but you also can modify parameters in `config/config.ts`.*
+1. Ensure you are in the root directory of the cloned repository.
 
-:::
+2. If you have deleted or don't have the default VPC, create default VPC:
 
-### Prepare to deploy nodes
+  ```bash
+  aws ec2 create-default-vpc
+  ```
 
-1. Make sure you are in the root directory of the cloned repository
+  ::: note 
+  
+  You might see the following error if the default VPC already exists: 
+  
+  ```bash
+  An error occurred (DefaultVpcAlreadyExists) when calling the CreateDefaultVpc operation: A Default VPC already exists for this account in this region.
+  ``` 
+  This means that he default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`.
+  
+  You can continue with the following steps.
+  
+  :::
 
-2. If you have deleted or don't have the default VPC, create default VPC
+3. Configure your Node Runners Ethereum blueprint deployment.
+To specify the Ethereum client combination you want to deploy, create your own copy of `.env` file and edit it using your preferred text editor. 
+The contents of your file for a Besu or Teku node deployment are the following, which uses a sample config from the repository:
 
-```bash
-aws ec2 create-default-vpc
-```
+  ```bash
+  # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+  cd lib/ethereum
+  pwd
+  cp ./sample-configs/.env-besu-teku .env
+  nano .env
+  ```
 
-::: note 
-
-You might see the following error if the default VPC already exists: `An error occurred (DefaultVpcAlreadyExists) when calling the CreateDefaultVpc operation: A Default VPC already exists for this account in this region.`. That means you can just continue with the following steps.*
-
-The default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`
-:::
-
-3. Configure your Node Runners Ethereum blueprint deployment
-
-To specify the Ethereum client combination you wish to deploy, create your own copy of `.env` file and edit it using your preferred text editor. The contents of your file for a Besu / Teku node deployment is as follows, which uses a sample config from the repository:
-```bash
-# Make sure you are in aws-blockchain-node-runners/lib/ethereum
-cd lib/ethereum
-pwd
-cp ./sample-configs/.env-besu-teku .env
-nano .env
-```
-> **NOTE:** *You can find more examples inside the `sample-configs` directory, which illustrate other Ethereum client combinations.*
+  :::note
+  
+  You can find more examples inside the `sample-configs` directory, which illustrates other Ethereum client combinations.
+  
+  :::
 
 
 4. Deploy common components such as IAM role, and Amazon S3 bucket to store data snapshots
 
-```bash
-pwd
-# Make sure you are in aws-blockchain-node-runners/lib/ethereum
-npx cdk deploy eth-common
-```
+  ```bash
+  pwd
+  # Ensure you are in aws-blockchain-node-runners/lib/ethereum
+  npx cdk deploy eth-common
+  ```
 
-### Option 1: Single RPC Node
+#### Single RPC Node
 
 1. Deploy Single RPC Node
 
@@ -120,7 +149,12 @@ pwd
 # Make sure you are in aws-blockchain-node-runners/lib/ethereum
 npx cdk deploy eth-single-node --json --outputs-file single-node-deploy.json
 ```
-> **NOTE:** *The default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`*
+
+:::note
+
+The default VPC must have at least two public subnets in different Availability Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`
+
+:::
 
 2. After starting the node you need to wait for the inital syncronization process to finish. It may take from half a day to about 6-10 days depending on the client combination and the state of the network. You can use Amazon CloudWatch to track the progress. There is a script that publishes CloudWatch metrics every 5 minutes, where you can watch `sync distance` for consensus client and `blocks behind` for execution client. When the node is fully synced those two metrics shold show 0. To see them:
 

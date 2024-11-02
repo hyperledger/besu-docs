@@ -21,6 +21,12 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 :::
 
+:::note
+
+Ephemery is a single network that rolls back to the genesis after a set period of time. Ephemery is focused on short term and heavy testing usecases. The purpose of this is also to avoid problems like insufficient testnet funds, inactive validators, state bloat, and similar issues faced by long-running testnets.
+
+:::
+
 ## Prerequisites
 
 - [Besu installed](../install/binary-distribution.md).
@@ -42,7 +48,7 @@ You will specify `jwtsecret.hex` when starting Besu and the consensus client. Th
 
 If you're running the consensus client as a beacon node only, skip to the [next step](#3-start-besu).
 
-If you're also running the consensus client as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running the consensus client as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia) and [Ephemery faucets](https://ephemery-faucet.pk910.de/).
 
 :::note
 
@@ -50,7 +56,7 @@ If you can't get testnet ETH using the faucet, you can ask for help on the [EthS
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) (or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/) or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
 
 :::info
 
@@ -100,6 +106,23 @@ besu \
 
 </TabItem>
 
+  <TabItem value="Ephemery" label="Ephemery">
+
+  ```bash
+  besu \
+    --network=ephemery          \
+    --rpc-http-enabled=true     \
+    --rpc-http-host=0.0.0.0     \
+    --rpc-http-cors-origins="*" \
+    --rpc-ws-enabled=true       \
+    --rpc-ws-host=0.0.0.0       \
+    --host-allowlist="*"        \
+    --engine-host-allowlist="*" \
+    --engine-rpc-enabled        \
+    --engine-jwt-secret=<path to jwtsecret.hex>
+  ```
+
+  </TabItem>
 </Tabs>
 
 Specify the path to the `jwtsecret.hex` file generated in [step 1](#1-generate-the-shared-secret) using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
@@ -160,6 +183,6 @@ If you're running the consensus client as a beacon node only, you're all set. If
 
 ### 6. Stake ETH
 
-Stake your testnet ETH for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/).
+Stake your testnet ETH for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
-You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/). It may take up to multiple days for your validator to be activated and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://beaconchain.ephemery.dev/). It may take up to multiple days for your validator to be activated and start proposing blocks.

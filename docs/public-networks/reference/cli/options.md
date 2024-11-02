@@ -2688,6 +2688,7 @@ Possible values include the following:
 | `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining             |
 | `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)               |
 | `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
+| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Ephemery](https://ephemery.dev) 
 
 :::tip
 

@@ -72,7 +72,7 @@ The **Dashboard** page provides an aggregated view of network activities.
 ![`Chainlens_dashboard`](../../../assets/images/chainlens-dashboard.png)
 
 The **Network** page provides an overview of the network status and connected peers.
-This page is disabled by default, and is only visible if you set `DISPLAY_NETWOR_TAB=enabled` using
+This page is disabled by default, and is only visible if you set `DISPLAY_NETWORK_TAB=enabled` using
 the following command:
 
 ```bash

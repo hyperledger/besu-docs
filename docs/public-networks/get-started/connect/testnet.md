@@ -23,7 +23,9 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 :::note
 
-Ephemery is a single network that rolls back to the genesis after a set period of time. Ephemery is focused on short term and heavy testing usecases. The purpose of this is also to avoid problems like insufficient testnet funds, inactive validators, state bloat faced by long-running testnets.
+Ephemery is a single network that resets to the genesis block after a set period. The network focuses on
+short-term, intensive testing use cases. This approach avoids issues like insufficient testnet funds, inactive
+validators, and state bloat that long-running testnets face.
 
 :::
 

@@ -24,7 +24,7 @@ To delete the local block data, delete the `database` directory in the `besu/bui
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Holesky](#run-a-node-on-holesky-testnet), [Sepolia](#run-a-node-on-sepolia-testnet),[Ephemery](#run-a-node-on-ephemery-testnet) and [Mainnet](#run-a-node-on-ethereum-mainnet).
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Holesky](#run-a-node-on-holesky-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), [Ephemery](#run-a-node-on-ephemery-testnet) and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
 :::info
 

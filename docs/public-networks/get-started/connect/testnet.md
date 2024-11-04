@@ -58,7 +58,7 @@ If you can't get testnet ETH using the faucet, you can ask for help on the [EthS
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/) or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/), or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
 
 :::info
 

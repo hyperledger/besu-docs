@@ -41,7 +41,7 @@ You will specify `jwtsecret.hex` when starting Besu and Teku. This is a shared J
 
 If you're running Teku as a beacon node only, skip to the [next step](#4-start-besu).
 
-If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky), [Ephemery faucets](https://ephemery-faucet.pk910.de/) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky), [Ephemery faucets](https://ephemery-faucet.pk910.de/), and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 
 :::note
 

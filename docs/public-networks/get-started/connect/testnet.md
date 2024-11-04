@@ -50,7 +50,7 @@ You will specify `jwtsecret.hex` when starting Besu and the consensus client. Th
 
 If you're running the consensus client as a beacon node only, skip to the [next step](#3-start-besu).
 
-If you're also running the consensus client as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia) and [Ephemery faucets](https://ephemery-faucet.pk910.de/).
+If you're also running the consensus client as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Holesky faucets](https://github.com/eth-clients/holesky), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia), and [Ephemery faucets](https://ephemery-faucet.pk910.de/).
 
 :::note
 

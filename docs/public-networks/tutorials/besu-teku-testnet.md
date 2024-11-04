@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Run Besu and Teku on a testnet
 
-Run Besu as an [execution client](../concepts/node-clients.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/node-clients.md#consensus-clients) on the [Holesky](https://github.com/eth-clients/holesky), [Ephemery](https://github.com/ephemery-testnet/ephemery-resources) and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
+Run Besu as an [execution client](../concepts/node-clients.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/node-clients.md#consensus-clients) on the [Holesky](https://github.com/eth-clients/holesky), [Ephemery](https://github.com/ephemery-testnet/ephemery-resources), and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
 
 :::note
 

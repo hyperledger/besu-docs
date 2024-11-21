@@ -4,7 +4,13 @@ description: Privacy plugin
 sidebar_position: 5
 ---
 
-# Privacy plugin
+# Privacy plugin (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 You can define your own strategy for private transactions by building a plugin that extends Besu functionality.
 

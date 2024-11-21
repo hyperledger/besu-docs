@@ -4,7 +4,13 @@ sidebar_position: 2
 description: Privacy groups
 ---
 
-# Privacy groups
+# Privacy groups (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 A privacy group is a group of nodes identified by a unique privacy group ID by Tessera. Tessera stores each private transaction with the privacy group ID.
 

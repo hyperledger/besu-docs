@@ -4,7 +4,13 @@ sidebar_position: 3
 description: Flexible privacy groups
 ---
 
-# Flexible privacy groups
+# Flexible privacy groups (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Flexible [privacy groups](privacy-groups.md) use smart contracts to store and maintain the group membership. You can [add and remove members to and from flexible privacy groups](../../how-to/use-privacy/flexible.md).
 

@@ -4,7 +4,13 @@ sidebar_position: 4
 description: Multi-tenancy
 ---
 
-# Multi-tenancy
+# Multi-tenancy (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 By default, each participant in a privacy network uses its own Besu and Tessera node.
 

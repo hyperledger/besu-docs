@@ -4,7 +4,13 @@ sidebar_position: 1
 description: Private transaction processing
 ---
 
-# Private transaction processing
+# Private transaction processing (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Processing [private transactions](index.md) involves the following:
 

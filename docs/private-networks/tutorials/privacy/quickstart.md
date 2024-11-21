@@ -4,7 +4,13 @@ tags:
   - private networks
 ---
 
-# Create a privacy-enabled network using the Quorum Developer Quickstart
+# Create a privacy-enabled network using the Quorum Developer Quickstart (Deprecated)
+
+:::caution
+
+Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 You can create a privacy-enabled network using the [Quorum Developer Quickstart](../quickstart.md). It runs a private Besu network that uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 

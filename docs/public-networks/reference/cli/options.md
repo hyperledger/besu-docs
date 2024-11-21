@@ -5021,7 +5021,10 @@ rpc-ws-ssl-enabled=true
 
 </Tabs>
 
-Enables or disables SSL/TLS for the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
+
+Set the appropriate keystore type with the [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type)
+command line option.
 
 ### `rpc-ws-ssl-key-file`
 

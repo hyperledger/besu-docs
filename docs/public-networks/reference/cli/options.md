@@ -4980,7 +4980,7 @@ and provide the appropriate file path for the truststore or trust certificate us
 [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file) (for JKS or PKCS12) or
 [`--rpc-ws-ssl-trustcert-file`](#rpc-ws-ssl-trustcert-file) (for PEM).
 
-If using JKS or PKCS12, you also need to specify the truststore password with [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
+If using JKS or PKCS12, specify the truststore password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
 :::
 
 ### `rpc-ws-ssl-enabled`
@@ -5023,8 +5023,7 @@ rpc-ws-ssl-enabled=true
 
 Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
 
-Set the appropriate keystore type with the [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type)
-command line option.
+Set the appropriate keystore type using [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type).
 
 ### `rpc-ws-ssl-key-file`
 
@@ -5066,7 +5065,7 @@ rpc-ws-ssl-key-file="/home/me/me_node/websocket-cert.pem"
 
 Path to the PEM certificate file when enabling SSL/TLS for the WebSocket JSON-RPC service.
 This file contains the private key that corresponds to the public certificate specified using
-[`rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file).
+[`--rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file).
 
 Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
 
@@ -5110,7 +5109,7 @@ rpc-ws-ssl-keystore-file="/home/me/me_node/keystore.jks"
 
 Path to the keystore file when enabling SSL/TLS for the WebSocket JSON-RPC service.
 The keystore file is used to store the server's private key and public certificate in a single
-file, typically in JKS or PKCS12 format. This option is used when you prefer to
+file, typically in JKS or PKCS12 format. Use this option if you prefer to
 manage your SSL/TLS certificates and keys in a keystore rather than separate PEM files.
 
 Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is set to `JKS` or `PKCS12`.
@@ -5282,8 +5281,7 @@ rpc-ws-ssl-truststore-file="/home/me/me_node/websocket-truststore.jks"
 Path to the truststore file for enabling SSL/TLS client authentication for the WebSocket JSON-RPC
 service.
 
-Specify the truststore file password with the [`rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password)
-command.
+Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
 
 ### `rpc-ws-ssl-truststore-password`
 

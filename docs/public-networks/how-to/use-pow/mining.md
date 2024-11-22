@@ -7,7 +7,13 @@ tags:
   - private networks
 ---
 
-# Configure mining
+# Configure mining (Deprecated)
+
+:::caution
+
+PoW consensus is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Besu supports CPU and GPU mining, which are configured using command line options.
 

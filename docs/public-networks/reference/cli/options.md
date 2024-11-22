@@ -2427,7 +2427,7 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 A hex string representing the 32 bytes included in the extra data field of a created block.
 The default is `0x`.
 
-### `miner-stratum-enabled`
+### `miner-stratum-enabled` (Deprecated)
 
 <Tabs>
 
@@ -2460,7 +2460,7 @@ miner-stratum-enabled=true
 Enables a node to perform stratum mining.
 The default is `false`.
 
-### `miner-stratum-host`
+### `miner-stratum-host` (Deprecated)
 
 <Tabs>
 
@@ -2501,7 +2501,7 @@ miner-stratum-host="192.168.1.132"
 The host of the stratum mining service.
 The default is `0.0.0.0`.
 
-### `miner-stratum-port`
+### `miner-stratum-port` (Deprecated)
 
 <Tabs>
 
@@ -2569,7 +2569,7 @@ Specify the method for handling [NAT environments](../../how-to/connect/specify-
 
 - [`UPNP`](../../how-to/connect/specify-nat.md#upnp)
 - [`UPNPP2PONLY`](../../how-to/connect/specify-nat.md#upnp)
-- [`KUBERNETES`](../../how-to/connect/specify-nat.md#kubernetes)
+- [`KUBERNETES` (Deprecated)](../../how-to/connect/specify-nat.md#kubernetes)
 - [`DOCKER`](../../how-to/connect/specify-nat.md#docker)
 - [`AUTO`](../../how-to/connect/specify-nat.md#auto)
 - [`NONE`](../../how-to/connect/specify-nat.md#none).

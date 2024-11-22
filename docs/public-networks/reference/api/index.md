@@ -5506,7 +5506,7 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(numb
 
 </Tabs>
 
-### `eth_getWork`
+### `eth_getWork` (Deprecated)
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
@@ -6072,7 +6072,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":[
 
 </Tabs>
 
-### `eth_submitWork`
+### `eth_submitWork` (Deprecated)
 
 Submits a proof of work (Ethash) solution. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 

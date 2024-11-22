@@ -475,7 +475,15 @@ For proof-of-stake and proof-of-work networks, see
 [`--block-txs-selection-max-time`](../../../public-networks/reference/cli/options.md#block-txs-selection-max-time).
 :::
 
-### `privacy-enabled`
+ (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+### `privacy-enabled` (Deprecated)
 
 <Tabs>
 
@@ -521,7 +529,7 @@ Using private transactions with [pruning](../../../public-networks/concepts/data
 
 :::
 
-### `privacy-marker-transaction-signing-key-file`
+### `privacy-marker-transaction-signing-key-file` (Deprecated)
 
 <Tabs>
 
@@ -574,7 +582,7 @@ You must specify this option if you're using:
 
 If you do not specify this option (for example, in a free gas network), Besu signs each transaction with a different randomly generated key.
 
-### `privacy-multi-tenancy-enabled`
+### `privacy-multi-tenancy-enabled` (Deprecated)
 
 <Tabs>
 
@@ -614,7 +622,7 @@ privacy-multi-tenancy-enabled=false
 
 Enables or disables [multi-tenancy](../../concepts/privacy/multi-tenancy.md) for private transactions. The default is `false`.
 
-### `privacy-flexible-groups-enabled`
+### `privacy-flexible-groups-enabled` (Deprecated)
 
 <Tabs>
 
@@ -656,7 +664,7 @@ Enables or disables [flexible privacy groups](../../concepts/privacy/flexible-pr
 
 Deprecated syntax for this option is `--privacy-onchain-groups-enabled`.
 
-### `privacy-public-key-file`
+### `privacy-public-key-file` (Deprecated)
 
 <Tabs>
 
@@ -702,7 +710,7 @@ You cannot specify `privacy-public-key-file` when [`--privacy-multi-tenancy-enab
 
 :::
 
-### `privacy-tls-enabled`
+### `privacy-tls-enabled` (Deprecated)
 
 <Tabs>
 
@@ -742,7 +750,7 @@ privacy-tls-enabled=false
 
 Enables or disables [TLS on communication with the private transaction manager]. The default is false.
 
-### `privacy-tls-keystore-file`
+### `privacy-tls-keystore-file` (Deprecated)
 
 <Tabs>
 
@@ -824,7 +832,7 @@ privacy-tls-keystore-password-file="/home/me/me_node/password"
 
 The path to the file containing the password to decrypt the keystore.
 
-### `privacy-tls-known-enclave-file`
+### `privacy-tls-known-enclave-file` (Deprecated)
 
 <Tabs>
 
@@ -864,7 +872,7 @@ privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 
 The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the [authorized privacy enclave](../../how-to/configure/tls/client-and-server.md#create-the-known-servers-file).
 
-### `privacy-url`
+### `privacy-url` (Deprecated)
 
 <Tabs>
 

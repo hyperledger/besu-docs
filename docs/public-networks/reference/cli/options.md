@@ -220,7 +220,8 @@ auto-log-bloom-caching-enabled=false
 
 Enables or disables automatic log bloom caching. APIs such as [`eth_getLogs`](../api/index.md#eth_getlogs) and [`eth_getFilterLogs`](../api/index.md#eth_getfilterlogs) use the cache for improved performance. The default is `true`.
 
-If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu performs an uncached query for logs not yet written to the cache.
+If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu
+performs an uncached query for logs not yet written to the cache.
 
 Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms for a large number of blocks, you might want to disable automatic log bloom caching.
 
@@ -4331,7 +4332,9 @@ When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum number of b
 
 :::caution
 
-Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its genesis block, might cause Besu to hang for an indeterminable amount of time while generating the response.
+Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its
+genesis block, might cause Besu to stop responding for an indeterminable amount of time while
+generating the response.
 
 We recommend setting a range limit or leaving this option at its default value.
 
@@ -4416,7 +4419,7 @@ rpc-tx-feecap=1200000000000000000
 
 </Tabs>
 
-The maximum transaction fee (in Wei) accepted for transactions submitted through the [`eth_sendRawTransaction`](../api/index.md#eth_sendrawtransaction) RPC. The default is 1000000000000000000 (1 ether).
+The maximum transaction fee (in wei) accepted for transactions submitted through the [`eth_sendRawTransaction`](../api/index.md#eth_sendrawtransaction) RPC. The default is 1000000000000000000 (1 ether).
 
 If set to 0, then this option is ignored and no cap is applied.
 
@@ -4884,6 +4887,487 @@ rpc-ws-port="6174"
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+
+### `rpc-ws-ssl-cert-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-cert-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-cert-file=/home/me/me_node/websocket-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_CERT_FILE="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-cert-file="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM certificate file enabling SSL/TLS for the WebSocket JSON-RPC service.
+This file contains the public certificate that is used to establish the identity of the server to clients.
+
+Specify the private key file using [`--rpc-ws-ssl-key-file`](#rpc-ws-ssl-key-file).
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
+
+### `rpc-ws-ssl-client-auth-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-client-auth-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-client-auth-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_CLIENT_AUTH_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-client-auth-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables client authentication for the WebSocket JSON-RPC service. The default is `false`.
+
+:::note
+
+When enabling client authentication, specify the truststore type using [`--rpc-ws-ssl-truststore-type`](#rpc-ws-ssl-truststore-type)
+and provide the appropriate file path for the truststore or trust certificate using either
+[`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file) (for JKS or PKCS12) or
+[`--rpc-ws-ssl-trustcert-file`](#rpc-ws-ssl-trustcert-file) (for PEM).
+
+If using JKS or PKCS12, specify the truststore password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
+:::
+
+### `rpc-ws-ssl-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
+
+Set the appropriate keystore type using [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type).
+
+### `rpc-ws-ssl-key-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-key-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-key-file=/home/me/me_node/websocket-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEY_FILE="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-key-file="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM certificate file when enabling SSL/TLS for the WebSocket JSON-RPC service.
+This file contains the private key that corresponds to the public certificate specified using
+[`--rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file).
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
+
+### `rpc-ws-ssl-keystore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-file=/home/me/me_node/keystore.jks
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_FILE="/home/me/me_node/keystore.jks"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-file="/home/me/me_node/keystore.jks"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the keystore file when enabling SSL/TLS for the WebSocket JSON-RPC service.
+The keystore file is used to store the server's private key and public certificate in a single
+file, typically in JKS or PKCS12 format. Use this option if you prefer to
+manage your SSL/TLS certificates and keys in a keystore rather than separate PEM files.
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is set to `JKS` or `PKCS12`.
+
+### `rpc-ws-ssl-keystore-password`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-password=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-password=keystore_password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_PASSWORD="keystore_password"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-password="keystore_password"
+```
+
+</TabItem>
+
+</Tabs>
+
+Password for the keystore file specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file).
+
+### `rpc-ws-ssl-keystore-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-type=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-type=JKS
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_TYPE="JKS"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-type="JKS"
+```
+
+</TabItem>
+
+</Tabs>
+
+Type of the keystore when enabling SSL/TLS for the WebSocket JSON-RPC service. Valid options are
+`JKS`, `PKCS12`, and `PEM`.
+
+Provide the appropriate file path for the keystore using either
+[`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file) (for `JKS` or `PKCS12`), or
+[`--rpc-ws-ssl-key-file`](#rpc-ws-ssl-key-file) and [`--rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file) (for `PEM`).
+
+### `rpc-ws-ssl-trustcert-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-trustcert-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-trustcert-file=/home/me/me_node/trust-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTCERT_FILE="/home/me/me_node/trust-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-trustcert-file="/home/me/me_node/trust-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM trust certificate file for enabling client SSL/TLS authentication for the WebSocket JSON-RPC
+service.
+
+### `rpc-ws-ssl-truststore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-file=/home/me/me_node/websocket-truststore.jks
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_FILE="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-file="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the truststore file for enabling SSL/TLS client authentication for the WebSocket JSON-RPC
+service.
+
+Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
+
+### `rpc-ws-ssl-truststore-password`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-password=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-password=/home/me/me_node/websocket-truststore.jks
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-password="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+</Tabs>
+
+Password for the truststore file specified using [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file)
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-truststore-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-type=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-type=JKS
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_TYPE="JKS"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-type="JKS"
+```
+
+</TabItem>
+
+</Tabs>
+
+Type of the truststore when enabling client SSL/TLS authentication for the WebSocket JSON-RPC service. Valid options are
+`JKS`, `PKCS12`, and `PEM`.
+
+Specify the required [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file) for `JKS` and `PKCS12`, or
+[`--rpc-ws-ssl-trustcert-file`](#rpc-ws-ssl-trustcert-file) for `PEM`.
+
 ### `security-module`
 
 <Tabs>
@@ -5330,8 +5814,8 @@ tx-pool-layer-max-capacity="20000000"
 Maximum amount of memory (in bytes) that any layer within the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
 The default is `12500000`, or 12.5 MB.
 
-There are two memory-limited layers in the transaction pool, so the expected memory consumption is
-twice the value specified by this option, or 25 MB by default.
+The transaction pool includes two memory-limited layers, resulting in an expected memory consumption
+that is twice the value specified by this option, or 25 MB by default.
 Increase this value if you have spare RAM and the eviction rate is high for your network.
 
 ### `tx-pool-limit-by-account-percentage`

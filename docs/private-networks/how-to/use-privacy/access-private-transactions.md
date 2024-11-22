@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Access private and privacy marker transactions
+# Access private and privacy marker transactions (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 A Besu private transaction creates a [privacy marker transaction](../../concepts/privacy/private-transactions/processing.md) and the private transaction itself.
 

@@ -9,11 +9,11 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a privacy-enabled network (Deprecated)
+# Create a privacy-enabled network  (Deprecated)
 
 :::caution
 
-Tessera-based Privacy is deprecated in Besu as of 24.11.0. Please read this [blog](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
 
 :::
 

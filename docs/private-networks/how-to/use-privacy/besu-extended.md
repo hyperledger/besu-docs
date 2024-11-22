@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use Besu-extended privacy
+# Use Besu-extended privacy (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Besu provides an extended implementation of privacy allowing you to [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You must specify the privacy group ID when sending private transactions.
 

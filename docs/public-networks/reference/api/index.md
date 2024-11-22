@@ -6018,7 +6018,7 @@ mutation {
 
 </Tabs>
 
-### `eth_submitHashrate`
+### `eth_submitHashrate` (Deprecated)
 
 Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 

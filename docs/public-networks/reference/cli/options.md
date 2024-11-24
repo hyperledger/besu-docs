@@ -2335,7 +2335,7 @@ miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 
 The account you pay mining rewards to.
 You must specify a valid coinbase when you enable mining using the
-[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start)
+[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start-deprecated)
 JSON-RPC API method.
 
 :::note

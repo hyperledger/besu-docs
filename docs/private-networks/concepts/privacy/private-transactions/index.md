@@ -2,7 +2,13 @@
 description: Private transaction overview
 ---
 
-# Private transactions
+# Private transactions (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Private transactions have the same parameters as public Ethereum transactions, with the following additions:
 

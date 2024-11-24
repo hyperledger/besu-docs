@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use EEA-compliant privacy
+# Use EEA-compliant privacy (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 When using Besu [EEA-compliant privacy](../../concepts/privacy/privacy-groups.md), the group of nodes specified by `privateFrom` and `privateFor` form a privacy group, to which Tessera assigns a unique privacy group ID.
 

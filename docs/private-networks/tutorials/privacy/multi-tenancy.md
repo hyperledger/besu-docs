@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Configure a multi-tenant node
+# Configure a multi-tenant node (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 You can configure Besu and associated Tessera node in a privacy-enabled network to host [multiple tenants](../../concepts/privacy/multi-tenancy.md).
 

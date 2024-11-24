@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Onchain permissioning
+# Onchain permissioning (Deprecated)
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Onchain [permissioning](index.md) uses smart contracts to store and administer the node, account, and admin allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single source, the blockchain.
 

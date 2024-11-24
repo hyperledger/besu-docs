@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use flexible privacy groups
+# Use flexible privacy groups (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Use the [`web3js-quorum` library](https://github.com/ConsenSys/web3js-quorum) to create and update membership of [flexible privacy groups](../../concepts/privacy/flexible-privacy.md).
 

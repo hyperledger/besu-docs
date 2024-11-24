@@ -18,7 +18,8 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 
 Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case, you can use only bootnodes, only static nodes, or both bootnodes and static nodes.
 
-Besu attempts connection to all bootnodes once, at startup. Static nodes are different in that reconnection is attempted periodically if the connection fails or is lost.
+When connecting to bootnodes, Besu attempts to connect to all bootnodes at once, at startup.
+When connecting to static nodes, Besu attempts to reconnect periodically, if the connection fails or is lost.
 
 To find peers, configure one or more bootnodes. To configure a specific set of peer connections, use [static nodes](../../../public-networks/how-to/connect/static-nodes.md).
 

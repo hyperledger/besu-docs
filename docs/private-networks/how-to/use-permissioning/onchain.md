@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use onchain permissioning
+# Use onchain permissioning (Deprecated)
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 This page contains some extra info if you're using [onchain permissioning](../../concepts/permissioning/onchain.md).
 

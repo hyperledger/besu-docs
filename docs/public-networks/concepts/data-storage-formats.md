@@ -80,7 +80,7 @@ Using `--bonsai-historical-block-limit` doesn't affect the size of the database 
 
 ### Syncing nodes
 
-The following table shows the ways you can sync a [full node](node-sync.md#full-nodes) with the different data storage formats using [fast](node-sync.md#fast-synchronization) and [snap](node-sync.md#snap-synchronization) sync.
+The following table shows the ways you can sync a [full node](node-sync.md#full-nodes) with the different data storage formats using [fast](node-sync.md#fast-synchronization-deprecated) and [snap](node-sync.md#snap-synchronization) sync.
 
 | Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
 | --- | --- | --- | --- |

@@ -27,7 +27,7 @@ block).
 
 You can run a full node using [snap synchronization](#snap-synchronization),
 [checkpoint synchronization](#checkpoint-synchronization), or
-[fast synchronization](#fast-synchronization).
+[fast synchronization](#fast-synchronization-deprecated).
 
 ### Archive nodes
 
@@ -53,7 +53,7 @@ The following is an overview of the public network sync modes:
 |-------------------------------------------|-------------|--------------|-------------|
 | [Snap](#snap-synchronization)             | Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing locally. Faster than fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
 | [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements. | Besu version 22.4.3 or later | |
-| [Fast](#fast-synchronization)             | Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Deprecated in Besu version 24.11.0 and later. |
+| [Fast](#fast-synchronization-deprecated)             | Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Deprecated in Besu version 24.11.0 and later. |
 | [Full](#full-synchronization)             | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history. | None | Slowest sync mode, requires the most disk space. |
 
 :::info Private network syncing

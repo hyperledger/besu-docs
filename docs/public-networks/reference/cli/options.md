@@ -5574,7 +5574,7 @@ sync-mode="SNAP"
 
 </Tabs>
 
-The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization), and `FULL` for [full sync](../../concepts/node-sync.md#full-synchronization).
+The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization-deprecated), and `FULL` for [full sync](../../concepts/node-sync.md#full-synchronization).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
@@ -5582,8 +5582,7 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 :::note Notes
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- Fast sync is deprecated in Besu version 24.11.0 and later. 
-- It might become impossible to sync Mainnet using fast sync in the future, as clients drop support for fast sync.
+- Fast sync is deprecated in Besu version 24.11.0 and later.
   We recommend updating Besu to a version that supports other sync methods.
 - When using a mode other than `FULL`, most historical world state data is unavailable.
   Any methods attempting to access unavailable world state data return `null`.

@@ -12,7 +12,7 @@ tags:
 
 You can use Besu to develop enterprise applications requiring secure, high-performance transaction processing in a private network.
 
-A private network is a network not connected to Ethereum Mainnet or an Ethereum testnet. Private networks typically use a different [chain ID](../public-networks/concepts/network-and-chain-id.md) and proof of authority consensus ([QBFT](how-to/configure/consensus/qbft.md), [IBFT 2.0](how-to/configure/consensus/ibft.md), or [Clique](how-to/configure/consensus/clique.md)).
+A private (also known as permissioned) network is a network not connected to Ethereum Mainnet or an Ethereum testnet. Private networks typically use a different [chain ID](../public-networks/concepts/network-and-chain-id.md) and proof of authority consensus ([QBFT](how-to/configure/consensus/qbft.md), [IBFT 2.0](how-to/configure/consensus/ibft.md), or [Clique](how-to/configure/consensus/clique.md)).
 
 You can also [create a local development network](tutorials/ethash.md) using proof of work (Ethash).
 

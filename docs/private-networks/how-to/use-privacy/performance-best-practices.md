@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Performance best practices
+# Privacy performance best practices (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 This document collects deployment and usage tips to help you achieve high performance for private transactions. If transaction throughput or latency is not meeting your expectations, please consider the following before raising an issue.
 

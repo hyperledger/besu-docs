@@ -475,14 +475,6 @@ For proof-of-stake and proof-of-work networks, see
 [`--block-txs-selection-max-time`](../../../public-networks/reference/cli/options.md#block-txs-selection-max-time).
 :::
 
- (Deprecated)
-
-:::caution
-
-Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
-
-:::
-
 ### `privacy-enabled` (Deprecated)
 
 <Tabs>
@@ -522,6 +514,12 @@ privacy-enabled=false
 </Tabs>
 
 Enables or disables [private transactions](../../concepts/privacy/index.md). The default is `false`.
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 :::important
 
@@ -706,7 +704,7 @@ The [public key of the Tessera node](https://docs.tessera.consensys.net/).
 
 :::important
 
-You cannot specify `privacy-public-key-file` when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled) is `true`
+You cannot specify `privacy-public-key-file` when [`--privacy-multi-tenancy-enabled`](#privacy-multi-tenancy-enabled-deprecated) is `true`
 
 :::
 
@@ -790,9 +788,9 @@ privacy-tls-keystore-file="/home/me/me_node/key"
 
 The keystore file (in PKCS #12 format) containing the private key and the certificate presented during authentication.
 
-You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#privacy-tls-enabled) is `true`.
+You must specify `privacy-tls-keystore-file` if [`--privacy-tls-enabled`](#privacy-tls-enabled-deprecated) is `true`.
 
-### `privacy-tls-keystore-password-file`
+### `privacy-tls-keystore-password-file` (Deprecated)
 
 <Tabs>
 

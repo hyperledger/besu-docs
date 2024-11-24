@@ -1809,7 +1809,7 @@ curl -X POST --data '{"jsonrpc": "2.0","method": "priv_getLogs","params":["vGy/T
 
 ### `priv_getPrivacyPrecompileAddress`
 
-Returns the address of the [privacy precompiled contract](../../concepts/privacy/private-transactions/processing.md). The address is derived and based on the value of the [`privacy-flexible-groups-enabled`](../cli/options.md#privacy-flexible-groups-enabled) option.
+Returns the address of the [privacy precompiled contract](../../concepts/privacy/private-transactions/processing.md). The address is derived and based on the value of the [`privacy-flexible-groups-enabled`](../cli/options.md#privacy-flexible-groups-enabled-deprecated) option.
 
 #### Parameters
 

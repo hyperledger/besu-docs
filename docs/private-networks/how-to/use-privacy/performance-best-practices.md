@@ -44,7 +44,7 @@ For performance and reliability it is advantageous to manage nonces in a statefu
 
 ### Use random senders for privacy marker transactions
 
-To avoid public nonce management, privacy marker transactions can be sent using a [random account per transaction](../../../private-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file). This option is only available for zero gas networks.
+To avoid public nonce management, privacy marker transactions can be sent using a [random account per transaction](../../../private-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated). This option is only available for zero gas networks.
 
 ### Avoid queuing transactions in Tessera
 

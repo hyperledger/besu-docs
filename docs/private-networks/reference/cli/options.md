@@ -139,13 +139,7 @@ permissions-accounts-config-file-enabled=true
 
 </Tabs>
 
-Enables or disables file-based account level permissions. The default is `false`. (Deprecated)
-
-:::caution
-
-Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
-
-:::
+Enables or disables file-based account level permissions. The default is `false`.
 
 ### `permissions-accounts-contract-address` (Deprecated)
 
@@ -226,6 +220,12 @@ permissions-accounts-contract-enabled=true
 </Tabs>
 
 Enables or disables contract-based [onchain account permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 ### `permissions-nodes-config-file`
 
@@ -392,6 +392,12 @@ permissions-nodes-contract-enabled=true
 </Tabs>
 
 Enables or disables contract-based [onchain node permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 ### `permissions-nodes-contract-version` (Deprecated)
 

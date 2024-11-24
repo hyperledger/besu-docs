@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Create and manage privacy groups
+# Create and manage privacy groups (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Besu-extended privacy provides JSON-RPC API methods for creating and managing privacy groups:
 

@@ -531,7 +531,7 @@ New nodes joining an existing network require the following:
 
 - The same genesis file used by all other nodes on the running network.
 - A list of nodes to connect to; this is done by specifying [bootnodes], or by providing a list of [static nodes].
-- A node key pair and optionally an account. If the running network is using permissions, then you need to add the new node's enode details to the [permissions file] used by existing nodes, or update the onchain permissioning contract.
+- A node key pair and optionally an account. If the running network is using permissions, then you need to add the new node's enode details to the [permissions file] used by existing nodes.
 
 The following steps describe the process to add a new node to the Developer Quickstart.
 

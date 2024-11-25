@@ -141,7 +141,7 @@ permissions-accounts-config-file-enabled=true
 
 Enables or disables file-based account level permissions. The default is `false`.
 
-### `permissions-accounts-contract-address`
+### `permissions-accounts-contract-address` (Deprecated)
 
 <Tabs>
 
@@ -181,7 +181,7 @@ permissions-accounts-contract-address="xyz"
 
 The contract address for [onchain account permissioning](../../concepts/permissioning/onchain.md).
 
-### `permissions-accounts-contract-enabled`
+### `permissions-accounts-contract-enabled` (Deprecated)
 
 <Tabs>
 
@@ -220,6 +220,12 @@ permissions-accounts-contract-enabled=true
 </Tabs>
 
 Enables or disables contract-based [onchain account permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 ### `permissions-nodes-config-file`
 
@@ -307,7 +313,7 @@ permissions-nodes-config-file-enabled=true
 
 Enables or disables file-based node level permissions. The default is `false`.
 
-### `permissions-nodes-contract-address`
+### `permissions-nodes-contract-address` (Deprecated)
 
 <Tabs>
 
@@ -347,7 +353,7 @@ permissions-nodes-contract-address="xyz"
 
 The contract address for [onchain node permissioning](../../concepts/permissioning/onchain.md).
 
-### `permissions-nodes-contract-enabled`
+### `permissions-nodes-contract-enabled` (Deprecated)
 
 <Tabs>
 
@@ -387,7 +393,13 @@ permissions-nodes-contract-enabled=true
 
 Enables or disables contract-based [onchain node permissioning](../../concepts/permissioning/onchain.md). The default is `false`.
 
-### `permissions-nodes-contract-version`
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+### `permissions-nodes-contract-version` (Deprecated)
 
 <Tabs>
 

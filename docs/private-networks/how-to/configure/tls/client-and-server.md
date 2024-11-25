@@ -120,10 +120,10 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 
 The command line:
 
-- Enables TLS with the server using the [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled) option.
-- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file) option.
-- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file) option.
-- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file) option.
+- Enables TLS with the server using the [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled-deprecated) option.
+- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file-deprecated) option.
+- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file-deprecated) option.
+- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file-deprecated) option.
 
 <!-- Links -->
 

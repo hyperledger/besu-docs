@@ -100,7 +100,7 @@ Account allowlisting is at the node level. That is, each node in the network has
 
 Account permissioning is incompatible with [random key signing](../use-privacy/sign-pmts.md) for [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md).
 
-If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file) command line option and the corresponding public key included in the accounts allowlist.
+If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated) command line option and the corresponding public key included in the accounts allowlist.
 
 :::
 

@@ -5589,48 +5589,6 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 
 :::
 
-### `snapsync-bft-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---snapsync-bft-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---snapsync-bft-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_SNAPSYNC_BFT_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-snapsync-bft-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables snapsync in [IBFT 2.0](../../how-to/configure-besu/networks/ibft.md) and [QBFT](../../how-to/configure-besu/networks/qbft.md) private networks. The default is `false`.
-
-Use `--snapsync-bft-enabled` with `--sync-mode=SNAP` to enable snapsync in QBFT and IBFT 2.0 private networks.
-
 ### `target-gas-limit`
 
 <Tabs>

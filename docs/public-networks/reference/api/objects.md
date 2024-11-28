@@ -91,7 +91,7 @@ Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_g
 
 ## Miner data object
 
-Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
+Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
 
 | Key | Type | Value |
 | --- | :-: | --- |

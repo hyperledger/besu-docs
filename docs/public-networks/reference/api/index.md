@@ -4135,7 +4135,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 </Tabs>
 
-### `eth_getMinerDataByBlockHash`
+### `eth_getMinerDataByBlockHash` (Deprecated)
 
 Returns miner data for the specified block.
 
@@ -5506,7 +5506,7 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(numb
 
 </Tabs>
 
-### `eth_getWork`
+### `eth_getWork` (Deprecated)
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
@@ -5563,7 +5563,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}
 
 </Tabs>
 
-### `eth_hashrate`
+### `eth_hashrate` (Deprecated)
 
 Returns the number of hashes per second with which the node is mining.
 
@@ -5653,7 +5653,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","param
 
 </Tabs>
 
-### `eth_mining`
+### `eth_mining` (Deprecated)
 
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network regardless of command settings or methods called.
 
@@ -6018,7 +6018,7 @@ mutation {
 
 </Tabs>
 
-### `eth_submitHashrate`
+### `eth_submitHashrate` (Deprecated)
 
 Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -6072,7 +6072,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":[
 
 </Tabs>
 
-### `eth_submitWork`
+### `eth_submitWork` (Deprecated)
 
 Submits a proof of work (Ethash) solution. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -6696,7 +6696,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 
 </Tabs>
 
-### `miner_start`
+### `miner_start` (Deprecated)
 
 Starts the mining process. 
 To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
@@ -6741,7 +6741,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
 
 </Tabs>
 
-### `miner_stop`
+### `miner_stop` (Deprecated)
 
 Stops the mining process on the client.
 

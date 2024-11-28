@@ -10,11 +10,15 @@ tags:
 
 You can define complex [permissioning](index.md) solutions by building a plugin that extends Besu functionality.
 
-The plugin API provides a `PermissioningService` interface that currently supports connection permissioning and message permissioning.
+The plugin API provides a `PermissioningService` interface that currently supports connection (node) permissioning, transaction permissioning and message permissioning.
 
-## Connection permissioning
+## Connection (node) permissioning
 
 Use connection permissioning when deciding whether to restrict node access to known participants only.
+
+## Transaction permissioning
+
+Use transaction permissioning when deciding whether to restrict transaction processing based on transaction properties.
 
 ## Message permissioning
 

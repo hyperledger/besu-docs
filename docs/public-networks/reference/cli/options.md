@@ -5589,6 +5589,16 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 
 :::
 
+:::Deprecation warning Early access feature
+
+`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
+It is not stable, so use this option with caution. This option is now deprecated and will be removed in a future release.
+
+Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT and IBFT 2.0 private networks.
+When `--Xsnapsync-bft-enabled` will be removed in a future release, snap sync will be enabled by default in QBFT and IBFT 2.0 private networks.
+
+:::
+
 ### `target-gas-limit`
 
 <Tabs>

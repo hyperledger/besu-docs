@@ -5589,7 +5589,7 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 
 :::
 
-::: Deprecation warning Early access feature
+:::warning Early access feature [Deprecated]
 
 `--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
 It is not stable, so use this option with caution. This option is now deprecated and will be removed in a future release.

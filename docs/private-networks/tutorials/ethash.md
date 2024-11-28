@@ -9,7 +9,13 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a private network using Ethash
+# Create a private network using Ethash (Deprecated)
+
+:::caution
+
+PoW consensus is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 A private network provides a configurable network for testing. By configuring a low difficulty and enabling mining, this allows for fast block creation.
 

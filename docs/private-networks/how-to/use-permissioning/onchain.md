@@ -50,7 +50,7 @@ If you change your network configuration, you may need to update the node allowl
 
 ## Specify the permissioning contract interface version
 
-Use the [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version) command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts). The default is 1.
+Use the [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version-deprecated) command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts). The default is 1.
 
 Specify the contract interface version that maps to the version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/) the contract interface implements.
 

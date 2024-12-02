@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Configure a multi-tenant node
+# Configure a multi-tenant node (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 You can configure Besu and associated Tessera node in a privacy-enabled network to host [multiple tenants](../../concepts/privacy/multi-tenancy.md).
 
@@ -150,9 +156,9 @@ The command line specifies privacy options:
 
 - [`--rpc-http-authentication-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-authentication-enabled) enables authentication for JSON-RPC APIs.
 - [`--rpc-http-authentication-jwt-public-key-file`](../../../public-networks/reference/cli/options.md#rpc-http-authentication-jwt-public-key-file) specifies the Operator's [public key file](#1-generate-a-private-and-public-key-pair). Used to authenticate the [tenant JWTs](#6-generate-the-tenant-jwts).
-- [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy.
-- [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
-- [`--privacy-multi-tenancy-enabled`](../../reference/cli/options.md#privacy-multi-tenancy-enabled) enables multi-tenancy.
+- [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled-deprecated) enables privacy.
+- [`--privacy-url`](../../reference/cli/options.md#privacy-url-deprecated) specifies the [Quorum to Tessera (Q2T)] server address of the Tessera node (`Q2T` in `tessera.conf`).
+- [`--privacy-multi-tenancy-enabled`](../../reference/cli/options.md#privacy-multi-tenancy-enabled-deprecated) enables multi-tenancy.
 
 :::note
 

@@ -2,7 +2,13 @@
 description: Private transaction overview
 ---
 
-# Private transactions
+# Private transactions (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Private transactions have the same parameters as public Ethereum transactions, with the following additions:
 
@@ -66,7 +72,7 @@ The following private transaction flow illustrates when nonce validation occurs:
 
 1. Submit a private transaction with a [nonce value](#private-transaction-nonce).
 1. The private transaction is distributed to all participants in the privacy group.
-1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one-time accounts. If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file), the public nonce for that account is obtained and used for the PMT.
+1. The PMT is created and submitted to the transaction pool with a nonce of `0` if using one-time accounts. If using a specific account with [`--privacy-marker-transaction-signing-key-file`](../../../reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated), the public nonce for that account is obtained and used for the PMT.
 1. The PMT is mined and included in the block.
 1. After the block containing the PMT is imported, and the PMT is processed, the private transaction is retrieved from the private transaction manager and executed.
 

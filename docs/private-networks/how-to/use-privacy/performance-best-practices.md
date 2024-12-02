@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Performance best practices
+# Privacy performance best practices (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 This document collects deployment and usage tips to help you achieve high performance for private transactions. If transaction throughput or latency is not meeting your expectations, please consider the following before raising an issue.
 
@@ -44,7 +50,7 @@ For performance and reliability it is advantageous to manage nonces in a statefu
 
 ### Use random senders for privacy marker transactions
 
-To avoid public nonce management, privacy marker transactions can be sent using a [random account per transaction](../../../private-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file). This option is only available for zero gas networks.
+To avoid public nonce management, privacy marker transactions can be sent using a [random account per transaction](../../../private-networks/reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated). This option is only available for zero gas networks.
 
 ### Avoid queuing transactions in Tessera
 

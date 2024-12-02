@@ -48,7 +48,13 @@ Local permissioning affects your node but not the rest of the network. Use local
 
 Local permissioning does not require coordination with the rest of the network and you can act immediately to protect your node. Your rules are not enforced in blocks produced by other nodes.
 
-### Onchain
+### Onchain (Deprecated)
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 [Onchain permissioning](onchain.md) works through a smart contract on the network. Specifying permissioning onchain enables all nodes to read and update permissioning configuration from one location.
 

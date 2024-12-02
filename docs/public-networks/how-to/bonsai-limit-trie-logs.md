@@ -1,6 +1,6 @@
 ---
 title: Reduce storage for Bonsai Tries
-sidebar_position: 12
+sidebar_position: 9
 description: Reduce the size of your database when using Bonsai Tries
 tags:
   - public networks

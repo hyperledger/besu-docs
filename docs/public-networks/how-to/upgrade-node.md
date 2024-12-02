@@ -1,6 +1,6 @@
 ---
 title: Upgrade Besu
-sidebar_position: 12
+sidebar_position: 11
 description: Upgrade your Besu node to a new version.
 tags:
   - public networks

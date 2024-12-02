@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 4
 description: Configure Ethereum nodes using AWS Blockchain Node Runners.
 toc_max_heading_level: 3
 tags:
@@ -247,6 +247,11 @@ In the root directory of your project:
 
 ### 3. Deploy  nodes
 
+Deploy your node or nodes, depending on your setup:
+
+- [Single RPC node](#31-option-1-single-rpc-node)
+- [Highly available RPC nodes](#32-option-2-highly-available-rpc-nodes)
+
 #### 3.1. (Option 1) Single RPC node
 
 In a single RPC node setup:
@@ -255,7 +260,7 @@ In a single RPC node setup:
 
     ```bash
     pwd
-    # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+    # Ensure you're in aws-blockchain-node-runners/lib/ethereum
     npx cdk deploy eth-single-node --json --outputs-file single-node-deploy.json
     ```
 
@@ -314,7 +319,7 @@ In a highly available multi-node setup:
 
     ```bash
     pwd
-    # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+    # Ensure you're in aws-blockchain-node-runners/lib/ethereum
     npx cdk deploy eth-sync-node --json --outputs-file sync-node-deploy.json
     ```
    
@@ -352,7 +357,7 @@ In a highly available multi-node setup:
 
     ```bash
     pwd
-    # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+    # Ensure you're in aws-blockchain-node-runners/lib/ethereum
     npx cdk deploy eth-rpc-nodes --json --outputs-file rpc-node-deploy.json
     ```
 
@@ -404,7 +409,7 @@ export AWS_ACCOUNT_ID=<your_target_AWS_account_id>
 export AWS_REGION=<your_target_AWS_region>
 
 pwd
-# Make sure you are in aws-blockchain-node-runners/lib/ethereum.
+# Ensure you're in aws-blockchain-node-runners/lib/ethereum.
 
 # Destroy the single RPC node.
 cdk destroy eth-single-node

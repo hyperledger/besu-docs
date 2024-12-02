@@ -39,7 +39,7 @@ The following diagrams illustrate the high level architecture of these setups.
 
 This single node setup is for small-scale development environments.
 It deploys a single EC2 instance with both consensus and execution clients.
-The RPC port is exposed only to internal IP range of the VPC, while P2P ports allow external access to keep the clients synced.
+The RPC port is exposed only to the internal IP range of the VPC, while P2P ports allow external access to keep the clients synced.
 
 ### Highly available setup
 
@@ -142,7 +142,7 @@ You can add more checks from the framework if required for your workload.
     </tr>
     <tr>
       <td colspan="2" align="center">How are workload resources monitored?</td>
-      <td>Resources are monitored using Amazon CloudWatch dashboards. Amazon CloudWatch custom metrics are pushed via CloudWatch Agent.</td>
+      <td>Resources are monitored using Amazon CloudWatch dashboards. Amazon CloudWatch custom metrics are pushed through CloudWatch Agent.</td>
     </tr>
     <tr>
       <td rowspan="3" align="center"><b>Performance efficiency</b></td>
@@ -216,8 +216,8 @@ In the root directory of your project:
     An error occurred (DefaultVpcAlreadyExists) when calling the CreateDefaultVpc operation: A Default VPC already exists for this account in this region.
     ``` 
    
-    This means that he default VPC must have at least two public subnets in different Availability
-    Zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`.
+    This means that the default VPC must have at least two public subnets in different availability
+    zones, and public subnet must set `Auto-assign public IPv4 address` to `YES`.
     :::
 
 1. Configure your Node Runners Ethereum blueprint deployment.
@@ -226,7 +226,7 @@ In the root directory of your project:
    The following example uses a sample configuration from the repository for a Besu and Teku node deployment:
 
     ```bash
-    # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+    # Ensure you're in aws-blockchain-node-runners/lib/ethereum
     cd lib/ethereum
     pwd
     cp ./sample-configs/.env-besu-teku .env
@@ -241,7 +241,7 @@ In the root directory of your project:
 
     ```bash
     pwd
-    # Make sure you are in aws-blockchain-node-runners/lib/ethereum
+    # Ensure you're in aws-blockchain-node-runners/lib/ethereum
     npx cdk deploy eth-common
     ```
 
@@ -265,21 +265,21 @@ In a single RPC node setup:
     :::
 
 1. After starting the node, wait for the initial synchronization process to finish.
-   It can take from half a day to approximately 6-10 days, depending on the client combination and
+   It can take half a day to approximately 6-10 days, depending on the client combination and
    the network state.
    You can use Amazon CloudWatch to track the progress, which publishes metrics every five minutes.
    Watch `sync distance` for the consensus client, and `blocks behind` for the execution client.
    When the node is fully synced, those two metrics should be `0`.
    To see them:
 
-   - Navigate to [CloudWatch service](https://console.aws.amazon.com/cloudwatch/) (make sure you are
-     in the region you have specified for `AWS_REGION`).
+   - Navigate to [CloudWatch service](https://console.aws.amazon.com/cloudwatch/) (ensure you're
+     in the region you specified for `AWS_REGION`).
    - Open `Dashboards` and select `eth-sync-node-<your-eth-client-combination>` from the list of dashboards.
 
 1. Once the initial synchronization is done, you can access the RPC API of that node from within the
    same VPC.
    The RPC port is not exposed to the Internet.
-   Turn the following query against the private IP of the single RPC node you deployed:
+   Run the following query against the private IP of the single RPC node you deployed:
 
     ```bash
     INSTANCE_ID=$(cat single-node-deploy.json | jq -r '..|.node-instance-id? | select(. != null)')

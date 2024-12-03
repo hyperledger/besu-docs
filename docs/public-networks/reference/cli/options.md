@@ -5582,7 +5582,7 @@ The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md
 :::note Notes
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- Fast sync is deprecated in Besu version 24.11.0 and later.
+- Fast sync is deprecated in Besu version 24.12.0 and later.
   We recommend updating Besu to a version that supports other sync methods.
 - When using a mode other than `FULL`, most historical world state data is unavailable.
   Any methods attempting to access unavailable world state data return `null`.

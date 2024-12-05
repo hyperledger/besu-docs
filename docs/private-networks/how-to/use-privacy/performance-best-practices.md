@@ -1,12 +1,12 @@
 ---
-title: Performance best practices
-description: Performance best practices
+title: Privacy best practices
+description: Privacy best practices
 sidebar_position: 9
 tags:
   - private networks
 ---
 
-# Privacy performance best practices (Deprecated)
+# Privacy best practices (Deprecated)
 
 :::caution
 

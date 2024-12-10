@@ -2998,7 +2998,8 @@ plugin-continue-on-error=true
 </TabItem>
 </Tabs>
 
-Enables or disables continuing to run Besu if a plugin fails during registration or other startup lifecycle stages.
+Enables or disables continuing to run Besu if a [plugin](../../../private-networks/concepts/plugins.md)
+fails during registration or other startup lifecycle stages.
 If set to `true` and any plugin fails, Besu logs an error and continues running.
 If set to `false` and any plugin fails, Besu logs an error and stops running.
 

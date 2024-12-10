@@ -2965,6 +2965,46 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `plugin-continue-on-error`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--plugin-continue-on-error[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--plugin-continue-on-error=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PLUGIN_CONTINUE_ON_ERROR=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+plugin-continue-on-error=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables continuing to run Besu if a [plugin](../../../private-networks/concepts/plugins.md)
+fails during registration or other startup lifecycle stages.
+If set to `true` and any plugin fails, Besu logs an error and continues running.
+If set to `false` and any plugin fails, Besu logs an error and stops running.
+
+The default is `false`.
+
 ### `print-paths-and-exit`
 
 <Tabs>

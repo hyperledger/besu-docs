@@ -8,13 +8,18 @@ tags:
 
 # Create and send transactions
 
-You can send signed transactions using the [`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction) JSON-RPC API method.
+You can send signed transactions using the [`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction)
+JSON-RPC API method.
+Signed transactions can be simple value transfers, contract creation, or contract invocation. Set the
+maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../reference/cli/options.md#rpc-tx-feecap) CLI option.
 
-Signed transactions can be simple value transfers, contract creation, or contract invocation. Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../reference/cli/options.md#rpc-tx-feecap) CLI option.
+To accept signed transactions from remote connections, set the [API listening host](use-besu-api/index.md#service-hosts)
+to `0.0.0.0`. Setting the listening host to `0.0.0.0` exposes the API service connection on your node to
+any remote connection. In a production environment, ensure you are using a firewall to avoid exposing
+your node to the internet.
 
-To accept signed transactions from remote connections, set the [API listening host](use-besu-api/index.md#service-hosts) to `0.0.0.0`.
-
-[Use client libraries](develop/client-libraries.md) to create and send a signed raw transaction to transfer Ether and create a smart contract.
+[Use client libraries](develop/client-libraries.md) to create and send a signed raw transaction to
+transfer Ether and create a smart contract.
 
 :::danger Private keys
 
@@ -23,18 +28,6 @@ Don't use the accounts from the examples on Mainnet or any public network except
 All accounts and private keys in the examples are from the `dev.json` genesis file in the [`/besu/config/src/main/resources`](https://github.com/hyperledger/besu/tree/master/config/src/main/resources) directory.
 
 In production environments avoid exposing your private keys by creating signed transactions offline, or use [Web3Signer](https://docs.web3signer.consensys.net/) to isolate your private keys and sign transactions with [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction).
-
-:::
-
-:::caution
-
-Setting the [listening host](use-besu-api/index.md#service-hosts) to `0.0.0.0` exposes the API service connection on your node to any remote connection. In a production environment, ensure you are using a firewall to avoid exposing your node to the internet.
-
-:::
-
-:::tip
-
-Libraries such as [web3j](https://github.com/web3j/web3j) or [ethereumj](https://github.com/ethereum/ethereumj) and tools such as [MyCrypto](https://mycrypto.com/) can also create signed transactions.
 
 :::
 
@@ -50,6 +43,18 @@ You can interact with contracts using [`eth_call`](../reference/api/index.md#eth
 | Does not consume gas | Requires gas |
 | Synchronous | Asynchronous |
 | Returns the value of a contract function available immediately | Returns transaction hash only. A block might not include all possible transactions (for example, if the gas price is too low). |
+
+## Override state values
+
+Use [`eth_call`](../reference/api/index.md#eth_call) to override an account with temporary state values before
+making the call. This allows you to make temporary state changes without affecting the actual
+blockchain state, and provides the following benefits:
+
+- Minimize the amount of contract code required to be deployed onchain. Code that returns
+    internal state or performs predefined validations can be kept offchain and provided to the node on-demand.
+- Extend and invoke custom methods on deployed contracts for analysis and debugging, avoiding
+    the need to reconstruct the entire state in a sandbox, and allowing selective state or code
+    overrides to observe execution changes.
 
 ## Use wallets for key management
 

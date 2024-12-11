@@ -2277,14 +2277,9 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
   :::note
-
-  The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked:
-  * If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
-  * If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance.
-  * If `strict` is not specified, the balance is checked against the gas parameters if supplied.
-
-  If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
-
+  If you don't want the sender account balance checked, set the gas to zero or specify
+  [`strict:false`](objects.md#transaction-call-object). Otherwise the call may fail if the sender account
+  does not have sufficient funds to cover the gas fees.
   :::
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
@@ -2294,6 +2289,11 @@ By default, the `eth_call` error response includes the [revert reason](../../../
   :::note
   `pending` returns the same value as `latest`.
   :::
+
+- `stateOverride`: _object_ - Optional [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to test, analyze, and debug smart contracts more efficiently by allowing
+    temporary state changes without affecting the actual blockchain state.
 
 #### Returns
 
@@ -2381,9 +2381,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {num
 
 </Tabs>
 
-:::info Example of a simulated contract creation
-
-The following example creates a simulated contract by not including the `to` parameter from the [transaction call object](objects.md#transaction-call-object) in the `call` parameter. Besu simulates the data to create the contract.
+The following example creates a simulated contract by not including the `to` parameter from the
+[transaction call object](objects.md#transaction-call-object) in the `call` parameter.
+Besu simulates the data to create the contract.
 
 <Tabs>
 
@@ -2408,8 +2408,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xf
 </TabItem>
 
 </Tabs>
-
-:::
 
 ### `eth_chainId`
 
@@ -2589,9 +2587,14 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 
 #### Parameters
 
-For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the
+estimation process (unlike transactions, in which gas limits apply).
 
-`call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+
+- `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to make temporary state changes without affecting the actual blockchain state.
 
 #### Returns
 

@@ -6,7 +6,14 @@ tags:
   - private networks
 ---
 
-# Configure Kubernetes mode in NAT Manager
+# Configure Kubernetes mode in NAT Manager (Deprecated)
+
+:::caution
+
+NAT for Kubernetes is deprecated in Besu version 24.12.0 and later. Please read the [changelog](https://github.com/hyperledger/besu/blob/main/CHANGELOG.md#24120)
+for more context on this decision
+
+:::
 
 Use [`--nat-method=AUTO`](../../../public-networks/how-to/connect/specify-nat.md#auto) or [`--nat-method=KUBERNETES`](../../../public-networks/how-to/connect/specify-nat.md#kubernetes) CLI options to let the Besu node automatically configure its IP address and ports.
 

@@ -5154,6 +5154,9 @@ manage your SSL/TLS certificates and keys in a keystore rather than separate PEM
 
 Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is set to `JKS` or `PKCS12`.
 
+Specify the keystore password using [`--rpc-ws-ssl-keystore-password`](#rpc-ws-ssl-keystore-password)
+or [`--rpc-ws-ssl-keystore-password-file`](#rpc-ws-ssl-keystore-password-file).
+
 ### `rpc-ws-ssl-keystore-password`
 
 <Tabs>
@@ -5192,7 +5195,49 @@ rpc-ws-ssl-keystore-password="keystore_password"
 
 </Tabs>
 
-Password for the keystore file specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file).
+Password for the keystore specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-keystore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-password-file=/home/me/me_node/keystore-password.txt
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_PASSWORD_FILE="/home/me/me_node/keystore-password.txt"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-password-file="/home/me/me_node/keystore-password.txt"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the keystore specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file),
+when enabling WebSocket SSL/TLS client authentication.
 
 ### `rpc-ws-ssl-keystore-type`
 
@@ -5277,7 +5322,7 @@ rpc-ws-ssl-trustcert-file="/home/me/me_node/trust-cert.pem"
 
 </Tabs>
 
-Path to the PEM trust certificate file for enabling client SSL/TLS authentication for the WebSocket JSON-RPC
+Path to the PEM trust certificate file when enabling client SSL/TLS authentication for the WebSocket JSON-RPC
 service.
 
 ### `rpc-ws-ssl-truststore-file`
@@ -5318,10 +5363,11 @@ rpc-ws-ssl-truststore-file="/home/me/me_node/websocket-truststore.jks"
 
 </Tabs>
 
-Path to the truststore file for enabling SSL/TLS client authentication for the WebSocket JSON-RPC
+Path to the truststore file when enabling SSL/TLS client authentication for the WebSocket JSON-RPC
 service.
 
-Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
+Specify the truststore password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password)
+or [`--rpc-ws-ssl-truststore-password-file`](#rpc-ws-ssl-truststore-password-file).
 
 ### `rpc-ws-ssl-truststore-password`
 
@@ -5330,7 +5376,7 @@ Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-ssl-truststore-password=<FILE>
+--rpc-ws-ssl-truststore-password=<STRING>
 ```
 
 </TabItem>
@@ -5338,7 +5384,7 @@ Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-ws-ssl-truststore-password=/home/me/me_node/websocket-truststore.jks
+--rpc-ws-ssl-truststore-password=truststore_password
 ```
 
 </TabItem>
@@ -5346,7 +5392,7 @@ Specify the truststore file password using [`--rpc-ws-ssl-truststore-password`](
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD="/home/me/me_node/websocket-truststore.jks"
+BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD="truststore_password"
 ```
 
 </TabItem>
@@ -5354,14 +5400,55 @@ BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD="/home/me/me_node/websocket-truststore.jks"
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-ws-ssl-truststore-password="/home/me/me_node/websocket-truststore.jks"
+rpc-ws-ssl-truststore-password="truststore_password"
 ```
 
 </TabItem>
 
 </Tabs>
 
-Password for the truststore file specified using [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file)
+Password for the truststore specified using [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-truststore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-password-file=/home/me/me_node/truststore-password.txt
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD_FILE="/home/me/me_node/truststore-password.txt"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-password-file="/home/me/me_node/truststore-password.txt"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file),
 when enabling WebSocket SSL/TLS client authentication.
 
 ### `rpc-ws-ssl-truststore-type`

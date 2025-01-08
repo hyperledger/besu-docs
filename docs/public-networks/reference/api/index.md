@@ -2409,6 +2409,34 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xf
 
 </Tabs>
 
+The following example checks the USDT contract for the balance of the address `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`, with
+a state override that sets the balance to 20,000 USDT. The result will reflect the overridden balance
+for the specified address.
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0x70a08231000000000000000000000000fe3b557e8fb62b89f4916b721be55ceb828dbd73"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}}],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0x0000000000000000000000000000000000000000000000000000000000004e20"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `eth_chainId`
 
 Returns the [chain ID](../../concepts/network-and-chain-id.md).
@@ -2709,6 +2737,34 @@ http://127.0.0.1:8545 \
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0x1bacb"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+The following example estimates the gas required for the `transfer` call in the USDT contract, with a state
+override that sets the balance of the sender address to 20,000 USDT. The result provides the gas required
+for the transaction.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0xa9059cbb000000000000000000000000627306090abaB3A6e1400e9345bC60c78a8BEf570000000000000000000000000000000000000000000000000000000000000064"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}}],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0xfa07"
 }
 ```
 

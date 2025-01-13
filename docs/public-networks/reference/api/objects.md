@@ -140,7 +140,8 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 
 Optional parameter for [`eth_call`](./index.md#eth_call) and [`eth_estimateGas`](./index.md#eth_estimategas).
 Override an account with the following state values temporarily before making the call. This allows you
-to make temporary state changes without affecting the actual blockchain state.
+to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
+blockchain state.
 
 | Key         |   Type   | Value                                                                  |
 |-------------|:--------:|------------------------------------------------------------------------|

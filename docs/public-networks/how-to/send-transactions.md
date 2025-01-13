@@ -13,13 +13,13 @@ JSON-RPC API method.
 Signed transactions can be simple value transfers, contract creation, or contract invocation. Set the
 maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../reference/cli/options.md#rpc-tx-feecap) CLI option.
 
+[Use client libraries](develop/client-libraries.md) to create and send a signed raw transaction to
+transfer Ether and create a smart contract.
+
 To accept signed transactions from remote connections, set the [API listening host](use-besu-api/index.md#service-hosts)
 to `0.0.0.0`. Setting the listening host to `0.0.0.0` exposes the API service connection on your node to
 any remote connection. In a production environment, ensure you are using a firewall to avoid exposing
 your node to the internet.
-
-[Use client libraries](develop/client-libraries.md) to create and send a signed raw transaction to
-transfer Ether and create a smart contract.
 
 :::danger Private keys
 

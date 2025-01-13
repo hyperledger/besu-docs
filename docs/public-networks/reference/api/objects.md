@@ -114,15 +114,15 @@ Returned by [`txpool_besuPendingTransactions`](index.md#txpool_besupendingtransa
 | `accessList` | Array | (Optional) List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../../concepts/transactions/types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `from` | Data, 20&nbsp;bytes | Address of the sender. |
 | `gas` | Quantity | Gas provided by the sender. |
-| `gasPrice` | Quantity | (Optional) Gas price, in Wei, provided by the sender. Not used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
-| `maxPriorityFeePerGas` | Quantity, Integer | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
-| `maxFeePerGas` | Quantity, Integer | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `gasPrice` | Quantity | (Optional) Gas price, in wei, provided by the sender. Not used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `maxPriorityFeePerGas` | Quantity, Integer | (Optional) Maximum fee, in wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `maxFeePerGas` | Quantity, Integer | (Optional) Maximum total fee (base fee + priority fee), in wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `hash` | Data, 32&nbsp;bytes | Hash of the transaction. |
 | `input` | Data | Data sent with the transaction to create or invoke a contract. |
 | `nonce` | Quantity | Number of transactions made by the sender before this one. |
 | `to` | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction. |
 | `transactionType` | String | [Transaction type](../../concepts/transactions/types.md). |
-| `value` | Quantity | Value transferred, in Wei. |
+| `value` | Quantity | Value transferred, in wei. |
 | `v` | Quantity | ECDSA Recovery ID. |
 | `r` | Data, 32&nbsp;bytes | ECDSA signature r. |
 | `s` | Data, 32&nbsp;bytes | ECDSA signature s. |
@@ -136,7 +136,21 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 | `storage` | Object | Key hash and value. Pre-image key is `null` if it falls outside the cache. |
 | `nextKey` | Hash | Hash of next key if further storage in range. Otherwise, not included. |
 
-### Structured log object
+## State override object
+
+Optional parameter for [`eth_call`](./index.md#eth_call) and [`eth_estimateGas`](./index.md#eth_estimategas).
+Override an account with the following state values temporarily before making the call. This allows you
+to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
+blockchain state.
+
+| Key         |   Type   | Value                                                                  |
+|-------------|:--------:|------------------------------------------------------------------------|
+| `balance`   | Quantity | Temporary account balance for the call execution.                      |
+| `nonce`     | Quantity | Temporary nonce value for the call execution.                          |
+| `code`      |  Binary  | Bytecode to inject into the account.                                   |
+| `stateDiff` | Quantity | `key:value` pairs to override individual slots in the account storage. |
+
+## Structured log object
 
 Log information returned as part of the [Trace object](#trace-object).
 

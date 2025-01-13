@@ -2290,7 +2290,7 @@ By default, the `eth_call` error response includes the [revert reason](../../../
   `pending` returns the same value as `latest`.
   :::
 
-- `stateOverride`: _object_ - Optional [address-to-state mapping](./objects.md#state-override-object).
+- `stateOverride`: _object_ - (optional) The [address-to-state mapping](./objects.md#state-override-object).
     Each entry specifies a state that will be temporarily overridden before executing the call.
     This allows you to test, analyze, and debug smart contracts more efficiently by allowing
     temporary state changes without affecting the actual blockchain state.

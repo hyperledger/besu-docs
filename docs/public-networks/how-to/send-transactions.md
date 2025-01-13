@@ -50,9 +50,9 @@ Use [`eth_call`](../reference/api/index.md#eth_call) to override an account with
 making the call. This allows you to make temporary state changes without affecting the actual
 blockchain state, and provides the following benefits:
 
-- Minimize the amount of contract code required to be deployed onchain. Code that returns
-    internal state or performs predefined validations can be kept offchain and provided to the node on-demand.
-- Extend and invoke custom methods on deployed contracts for analysis and debugging, avoiding
+- Minimizes the amount of contract code required to be deployed onchain. Code that returns
+    internal state or performs predefined validations can be kept offchain and provided to the node on demand.
+- Extends and invokes custom methods on deployed contracts for analysis and debugging, avoiding
     the need to reconstruct the entire state in a sandbox, and allowing selective state or code
     overrides to observe execution changes.
 

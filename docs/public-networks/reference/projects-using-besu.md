@@ -21,4 +21,4 @@ The following block explorers are compatible with Besu:
 
 The following EVM equivalent blockchains are compatible with Besu and utilize it in their mainnet nodes:
 
-- Hedera - Hedera uses Besu inside its consenus node, as the EVM execution layer. This was adopted in [HIP 26](https://hips.hedera.com/hip/hip-26) . See [Hyperledger Besu EVM on Hedera](https://docs.hedera.com/hedera/core-concepts/smart-contracts/deploying-smart-contracts#hyperledger-besu-evm-on-hedera) for more details
+- [Hedera](https://hedera.com/) - Hedera uses Besu inside its consenus node, as the EVM execution layer. This was adopted in [HIP 26](https://hips.hedera.com/hip/hip-26) . See [Hyperledger Besu EVM on Hedera](https://docs.hedera.com/hedera/core-concepts/smart-contracts/deploying-smart-contracts#hyperledger-besu-evm-on-hedera) for more details

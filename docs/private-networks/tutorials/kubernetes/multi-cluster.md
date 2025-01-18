@@ -47,7 +47,7 @@ In the AZure VNet, create a Virtual Network Gateway with the following settings
 | Enable active-active mode | Disabled |
 | Configure BGP        | Disabled |
 
-The other setttings can remain as defaults or set to suit your requirements. Once this is complete
+The other settings can remain as defaults or set to suit your requirements. Once this is complete
 please note down the IP address that was created for the Virtual Network Gateway
 
 ##### 3.2 On the AWS side create a Customer Gateway
@@ -59,7 +59,7 @@ This Customer Gateway points to the Azure Virtual Network Gateay from step 3.1
 | Routing              | Static |
 | IP Address           | Use the IP of the Virtual Network Gateway in step 3.1 |
 
-The other setttings can remain as defaults or set to suit your requirements
+The other settings can remain as defaults or set to suit your requirements
 
 ##### 3.3 On the AWS side create a Virtual Private Gateway 
 
@@ -88,7 +88,7 @@ Create an AWS Site-to-Site VPN Connection with the following settings
 | Static IP Prefixes | Use the Azure VNet CIDR from step 2.1 |
 | Tunnel inside IP version | IPV4 |
 
-The other setttings can remain as defaults or set to suit your requirements
+The other settings can remain as defaults or set to suit your requirements
 
 ##### 3.6 Download the VPN connection config file
 
@@ -133,13 +133,13 @@ Use the settings below
 | BGP | Disabled |
 | Use policy based traffic selector | Disabled |
 
-The other setttings can remain as defaults or set to suit your requirements
+The other settings can remain as defaults or set to suit your requirements
 
 This may take a few minutes to setup. Once complete you should see the Tunnel from step 3.5 status show as `UP`
 
 ##### 3.9 High Availability on the Azure side
 
-If you need high availablity or this is a production setup, please use Tunnel #2 to create a second
+If you need high availability or this is a production setup, please use Tunnel #2 to create a second
 Local Network Gateway (step 3.7) and then a second connection on the Virtual Network Gateway (step 3.8)
 
 ##### 3.10 On AWS update the subnet route table

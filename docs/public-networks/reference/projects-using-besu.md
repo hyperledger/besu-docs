@@ -17,8 +17,11 @@ The following block explorers are compatible with Besu:
 
 - [Chainlens Blockchain Explorer](https://www.web3labs.com/chainlens) - See how to [use Chainlens with privacy-enabled networks](../../private-networks/how-to/monitor/chainlens.md).
 
-## L1 BlockChains
+## Blockchains
 
-The following EVM equivalent blockchains are compatible with Besu and utilize it in their mainnet nodes:
+The following EVM blockchains are compatible with Besu:
 
-- [Hedera](https://hedera.com/) - Hedera uses Besu inside it's consenus node, as the EVM execution layer. This was adopted in [HIP 26](https://hips.hedera.com/hip/hip-26). See [Hyperledger Besu EVM on Hedera](https://docs.hedera.com/hedera/core-concepts/smart-contracts/deploying-smart-contracts#hyperledger-besu-evm-on-hedera) for more details.
+- [Hedera](https://hedera.com/) - Hedera nodes use Besu as the EVM execution layer.
+  This was adopted in [HIP-26](https://hips.hedera.com/hip/hip-26).
+  See [Hyperledger Besu EVM on Hedera](https://docs.hedera.com/hedera/core-concepts/smart-contracts/deploying-smart-contracts#hyperledger-besu-evm-on-hedera)
+  for more information.

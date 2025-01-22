@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Onchain permissioning
+# Onchain permissioning (Deprecated)
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Onchain [permissioning](index.md) uses smart contracts to store and administer the node, account, and admin allowlists. Using onchain permissioning enables all nodes to read the allowlists from a single source, the blockchain.
 
@@ -42,7 +48,7 @@ Permissioning implements three allowlists:
 
 Account permissioning is incompatible with [random key signing](../../how-to/use-privacy/sign-pmts.md) for [privacy marker transactions](../privacy/private-transactions/processing.md).
 
-If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file) command line option and the corresponding public key included in the accounts allowlist.
+If using account permissioning and privacy, a signing key must be specified using the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated) command line option and the corresponding public key included in the accounts allowlist.
 
 :::
 

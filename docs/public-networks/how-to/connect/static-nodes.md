@@ -17,6 +17,9 @@ Besu periodically initiates a connection to any unconnected static node. To miti
 
 Bootnodes and static nodes are both methods for finding peers. Depending on your use case, you can use only bootnodes, only static nodes, or both bootnodes and static nodes. 
 
+When connecting to bootnodes, Besu attempts to connect to all bootnodes at once, at startup.
+When connecting to static nodes, Besu attempts to reconnect periodically, if the connection fails or is lost.
+
 For example:
 * You run multiple nodes on Mainnet, using bootnodes for discovery, but want to ensure your nodes are always connected to each other, using static nodes.
 * You run a small network and want your nodes to reconnect if disconnected, using static nodes. 

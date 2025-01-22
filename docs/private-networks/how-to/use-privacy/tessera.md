@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Run Tessera with Besu
+# Run Tessera with Besu (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 To enable [privacy functionality](../../concepts/privacy/index.md) in production systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability) and [run in a separate instance](#separate-instances) to Besu.
 

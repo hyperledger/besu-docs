@@ -9,6 +9,18 @@ tags:
 
 Besu supports TLS for client and server communication. For example, you can configure TLS for communication between [Web3Signer](https://docs.web3signer.consensys.net/concepts/tls) and Besu, and Besu and [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
 
+The following instructions allow you to configure client and server authentication to secure HTTP JSON-RPC
+calls.
+
+:::info Secure Websocket JSON-RPC calls
+
+You can configure SSL/TLS authentication for WebSocket calls by enabling
+[`--rpc-ws-ssl-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-ssl-enabled) for
+server authentication, and
+[`--rpc-ws-ssl-client-auth-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-ssl-client-auth-enabled) for client authentication.
+
+:::
+
 The following diagram displays an example client and server TLS configuration.
 
 ![Besu client and server TLS](../../../../assets/images/Besu_TLS.png)
@@ -108,10 +120,10 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 
 The command line:
 
-- Enables TLS with the server using the [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled) option.
-- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file) option.
-- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file) option.
-- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file) option.
+- Enables TLS with the server using the [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled-deprecated) option.
+- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file-deprecated) option.
+- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file-deprecated) option.
+- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file-deprecated) option.
 
 <!-- Links -->
 

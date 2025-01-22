@@ -2277,14 +2277,9 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
   :::note
-
-  The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked:
-  * If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
-  * If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance.
-  * If `strict` is not specified, the balance is checked against the gas parameters if supplied.
-
-  If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
-
+  If you don't want the sender account balance checked, set the gas to zero or specify
+  [`strict:false`](objects.md#transaction-call-object). Otherwise the call may fail if the sender account
+  does not have sufficient funds to cover the gas fees.
   :::
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
@@ -2294,6 +2289,11 @@ By default, the `eth_call` error response includes the [revert reason](../../../
   :::note
   `pending` returns the same value as `latest`.
   :::
+
+- `stateOverride`: _object_ - (optional) The [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to test, analyze, and debug smart contracts more efficiently by allowing
+    temporary state changes without affecting the actual blockchain state.
 
 #### Returns
 
@@ -2381,9 +2381,9 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {num
 
 </Tabs>
 
-:::info Example of a simulated contract creation
-
-The following example creates a simulated contract by not including the `to` parameter from the [transaction call object](objects.md#transaction-call-object) in the `call` parameter. Besu simulates the data to create the contract.
+The following example creates a simulated contract by not including the `to` parameter from the
+[transaction call object](objects.md#transaction-call-object) in the `call` parameter.
+Besu simulates the data to create the contract.
 
 <Tabs>
 
@@ -2409,7 +2409,33 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xf
 
 </Tabs>
 
-:::
+The following example checks the USDT contract for the balance of the address `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`, with
+a state override that sets the balance to 20,000 USDT. The result will reflect the overridden balance
+for the specified address.
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0x70a08231000000000000000000000000fe3b557e8fb62b89f4916b721be55ceb828dbd73"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0x0000000000000000000000000000000000000000000000000000000000004e20"
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ### `eth_chainId`
 
@@ -2589,9 +2615,14 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 
 #### Parameters
 
-For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the
+estimation process (unlike transactions, in which gas limits apply).
 
-`call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+
+- `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to make temporary state changes without affecting the actual blockchain state.
 
 #### Returns
 
@@ -2683,18 +2714,7 @@ The following example request estimates the cost of deploying a simple storage s
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST \
-http://127.0.0.1:8545 \
--H 'Content-Type: application/json' \
--d '{
-  "jsonrpc": "2.0",
-  "method": "eth_estimateGas",
-  "params": [{
-    "from": "0x8bad598904ec5d93d07e204a366d084a80c7694e",
-    "data": "0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"
-  }],
-  "id": 1
-}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0x8bad598904ec5d93d07e204a366d084a80c7694e","data":"0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"}],"id":1}' http://127.0.0.1:8545
 ```
 
 </TabItem>
@@ -2706,6 +2726,34 @@ http://127.0.0.1:8545 \
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0x1bacb"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+The following example estimates the gas required for the `transfer` call in the USDT contract, with a state
+override that sets the balance of the sender address to 20,000 USDT. The result provides the gas required
+for the transaction.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0xa9059cbb000000000000000000000000627306090abaB3A6e1400e9345bC60c78a8BEf570000000000000000000000000000000000000000000000000000000000000064"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}],"id":1}' http://127.0.0.1:8545
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0xfa07"
 }
 ```
 
@@ -4135,7 +4183,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 </Tabs>
 
-### `eth_getMinerDataByBlockHash`
+### `eth_getMinerDataByBlockHash` (Deprecated)
 
 Returns miner data for the specified block.
 
@@ -5506,7 +5554,7 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(numb
 
 </Tabs>
 
-### `eth_getWork`
+### `eth_getWork` (Deprecated)
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
@@ -5563,7 +5611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}
 
 </Tabs>
 
-### `eth_hashrate`
+### `eth_hashrate` (Deprecated)
 
 Returns the number of hashes per second with which the node is mining.
 
@@ -5653,7 +5701,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","param
 
 </Tabs>
 
-### `eth_mining`
+### `eth_mining` (Deprecated)
 
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network regardless of command settings or methods called.
 
@@ -6018,7 +6066,7 @@ mutation {
 
 </Tabs>
 
-### `eth_submitHashrate`
+### `eth_submitHashrate` (Deprecated)
 
 Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -6072,7 +6120,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":[
 
 </Tabs>
 
-### `eth_submitWork`
+### `eth_submitWork` (Deprecated)
 
 Submits a proof of work (Ethash) solution. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -6696,7 +6744,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 
 </Tabs>
 
-### `miner_start`
+### `miner_start` (Deprecated)
 
 Starts the mining process. 
 To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
@@ -6741,7 +6789,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
 
 </Tabs>
 
-### `miner_stop`
+### `miner_stop` (Deprecated)
 
 Stops the mining process on the client.
 

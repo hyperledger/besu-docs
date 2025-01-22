@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Create and send private transactions
+# Create and send private transactions (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Create and send [private transactions](../../concepts/privacy/index.md) using:
 

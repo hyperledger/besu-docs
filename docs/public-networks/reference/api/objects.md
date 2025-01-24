@@ -148,7 +148,7 @@ blockchain state.
 | `balance`                 | Quantity            | Temporary account balance for the call execution.                      |
 | `nonce`                   | Quantity            | Temporary nonce value for the call execution.                          |
 | `code`                    | Binary              | Bytecode to inject into the account.                                   |
-| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to move the precompile to.                                     |
+| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.               |
 | `stateDiff`               | Quantity            | `key:value` pairs to override individual slots in the account storage. |
 
 ## Structured log object

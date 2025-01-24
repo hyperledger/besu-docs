@@ -143,12 +143,13 @@ Override an account with the following state values temporarily before making th
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.
 
-| Key         |   Type   | Value                                                                  |
-|-------------|:--------:|------------------------------------------------------------------------|
-| `balance`   | Quantity | Temporary account balance for the call execution.                      |
-| `nonce`     | Quantity | Temporary nonce value for the call execution.                          |
-| `code`      |  Binary  | Bytecode to inject into the account.                                   |
-| `stateDiff` | Quantity | `key:value` pairs to override individual slots in the account storage. |
+| Key                       |        Type         | Value                                                                  |
+|---------------------------|:-------------------:|------------------------------------------------------------------------|
+| `balance`                 |      Quantity       | Temporary account balance for the call execution.                      |
+| `nonce`                   |      Quantity       | Temporary nonce value for the call execution.                          |
+| `code`                    |       Binary        | Bytecode to inject into the account.                                   |
+| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to move the precompile to.                                     |
+| `stateDiff`               |      Quantity       | `key:value` pairs to override individual slots in the account storage. |
 
 ## Structured log object
 

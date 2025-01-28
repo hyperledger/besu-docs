@@ -8,18 +8,20 @@ tags:
   - private networks
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Upgrade your Besu node
 
-When upgrading your Besu node, we recommend:
+This page provides instructions for upgrading your Besu node on:
 
+- [Linux.](#upgrade-on-linux)
+- [Docker.](#upgrade-on-docker)
+- [Kubernetes.](#upgrade-on-kubernetes)
+- [Ansible.](#upgrade-on-ansible)
+
+When upgrading your node, we recommend:
+
+- Checking the [Besu release notes](https://github.com/hyperledger/besu/releases) for breaking changes.
 - Preserving your node's data and configuration.
 - Storing your configuration under version control.
-
-<Tabs>
-  <TabItem value="binary" label="Linux" default>
 
 ## Upgrade on Linux
 
@@ -60,9 +62,6 @@ for this upgrade script.
 You can also see CoinCashew for instructions on upgrading Besu by building from source.
 :::
  
-  </TabItem>
-  <TabItem value="docker" label="Docker">
-
 ## Upgrade on Docker
 
 1. Update your Docker image:
@@ -81,13 +80,13 @@ You can also see CoinCashew for instructions on upgrading Besu by building from 
 
     ```bash
     docker run -d \
-      --name besu-node                 \
+      --name besu-node            \
       -v besu-data:/opt/besu/data \
-      -v besu-config:/etc/besu       \
+      -v besu-config:/etc/besu    \
       hyperledger/besu:latest
     ```
 
-Example `docker-compose.yml`:
+Here is an example `docker-compose.yml` file:
 
 ```yaml
 version: '3.8'
@@ -104,9 +103,6 @@ volumes:
   besu-data:
   besu-config:
 ```
-
-  </TabItem>
-  <TabItem value="kubernetes" label="Kubernetes">
 
 ## Upgrade on Kubernetes
 
@@ -125,7 +121,7 @@ volumes:
     kubectl apply -f besu-deployment.yaml
     ```
 
-Example PVC configuration:
+Here is an example PVC configuration:
 
 ```yaml
 apiVersion: v1
@@ -139,9 +135,6 @@ spec:
     requests:
       storage: 1Ti
 ```
-
-  </TabItem>
-  <TabItem value="Ansible">
 
 ## Upgrade on Ansible
 
@@ -158,22 +151,56 @@ The playbook:
 3. Applies any new configuration.
 4. Starts Besu.
 
-  </TabItem>
-</Tabs>
-
 ## Verify post-upgrade
 
-1. Check node status:
+### RPC methods
 
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
-    ```
+If you have [JSON-RPC HTTP enabled](../reference/cli/options.md#rpc-http-enabled),
+you can use the following commands to verify that you've successfully upgraded your Besu node.
 
-2. Verify peer connections:
+Call [`eth_syncing`](../reference/api/index.md#eth_syncing) to check the node synchronization status:
 
-    ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
-    ```
+ ```bash
+ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545
+ ```
+
+Call [`web3_clientVersion`](../reference/api/index.md#web3_clientversion) to check the current client version:
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+Call [`net_peerCount`](../reference/api/index.md#net_peercount) to verify peer connections:
+
+ ```bash
+ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://127.0.0.1:8545
+ ```
+
+### Logs
+
+You can also check Besu's logs to verify the version and whether Besu is in sync.
+For example, the startup logs look like the following:
+
+```bash
+{"@timestamp":"2025-01-17T07:23:03,791","level":"INFO","thread":"main","class":"Besu","message":"Starting Besu","throwable":""}
+{"@timestamp":"2025-01-17T07:23:04,558","level":"INFO","thread":"main","class":"Besu","message":"Connecting to 0 static nodes.","throwable":""}
+{"@timestamp":"2025-01-17T07:23:04,643","level":"INFO","thread":"main","class":"Besu","message":"
+####################################################################################################
+#                                                                                                  #
+# Besu version 25.1.0                                                                #
+#   
+...                                                                                               #
+```
+
+### Metrics
+
+If you have [metrics enabled](../reference/cli/options.md#metrics-enabled), you can verify the version by checking the
+`process_release` metric in [Prometheus](monitor/metrics.md), or on the command line:
+
+```bash
+curl -s localhost:9545/metrics | grep process_release
+process_release{version="besu/v25.10/linux-x86_64/openjdk-java-21"} 1.0
+```
 
 ## Find peers on restarting
 

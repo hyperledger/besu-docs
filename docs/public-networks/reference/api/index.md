@@ -2543,10 +2543,6 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
-  :::note
-  `pending` returns the same value as `latest`.
-  :::
-
 #### Returns
 
 `result`: _object_ - access list object with the following fields:
@@ -2619,6 +2615,10 @@ For `eth_estimateGas`, all fields are optional because setting a gas limit is ir
 estimation process (unlike transactions, in which gas limits apply).
 
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+
+- `blockNumber`: _string_ - (optional) hexadecimal or decimal integer representing a block number, or one of
+  the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 - `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
     Each entry specifies a state that will be temporarily overridden before executing the call.

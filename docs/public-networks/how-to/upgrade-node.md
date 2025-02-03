@@ -141,7 +141,7 @@ spec:
 You can use the [Ansible role on Galaxy](https://galaxy.ansible.com/ui/standalone/roles/consensys/hyperledger_besu/)
 directly or customize it to suit your needs.
 
-Upgrade the Besu version on nodes by running the play with the new version.
+Upgrade your Besu node by running the play with the new version.
 For more information, select **Documentation** on the [Ansible Galaxy Besu page](https://galaxy.ansible.com/ui/standalone/roles/consensys/hyperledger_besu/).
 
 The playbook:
@@ -199,6 +199,11 @@ If you have [metrics enabled](../reference/cli/options.md#metrics-enabled), you 
 
 ```bash
 curl -s localhost:9545/metrics | grep process_release
+```
+
+For example, the response looks like the following:
+
+```bash
 process_release{version="besu/v25.10/linux-x86_64/openjdk-java-21"} 1.0
 ```
 
@@ -216,21 +221,21 @@ To ensure that the restarted node successfully rejoins the network, ensure you s
 
 ## Troubleshoot
 
-### Sync not progressing
+#### Sync not progressing
 
 Verify that the node is properly connected to the bootnodes.
 Check the node logs to ensure that the connections are being established correctly.
 
-### Low peer count
+#### Low peer count
 
 Ensure that your network connection is stable and that the required ports for peer discovery and communication are open and correctly forwarded.
 
-### API unavailable
+#### API unavailable
 
-Check the configuration of your RPC endpoint to ensure it is set up correctly and accessible. 
+Check the configuration of your RPC endpoint to ensure it is set up correctly and is accessible. 
 Verify that the API service is running and the correct ports are being used.
 
-### Data corruption
+#### Data corruption
 
 If you encounter data corruption, restore the node data from a known good backup.
 Ensure regular backups are in place to avoid data loss.

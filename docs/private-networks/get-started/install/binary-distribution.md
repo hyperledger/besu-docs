@@ -92,3 +92,7 @@ Display Besu command line help to confirm installation:
 ```bash
 bin/besu --help
 ```
+
+## Upgrade Besu
+
+See the [Upgrade Besu](../../../public-networks/how-to/upgrade-node.md#upgrade-on-linux) guide for instructions on upgrading Besu on Linux.

@@ -4194,7 +4194,10 @@ rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 
 </Tabs>
 
-The keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
+Path to the keystore file (in PKCS #12 format) when enabling TLS for the JSON-RPC HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--rpc-http-tls-keystore-password-file`](#rpc-http-tls-keystore-password-file).
 
 ### `rpc-http-tls-keystore-password-file`
 
@@ -4234,7 +4237,8 @@ rpc-http-tls-keystore-password-file="/home/me/me_node/password"
 
 </Tabs>
 
-The path to the file containing the password to decrypt the keystore.
+Path to the file containing the password for the keystore specified in [`--rpc-http-tls-keystore-file`](#rpc-http-tls-keystore-file),
+when enabling TLS for the JSON-RPC HTTP service.
 
 ### `rpc-http-tls-known-clients-file`
 
@@ -4274,7 +4278,7 @@ rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 
 </Tabs>
 
-The path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
+Path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format `<CommonName> <hex-string>`.
 
@@ -4368,7 +4372,9 @@ rpc-http-tls-truststore-file="/home/me/me_node/truststore.pfx"
 
 </Tabs>
 
-The path to the truststore file used for authentication.
+Path to the truststore file when enabling TLS for the JSON-RPC HTTP service.
+
+Specify the truststore password file using [`--rpc-http-tls-truststore-password-file`](#rpc-http-tls-truststore-password-file).
 
 ### `rpc-http-tls-truststore-password-file`
 
@@ -4408,7 +4414,8 @@ rpc-http-tls-truststore-password-file="/home/me/me_node/password"
 
 </Tabs>
 
-The path to the file containing the password to decrypt the truststore.
+Path to the file containing the password for the truststore specified in [`--rpc-http-tls-truststore-file`](#rpc-http-tls-truststore-file),
+when enabling TLS for the JSON-RPC HTTP service.
 
 ### `rpc-max-logs-range`
 

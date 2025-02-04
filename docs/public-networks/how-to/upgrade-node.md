@@ -12,10 +12,10 @@ tags:
 
 This page provides instructions for upgrading your Besu node on:
 
-- [Linux.](#upgrade-on-linux)
-- [Docker.](#upgrade-on-docker)
-- [Kubernetes.](#upgrade-on-kubernetes)
-- [Ansible.](#upgrade-on-ansible)
+- [Linux](#upgrade-on-linux)
+- [Docker](#upgrade-on-docker)
+- [Kubernetes](#upgrade-on-kubernetes)
+- [Ansible](#upgrade-on-ansible)
 
 When upgrading your node, we recommend:
 
@@ -25,7 +25,7 @@ When upgrading your node, we recommend:
 
 ## Upgrade on Linux
 
-1. Run the following to automatically download the latest Linux release, un-tar, and clean up:
+1. Run the following script to automatically download the latest Linux release, extract it, and clean up:
 
     ```bash
     RELEASE_URL="https://api.github.com/repos/hyperledger/besu/releases/latest"
@@ -161,19 +161,19 @@ you can use the following commands to verify that you've successfully upgraded y
 Call [`eth_syncing`](../reference/api/index.md#eth_syncing) to check the node synchronization status:
 
  ```bash
- curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545
+ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545 -H "Content-Type: application/json"
  ```
 
 Call [`web3_clientVersion`](../reference/api/index.md#web3_clientversion) to check the current client version:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545 -H "Content-Type: application/json"
 ```
 
 Call [`net_peerCount`](../reference/api/index.md#net_peercount) to verify peer connections:
 
  ```bash
- curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://127.0.0.1:8545
+ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://127.0.0.1:8545 -H "Content-Type: application/json"
  ```
 
 ### Logs

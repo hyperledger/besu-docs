@@ -4194,7 +4194,7 @@ rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 
 </Tabs>
 
-The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
+The keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
 
 ### `rpc-http-tls-keystore-password-file`
 
@@ -4329,6 +4329,86 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
 The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are available and are two names for the same option.
 
 :::
+
+### `rpc-http-tls-truststore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+
+</Tabs>
+
+The path to the truststore file used for authentication.
+
+### `rpc-http-tls-truststore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+
+</Tabs>
+
+The path to the file containing the password to decrypt the truststore.
 
 ### `rpc-max-logs-range`
 

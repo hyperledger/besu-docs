@@ -10,7 +10,7 @@ tags:
 
 To deploy Besu using Ansible, use the [Besu role](https://galaxy.ansible.com/consensys/hyperledger_besu) published on Galaxy.
 
-For more information, see the "Read Me" button on the [Ansible Galaxy Besu page](https://galaxy.ansible.com/consensys/hyperledger_besu).
+For more information, select **Documentation** on the [Ansible Galaxy Besu page](https://galaxy.ansible.com/consensys/hyperledger_besu).
 
 :::tip
 

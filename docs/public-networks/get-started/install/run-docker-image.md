@@ -141,3 +141,7 @@ To delete a container:
 ```bash
 docker rm <container-name>
 ```
+
+## Upgrade Besu
+
+See the [Upgrade Besu](../../how-to/upgrade-node.md#upgrade-on-docker) guide for instructions on upgrading Besu on Docker.

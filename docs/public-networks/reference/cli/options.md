@@ -3406,7 +3406,7 @@ Sets a limit on the amount of gas for transaction simulation RPC methods.
 This option allows users to override the transaction's gas limit. 
 This can prevent the simulation of transactions with high gas usage by setting a predefined cap, preventing DoS attacks.
 Its value must be greater than or equal to `0`. 
-The default is `0`, which indicates there is no limit. 
+The default is `50000000`. You can set this to `0` to indicate there is no limit. 
 This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
 
 ### `rpc-http-api`
@@ -4194,7 +4194,10 @@ rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 
 </Tabs>
 
-The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
+Path to the keystore file (in PKCS #12 format) when enabling TLS for the JSON-RPC HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--rpc-http-tls-keystore-password-file`](#rpc-http-tls-keystore-password-file).
 
 ### `rpc-http-tls-keystore-password-file`
 
@@ -4234,7 +4237,8 @@ rpc-http-tls-keystore-password-file="/home/me/me_node/password"
 
 </Tabs>
 
-The path to the file containing the password to decrypt the keystore.
+Path to the file containing the password for the keystore specified in [`--rpc-http-tls-keystore-file`](#rpc-http-tls-keystore-file),
+when enabling TLS for the JSON-RPC HTTP service.
 
 ### `rpc-http-tls-known-clients-file`
 
@@ -4274,7 +4278,7 @@ rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 
 </Tabs>
 
-The path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
+Path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format `<CommonName> <hex-string>`.
 
@@ -4329,6 +4333,89 @@ A list of comma-separated TLS protocols to support. The default is `DEFAULT_TLS_
 The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are available and are two names for the same option.
 
 :::
+
+### `rpc-http-tls-truststore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the truststore file when enabling TLS for the JSON-RPC HTTP service.
+
+Specify the truststore password file using [`--rpc-http-tls-truststore-password-file`](#rpc-http-tls-truststore-password-file).
+
+### `rpc-http-tls-truststore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--rpc-http-tls-truststore-file`](#rpc-http-tls-truststore-file),
+when enabling TLS for the JSON-RPC HTTP service.
 
 ### `rpc-max-logs-range`
 

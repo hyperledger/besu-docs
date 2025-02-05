@@ -3406,7 +3406,7 @@ Sets a limit on the amount of gas for transaction simulation RPC methods.
 This option allows users to override the transaction's gas limit. 
 This can prevent the simulation of transactions with high gas usage by setting a predefined cap, preventing DoS attacks.
 Its value must be greater than or equal to `0`. 
-The default is `50000000`. You can set this to 0 to indicate there is no limit. 
+The default is `50000000`. You can set this to `0` to indicate there is no limit. 
 This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
 
 ### `rpc-http-api`

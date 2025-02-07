@@ -227,7 +227,7 @@ Create the JWT using a trusted authentication provider[^1] or [library](https://
 
 [^1]: for example [Auth0](https://auth0.com/) or [Keycloak](https://www.keycloak.org/)
 
-See [Java code sample to generate JWT using Vertx](https://github.com/NicolasMassart/java-jwt-sample-generation/) for an example implementation.
+See [Java code sample to generate JWT using Vertex](https://github.com/NicolasMassart/java-jwt-sample-generation/) for an example implementation.
 
 :::caution Important
 

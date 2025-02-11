@@ -143,14 +143,15 @@ Override an account with the following state values temporarily before making th
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.
 
-| Key                       |        Type         | Value                                                                  |
-|---------------------------|:-------------------:|------------------------------------------------------------------------|
-| `balance`                 | Quantity            | Temporary account balance for the call execution.                      |
-| `nonce`                   | Quantity            | Temporary nonce value for the call execution.                          |
-| `code`                    | Binary              | Bytecode to inject into the account.                                   |
-| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.               |
-| `state`                   | Quantity            | `key:value` pairs to override all slots in the account storage.        |
-| `stateDiff`               | Quantity            | `key:value` pairs to override individual slots in the account storage. |
+
+| Key                       |        Type         | Value                                                                                                                                      |
+|---------------------------|:-------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `balance`                 |      Quantity       | Temporary account balance for the call execution.                                                                                          |
+| `nonce`                   |      Quantity       | Temporary nonce value for the call execution.                                                                                              |
+| `code`                    |       Binary        | Bytecode to inject into the account.                                                                                                       |
+| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.                                                                                   |
+| `state`                   |      Quantity       | `key:value` pairs to override all slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously.        |
+| `stateDiff`               |      Quantity       | `key:value` pairs to override individual slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously. |
 
 ## Structured log object
 

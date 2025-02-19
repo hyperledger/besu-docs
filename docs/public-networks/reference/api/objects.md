@@ -223,21 +223,22 @@ Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md
 
 All transaction call object parameters are optional.
 
-| Key                    | Type | Value |
-|------------------------| :-: | --- |
-| `from`                 | Data, 20&nbsp;bytes | Address of the sender. |
-| `to`                   | Data, 20&nbsp;bytes | Address of the action receiver. |
-| `gas`                  | Quantity, Integer | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| `gasPrice`             | Quantity, Integer | Gas price, in Wei, provided by the sender. The default is `0`. Used only in non-[`EIP1559`](../../concepts/transactions/types.md#eip1559-transactions) transactions. |
-| `maxPriorityFeePerGas` | Quantity, Integer | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxFeePerGas`. |
-| `maxFeePerGas`         | Quantity, Integer | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
-| `maxFeePerBlobGas`     | Quantity, Integer | Maximum fee the sender is willing to pay per blob gas. Only used for blob transactions introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
-| `value`                | Quantity, Integer | Value transferred, in Wei. |
-| `data`                 | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `input` if both parameters are provided. |
-| `input`                | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `data` if both parameters are provided.  |
-| `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
-| `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
-| `blobVersionedHashes`  | Array | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
+| Key                    |        Type         | Value                                                                                                                                                                                                                                             |
+|------------------------|:-------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `from`                 | Data, 20&nbsp;bytes | Address of the sender.                                                                                                                                                                                                                            |
+| `to`                   | Data, 20&nbsp;bytes | Address of the action receiver.                                                                                                                                                                                                                   |
+| `gas`                  |  Quantity, Integer  | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value.                                                                                                   |
+| `gasPrice`             |  Quantity, Integer  | Gas price, in Wei, provided by the sender. The default is `0`. Used only in non-[`EIP1559`](../../concepts/transactions/types.md#eip1559-transactions) transactions.                                                                              |
+| `maxPriorityFeePerGas` |  Quantity, Integer  | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxFeePerGas`.                      |
+| `maxFeePerGas`         |  Quantity, Integer  | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
+| `maxFeePerBlobGas`     |  Quantity, Integer  | Maximum fee the sender is willing to pay per blob gas. Only used for blob transactions introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844).                                                                                        |
+| `nonce`                | Quantity, Integer   | Number of transactions made by the sender before this one. The default is the sender's nonce. |
+| `value`                |  Quantity, Integer  | Value transferred, in Wei.                                                                                                                                                                                                                        |
+| `data`                 |        Data         | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `input` if both parameters are provided.                                |
+| `input`                |        Data         | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `data` if both parameters are provided.                                 |
+| `accessList`           |        Array        | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions.                                                                  |
+| `strict`               |         Tag         | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.                                  |
+| `blobVersionedHashes`  |        Array        | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844).                                                                                                                                                   |
 
 ## Transaction receipt object
 

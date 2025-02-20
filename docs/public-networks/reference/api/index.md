@@ -1897,8 +1897,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params"
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "reason": null
+          "stack": []
         }
       ]
     }
@@ -1980,8 +1979,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "reason": null
+          "stack": []
         }
       ]
     }

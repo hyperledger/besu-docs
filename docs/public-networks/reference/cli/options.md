@@ -2569,7 +2569,6 @@ Specify the method for handling [NAT environments](../../how-to/connect/specify-
 
 - [`UPNP`](../../how-to/connect/specify-nat.md#upnp)
 - [`UPNPP2PONLY`](../../how-to/connect/specify-nat.md#upnp)
-- [`KUBERNETES` (Deprecated)](../../how-to/connect/specify-nat.md#kubernetes)
 - [`DOCKER`](../../how-to/connect/specify-nat.md#docker)
 - [`AUTO`](../../how-to/connect/specify-nat.md#auto)
 - [`NONE`](../../how-to/connect/specify-nat.md#none).

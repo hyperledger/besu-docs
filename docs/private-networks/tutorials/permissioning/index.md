@@ -328,7 +328,7 @@ Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with 
 <TabItem value="Node-1" label="Node-1" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -336,7 +336,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-2" label="Node-2">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8546
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8546
 ```
 
 </TabItem>
@@ -344,7 +344,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-3" label="Node-3">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8547
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8547
 ```
 
 </TabItem>
@@ -352,7 +352,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-4" label="Node-4">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8548
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8548
 ```
 
 </TabItem>

@@ -49,7 +49,7 @@ Returned by [`eth_feeHistory`](index.md#eth_feehistory) for the requested block 
 
 | Key | Type | Value |
 | --- | :-: | --- |
-| `oldestBlock` | Quantity, Integer | Lowest number block of the returned range. |
+| `oldestBlock` | Quantity, String | Hexadecimal of the integer of the lowest number block of the returned range. |
 | `baseFeePerGas` | Array | Array of block base fees per gas, including an extra block value. The extra value is the next block after the newest block in the returned range. Returns zeroes for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/2d8a95e14e56de27c5465d93747b0006bd8ac47f/EIPS/eip-1559.md). |
 | `baseFeePerBlobGas` | Array | Array of base fees per blob gas. Returns zeroes for blocks created before [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). |
 | `gasUsedRatio` | Array | Array of block gas used ratios. These are calculated as the ratio of `gasUsed` and `gasLimit`. |

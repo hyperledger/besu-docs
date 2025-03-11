@@ -461,29 +461,37 @@ besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log export [--trie-log-blo
 
 </TabItem>
 
-<TabItem value="Example Export Single Trie-Log" label="Example Export Single Trie-Log ">
+<TabItem value="Example exporting single trie log">
 
 ```bash
 besu --config-file config.toml storage trie-log export --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b
 ```
-Example command to export the trie-log which corresponds a particular block hash into a file in the default location, `<data-dir>`/trie-logs.bin
+
+:::note
+This example exports the trie log corresponding to a particular block hash into a file in the default location, `<data-dir>/trie-logs.bin`.
+:::
 
 </TabItem>
 
-<TabItem value="Example Exporting List" label="Example Exporting List">
+<TabItem value="Example exporting list">
 
 ```bash
 besu --config-file config.toml storage trie-log export --trie-log-file-path=/tmp/list_of_trielogs.bin --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b,0xe8c3e77a6eaf6c87552aee07b86ecf4aacba43650b1d6aac32a44fa3ca97780d,0x86df7008b32fee67baac103846931c58454fc1b391e7d826c4886ba8580ba169
 ```
-Example command to export trie-logs corresponding to a list of block hashes into a specific file location
+
+:::note
+This example exports trie logs corresponding to a list of block hashes into a specific file location.
+:::
 
 </TabItem>
 
 </Tabs>
 
-This command exports the trie-logs of blocks specified by hash to a binary file.  By default bonsai trie-logs are regularly pruned, the trie-log for a given block may not be present if it has been pruned.  It is suggested to temporarily disable trie-log pruning if you need to manually import/export trie-logs.
+Exports the trie logs of blocks specified by hash to a binary file.
 
-
+By default, Bonsai trie logs are regularly pruned, so the trie log for a given block might not be present if it has been pruned.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
 
 #### `import`
 
@@ -497,18 +505,22 @@ besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log import [--trie-log-fil
 
 </TabItem>
 
-<TabItem value="Example Import" label="Example Import">
+<TabItem value="Example">
 
 ```bash
 besu --config-file config.toml storage trie-log import --trie-log-file-path=/tmp/list_of_trielogs.bin 
 ```
 
-
 </TabItem>
 
 </Tabs>
 
-This command imports trie log(s) from a binary trie-log export file.  By default bonsai trie-logs are regularly pruned.  If pruning is enabled, the imported trie-log(s) might be subsequently pruned by besu.  It is suggested to temporarily disable trie-log pruning if you need to manually import/export trie-logs.
+Imports trie logs from a binary trie log export file.
+
+By default, Bonsai trie logs are regularly pruned.
+If pruning is enabled, Besu might subsequently prune the imported trie logs.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
 
 ## `validate-config`
 

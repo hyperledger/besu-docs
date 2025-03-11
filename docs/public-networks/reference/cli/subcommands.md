@@ -492,7 +492,7 @@ This command exports the trie-logs of blocks specified by hash to a binary file.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log export [--trie-log-block-hash=<list>] [--trie-log-file-path=<file>]
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log import [--trie-log-file-path=<file>]
 ```
 
 </TabItem>

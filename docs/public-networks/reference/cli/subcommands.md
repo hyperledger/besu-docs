@@ -470,7 +470,7 @@ Example command to export the trie-log which corresponds a particular block hash
 
 </TabItem>
 
-<TabItem value="Example Exporting List" label="Example Exporting a List of Trie Logs to a specific location">
+<TabItem value="Example Exporting List" label="Example Exporting List">
 
 ```bash
 besu --config-file config.toml storage trie-log export --trie-log-file-path=/tmp/list_of_trielogs.bin --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b,0xe8c3e77a6eaf6c87552aee07b86ecf4aacba43650b1d6aac32a44fa3ca97780d,0x86df7008b32fee67baac103846931c58454fc1b391e7d826c4886ba8580ba169

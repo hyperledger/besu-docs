@@ -22,18 +22,9 @@ To sync Besu on a private network:
 The following is an overview of the private network sync modes.
 Select the sync mode based on your network's requirements and node purposes.
 
-| Sync mode                                                                            | Description                                                                                                                                                                         | Requirements | Limitations |
-|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-------------|
-| [Snap](../../public-networks/concepts/node-sync.md#snap-synchronization)             | Recommended for fastest sync and lowest storage requirements on Mainnet. Downloads as many leaves of the trie as possible and reconstructs the trie locally. Faster than fast sync. | Besu version 24.3.0 or later | Cannot switch from fast sync to snap sync mid-process. |
+| Sync mode                                                                            | Description                                                                                                                                                                         | Requirements                 | Limitations                                                                     |
+|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------------------------|
+| [Snap](../../public-networks/concepts/node-sync.md#snap-synchronization)             | Recommended for fastest sync and lowest storage requirements on Mainnet. Downloads as many leaves of the trie as possible and reconstructs the trie locally. Faster than fast sync. | Besu version 24.3.0 or later | Cannot switch from fast sync to snap sync mid-process.                          |
 | [Checkpoint](../../public-networks/concepts/node-sync.md#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements.                                                          | Besu version 22.4.3 or later | Not supported for QBFT or IBFT 2.0 networks without a checkpoint configuration. |
-| [Fast](../../public-networks/concepts/node-sync.md#fast-synchronization-deprecated)             | Downloads block headers and transaction receipts, verifies chain from genesis block.                                                                                                | None | Deprecated. Not supported with private transactions. |
-| [Full](../../public-networks/concepts/node-sync.md#full-synchronization)             | Default for all private networks. Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history.                      | None | Slowest sync mode, requires the most disk space. |
-
-:::warning Early access feature 
-
-`--Xsnapsync-bft-enabled` is an early access feature available in Besu version 24.7.1 and later.
-It is not stable, so use this option with caution.
-
-Use `--Xsnapsync-bft-enabled` with `--sync-mode=SNAP` to enable snap sync in QBFT and IBFT 2.0 private networks.
-
-:::
+| [Fast](../../public-networks/concepts/node-sync.md#fast-synchronization-deprecated)  | Downloads block headers and transaction receipts, verifies chain from genesis block.                                                                                                | None                         | Deprecated. Not supported with private transactions.                            |
+| [Full](../../public-networks/concepts/node-sync.md#full-synchronization)             | Default for all private networks. Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history.                      | None                         | Slowest sync mode, requires the most disk space.                                |

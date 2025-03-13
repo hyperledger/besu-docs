@@ -86,7 +86,7 @@ To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/downlo
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port>
+curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port> -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -94,7 +94,7 @@ curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>"
 <TabItem value="curl HTTP request" label="curl HTTP request">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555
+curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -120,7 +120,7 @@ You can use `curl` to make multiple RPC requests (batch requests) over HTTP at t
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555
+curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>

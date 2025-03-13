@@ -315,7 +315,7 @@ The command line specifies:
 Start another terminal, use curl to call the JSON-RPC API [`qbft_getvalidatorsbyblocknumber`](../reference/api/index.md#qbft_getvalidatorsbyblocknumber) method and confirm the network has four validators:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result displays the four validators:

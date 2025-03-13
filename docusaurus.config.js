@@ -301,6 +301,10 @@ const config = {
             from: "/private-networks/tutorials/permissioning/upgrade-contracts",
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
+          {
+            from: "/private-networks/tutorials/kubernetes/nat-manager",
+            to: "/private-networks/tutorials/kubernetes",
+          }
         ],
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {

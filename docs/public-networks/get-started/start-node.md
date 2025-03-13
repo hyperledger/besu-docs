@@ -139,13 +139,13 @@ If you started Besu with the [`--rpc-http-enabled`](../reference/cli/options.md#
 - `eth_chainId` returns the chain ID of the network.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
 - `eth_syncing` returns the starting, current, and highest block.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
   For example, after connecting to Mainnet, `eth_syncing` will return something similar to:

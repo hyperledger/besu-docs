@@ -6,7 +6,7 @@ tags:
   - public networks
 ---
 
-# Troubleshoot poor performance and resource constraints
+# Troubleshoot performance
 
 Your hardware, machine environment, and node configuration can affect your node's ability to serve
 requests and perform [validator duties](../../concepts/proof-of-stake/index.md), including

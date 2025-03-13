@@ -328,7 +328,7 @@ Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with 
 <TabItem value="Node-1" label="Node-1" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -336,7 +336,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-2" label="Node-2">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8546
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8546
 ```
 
 </TabItem>
@@ -344,7 +344,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-3" label="Node-3">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8547
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8547
 ```
 
 </TabItem>
@@ -352,7 +352,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-4" label="Node-4">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8548
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8548
 ```
 
 </TabItem>
@@ -440,7 +440,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<Enode
 Use curl to call the JSON-RPC API [`net_peerCount`](../../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are functioning as peers:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result confirms Node-1 (the node running the JSON-RPC service) has three peers (Node-2, Node-3 and Node-4):

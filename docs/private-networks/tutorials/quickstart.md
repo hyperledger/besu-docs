@@ -180,7 +180,7 @@ You can also run all the requests with the Besu Postman collection.
 Run the following command from the host shell:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result displays the client version of the running node:
@@ -223,7 +223,7 @@ Peers are the other nodes connected to the node receiving the JSON-RPC request.
 Poll the peer count using [`net_peerCount`](../../public-networks/reference/api/index.md#net_peercount):
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result indicates that there are four peers (the validators):
@@ -241,7 +241,7 @@ The result indicates that there are four peers (the validators):
 Call [`eth_blockNumber`](../../public-networks/reference/api/index.md#eth_blockNumber) to retrieve the number of the most recently synchronized block:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result indicates the highest block number synchronized on this node.

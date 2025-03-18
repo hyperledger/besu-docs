@@ -392,7 +392,7 @@ None
 
 - `id`: _string_ - [node public key](../../concepts/node-keys.md#node-public-key)
 
-- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/manage-peers.md#port-configuration)
+- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/configure-ports.md)
 
 - `protocols`: _object_ - list of objects containing information for each Ethereum sub-protocol
 

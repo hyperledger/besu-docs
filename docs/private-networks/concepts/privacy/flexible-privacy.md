@@ -66,7 +66,7 @@ Using multi-tenancy with flexible privacy groups is more complex than with [offc
 
 In particular, when multi-tenancy is enabled and a user requests access to a privacy group they were once a member of but later removed from, Besu allows the user access to the following functionality and data associated with the privacy group:
 
-- Private transactions using `priv_getTransaction` and private transaction receipts using [`priv_getTransactionReceipt`](../../../public-networks/reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and including) the removal block.
+- Private transactions using `priv_getTransaction` and private transaction receipts using [`priv_getTransactionReceipt`](../../reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and including) the removal block.
 
   :::note
 
@@ -74,9 +74,9 @@ In particular, when multi-tenancy is enabled and a user requests access to a pri
 
   :::
 
-- Using [`priv_call`](../../../public-networks/reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
+- Using [`priv_call`](../../reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
 
-- Private logs using [`priv_getLogs`](../../../public-networks/reference/api/index.md#priv_getlogs) for blocks up to (and including) the removal block. When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
+- Private logs using [`priv_getLogs`](../../reference/api/index.md#priv_getlogs) for blocks up to (and including) the removal block. When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
 
   :::note
 
@@ -84,4 +84,4 @@ In particular, when multi-tenancy is enabled and a user requests access to a pri
 
   :::
 
-All other [`PRIV` API methods](../../../public-networks/reference/api/index.md#priv-methods) fail for the removed group member.
+All other [`PRIV` API methods](../../reference/api/index.md#priv-methods) fail for the removed group member.

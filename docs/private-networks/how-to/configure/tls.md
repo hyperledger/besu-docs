@@ -1,6 +1,7 @@
 ---
 title: Client and server TLS
-sidebar_position: 1
+sidebar_position: 6
+sidebar_label: TLS
 tags:
   - private networks
 ---
@@ -15,15 +16,15 @@ calls.
 :::info Secure Websocket JSON-RPC calls
 
 You can configure SSL/TLS authentication for WebSocket calls by enabling
-[`--rpc-ws-ssl-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-ssl-enabled) for
+[`--rpc-ws-ssl-enabled`](../../../public-networks/reference/cli/options.md#rpc-ws-ssl-enabled) for
 server authentication, and
-[`--rpc-ws-ssl-client-auth-enabled`](../../../../public-networks/reference/cli/options.md#rpc-ws-ssl-client-auth-enabled) for client authentication.
+[`--rpc-ws-ssl-client-auth-enabled`](../../../public-networks/reference/cli/options.md#rpc-ws-ssl-client-auth-enabled) for client authentication.
 
 :::
 
 The following diagram displays an example client and server TLS configuration.
 
-![Besu client and server TLS](../../../../assets/images/Besu_TLS.png)
+![Besu client and server TLS](../../../assets/images/Besu_TLS.png)
 
 Configure TLS communication from the command line.
 
@@ -69,18 +70,18 @@ besu --rpc-http-enabled --rpc-http-tls-enabled --rpc-http-tls-client-auth-enable
 
 The command line:
 
-- Enables the HTTP JSON-RPC service using the [`--rpc-http-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
-- Enables TLS for the HTTP JSON-RPC service using the [`--rpc-http-tls-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-enabled) option.
-- Enables TLS client authentication using the [`--rpc-http-tls-client-auth-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-client-auth-enabled) option.
-- Specifies the keystore using the [`--rpc-http-tls-keystore-file`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-keystore-file) option.
-- Specifies the file that contains the password to decrypt the keystore using the [`--rpc-http-tls-keystore-password-file`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-keystore-password-file) option.
-- [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the [`--rpc-http-tls-known-clients-file`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-known-clients-file) option.
-- specifies the Java cipher suites using the [`--rpc-http-tls-cipher-suite`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-cipher-suite) option.
-- specifies the TLS protocol version using the [`--rpc-http-tls-protocol`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-protocol) option.
+- Enables the HTTP JSON-RPC service using the [`--rpc-http-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
+- Enables TLS for the HTTP JSON-RPC service using the [`--rpc-http-tls-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-tls-enabled) option.
+- Enables TLS client authentication using the [`--rpc-http-tls-client-auth-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-tls-client-auth-enabled) option.
+- Specifies the keystore using the [`--rpc-http-tls-keystore-file`](../../../public-networks/reference/cli/options.md#rpc-http-tls-keystore-file) option.
+- Specifies the file that contains the password to decrypt the keystore using the [`--rpc-http-tls-keystore-password-file`](../../../public-networks/reference/cli/options.md#rpc-http-tls-keystore-password-file) option.
+- [Specifies the clients](#create-the-known-clients-file) allowed to connect to Besu using the [`--rpc-http-tls-known-clients-file`](../../../public-networks/reference/cli/options.md#rpc-http-tls-known-clients-file) option.
+- specifies the Java cipher suites using the [`--rpc-http-tls-cipher-suite`](../../../public-networks/reference/cli/options.md#rpc-http-tls-cipher-suite) option.
+- specifies the TLS protocol version using the [`--rpc-http-tls-protocol`](../../../public-networks/reference/cli/options.md#rpc-http-tls-protocol) option.
 
 :::note
 
-Set [`--rpc-http-tls-ca-clients-enabled`](../../../../public-networks/reference/cli/options.md#rpc-http-tls-ca-clients-enabled) to `true` to allow access to clients with signed and trusted root CAs.
+Set [`--rpc-http-tls-ca-clients-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-tls-ca-clients-enabled) to `true` to allow access to clients with signed and trusted root CAs.
 
 :::
 
@@ -120,10 +121,10 @@ besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystor
 
 The command line:
 
-- Enables TLS with the server using the [`--privacy-tls-enabled`](../../../reference/cli/options.md#privacy-tls-enabled-deprecated) option.
-- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../../reference/cli/options.md#privacy-tls-keystore-file-deprecated) option.
-- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../../reference/cli/options.md#privacy-tls-keystore-password-file-deprecated) option.
-- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../../reference/cli/options.md#privacy-tls-known-enclave-file-deprecated) option.
+- Enables TLS with the server using the [`--privacy-tls-enabled`](../../reference/cli/options.md#privacy-tls-enabled-deprecated) option.
+- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../reference/cli/options.md#privacy-tls-keystore-file-deprecated) option.
+- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../reference/cli/options.md#privacy-tls-keystore-password-file-deprecated) option.
+- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../reference/cli/options.md#privacy-tls-known-enclave-file-deprecated) option.
 
 <!-- Links -->
 

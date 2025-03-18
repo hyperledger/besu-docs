@@ -187,5 +187,5 @@ This step is not required when using [username and password authentication] to c
 [JWT public key authentication]: ../../../public-networks/how-to/use-besu-api/authenticate.md#jwt-public-key-authentication
 [username and password authentication]: ../../../public-networks/how-to/use-besu-api/authenticate.md#username-and-password-authentication
 [generate the private and public key pair]: ../../../public-networks/how-to/use-besu-api/authenticate.md#1-generate-a-private-and-public-key-pair
-[Use the authentication token to make requests]: ../../../public-networks/how-to/use-besu-api/authenticate.md#using-an-authentication-token-to-make-requests
+[Use the authentication token to make requests]: ../../../public-networks/how-to/use-besu-api/authenticate.md#use-an-authentication-token-to-make-requests
 [Quorum to Tessera (Q2T)]: https://docs.tessera.consensys.net/Reference/TesseraAPI

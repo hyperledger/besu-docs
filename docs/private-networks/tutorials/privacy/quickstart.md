@@ -14,7 +14,7 @@ Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please re
 
 You can create a privacy-enabled network using the [Quorum Developer Quickstart](../quickstart.md). It runs a private Besu network that uses [Tessera](https://docs.tessera.consensys.net/en/stable/) as its private transaction manager.
 
-You can use the [Block Explorer](../quickstart.md#block-explorer), make [JSON-RPC requests](../quickstart.md#run-json-rpc-requests), and [create transactions using MetaMask](../quickstart.md#create-a-transaction-using-metamask). This tutorial describes how to make private transactions between nodes, and perform read and write operations on private contracts.
+You can use the [Block Explorer](../quickstart.md#use-a-block-explorer), make [JSON-RPC requests](../quickstart.md#run-json-rpc-requests), and [create transactions using MetaMask](../quickstart.md#create-a-transaction-using-metamask). This tutorial describes how to make private transactions between nodes, and perform read and write operations on private contracts.
 
 :::important
 

@@ -538,7 +538,7 @@ cache-last-blocks=2048
 </Tabs>
 
 The number of recent blocks to cache. 
-Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getBlockByNumber), [`eth_getBlockByHash`](../api/index.md#eth_getBlockByHash), [`eth_getTransactionReceipt`](../api/index.md#getTransactionReceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feeHistory). 
+Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getblockbynumber), [`eth_getBlockByHash`](../api/index.md#eth_getblockbyhash), [`eth_getTransactionReceipt`](../api/index.md#eth_gettransactionreceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feehistory). 
 The default is `0`.
 
 ### `color-enabled`
@@ -1812,7 +1812,7 @@ metrics-enabled=true
 
 </Tabs>
 
-Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The default is `false`.
+Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). The default is `false`.
 
 You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
 
@@ -1854,7 +1854,7 @@ metrics-host="127.0.0.1"
 
 </Tabs>
 
-The host on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The metrics server respects the [`--host-allowlist` option](#host-allowlist).
+The host on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md). The metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 The default is `127.0.0.1`.
 
@@ -1896,7 +1896,7 @@ metrics-port="6174"
 
 </Tabs>
 
-The port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The default is `9545`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
+The port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md). The default is `9545`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
 
 ### `metrics-protocol`
 
@@ -4277,7 +4277,7 @@ rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 
 </Tabs>
 
-Path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
+Path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format `<CommonName> <hex-string>`.
 
@@ -6340,7 +6340,7 @@ tx-pool-min-score="-100"
 
 </Tabs>
 
-Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#penalize-invalid-pending-transactions)
+Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#penalize-transient-invalid-pending-transactions)
 if its score is lower than this value. Accepts a value between `-128` and `127`.
 The default is `-128`.
 
@@ -6429,7 +6429,7 @@ tx-pool-price-bump=25
 </Tabs>
 
 The price bump percentage to 
-[replace an existing transaction in the transaction pool](../../concepts/transactions/pool.md#replacing-transactions-with-the-same-sender-and-nonce).
+[replace an existing transaction in the transaction pool](../../concepts/transactions/pool.md#replace-transactions-with-the-same-sender-and-nonce).
 For networks with a [base fee and priced gas](../../concepts/transactions/pool.md#in-networks-with-a-base-fee-and-priced-gas), the default is `10`, or 10%.
 For networks with [zero base fee, or free gas](../../concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas), the default is `0`. 
 

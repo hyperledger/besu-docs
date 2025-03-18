@@ -18,7 +18,7 @@ You can sign privacy marker transactions (PMTs) with either a random key or a sp
 
 :::note
 
-The private key file can be the same file used by [`--node-private-key-file`](#node-private-key-file), or a different key file to identify who signed the privacy marker transaction.
+The private key file can be the same file used by [`--node-private-key-file`](../../../public-networks/reference/cli/options.md#node-private-key-file), or a different key file to identify who signed the privacy marker transaction.
 
 :::
 

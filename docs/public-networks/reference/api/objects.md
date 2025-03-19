@@ -67,7 +67,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 | `address` | Data &#124; Array | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics` | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 
-[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](index.md#priv_getlogs) have an extra key.
+[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs) have an extra key.
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |

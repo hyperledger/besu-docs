@@ -21,7 +21,7 @@ For production environments requiring private transactions:
 - We recommend using a network with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../how-to/configure/consensus/ibft.md).
 - Tessera must be [highly available and run in a separate instance to Besu].
 
-Using private transactions with [pruning] or [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
+Using private transactions with [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
 
 :::
 
@@ -74,4 +74,3 @@ Do not use private transactions in production environments using consensus mecha
 <!-- Links -->
 
 [highly available and run in a separate instance to Besu]: ../../how-to/use-privacy/tessera.md
-[pruning]: ../../../public-networks/concepts/data-storage-formats.md#pruning

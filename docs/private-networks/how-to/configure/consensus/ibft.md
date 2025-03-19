@@ -198,7 +198,7 @@ The methods to add or remove validators are:
 - [`ibft_proposeValidatorVote`](../../../reference/api/index.md#ibft_proposevalidatorvote).
 - [`ibft_discardValidatorVote`](../../../reference/api/index.md#ibft_discardvalidatorvote).
 
-To view validator metrics for a specified block range, use [`ibft_getSignerMetrics`](../../../../public-networks/reference/api/index.md#ibft_getsignermetrics).
+To view validator metrics for a specified block range, use [`ibft_getSignerMetrics`](../../../reference/api/index.md#ibft_getsignermetrics).
 
 :::note
 

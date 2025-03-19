@@ -170,7 +170,7 @@ besu password hash --password=myPassword123
 
 </Tabs>
 
-Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ## `public-key`
 

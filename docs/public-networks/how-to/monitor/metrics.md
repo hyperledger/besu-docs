@@ -192,7 +192,7 @@ To configure Prometheus and run with Besu pushing to a push gateway:
 
 1. Choose **Graph** from the menu bar and click the **Console** tab below.
 
-1. From the **Insert metric at cursor** drop-down, select a [metric](#metrics-list) such as `besu_blockchain_difficulty_total` or `ethereum_blockchain_height` and click **Execute**. The values display.
+1. From the **Insert metric at cursor** drop-down, select a [metric](#view-the-metrics-list) such as `besu_blockchain_difficulty_total` or `ethereum_blockchain_height` and click **Execute**. The values display.
 
 1. Click the **Graph** tab to view the data as a time-based graph. The query string displays below the graph. For example, `{ethereum_blockchain_height{instance="localhost:9545",job="prometheus"}`.
 

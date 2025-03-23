@@ -70,7 +70,7 @@ To send private transactions between A, C, and D, C initializes a different cont
 
 ### Besu-extended privacy
 
-The Besu-extended privacy implementation creates a privacy group using [`priv_createPrivacyGroup`](../../../public-networks/reference/api/index.md#priv_createprivacygroup) with private transactions sent to the privacy group ID.
+The Besu-extended privacy implementation creates a privacy group using [`priv_createPrivacyGroup`](../../reference/api/index.md#priv_createprivacygroup) with private transactions sent to the privacy group ID.
 
 Using the same privacy groups as in the previous example.
 

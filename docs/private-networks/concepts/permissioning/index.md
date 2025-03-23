@@ -38,7 +38,7 @@ Use account permissioning to:
 
 ## Specify permissioning
 
-You can specify permissioning [locally](#local) or [onchain](#onchain).
+You can specify permissioning [locally](#local) or [onchain](#onchain-deprecated).
 
 ### Local
 

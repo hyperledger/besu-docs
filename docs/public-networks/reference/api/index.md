@@ -392,7 +392,7 @@ None
 
 - `id`: _string_ - [node public key](../../concepts/node-keys.md#node-public-key)
 
-- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/manage-peers.md#port-configuration)
+- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/configure-ports.md)
 
 - `protocols`: _object_ - list of objects containing information for each Ethereum sub-protocol
 
@@ -1763,13 +1763,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `block`: _string_ - RLP of the block
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1817,9 +1820,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf
         "gas": 0,
         "gasCost": 0,
         "depth": 1,
-        "stack": [],
-        "memory": [],
-        "storage": null
+        "stack": []
       }
     ]
   }
@@ -1838,13 +1839,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `blockHash`: _string_ - block hash
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1893,10 +1897,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params"
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "memory": [],
-          "storage": {},
-          "reason": null
+          "stack": []
         }
       ]
     }
@@ -1922,13 +1923,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1975,10 +1979,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "memory": [],
-          "storage": null,
-          "reason": null
+          "stack": []
         }
       ]
     }

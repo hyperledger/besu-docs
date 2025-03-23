@@ -170,7 +170,7 @@ besu password hash --password=myPassword123
 
 </Tabs>
 
-Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ## `public-key`
 
@@ -448,6 +448,79 @@ Removes all trie log layers below the specified retention limit, including orpha
 You can configure the retention limit using [`--bonsai-historical-block-limit`](options.md#bonsai-historical-block-limit). 
 The retention limit should match the configuration used with [`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled). 
 The default limit is `512`.
+
+#### `export`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log export [--trie-log-block-hash=<list>] [--trie-log-file-path=<file>]
+```
+
+</TabItem>
+
+<TabItem value="Example exporting single trie log">
+
+```bash
+besu --config-file config.toml storage trie-log export --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b
+```
+
+:::note
+This example exports the trie log corresponding to a particular block hash into a file in the default location, `<data-dir>/trie-logs.bin`.
+:::
+
+</TabItem>
+
+<TabItem value="Example exporting list">
+
+```bash
+besu --config-file config.toml storage trie-log export --trie-log-file-path=/tmp/list_of_trielogs.bin --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b,0xe8c3e77a6eaf6c87552aee07b86ecf4aacba43650b1d6aac32a44fa3ca97780d,0x86df7008b32fee67baac103846931c58454fc1b391e7d826c4886ba8580ba169
+```
+
+:::note
+This example exports trie logs corresponding to a list of block hashes into a specific file location.
+:::
+
+</TabItem>
+
+</Tabs>
+
+Exports the trie logs of blocks specified by hash to a binary file.
+
+By default, Bonsai trie logs are regularly pruned, so the trie log for a given block might not be present if it has been pruned.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
+
+#### `import`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log import [--trie-log-file-path=<file>]
+```
+
+</TabItem>
+
+<TabItem value="Example">
+
+```bash
+besu --config-file config.toml storage trie-log import --trie-log-file-path=/tmp/list_of_trielogs.bin 
+```
+
+</TabItem>
+
+</Tabs>
+
+Imports trie logs from a binary trie log export file.
+
+By default, Bonsai trie logs are regularly pruned.
+If pruning is enabled, Besu might subsequently prune the imported trie logs.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
 
 ## `validate-config`
 

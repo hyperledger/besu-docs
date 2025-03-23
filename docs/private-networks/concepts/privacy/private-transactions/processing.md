@@ -67,7 +67,7 @@ Private transaction processing is illustrated and described in the following dia
 - We recommend using a network with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](../../../how-to/configure/consensus/ibft.md).
 - Tessera must be [highly available and run in a separate instance to Besu](../../../how-to/use-privacy/tessera.md).
 
-Using private transactions with [pruning] or [fast sync](../../../../public-networks/reference/cli/options.md#sync-mode) is not supported.
+Using private transactions with [fast sync](../../../../public-networks/reference/cli/options.md#sync-mode) is not supported.
 
 :::
 
@@ -75,4 +75,3 @@ Using private transactions with [pruning] or [fast sync](../../../../public-netw
 
 [signed with a random key or the key specified on the command line]: ../../../how-to/use-privacy/sign-pmts.md
 [highly available and run in a separate instance to Besu]: ../../../how-to/use-privacy/tessera.md
-[pruning]: ../../../../public-networks/concepts/data-storage-formats.md#pruning

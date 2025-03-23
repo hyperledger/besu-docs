@@ -67,7 +67,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 | `address` | Data &#124; Array | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics` | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 
-[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](index.md#priv_getlogs) have an extra key.
+[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs) have an extra key.
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |
@@ -143,13 +143,15 @@ Override an account with the following state values temporarily before making th
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.
 
-| Key                       |        Type         | Value                                                                  |
-|---------------------------|:-------------------:|------------------------------------------------------------------------|
-| `balance`                 | Quantity            | Temporary account balance for the call execution.                      |
-| `nonce`                   | Quantity            | Temporary nonce value for the call execution.                          |
-| `code`                    | Binary              | Bytecode to inject into the account.                                   |
-| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.               |
-| `stateDiff`               | Quantity            | `key:value` pairs to override individual slots in the account storage. |
+
+| Key                       |        Type         | Value                                                                                                                                      |
+|---------------------------|:-------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `balance`                 |      Quantity       | Temporary account balance for the call execution.                                                                                          |
+| `nonce`                   |      Quantity       | Temporary nonce value for the call execution.                                                                                              |
+| `code`                    |       Binary        | Bytecode to inject into the account.                                                                                                       |
+| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.                                                                                   |
+| `state`                   |      Quantity       | `key:value` pairs to override all slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously.        |
+| `stateDiff`               |      Quantity       | `key:value` pairs to override individual slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously. |
 
 ## Structured log object
 

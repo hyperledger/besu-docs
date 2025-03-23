@@ -238,7 +238,7 @@ The result indicates that there are four peers (the validators):
 
 ### Request the most recent block number
 
-Call [`eth_blockNumber`](../../public-networks/reference/api/index.md#eth_blockNumber) to retrieve the number of the most recently synchronized block:
+Call [`eth_blockNumber`](../../public-networks/reference/api/index.md#eth_blocknumber) to retrieve the number of the most recently synchronized block:
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
@@ -609,7 +609,7 @@ Insert the following under `scrape_configs` section in the file. Change `job_nam
 
 Add the new node's enode address to the [static nodes] file and [permissions file]. The enode uses the format `enode://pubkey@ip_address:30303`. If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`, then the enode address is `"enode://4540ea...9c1d78@172.16.239.41:30303"`, which must be added to both files.
 
-Alternatively, call the [`perm_addNodesToAllowlist`](../../public-networks/reference/api/index.md#perm_addnodestoallowlist) API method on existing nodes to add the new node without restarting.
+Alternatively, call the [`perm_addNodesToAllowlist`](../reference/api/index.md#perm_addnodestoallowlist) API method on existing nodes to add the new node without restarting.
 
 :::note
 
@@ -621,7 +621,7 @@ On a live network, the new node must be added to the [permissions file] so that 
 
 ### 6. Start the network
 
-Once complete, start the network up with `./run.sh`. When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via [RPC API calls](../../public-networks/reference/api/index.md#perm_addnodestoallowlist).
+Once complete, start the network up with `./run.sh`. When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via [RPC API calls](../reference/api/index.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 

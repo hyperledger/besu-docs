@@ -45,7 +45,7 @@ If you're also running Teku as a validator client, create a test Ethereum addres
 
 - [Holesky](https://github.com/eth-clients/holesky)
 - [Hoodi](https://github.com/eth-clients/hoodi)
-- [Sepolia](https://github.com/eth-clients/sepolia#meta-data-sepolia)
+- [Sepolia](https://github.com/eth-clients/sepolia)
 - [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
@@ -91,7 +91,7 @@ besu \
 
 ```bash
 besu \
-  --network=hoodi           \
+  --network=hoodi             \
   --rpc-http-enabled=true     \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
@@ -173,7 +173,7 @@ teku \
 
 ```bash
 teku \
-  --network=hoodi                            \
+  --network=hoodi                              \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
@@ -254,7 +254,7 @@ teku \
 
 ```bash
 teku \
-  --network=hoodi                                         \
+  --network=hoodi                                           \
   --ee-endpoint=http://localhost:8551                       \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \

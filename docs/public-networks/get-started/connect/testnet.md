@@ -54,7 +54,7 @@ Fund this address with testnet ETH (32 ETH and gas fees for each validator) usin
 
 - [Holesky](https://github.com/eth-clients/holesky)
 - [Hoodi](https://github.com/eth-clients/hoodi)
-- [Sepolia](https://github.com/eth-clients/sepolia#meta-data-sepolia)
+- [Sepolia](https://github.com/eth-clients/sepolia)
 - [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
@@ -99,7 +99,7 @@ besu \
 
 ```bash
 besu \
-  --network=hoodi           \
+  --network=hoodi             \
   --rpc-http-enabled=true     \
   --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \

@@ -92,6 +92,18 @@ Where `<path>` and `<holeskydata-path>` are the path and directory to save the H
 
 See the [guide on connecting to a testnet](connect/testnet.md) for more information.
 
+## Run a node on Hoodi testnet
+
+To run a node on [Hoodi](https://github.com/eth-clients/hoodi) specifying a data directory:
+
+```bash
+besu --network=hoodi --data-path=<path>/<hoodidata-path>
+```
+
+Where `<path>` and `<hoodidata-path>` are the path and directory to save the Hoodi chain data to.
+
+See the [guide on connecting to a testnet](connect/testnet.md) for more information.
+
 ## Run a node on Sepolia testnet
 
 To run a node on [Sepolia](https://github.com/eth-clients/sepolia) specifying a data directory:

@@ -2679,16 +2679,17 @@ The predefined network configuration. The default is `mainnet`.
 
 Possible values include the following:
 
-| Network   | Chain | Type        | Default sync mode  | Consensus mechanism      | Description                                                                    |
-| :-------- | :---- | :-----------| :----------------- | :----------------------- |:-------------------------------------------------------------------------------|
-| `mainnet` | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
-| `holesky` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Holesky](https://holesky.dev)                            |
-| `sepolia` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
-| `lukso`   | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network            | Network for the [Lukso chain](https://lukso.network/)                          |
-| `dev`     | ETH   | Development | [`FULL`](#sync-mode) | A PoW network            | Development network with low difficulty to enable local CPU mining             |
-| `classic` | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network            | The main [Ethereum Classic network](https://ethereumclassic.org)               |
-| `mordor ` | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network            | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
-| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network            | Multi-client testnet [Ephemery](https://ephemery.dev) |
+| Network    | Chain | Type        | Default sync mode    | Consensus mechanism | Description                                                                    |
+|:-----------|:------|:------------|:---------------------|:--------------------|:-------------------------------------------------------------------------------|
+| `mainnet`  | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
+| `holesky`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Holesky](https://holesky.dev)                            |
+| `hoodi`    | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Hoodi](https://hoodi.ethpandaops.io/)                    |
+| `sepolia`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
+| `lukso`    | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
+| `dev`      | ETH   | Development | [`FULL`](#sync-mode) | A PoW network       | Development network with low difficulty to enable local CPU mining             |
+| `classic`  | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network       | The main [Ethereum Classic network](https://ethereumclassic.org)               |
+| `mordor `  | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network       | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
+| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Ephemery](https://ephemery.dev)                          |
 
 :::tip
 

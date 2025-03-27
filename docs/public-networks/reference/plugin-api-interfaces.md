@@ -3,12 +3,13 @@ title: Plugin API interfaces
 sidebar_position: 4
 description: Plugin interfaces
 tags:
+  - public networks
   - private networks
 ---
 
 # Plugin API interfaces
 
-API interfaces in Besu allow users to [build plugins](../concepts/plugins.md) to extend Besu functionality.
+API interfaces in Besu allow users to [build plugins](../../public-networks/concepts/plugins.md) to extend Besu functionality.
 
 For more information about the available interfaces, see the [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).
 
@@ -58,4 +59,4 @@ The `start` step can be ignored and your plugin module will be instantiated when
 
 :::
 
-[privacy marker transactions]: ../concepts/privacy/private-transactions/processing.md
+[privacy marker transactions]: ../../private-networks//concepts/privacy/private-transactions/processing.md

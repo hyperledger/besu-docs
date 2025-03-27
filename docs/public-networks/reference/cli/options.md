@@ -2998,12 +2998,54 @@ plugin-continue-on-error=true
 </TabItem>
 </Tabs>
 
-Enables or disables continuing to run Besu if a [plugin](../../../private-networks/concepts/plugins.md)
+Enables or disables continuing to run Besu if a [plugin](../../concepts/plugins.md)
 fails during registration or other startup lifecycle stages.
 If set to `true` and any plugin fails, Besu logs an error and continues running.
 If set to `false` and any plugin fails, Besu logs an error and stops running.
 
 The default is `false`.
+
+### `plugins`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--plugins=<PLUGIN>[,<PLUGIN>...]...
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--plugins=essential-plugin,security-plugin
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PLUGINS=essential-plugin,security-plugin
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+plugins=["essential-plugin","security-plugin"]
+```
+
+</TabItem>
+</Tabs>
+
+Comma-seperated list of [plugin](../../concepts/plugins.md) names to load. Each plugin must reside in
+the `plugins` directory. If you omit this option, Besu automatically loads all plugins found in that directory.
+
+The plugin name to specify is the name of the class that implements
+[`BesuPlugin`](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html)
+in the plugin source code.
+
+If the specified plugin is not found, Besu exits with an error identifying the missing plugin.
 
 ### `print-paths-and-exit`
 

@@ -3041,7 +3041,7 @@ plugins=["essential-plugin","security-plugin"]
 Comma-seperated list of [plugin](../../concepts/plugins.md) names to load. Each plugin must reside in
 the `plugins` directory. If you omit this option, Besu automatically loads all plugins found in that directory.
 
-The plugin name to specify is the name of the class that implements
+The plugin name is case-sensitive, and is the name of the class that implements
 [`BesuPlugin`](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html)
 in the plugin source code.
 

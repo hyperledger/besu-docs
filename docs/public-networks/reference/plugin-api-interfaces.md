@@ -59,4 +59,4 @@ The `start` step can be ignored and your plugin module will be instantiated when
 
 :::
 
-[privacy marker transactions]: ../../private-networks//concepts/privacy/private-transactions/processing.md
+[privacy marker transactions]: ../../private-networks/concepts/privacy/private-transactions/processing.md

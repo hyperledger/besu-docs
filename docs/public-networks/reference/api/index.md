@@ -1436,15 +1436,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params"
 ### `debug_setHead`
 
 Sets the local chain head to the specified block. Optionally, moves the [bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
-world state to that block.
+world state to that block when setting the `shouldMoveWorldstate` parameter.
 
 Moving the world state allows expensive operations like [`debug_traceBlock`](#debug_traceblock)
 to run on historical blocks without replaying all intermediate states. This is helpful to avoid
 out of memory errors when executing RPC calls on historical states.
 
-:::caution
-This method should not be used when a consensus client is directing Besu, or while the node is
-actively importing or proposing blocks.
+:::warning
+Do not use this method when a consensus client is directing Besu, or while the node is
+actively importing or proposing blocks as this will likely corrupt the database.
+
+Additionally, if you move the chain head by a large number of blocks (for example, more than 5,000),
+the RPC call might time out even though Besu continues the operation in the background.
 :::
 
 #### Parameters

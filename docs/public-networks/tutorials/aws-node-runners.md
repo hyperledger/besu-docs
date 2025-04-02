@@ -18,7 +18,7 @@ AWS Node Runners solves common challenges in architecting and deploying blockcha
 helping users identify optimal configurations for specific protocol clients.
 
 This page walks you through the AWS Node Runners [architecture](#architecture), and how to
-[deploy Besu and Teku on AWS](#deploy-aws-node-runners).
+[deploy Besu and Teku on AWS](#deploy-besu-and-teku-on-aws).
 
 ## Architecture
 

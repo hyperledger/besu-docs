@@ -370,7 +370,7 @@ To avoid exposing your private key, create signed transactions offline and send 
 
 For production systems requiring private transactions, use a network with a consensus mechanism supporting transaction finality to make sure the private state does not become inconsistent with the chain. For example, [IBFT 2.0](../../how-to/configure/consensus/ibft.md) and [QBFT](../../how-to/configure/consensus/qbft.md) provide the required finality.
 
-Using private transactions with [pruning](../../../public-networks/concepts/data-storage-formats.md#pruning) or [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
+Using private transactions with [fast sync](../../../public-networks/reference/cli/options.md#sync-mode) isn't supported.
 
 :::
 
@@ -769,7 +769,7 @@ The `PERM` API methods are not enabled by default for JSON-RPC. To enable the `P
 
 ### `perm_addAccountsToAllowlist`
 
-Adds accounts (participants) to the [accounts permission list](../../how-to/use-permissioning/local.md#account-permissioning).
+Adds accounts (participants) to the [accounts permission list](../../how-to/use-permissioning/local.md#account-allowlisting).
 
 #### Parameters
 
@@ -877,7 +877,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 
 ### `perm_getAccountsAllowlist`
 
-Lists accounts (participants) in the [accounts permissions list](../../how-to/use-permissioning/local.md#account-permissioning).
+Lists accounts (participants) in the [accounts permissions list](../../how-to/use-permissioning/local.md#account-allowlisting).
 
 #### Parameters
 
@@ -1015,7 +1015,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_reloadPermissionsFromFile",
 
 ### `perm_removeAccountsFromAllowlist`
 
-Removes accounts (participants) from the [accounts permissions list](../../how-to/use-permissioning/local.md#account-permissioning).
+Removes accounts (participants) from the [accounts permissions list](../../how-to/use-permissioning/local.md#account-allowlisting).
 
 #### Parameters
 
@@ -2614,7 +2614,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_proposeValidatorVote","para
 <!-- Links -->
 
 [add or remove a signer with the specified address]: ../../how-to/configure/consensus/clique.md#add-and-remove-signers
-[signers for the specified block]: ../../how-to/configure/consensus/clique.md#adding-and-removing-signers
+[signers for the specified block]: ../../how-to/configure/consensus/clique.md#add-and-remove-signers
 [add or remove a validator]: ../../how-to/configure/consensus/ibft.md#add-and-remove-validators
 [permissions configuration file]: ../../how-to/use-permissioning/local.md#permissions-configuration-file
 [group of sender and recipients]: ../../concepts/privacy/privacy-groups.md#enterprise-ethereum-alliance-privacy

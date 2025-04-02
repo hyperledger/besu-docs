@@ -880,7 +880,7 @@ privacy-tls-known-enclave-file="/home/me/me_node/knownEnclave"
 
 </Tabs>
 
-The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the [authorized privacy enclave](../../how-to/configure/tls/client-and-server.md#create-the-known-servers-file).
+The path to the file containing the hostnames, ports, and SHA256 certificate fingerprints of the [authorized privacy enclave](../../how-to/configure/tls.md#create-the-known-servers-file).
 
 ### `privacy-url` (Deprecated)
 

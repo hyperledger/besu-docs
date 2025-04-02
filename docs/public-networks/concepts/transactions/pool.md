@@ -19,7 +19,7 @@ Transaction pools are categorized into the following two types:
 You can use specific options and methods to [configure and monitor the transaction pool](#transaction-pool-methods-and-options).
   
 :::note
-When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#nonce-validation),
+When submitting [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md#private-nonce-validation),
 the [privacy marker transaction](../../../private-networks/concepts/privacy/private-transactions/processing.md)
 is submitted to the transaction pool, not the private transaction itself.
 :::

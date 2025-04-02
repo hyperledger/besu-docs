@@ -30,7 +30,7 @@ Ensure the multi-tenant Tessera node client API is configured to allow access on
 
 If not configured to allow access only by the multi-tenant Besu node, other Tessera clients, including other Besu nodes, might be able to access tenant data.
 
-To secure access, you can [configure TLS between Besu and Tessera](../../how-to/configure/tls/client-and-server.md) with the [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist) trust mode.
+To secure access, you can [configure TLS between Besu and Tessera](../../how-to/configure/tls.md) with the [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist) trust mode.
 
 :::
 

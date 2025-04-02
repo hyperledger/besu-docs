@@ -278,46 +278,51 @@ const config = {
       {
         redirects: [
           {
-            from: ["/en/latest", "/en/development", "/latest", "/development"],
-            to: "/public-networks",
-          },
-          {
             from: "/public-networks/concepts/the-merge",
             to: "/public-networks/concepts/node-clients",
           },
           {
-            from: "/public-networks/how-to/configuration-file",
+            from: ["/public-networks/how-to/configuration-file", "/public-networks/how-to/use-configuration-file"],
             to: "/public-networks/how-to/configure-besu",
           },
           {
-            from: "/public-networks/how-to/use-configuration-file",
-            to: "/public-networks/how-to/configure-besu",
-          },
-          {
-            from: "/private-networks/tutorials/permissioning/onchain",
-            to: "/private-networks/how-to/use-permissioning/onchain",
-          },
-          {
-            from: "/private-networks/tutorials/permissioning/upgrade-contracts",
+            from: ["/private-networks/tutorials/permissioning/onchain", "/private-networks/tutorials/permissioning/upgrade-contracts"],
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
           {
             from: "/private-networks/tutorials/kubernetes/nat-manager",
             to: "/private-networks/tutorials/kubernetes",
+          },
+          {
+            from: ["/private-networks/how-to/configure/tls/client-and-server", "/private-networks/concepts/pki", "/private-networks/how-to/configure/tls/p2p"],
+            to: "/private-networks/how-to/configure/tls",
           }
         ],
         createRedirects(existingPath) {
-          if (existingPath.includes("/development")) {
+          if (existingPath.includes("/public-networks")) {
             return [
-              existingPath.replace("/", "/en/development"),
-              existingPath.replace("/", "/en/latest"),
-              existingPath.replace("/", "/latest"),
+              existingPath.replace("/public-networks", "/en/development/public-networks"),
+              existingPath.replace("/public-networks", "/development/public-networks"),
+              existingPath.replace("/public-networks", "/en/latest/public-networks"),
+              existingPath.replace("/public-networks", "/latest/public-networks"),
+              existingPath.replace("/public-networks", "/en/stable/public-networks"),
+              existingPath.replace("/public-networks", "/stable/public-networks"),
+              existingPath.replace("/public-networks", "/24.8.0/public-networks"),
+              existingPath.replace("/public-networks", "/24.7.1/public-networks"),
+              existingPath.replace("/public-networks", "/23.4.0/public-networks"),
             ];
           }
-          if (existingPath.includes("/")) {
+          if (existingPath.includes("/private-networks")) {
             return [
-              existingPath.replace("/", "/en/stable"),
-              existingPath.replace("/", "/stable"),
+              existingPath.replace("/private-networks", "/en/development/private-networks"),
+              existingPath.replace("/private-networks", "/development/private-networks"),
+              existingPath.replace("/private-networks", "/en/latest/private-networks"),
+              existingPath.replace("/private-networks", "/latest/private-networks"),
+              existingPath.replace("/private-networks", "/en/stable/private-networks"),
+              existingPath.replace("/private-networks", "/stable/private-networks"),
+              existingPath.replace("/private-networks", "/24.8.0/private-networks"),
+              existingPath.replace("/private-networks", "/24.7.1/private-networks"),
+              existingPath.replace("/private-networks", "/23.4.0/private-networks"),
             ];
           }
           return undefined; // Return a falsy value: no redirect created

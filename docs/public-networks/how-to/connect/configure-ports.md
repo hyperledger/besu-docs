@@ -13,7 +13,7 @@ To enable communication you must expose Besu ports appropriately. The following 
 
 ![Port Configuration](../../../assets/images/PortConfiguration.png)
 
-When running Besu from the [Docker image](../../get-started/install/run-docker-image.md), [expose ports](../../get-started/install/run-docker-image.md#exposing-ports).
+When running Besu from the [Docker image](../../get-started/install/run-docker-image.md), [expose ports](../../get-started/install/run-docker-image.md#expose-ports).
 
 :::info
 

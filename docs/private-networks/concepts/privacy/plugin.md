@@ -34,7 +34,7 @@ Besu doesn't need to know how the private transaction is distributed, it just ne
 
 ### Send transactions
 
-When submitting a private transaction using [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction), the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which [privacy precompiled contract](private-transactions/processing.md) is being used.
+When submitting a private transaction using [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction), the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which [privacy precompiled contract](private-transactions/processing.md) is being used.
 
 The transaction flow is as follows:
 
@@ -48,7 +48,7 @@ The transaction flow is as follows:
 
 The process of mining transactions happens in reverse to sending transactions.
 
-1.  The Mainnet transaction processor processes the PMT in the same way as any other public transaction. On nodes containing the [privacy precompile contract](../../../public-networks/reference/api/index.md#priv_getprivacyprecompileaddress) specified in the `to` attribute of the PMT, the Mainnet transaction processor passes the PMT to the privacy precompile contract.
+1.  The Mainnet transaction processor processes the PMT in the same way as any other public transaction. On nodes containing the [privacy precompile contract](../../reference/api/index.md#priv_getprivacyprecompileaddress) specified in the `to` attribute of the PMT, the Mainnet transaction processor passes the PMT to the privacy precompile contract.
 
     :::note
 

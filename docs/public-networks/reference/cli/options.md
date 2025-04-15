@@ -1412,6 +1412,233 @@ graphql-http-port="6175"
 
 The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
 
+### `graphql-mtls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-mtls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-mtls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_MTLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-mtls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables mTLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables TLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-keystore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-file=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-file="/home/me/me_node/keystore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the keystore file when enabling TLS for the GraphQL HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--graphql-tls-keystore-password-file`](#graphql-tls-keystore-password-file).
+
+### `graphql-tls-keystore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the keystore specified in [`--graphql-tls-keystore-file`](#graphql-tls-keystore-file),
+when enabling TLS for the GraphQL HTTP service.
+
+### `graphql-tls-truststore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the truststore file when enabling TLS for the GraphQL HTTP service.
+
+Specify the truststore password file using [`--graphql-tls-truststore-password-file`](#graphql-tls-truststore-password-file).
+
+### `graphql-tls-truststore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--graphql-tls-truststore-file`](#graphql-tls-truststore-file),
+when enabling TLS for the GraphQL HTTP service.
+
 ### `help`
 
 <Tabs>

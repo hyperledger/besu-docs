@@ -581,57 +581,6 @@ color-enabled=false
 
 Enables or disables color output to console. The default is `true`.
 
-### `compatibility-eth64-forkid-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---compatibility-eth64-forkid-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_COMPATIBILITY_ETH64_FORKID_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes using Besu v20.10.1 or later, either:
-
-- All nodes must be upgraded to v20.10.1 or later.
-- All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`.
-
-The default is `false`.
-
-:::caution
-
-If networks have Besu nodes using v1.4 or earlier and other Besu nodes using v20.10.1 or later, the nodes on different versions cannot communicate unless `--compatibility-eth64-forkid-enabled` is set to `true`.
-
-:::
-
 ### `config-file`
 
 <Tabs>

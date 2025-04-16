@@ -1,5 +1,5 @@
 ---
-title: Create an Ethash network
+title: Create an Ethash network (Deprecated)
 sidebar_position: 5
 description: Create a private network using the Ethash consensus protocol.
 tags:

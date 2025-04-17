@@ -1435,17 +1435,33 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params"
 
 ### `debug_setHead`
 
-Sets the current head of the local chain to the block matching the specified block number.
+Sets the local chain head to the specified block. Optionally, moves the [bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+world state to that block when  the `shouldMoveWorldstate` parameter is set to `true`.
+
+Moving the world state allows expensive operations like [`debug_traceBlock`](#debug_traceblock)
+to run on historical blocks without replaying all intermediate states. This is helpful to avoid
+out of memory errors when executing RPC calls on historical states.
+
+:::warning
+Do not use this method when a consensus client is directing Besu, or while the node is
+actively importing or proposing blocks as this will likely corrupt the database.
+
+Additionally, if you move the chain head by a large number of blocks (for example, more than 5,000),
+the RPC call might time out even though Besu continues the operation in the background.
+:::
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
-string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+    string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
+    [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
-:::note
-`pending` returns the same value as `latest`.
-:::
+    :::note
+    `pending` returns the same value as `latest`.
+    :::
+
+- `shouldMoveWorldstate`: _boolean_ - (optional) if `true`, moves the [bonsai](../../concepts/data-storage-formats.md#bonsai-tries)
+    world state to the specified block. The default is `false`.
 
 #### Returns
 

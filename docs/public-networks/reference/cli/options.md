@@ -1,6 +1,6 @@
 ---
 title: Options
-description: Hyperledger Besu command line interface reference
+description: Besu command line interface reference
 sidebar_position: 1
 tags:
   - public networks
@@ -10,9 +10,8 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Command line options
 
-This reference describes the syntax of the Hyperledger Besu command line interface (CLI) options.
+This reference describes the syntax of the Besu configuration options.
 
 :::info
 
@@ -38,7 +37,7 @@ You can specify Besu options:
 
   For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
 
-- In a [configuration file](../../how-to/use-configuration-file/index.md).
+- In a [configuration file](../../how-to/configure-besu/index.md).
 
 If you specify an option in more than one place, the order of priority is command line, environment variable, configuration file.
 
@@ -221,7 +220,8 @@ auto-log-bloom-caching-enabled=false
 
 Enables or disables automatic log bloom caching. APIs such as [`eth_getLogs`](../api/index.md#eth_getlogs) and [`eth_getFilterLogs`](../api/index.md#eth_getfilterlogs) use the cache for improved performance. The default is `true`.
 
-If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu performs an uncached query for logs not yet written to the cache.
+If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu
+performs an uncached query for logs not yet written to the cache.
 
 Automatic log bloom caching has a small impact on performance. If you are not querying logs blooms for a large number of blocks, you might want to disable automatic log bloom caching.
 
@@ -356,13 +356,104 @@ bonsai-historical-block-limit=256
 
 </Tabs>
 
-When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the [maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which Bonsai can reconstruct a historical state. The default is 512. 
+When using [Bonsai Tries](../../concepts/data-storage-formats.md#bonsai-tries), the
+[maximum number of previous blocks](../../concepts/data-storage-formats.md#accessing-data) for which
+Bonsai can reconstruct a historical state.
+The default is `512`. 
 
 :::note
 
 If you plan on querying historical blocks or state using the [JSON-RPC API](../api/index.md), you might need to adjust the default value or your configured value to avoid errors. 
 
 :::
+
+### `bonsai-limit-trie-logs-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--bonsai-limit-trie-logs-enabled=[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--bonsai-limit-trie-logs-enabled=false
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_BONSAI_LIMIT_TRIE_LOGS_ENABLED=false
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+bonsai-limit-trie-logs-enabled=false
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables limiting the number of
+[Bonsai Trie](../../concepts/data-storage-formats.md#bonsai-tries) logs that are retained.
+When enabled, this limit is set to the value of
+[`--bonsai-historical-block-limit`](#bonsai-historical-block-limit).
+The default is `true`, unless [`--sync-mode=FULL`](#sync-mode) is set, in which case this option is
+disallowed and must be set to `false`.
+
+### `bonsai-trie-logs-pruning-window-size`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--bonsai-trie-logs-pruning-window-size=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--bonsai-trie-logs-pruning-window-size=100000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_BONSAI_TRIE_LOGS_PRUNING_WINDOW_SIZE=100000
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+bonsai-trie-logs-pruning-window-size=100000
+```
+
+</TabItem>
+
+</Tabs>
+
+When using [`--bonsai-limit-trie-logs-enabled`](#bonsai-limit-trie-logs-enabled), the number of trie
+logs to prune during one pruning operation.
+A larger value might impact node performance.
+The default is `30000`.
 
 ### `bootnodes`
 
@@ -408,6 +499,48 @@ When connecting to Mainnet or public testnets, the default is a predefined list 
 
 In private networks defined using [`--genesis-file`](#genesis-file) or when using [`--network=dev`](#network), the default is an empty list of bootnodes.
 
+### `cache-last-blocks`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--cache-last-blocks=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--cache-last-blocks=2048
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_CACHE_LAST_BLOCKS=2048
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+cache-last-blocks=2048
+```
+
+</TabItem>
+
+</Tabs>
+
+The number of recent blocks to cache. 
+Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getblockbynumber), [`eth_getBlockByHash`](../api/index.md#eth_getblockbyhash), [`eth_getTransactionReceipt`](../api/index.md#eth_gettransactionreceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feehistory). 
+The default is `0`.
+
 ### `color-enabled`
 
 <Tabs>
@@ -448,57 +581,6 @@ color-enabled=false
 
 Enables or disables color output to console. The default is `true`.
 
-### `compatibility-eth64-forkid-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---compatibility-eth64-forkid-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_COMPATIBILITY_ETH64_FORKID_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes using Besu v20.10.1 or later, either:
-
-- All nodes must be upgraded to v20.10.1 or later.
-- All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`.
-
-The default is `false`.
-
-:::caution
-
-If networks have Besu nodes using v1.4 or earlier and other Besu nodes using v20.10.1 or later, the nodes on different versions cannot communicate unless `--compatibility-eth64-forkid-enabled` is set to `true`.
-
-:::
-
 ### `config-file`
 
 <Tabs>
@@ -529,7 +611,7 @@ BESU_CONFIG_FILE=/home/me/me_node/config.toml
 
 </Tabs>
 
-The path to the [TOML configuration file](../../how-to/use-configuration-file/index.md). The default is `none`.
+The path to the [TOML configuration file](../../how-to/configure-besu/index.md). The default is `none`.
 
 ### `data-path`
 
@@ -813,7 +895,7 @@ engine-jwt-secret="jwt.hex"
 
 </Tabs>
 
-Shared secret used to authenticate [consensus clients](../../concepts/the-merge.md) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+Shared secret used to authenticate [consensus clients](../../concepts/node-clients.md#consensus-clients) when using the Engine JSON-RPC API (both HTTP and WebSocket). Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `engine-rpc-enabled`
 
@@ -1065,6 +1147,52 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 
 :::
 
+### `genesis-state-hash-cache-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--genesis-state-hash-cache-enabled=[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--genesis-state-hash-cache-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_GENESIS_STATE_HASH_CACHE_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+genesis-state-hash-cache-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables fast startup from an existing genesis state hash. The default is `false`.
+
+:::warning
+
+Enabling this option avoids validating the genesis state hash, trading off security for faster node startup times. We only recommend using this option if you are certain that you have not modified your genesis file or database and understand the security implications.
+
+:::
+
 ### `graphql-http-cors-origins`
 
 <Tabs>
@@ -1232,6 +1360,233 @@ graphql-http-port="6175"
 </Tabs>
 
 The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
+
+### `graphql-mtls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-mtls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-mtls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_MTLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-mtls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables mTLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables TLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-keystore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-file=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-file="/home/me/me_node/keystore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the keystore file when enabling TLS for the GraphQL HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--graphql-tls-keystore-password-file`](#graphql-tls-keystore-password-file).
+
+### `graphql-tls-keystore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the keystore specified in [`--graphql-tls-keystore-file`](#graphql-tls-keystore-file),
+when enabling TLS for the GraphQL HTTP service.
+
+### `graphql-tls-truststore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the truststore file when enabling TLS for the GraphQL HTTP service.
+
+Specify the truststore password file using [`--graphql-tls-truststore-password-file`](#graphql-tls-truststore-password-file).
+
+### `graphql-tls-truststore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--graphql-tls-truststore-file`](#graphql-tls-truststore-file),
+when enabling TLS for the GraphQL HTTP service.
 
 ### `help`
 
@@ -1633,7 +1988,7 @@ metrics-enabled=true
 
 </Tabs>
 
-Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The default is `false`.
+Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). The default is `false`.
 
 You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
 
@@ -1675,7 +2030,7 @@ metrics-host="127.0.0.1"
 
 </Tabs>
 
-The host on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The metrics server respects the [`--host-allowlist` option](#host-allowlist).
+The host on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md). The metrics server respects the [`--host-allowlist` option](#host-allowlist).
 
 The default is `127.0.0.1`.
 
@@ -1717,7 +2072,7 @@ metrics-port="6174"
 
 </Tabs>
 
-The port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md#monitor-node-performance-using-prometheus). The default is `9545`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
+The port (TCP) on which [Prometheus](https://prometheus.io/) accesses [Besu metrics](../../how-to/monitor/metrics.md). The default is `9545`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
 
 ### `metrics-protocol`
 
@@ -2009,9 +2364,112 @@ Minimum occupancy ratio for a mined block if the transaction pool is not empty. 
 
 :::note
 
-Besu ignores the `--min-block-occupancy-ratio` option for proof of stake networks (for example, Mainnet).
+Besu ignores the `--min-block-occupancy-ratio` option for proof-of-stake networks, such as Ethereum Mainnet.
 
 :::
+
+### `min-gas-price`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-gas-price=<minTransactionGasPrice>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-gas-price=1337
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_GAS_PRICE=1337
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-gas-price=1337
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum price (in wei) a transaction offers to include it in a mined block.
+The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return.
+The default is `1000`.
+
+For a running node, use:
+
+* [`miner_getMinGasPrice`](../api/index.md#miner_getmingasprice) to get the value.
+* [`miner_setMinGasPrice`](../api/index.md#miner_setmingasprice) to change the value.
+
+:::tip
+
+In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum
+gas price is set to zero for every node.
+Any node with a minimum gas price set higher than zero will silently drop transactions with a zero
+gas price.
+You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
+
+:::
+
+### `min-priority-fee`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--min-priority-fee=<minPriorityFeePerGas>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--min-priority-fee=7
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MIN_PRIORITY_FEE=7
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+min-priority-fee=7
+```
+
+</TabItem>
+
+</Tabs>
+
+The minimum priority fee per gas (in wei) offered by a transaction to be included in a block.
+The default is `0`.
+
+For a running node, use:
+
+* [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
+* [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
 
 ### `miner-coinbase`
 
@@ -2051,11 +2509,16 @@ miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 
 </Tabs>
 
-The account you pay mining rewards to. You must specify a valid coinbase when you enable mining using the [`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start) JSON-RPC API method.
+The account you pay mining rewards to.
+You must specify a valid coinbase when you enable mining using the
+[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start-deprecated)
+JSON-RPC API method.
 
 :::note
 
-Besu ignores this option in networks using [Clique](../../../private-networks/how-to/configure/consensus/clique.md), [IBFT 2.0](../../../private-networks/how-to/configure/consensus/ibft.md), or [QBFT](../../../private-networks/how-to/configure/consensus/qbft.md) consensus protocols.
+Besu ignores this option in [proof-of-authority](../../../private-networks/concepts/poa.md) networks.
+In proof-of-stake networks, such as Ethereum Mainnet, this option is used as a last resort for the
+fee recipient, if the consensus layer client doesn't provide any.
 
 :::
 
@@ -2137,9 +2600,10 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 
 </Tabs>
 
-A hex string representing the 32 bytes included in the extra data field of a mined block. The default is 0x.
+A hex string representing the 32 bytes included in the extra data field of a created block.
+The default is `0x`.
 
-### `miner-stratum-enabled`
+### `miner-stratum-enabled` (Deprecated)
 
 <Tabs>
 
@@ -2169,9 +2633,10 @@ miner-stratum-enabled=true
 
 </Tabs>
 
-Enables a node to perform stratum mining. The default is `false`.
+Enables a node to perform stratum mining.
+The default is `false`.
 
-### `miner-stratum-host`
+### `miner-stratum-host` (Deprecated)
 
 <Tabs>
 
@@ -2209,9 +2674,10 @@ miner-stratum-host="192.168.1.132"
 
 </Tabs>
 
-The host of the stratum mining service. The default is `0.0.0.0`.
+The host of the stratum mining service.
+The default is `0.0.0.0`.
 
-### `miner-stratum-port`
+### `miner-stratum-port` (Deprecated)
 
 <Tabs>
 
@@ -2249,96 +2715,9 @@ miner-stratum-port="8010"
 
 </Tabs>
 
-The port of the stratum mining service. The default is `8008`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
-
-### `min-gas-price`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-gas-price=<minTransactionGasPrice>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=1337
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_GAS_PRICE=1337
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-gas-price=1337
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum price a transaction offers to include it in a mined block. The minimum gas price is the lowest value [`eth_gasPrice`](../api/index.md#eth_gasprice) can return. The default is 1000 Wei.
-
-:::tip
-
-In a [free gas network](../../../private-networks/how-to/configure/free-gas.md), ensure the minimum gas price is set to zero for every node. Any node with a minimum gas price set higher than zero will silently drop transactions with a zero gas price. You can query a node's gas configuration using [`eth_gasPrice`](../api/index.md#eth_gasprice).
-
-:::
-
-### `min-priority-fee`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---min-priority-fee=<minPriorityFeePerGas>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---min-gas-price=7
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MIN_PRIORITY_FEE=7
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-min-priority-fee=7
-```
-
-</TabItem>
-
-</Tabs>
-
-The minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The default is `0`.
-For a running node, use: 
-* [`miner_getMinPriorityFee`](../api/index.md#minergetminpriorityfee) to get the value.
-* [`miner_setMinPriorityFee`](../api/index.md#minersetminpriorityfee) to change the value.
+The port of the stratum mining service.
+The default is `8008`.
+You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `nat-method`
 
@@ -2366,7 +2745,6 @@ Specify the method for handling [NAT environments](../../how-to/connect/specify-
 
 - [`UPNP`](../../how-to/connect/specify-nat.md#upnp)
 - [`UPNPP2PONLY`](../../how-to/connect/specify-nat.md#upnp)
-- [`KUBERNETES`](../../how-to/connect/specify-nat.md#kubernetes)
 - [`DOCKER`](../../how-to/connect/specify-nat.md#docker)
 - [`AUTO`](../../how-to/connect/specify-nat.md#auto)
 - [`NONE`](../../how-to/connect/specify-nat.md#none).
@@ -2381,7 +2759,7 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
 :::tip
 
-Use `UPNPP2PONLY` if you wish to enable UPnP for p2p traffic but not JSON-RPC.
+Use `UPNPP2PONLY` if you wish to enable UPnP for P2P traffic but not JSON-RPC.
 
 :::
 
@@ -2392,6 +2770,48 @@ Specifying `UPNP` might introduce delays during node startup, especially on netw
 You must specify `DOCKER` when using the [Besu Docker image](../../get-started/install/run-docker-image.md).
 
 :::
+
+### `net-restrict`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--net-restrict=<subnet>[,<subnet>,...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--net-restrict=192.168.1.0/24,10.0.0.0/8
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_NET_RESTRICT=192.168.1.0/24,10.0.0.0/8
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+net-restrict=["192.168.1.0/24","10.0.0.0/8"]
+```
+
+</TabItem>
+
+</Tabs>
+
+A comma-separated list of allowed IP subnets.
+Peers whose IP addresses fall within the specified subnets are granted permission to interact with the node.
+If not specified, no subnet-based peer permission restrictions are applied.
 
 ### `network`
 
@@ -2408,7 +2828,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Example" label="Example">
 
 ```bash
---network=goerli
+--network=holesky
 ```
 
 </TabItem>
@@ -2416,7 +2836,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NETWORK=goerli
+BESU_NETWORK=holesky
 ```
 
 </TabItem>
@@ -2424,7 +2844,7 @@ BESU_NETWORK=goerli
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-network="goerli"
+network="holesky"
 ```
 
 </TabItem>
@@ -2433,21 +2853,23 @@ network="goerli"
 
 The predefined network configuration. The default is `mainnet`.
 
-Possible values are:
+Possible values include the following:
 
-| Network   | Chain | Type        | Default Sync Mode  | Description                                                    |
-| :-------- | :---- | :-----------| :----------------- | :------------------------------------------------------------- |
-| `mainnet` | ETH   | Production  | [FAST](#sync-mode) | The main network                                               |
-| `goerli`  | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
-| `holesky` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
-| `sepolia` | ETH   | Test        | [FAST](#sync-mode) | A PoS network                                                  |
-| `dev`     | ETH   | Development | [FULL](#sync-mode) | A PoW network with a low difficulty to enable local CPU mining |
-| `classic` | ETC   | Production  | [FAST](#sync-mode) | The main Ethereum Classic network                              |
-| `mordor ` | ETC   | Test        | [FAST](#sync-mode) | A PoW network                                                  |
+| Network    | Chain | Type        | Default sync mode    | Consensus mechanism | Description                                                                    |
+|:-----------|:------|:------------|:---------------------|:--------------------|:-------------------------------------------------------------------------------|
+| `mainnet`  | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
+| `holesky`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Holesky](https://holesky.dev)                            |
+| `hoodi`    | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Hoodi](https://hoodi.ethpandaops.io/)                    |
+| `sepolia`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
+| `lukso`    | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
+| `dev`      | ETH   | Development | [`FULL`](#sync-mode) | A PoW network       | Development network with low difficulty to enable local CPU mining             |
+| `classic`  | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network       | The main [Ethereum Classic network](https://ethereumclassic.org)               |
+| `mordor `  | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network       | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
+| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Ephemery](https://ephemery.dev)                          |
 
 :::tip
 
-Values are case insensitive, so either `mainnet` or `MAINNET` works.
+Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 :::
 
@@ -2719,6 +3141,60 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `plugin-continue-on-error`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--plugin-continue-on-error[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--plugin-continue-on-error=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PLUGIN_CONTINUE_ON_ERROR=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+plugin-continue-on-error=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables continuing to run Besu if a [plugin](../../../private-networks/concepts/plugins.md)
+fails during registration or other startup lifecycle stages.
+If set to `true` and any plugin fails, Besu logs an error and continues running.
+If set to `false` and any plugin fails, Besu logs an error and stops running.
+
+The default is `false`.
+
+### `print-paths-and-exit`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--print-paths-and-exit
+```
+
+</TabItem>
+</Tabs>
+
+Prints the Besu data directory paths and exits without starting the node.
+
 ### `profile`
 
 <Tabs>
@@ -2732,21 +3208,21 @@ The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose 
 <TabItem value="Example">
 
 ```bash
---profile=staker
+--profile=STAKER
 ```
 
 </TabItem>
 <TabItem value="Environment variable">
 
 ```bash
-BESU_PROFILE=staker
+BESU_PROFILE=STAKER
 ```
 
 </TabItem>
 <TabItem value="Configuration file">
 
 ```bash
-profile="staker"
+profile="STAKER"
 ```
 
 </TabItem>
@@ -2755,9 +3231,14 @@ profile="staker"
 Loads a pre-configured TOML file containing custom settings for a specific user profile.
 Possible values are:
 
-- [`minimalist_staker`](../../how-to/use-configuration-file/profile.md#minimalist-staker-profile)
-- [`staker`](../../how-to/use-configuration-file/profile.md#staker-profile)
-- [`enterprise` or `private`](../../how-to/use-configuration-file/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- [`MINIMALIST_STAKER`](../../how-to/configure-besu/profile.md#minimalist-staker-profile)
+- [`STAKER`](../../how-to/configure-besu/profile.md#staker-profile)
+- [`ENTERPRISE` or `PRIVATE`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- File name of an [external profile](../../how-to/configure-besu/profile.md#load-external-profiles),
+  without the `.toml` extension.
+  
+The default is `null`.
+
 
 ### `random-peer-priority-enabled`
 
@@ -2798,6 +3279,48 @@ random-peer-priority-enabled=true
 </Tabs>
 
 Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent closed groups of peers forming. The default is `false`.
+
+### `receipt-compaction-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--receipt-compaction-enabled=<true|false>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--receipt-compaction-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RECEIPT_COMPACTION_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+receipt-compaction-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables receipt compaction. 
+Compacting receipts reduces storage by trimming unnecessary data from transaction receipts. 
+The default is `false`.
 
 ### `remote-connections-limit-enabled`
 
@@ -2847,7 +3370,7 @@ In private and permissioned networks with a level of trust between peers, disabl
 
 :::danger
 
-To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#fast-sync-min-peers).
+To prevent eclipse attacks, ensure you enable the remote connections limit when connecting to any public network, and especially when using [`--sync-mode`](#sync-mode) and [`--fast-sync-min-peers`](#sync-min-peers-fast-sync-min-peers).
 
 :::
 
@@ -3055,7 +3578,12 @@ rpc-gas-cap=50000000
 
 </Tabs>
 
-Sets a limit on the amount of gas for transaction simulation RPC methods. Its value must be greater than or equal to `0`. The default is `0`, which indicates there is no limit. This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
+Sets a limit on the amount of gas for transaction simulation RPC methods. 
+This option allows users to override the transaction's gas limit. 
+This can prevent the simulation of transactions with high gas usage by setting a predefined cap, preventing DoS attacks.
+Its value must be greater than or equal to `0`. 
+The default is `50000000`. You can set this to `0` to indicate there is no limit. 
+This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
 
 ### `rpc-http-api`
 
@@ -3842,7 +4370,10 @@ rpc-http-tls-keystore-file="/home/me/me_node/keystore.pfx"
 
 </Tabs>
 
-The Keystore file (in PKCS #12 format) that contains private key and the certificate presented to the client during authentication.
+Path to the keystore file (in PKCS #12 format) when enabling TLS for the JSON-RPC HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--rpc-http-tls-keystore-password-file`](#rpc-http-tls-keystore-password-file).
 
 ### `rpc-http-tls-keystore-password-file`
 
@@ -3882,7 +4413,8 @@ rpc-http-tls-keystore-password-file="/home/me/me_node/password"
 
 </Tabs>
 
-The path to the file containing the password to decrypt the keystore.
+Path to the file containing the password for the keystore specified in [`--rpc-http-tls-keystore-file`](#rpc-http-tls-keystore-file),
+when enabling TLS for the JSON-RPC HTTP service.
 
 ### `rpc-http-tls-known-clients-file`
 
@@ -3922,7 +4454,7 @@ rpc-http-tls-known-clients-file="/home/me/me_node/knownClients"
 
 </Tabs>
 
-The path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls/client-and-server.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
+Path to the file used to [authenticate clients](../../../private-networks/how-to/configure/tls.md#create-the-known-clients-file) using self-signed certificates or non-public certificates.
 
 Must contain the certificate's Common Name, and SHA-256 fingerprint in the format `<CommonName> <hex-string>`.
 
@@ -3978,6 +4510,89 @@ The singular `--rpc-http-tls-protocol` and plural `--rpc-http-tls-protocols` are
 
 :::
 
+### `rpc-http-tls-truststore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the truststore file when enabling TLS for the JSON-RPC HTTP service.
+
+Specify the truststore password file using [`--rpc-http-tls-truststore-password-file`](#rpc-http-tls-truststore-password-file).
+
+### `rpc-http-tls-truststore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-http-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-http-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_HTTP_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-http-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--rpc-http-tls-truststore-file`](#rpc-http-tls-truststore-file),
+when enabling TLS for the JSON-RPC HTTP service.
+
 ### `rpc-max-logs-range`
 
 <Tabs>
@@ -4020,7 +4635,9 @@ When using [`eth_getLogs`](../api/index.md#eth_getlogs), the maximum number of b
 
 :::caution
 
-Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its genesis block, might cause Besu to hang for an indeterminable amount of time while generating the response.
+Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its
+genesis block, might cause Besu to stop responding for an indeterminable amount of time while
+generating the response.
 
 We recommend setting a range limit or leaving this option at its default value.
 
@@ -4105,7 +4722,7 @@ rpc-tx-feecap=1200000000000000000
 
 </Tabs>
 
-The maximum transaction fee (in Wei) accepted for transactions submitted through the [`eth_sendRawTransaction`](../api/index.md#eth_sendrawtransaction) RPC. The default is 1000000000000000000 (1 ether).
+The maximum transaction fee (in wei) accepted for transactions submitted through the [`eth_sendRawTransaction`](../api/index.md#eth_sendrawtransaction) RPC. The default is 1000000000000000000 (1 ether).
 
 If set to 0, then this option is ignored and no cap is applied.
 
@@ -4573,6 +5190,574 @@ rpc-ws-port="6174"
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+
+### `rpc-ws-ssl-cert-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-cert-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-cert-file=/home/me/me_node/websocket-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_CERT_FILE="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-cert-file="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM certificate file enabling SSL/TLS for the WebSocket JSON-RPC service.
+This file contains the public certificate that is used to establish the identity of the server to clients.
+
+Specify the private key file using [`--rpc-ws-ssl-key-file`](#rpc-ws-ssl-key-file).
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
+
+### `rpc-ws-ssl-client-auth-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-client-auth-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-client-auth-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_CLIENT_AUTH_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-client-auth-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables client authentication for the WebSocket JSON-RPC service. The default is `false`.
+
+:::note
+
+When enabling client authentication, specify the truststore type using [`--rpc-ws-ssl-truststore-type`](#rpc-ws-ssl-truststore-type)
+and provide the appropriate file path for the truststore or trust certificate using either
+[`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file) (for JKS or PKCS12) or
+[`--rpc-ws-ssl-trustcert-file`](#rpc-ws-ssl-trustcert-file) (for PEM).
+
+If using JKS or PKCS12, specify the truststore password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password).
+:::
+
+### `rpc-ws-ssl-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
+
+Set the appropriate keystore type using [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type).
+
+### `rpc-ws-ssl-key-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-key-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-key-file=/home/me/me_node/websocket-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEY_FILE="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-key-file="/home/me/me_node/websocket-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM certificate file when enabling SSL/TLS for the WebSocket JSON-RPC service.
+This file contains the private key that corresponds to the public certificate specified using
+[`--rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file).
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
+
+### `rpc-ws-ssl-keystore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-file=/home/me/me_node/keystore.jks
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_FILE="/home/me/me_node/keystore.jks"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-file="/home/me/me_node/keystore.jks"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the keystore file when enabling SSL/TLS for the WebSocket JSON-RPC service.
+The keystore file is used to store the server's private key and public certificate in a single
+file, typically in JKS or PKCS12 format. Use this option if you prefer to
+manage your SSL/TLS certificates and keys in a keystore rather than separate PEM files.
+
+Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is set to `JKS` or `PKCS12`.
+
+Specify the keystore password using [`--rpc-ws-ssl-keystore-password`](#rpc-ws-ssl-keystore-password)
+or [`--rpc-ws-ssl-keystore-password-file`](#rpc-ws-ssl-keystore-password-file).
+
+### `rpc-ws-ssl-keystore-password`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-password=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-password=keystore_password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_PASSWORD="keystore_password"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-password="keystore_password"
+```
+
+</TabItem>
+
+</Tabs>
+
+Password for the keystore specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-keystore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-password-file=/home/me/me_node/keystore-password.txt
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_PASSWORD_FILE="/home/me/me_node/keystore-password.txt"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-password-file="/home/me/me_node/keystore-password.txt"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the keystore specified in [`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-keystore-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-keystore-type=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-keystore-type=JKS
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_KEYSTORE_TYPE="JKS"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-keystore-type="JKS"
+```
+
+</TabItem>
+
+</Tabs>
+
+Type of the keystore when enabling SSL/TLS for the WebSocket JSON-RPC service. Valid options are
+`JKS`, `PKCS12`, and `PEM`.
+
+Provide the appropriate file path for the keystore using either
+[`--rpc-ws-ssl-keystore-file`](#rpc-ws-ssl-keystore-file) (for `JKS` or `PKCS12`), or
+[`--rpc-ws-ssl-key-file`](#rpc-ws-ssl-key-file) and [`--rpc-ws-ssl-cert-file`](#rpc-ws-ssl-cert-file) (for `PEM`).
+
+### `rpc-ws-ssl-trustcert-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-trustcert-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-trustcert-file=/home/me/me_node/trust-cert.pem
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTCERT_FILE="/home/me/me_node/trust-cert.pem"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-trustcert-file="/home/me/me_node/trust-cert.pem"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the PEM trust certificate file when enabling client SSL/TLS authentication for the WebSocket JSON-RPC
+service.
+
+### `rpc-ws-ssl-truststore-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-file=/home/me/me_node/websocket-truststore.jks
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_FILE="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-file="/home/me/me_node/websocket-truststore.jks"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the truststore file when enabling SSL/TLS client authentication for the WebSocket JSON-RPC
+service.
+
+Specify the truststore password using [`--rpc-ws-ssl-truststore-password`](#rpc-ws-ssl-truststore-password)
+or [`--rpc-ws-ssl-truststore-password-file`](#rpc-ws-ssl-truststore-password-file).
+
+### `rpc-ws-ssl-truststore-password`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-password=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-password=truststore_password
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD="truststore_password"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-password="truststore_password"
+```
+
+</TabItem>
+
+</Tabs>
+
+Password for the truststore specified using [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-truststore-password-file`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-password-file=<FILE>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-password-file=/home/me/me_node/truststore-password.txt
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_PASSWORD_FILE="/home/me/me_node/truststore-password.txt"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-password-file="/home/me/me_node/truststore-password.txt"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file),
+when enabling WebSocket SSL/TLS client authentication.
+
+### `rpc-ws-ssl-truststore-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rpc-ws-ssl-truststore-type=<STRING>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--rpc-ws-ssl-truststore-type=JKS
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_RPC_WS_SSL_TRUSTSTORE_TYPE="JKS"
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+rpc-ws-ssl-truststore-type="JKS"
+```
+
+</TabItem>
+
+</Tabs>
+
+Type of the truststore when enabling client SSL/TLS authentication for the WebSocket JSON-RPC service. Valid options are
+`JKS`, `PKCS12`, and `PEM`.
+
+Specify the required [`--rpc-ws-ssl-truststore-file`](#rpc-ws-ssl-truststore-file) for `JKS` and `PKCS12`, or
+[`--rpc-ws-ssl-trustcert-file`](#rpc-ws-ssl-trustcert-file) for `PEM`.
+
 ### `security-module`
 
 <Tabs>
@@ -4678,7 +5863,7 @@ Static nodes JSON file containing the [static nodes](../../how-to/connect/static
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-STRICT_TX_REPLAY_PROTECTION_ENABLED=false
+BESU_STRICT_TX_REPLAY_PROTECTION_ENABLED=false
 ```
 
 </TabItem>
@@ -4733,7 +5918,7 @@ sync-min-peers=8
 
 </Tabs>
 
-The minimum number of peers required before starting [sync](../../get-started/connect/sync-node.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
+The minimum number of peers required before starting [sync](../../concepts/node-sync.md). The default is `5`. Set to `1` to enable static peers to contribute to the initial sync.
 
 :::info
 
@@ -4779,16 +5964,18 @@ sync-mode="SNAP"
 
 </Tabs>
 
-The synchronization mode. Use `SNAP` for [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../get-started/connect/sync-node.md#checkpoint-synchronization), `FAST` for [fast sync](../../get-started/connect/sync-node.md#fast-synchronization), and `FULL` for [full sync](../../get-started/connect/sync-node.md#run-an-archive-node).
+The synchronization mode. Use `SNAP` for [snap sync](../../concepts/node-sync.md#snap-synchronization), `CHECKPOINT` for [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization), `FAST` for [fast sync](../../concepts/node-sync.md#fast-synchronization-deprecated), and `FULL` for [full sync](../../concepts/node-sync.md#full-synchronization).
 
 - The default is `FULL` when connecting to a private network by not using the [`--network`](#network) option and specifying the [`--genesis-file`](#genesis-file) option.
 - The default is `SNAP` when using the [`--network`](#network) option with named networks, except for the `dev` development network. `SNAP` is also the default if running Besu on the default network (Ethereum Mainnet) by specifying neither [network](#network) nor [genesis file](#genesis-file).
 
-:::tip
+:::note Notes
 
 - We recommend using snap sync over fast sync because snap sync can be faster by several days.
-- It might become impossible to sync Ethereum Mainnet using fast sync in the future, as clients drop support for fast sync. We recommend you update Besu to a version that supports newer sync methods.
-- When synchronizing in a mode other than `FULL`, most historical world state data is unavailable. Any methods attempting to access unavailable world state data return `null`.
+- Fast sync is deprecated in Besu version 24.12.0 and later.
+  We recommend updating Besu to a version that supports other sync methods.
+- When using a mode other than `FULL`, most historical world state data is unavailable.
+  Any methods attempting to access unavailable world state data return `null`.
 
 :::
 
@@ -4875,9 +6062,53 @@ tx-pool="sequenced"
 </Tabs>
 
 Type of [transaction pool](../../concepts/transactions/pool.md) to use.
-Set to `layered` to use the layered transaction pool implementation.
-Set to `sequenced` (previously known as `legacy`) to opt out of the layered transaction pool.
+Set to `layered` to use the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool) implementation.
 The default is `layered`.
+
+Set to `sequenced` to use the [sequenced transaction pool](../../concepts/transactions/pool.md#sequenced-transaction-pool).
+The default is `sequenced` for the [enterprise/private profile](../../how-to/configure-besu/profile.md#enterpriseprivate-profile).
+
+### `tx-pool-blob-price-bump`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-blob-price-bump=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-blob-price-bump=25
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_BLOB_PRICE_BUMP=25
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-blob-price-bump="25"
+```
+
+</TabItem>
+
+</Tabs>
+
+Sets the price bump policy for re-issued blob transactions as a percentage increase in price. 
+A blob transaction can only replace, or be replaced by, another blob transaction.
+The default is `100`.
 
 ### `tx-pool-enable-save-restore`
 
@@ -4961,12 +6192,11 @@ tx-pool-layer-max-capacity="20000000"
 
 </Tabs>
 
-Maximum amount of memory (in bytes) that any layer within the [layered transaction
-pool](../../concepts/transactions/pool#layered-transaction-pool) can occupy.
+Maximum amount of memory (in bytes) that any layer within the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool) can occupy.
 The default is `12500000`, or 12.5 MB.
 
-There are two memory-limited layers in the transaction pool, so the expected memory consumption is
-twice the value specified by this option, or 25 MB by default.
+The transaction pool includes two memory-limited layers, resulting in an expected memory consumption
+that is twice the value specified by this option, or 25 MB by default.
 Increase this value if you have spare RAM and the eviction rate is high for your network.
 
 ### `tx-pool-limit-by-account-percentage`
@@ -5012,7 +6242,7 @@ Accepted values are in the range `(0–1]`.
 The default is `.001`, or 0.1% of transactions from a single sender to be kept in the pool.
 
 :::caution
-- With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+- With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
   implementation, this option is not applicable.
   Replace this option with [`--tx-pool-max-future-by-sender`](#tx-pool-max-future-by-sender) to
   specify the maximum number of sequential transactions from a single sender kept in the pool.
@@ -5063,7 +6293,7 @@ tx-pool-max-future-by-sender="250"
 </Tabs>
 
 The maximum number of sequential transactions from a single sender kept in the
-[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 The default is `200`.
 
 Increase this value to allow a single sender to fit more transactions in a single block.
@@ -5109,11 +6339,56 @@ tx-pool-max-prioritized="1500"
 </Tabs>
 
 The maximum number of transactions that are prioritized in the
-[layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool).
+[layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool).
 The default is `2000`.
 
 For private networks, we recommend setting this value to the maximum number of transactions that fit
 in a block in your network.
+
+### `tx-pool-max-prioritized-by-type`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-max-prioritized-by-type=["<TYPE=INTEGER>",...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MAX_PRIORITIZED_BY_TYPE=["BLOB=6","FRONTIER=200"]
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-max-prioritized-by-type=["BLOB=6","FRONTIER=200"]
+```
+
+</TabItem>
+
+</Tabs>
+
+The maximum number of transactions of a specific [transaction type](../../concepts/transactions/types.md) that are prioritized in the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool). 
+
+This option is mostly useful for tuning the amount of prioritized [blob transactions](../../concepts/transactions/types.md#blob-transactions) in the transaction pool. 
+Keeping the prioritized layer sorted is costly, and only a few blob transactions can fit in a block (currently a maximum of six). 
+Tuning the maximum number of prioritized transactions by type can help maintain the efficiency and performance of the transaction pool.
+The default is `BLOB=6`.
 
 ### `tx-pool-max-size`
 
@@ -5157,7 +6432,7 @@ The maximum number of transactions kept in the [transaction pool](../../concepts
 The default is `4096`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
 implementation, this option is not applicable because the layered pool is limited by memory size
 instead of the number of transactions.
 To configure the maximum memory capacity, use [`--tx-pool-layer-max-capacity`](#tx-pool-layer-max-capacity).
@@ -5203,6 +6478,52 @@ tx-pool-min-gas-price="2000"
 
 The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
 
+
+### `tx-pool-min-score`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-min-score=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-min-score=-100
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_MIN_SCORE=-100
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-min-score="-100"
+```
+
+</TabItem>
+
+</Tabs>
+
+Remove a pending transaction from the [layered transaction pool](../../concepts/transactions/pool.md#penalize-transient-invalid-pending-transactions)
+if its score is lower than this value. Accepts a value between `-128` and `127`.
+The default is `-128`.
+
+The lowest score a pending transaction can have is `-128`. The default value of `-128` means that pending
+transactions will not be removed and will remain in the pool with the lowest score, being selected after
+all other pending transactions.
 
 ### `tx-pool-no-local-priority`
 
@@ -5284,8 +6605,8 @@ tx-pool-price-bump=25
 
 </Tabs>
 
-The price bump percentage to [replace an existing transaction in the transaction
-pool](../../concepts/transactions/pool#replacing-transactions-with-the-same-sender-and-nonce).
+The price bump percentage to 
+[replace an existing transaction in the transaction pool](../../concepts/transactions/pool.md#replace-transactions-with-the-same-sender-and-nonce).
 For networks with a [base fee and priced gas](../../concepts/transactions/pool.md#in-networks-with-a-base-fee-and-priced-gas), the default is `10`, or 10%.
 For networks with [zero base fee, or free gas](../../concepts/transactions/pool.md#in-networks-with-zero-base-base-or-free-gas), the default is `0`. 
 
@@ -5374,7 +6695,7 @@ The maximum period (in hours) to hold pending transactions in the [transaction p
 The default is `13`.
 
 :::caution
-With the [layered transaction pool](../../concepts/transactions/pool#layered-transaction-pool)
+With the [layered transaction pool](../../concepts/transactions/pool.md#layered-transaction-pool)
 implementation, this option is not applicable because old transactions will expire when the memory
 cache is full.
 :::
@@ -5476,7 +6797,7 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
-The default is `false` for named networks, such as Mainnet or Goerli, and `true`
+The default is `false` for named networks, such as Mainnet or Holesky, and `true`
 for non-named networks.
 
 ### `Xhelp`

@@ -4,7 +4,13 @@ sidebar_position: 4
 description: Multi-tenancy
 ---
 
-# Multi-tenancy
+# Multi-tenancy (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 By default, each participant in a privacy network uses its own Besu and Tessera node.
 
@@ -24,7 +30,7 @@ Ensure the multi-tenant Tessera node client API is configured to allow access on
 
 If not configured to allow access only by the multi-tenant Besu node, other Tessera clients, including other Besu nodes, might be able to access tenant data.
 
-To secure access, you can [configure TLS between Besu and Tessera](../../how-to/configure/tls/client-and-server.md) with the [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist) trust mode.
+To secure access, you can [configure TLS between Besu and Tessera](../../how-to/configure/tls.md) with the [`WHITELIST`](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/#whitelist) trust mode.
 
 :::
 

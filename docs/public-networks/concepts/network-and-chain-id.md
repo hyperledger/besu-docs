@@ -1,6 +1,6 @@
 ---
 title: Network ID and chain ID
-sidebar_position: 5
+sidebar_position: 7
 description: Learn about network ID and chain ID in Besu.
 tags:
   - public networks
@@ -37,11 +37,12 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 | Network   | Chain | Chain ID | Network ID | Type        |
 | --------- | ----- | -------- | ---------- | ----------- |
 | `mainnet` | ETH   | 1        | 1          | Production  |
-| `goerli`  | ETH   | 5        | 5          | Test        |
+| `holesky` | ETH   | 17000    | 17000      | Test        |
 | `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
 | `classic` | ETC   | 61       | 1          | Production  |
 | `mordor`  | ETC   | 63       | 7          | Test        |
+| `ephemery`| ETH   | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)    | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)      | Test        |
 
 :::info
 

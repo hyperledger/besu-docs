@@ -4,7 +4,13 @@ sidebar_position: 3
 description: Flexible privacy groups
 ---
 
-# Flexible privacy groups
+# Flexible privacy groups (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Flexible [privacy groups](privacy-groups.md) use smart contracts to store and maintain the group membership. You can [add and remove members to and from flexible privacy groups](../../how-to/use-privacy/flexible.md).
 
@@ -20,7 +26,7 @@ Flexible privacy groups are an early access feature. Don't use in production net
 
 The flexible privacy group interfaces might change between releases. There might not be an upgrade path from flexible privacy groups created using v1.5 or earlier to enable use of flexible privacy group functionality in future versions.
 
-We don't recommended creating flexible privacy groups in a chain with existing [offchain privacy groups](privacy-groups.md).
+We don't recommend creating flexible privacy groups in a chain with existing [offchain privacy groups](privacy-groups.md).
 
 :::
 
@@ -60,7 +66,7 @@ Using multi-tenancy with flexible privacy groups is more complex than with [offc
 
 In particular, when multi-tenancy is enabled and a user requests access to a privacy group they were once a member of but later removed from, Besu allows the user access to the following functionality and data associated with the privacy group:
 
-- Private transactions using `priv_getTransaction` and private transaction receipts using [`priv_getTransactionReceipt`](../../../public-networks/reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and including) the removal block.
+- Private transactions using `priv_getTransaction` and private transaction receipts using [`priv_getTransactionReceipt`](../../reference/api/index.md#priv_gettransactionreceipt) from blocks up to (and including) the removal block.
 
   :::note
 
@@ -68,9 +74,9 @@ In particular, when multi-tenancy is enabled and a user requests access to a pri
 
   :::
 
-- Using [`priv_call`](../../../public-networks/reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
+- Using [`priv_call`](../../reference/api/index.md#priv_call) on blocks up to (and including) the removal block.
 
-- Private logs using [`priv_getLogs`](../../../public-networks/reference/api/index.md#priv_getlogs) for blocks up to (and including) the removal block. When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
+- Private logs using [`priv_getLogs`](../../reference/api/index.md#priv_getlogs) for blocks up to (and including) the removal block. When the `toBlock` is greater than the removal block, `priv_getLogs` still returns logs up to the removal block.
 
   :::note
 
@@ -78,4 +84,4 @@ In particular, when multi-tenancy is enabled and a user requests access to a pri
 
   :::
 
-All other [`PRIV` API methods](../../../public-networks/reference/api/index.md#priv-methods) fail for the removed group member.
+All other [`PRIV` API methods](../../reference/api/index.md#priv-methods) fail for the removed group member.

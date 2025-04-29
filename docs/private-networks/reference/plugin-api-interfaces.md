@@ -8,7 +8,7 @@ tags:
 
 # Plugin API interfaces
 
-API interfaces in Hyperledger Besu allow users to [build plugins](../concepts/plugins.md) to extend Besu functionality.
+API interfaces in Besu allow users to [build plugins](../concepts/plugins.md) to extend Besu functionality.
 
 For more information about the available interfaces, see the [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).
 
@@ -24,7 +24,7 @@ The following table lists the interfaces providing core plugin classes.
 
 | Interface | Description |
 | --- | --- |
-| [**BesuContext**](https://wiki.hyperledger.org/display/BESU/BesuContext) | Allows plugins to access Besu services. |
+| [**ServiceManager**](https://wiki.hyperledger.org/display/BESU/BesuContext) | Allows plugins to access Besu services. |
 | [**BesuPlugin**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html) | Used to manage the plugin lifecycle. |
 
 ## Plugin services

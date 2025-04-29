@@ -1,7 +1,7 @@
 ---
-title: Create an Ethash network
+title: (Deprecated) Create an Ethash network
 sidebar_position: 5
-description: Create a private network using the Ethash consensus protocol.
+description: Create a private network using the (deprecated) Ethash consensus protocol.
 tags:
   - private networks
 ---
@@ -9,7 +9,13 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a private network using Ethash
+# Create a private network using Ethash (Deprecated)
+
+:::caution
+
+PoW consensus is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 A private network provides a configurable network for testing. By configuring a low difficulty and enabling mining, this allows for fast block creation.
 
@@ -23,7 +29,7 @@ The steps in this tutorial create an isolated, but not protected or secure, Ethe
 
 ## Prerequisites
 
-- [Hyperledger Besu](../get-started/install/binary-distribution.md)
+- [Besu](../get-started/install/binary-distribution.md)
 - [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -102,7 +108,7 @@ Start Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -110,7 +116,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabl
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -123,6 +129,8 @@ The command line enables:
 - JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
 - All-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
 - All-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
+- The [enterprise/private profile](../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
+  using the [`--profile`](../../public-networks/reference/cli/options.md#profile) option.
 
 :::info
 
@@ -143,7 +151,7 @@ Start another terminal, change to the `Node-2` directory and start Node-2 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -151,7 +159,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -163,7 +171,7 @@ The command line specifies:
 - A different port to Node-1 for P2P discovery using the [`--p2p-port`](../../public-networks/reference/cli/options.md#p2p-port) option.
 - The enode URL of Node-1 using the [`--bootnodes`](../../public-networks/reference/cli/options.md#bootnodes) option.
 - A data directory for Node-2 using the [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
-- A genesis file as for Node-1.
+- Other options as for [Node-1](#3-start-the-first-node-as-a-bootnode).
 
 ### 5. Start Node-3
 
@@ -174,7 +182,7 @@ Start another terminal, change to the `Node-3` directory and start Node-3 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -182,7 +190,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --bootnodes=<
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -193,14 +201,14 @@ The command line specifies:
 
 - A different port to Node-1 and Node-2 for P2P discovery.
 - A data directory for Node-3 using the [`--data-path`](../../public-networks/reference/cli/options.md#data-path) option.
-- A bootnode and genesis file as for Node-2.
+- Other options as for [Node-2](#4-start-node-2).
 
 ### 6. Confirm the private network is working
 
 Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are functioning as peers:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result confirms Node-1 (the node running the JSON-RPC service) has two peers (Node-2 and Node-3):

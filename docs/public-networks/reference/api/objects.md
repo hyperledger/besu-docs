@@ -1,6 +1,6 @@
 ---
 title: Objects
-description: Hyperledger Besu API objects reference
+description: Besu API objects reference
 tags:
   - public networks
   - private networks
@@ -67,7 +67,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 | `address` | Data &#124; Array | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics` | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 
-[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](index.md#priv_getlogs) have an extra key.
+[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs) have an extra key.
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |
@@ -91,7 +91,7 @@ Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_g
 
 ## Miner data object
 
-Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
+Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
 
 | Key | Type | Value |
 | --- | :-: | --- |
@@ -114,15 +114,15 @@ Returned by [`txpool_besuPendingTransactions`](index.md#txpool_besupendingtransa
 | `accessList` | Array | (Optional) List of addresses and storage keys the transaction plans to access. Used in [`ACCESS_LIST` transactions](../../concepts/transactions/types.md#access_list-transactions) and may be used in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `from` | Data, 20&nbsp;bytes | Address of the sender. |
 | `gas` | Quantity | Gas provided by the sender. |
-| `gasPrice` | Quantity | (Optional) Gas price, in Wei, provided by the sender. Not used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
-| `maxPriorityFeePerGas` | Quantity, Integer | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
-| `maxFeePerGas` | Quantity, Integer | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `gasPrice` | Quantity | (Optional) Gas price, in wei, provided by the sender. Not used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `maxPriorityFeePerGas` | Quantity, Integer | (Optional) Maximum fee, in wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
+| `maxFeePerGas` | Quantity, Integer | (Optional) Maximum total fee (base fee + priority fee), in wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `hash` | Data, 32&nbsp;bytes | Hash of the transaction. |
 | `input` | Data | Data sent with the transaction to create or invoke a contract. |
 | `nonce` | Quantity | Number of transactions made by the sender before this one. |
 | `to` | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction. |
 | `transactionType` | String | [Transaction type](../../concepts/transactions/types.md). |
-| `value` | Quantity | Value transferred, in Wei. |
+| `value` | Quantity | Value transferred, in wei. |
 | `v` | Quantity | ECDSA Recovery ID. |
 | `r` | Data, 32&nbsp;bytes | ECDSA signature r. |
 | `s` | Data, 32&nbsp;bytes | ECDSA signature s. |
@@ -136,7 +136,24 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 | `storage` | Object | Key hash and value. Pre-image key is `null` if it falls outside the cache. |
 | `nextKey` | Hash | Hash of next key if further storage in range. Otherwise, not included. |
 
-### Structured log object
+## State override object
+
+Optional parameter for [`eth_call`](./index.md#eth_call) and [`eth_estimateGas`](./index.md#eth_estimategas).
+Override an account with the following state values temporarily before making the call. This allows you
+to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
+blockchain state.
+
+
+| Key                       |        Type         | Value                                                                                                                                      |
+|---------------------------|:-------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `balance`                 |      Quantity       | Temporary account balance for the call execution.                                                                                          |
+| `nonce`                   |      Quantity       | Temporary nonce value for the call execution.                                                                                              |
+| `code`                    |       Binary        | Bytecode to inject into the account.                                                                                                       |
+| `movePrecompileToAddress` | Data, 20&nbsp;bytes | Address to which the precompile address should be moved.                                                                                   |
+| `state`                   |      Quantity       | `key:value` pairs to override all slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously.        |
+| `stateDiff`               |      Quantity       | `key:value` pairs to override individual slots in the account storage. You cannot set both the `state` and `stateDiff` options simultaneously. |
+
+## Structured log object
 
 Log information returned as part of the [Trace object](#trace-object).
 
@@ -208,21 +225,22 @@ Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md
 
 All transaction call object parameters are optional.
 
-| Key                    | Type | Value |
-|------------------------| :-: | --- |
-| `from`                 | Data, 20&nbsp;bytes | Address of the sender. |
-| `to`                   | Data, 20&nbsp;bytes | Address of the action receiver. |
-| `gas`                  | Quantity, Integer | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value. |
-| `gasPrice`             | Quantity, Integer | Gas price, in Wei, provided by the sender. The default is `0`. Used only in non-[`EIP1559`](../../concepts/transactions/types.md#eip1559-transactions) transactions. |
-| `maxPriorityFeePerGas` | Quantity, Integer | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxFeePerGas`. |
-| `maxFeePerGas`         | Quantity, Integer | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
-| `maxFeePerBlobGas`     | Quantity, Integer | Maximum fee the sender is willing to pay per blob gas. Only used for blob transactions introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
-| `value`                | Quantity, Integer | Value transferred, in Wei. |
-| `data`                 | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `input` if both parameters are provided. |
-| `input`                | Data | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `data` if both parameters are provided.  |
-| `accessList`           | Array | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions. |
-| `strict`               | Tag | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.|
-| `blobVersionedHashes`  | Array | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844). |
+| Key                    |        Type         | Value                                                                                                                                                                                                                                             |
+|------------------------|:-------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `from`                 | Data, 20&nbsp;bytes | Address of the sender.                                                                                                                                                                                                                            |
+| `to`                   | Data, 20&nbsp;bytes | Address of the action receiver.                                                                                                                                                                                                                   |
+| `gas`                  |  Quantity, Integer  | Gas provided by the sender. `eth_call` consumes zero gas, but other executions might need this parameter. `eth_estimateGas` ignores this value.                                                                                                   |
+| `gasPrice`             |  Quantity, Integer  | Gas price, in Wei, provided by the sender. The default is `0`. Used only in non-[`EIP1559`](../../concepts/transactions/types.md#eip1559-transactions) transactions.                                                                              |
+| `maxPriorityFeePerGas` |  Quantity, Integer  | Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxFeePerGas`.                      |
+| `maxFeePerGas`         |  Quantity, Integer  | Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Can be used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). If used, must specify `maxPriorityFeePerGas`. |
+| `maxFeePerBlobGas`     |  Quantity, Integer  | Maximum fee the sender is willing to pay per blob gas. Only used for blob transactions introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844).                                                                                        |
+| `nonce`                | Quantity, Integer   | Number of transactions made by the sender before this one. The default is the sender's nonce. |
+| `value`                |  Quantity, Integer  | Value transferred, in Wei.                                                                                                                                                                                                                        |
+| `data`                 |        Data         | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `input` if both parameters are provided.                                |
+| `input`                |        Data         | Hash of the method signature and encoded parameters. For details, see [Ethereum Contract ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html). Must be equal to `data` if both parameters are provided.                                 |
+| `accessList`           |        Array        | List of addresses and storage keys that the transaction plans to access. Used only in non-[`FRONTIER`](../../concepts/transactions/types.md#frontier-transactions) transactions.                                                                  |
+| `strict`               |         Tag         | Determines if the sender account balance is checked. If `true`, the balance is checked. If `false`, the balance is not checked. If not specified, the balance is checked against the gas parameters if supplied.                                  |
+| `blobVersionedHashes`  |        Array        | List of references to blobs introduced in [EIP-4844]( https://eips.ethereum.org/EIPS/eip-4844).                                                                                                                                                   |
 
 ## Transaction receipt object
 

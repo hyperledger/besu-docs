@@ -1,7 +1,7 @@
 ---
 title: Local playground
 sidebar_position: 1
-description: Deploying a Hyperledger Besu private network locally with Kubernetes
+description: Deploying a Besu private network locally with Kubernetes
 tags:
   - private networks
 ---
@@ -14,8 +14,8 @@ The [playground](https://github.com/ConsenSys/quorum-kubernetes/tree/master/play
 
 1. Navigate to the playground [`README`](https://github.com/ConsenSys/quorum-kubernetes/tree/master/playground).
 1. Ensure that your system meets the requirements specified.
-1. Choose your Ethereum client (Hyperledger Besu or GoQuorum): `quorum-besu` or `quorum-go`.
-1. Choose your consensus algorithm. The playground supports Clique, Ethash (PoW), and IBFT2 for Besu, and IBFT for GoQuorum.
+1. Choose your Ethereum client (Besu or GoQuorum): `quorum-besu` or `quorum-go`.
+1. Choose your consensus algorithm. The playground supports Clique, Ethash (PoW, deprecated), and IBFT2 for Besu, and IBFT for GoQuorum.
 1. Follow the instructions from the `README` for the chosen client and consensus algorithm folder.
 
 ## Important notes

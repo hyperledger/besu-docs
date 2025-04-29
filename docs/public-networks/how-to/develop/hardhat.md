@@ -1,7 +1,7 @@
 ---
 title: Use Hardhat
 sidebar_position: 1
-description: Using Hyperledger Besu with Hardhat
+description: Using Besu with Hardhat
 tags:
   - public networks
   - private networks
@@ -9,7 +9,7 @@ tags:
 
 # Use Hardhat
 
-Developing for Hyperledger Besu using Hardhat is the same as developing for public Ethereum networks using Hardhat. Hardhat
+Developing for Besu using Hardhat is the same as developing for public Ethereum networks using Hardhat. Hardhat
 supports Besu with the only difference being Besu does not support private key management. 
 
 You can therefore use a wallet provider, or specify your private  key in the code.
@@ -22,8 +22,8 @@ To add the wallet provider, update the `hardhat.config.ts` file in the project d
 
 - `<JSON-RPC-http-endpoint>` with the JSON-RPC endpoint (IP address and port) of a Besu node.
 - `<MY-ACCOUNT-MNEMONIC>` with the list of words that make up your account's mnemonic.
-- `<MY-PASSWORD`> your password if used
-- `<MY-ACCOUNT-PRIVATE-KEY>` your account's private key
+- `<MY-PASSWORD`> with your password if used.
+- `<MY-ACCOUNT-PRIVATE-KEY>` with your account's private key.
 
 ```js
 module.exports = {

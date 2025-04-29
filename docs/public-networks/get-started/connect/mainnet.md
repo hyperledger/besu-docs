@@ -13,11 +13,11 @@ import TabItem from '@theme/TabItem';
 
 :::info
 
-[The Merge](../../concepts/the-merge.md) was executed on **September 15, 2022**. Ethereum is now a [proof of stake](../../concepts/proof-of-stake/index.md) network, and a full Ethereum node requires both [an execution client and a consensus client](../../concepts/the-merge.md#execution-and-consensus-clients).
+As a [Proof of Stake network](../../concepts/proof-of-stake/index.md), running a full Ethereum node requires both [an execution client and a consensus client](../../concepts/node-clients.md#execution-and-consensus-clients).
 
 :::
 
-Run Besu as an [execution client](../../concepts/the-merge.md#execution-clients) with any consensus client on Ethereum Mainnet.
+Run Besu as an [execution client](../../concepts/node-clients.md#execution-clients) with any [consensus client](../../concepts/node-clients.md#consensus-clients) on Ethereum Mainnet.
 
 If you're using [Teku] as a consensus client, you can follow the [Besu and Teku Mainnet tutorial](../../tutorials/besu-teku-mainnet.md).
 
@@ -54,7 +54,7 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ### 3. Start Besu
 
-Run the following command or specify the options in a [configuration file](../../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../../how-to/configure-besu/index.md):
 
 ```bash
 besu \

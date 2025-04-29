@@ -21,7 +21,7 @@ The steps in this tutorial create an isolated, but not protected or secure, Ethe
 
 ## Prerequisites
 
-- [Hyperledger Besu](../get-started/install/binary-distribution.md)
+- [Besu](../get-started/install/binary-distribution.md)
 - [Curl (or similar webservice client)](https://curl.haxx.se/download.html).
 
 ## Steps
@@ -147,7 +147,7 @@ Start Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -155,7 +155,7 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --network-id 123 --rp
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all"
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -164,10 +164,12 @@ besu --data-path=data --genesis-file=..\cliqueGenesis.json --network-id 123 --rp
 
 The command line enables:
 
-- The JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option
-- The ETH, NET, and CLIQUE APIs using the [`--rpc-http-api`](../../public-networks/reference/cli/options.md#rpc-http-api) option
-- All-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option
-- All-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option
+- The JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
+- The ETH, NET, and CLIQUE APIs using the [`--rpc-http-api`](../../public-networks/reference/cli/options.md#rpc-http-api) option.
+- All-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
+- All-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
+- The [enterprise/private profile](../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
+  using the [`--profile`](../../public-networks/reference/cli/options.md#profile) option.
 
 When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 
@@ -182,7 +184,7 @@ Start another terminal, change to the `Node-2` directory and start Node-2 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -190,7 +192,7 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 E
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -214,7 +216,7 @@ Start another terminal, change to the `Node-3` directory and start Node-3 specif
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -222,7 +224,7 @@ besu --data-path=data --genesis-file=../cliqueGenesis.json --bootnodes=<Node-1 E
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+besu --data-path=data --genesis-file=..\cliqueGenesis.json --bootnodes=<Node-1 Enode URL> --network-id 123 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,CLIQUE --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -242,7 +244,7 @@ The command line specifies:
 Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are functioning as peers:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result confirms Node-1 has two peers (Node-2 and Node-3):

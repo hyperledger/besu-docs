@@ -10,9 +10,7 @@ tags:
 
 To pre-deploy contracts when starting Besu, specify the contract code in the [genesis file](../../../public-networks/concepts/genesis-file.md).
 
-:::tip Contract code in the genesis file
-
-```json
+```json title="Contract code in the genesis file"
 {
   ...
   "alloc": {
@@ -28,8 +26,6 @@ To pre-deploy contracts when starting Besu, specify the contract code in the [ge
   ...
 }
 ```
-
-:::
 
 The contract code in the genesis file defines the:
 

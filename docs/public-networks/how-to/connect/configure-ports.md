@@ -1,7 +1,7 @@
 ---
 title: Configure ports
 sidebar_position: 2
-description: To enable communication you must expose Hyperledger Besu ports appropriately
+description: To enable communication you must expose Besu ports appropriately
 tags:
   - public networks
   - private networks
@@ -9,11 +9,11 @@ tags:
 
 # Configure ports
 
-To enable communication you must expose Hyperledger Besu ports appropriately. The following shows an example port configuration for a Besu node on AWS. 
+To enable communication you must expose Besu ports appropriately. The following shows an example port configuration for a Besu node on AWS. 
 
 ![Port Configuration](../../../assets/images/PortConfiguration.png)
 
-When running Besu from the [Docker image](../../get-started/install/run-docker-image.md), [expose ports](../../get-started/install/run-docker-image.md#exposing-ports).
+When running Besu from the [Docker image](../../get-started/install/run-docker-image.md), [expose ports](../../get-started/install/run-docker-image.md#expose-ports).
 
 :::info
 

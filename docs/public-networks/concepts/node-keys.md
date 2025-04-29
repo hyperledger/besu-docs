@@ -1,6 +1,6 @@
 ---
 title: Node keys
-sidebar_position: 8
+sidebar_position: 10
 description: Learn about node public and private keys, and the node address.
 tags:
   - public networks
@@ -9,11 +9,11 @@ tags:
 
 # Node keys and node address
 
-Each node has a private and public key pair, and a node address. Hyperledger Besu uses the private and public key pair to sign and verify transactions, and the node address as an identifier for the node.
+Each node has a private and public key pair, and a node address. Besu uses the private and public key pair to sign and verify transactions, and the node address as an identifier for the node.
 
 ## Node private key
 
-When starting Hyperledger Besu, if the [`--node-private-key-file`](../reference/cli/options.md#node-private-key-file) option is not specified and a `key` file does not exist in the data directory for the node, Besu generates a node private key and writes it to the `key` file.
+When starting Besu, if the [`--node-private-key-file`](../reference/cli/options.md#node-private-key-file) option is not specified and a `key` file does not exist in the data directory for the node, Besu generates a node private key and writes it to the `key` file.
 
 If a `key` file does exist in the data directory when starting Besu, the node starts using the private key in the `key` file.
 

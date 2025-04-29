@@ -1,5 +1,5 @@
 ---
-title: Using the Quorum Explorer
+title: Use the Quorum Explorer
 sidebar_position: 4
 description: Using the Quorum Explorer on a Kubernetes cluster
 tags:

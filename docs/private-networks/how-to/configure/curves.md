@@ -16,7 +16,7 @@ Configuring alternative elliptic curves is an early access feature.
 
 By default, Besu uses the Ethereum standard `secp256k1` elliptic curve (EC). However, when running nodes in a private network, it is possible to configure an alternative elliptic curve.
 
-The configuration for what elliptic curve Besu will use is done in the network configuration section of genesis file, using the [`ecCurve`](../../../public-networks/reference/genesis-items.md#Configuration_Items) key:
+The configuration for what elliptic curve Besu will use is done in the network configuration section of genesis file, using the [`ecCurve`](../../../public-networks/reference/genesis-items.md#configuration-items) key:
 
 ```bash
 {

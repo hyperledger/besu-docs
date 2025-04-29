@@ -1,7 +1,7 @@
 ---
 title: Authenticate over JSON-RPC requests
 sidebar_position: 4
-description: Hyperledger Besu authentication and authorization for JSON-RPC
+description: Besu authentication and authorization for JSON-RPC
 tags:
   - public networks
   - private networks
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Authenticate and authorize JSON-RPC
 
-Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Hyperledger Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
+Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 
@@ -43,9 +43,7 @@ Using [public key authentication](#jwt-public-key-authentication) disables the `
 
 The `toml` credentials file defines user details and the JSON-RPC methods they can access.
 
-:::info Sample `auth.toml` credentials file
-
-```toml
+```toml title="auth.toml"
 [Users.username1]
 password = "$2a$10$l3GA7K8g6rJ/Yv.YFSygCuI9byngpEzxgWS9qEg5emYDZomQW7fGC"
 permissions=["net:*","eth:blockNumber"]
@@ -56,8 +54,6 @@ password = "$2b$10$6sHt1J0MVUGIoNKvJiK33uaZzUwNmMmJlaVLkIwinkPiS1UBnAnF2"
 permissions=["net:version","admin:*"]
 privacyPublicKey="quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="
 ```
-
-:::
 
 Each user requiring JSON-RPC access the configuration file lists the:
 
@@ -175,9 +171,9 @@ The [key algorithm](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) c
 
 The default value for Besu is `RS256`.
 When you use a different key algorithm, you must specify the
-[`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options#rpc-http-authentication-jwt-algorithm)
+[`--rcp-http-authentication-jwt-algorithm`](../../reference/cli/options.md#rpc-http-authentication-jwt-algorithm)
 option and/or the
-[`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options#rpc-ws-authentication-jwt-algorithm)
+[`--rcp-ws-authentication-jwt-algorithm`](../../reference/cli/options.md#rpc-ws-authentication-jwt-algorithm)
 option depending on your needs.
 
 <Tabs>
@@ -310,7 +306,7 @@ Specify the `Bearer` in the header.
 <TabItem value="cURL Request with authentication placeholders" label="cURL Request with authentication placeholders" default>
 
 ```bash
-curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
+curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port> -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -318,7 +314,7 @@ curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method
 <TabItem value="cURL Request with authentication" label="cURL Request with authentication">
 
 ```bash
-curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
+curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>

@@ -1,6 +1,6 @@
 ---
 title: Subcommands
-description: Hyperledger Besu command line interface subcommands
+description: Besu command line interface subcommands
 sidebar_position: 2
 tags:
   - public networks
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Subcommands
 
-This reference describes the syntax of the Hyperledger Besu command line interface (CLI) subcommands.
+This reference describes the syntax of the Besu command line interface (CLI) subcommands.
 
 :::note
 
@@ -89,7 +89,7 @@ besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu --network=goerli --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+besu --network=holesky --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
 ```
 
 </TabItem>
@@ -121,7 +121,7 @@ besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-blo
 <TabItem value="Example" label="Example">
 
 ```bash
-besu --network=goerli --data-path=/project/goerli operator generate-log-bloom-cache --start-block=0 --end-block=100000
+besu --network=holesky --data-path=/project/holesky operator generate-log-bloom-cache --start-block=0 --end-block=100000
 ```
 
 </TabItem>
@@ -170,7 +170,7 @@ besu password hash --password=myPassword123
 
 </Tabs>
 
-Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
+Generates the hash of a given password. Include the hash in the [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-credentials-file) for JSON-RPC API [authentication](../../how-to/use-besu-api/authenticate.md).
 
 ## `public-key`
 
@@ -306,7 +306,7 @@ If you need to downgrade Besu, run this subcommand before installing the previou
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-besu storage revert-variables --config-file <PATH-TO-CONFIG-FILE>
+besu --config-file <PATH-TO-CONFIG-FILE> storage revert-variables
 ```
 
 </TabItem>
@@ -314,7 +314,7 @@ besu storage revert-variables --config-file <PATH-TO-CONFIG-FILE>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu1.conf
+besu --config-file config.toml storage revert-variables
 ```
 
 </TabItem>
@@ -323,8 +323,204 @@ besu storage revert-variables --config-file ../besu-local-nodes/config/besu/besu
 
 Reverts the modifications made by the [variables storage feature](https://github.com/hyperledger/besu/pull/5471).
 If you need to downgrade Besu, first run this subcommand specifying the path to
-the [configuration file](../../how-to/use-configuration-file/index.md) normally used to
+the [configuration file](../../how-to/configure-besu/index.md) normally used to
 start Besu.
+
+### `rocksdb usage`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage rocksdb usage
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage rocksdb usage
+```
+
+</TabItem>
+
+<TabItem value="Example output" label="Example output">
+
+```bash
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| Column Family                  | Keys            | Total Size  | SST Files Size  | Blob Files Size  |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| BLOCKCHAIN                     | 2355141414      | 933 GiB     | 166 GiB         | 767 GiB          |
+| VARIABLES                      | 26              | 240 KiB     | 240 KiB         | 0 B              |
+| ACCOUNT_INFO_STATE             | 9634454         | 496 MiB     | 496 MiB         | 0 B              |
+| ACCOUNT_STORAGE_STORAGE        | 24041432        | 1 GiB       | 1 GiB           | 0 B              |
+| CODE_STORAGE                   | 37703864        | 12 GiB      | 12 GiB          | 0 B              |
+| TRIE_BRANCH_STORAGE            | 1885032116      | 138 GiB     | 138 GiB         | 0 B              |
+| TRIE_LOG_STORAGE               | 267301          | 17 GiB      | 17 GiB          | 0 B              |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+| ESTIMATED TOTAL                | 4311820607      | 1104 GiB    | 337 GiB         | 767 GiB          |
+|--------------------------------|-----------------|-------------|-----------------|------------------|
+```
+
+</TabItem>
+
+</Tabs>
+
+Displays the disk space used by the RocksDB key-value database, categorized into column families.
+
+### `trie-log`
+
+Provides actions related to managing, recording, and logging changes for the Bonsai Trie data.
+
+#### `count`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log count
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage trie-log count
+```
+
+</TabItem>
+
+<TabItem value="Example output" label="Example output">
+
+```bash
+trieLog count: 742311
+ - canonical count: 681039
+ - fork count: 217
+ - orphaned count: 61055
+```
+
+</TabItem>
+
+</Tabs>
+
+Displays the number of trie logs in the database.
+This is the number of keys for the `TRIE_LOG_STORAGE` [column family in RocksDB](#rocksdb-usage). 
+The following are specified in the `trieLog count`:
+- `canonical count` represents the finalized blockchain.
+- `fork count` represents non-finalized branches of the blockchain.
+- `orphaned count` represents trie logs not in the blockchain, which can occur  during block creation.
+
+#### `prune`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log prune
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --config-file config.toml storage trie-log prune
+```
+
+</TabItem>
+
+<TabItem value="Example setting retention limit" label="Example setting retention limit">
+
+```bash
+besu --config-file config.toml --bonsai-historical-block-limit=1024 storage trie-log prune
+```
+
+</TabItem>
+
+</Tabs>
+
+Removes all trie log layers below the specified retention limit, including orphaned trie logs. 
+You can configure the retention limit using [`--bonsai-historical-block-limit`](options.md#bonsai-historical-block-limit). 
+The retention limit should match the configuration used with [`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled). 
+The default limit is `512`.
+
+#### `export`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log export [--trie-log-block-hash=<list>] [--trie-log-file-path=<file>]
+```
+
+</TabItem>
+
+<TabItem value="Example exporting single trie log">
+
+```bash
+besu --config-file config.toml storage trie-log export --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b
+```
+
+:::note
+This example exports the trie log corresponding to a particular block hash into a file in the default location, `<data-dir>/trie-logs.bin`.
+:::
+
+</TabItem>
+
+<TabItem value="Example exporting list">
+
+```bash
+besu --config-file config.toml storage trie-log export --trie-log-file-path=/tmp/list_of_trielogs.bin --trie-log-block-hash=0x0dcfa528de7d12df63673d0ebbd103dbf3a9464fae7eeb89e0934678cd05d64b,0xe8c3e77a6eaf6c87552aee07b86ecf4aacba43650b1d6aac32a44fa3ca97780d,0x86df7008b32fee67baac103846931c58454fc1b391e7d826c4886ba8580ba169
+```
+
+:::note
+This example exports trie logs corresponding to a list of block hashes into a specific file location.
+:::
+
+</TabItem>
+
+</Tabs>
+
+Exports the trie logs of blocks specified by hash to a binary file.
+
+By default, Bonsai trie logs are regularly pruned, so the trie log for a given block might not be present if it has been pruned.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
+
+#### `import`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --config-file <PATH-TO-CONFIG-FILE> storage trie-log import [--trie-log-file-path=<file>]
+```
+
+</TabItem>
+
+<TabItem value="Example">
+
+```bash
+besu --config-file config.toml storage trie-log import --trie-log-file-path=/tmp/list_of_trielogs.bin 
+```
+
+</TabItem>
+
+</Tabs>
+
+Imports trie logs from a binary trie log export file.
+
+By default, Bonsai trie logs are regularly pruned.
+If pruning is enabled, Besu might subsequently prune the imported trie logs.
+If you need to manually import or export trie logs, we recommend temporarily disabling trie log pruning by setting
+[`--bonsai-limit-trie-logs-enabled`](options.md#bonsai-limit-trie-logs-enabled) to `false`.
 
 ## `validate-config`
 
@@ -341,11 +537,11 @@ besu validate-config --config-file <PATH-TO-CONFIG-FILE>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu validate-config --config-file ../besu-local-nodes/config/besu/besu1.conf
+besu validate-config --config-file config.toml
 ```
 
 </TabItem>
 
 </Tabs>
 
-Performs basic syntax validation of the specified [configuration file](../../how-to/use-configuration-file/index.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).
+Performs basic syntax validation of the specified [configuration file](../../how-to/configure-besu/index.md). Checks TOML syntax (for example, valid format and unmatched quotes) and flags unknown options. Doesn't check data types, and doesn't check dependencies between options (this is done at Besu startup).

@@ -64,7 +64,7 @@ This may take 5–10 minutes for the all services to start and the ingestion syn
 After starting Chainlens, you can view information about your network.
 
 :::note
-Screenshots in this section are taken from the [Chainlens Goerli network](https://goerli.chainlens.com/dashboard).
+Screenshots in this section are taken from the [Chainlens Holesky network](https://holesky.chainlens.com/dashboard).
 :::
 
 The **Dashboard** page provides an aggregated view of network activities.
@@ -72,7 +72,7 @@ The **Dashboard** page provides an aggregated view of network activities.
 ![`Chainlens_dashboard`](../../../assets/images/chainlens-dashboard.png)
 
 The **Network** page provides an overview of the network status and connected peers.
-This page is disabled by default, and is only visible if you set `DISPLAY_NETWOR_TAB=enabled` using
+This page is disabled by default, and is only visible if you set `DISPLAY_NETWORK_TAB=enabled` using
 the following command:
 
 ```bash

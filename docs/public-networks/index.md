@@ -7,11 +7,14 @@ tags:
   - public networks
 ---
 
-# Hyperledger Besu for public networks
+# Besu for public networks
 
-Besu serves as an [execution client](concepts/the-merge.md#execution-clients) on public proof-of-stake Ethereum networks such as Ethereum Mainnet, Goerli, and Sepolia.
-
-You can also run Besu using proof of work on [Ethereum Classic (ETC)](how-to/use-pow/mining.md).
+Besu serves as an [execution client](concepts/node-clients.md#execution-clients) on public proof-of-stake Ethereum networks such as:
+- Ethereum Mainnet
+- Hoodi
+- Holesky
+- Ephemery
+- Sepolia
 
 Get started by [installing Besu](get-started/install/index.md).
 
@@ -22,4 +25,4 @@ The following diagram outlines the high-level architecture of Besu for public ne
 ![Public architecture](../assets/images/public-architecture.jpeg)
 
 If you have any questions about Besu for public networks, ask on the **besu** channel on
-[Hyperledger Discord](https://discord.gg/hyperledger).
+[Discord](https://discord.gg/hyperledger).

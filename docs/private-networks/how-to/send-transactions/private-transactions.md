@@ -1,12 +1,18 @@
 ---
 title: Create and send private transactions
-description: Creating and sending private transactions with Hyperledger Besu
+description: Creating and sending private transactions with Besu
 sidebar_position: 1
 tags:
   - private networks
 ---
 
-# Create and send private transactions
+# Create and send private transactions (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 Create and send [private transactions](../../concepts/privacy/index.md) using:
 
@@ -24,7 +30,7 @@ Private transactions either deploy contracts or call contract functions. Ether t
 
 :::
 
-## eea_sendRawTransaction
+## `eea_sendRawTransaction`
 
 [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) distributes the private transaction to the participating nodes, and signs and submits the PMT, as described in [Private transaction processing](../../concepts/privacy/private-transactions/processing.md).
 
@@ -34,7 +40,7 @@ If [sending concurrent transactions](concurrent-private-transactions.md), you mu
 
 :::
 
-## priv_distributeRawTransaction
+## `priv_distributeRawTransaction`
 
 Use [`priv_distributeRawTransaction`](../../reference/api/index.md#priv_distributerawtransaction) instead of [`eea_sendRawTransaction`](#eea_sendrawtransaction) when sending [concurrent private transactions](concurrent-private-transactions.md).
 

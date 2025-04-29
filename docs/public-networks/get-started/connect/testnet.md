@@ -11,13 +11,19 @@ import TabItem from '@theme/TabItem';
 
 # Connect to a testnet
 
-Run Besu as an [execution client](../../concepts/the-merge.md#execution-clients) with any consensus client on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) testnets.
+Run Besu as an [execution client](../../concepts/node-clients.md#execution-clients) with any consensus client on the [Holesky](https://github.com/eth-clients/holesky), [Hoodi](https://github.com/eth-clients/hoodi), [Sepolia](https://github.com/eth-clients/sepolia), and [Ephemery](https://github.com/ephemery-testnet/ephemery-resources) testnets.
 
 If you're using [Teku](https://docs.teku.consensys.net/en/latest/) as a consensus client, you can follow the [Besu and Teku testnet tutorial](../../tutorials/besu-teku-testnet.md).
 
 :::note
 
-Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. You can connect your consensus client using the beacon node only, without any validator duties.
+- Sepolia is a permissioned network and you can't run a validator client on it without
+    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. You can connect
+    your consensus client using the beacon node only, without any validator duties.
+
+- Ephemery is a single network that resets to the genesis block after a set period. The network focuses on
+    short-term, intensive testing use cases. This approach avoids issues like insufficient testnet funds, inactive
+    validators, and state bloat that long-running testnets face.
 
 :::
 
@@ -42,15 +48,22 @@ You will specify `jwtsecret.hex` when starting Besu and the consensus client. Th
 
 If you're running the consensus client as a beacon node only, skip to the [next step](#3-start-besu).
 
-If you're also running the consensus client as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running the consensus client as a validator client, create a test Ethereum address
+(you can do this in [MetaMask](https://support.metamask.io/configure/accounts/how-to-add-accounts-in-your-wallet/)).
+Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the faucets for the relevant testnet:
+
+- [Holesky](https://github.com/eth-clients/holesky)
+- [Hoodi](https://github.com/eth-clients/hoodi)
+- [Sepolia](https://github.com/eth-clients/sepolia)
+- [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
 
-If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+If you can't get testnet ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.gg/ethstaker).
 
 :::
 
-Generate validator keys for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/) (or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/), or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg).
 
 :::info
 
@@ -60,15 +73,15 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ### 3. Start Besu
 
-Run the following command or specify the options in a [configuration file](../../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../../how-to/configure-besu/index.md):
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky">
 
 ```bash
 besu \
-  --network=goerli            \
+  --network=holesky           \
   --rpc-http-enabled=true     \
   --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \
@@ -82,11 +95,11 @@ besu \
 
 </TabItem>
 
-<TabItem value="Holesky" label="Holesky">
+<TabItem value="Hoodi" label="Hoodi">
 
 ```bash
 besu \
-  --network=holesky           \
+  --network=hoodi             \
   --rpc-http-enabled=true     \
   --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \
@@ -118,6 +131,23 @@ besu \
 
 </TabItem>
 
+  <TabItem value="Ephemery" label="Ephemery">
+
+  ```bash
+  besu \
+    --network=ephemery          \
+    --rpc-http-enabled=true     \
+    --rpc-http-host=0.0.0.0     \
+    --rpc-http-cors-origins="*" \
+    --rpc-ws-enabled=true       \
+    --rpc-ws-host=0.0.0.0       \
+    --host-allowlist="*"        \
+    --engine-host-allowlist="*" \
+    --engine-rpc-enabled        \
+    --engine-jwt-secret=<path to jwtsecret.hex>
+  ```
+
+  </TabItem>
 </Tabs>
 
 Specify the path to the `jwtsecret.hex` file generated in [step 1](#1-generate-the-shared-secret) using the [`--engine-jwt-secret`](../../reference/cli/options.md#engine-jwt-secret) option.
@@ -178,6 +208,6 @@ If you're running the consensus client as a beacon node only, you're all set. If
 
 ### 6. Stake ETH
 
-Stake your testnet ETH for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
+Stake your testnet ETH for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
-You can check your validator status by searching your Ethereum address on the [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/). It may take up to multiple days for your validator to be activated and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/), [Hoodi explorer](https://hoodi.cloud.blockscout.com/), or [Ephemery explorer](https://beaconchain.ephemery.dev/). It may take up to multiple days for your validator to be activated and start proposing blocks.

@@ -1,14 +1,20 @@
 ---
 title: Use Besu-extended privacy
-description: Hyperledger Besu-extended privacy
+description: Besu-extended privacy
 sidebar_position: 2
 tags:
   - private networks
 ---
 
-# Use Besu-extended privacy
+# Use Besu-extended privacy (Deprecated)
 
-Hyperledger Besu provides an extended implementation of privacy allowing you to [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You must specify the privacy group ID when sending private transactions.
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+Besu provides an extended implementation of privacy allowing you to [create a privacy group for a set of participants](../../concepts/privacy/privacy-groups.md). You must specify the privacy group ID when sending private transactions.
 
 To enable the [`PRIV` API methods](../../reference/api/index.md#priv-methods), use the [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../../../public-networks/reference/cli/options.md#rpc-ws-api) command line options.
 

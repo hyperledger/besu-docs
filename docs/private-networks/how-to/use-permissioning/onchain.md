@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use onchain permissioning
+# Use onchain permissioning (Deprecated)
+
+:::caution
+
+Onchain permissioning is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 This page contains some extra info if you're using [onchain permissioning](../../concepts/permissioning/onchain.md).
 
@@ -44,7 +50,7 @@ If you change your network configuration, you may need to update the node allowl
 
 ## Specify the permissioning contract interface version
 
-Use the [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version) command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts). The default is 1.
+Use the [`--permissions-nodes-contract-version`](../../reference/cli/options.md#permissions-nodes-contract-version-deprecated) command line option to specify the version of the [permissioning contract interface](../../concepts/permissioning/onchain.md#permissioning-contracts). The default is 1.
 
 Specify the contract interface version that maps to the version of the [Enterprise Ethereum Alliance Client Specification](https://entethalliance.org/technical-specifications/) the contract interface implements.
 

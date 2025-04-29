@@ -6,7 +6,13 @@ tags:
   - private networks
 ---
 
-# Use the multi-node example in the web3js-quorum client library
+# Use the multi-node example in the web3js-quorum client library (Deprecated)
+
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 To use the examples provided in the web3js-quorum library with [your privacy network](index.md):
 
@@ -32,8 +38,8 @@ This example uses 3 of the 4 nodes configured in the [privacy tutorial](index.md
 
     - chain ID
     - Tessera node public keys
-    - Hyperledger Besu node RPC URLs
-    - [Hyperledger Besu node private keys](../../../public-networks/concepts/node-keys.md#node-private-key).
+    - Besu node RPC URLs
+    - [Besu node private keys](../../../public-networks/concepts/node-keys.md#node-private-key).
 
 4.  In the `example/multiNodeExample` directory, deploy the contract:
 
@@ -84,7 +90,7 @@ This example uses 3 of the 4 nodes configured in the [privacy tutorial](index.md
     ```bash
     Transaction Hash: 0xd9d71cc6f64675e1a48183ded8f08930af317eb883ebae4c4eec66ae68618d85
     Waiting for transaction to be mined ...
-    Event Emited: 0x0000000000000000000000009811ebc35d7b06b3fa8dc5809a1f9c52751e1deb00000000000000000000000000000000000000000000000000000000000003e8
+    Event Emitted: 0x0000000000000000000000009811ebc35d7b06b3fa8dc5809a1f9c52751e1deb00000000000000000000000000000000000000000000000000000000000003e8
     Waiting for transaction to be mined ...
     Get Value from http://localhost:8545: 0x00000000000000000000000000000000000000000000000000000000000003e8
     Waiting for transaction to be mined ...
@@ -104,7 +110,7 @@ This example uses 3 of the 4 nodes configured in the [privacy tutorial](index.md
     ```text
     Transaction Hash: 0xa025433aec47a71b0230f12f43708812fd38ff7b7c1dc89a715f71dcbd5fbdbf
     Waiting for transaction to be mined ...
-    Event Emited: 0x000000000000000000000000372a70ace72b02cc7f1757183f98c620254f9c8d000000000000000000000000000000000000000000000000000000000000002a
+    Event Emitted: 0x000000000000000000000000372a70ace72b02cc7f1757183f98c620254f9c8d000000000000000000000000000000000000000000000000000000000000002a
     Waiting for transaction to be mined ...
     Get Value from http://localhost:8545: 0x000000000000000000000000000000000000000000000000000000000000002a
     Waiting for transaction to be mined ...

@@ -1,6 +1,6 @@
 ---
 title: Events and logs
-sidebar_position: 6
+sidebar_position: 8
 description: Learn about events and logs in Besu.
 tags:
   - public networks

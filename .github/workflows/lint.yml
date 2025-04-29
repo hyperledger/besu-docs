@@ -1,0 +1,17 @@
+---
+name: Check for lint errors
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint
+        uses: ConsenSys/github-actions/docs-lint-all@main

@@ -4,9 +4,15 @@ description: Privacy plugin
 sidebar_position: 5
 ---
 
-# Privacy plugin
+# Privacy plugin (Deprecated)
 
-You can define your own strategy for private transactions by building a plugin that extends Hyperledger Besu functionality.
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+You can define your own strategy for private transactions by building a plugin that extends Besu functionality.
 
 The plugin can take many forms, but it must provide Besu with a private transaction when required.
 
@@ -28,7 +34,7 @@ Besu doesn't need to know how the private transaction is distributed, it just ne
 
 ### Send transactions
 
-When submitting a private transaction using [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction), the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which [privacy precompiled contract](private-transactions/processing.md) is being used.
+When submitting a private transaction using [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction), the signed transaction must be sent to `0x000000000000000000000000000000000000007a` to indicate which [privacy precompiled contract](private-transactions/processing.md) is being used.
 
 The transaction flow is as follows:
 
@@ -42,7 +48,7 @@ The transaction flow is as follows:
 
 The process of mining transactions happens in reverse to sending transactions.
 
-1.  The Mainnet transaction processor processes the PMT in the same way as any other public transaction. On nodes containing the [privacy precompile contract](../../../public-networks/reference/api/index.md#priv_getprivacyprecompileaddress) specified in the `to` attribute of the PMT, the Mainnet transaction processor passes the PMT to the privacy precompile contract.
+1.  The Mainnet transaction processor processes the PMT in the same way as any other public transaction. On nodes containing the [privacy precompile contract](../../reference/api/index.md#priv_getprivacyprecompileaddress) specified in the `to` attribute of the PMT, the Mainnet transaction processor passes the PMT to the privacy precompile contract.
 
     :::note
 
@@ -66,46 +72,35 @@ Your plugin needs to register the `PrivateMarkerTransactionFactory` interface wh
 
 ## Register your plugin
 
-To enable Besu to use your privacy plugin, you must implement the `PrivacyPluginService` interface and you must call `setPayloadProvider`.
+To enable Besu to use your privacy plugin, implement the `PrivacyPluginService` interface and call `setPayloadProvider`.
 
 ```java
-
 @AutoService(BesuPlugin.class)
 public class TestPrivacyPlugin implements BesuPlugin {
-
-    private PrivacyPluginService service;
-
-    @Override
-    public void register(BesuContext context) {
-        service = context.getService(PrivacyPluginService.class).get();
-    }
-
-    @Override
-    public void start() {
-        service.setPayloadProvider(new PrivacyPluginPayloadProvider() {
-            @Override
-            public Bytes generateMarkerPayload(PrivateTransaction privateTransaction, String privacyUserId) {
-                // perform logic to serialize the payload of the marker transaction
-                // in this example we are serialising the private transaction using rlp https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/
-                return org.hyperledger.besu.ethereum.privacy.PrivateTransaction.serialize(privateTransaction).encoded();
-            }
-
-            @Override
-            public Optional<PrivateTransaction> getPrivateTransactionFromPayload(Transaction transaction) {
-                // perform logic to deserialize payload from the marker transaction
-
-                final BytesValueRLPInput bytesValueRLPInput =
-                        new BytesValueRLPInput(transaction.getPayload(), false);
-
-                return Optional.of(org.hyperledger.besu.ethereum.privacy.PrivateTransaction.readFrom(bytesValueRLPInput));
-            }
-        });
-    }
-
-    @Override
-    public void stop() {
-
-    }
+  private PrivacyPluginService service;
+  @Override
+  public void register(BesuContext context) {
+    service = context.getService(PrivacyPluginService.class).get();
+  }
+  @Override
+  public void start() {
+    service.setPayloadProvider(new PrivacyPluginPayloadProvider() {
+      @Override
+      public Bytes generateMarkerPayload(PrivateTransaction privateTransaction, String privacyUserId) {
+        // perform logic to serialize the payload of the marker transaction
+        // in this example we are serialising the private transaction using rlp https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/
+        return org.hyperledger.besu.ethereum.privacy.PrivateTransaction.serialize(privateTransaction).encoded();
+      }
+      @Override
+      public Optional<PrivateTransaction> getPrivateTransactionFromPayload(Transaction transaction) {
+        // perform logic to deserialize payload from the marker transaction
+        final BytesValueRLPInput bytesValueRLPInput =
+          new BytesValueRLPInput(transaction.getPayload(), false);
+        return Optional.of(org.hyperledger.besu.ethereum.privacy.PrivateTransaction.readFrom(bytesValueRLPInput));
+      }
+    });
+  }
+  @Override
+  public void stop() {}
 }
-
 ```

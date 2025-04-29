@@ -1,14 +1,20 @@
 ---
 title: Access private and privacy marker transactions
-description: Methods for accessing and managing private transactions and privacy groups in Hyperledger Besu
+description: Methods for accessing and managing private transactions and privacy groups in Besu
 sidebar_position: 6
 tags:
   - private networks
 ---
 
-# Access private and privacy marker transactions
+# Access private and privacy marker transactions (Deprecated)
 
-A Hyperledger Besu private transaction creates a [privacy marker transaction](../../concepts/privacy/private-transactions/processing.md) and the private transaction itself.
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+A Besu private transaction creates a [privacy marker transaction](../../concepts/privacy/private-transactions/processing.md) and the private transaction itself.
 
 ## Transaction receipts
 

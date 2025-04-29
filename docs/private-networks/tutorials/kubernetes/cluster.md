@@ -73,7 +73,7 @@ Refer to the [official Rancher Desktop documentation](https://docs.rancherdeskto
 
 ### AWS EKS
 
-[AWS Elastic Kubernetes Service (AWS EKS)](https://aws.amazon.com/eks/) is one of the most popular platforms to deploy Hyperledger Besu.
+[AWS Elastic Kubernetes Service (AWS EKS)](https://aws.amazon.com/eks/) is one of the most popular platforms to deploy Besu.
 
 To create a cluster in AWS, you must install the [AWS CLI](https://aws.amazon.com/cli/) and [`eksctl`](https://eksctl.io/).
 

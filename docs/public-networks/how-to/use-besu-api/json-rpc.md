@@ -1,7 +1,7 @@
 ---
 title: Use JSON-RPC over HTTP, WS, and IPC
 sidebar_position: 1
-description: How to access the Hyperledger Besu API using JSON-RPC
+description: How to access the Besu API using JSON-RPC
 tags:
   - public networks
   - private networks
@@ -35,39 +35,41 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the `--Xrpc-i
 
 ## Geth console
 
-The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Use JSON-RPC APIs supported by geth and Hyperledger Besu directly in the console.
+The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Use JSON-RPC APIs supported by geth and Besu directly in the console.
 
 To use the geth console with Besu:
 
 1. Start Besu with the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
-1. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
-1. Start the geth console specifying the JSON-RPC endpoint:
 
-<Tabs>
+2. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
 
-<TabItem value="HTTP endpoint" label="HTTP endpoint" default>
+3. Start the geth console specifying the JSON-RPC endpoint:
 
-```bash
-geth attach http://localhost:8545
-```
+    <Tabs>
+    
+    <TabItem value="HTTP endpoint" label="HTTP endpoint" default>
+    
+    ```bash
+    geth attach http://localhost:8545
+    ```
+    
+    </TabItem>
+    
+    <TabItem value="IPC endpoint" label="IPC endpoint">
+    
+    ```bash
+    geth attach /path/to/besu.ipc
+    ```
+    
+    </TabItem>
+    
+    </Tabs>
 
-</TabItem>
+4. Use the geth console to call [JSON-RPC API methods](../../reference/api/index.md) that geth and Besu share.
 
-<TabItem value="IPC endpoint" label="IPC endpoint">
-
-```bash
-geth attach /path/to/besu.ipc
-```
-
-</TabItem>
-
-</Tabs>
-
-Use the geth console to call [JSON-RPC API methods](../../reference/api/index.md) that geth and Besu share.
-
-```bash
-eth.syncing
-```
+    ```bash
+    eth.syncing
+    ```
 
 ## JSON-RPC authentication
 
@@ -84,7 +86,7 @@ To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/downlo
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port>
+curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port> -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -92,7 +94,7 @@ curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>"
 <TabItem value="curl HTTP request" label="curl HTTP request">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555
+curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -118,7 +120,7 @@ You can use `curl` to make multiple RPC requests (batch requests) over HTTP at t
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555
+curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>

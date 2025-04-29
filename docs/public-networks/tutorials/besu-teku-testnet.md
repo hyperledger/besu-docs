@@ -1,7 +1,7 @@
 ---
 title: Run Besu and Teku on a testnet
 sidebar_position: 2
-description: Run Besu and Teku on Goerli or Sepolia testnet.
+description: Run Besu and Teku on Holesky, Ephemery, or Sepolia testnet.
 tags:
   - public networks
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 # Run Besu and Teku on a testnet
 
-Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
+Run Besu as an [execution client](../concepts/node-clients.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/node-clients.md#consensus-clients) on the [Holesky](https://github.com/eth-clients/holesky), [Hoodi](https://github.com/eth-clients/hoodi), [Ephemery](https://github.com/ephemery-testnet/ephemery-resources), and [Sepolia](https://github.com/eth-clients/sepolia) Ethereum testnets.
 
 :::note
 
@@ -23,7 +23,7 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 Install [Besu](../get-started/install/binary-distribution.md) and [Teku](https://docs.teku.consensys.net/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
-Ensure you meet the prerequisites for the installation option you use. For example, you must have Java 17+ if using the Besu and Teku binary distributions.
+Ensure you meet the prerequisites for the installation option you use. For example, you must have Java 21+ if using the Besu and Teku binary distributions.
 
 Ensure you meet the [system requirements for Besu on public networks](../get-started/system-requirements.md).
 
@@ -41,15 +41,22 @@ You will specify `jwtsecret.hex` when starting Besu and Teku. This is a shared J
 
 If you're running Teku as a beacon node only, skip to the [next step](#4-start-besu).
 
-If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running Teku as a validator client, create a test Ethereum address (you can do this in [MetaMask](https://support.metamask.io/configure/accounts/how-to-add-accounts-in-your-wallet/)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the faucets for the relevant testnet:
+
+- [Holesky](https://github.com/eth-clients/holesky)
+- [Hoodi](https://github.com/eth-clients/hoodi)
+- [Sepolia](https://github.com/eth-clients/sepolia)
+- [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
 
-If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+If you can't get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.com/invite/ethstaker).
 
 :::
 
-Generate validator keys for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/) (or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/),
+[Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/)
+(or [request to become validator on Sepolia](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg)).
 
 :::info
 
@@ -59,20 +66,36 @@ Save the password you use to generate each key pair in a `.txt` file. You should
 
 ## 4. Start Besu
 
-Run the following command or specify the options in a [configuration file](../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../how-to/configure-besu/index.md):
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 besu \
-  --network=goerli            \
+  --network=holesky           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --rpc-ws-host=0.0.0.0       \
+  --p2p-host=<your public IP> \
+  --host-allowlist="*"        \
+  --engine-host-allowlist="*" \
+  --engine-rpc-enabled        \
+  --engine-jwt-secret=<path to jwtsecret.hex>
+```
+
+</TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+besu \
+  --network=hoodi             \
+  --rpc-http-enabled=true     \
+  --rpc-http-cors-origins="*" \
+  --rpc-ws-enabled=true       \
+  --p2p-host=<your public IP> \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -87,10 +110,26 @@ besu \
 besu \
   --network=sepolia           \
   --rpc-http-enabled=true     \
-  --rpc-http-host=0.0.0.0     \
   --rpc-http-cors-origins="*" \
   --rpc-ws-enabled=true       \
-  --rpc-ws-host=0.0.0.0       \
+  --p2p-host=<your public IP> \  
+  --host-allowlist="*"        \
+  --engine-host-allowlist="*" \
+  --engine-rpc-enabled        \
+  --engine-jwt-secret=<path to jwtsecret.hex>
+```
+
+</TabItem>
+
+<TabItem value="Ephemery" label="Ephemery" default>
+
+```bash
+besu \
+  --network=ephemery           \
+  --rpc-http-enabled=true     \
+  --rpc-http-cors-origins="*" \
+  --rpc-ws-enabled=true       \
+  --p2p-host=<your public IP> \
   --host-allowlist="*"        \
   --engine-host-allowlist="*" \
   --engine-rpc-enabled        \
@@ -115,15 +154,31 @@ To run Teku as a beacon node only (without validator duties), run the following 
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
-  --network=goerli                             \
+  --network=holesky                            \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --p2p-advertised-ip=<your public IP>         \  
+  --checkpoint-sync-url=<checkpoint sync URL>
+```
+
+</TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                              \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --p2p-advertised-ip=<your public IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -138,6 +193,22 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --p2p-advertised-ip=<your public IP>         \  
+  --checkpoint-sync-url=<checkpoint sync URL>
+```
+
+</TabItem>
+
+<TabItem value="Ephemery" label="Ephemery" default>
+
+```bash
+teku \
+  --network=ephemery                            \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --p2p-advertised-ip=<your public IP>         \  
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -149,6 +220,8 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The public IP address of your Teku node using the
+  [`--p2p-advertised-ip`](https://docs.teku.consensys.io/reference/cli#p2p-advertised-ip) option.
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 
@@ -160,15 +233,33 @@ To run Teku as a beacon node and validator in a single process, run the followin
 
 <Tabs>
 
-<TabItem value="Goerli" label="Goerli" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
-  --network=goerli                                          \
+  --network=holesky                                         \
   --ee-endpoint=http://localhost:8551                       \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --p2p-advertised-ip=<your public IP>                      \  
+  --checkpoint-sync-url=<checkpoint sync URL>               \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                                           \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --p2p-advertised-ip=<your public IP>                      \  
   --checkpoint-sync-url=<checkpoint sync URL>               \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
@@ -188,6 +279,8 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The public IP address of your Teku node using the
+  [`--p2p-advertised-ip`](https://docs.teku.consensys.io/reference/cli#p2p-advertised-ip) option.
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 - The test Ethereum address created in [step 3](#3-generate-validator-keys) as the default fee
@@ -244,9 +337,9 @@ If you're running Teku as a beacon node only, you're all set. If you're also run
 
 ## 7. Stake ETH
 
-Stake your testnet ETH for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
+Stake your testnet ETH for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
-You can check your validator status by searching your Ethereum address on the [Goerli Beacon Chain explorer](https://goerli.beaconcha.in/). It may take up to multiple days for your validator to be activated and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/), [Hoodi explorer](https://hoodi.cloud.blockscout.com/), or [Ephemery explorer](https://beaconchain.ephemery.dev/). It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!--links-->
 

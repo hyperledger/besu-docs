@@ -35,13 +35,13 @@ If you started Besu with the [`--rpc-http-enabled`](../../public-networks/refere
 - `eth_chainId` returns the chain ID of the network.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
 - `eth_syncing` returns the starting, current, and highest block.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
   For example, after connecting to Mainnet, `eth_syncing` will return something similar to:
@@ -66,7 +66,7 @@ To run a node that mines blocks at a rate suitable for testing purposes:
 besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
-You can also use the following [configuration file](../../public-networks/how-to/use-configuration-file/index.md) on the command line to start a node with the same options as above:
+You can also use the following [configuration file](../../public-networks/how-to/configure-besu/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"
@@ -102,5 +102,13 @@ Where `<data-path>` is the path to the directory to save the chain data to. Ensu
 :::note
 
 You might need to set [`--tx-pool-limit-by-account-percentage`](../../public-networks/reference/cli/options.md#tx-pool-limit-by-account-percentage) to 1. The default value is suitable for Mainnet, but may cause issues on private networks.
+
+:::
+
+:::note Sync nodes for BFT
+
+If you're running a node on a [QBFT](../how-to/configure/consensus/qbft.md) or [IBFT 2.0](../how-to/configure/consensus/ibft.md) network, your node must use [fast sync](../../public-networks/concepts/node-sync.md#fast-synchronization-deprecated) or [full sync](../../public-networks/concepts/node-sync.md#full-synchronization). 
+
+Full sync is set by default.
 
 :::

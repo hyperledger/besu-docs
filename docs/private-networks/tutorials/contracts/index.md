@@ -133,7 +133,7 @@ This example code creates the transaction `tx`, signs it with the private key of
 
 ## Use `eth_sendTransaction`
 
-You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) as an alternative to `eth_sendSignedTransaction`. However, Hyperledger Besu does not support the `eth_sendTransaction` API call and keeps account management separate for stronger security. Configure [Web3Signer](https://docs.web3signer.consensys.net/) with your Besu node to make the `eth_sendTransaction` API call.
+You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) as an alternative to `eth_sendSignedTransaction`. However, Besu does not support the `eth_sendTransaction` API call and keeps account management separate for stronger security. Configure [Web3Signer](https://docs.web3signer.consensys.net/) with your Besu node to make the `eth_sendTransaction` API call.
 
 Pass the following parameters to the [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction) call to Web3Signer. Web3Signer converts the request to an [`eth_sendRawTransaction`](../../../public-networks/reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
 
@@ -164,7 +164,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{
 
 ## Use `eea_sendRawTransaction` for private contracts with web3js-quorum
 
-To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and the [`eea_sendRawTransaction`](../../../public-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Hyperledger Besu keeps account management separate for stronger security.
+To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Besu keeps account management separate for stronger security.
 
 The Developer Quickstart provides an [example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/private_tx.js).
 

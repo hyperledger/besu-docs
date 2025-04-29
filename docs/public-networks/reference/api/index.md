@@ -1,7 +1,7 @@
 ---
 title: Besu API
 sidebar_position: 2
-description: Hyperledger Besu JSON-RPC API methods reference
+description: Besu JSON-RPC API methods reference
 toc_max_heading_level: 3
 tags:
   - public networks
@@ -57,7 +57,7 @@ If connections are timing out, ensure the node ID in the [enode URL](../../conce
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -107,7 +107,7 @@ The following example changes the debug level for specified classes to `DEBUG`.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0", "method":"admin_changeLogLevel", "params":["DEBUG", ["org.hyperledger.besu.ethereum.eth.manager","org.hyperledger.besu.ethereum.p2p.rlpx.connections.netty.ApiHandler"]], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -141,7 +141,7 @@ The following example changes the debug level of all logs to `WARN`.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":["WARN"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -214,7 +214,7 @@ Each index file contains 100000 blocks. The last fragment of blocks less than 10
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_generateLogBloomCache", "params":["0x0", "0x10000"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -287,7 +287,7 @@ You can skip a parameter by using an empty string, `""`. If you specify:
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRemoveCache","params":["1", "100"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -338,7 +338,7 @@ Repairs cached logs by fixing all segments starting with the specified block num
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":["1200"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -392,7 +392,7 @@ None
 
 - `id`: _string_ - [node public key](../../concepts/node-keys.md#node-public-key)
 
-- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/manage-peers.md#port-configuration)
+- `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/configure-ports.md)
 
 - `protocols`: _object_ - list of objects containing information for each Ethereum sub-protocol
 
@@ -407,7 +407,7 @@ If the node is running locally, the host of the `enode` and `listenAddr` display
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -499,7 +499,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -522,7 +522,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}
     {
       "version": "0x5",
       "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
-      "caps": ["eth/62", "eth/63", "eth/64", "eth/65", "IBF/1"],
+      "caps": ["eth/67", "eth/68", "IBF/1"],
       "network": {
         "localAddress": "192.168.1.229:50115",
         "remoteAddress": "168.61.153.255:40303"
@@ -563,7 +563,7 @@ Removes a [static node](../../how-to/connect/static-nodes.md).
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -620,7 +620,7 @@ Returns account information at the specified index of the specified block.
 
 - `nonce`: _quantity_ - number of transactions made by the account before this one
 
-- `balance`: _quantity_ - balance of the account in Wei
+- `balance`: _quantity_ - balance of the account in wei
 
 - `codehash`: _data_ - code hash for the account
 
@@ -631,7 +631,7 @@ This example uses an externally owned account address for the `address` paramete
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountAt","params":["0xc8df1f061abb4d0c107b2b1a794ade8780b3120e681f723fe55a7be586d95ba6", 0, "0xbcde5374fce5edbc8e2a8697c15331677e6ebf0b"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountAt","params":["0xc8df1f061abb4d0c107b2b1a794ade8780b3120e681f723fe55a7be586d95ba6", 0, "0xbcde5374fce5edbc8e2a8697c15331677e6ebf0b"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -679,7 +679,7 @@ This example uses a contract address for the `address` parameter.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c", 0, "0x0e0d2c8f7794e82164f11798276a188147fbd415"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c", 0, "0x0e0d2c8f7794e82164f11798276a188147fbd415"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -749,7 +749,7 @@ Returns the accounts for a specified block.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["12345", 0, "0", 5],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -813,7 +813,7 @@ Sends a list of [signed transactions](../../how-to/send-transactions.md). This i
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_batchSendRawTransaction","params":["0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ba0ac74ecfa0e9b85785f042c143ead4780931234cc9a032fce99fab1f45e0d90faa02fd17e8eb433d4ca47727653232045d4f81322619c0852d3fe8ddcfcedb66a43","0x416","0xf868018203e882520894627306090abab3a6e1400e9345bc60c78a8bef57872386f26fc10000801ca0b24ea1bee8fe36984c36acbf80979a4509f23fc17141851e08d505c0df158aa0a00472a05903d4cd7a811bd4d5c59cc105d93f5943f3393f253e92e65fc36e7ce0","0xf868808203e882520894627306090abab3a6e1400e9345bc60c78a8bef5787470de4df820000801ca0f7936b4de04792e3c65095cfbfd1399d231368f5f05f877588c0c8509f6c98c9a01834004dead527c8da1396eede42e1c60e41f38a77c2fd13a6e495479c729b99"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -876,7 +876,7 @@ None
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1013,7 +1013,7 @@ string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as describe
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x32026E"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1063,7 +1063,7 @@ string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as describe
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawHeader","params":["0x32026E"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1119,7 +1119,7 @@ string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as describe
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawReceipts","params":["0x32026E"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1167,7 +1167,7 @@ of the specified transaction.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawTransaction","params":["0x3a2fd1a5ea9ffee477f449be53a49398533d2c006a5815023920d1c397298df3"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1221,7 +1221,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1362,7 +1362,7 @@ string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as describe
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x1"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1406,7 +1406,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-    curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_resyncWorldState","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1456,7 +1456,7 @@ string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as describe
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x1"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1509,7 +1509,7 @@ Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x2dc0b6c43144e314a86777b4bd4f987c0790a6a0b21560671d221ed81a23f2dc", {
-"txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}' http://127.0.0.1:8545
+"txHash": "0x4ff04c4aec9517721179c8dd435f47fbbfc2ed26cd4926845ab687420d5580a6", "disableMemory": false}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1540,7 +1540,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1568,7 +1568,7 @@ Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x53741e9e94791466d117c5f9e41a2ed1de3f73d39920c621dfc2f294e7779baa"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1595,7 +1595,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/goerli/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -1631,7 +1631,7 @@ Returns the contract storage for the specified range.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":["0x2b76b3a2fc44c0e21ea183d06c846353279a7acf12abcc6fb9d5e8fb14ae2f8c",0,"0x0e0d2c8f7794e82164f11798276a188147fbd415","0x0000000000000000000000000000000000000000000000000000000000000000",1], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1704,7 +1704,7 @@ Reruns the transaction with the same state as when the transaction executed.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x2cc6c94c21685b7e0f8ddabf277a5ccf98db157c62619cde8baea696a74ed18e",{"disableStorage":true}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1763,13 +1763,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `block`: _string_ - RLP of the block
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1780,7 +1783,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf90277f90208a05a41d0e66b4120775176c09fcf39e7c0520517a13d2b57b18d33d342df038bfca01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d4934794e6a7a1d47ff21b6321162aea7c6cb457d5476bcaa00e0df2706b0a4fb8bd08c9246d472abbe850af446405d9eba1db41db18b4a169a04513310fcb9f6f616972a3b948dc5d547f280849a87ebb5af0191f98b87be598a0fe2bf2a941abf41d72637e5b91750332a30283efd40c424dc522b77e6f0ed8c4b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860153886c1bbd82b44382520b8252088455c426598b657468706f6f6c2e6f7267a0b48c515a9dde8d346c3337ea520aa995a4738bb595495506125449c1149d6cf488ba4f8ecd18aab215f869f86780862d79883d2000825208945df9b87991262f6ba471f09758cde1c0fc1de734827a69801ca088ff6cf0fefd94db46111149ae4bfc179e9b94721fffd821d38d16464b3f71d0a045e0aff800961cfce805daef7016b9b675c137a6a41a548f7b60a3484c06a33ac0"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1817,9 +1820,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xf
         "gas": 0,
         "gasCost": 0,
         "depth": 1,
-        "stack": [],
-        "memory": [],
-        "storage": null
+        "stack": []
       }
     ]
   }
@@ -1838,13 +1839,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `blockHash`: _string_ - block hash
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1855,7 +1859,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0xaceb3b2c9b25b0589230873921eb894b28722011b8df63977145517d754875a5"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1893,10 +1897,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params"
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "memory": [],
-          "storage": {},
-          "reason": null
+          "stack": []
         }
       ]
     }
@@ -1922,13 +1923,16 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - (optional) request options object with the following fields:
 
   - `disableStorage`: _boolean_ - `true` disables storage capture.
+    The default is `false`.
 
   - `disableMemory`: _boolean_ - `true` disables memory capture.
+    The default is `true`.
 
   - `disableStack` : _boolean_ - `true` disables stack capture.
+    The default is `false`.
 
 #### Returns
 
@@ -1939,7 +1943,7 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x7224",{"disableStorage":true}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -1975,10 +1979,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
           "gas": 0,
           "gasCost": 0,
           "depth": 1,
-          "stack": [],
-          "memory": [],
-          "storage": null,
-          "reason": null
+          "stack": []
         }
       ]
     }
@@ -2022,7 +2023,7 @@ Performs an [`eth_call`](#eth_call) within the execution environment of a given 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from":"","to":"","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":""},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from":"","to":"","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":""},"latest",{"disableMemory":true,"disableStack":true,"disableStorage":true}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 
 ```
 
@@ -2110,7 +2111,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2161,7 +2162,7 @@ None
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blobBaseFee","params":[],"id":51}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blobBaseFee","params":[],"id":51}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2203,7 +2204,7 @@ None
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":51}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2277,14 +2278,9 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
 
   :::note
-
-  The [`strict` parameter](objects.md#transaction-call-object) determines if the sender account balance is checked:
-  * If `strict:true`, the balance is checked and `eth_call` fails if the sender account has an insufficient balance to send the transaction with the specified gas parameters.
-  * If `strict:false`, the balance is not checked and `eth_call` can succeed even if the sender account has an insufficient balance.
-  * If `strict` is not specified, the balance is checked against the gas parameters if supplied.
-
-  If you do not want the sender account balance checked, send zero gas or specify `strict:false`.
-
+  If you don't want the sender account balance checked, set the gas to zero or specify
+  [`strict:false`](objects.md#transaction-call-object). Otherwise the call may fail if the sender account
+  does not have sufficient funds to cover the gas fees.
   :::
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
@@ -2295,6 +2291,11 @@ By default, the `eth_call` error response includes the [revert reason](../../../
   `pending` returns the same value as `latest`.
   :::
 
+- `stateOverride`: _object_ - (optional) The [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to test, analyze, and debug smart contracts more efficiently by allowing
+    temporary state changes without affecting the actual blockchain state.
+
 #### Returns
 
 `result`: _string_ - return value of the executed contract
@@ -2304,7 +2305,7 @@ By default, the `eth_call` error response includes the [revert reason](../../../
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","value":"0x1"}, "latest"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x69498dd54bd25aa0c886cf1f8b8ae0856d55ff13","value":"0x1"}, "latest"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2381,16 +2382,16 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block {num
 
 </Tabs>
 
-:::info Example of a simulated contract creation
-
-The following example creates a simulated contract by not including the `to` parameter from the [transaction call object](objects.md#transaction-call-object) in the `call` parameter. Besu simulates the data to create the contract.
+The following example creates a simulated contract by not including the `to` parameter from the
+[transaction call object](objects.md#transaction-call-object) in the `call` parameter.
+Besu simulates the data to create the contract.
 
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "data":"0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b5061021e806100606000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063445df0ac146100465780638da5cb5b14610064578063fdacd576146100ae575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b61006c6100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da600480360360208110156100c457600080fd5b8101908080359060200190929190505050610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260338152602001806101b76033913960400191505060405180910390fd5b806001819055505056fe546869732066756e6374696f6e206973207265737472696374656420746f2074686520636f6e74726163742773206f776e6572a265627a7a7231582007302f208a10686769509b529e1878bda1859883778d70dedd1844fe790c9bde64736f6c63430005100032","gas":"0x439cf","gasPrice":"0x0"},"latest"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "data":"0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b5061021e806100606000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063445df0ac146100465780638da5cb5b14610064578063fdacd576146100ae575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b61006c6100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da600480360360208110156100c457600080fd5b8101908080359060200190929190505050610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260338152602001806101b76033913960400191505060405180910390fd5b806001819055505056fe546869732066756e6374696f6e206973207265737472696374656420746f2074686520636f6e74726163742773206f776e6572a265627a7a7231582007302f208a10686769509b529e1878bda1859883778d70dedd1844fe790c9bde64736f6c63430005100032","gas":"0x439cf","gasPrice":"0x0"},"latest"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2409,7 +2410,33 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0xf
 
 </Tabs>
 
-:::
+The following example checks the USDT contract for the balance of the address `0xfe3b557e8fb62b89f4916b721be55ceb828dbd73`, with
+a state override that sets the balance to 20,000 USDT. The result will reflect the overridden balance
+for the specified address.
+
+<Tabs>
+
+<TabItem value="curl HTTP" label="curl HTTP" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0x70a08231000000000000000000000000fe3b557e8fb62b89f4916b721be55ceb828dbd73"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0x0000000000000000000000000000000000000000000000000000000000004e20"
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ### `eth_chainId`
 
@@ -2428,7 +2455,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2478,7 +2505,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2517,10 +2544,6 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
-  :::note
-  `pending` returns the same value as `latest`.
-  :::
-
 #### Returns
 
 `result`: _object_ - access list object with the following fields:
@@ -2535,7 +2558,7 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"method":"eth_createAccessList","params":[{"from": "0xaeA8F8f781326bfE6A7683C2BD48Dd6AA4d3Ba63", "data": "0x608060806080608155"}, "pending"],"id":1,"jsonrpc":"2.0"}' http://127.0.0.1:8545
+curl -X POST --data '{"method":"eth_createAccessList","params":[{"from": "0xaeA8F8f781326bfE6A7683C2BD48Dd6AA4d3Ba63", "data": "0x608060806080608155"}, "pending"],"id":1,"jsonrpc":"2.0"}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2589,9 +2612,18 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 
 #### Parameters
 
-For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the estimation process (unlike transactions, in which gas limits apply).
+For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the
+estimation process (unlike transactions, in which gas limits apply).
 
-`call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+
+- `blockNumber`: _string_ - (optional) hexadecimal or decimal integer representing a block number, or one of
+  the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+
+- `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
+    Each entry specifies a state that will be temporarily overridden before executing the call.
+    This allows you to make temporary state changes without affecting the actual blockchain state.
 
 #### Returns
 
@@ -2604,7 +2636,7 @@ The following example returns an estimate of 21000 wei (`0x5208`) for the transa
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73","to":"0x44Aa93095D6749A706051658B970b941c72c1D53","value":"0x1"}],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73","to":"0x44Aa93095D6749A706051658B970b941c72c1D53","value":"0x1"}],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2683,18 +2715,7 @@ The following example request estimates the cost of deploying a simple storage s
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST \
-http://127.0.0.1:8545 \
--H 'Content-Type: application/json' \
--d '{
-  "jsonrpc": "2.0",
-  "method": "eth_estimateGas",
-  "params": [{
-    "from": "0x8bad598904ec5d93d07e204a366d084a80c7694e",
-    "data": "0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"
-  }],
-  "id": 1
-}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0x8bad598904ec5d93d07e204a366d084a80c7694e","data":"0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052600436106043576000357c0100000000000000000000000000000000000000000000000000000000900480633fa4f24514604857806355241077146070575b600080fd5b348015605357600080fd5b50605a60a7565b6040518082815260200191505060405180910390f35b348015607b57600080fd5b5060a560048036036020811015609057600080fd5b810190808035906020019092919050505060ad565b005b60005481565b806000819055505056fea165627a7a7230582020d7ad478b98b85ca751c924ef66bcebbbd8072b93031073ef35270a4c42f0080029"}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2706,6 +2727,34 @@ http://127.0.0.1:8545 \
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0x1bacb"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+The following example estimates the gas required for the `transfer` call in the USDT contract, with a state
+override that sets the balance of the sender address to 20,000 USDT. The result provides the gas required
+for the transaction.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":"0xdAC17F958D2ee523a2206206994597C13D831ec7","data":"0xa9059cbb000000000000000000000000627306090abaB3A6e1400e9345bC60c78a8BEf570000000000000000000000000000000000000000000000000000000000000064"},"latest",{"0xdAC17F958D2ee523a2206206994597C13D831ec7":{"stateDiff":{"0xd0dd44a13782bf89714335c2b2b08ecb7c074e78a161807742c578965dda1b56":"0x0000000000000000000000000000000000000000000000000000000000004E20"}}}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":"0xfa07"
 }
 ```
 
@@ -2743,7 +2792,7 @@ As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks tr
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5", "latest", [20,30]],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5", "latest", [20,30]],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2831,9 +2880,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5"
 
 ### `eth_gasPrice`
 
-Returns a percentile gas unit price for the most recent blocks, in Wei. By default, the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value) is returned.
+Returns a percentile gas unit price for the most recent blocks, in wei. By default, the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value) is returned.
 
-If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 Wei and 500GWei.
+If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 wei and 500 gwei.
 
 Use the [`--api-gas-price-blocks`](../cli/options.md#api-gas-price-blocks), [`--api-gas-price-percentile`](../cli/options.md#api-gas-price-percentile) , and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max) command line options to configure the `eth_gasPrice` default values.
 
@@ -2843,14 +2892,14 @@ None
 
 #### Returns
 
-`result`: _string_ - percentile gas unit price for the most recent blocks, in Wei, as a hexadecimal value
+`result`: _string_ - percentile gas unit price for the most recent blocks, in wei, as a hexadecimal value
 
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2925,14 +2974,14 @@ Returns the account balance of the specified address.
 
 #### Returns
 
-`result`: _string_ - current balance, in Wei, as a hexadecimal value
+`result`: _string_ - current balance, in wei, as a hexadecimal value
 
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73", "latest"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3017,7 +3066,7 @@ Returns information about the block matching the specified block hash.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c", false],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xd5f1812548be429cbdc6376b29611fc49e06f1359758c4ceaaa3b393e2239f9c", false],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3173,7 +3222,7 @@ Returns information about the block matching the specified block number.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x68B3", true],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x68B3", true],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3346,7 +3395,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["latest"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["latest"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3536,7 +3585,7 @@ Returns the number of transactions in the block matching the specified block has
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3627,7 +3676,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":51}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3718,7 +3767,7 @@ Returns the code of the smart contract at the specified address. Besu stores com
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa50a51c09a5c451c52bb714527e1974b686d8e77", "latest"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3807,7 +3856,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xf8bf5598d9e04fbe84523d42640b9b0e"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xf8bf5598d9e04fbe84523d42640b9b0e"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3914,7 +3963,7 @@ Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x5ace5de3985749b6a1b2b0d3f3e1fb69"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x5ace5de3985749b6a1b2b0d3f3e1fb69"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -3998,7 +4047,7 @@ Using `eth_getLogs` to get logs from a large range of blocks, especially an enti
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4135,7 +4184,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 </Tabs>
 
-### `eth_getMinerDataByBlockHash`
+### `eth_getMinerDataByBlockHash` (Deprecated)
 
 Returns miner data for the specified block.
 
@@ -4152,7 +4201,7 @@ Returns miner data for the specified block.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4224,7 +4273,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4319,7 +4368,7 @@ The API allows IoT devices or mobile apps which are unable to run light clients 
 
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getProof","params": [
-"0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545
+"0a8156e7ee392d885d10eaa86afd0e323afdcd95", ["0x0000000000000000000000000000000000000000000000000000000000000347"], "latest"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4407,7 +4456,7 @@ Calculating the correct position depends on the storage you want to retrieve.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getStorageAt","params": ["0x‭3B3F3E‬","0x0","latest"],"id": 53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4492,7 +4541,7 @@ Returns transaction information for the specified block hash and transaction ind
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7", "0x2"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4614,7 +4663,7 @@ This request returns the third transaction in the 82990 block on the Ropsten tes
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["82990", "0x2"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4723,7 +4772,7 @@ Returns transaction information for the specified transaction hash.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xa52be92809541220ee0aaaede6047d9a6c5d0cd96a517c854d944ee70a0ebb44"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4854,7 +4903,7 @@ Returns the number of transactions sent from a specified address. Use the `pendi
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4939,7 +4988,7 @@ If you enabled [revert reason](../../../private-networks/how-to/send-transaction
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x504ce587a65bdbdb6414a0c6c16d86a04dd79bfcc4f2950eec9634b30ce5370f"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5083,7 +5132,7 @@ Uncles don't contain individual transactions.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc48fb64230a82f65a08e7280bd8745e7fea87bc7c206309dee32209fe9a985f7", "0x0"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5231,7 +5280,7 @@ Uncles do not contain individual transactions.
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x7689D2", "0x0"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5349,7 +5398,7 @@ Returns the number of uncles in a block from a block matching the given block ha
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5440,7 +5489,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5506,7 +5555,7 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(numb
 
 </Tabs>
 
-### `eth_getWork`
+### `eth_getWork` (Deprecated)
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.
 
@@ -5531,7 +5580,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5563,7 +5612,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}
 
 </Tabs>
 
-### `eth_hashrate`
+### `eth_hashrate` (Deprecated)
 
 Returns the number of hashes per second with which the node is mining.
 
@@ -5582,7 +5631,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5609,7 +5658,51 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1
 
 </Tabs>
 
-### `eth_mining`
+### `eth_maxPriorityFeePerGas`
+
+Returns an estimate of how much priority fee, in wei, you can pay to get a transaction included in the current block.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _hexadecimal_ value in wei
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_maxPriorityFeePerGas", "params": [], "id": 1 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0xf4240"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `eth_mining` (Deprecated)
 
 Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network regardless of command settings or methods called.
 
@@ -5626,7 +5719,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5670,7 +5763,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5720,7 +5813,7 @@ Creates a [log filter](../../concepts/events-and-logs.md). To poll for logs asso
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest", "toBlock":"latest", "topics":[]}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5769,7 +5862,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5818,7 +5911,7 @@ None
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5910,7 +6003,7 @@ Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -5974,7 +6067,7 @@ mutation {
 
 </Tabs>
 
-### `eth_submitHashrate`
+### `eth_submitHashrate` (Deprecated)
 
 Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -5993,7 +6086,7 @@ Submits the mining hashrate. This is used by mining software such as [Ethminer](
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6028,7 +6121,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":[
 
 </Tabs>
 
-### `eth_submitWork`
+### `eth_submitWork` (Deprecated)
 
 Submits a proof of work (Ethash) solution. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).
 
@@ -6049,7 +6142,7 @@ Submits a proof of work (Ethash) solution. This is used by mining software such 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6109,7 +6202,7 @@ None
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":51}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6203,7 +6296,7 @@ Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterch
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0x70355a0b574b437eaa19fe95adfedc0a"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6237,11 +6330,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
 
 ## `MINER` methods
 
-The `MINER` API methods allow you to control: 
-
-* The node’s mining operation.
-* Settings related to block creation. 
-
+The `MINER` API methods allow you to control the node's mining operation, or settings related to
+block creation in general. 
 
 :::note
 
@@ -6255,7 +6345,7 @@ Updates the target gas limit set using the [`--target-gas-limit`](../cli/options
 
 #### Parameters
 
-`gasPrice`: _number_ - target gas price in Wei
+`gasPrice`: _number_ - target gas price in wei
 
 #### Returns
 
@@ -6266,7 +6356,7 @@ Updates the target gas limit set using the [`--target-gas-limit`](../cli/options
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","params":[800000], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6298,10 +6388,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_changeTargetGasLimit","par
 
 </Tabs>
 
-### `miner_getMinPriorityFee`
+### `miner_getExtraData`
 
-Gets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
-Use [`miner_setMinPriorityFee`](#minersetminpriorityfee) to change the current value of the fee.
+Retrieves the current extra data field that is used when producing blocks.
 
 #### Parameters
 
@@ -6309,14 +6398,115 @@ None
 
 #### Returns
 
-`result`: _string_ - Minimum priority fee per gas (in Wei) as a hexadecimal string
+`result`: _string_ - Hexadecimal string representation of the extra data bytes.
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getExtraData","params":[], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getExtraData",
+  "params": [],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x68656c6c6f20776f726c64"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_getMinGasPrice`
+
+Gets the minimum gas price (in wei) offered by a transaction to be included in a block.
+The initial value is set using the [`--min-gas-price`](../cli/options.md#min-gas-price) command line
+option, or is set to `1000` if the command line option is not specified.
+Use [`miner_setMinGasPrice`](#miner_setmingasprice) to change the current value of the gas price.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Minimum gas price (in wei) as a hexadecimal string
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinGasPrice","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_getMinGasPrice",
+  "params": [],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x3e8"
+}
+```
+</TabItem>
+
+</Tabs>
+
+### `miner_getMinPriorityFee`
+
+Gets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_setMinPriorityFee`](#miner_setminpriorityfee) to change the current value of the fee.
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _string_ - Minimum priority fee per gas (in wei) as a hexadecimal string
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6370,7 +6560,7 @@ You can also use `miner_setEtherbase` as an alternative method. They both work t
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6402,25 +6592,128 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 </Tabs>
 
-### `miner_setMinPriorityFee`
+### `miner_setExtraData`
 
-Sets the minimum priority fee per gas (in Wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
-Use [`miner_getMinPriorityFee`](#minergetminpriorityfee) to get the current value of the fee.
+Sets a new value for the extra data field that is used when producing blocks.
 
 #### Parameters
 
-`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal. 
+`extraData`: _string_ - Hexadecimal representation of the extra data field, with a maximum of 32 bytes.
 
 #### Returns
 
-`result`: _boolean_ - `true` when fee is set
+`result`: _string_ - `true` or `false`
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":["0x0a"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setExtraData","params":["0x0010203"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setExtraData",
+  "params": ["0x0010203"],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "params": ["0x0010203"],
+  "id": 1,
+  "result": "true"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_setMinGasPrice`
+
+Sets the minimum gas price (in wei) offered by a transaction to be included in a block.
+The initial value is set using the [`--min-gas-price`](../cli/options.md#min-gas-price) command line
+option, or is set to `1000` if the command line option is not specified.
+Use [`miner_getMinGasPrice`](#miner_getmingasprice) to get the current value of the gas price.
+
+#### Parameters
+
+`minGasPrice`: _string_ - Minimum gas price in hexadecimal
+
+#### Returns
+
+`result`: _boolean_ - `true` when the gas price is set
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinGasPrice","params":["0x5dc"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "miner_setMinGasPrice",
+  "params": ["0x5dc"],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": true
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### `miner_setMinPriorityFee`
+
+Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. 
+The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Use [`miner_getMinPriorityFee`](#miner_getminpriorityfee) to get the current value of the fee.
+
+#### Parameters
+
+`minPriorityFeePerGas`: _string_ - Minimum priority fee per gas in hexadecimal
+
+#### Returns
+
+`result`: _boolean_ - `true` when the fee is set
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params":["0x0a"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6452,9 +6745,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 
 </Tabs>
 
-### `miner_start`
+### `miner_start` (Deprecated)
 
-Starts the mining process. To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
+Starts the mining process. 
+To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
 
 #### Parameters
 
@@ -6469,7 +6763,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6496,7 +6790,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}
 
 </Tabs>
 
-### `miner_stop`
+### `miner_stop` (Deprecated)
 
 Stops the mining process on the client.
 
@@ -6513,7 +6807,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6561,7 +6855,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6605,7 +6899,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6649,7 +6943,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6699,7 +6993,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_services","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6754,7 +7048,7 @@ None
 | Network ID | Chain | Network | Description                   |
 | ---------- | ----- | ------- | ----------------------------- |
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `5`        | ETH   | Goerli  | PoS test network              |
+| `17000`    | ETH   | Holesky | PoS test network              |
 | `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
 | `1`        | ETC   | Classic | Main Ethereum Classic network |
@@ -6773,7 +7067,7 @@ The only networks in the table above with different network and chain IDs are Cl
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6798,7 +7092,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
 
 </TabItem>
 
-<TabItem value="JSON result for Goerli" label="JSON result for Goerli"> 
+<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
 
 ```json
 {
@@ -6839,7 +7133,7 @@ Reloads specified plugin configuration.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","params":["tech.pegasys.plus.plugin.kafka.KafkaPlugin"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -6886,7 +7180,7 @@ The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified block.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested block must be within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -6911,7 +7205,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_block","params":["0x6"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7023,7 +7317,7 @@ default, 512 from the head of the chain).
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":"0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"},["trace"],"latest"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_call","params":[{"from":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73","to":"0x0010000000000000000000000000000000000000","gas":"0xfffff2","gasPrice":"0xef","value":"0x0","data":"0x0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002","nonce":"0x0"},["trace"],"latest"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7119,7 +7413,7 @@ default, 512 from the head of the chain).
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]],[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]]],"latest"],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]],[{"from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1","to":"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b","value":"0x186a0"},["trace"]]],"latest"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7196,7 +7490,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested blocks must be within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7215,7 +7509,7 @@ the requested blocks must be within the number of
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBlock":"0x1","toBlock":"0x21","after":2,"count":2,"fromAddress":["0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"]}],"id":415}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7300,7 +7594,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_filter","params":[{"fromBl
 Returns a trace at the given position.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested transaction must be contained in a block within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7321,7 +7615,7 @@ the requested transaction must be contained in a block within the number of
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_get","params":["0x17104ac9d3312d8c136b7f44d4b8b47852618065ebfa534bd2d3b5ef218ca1f3",["0x0"]],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7401,7 +7695,7 @@ the chain).
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",["trace"]],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"trace_rawTransaction","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",["trace"]],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7479,7 +7773,7 @@ default, 512 from the head of the chain).
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions","params": ["0x12",["trace","vmTrace","stateDiff"]],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7577,7 +7871,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_replayBlockTransactions
 Provides transaction processing of [type `trace`](../trace-types.md#trace) for the specified transaction.
 
 :::info note
-Your node must be an [archive node](../../get-started/connect/sync-node.md#run-an-archive-node), or
+Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
 the requested transaction must be contained in a block within the number of
 [blocks retained](../cli/options.md#bonsai-historical-block-limit) when using
 [Bonsai](../../concepts/data-storage-formats.md#bonsai-tries) (by default, 512 from the head of the chain).
@@ -7596,7 +7890,7 @@ the requested transaction must be contained in a block within the number of
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x4c253746668dca6ac3f7b9bc18248b558a95b5fc881d140872c2dff984d344a7"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7764,7 +8058,7 @@ The only supported `action` is `"contract_creation"`.
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuPendingTransactions","params":[2,{"from":{"eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"},"gas":{"lt":"0x5209"},"nonce":{"gt":"0x1"}}],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuPendingTransactions","params":[2,{"from":{"eq":"0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"},"gas":{"lt":"0x5209"},"nonce":{"gt":"0x1"}}],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7837,7 +8131,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuStatistics","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7882,7 +8176,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"txpool_besuTransactions","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7938,7 +8232,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -7979,7 +8273,7 @@ Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c00"],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -8027,7 +8321,7 @@ None
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>

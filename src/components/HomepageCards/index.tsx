@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
+import Heading from '@theme/Heading'
 // import styles from "./styles.module.css";
 
 type CardItem = {
@@ -25,7 +26,7 @@ const CardList: CardItem[] = [
     // prettier-ignore
     description: (
       <>
-        Run Besu as an execution client on Ethereum Mainnet and public testnets, such as Goerli and Sepolia.
+        Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Holesky, Hoodi, Ephemery, and Sepolia.
       </>
     ),
     buttonName: "Get started",
@@ -63,7 +64,7 @@ function Card({ title, link, description, buttonName, buttonType }: CardItem) {
       <div className="card-demo">
         <div className="card">
           <div className="card__header">
-            <h3>{title}</h3>
+            <Heading as='h3'>{title}</Heading>
           </div>
           <div className="card__body">
             <p>{description}</p>
@@ -89,9 +90,9 @@ export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
       <div className="container homepageContainer">
-        <h1 className="homepageTitle">Hyperledger Besu Ethereum client</h1>
+        <Heading as='h1' className="homepageTitle">Besu Ethereum client</Heading>
         <p>
-          Hyperledger Besu is an open source Ethereum client developed under the
+          Besu is an open source Ethereum client developed under the
           Apache 2.0 license and written in Java. It runs on public and private
           networks. You can also extend Besu&apos;s functionality using plugins.
         </p>

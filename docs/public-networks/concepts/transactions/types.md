@@ -9,7 +9,7 @@ tags:
 
 # Transaction types
 
-You can interact with the Hyperledger Besu JSON-RPC API using different transaction types (specified by the `transactionType` parameter).
+You can interact with the Besu JSON-RPC API using different transaction types (specified by the `transactionType` parameter).
 
 The following API objects use a unique format for each `transactionType`:
 
@@ -62,7 +62,7 @@ that the data is available for those who need it (for example, rollups or other 
 availability for their security and operation).
 
 Blobs are temporarily stored by consensus clients such as Teku, and blocks on the execution layer permanently store
-the the reference to the blob.
+the reference to the blob.
 
 ### View blob transaction costs
 

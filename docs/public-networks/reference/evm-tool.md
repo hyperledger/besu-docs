@@ -1,6 +1,7 @@
 ---
 title: EVM tool options
 sidebar_position: 5
+toc_max_heading_level: 3
 description: Besu EVM tool options reference
 tags:
   - public networks
@@ -328,7 +329,7 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---chain=<mainnet|goerli|sepolia|dev|classic|mordor|kotti|astor>
+--chain=<mainnet|sepolia|dev|classic|mordor|kotti|astor>
 ```
 
 </TabItem>
@@ -336,7 +337,7 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
   <TabItem value="Example" label="Example">
 
 ```bash
---chain=goerli
+--chain=holesky
 ```
 
 </TabItem>

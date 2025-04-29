@@ -1,6 +1,6 @@
-# Hyperledger Besu documentation
+# Besu documentation
 
-[Hyperledger Besu](https://github.com/hyperledger/besu/) is an open source Ethereum client developed
+[Besu](https://github.com/hyperledger/besu/) is an open source Ethereum client developed
 under the Apache 2.0 license and written in Java.
 It runs on public and private networks.
 
@@ -11,13 +11,14 @@ If you're looking for the software source code, go to the [Besu software reposit
 
 ### View older doc versions
 
-See the Hyperledger Besu wiki for information about [viewing and hosting older versions of the documentation](https://wiki.hyperledger.org/display/BESU/View+older+documentation+versions) on your own infrastructure.
+See the Besu wiki for information about [viewing and hosting older versions of the documentation](https://wiki.hyperledger.org/display/BESU/View+older+documentation+versions)
+on your own infrastructure.
 
 ### Contribute to the docs
 
-See the [documentation section in the Hyperledger Besu wiki](https://wiki.hyperledger.org/display/BESU/Documentation)
+See the [documentation section in the Besu wiki](https://wiki.hyperledger.org/display/BESU/Documentation)
 for information about submitting documentation changes and previewing the site locally.
 
 ### Questions?
 
-If you have questions about Besu, ask on the **besu** channel on [Hyperledger Discord](https://discord.gg/hyperledger).
+If you have questions about Besu, ask on the **besu** channel on [Discord](https://discord.gg/hyperledger).

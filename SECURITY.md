@@ -7,7 +7,7 @@ hear from you. We will take all security bugs seriously and if confirmed upon in
 patch it within a reasonable amount of time and release a public security bulletin discussing the
 impact and credit the discoverer.
 
-You can report a security bug in two ways. The easiest is to email a description of the flaw and
+You can report a security bug by emailing a description of the flaw and
 any related information (for example reproduction steps, version) to
 [Hyperledger security email address`](mailto:security@hyperledger.org).
 

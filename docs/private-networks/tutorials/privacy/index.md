@@ -1,7 +1,7 @@
 ---
 title: Create a privacy enabled network using the Quickstart
 sidebar_position: 1
-description: Configure Hyperledger Besu privacy
+description: Configure Besu privacy
 tags:
   - private networks
 ---
@@ -9,9 +9,15 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a privacy-enabled network
+# Create a privacy-enabled network  (Deprecated)
 
-Configuring a network that supports private transactions requires starting a [Tessera] node for each Hyperledger Besu node. Besu command line options associate the Besu node with the Tessera node.
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+Configuring a network that supports private transactions requires starting a [Tessera] node for each Besu node. Besu command line options associate the Besu node with the Tessera node.
 
 This tutorial assumes you have completed setting up an IBFT 2.0 network to the point where you have [created the genesis file and copied the private keys](../ibft/index.md#5-copy-the-node-private-keys-to-the-node-directories). If not, complete steps 1 to 5 of the [Create an IBFT 2.0](../ibft/index.md) tutorial before continuing.
 
@@ -29,7 +35,9 @@ In this tutorial we start Tessera nodes for the four Besu nodes and associate ea
 
 - [Install Tessera](https://docs.tessera.consensys.net/category/install).
 
-## 1. Create Tessera directories
+## Steps
+
+### 1. Create Tessera directories
 
 Inside each `Node-*` directory, create a `Tessera` directory:
 
@@ -49,7 +57,7 @@ IBFT-Network/
     ├── Tessera
 ```
 
-## 2. Generate Tessera keys
+### 2. Generate Tessera keys
 
 This example creates an unlocked private key, meaning you do not need a password to decrypt the private key file.
 
@@ -63,7 +71,7 @@ At the prompt, press **Enter** to create an unlocked key.
 
 Tessera generates the public/private key pair and saves the keys in the `nodeKey.pub` and `nodeKey.key` files.
 
-## 3. Create Tessera configuration files
+### 3. Create Tessera configuration files
 
 In the `Tessera` directory for each node, create a file called `tessera.conf`, with the following configuration:
 
@@ -315,7 +323,7 @@ In the configuration file, specify:
 - The address of the Tessera nodes to discover, in the [`peer`](https://docs.tessera.consensys.net/HowTo/Configure/Peer-discovery/#specify-peers) section.
 - The location of the public/private key pair.
 
-## 4. Start the Tessera nodes
+### 4. Start the Tessera nodes
 
 In each `Tessera` directory, start Tessera specifying the [configuration file](#3-create-tessera-configuration-files) created in the previous step:
 
@@ -329,7 +337,7 @@ After starting the first Tessera node and before starting the other nodes, the l
 
 :::
 
-## 5. Start Besu Node-1
+### 5. Start Besu Node-1
 
 In the `Node-1` directory, start Besu Node-1:
 
@@ -338,7 +346,7 @@ In the `Node-1` directory, start Besu Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:9102 --privacy-public-key-file=Tessera/nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:9102 --privacy-public-key-file=Tessera/nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -346,7 +354,7 @@ besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-ht
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:9102 --privacy-public-key-file=Tessera\nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --privacy-enabled --privacy-url=http://127.0.0.1:9102 --privacy-public-key-file=Tessera\nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -355,15 +363,14 @@ besu --data-path=data --genesis-file=..\genesis.json --rpc-http-enabled --rpc-ht
 
 The command line specifies privacy options:
 
-- [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled) enables privacy
-- [`--privacy-url`](../../reference/cli/options.md#privacy-url) specifies the Q2T server address of the Tessera node (`Q2T` in `tessera.conf`)
-- [`--privacy-public-key-file`](../../reference/cli/options.md#privacy-public-key-file) specifies the file containing Tessera node public key (created in [3. Generate Tessera Keys](#2-generate-tessera-keys))
+- [`--privacy-enabled`](../../reference/cli/options.md#privacy-enabled-deprecated) enables privacy.
+- [`--privacy-url`](../../reference/cli/options.md#privacy-url-deprecated) specifies the Q2T server address of the Tessera node (`Q2T` in `tessera.conf`).
+- [`--privacy-public-key-file`](../../reference/cli/options.md#privacy-public-key-file-deprecated) specifies the file containing Tessera node public key (created in [3. Generate Tessera Keys](#2-generate-tessera-keys)).
 - [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api) includes `EEA` and `PRIV` in the list of JSON-RPC APIs to enable privacy JSON-RPC API methods.
-- [`--min-gas-price`](../../../public-networks/reference/cli/options.md#min-gas-price) is 0 for a [free gas network](../../how-to/configure/free-gas.md).
 
 :::note
 
-Use the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file) command line option to sign [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md) using a supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
+Use the [`--privacy-marker-transaction-signing-key-file`](../../reference/cli/options.md#privacy-marker-transaction-signing-key-file-deprecated) command line option to sign [privacy marker transactions](../../concepts/privacy/private-transactions/processing.md) using a supplied key. The command line option is mandatory in privacy-enabled paid gas networks.
 
 :::
 
@@ -371,7 +378,7 @@ When the node starts, the [enode URL](../../../public-networks/concepts/node-key
 
 ![Node 1 Enode URL](../../../assets/images/EnodeStartup.png)
 
-## 6. Start Besu Node-2
+### 6. Start Besu Node-2
 
 In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
@@ -380,7 +387,7 @@ In the `Node-2` directory, start Besu Node-2 specifying the Node-1 enode URL cop
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:9202 --privacy-public-key-file=Tessera/nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:9202 --privacy-public-key-file=Tessera/nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -388,7 +395,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:9202 --privacy-public-key-file=Tessera\nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546 --privacy-enabled --privacy-url=http://127.0.0.1:9202 --privacy-public-key-file=Tessera\nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -403,7 +410,7 @@ When running Besu from the [Docker image](../../get-started/install/run-docker-i
 
 :::
 
-## 7. Start Besu Node-3
+### 7. Start Besu Node-3
 
 In the `Node-3` directory, start Besu Node-3 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
@@ -412,7 +419,7 @@ In the `Node-3` directory, start Besu Node-3 specifying the Node-1 enode URL cop
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:9302 --privacy-public-key-file=Tessera/nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:9302 --privacy-public-key-file=Tessera/nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -420,7 +427,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:9302 --privacy-public-key-file=Tessera\nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --privacy-enabled --privacy-url=http://127.0.0.1:9302 --privacy-public-key-file=Tessera\nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -429,7 +436,7 @@ besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode U
 
 The command line specifies the same options as for Node-1 with different ports and Tessera node URL. The [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option specifies the enode URL of Node-1.
 
-## 8. Start Besu Node-4
+### 8. Start Besu Node-4
 
 In the `Node-4` directory, start Besu Node-4 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
 
@@ -438,7 +445,7 @@ In the `Node-4` directory, start Besu Node-4 specifying the Node-1 enode URL cop
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --privacy-enabled --privacy-url=http://127.0.0.1:9402 --privacy-public-key-file=Tessera/nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --privacy-enabled --privacy-url=http://127.0.0.1:9402 --privacy-public-key-file=Tessera/nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -446,7 +453,7 @@ besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode U
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --privacy-enabled --privacy-url=http://127.0.0.1:9402 --privacy-public-key-file=Tessera\nodeKey.pub --min-gas-price=0
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,EEA,PRIV --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548 --privacy-enabled --privacy-url=http://127.0.0.1:9402 --privacy-public-key-file=Tessera\nodeKey.pub --profile=ENTERPRISE
 ```
 
 </TabItem>

@@ -1,14 +1,20 @@
 ---
 title: Run Tessera with Besu
-description: Running ConsenSys Quorum Tessera with Hyperledger Besu
+description: Running ConsenSys Quorum Tessera with Besu
 sidebar_position: 3
 tags:
   - private networks
 ---
 
-# Run Tessera with Besu
+# Run Tessera with Besu (Deprecated)
 
-To enable [privacy functionality](../../concepts/privacy/index.md) in production systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability) and [run in a separate instance](#separate-instances) to Hyperledger Besu.
+:::caution
+
+Tessera-based privacy is deprecated in Besu version 24.12.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
+
+To enable [privacy functionality](../../concepts/privacy/index.md) in production systems, [Tessera](https://docs.tessera.consensys.net/) must be [highly available](#high-availability) and [run in a separate instance](#separate-instances) to Besu.
 
 ![Besu-Tessera-High-Availability](../../../assets/images/Besu-Tessera-High-Availability.png)
 

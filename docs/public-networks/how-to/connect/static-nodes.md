@@ -17,6 +17,9 @@ Besu periodically initiates a connection to any unconnected static node. To miti
 
 Bootnodes and static nodes are both methods for finding peers. Depending on your use case, you can use only bootnodes, only static nodes, or both bootnodes and static nodes. 
 
+When connecting to bootnodes, Besu attempts to connect to all bootnodes at once, at startup.
+When connecting to static nodes, Besu attempts to reconnect periodically, if the connection fails or is lost.
+
 For example:
 * You run multiple nodes on Mainnet, using bootnodes for discovery, but want to ensure your nodes are always connected to each other, using static nodes.
 * You run a small network and want your nodes to reconnect if disconnected, using static nodes. 
@@ -47,7 +50,7 @@ Nodes not in the list of the static nodes are not prevented from connecting. To 
 
 :::tip
 
-If the added peer does not appear in the peer list (returned by [`admin_peers`](../../reference/api/index.md#admin_peers)), check the the supplied [enode URL](../../concepts/node-keys.md#enode-url) is correct, the node is running, and the node is listening for TCP connections on the endpoint.
+If the added peer does not appear in the peer list (returned by [`admin_peers`](../../reference/api/index.md#admin_peers)), check the supplied [enode URL](../../concepts/node-keys.md#enode-url) is correct, the node is running, and the node is listening for TCP connections on the endpoint.
 
 :::
 

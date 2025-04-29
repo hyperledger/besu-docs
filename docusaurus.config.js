@@ -25,6 +25,10 @@ const config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       "classic",
@@ -35,36 +39,6 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/hyperledger/besu-docs/tree/main/",
           path: "./docs",
-          includeCurrentVersion: true,
-          // Set to the last stable release
-          lastVersion: "24.3.0",
-          versions: {
-            //defaults to the ./docs folder
-            // using 'development' instead of 'next' as path
-            current: {
-              label: "development",
-              path: "development",
-            },
-            // The last stable release in the versioned_docs/version-stable
-            "24.3.0": {
-              label: "stable (24.3.0)",
-            },
-            "24.1.0": {
-              label: "24.1.0",
-            },
-            "23.10.3": {
-              label: "23.10.3",
-            },
-            "23.10.2": {
-              label: "23.10.2",
-            },
-            "23.7.3": {
-              label: "23.7.3",
-            },
-            "23.4.1": {
-              label: "23.4.1",
-            },
-          },
           routeBasePath: "/",
           // @ts-ignore
           // eslint-disable-next-line global-require
@@ -77,6 +51,7 @@ const config = {
           ],
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
+          includeCurrentVersion: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -140,9 +115,9 @@ const config = {
             label: "Plugins",
           },
           {
-            type: "docsVersionDropdown",
+            href: "/public-networks/chatbot",
+            className: "header-chatbot-link",
             position: "right",
-            dropdownActiveClassDisabled: true,
           },
           {
             href: "https://github.com/hyperledger/besu/",
@@ -163,9 +138,9 @@ const config = {
       },
       footer: {
         copyright:
-          "Hyperledger Besu and its documentation are licensed under the Apache 2.0 license.",
+          "Besu and its documentation are licensed under the Apache 2.0 license.",
         logo: {
-          alt: "Hyperledger Besu logo",
+          alt: "Besu logo",
           src: "img/logo.svg",
           srcDark: "img/logo-reversed.svg",
           href: "https://www.hyperledger.org/use/besu",
@@ -251,23 +226,23 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Hyperledger Discord",
+                label: "Discord",
                 href: "https://discord.gg/hyperledger",
               },
               {
-                label: "Hyperledger Besu Wiki",
-                href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
+                label: "Besu Wiki",
+                href: "https://lf-hyperledger.atlassian.net/wiki/spaces/BESU/overview",
               },
               {
-                label: "Hyperledger Besu Twitter",
+                label: "Besu Twitter",
                 href: "https://twitter.com/HyperledgerBesu",
               },
               {
-                label: "Hyperledger Besu GitHub",
+                label: "Besu GitHub",
                 href: "https://github.com/hyperledger/besu/",
               },
               {
-                label: "Hyperledger Besu documentation GitHub",
+                label: "Besu documentation GitHub",
                 href: "https://github.com/hyperledger/besu-docs",
               },
             ],
@@ -277,7 +252,21 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["solidity", "toml"],
+        additionalLanguages: ["solidity", "toml", "java", "bash"],
+      },
+      mermaid: {
+        options: {
+          fontFamily: "arial, verdana, sans-serif;",
+          wrap: true,
+          sequence: {
+            diagramMarginX: 25,
+            diagramMarginY: 25,
+          },
+          flowchart: {
+            diagramPadding: 5,
+            nodeSpacing: 75,
+          },
+        },
       },
       languageTabs: [
         {
@@ -321,20 +310,55 @@ const config = {
       {
         redirects: [
           {
-            from: "/private-networks/tutorials/permissioning/onchain",
+            from: "/public-networks/concepts/the-merge",
+            to: "/public-networks/concepts/node-clients",
+          },
+          {
+            from: ["/public-networks/how-to/configuration-file", "/public-networks/how-to/use-configuration-file"],
+            to: "/public-networks/how-to/configure-besu",
+          },
+          {
+            from: ["/private-networks/tutorials/permissioning/onchain", "/private-networks/tutorials/permissioning/upgrade-contracts"],
             to: "/private-networks/how-to/use-permissioning/onchain",
           },
           {
-            from: "/private-networks/tutorials/permissioning/upgrade-contracts",
-            to: "/private-networks/how-to/use-permissioning/onchain",
+            from: "/private-networks/tutorials/kubernetes/nat-manager",
+            to: "/private-networks/tutorials/kubernetes",
           },
-          /*
           {
-            from: "/public-networks/how-to/configuration-file",
-            to: "/public-networks/how-to/use-configuration-file",
-          },
-          */
+            from: ["/private-networks/how-to/configure/tls/client-and-server", "/private-networks/concepts/pki", "/private-networks/how-to/configure/tls/p2p"],
+            to: "/private-networks/how-to/configure/tls",
+          }
         ],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/public-networks")) {
+            return [
+              existingPath.replace("/public-networks", "/en/development/public-networks"),
+              existingPath.replace("/public-networks", "/development/public-networks"),
+              existingPath.replace("/public-networks", "/en/latest/public-networks"),
+              existingPath.replace("/public-networks", "/latest/public-networks"),
+              existingPath.replace("/public-networks", "/en/stable/public-networks"),
+              existingPath.replace("/public-networks", "/stable/public-networks"),
+              existingPath.replace("/public-networks", "/24.8.0/public-networks"),
+              existingPath.replace("/public-networks", "/24.7.1/public-networks"),
+              existingPath.replace("/public-networks", "/23.4.0/public-networks"),
+            ];
+          }
+          if (existingPath.includes("/private-networks")) {
+            return [
+              existingPath.replace("/private-networks", "/en/development/private-networks"),
+              existingPath.replace("/private-networks", "/development/private-networks"),
+              existingPath.replace("/private-networks", "/en/latest/private-networks"),
+              existingPath.replace("/private-networks", "/latest/private-networks"),
+              existingPath.replace("/private-networks", "/en/stable/private-networks"),
+              existingPath.replace("/private-networks", "/stable/private-networks"),
+              existingPath.replace("/private-networks", "/24.8.0/private-networks"),
+              existingPath.replace("/private-networks", "/24.7.1/private-networks"),
+              existingPath.replace("/private-networks", "/23.4.0/private-networks"),
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
       },
     ],
   ],
@@ -348,6 +372,7 @@ const config = {
         indexBlog: false,
       }),
     ],
+    "@docusaurus/theme-mermaid",
   ],
 };
 

@@ -1,7 +1,8 @@
 ---
 title: Create a permissioned network
 sidebar_position: 1
-description: Hyperledger Besu create a permissioned network
+description: Besu create a permissioned network
+toc_max_heading_level: 3
 tags:
   - private networks
 ---
@@ -21,7 +22,7 @@ A permissioned Ethereum network as described here is not protected against all a
 
 ## Prerequisites
 
-- [Hyperledger Besu](../../get-started/install/binary-distribution.md)
+- [Besu](../../get-started/install/binary-distribution.md)
 - [curl (or similar Web service client)](https://curl.haxx.se/download.html)
 
 ## Steps
@@ -136,7 +137,7 @@ networkFiles/
 
 ### 4. Copy the genesis file to the Permissioned-Network directory
 
-Copy the `genesis.json` file to the `Permisssioned-Network` directory.
+Copy the `genesis.json` file to the `Permissioned-Network` directory.
 
 ### 5. Copy the node private keys to the node directories
 
@@ -188,7 +189,7 @@ Use the following command:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*"
+besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -196,20 +197,22 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*"
+besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --profile=ENTERPRISE
 ```
 
 </TabItem>
 
 </Tabs>
 
-The command line allows you to enable:
+The command line enables:
 
 - Nodes and accounts permissions using [`--permissions-nodes-config-file-enabled`](../../reference/cli/options.md#permissions-nodes-config-file-enabled) and [`--permissions-accounts-config-file-enabled`](../../reference/cli/options.md#permissions-accounts-config-file-enabled).
 - The JSON-RPC API using [`--rpc-http-enabled`](../../../public-networks/reference/cli/options.md#rpc-http-enabled).
 - The `ADMIN`, `ETH`, `NET`, `PERM`, and `IBFT` APIs using [`--rpc-http-api`](../../../public-networks/reference/cli/options.md#rpc-http-api).
 - All-host access to the HTTP JSON-RPC API using [`--host-allowlist`](../../../public-networks/reference/cli/options.md#host-allowlist).
 - All-domain access to the node through the HTTP JSON-RPC API using [`--rpc-http-cors-origins`](../../../public-networks/reference/cli/options.md#rpc-http-cors-origins).
+- The [enterprise/private profile](../../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
+  using the [`--profile`](../../../public-networks/reference/cli/options.md#profile) option.
 
 When the node starts, the [enode URL](../../../public-networks/concepts/node-keys.md#enode-url) displays. You need the enode URL to specify Node-1 as a peer and update the permissions configuration file in the following steps.
 
@@ -224,7 +227,7 @@ Start another terminal, change to the `Node-2` directory, and start Node-2:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -232,7 +235,7 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546
+besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30304 --rpc-http-port=8546 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -257,7 +260,7 @@ Start another terminal, change to the `Node-3` directory, and start Node-3:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -265,7 +268,7 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547
+besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30305 --rpc-http-port=8547 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -290,7 +293,7 @@ Start another terminal, change to the `Node-4` directory, and start Node-4:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -298,7 +301,7 @@ besu --data-path=data --genesis-file=../genesis.json --permissions-nodes-config-
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548
+besu --data-path=data --genesis-file=..\genesis.json --permissions-nodes-config-file-enabled --permissions-accounts-config-file-enabled --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,PERM,IBFT --host-allowlist="*" --rpc-http-cors-origins="*" --p2p-port=30306 --rpc-http-port=8548 --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -325,7 +328,7 @@ Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with 
 <TabItem value="Node-1" label="Node-1" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -333,7 +336,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-2" label="Node-2">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8546
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8546
 ```
 
 </TabItem>
@@ -341,7 +344,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-3" label="Node-3">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8547
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8547
 ```
 
 </TabItem>
@@ -349,7 +352,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","param
 <TabItem value="Node-4" label="Node-4">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","EnodeNode4"]], "id":1}' http://127.0.0.1:8548
+curl -X POST --data '{"jsonrpc":"2.0","method":"perm_addNodesToAllowlist","params":[["<EnodeNode1>","<EnodeNode2>","<EnodeNode3>","<EnodeNode4>"]], "id":1}' http://127.0.0.1:8548
 ```
 
 </TabItem>
@@ -437,7 +440,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<Enode
 Use curl to call the JSON-RPC API [`net_peerCount`](../../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are functioning as peers:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result confirms Node-1 (the node running the JSON-RPC service) has three peers (Node-2, Node-3 and Node-4):
@@ -452,7 +455,7 @@ The result confirms Node-1 (the node running the JSON-RPC service) has three pee
 
 #### Send a transaction from an account in the allowlist
 
-Import the first account from the genesis file into MetaMask and send transactions, as described in [Quickstart tutorial]:
+Import the first account from the genesis file into MetaMask and send transactions, as described in the [Quickstart tutorial]:
 
 :::info Account 1
 
@@ -468,9 +471,9 @@ Besu doesn't support [private key management](../../../public-networks/how-to/se
 
 :::
 
-### Try sending a transaction from an account not in the accounts allowlist
+#### Try sending a transaction from an account not in the accounts allowlist
 
-Import the third account from the genesis file into MetaMask and try to send a transaction, as described in [Quickstart tutorial]:
+Import the third account from the genesis file into MetaMask and try to send a transaction, as described in the [Quickstart tutorial]:
 
 :::info Account 3
 
@@ -480,7 +483,7 @@ Import the third account from the genesis file into MetaMask and try to send a t
 
 :::
 
-### Start a node not on the nodes allowlist
+#### Start a node not on the nodes allowlist
 
 In your `Permissioned-Network` directory, create a `Node-5` directory and `data` directory inside it.
 
@@ -524,7 +527,7 @@ The result confirms Node-5 has no peers even though it specifies Node-1 as a boo
 
 ## Stop nodes
 
-When finished using the permissioned network, stop all nodes using ++ctrl+c++ in each terminal window.
+When finished using the permissioned network, stop all nodes using Ctrl+C in each terminal window.
 
 :::tip
 
@@ -535,4 +538,4 @@ To restart the permissioned network in the future, start from [step 7](#7-start-
 <!-- Links -->
 
 [IBFT 2.0 proof of authority consensus protocol]: ../../how-to/configure/consensus/ibft.md
-[Private network example tutorial]: ../quickstart.md#create-a-transaction-using-metamask
+[Quickstart tutorial]: ../quickstart.md#create-a-transaction-using-metamask

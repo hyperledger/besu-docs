@@ -27,11 +27,10 @@ To add or remove validators without voting:
     - `<BlockNumber>` is the upcoming block at which to change validators.
     - `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses of the validators after `<BlockNumber>`.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="QBFT syntax" label="QBFT syntax" default>
 
-<TabItem value="QBFT syntax" label="QBFT syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -57,11 +56,10 @@ To add or remove validators without voting:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="QBFT example" label="QBFT example">
 
-<TabItem value="QBFT example" label="QBFT example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -86,9 +84,10 @@ To add or remove validators without voting:
     }
     ```
 
-    # IBFT 2.0 syntax
+    </TabItem>
+    <TabItem value="IBFT 2.0 syntax">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -114,9 +113,10 @@ To add or remove validators without voting:
     }
     ```
 
-    # IBFT 2.0 example
+    </TabItem>
+    <TabItem value="IBFT 2.0 example">
 
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -141,9 +141,8 @@ To add or remove validators without voting:
     }
     ```
 
-</TabItem>
-
-</Tabs>
+    </TabItem>
+    </Tabs>
 
 2.  Restart all nodes in the network using the updated genesis file. You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
 3.  To verify the changes after the transition block, call [`qbft_getValidatorsByBlockNumber`](../../../reference/api/index.md#qbft_getvalidatorsbyblocknumber) or [`ibft_getValidatorsByBlockNumber`](../../../reference/api/index.md#ibft_getvalidatorsbyblocknumber), specifying `latest`.
@@ -164,17 +163,16 @@ This requires temporarily [switching to block header validator selection mode](q
 
 To bypass the smart contract and specify new validators:
 
-1.  In the genesis file, add a `transitions` configuration item where:
+1. In the genesis file, add a `transitions` configuration item where:
 
     - `<BlockNumber>` is the upcoming block at which to change validators.
     - `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to the `blockheader` mode temporarily.
     - `<ValidatorAddressX> ... <ValidatorAddressZ>` are strings representing the account addresses of the validators after `<BlockNumber>`. These validators only need to be sufficient to progress the chain and allow a new contract to be deployed.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -202,11 +200,10 @@ To bypass the smart contract and specify new validators:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -233,23 +230,21 @@ To bypass the smart contract and specify new validators:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    </Tabs>
 
-</Tabs>
-
-1.  Restart all nodes in the network using the updated genesis file. You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
-1.  Deploy a new contract to the blockchain containing the desired list of validators.
-1.  In the genesis file, add another `transitions` configuration item where:
+2. Restart all nodes in the network using the updated genesis file. You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
+3. Deploy a new contract to the blockchain containing the desired list of validators.
+4. In the genesis file, add another `transitions` configuration item where:
 
     - `<BlockNumber>` is the upcoming block at which to change validators.
     - `<SelectionMode>` is the validator selection mode to switch to. In this case we'll switch to `contract` mode.
     - `<NewValidatorContractAddress>` is the address of the new smart contract.
 
-<Tabs>
+    <Tabs>
+    <TabItem value="Syntax" label="Syntax" default>
 
-<TabItem value="Syntax" label="Syntax" default>
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -281,11 +276,10 @@ To bypass the smart contract and specify new validators:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    <TabItem value="Example" label="Example">
 
-<TabItem value="Example" label="Example">
-
-    ```bash
+    ```json
     {
       "config": {
         ...
@@ -317,8 +311,7 @@ To bypass the smart contract and specify new validators:
     }
     ```
 
-</TabItem>
+    </TabItem>
+    </Tabs>
 
-</Tabs>
-
-1.  Restart all nodes in the network using the updated genesis file. You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.
+5. Restart all nodes in the network using the updated genesis file. You can make a rolling update of the nodes, as long as they're all up before the transition block is processed.

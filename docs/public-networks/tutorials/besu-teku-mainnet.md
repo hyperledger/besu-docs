@@ -11,13 +11,13 @@ import TabItem from '@theme/TabItem';
 
 # Run Besu and Teku on Mainnet
 
-Run Besu as an [execution client](../concepts/the-merge.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/the-merge.md#consensus-clients) on Ethereum Mainnet.
+Run Besu as an [execution client](../concepts/node-clients.md#execution-clients) and [Teku](https://docs.teku.consensys.net/) as a [consensus client](../concepts/node-clients.md#consensus-clients) on Ethereum Mainnet.
 
 ## 1. Install Besu and Teku
 
 Install [Besu](../get-started/install/binary-distribution.md) and [Teku](https://docs.teku.consensys.net/HowTo/Get-Started/Installation-Options/Install-Binaries/).
 
-Ensure you meet the prerequisites for the installation option you use. For example, you must have Java 17+ if using the Besu and Teku binary distributions.
+Ensure you meet the prerequisites for the installation option you use. For example, you must have Java 21+ if using the Besu and Teku binary distributions.
 
 Ensure you meet the [system requirements for Besu on public networks](../get-started/system-requirements.md).
 
@@ -49,35 +49,30 @@ You should also have a `.json` file for each validator key pair.
 
 ## 4. Start Besu
 
-Run the following command or specify the options in a [configuration file](../how-to/use-configuration-file/index.md):
+Run the following command or specify the options in a [configuration file](../how-to/configure-besu/index.md):
 
 ```bash
 besu \
-  --sync-mode=SNAP           \
-  --data-storage-format=BONSAI \
-  --rpc-http-enabled=true      \
-  --rpc-http-host="0.0.0.0"    \
-  --rpc-ws-enabled=true        \
-  --rpc-ws-host="0.0.0.0"      \
-  --host-allowlist=<IP of Besu node>,127.0.0.1,localhost        \
-  --engine-host-allowlist=<IP of Besu node>,127.0.0.1,localhost \
-  --engine-rpc-enabled         \
+  --sync-mode=SNAP                                             \
+  --data-storage-format=BONSAI                                 \
+  --rpc-http-enabled=true                                      \
+  --p2p-host=<your public IP>                                  \
+  --host-allowlist=<your public IP>,127.0.0.1,localhost        \
+  --engine-host-allowlist=<your public IP>,127.0.0.1,localhost \
+  --engine-rpc-enabled                                         \
   --engine-jwt-secret=<path to jwtsecret.hex>
 ```
 
 Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the [`--engine-jwt-secret`](../reference/cli/options.md#engine-jwt-secret) option.
-- The IP address of your Besu node using the [`--host-allowlist`](../reference/cli/options.md#host-allowlist) and [`--engine-host-allowlist`](../reference/cli/options.md#engine-host-allowlist) options.
+- The public IP address of your Besu node using the [`--host-allowlist`](../reference/cli/options.md#host-allowlist) and [`--engine-host-allowlist`](../reference/cli/options.md#engine-host-allowlist) options.
 
 Also, in the command:
 
-- [`--sync-mode`](../reference/cli/options.md#sync-mode) specifies using [snap sync](../get-started/connect/sync-node.md#snap-synchronization).
+- [`--sync-mode`](../reference/cli/options.md#sync-mode) specifies using [snap sync](../concepts/node-sync.md#snap-synchronization).
 - [`--data-storage-format`](../reference/cli/options.md#data-storage-format) specifies using [Bonsai Tries](../concepts/data-storage-formats.md#bonsai-tries).
 - [`--rpc-http-enabled`](../reference/cli/options.md#rpc-http-enabled) enables the HTTP JSON-RPC service.
-- [`--rpc-http-host`](../reference/cli/options.md#rpc-http-host) is set to `0.0.0.0` to allow remote RPC connections.
-- [`--rpc-ws-enabled`](../reference/cli/options.md#rpc-ws-enabled) enables the WebSocket JSON-RPC service.
-- [`--rpc-ws-host`](../reference/cli/options.md#rpc-ws-host) is set to `0.0.0.0` to allow remote RPC connections.
 - [`--engine-rpc-enabled`](../reference/cli/options.md#engine-rpc-enabled) enables the [Engine API](../reference/engine-api/index.md).
 
 You can modify the option values and add other [command line options](../reference/cli/options.md) as needed.
@@ -96,6 +91,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
   --rest-api-enabled=true                      \
+  --p2p-advertised-ip=<your public IP>         \
   --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
@@ -103,6 +99,8 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 2](#2-generate-the-shared-secret) using the
   [`--ee-jwt-secret-file`](https://docs.teku.consensys.io/reference/cli#ee-jwt-secret-file) option.
+- The public IP address of your Teku node using the
+  [`--p2p-advertised-ip`](https://docs.teku.consensys.io/reference/cli#p2p-advertised-ip) option.
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](https://docs.teku.consensys.io/reference/cli#checkpoint-sync-url) option.
 

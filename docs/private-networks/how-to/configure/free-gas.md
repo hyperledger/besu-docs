@@ -73,7 +73,7 @@ When starting nodes, set the [minimum gas price](../../../public-networks/refere
 
 <Tabs>
 
-<TabItem value="Command Line" label="Command Line" default>
+<TabItem value="Command line" default>
 
 ```bash
 --min-gas-price=0
@@ -81,7 +81,7 @@ When starting nodes, set the [minimum gas price](../../../public-networks/refere
 
 </TabItem>
 
-<TabItem value="Configuration File" label="Configuration File">
+<TabItem value="Configuration file">
 
 ```bash
 min-gas-price=0
@@ -90,8 +90,6 @@ min-gas-price=0
 </TabItem>
 
 </Tabs>
-
-# Command Line
 
 :::danger Important
 
@@ -118,7 +116,7 @@ If zero base fee is enabled, you cannot specify a value for [`--tx-pool-price-bu
 
 ## Configure free gas in Hardhat
 
-If using Hardhat to develop on your free gas network, you also need to configure free gas in Hardhat.
+If using Hardhat to develop your free gas network, you also need to configure free gas in Hardhat.
 
 Like setting block and contract size limits to their maximum values for Besu, set the transaction gas limit in Hardhat to the maximum possible.
 

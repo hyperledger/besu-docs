@@ -9,6 +9,15 @@ tags:
 
 The following objects are parameters for or returned by the [Engine API methods](index.md).
 
+## Blob and proof object
+
+Returned by [`engine_getBlobsV1`](index.md#engine_getblobsv1).
+
+| Key | Type | Value |
+| --- | :-: | --- |
+| `blob` | _Data_, 131072 Bytes | An SSZ-encoded `Blob` as defined in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). |
+| `proof` | _Data_, 48 Bytes | A `KZGProof` as defined in [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). |
+
 ## Execution payload object
 
 Parameter for [`engine_newPayloadV1`](index.md#engine_newpayloadv1). Returned by [`engine_getPayloadV1`](index.md#engine_getpayloadv1).

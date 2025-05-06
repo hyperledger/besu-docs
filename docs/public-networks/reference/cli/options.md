@@ -581,57 +581,6 @@ color-enabled=false
 
 Enables or disables color output to console. The default is `true`.
 
-### `compatibility-eth64-forkid-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---compatibility-eth64-forkid-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_COMPATIBILITY_ETH64_FORKID_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Example configuration file" label="Example configuration file"> 
-
-```bash
-compatibility-eth64-forkid-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables the legacy Eth/64 fork ID. For any networks with nodes using Besu v1.4 or earlier and nodes using Besu v20.10.1 or later, either:
-
-- All nodes must be upgraded to v20.10.1 or later.
-- All nodes using v20.10.1 or later must have `--compatibility-eth64-forkid-enabled` set to `true`.
-
-The default is `false`.
-
-:::caution
-
-If networks have Besu nodes using v1.4 or earlier and other Besu nodes using v20.10.1 or later, the nodes on different versions cannot communicate unless `--compatibility-eth64-forkid-enabled` is set to `true`.
-
-:::
-
 ### `config-file`
 
 <Tabs>
@@ -1411,6 +1360,233 @@ graphql-http-port="6175"
 </Tabs>
 
 The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must be [exposed appropriately](../../how-to/connect/configure-ports.md).
+
+### `graphql-mtls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-mtls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-mtls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_MTLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-mtls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables mTLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-enabled`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables TLS for the GraphQL HTTP service.
+The default is `false`.
+
+:::note
+[`--graphql-http-enabled`](#graphql-http-enabled) must be enabled.
+:::
+
+### `graphql-tls-keystore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-file=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_FILE=/home/me/me_node/keystore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-file="/home/me/me_node/keystore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the keystore file when enabling TLS for the GraphQL HTTP service.
+The keystore file contains the private key and certificate presented to the client during authentication.
+
+Specify the keystore password file using [`--graphql-tls-keystore-password-file`](#graphql-tls-keystore-password-file).
+
+### `graphql-tls-keystore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-keystore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-keystore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_KEYSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-keystore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the keystore specified in [`--graphql-tls-keystore-file`](#graphql-tls-keystore-file),
+when enabling TLS for the GraphQL HTTP service.
+
+### `graphql-tls-truststore-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-file=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_FILE=/home/me/me_node/truststore.pfx
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-file="/home/me/me_node/truststore.pfx"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the truststore file when enabling TLS for the GraphQL HTTP service.
+
+Specify the truststore password file using [`--graphql-tls-truststore-password-file`](#graphql-tls-truststore-password-file).
+
+### `graphql-tls-truststore-password-file`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--graphql-tls-truststore-password-file=<FILE>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--graphql-tls-truststore-password-file=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_GRAPHQL_TLS_TRUSTSTORE_PASSWORD_FILE=/home/me/me_node/password
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+graphql-tls-truststore-password-file="/home/me/me_node/password"
+```
+
+</TabItem>
+</Tabs>
+
+Path to the file containing the password for the truststore specified in [`--graphql-tls-truststore-file`](#graphql-tls-truststore-file),
+when enabling TLS for the GraphQL HTTP service.
 
 ### `help`
 
@@ -5639,7 +5815,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Example" label="Example">
 
 ```bash
---static-nodes-file=~/besudata/static-nodes.json
+--static-nodes-file=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5647,7 +5823,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
+BESU_STATIC_NODES_FILE=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5655,7 +5831,7 @@ BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-static-nodes-file="~/besudata/static-nodes.json"
+static-nodes-file="/path/to/besudata/static-nodes.json"
 ```
 
 </TabItem>

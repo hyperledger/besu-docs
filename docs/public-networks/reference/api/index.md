@@ -522,7 +522,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}
     {
       "version": "0x5",
       "name": "besu/v20.10.4-dev-0905d1b2/osx-x86_64/adoptopenjdk-java-11",
-      "caps": ["eth/62", "eth/63", "eth/64", "eth/65", "IBF/1"],
+      "caps": ["eth/67", "eth/68", "IBF/1"],
       "network": {
         "localAddress": "192.168.1.229:50115",
         "remoteAddress": "168.61.153.255:40303"

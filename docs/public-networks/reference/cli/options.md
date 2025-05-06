@@ -5815,7 +5815,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Example" label="Example">
 
 ```bash
---static-nodes-file=~/besudata/static-nodes.json
+--static-nodes-file=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5823,7 +5823,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
+BESU_STATIC_NODES_FILE=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5831,7 +5831,7 @@ BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-static-nodes-file="~/besudata/static-nodes.json"
+static-nodes-file="/path/to/besudata/static-nodes.json"
 ```
 
 </TabItem>

@@ -3,6 +3,7 @@ title: Plugins
 sidebar_position: 6
 description: Plugins overview
 tags:
+  - public networks
   - private networks
 ---
 

@@ -6083,6 +6083,191 @@ mutation {
 
 </Tabs>
 
+### `eth_simulateV1`
+
+Simulates transactions across multiple blocks. Allows you to test transactions with custom state and
+block parameters without submitting them to the network.
+
+#### Parameters
+
+- `payload`: _object_ - transaction simulation payload object containing the following fields:
+
+  - `blockStateCalls`: _array_ of _objects_ - list of block state call objects, each containing the following fields:
+
+    - `blockOverrides`: _array_ of _objects_ - list of [block override objects](objects.md#block-override-object)
+    
+    - `stateOverrides`: _array_ of _objects_ - list of [state override objects](objects.md#state-override-object)
+    
+    - `calls`: _array_ of _objects_ - list of [transaction call objects](objects.md#transaction-call-object)
+  
+  - `traceTransfers`:  _boolean_ - (optional) if `true`, ETH transfers are added as ERC-20 transfer
+      events to the logs, allowing you to trace value transfers. The default is `false`.
+  
+  - `validation`: _boolean_ - (optional) If `true`, `eth_simulateV1` does all the validation that a
+    normal EVM would do, except contract sender and signature checks. If `false`, `eth_simulateV1` behaves like `eth_call`.
+    The default is `false`.
+  
+  - `returnFullTransactionObjects`: _boolean_ - (optional) If `true`, returns full transaction
+    objects. If `false`, returns only hashes. The default is `false`.
+
+- `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
+  block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
+  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+
+#### Returns
+
+`result`: _array_ of _objects_ - list of simulation result objects, each containing the following fields:
+
+- all the fields of a [block object](objects.md#block-object)
+
+- `calls`: _array_ of _objects_ - list of [call result objects](objects.md#call-result-object)
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_simulateV1", "params":[{"blockStateCalls":[{"blockOverrides":{"baseFeePerGas":"0x9"},"stateOverrides":{"0xc000000000000000000000000000000000000000":{"balance":"0x4a817c800"}},"calls":[{"from":"0xc000000000000000000000000000000000000000","to":"0xc000000000000000000000000000000000000001","maxFeePerGas":"0xf","value":"0x1"},{"from":"0xc000000000000000000000000000000000000000","to":"0xc000000000000000000000000000000000000002","maxFeePerGas":"0xf","value":"0x1"}]}],"validation":true,"traceTransfers":true},"latest"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_simultateV1",
+  "params": [
+    {
+      "blockStateCalls": [
+        {
+          "blockOverrides": {
+            "baseFeePerGas": "0x9"
+          },
+          "stateOverrides": {
+            "0xc000000000000000000000000000000000000000": {
+              "balance": "0x4a817c800"
+            }
+          },
+          "calls": [
+            {
+              "from": "0xc000000000000000000000000000000000000000",
+              "to": "0xc000000000000000000000000000000000000001",
+              "maxFeePerGas": "0xf",
+              "value": "0x1"
+            },
+            {
+              "from": "0xc000000000000000000000000000000000000000",
+              "to": "0xc000000000000000000000000000000000000002",
+              "maxFeePerGas": "0xf",
+              "value": "0x1"
+            }
+          ]
+        }
+      ],
+      "validation": true,
+      "traceTransfers": true
+    },
+    "latest"
+  ],
+  "id": 1
+}
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "baseFeePerGas": "0x9",
+      "blobGasUsed": "0x0",
+      "calls": [
+        {
+          "gasUsed": "0x5208",
+          "logs": [
+            {
+              "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+              "blockHash": "0xc98388385b0dbfc15ad5c6a0f4b19f7abd94efb4618ced05e3eb320ee30b1e7f",
+              "blockNumber": "0x1496e50",
+              "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+              "logIndex": "0x0",
+              "removed": false,
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000c000000000000000000000000000000000000000",
+                "0x000000000000000000000000c000000000000000000000000000000000000001"
+              ],
+              "transactionHash": "0xe7217784e0c3f7b35d39303b1165046e9b7e8af9b9cf80d5d5f96c3163de8f51",
+              "transactionIndex": "0x0"
+            }
+          ],
+          "returnData": "0x",
+          "status": "0x1"
+        },
+        {
+          "gasUsed": "0x5208",
+          "logs": [
+            {
+              "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+              "blockHash": "0xc98388385b0dbfc15ad5c6a0f4b19f7abd94efb4618ced05e3eb320ee30b1e7f",
+              "blockNumber": "0x1496e50",
+              "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+              "logIndex": "0x1",
+              "removed": false,
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000c000000000000000000000000000000000000000",
+                "0x000000000000000000000000c000000000000000000000000000000000000002"
+              ],
+              "transactionHash": "0xf0182201606ec03701ba3a07d965fabdb4b7d06b424f226ea7ec3581802fc6fa",
+              "transactionIndex": "0x1"
+            }
+          ],
+          "returnData": "0x",
+          "status": "0x1"
+        }
+      ],
+      "difficulty": "0x0",
+      "excessBlobGas": "0x4920000",
+      "extraData": "0x",
+      "gasLimit": "0x1c9c380",
+      "gasUsed": "0xa410",
+      "hash": "0xc98388385b0dbfc15ad5c6a0f4b19f7abd94efb4618ced05e3eb320ee30b1e7f",
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "miner": "0x7e2a2fa2a064f693f0a55c5639476d913ff12d05",
+      "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": "0x0000000000000000",
+      "number": "0x1496e50",
+      "parentBeaconBlockRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "parentHash": "0xddd47e7383c8ced495e85e053f898d7a333feb0432fa9098306f6f563cde4984",
+      "receiptsRoot": "0x75308898d571eafb5cd8cde8278bf5b3d13c5f6ec074926de3bb895b519264e1",
+      "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "size": "0x29c",
+      "stateRoot": "0xd6da11fae4ab94ddba2c4c71206962f7c6eaec6e5fabf00f3f7540c4ed7ad8f1",
+      "timestamp": "0x67803e64",
+      "transactions": [
+        "0xe7217784e0c3f7b35d39303b1165046e9b7e8af9b9cf80d5d5f96c3163de8f51",
+        "0xf0182201606ec03701ba3a07d965fabdb4b7d06b424f226ea7ec3581802fc6fa"
+      ],
+      "transactionsRoot": "0x9bdb74f3ce41f5893a02a631e904ae0d21ae8c4e416786d8dbd9cb5c54f1dc0f",
+      "uncles": [],
+      "withdrawals": [],
+      "withdrawalsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+    }
+  ]  
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `eth_submitHashrate` (Deprecated)
 
 Submits the mining hashrate. This is used by mining software such as [Ethminer](https://github.com/ethereum-mining/ethminer).

@@ -18,7 +18,7 @@ This reference contains API objects that apply to both public and private networ
 
 ## Block object
 
-Returned by [`eth_getBlockByHash`](index.md#eth_getblockbyhash) and [`eth_getBlockByNumber`](index.md#eth_getblockbynumber).
+Returned by [`eth_getBlockByHash`](index.md#eth_getblockbyhash), [`eth_getBlockByNumber`](index.md#eth_getblockbynumber), and [`eth_simulateV1`](index.md#eth_simulatev1).
 
 | Key | Type | Value |
 | --- | :-: | --- |
@@ -42,6 +42,35 @@ Returned by [`eth_getBlockByHash`](index.md#eth_getblockbyhash) and [`eth_getBlo
 | `transactions` | Array | Array of [transaction objects](#transaction-object), or 32 byte transaction hashes depending on the specified boolean parameter. |
 | `uncles` | Array | Array of uncle hashes. |
 | `baseFeePerGas` | Quantity | The block's [base fee per gas](../../concepts/transactions/types.md#eip1559-transactions). This field is empty for blocks created before [EIP-1559](https://github.com/ethereum/EIPs/blob/2d8a95e14e56de27c5465d93747b0006bd8ac47f/EIPS/eip-1559.md). |
+
+## Block override object
+
+Parameter for [`eth_simulateV1`](index.md#eth_simulatev1).
+Override the following block parameters temporarily before making the call.
+This allows you to make ephemeral block changes, for the purposes of transaction simulation, without affecting the actual blockchain.
+
+| Key             |        Type         | Value                                                                                                                                                    |
+|-----------------|:-------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `baseFeePerGas` |      Quantity       | Base fee per gas for the block.                                                                                                                          |
+| `blobBaseFee`   |      Quantity       | Base fee per unit of blob gas.                                                                                                                           |
+| `feeRecipient`  | Data, 20&nbsp;bytes | Address of the fee recipient for the block proposal.                                                                                                     |
+| `gasLimit`      |      Quantity       | Maximum gas allowed in this block.                                                                                                                       |
+| `number`        |      Quantity       | Block number. When overriding block numbers across multiple blocks, block number must be increasing. By default, it's incremented by one for each block. |
+| `prevRandao`    | Data, 32&nbsp;bytes | Previous value of randomness.                                                                                                                            |
+| `time`          |      Quantity       | Unix epoch time in seconds. Time must increase or remain constant relative to the previous block. By default, it's incremented by one for each block.    |
+| `withdrawals`   |        Array        | Array of withdrawals made by validators. This array can have a maximum length of 16.                                                                     |
+
+## Call result object
+
+Returned by [`eth_simulateV1`](index.md#eth_simulatev1).
+All fields are required.
+
+| Key          |   Type   | Value                                                                                         |
+|--------------|:--------:|-----------------------------------------------------------------------------------------------|
+| `returnData` |   Data   | Data returned for the call.                                                                   |
+| `logs`       |  Array   | Array of [log objects](#log-object) generated during the call.                                |
+| `gasUsed`    | Quantity | Amount of gas used by the call.                                                               |
+| `status`     | Quantity | Status indicating whether the call succeeded (`0x1`). `0x0` indicates that a call has failed. |
 
 ## Fee history results object
 
@@ -75,7 +104,8 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 
 ## Log object
 
-Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs). [`Transaction receipt objects`](#transaction-receipt-object) can contain an array of log objects.
+Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs).
+[Transaction receipt objects](#transaction-receipt-object) and [call result objects](#call-result-object) can contain an array of log objects.
 
 | Key | Type | Value |
 | --- | :-: | --- |
@@ -138,11 +168,10 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 
 ## State override object
 
-Optional parameter for [`eth_call`](./index.md#eth_call) and [`eth_estimateGas`](./index.md#eth_estimategas).
+Parameter for [`eth_call`](./index.md#eth_call), [`eth_estimateGas`](./index.md#eth_estimategas), and [`eth_simulateV1`](index.md#eth_simulatev1).
 Override an account with the following state values temporarily before making the call. This allows you
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.
-
 
 | Key                       |        Type         | Value                                                                                                                                      |
 |---------------------------|:-------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -221,7 +250,8 @@ Returned by [`eth_getTransactionByHash`](index.md#eth_gettransactionbyhash), [`e
 
 ## Transaction call object
 
-Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md#eth_createaccesslist), and [`eth_estimateGas`](index.md#eth_estimategas).
+Parameter for [`eth_call`](index.md#eth_call), [`eth_createAccessList`](index.md#eth_createaccesslist), [`eth_estimateGas`](index.md#eth_estimategas),
+and [`eth_simulateV1`](index.md#eth_simulatev1).
 
 All transaction call object parameters are optional.
 

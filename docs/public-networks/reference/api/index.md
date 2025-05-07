@@ -6091,12 +6091,12 @@ block parameters without submitting them to the network.
     normal EVM would do, except contract sender and signature checks. If `false`, `eth_simulateV1` behaves like `eth_call`.
     The default is `false`.
   
-  - `returnFullTransactionObjects`: _boolean_ - (optional) If `true`, `eth_simulateV1` returns full transaction
-    objects. If `false`, `eth_simulateV1` returns only hashes. The default is `false`.
+  - `returnFullTransactionObjects`: _boolean_ - (optional) If `true`, returns full transaction
+    objects. If `false`, returns only hashes. The default is `false`.
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal or decimal integer representing a block number,
   block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
-  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
 
 #### Returns
 

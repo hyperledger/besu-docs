@@ -278,6 +278,10 @@ const config = {
       {
         redirects: [
           {
+            from: "/en/stable/",
+            to: "/",
+          },
+          {
             from: "/public-networks/concepts/the-merge",
             to: "/public-networks/concepts/node-clients",
           },

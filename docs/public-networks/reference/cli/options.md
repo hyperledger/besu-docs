@@ -3011,7 +3011,7 @@ The default is `false`.
 <TabItem value="Syntax">
 
 ```bash
---plugins=<PLUGIN>[,<PLUGIN>...]...
+--plugins=<PLUGIN>[,<PLUGIN>,...]
 ```
 
 </TabItem>

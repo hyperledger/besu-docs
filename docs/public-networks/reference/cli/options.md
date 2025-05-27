@@ -3038,7 +3038,7 @@ plugins=["essential-plugin","security-plugin"]
 </TabItem>
 </Tabs>
 
-Comma-seperated list of [plugin](../../concepts/plugins.md) names to load. Each plugin must reside in
+Comma-separated list of [plugin](../../concepts/plugins.md) names to load. Each plugin must reside in
 the `plugins` directory. If you omit this option, Besu automatically loads all plugins found in that directory.
 
 The plugin name is case-sensitive, and is the name of the class that implements

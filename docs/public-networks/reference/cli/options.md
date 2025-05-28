@@ -977,6 +977,51 @@ engine-rpc-port="8551"
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket. The default is `8551`.
 
+### `estimate-gas-tolerance-ratio`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--estimate-gas-tolerance-ratio=<DECIMAL>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--estimate-gas-tolerance-ratio=0.015
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ESTIMATE_GAS_TOLERANCE_RATIO=0.015
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+estimate-gas-tolerance-ratio=0.015
+```
+
+</TabItem>
+
+</Tabs>
+
+Defines the decimal tolerance used when estimating gas in [`strict`](../api/objects.md#transaction-call-object)
+mode for the `eth_estimateGas` JSON-RPC method.
+Lower values increase accuracy but take longer to compute, whereas higher values speed up estimation
+but may result in less precise results.
+
+The default is `0.015`. Set to `0.0` to disable tolerance and prioritize maximum accuracy.
+
 ### `ethstats`
 
 <Tabs>

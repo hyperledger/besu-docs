@@ -1015,8 +1015,7 @@ estimate-gas-tolerance-ratio=0.015
 
 </Tabs>
 
-Defines the decimal tolerance used when estimating gas in [`strict`](../api/objects.md#transaction-call-object)
-mode for the `eth_estimateGas` JSON-RPC method.
+Defines the tolerance used when estimating gas for the `eth_estimateGas` JSON-RPC method.
 Lower values increase accuracy but take longer to compute, whereas higher values speed up estimation
 but may result in less precise results.
 

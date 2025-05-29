@@ -1015,9 +1015,9 @@ estimate-gas-tolerance-ratio=0.015
 
 </Tabs>
 
-Defines the tolerance used when estimating gas for the `eth_estimateGas` JSON-RPC method.
-Lower values increase accuracy but take longer to compute, whereas higher values speed up estimation
-but may result in less precise results.
+Defines the tolerance used when estimating gas for the [`eth_estimateGas`](../api/index.md#eth_estimategas) JSON-RPC method.
+Lower values increase accuracy but take longer to compute.
+Higher values speed up estimation but might provide less precise results.
 
 The default is `0.015`. Set to `0.0` to disable tolerance and prioritize maximum accuracy.
 

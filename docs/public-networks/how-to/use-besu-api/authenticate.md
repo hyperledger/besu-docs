@@ -12,7 +12,8 @@ import TabItem from '@theme/TabItem';
 
 # Authenticate and authorize JSON-RPC
 
-Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
+Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using
+[JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
 
 Besu supports two mutually exclusive authentication methods:
 
@@ -215,7 +216,8 @@ option depending on your needs.
 
 The private key must be kept secret. Never share private keys publicly or on a Web site, even if advertised as secure.
 
-Always keep your private keys safe -- ideally using [hardware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- and define a strong security policy and [best practices](https://auth0.com/docs/best-practices/token-best-practices).
+Always keep your private keys safe -- ideally using [hardware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- and define a strong security policy and
+[best practices](https://auth0.com/docs/secure/tokens/token-best-practices).
 
 Compromised keys can provide attackers access to your node's RPC-API.
 

@@ -300,6 +300,14 @@ const config = {
           {
             from: ["/private-networks/how-to/configure/tls/client-and-server", "/private-networks/concepts/pki", "/private-networks/how-to/configure/tls/p2p"],
             to: "/private-networks/how-to/configure/tls",
+          },
+          {
+            from: "/private-networks/concepts/plugins",
+            to: "/public-networks/concepts/plugins",
+          },
+          {
+            from: "/private-networks/reference/plugin-api-interfaces",
+            to: "/public-networks/reference/plugin-api-interfaces",
           }
         ],
         createRedirects(existingPath) {

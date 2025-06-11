@@ -571,7 +571,7 @@ Comment lines and blanks are ignored.
 
 ### `state-test`
 
-Allows the [Ethereum state tests](https://github.com/ethereum/tests/tree/develop/GeneralStateTests)
+Allows the [Ethereum state tests](https://github.com/ethereum/execution-spec-tests/tree/main/tests/static/state_tests)
 to be evaluated.
 Run `evmtool state-test --help` for the full list of supported options.
 Notable options are [`--json`](#json-trace) and [`--nomemory`](#nomemory-tracenomemory).

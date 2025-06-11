@@ -87,7 +87,11 @@ For more information on the endpoints and services, refer to README.md in the in
 
 ### 3. Deploy the private contract and interact with the nodes
 
-To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Besu keeps account management separate for stronger security.
+To deploy a private contract to another [privacy group](../../concepts/privacy/privacy-groups.md) member, use
+the [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html) library and the
+[`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction) API call.
+You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/docs/reference/eth_sendtransaction)
+because Besu keeps account management separate for stronger security.
 
 This example uses the [web3js](https://www.npmjs.com/package/web3) library to make the API calls, the example creates three Besu nodes, with each node having a corresponding Tessera node for privacy. You can access the Besu member nodes for API calls on the following ports:
 

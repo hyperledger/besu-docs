@@ -133,7 +133,7 @@ This example code creates the transaction `tx`, signs it with the private key of
 
 ## Use `eth_sendTransaction`
 
-You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) as an alternative to `eth_sendSignedTransaction`. However, Besu does not support the `eth_sendTransaction` API call and keeps account management separate for stronger security. Configure [Web3Signer](https://docs.web3signer.consensys.net/) with your Besu node to make the `eth_sendTransaction` API call.
+You can use [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/docs/reference/eth_sendtransaction) as an alternative to `eth_sendSignedTransaction`. However, Besu does not support the `eth_sendTransaction` API call and keeps account management separate for stronger security. Configure [Web3Signer](https://docs.web3signer.consensys.net/) with your Besu node to make the `eth_sendTransaction` API call.
 
 Pass the following parameters to the [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction) call to Web3Signer. Web3Signer converts the request to an [`eth_sendRawTransaction`](../../../public-networks/reference/api/index.md#eth_sendrawtransaction) call that Besu uses:
 

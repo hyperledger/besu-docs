@@ -12,6 +12,6 @@ mechanism for this using the `-s` or `--signoff` argument to the `git commit`
 command, providing your `user.name` and `user.email` are setup correctly.
 
 For more information about DCO, see the
-[Besu wiki](https://wiki.hyperledger.org/pages/viewpage.action?pageId=24772914).
+[Besu wiki](https://lf-hyperledger.atlassian.net/wiki/spaces/BESU/pages/22154245/DCO).
 If you have any questions, you can reach us on the
 [Besu channel on Discord](https://discord.gg/hyperledger).

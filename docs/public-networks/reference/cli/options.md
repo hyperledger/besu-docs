@@ -977,6 +977,50 @@ engine-rpc-port="8551"
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket. The default is `8551`.
 
+### `estimate-gas-tolerance-ratio`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--estimate-gas-tolerance-ratio=<DECIMAL>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--estimate-gas-tolerance-ratio=0.015
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ESTIMATE_GAS_TOLERANCE_RATIO=0.015
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+estimate-gas-tolerance-ratio=0.015
+```
+
+</TabItem>
+
+</Tabs>
+
+Defines the tolerance used when estimating gas for the [`eth_estimateGas`](../api/index.md#eth_estimategas) JSON-RPC method.
+Lower values increase accuracy but take longer to compute.
+Higher values speed up estimation but might provide less precise results.
+
+The default is `0.015`. Set to `0.0` to disable tolerance and prioritize maximum accuracy.
+
 ### `ethstats`
 
 <Tabs>
@@ -3174,12 +3218,54 @@ plugin-continue-on-error=true
 </TabItem>
 </Tabs>
 
-Enables or disables continuing to run Besu if a [plugin](../../../private-networks/concepts/plugins.md)
+Enables or disables continuing to run Besu if a [plugin](../../concepts/plugins.md)
 fails during registration or other startup lifecycle stages.
 If set to `true` and any plugin fails, Besu logs an error and continues running.
 If set to `false` and any plugin fails, Besu logs an error and stops running.
 
 The default is `false`.
+
+### `plugins`
+
+<Tabs>
+<TabItem value="Syntax">
+
+```bash
+--plugins=<PLUGIN>[,<PLUGIN>,...]
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--plugins=essential-plugin,security-plugin
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PLUGINS=essential-plugin,security-plugin
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+plugins=["essential-plugin","security-plugin"]
+```
+
+</TabItem>
+</Tabs>
+
+Comma-separated list of [plugin](../../concepts/plugins.md) names to load. Each plugin must reside in
+the `plugins` directory. If you omit this option, Besu automatically loads all plugins found in that directory.
+
+The plugin name is case-sensitive, and is the name of the class that implements
+[`BesuPlugin`](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html)
+in the plugin source code.
+
+If the specified plugin is not found, Besu exits with an error identifying the missing plugin.
 
 ### `print-paths-and-exit`
 
@@ -5815,7 +5901,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Example" label="Example">
 
 ```bash
---static-nodes-file=~/besudata/static-nodes.json
+--static-nodes-file=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5823,7 +5909,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
+BESU_STATIC_NODES_FILE=/path/to/besudata/static-nodes.json
 ```
 
 </TabItem>
@@ -5831,7 +5917,7 @@ BESU_STATIC_NODES_FILE=~/besudata/static-nodes.json
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-static-nodes-file="~/besudata/static-nodes.json"
+static-nodes-file="/path/to/besudata/static-nodes.json"
 ```
 
 </TabItem>

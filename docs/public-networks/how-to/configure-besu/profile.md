@@ -63,6 +63,10 @@ increasing the RocksDB cache size and enabling parallel transaction execution.
 [`--profile=PERFORMANCE_RPC`](../../reference/cli/options.md#profile) supports high-performance RPC nodes by
 increasing the RocksDB cache size and caching the last 2048 blocks.
 
+:::note
+The performance profiles use early access features.
+:::
+
 See the [performance profile](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/performance.toml)
 and [performance RPC profile](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/performance-rpc.toml)
 on GitHub for the custom settings.

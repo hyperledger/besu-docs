@@ -3320,6 +3320,8 @@ Possible values are:
 - [`MINIMALIST_STAKER`](../../how-to/configure-besu/profile.md#minimalist-staker-profile)
 - [`STAKER`](../../how-to/configure-besu/profile.md#staker-profile)
 - [`ENTERPRISE` or `PRIVATE`](../../how-to/configure-besu/profile.md#enterpriseprivate-profile) (aliases for the same profile)
+- [`PERFORMANCE`](../../how-to/configure-besu/profile.md#performance-profiles)
+- [`PERFORMANCE_RPC`](../../how-to/configure-besu/profile.md#performance-profiles)
 - File name of an [external profile](../../how-to/configure-besu/profile.md#load-external-profiles),
   without the `.toml` extension.
   

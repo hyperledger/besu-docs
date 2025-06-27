@@ -15,6 +15,7 @@ Profiles simplify the process of configuring Besu for common use cases. Besu pro
 - [Minimalist staker profile](#minimalist-staker-profile)
 - [Staker profile](#staker-profile)
 - [Enterprise/Private profile](#enterpriseprivate-profile)
+- [Performance profiles](#performance-profiles)
 
 Alternatively, you can customize and [load external profiles](#load-external-profiles).
 
@@ -32,7 +33,7 @@ A configuration option specified in the configuration file or on the command lin
 ## Minimalist staker profile
 
 [`--profile=MINIMALIST_STAKER`](../../reference/cli/options.md#profile) is optimized for stakers who 
-want to maximize their hardware value but don't want to serve full sets of data to their peers, See the
+want to maximize their hardware value but don't want to serve full sets of data to their peers. See the
 [minimalist staker profile on GitHub](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/minimalist-staker.toml)
 for the custom settings.
 
@@ -53,6 +54,18 @@ for the custom settings.
 
 When using this profile, set [`--sync-mode=FULL`](../../reference/cli/options.md#sync-mode) 
 and [`--data-storage-format=FOREST`](../../reference/cli/options.md#data-storage-format).
+
+## Performance profiles
+
+[`--profile=PERFORMANCE`](../../reference/cli/options.md#profile) supports high-performance nodes by
+increasing the RocksDB cache size and enabling parallel transaction execution.
+
+[`--profile=PERFORMANCE_RPC`](../../reference/cli/options.md#profile) supports high-performance RPC nodes by
+increasing the RocksDB cache size and caching the last 2048 blocks.
+
+See the [performance profile](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/performance.toml)
+and [performance RPC profile](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/profiles/performance-rpc.toml)
+on GitHub for the custom settings.
 
 ## Load external profiles
 

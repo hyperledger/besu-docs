@@ -10,7 +10,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Node operators using [Snap sync](../concepts/node-sync.md#snap-synchronization) can significantly reduce
-disk usage by removing pre-merge (proof-of-work era) block data from the local database.
+disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) (Proof of Work (PoW) era)
+block data from the local database.
 
 Besu can prune all pre-merge blocks and associated transaction receipts, leaving only headers and
 the genesis block.
@@ -26,10 +27,10 @@ Support for Era1 sync for archive nodes is currently in progress.
 :::
 
 Besu provides multiple options to prune the historical blockchain data:
-- [Offline pruning](#offline-pruning) - Prune data on a stopped Besu instance.
-- [Online pruning](#online-pruning) - Prune data on a running Besu instance.
-- [Sync Besu](#sync-without-pre-merge-blocks) without pre-merge blocks - Prune data while synchronizing Besu
-    using Snap sync.
+- [Offline pruning](#offline-pruning) to prune data on a stopped Besu instance.
+- [Online pruning](#online-pruning) to prune data on a running Besu instance.
+- [Sync Besu](#sync-without-pre-merge-blocks) using Snap sync, which by default prunes the historical
+    blockchain data.
 
 ## Offline pruning
 
@@ -43,7 +44,7 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
     In the command:
     - `--threads` sets the number of processors to use during the pruning process. This CLI option defaults to
     one less than the number of processors available on your system, so it's safe to omit.
-    - `--prune-range-size` specifies the size of block ranges to be pruned. The default to `10000` and
+    - `--prune-range-size` specifies the size of block ranges to be pruned. The default is `10000` and
         can be adjusted if desired, although this may impact pruning performance.
 
 1. Restart Besu and include the `--history-expiry-prune` option to reclaim the space.
@@ -54,13 +55,14 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
 
     We suggest waiting 24-48 hours for all the space to be reclaimed.
 
-1. Optionally, restart Besu and remove the `--history-expiry-prune` option since this applies default
+1. Optional. Restart Besu and remove the `--history-expiry-prune` option since this applies default
     database garbage collection options to help free up space. Underlying GC options can be tweaked
     separately if necessary.
 
 ## Online pruning
 
-Online pruning allows you to prune the pre-merge blocks on a running Besu instance.
+Online pruning allows you to prune the pre-merge blocks on a running Besu instance. Restart your
+Besu node and include the following options:
 
 ```bash
 ./besu --history-expiry-prune --pre-merge-pruning-quantity=10
@@ -81,15 +83,19 @@ when complete.
 
 ## Sync without pre-merge blocks
 
-When syncing a Besu node, you can perform a `SNAP` sync and avoid storing pre-merge blocks
-as follows:
+By default, syncing a Besu node using `SNAP` sync will prune pre-merge blocks and only retain their headers:
 
 ```bash
-./besu --sync-mode=SNAP --snapsync-synchronizer-pre-merge-headers-only-enabled
+./besu --sync-mode=SNAP
 ```
 
-In the command, `--snapsync-synchronizer-pre-merge-headers-only-enabled` tells Besu to only save the
-header information for pre-merge blocks. The default value is `true`, so the option can be omitted.
+If you want to download full pre-merge blocks instead, set
+`--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false`
 
-Set `--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false` if you want to download
-full pre-merge blocks.
+:::warning
+Setting `--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false` will increase the sync time
+and disk space usage.
+:::
+
+If you're a solo staker, consider using [RocketPool's rescue node](https://rescuenode.com/docs/about)
+to minimise downtime.

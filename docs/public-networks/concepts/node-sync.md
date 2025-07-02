@@ -90,7 +90,9 @@ By default, [Snap sync prunes historical block data](../how-to/pre-merge-history
 headers and the genesis block.
 
 :::note
-To download the full PoW block history, set `--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false`. However, this will increase the sync time and disk space usage.
+To download the full PoW block history, set
+[`--snapsync-synchronizer-pre-merge-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
+to `false`. However, this will increase the sync time and disk space usage.
 :::
 
 Instead of downloading the [state trie](data-storage-formats.md) node by node, snap

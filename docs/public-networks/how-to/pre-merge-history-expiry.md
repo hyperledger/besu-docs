@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Node operators using [Snap sync](../concepts/node-sync.md#snap-synchronization) can significantly reduce
-disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) (Proof of Work (PoW) era)
+disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) (Proof of Work (PoW))
 block data from the local database.
 
 Besu can prune all pre-merge blocks and associated transaction receipts, leaving only headers and
@@ -39,18 +39,23 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
 1. Ensure your Besu instance has stopped, and run the following command:
 
     ```bash
-    ./besu --network=mainnet --data-path=/path/to/your/database storage prune-pre-merge-blocks --threads=4 --prune-range-size=12000
+    besu --network=mainnet --data-path=/path/to/your/database storage prune-pre-merge-blocks --threads=4 --prune-range-size=12000
     ```
     In the command:
-    - `--threads` sets the number of processors to use during the pruning process. This CLI option defaults to
-    one less than the number of processors available on your system, so it's safe to omit.
-    - `--prune-range-size` specifies the size of block ranges to be pruned. The default is `10000` and
-        can be adjusted if desired, although this may impact pruning performance.
+    - [`--threads`](../reference/cli/subcommands.md#prune-pre-merge-blocks) sets the number of processors
+        to use during the pruning process. This CLI option defaults to
+        one less than the number of processors available on your system, so it's safe to omit.
+    - [`--prune-range-size`](../reference/cli/subcommands.md#prune-pre-merge-blocks) specifies the size of
+        block ranges to be pruned. The default is `10000` and can be adjusted if desired, although
+        this may impact pruning performance.
 
-1. Restart Besu and include the `--history-expiry-prune` option to reclaim the space.
+    On completion, you'll receive the `Pruning pre-merge blocks and transaction receipts completed` log message.
+
+1. Restart Besu and include the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune)
+    option to reclaim the space.
 
     ```bash
-    ./besu --network=mainnet --history-expiry-prune
+    besu --network=mainnet --history-expiry-prune
     ```
 
     We suggest waiting 24-48 hours for all the space to be reclaimed.
@@ -62,21 +67,20 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
 ## Online pruning
 
 Online pruning allows you to prune the pre-merge blocks on a running Besu instance. Restart your
-Besu node and include the following options:
+Besu node and include the following option:
 
 ```bash
-./besu --history-expiry-prune --pre-merge-pruning-quantity=10
+besu --history-expiry-prune
 ```
 
-In the command:
+In the command `--history-expiry-prune` enables online pruning of pre-merge PoW blocks.
 
-- `--history-expiry-prune` enables online pruning of pre-merge blocks.
-- `--pre-merge-pruning-quantity=10` tunes the online pruner to remove 10 blocks from the beginning of
-    the chain for every new block added.
 
-    :::note
-    During testing on a 4 CPU machine, we only noticed an impact to Besu when this was tuned to `1000`
-    :::
+:::note
+The early access option  `--Xpre-merge-pruning-quantity` can be used to specify how many blocks to prune
+for each new block added to the chain. For example, `--Xpre-merge-pruning-quantity=10`.
+During testing on a 4 CPU machine, we only noticed an impact to Besu when this was tuned to `1000`
+:::
 
 The Besu logs will print the progress in the logs, and you'll see the `Done pruning pre-merge blocks.` message
 when complete.
@@ -90,7 +94,8 @@ By default, syncing a Besu node using `SNAP` sync will prune pre-merge blocks an
 ```
 
 If you want to download full pre-merge blocks instead, set
-`--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false`
+[`--snapsync-synchronizer-pre-merge-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
+to `false`.
 
 :::warning
 Setting `--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false` will increase the sync time

@@ -117,6 +117,12 @@ You need Besu version 22.4.3 or later to use checkpoint sync.
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](genesis-file.md).
 
+:::info important
+When you perform a fresh Checkpoint sync, Besu deletes the full pre-merge PoW blocks
+instead of retaining the headers (unlike Snap sync, which preserves the headers by default).
+If you need those block bodies, use Snap sync.
+:::
+
 Ethereum Mainnet, Holesky, and Ephemery testnet configurations already define default checkpoints, so you
 don't have to add this yourself.
 

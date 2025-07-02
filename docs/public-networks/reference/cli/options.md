@@ -5880,7 +5880,7 @@ snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
 </Tabs>
 
 If set to `false`, Snap sync downloads full pre-merge Proof of Work (PoW) historical blocks
-instead of headers-only, allowing full historical data to be retained. The default is `true`.
+instead of headers only, allowing full historical data to be retained. The default is `true`.
 
 Setting this option to `false` increases sync time and disk space usage.
 

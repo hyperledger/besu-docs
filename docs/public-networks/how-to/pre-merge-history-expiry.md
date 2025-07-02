@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Node operators using [Snap sync](../concepts/node-sync.md#snap-synchronization) can significantly reduce
-disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) (Proof of Work (PoW))
+disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) Proof of Work (PoW)
 block data from the local database.
 
 Besu can prune all pre-merge blocks and associated transaction receipts, leaving only headers and
@@ -61,8 +61,8 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
 
     We suggest waiting 24-48 hours for all the space to be reclaimed.
 
-1. Optional. Restart Besu and remove the `--history-expiry-prune` option since this applies default
-    database garbage collection options to help free up space. Underlying GC options can be tweaked
+1. (Optional) Restart Besu and remove the `--history-expiry-prune` option, since this applies default
+    database garbage collection options to help free up space. You can tweak underlying garbage collection options
     separately if necessary.
 
 ## Online pruning
@@ -104,4 +104,4 @@ and disk space usage.
 :::
 
 If you're a solo staker, consider using [RocketPool's rescue node](https://rescuenode.com/docs/about)
-to minimise downtime.
+to minimize downtime.

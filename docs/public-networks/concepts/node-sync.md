@@ -21,8 +21,8 @@ and stores a local copy of the blockchain.
 With a full node, you can check current balances, sign and send transactions, and look at current
 dapp data.
 
-Full nodes can guarantee the latest state of the blockchain (and some older states). However, they 
-can't serve the network with all data requests (for example, the balance of an account at an old 
+Full nodes can guarantee the latest state of the blockchain (and some older states). However, they
+can't serve the network with all data requests (for example, the balance of an account at an old
 block).
 
 You can run a full node using [snap synchronization](#snap-synchronization),
@@ -51,7 +51,7 @@ The following is an overview of the public network sync modes:
 
 | Sync mode                                 | Description                                                                                                                       | Requirements                 | Limitations                                            |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|------------------------------|--------------------------------------------------------|
-| [Snap](#snap-synchronization)             | Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing the state locally. Faster than fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
+| [Snap](#snap-synchronization)             | Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing the state locally. Faster than fast sync. By default, Snap sync prunes historical block data for [pre-merge](https://ethereum.org/en/roadmap/merge/) Proof of Work (PoW) blocks, retaining only the headers and the genesis block.  | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
 | [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements.        | Besu version 22.4.3 or later |                                                        |
 | [Fast](#fast-synchronization-deprecated)  | Downloads block headers and transaction receipts, verifies chain from genesis block.                                              | None                         | Deprecated in Besu version 24.12.0 and later.          |
 | [Full](#full-synchronization)             | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history.      | None                         | Slowest sync mode, requires the most disk space.       |
@@ -86,12 +86,12 @@ except `dev`.
 You can enable snap sync using [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
 By default, [Snap sync prunes historical block data](../how-to/pre-merge-history-expiry.md) for
-[pre-merge](https://ethereum.org/en/roadmap/merge/) Proof of Work (PoW) blocks, retaining only the
+[pre-merge](https://ethereum.org/en/roadmap/merge/) PoW blocks, retaining only the
 headers and the genesis block.
 
 :::note
 To download the full PoW block history, set
-[`--snapsync-synchronizer-pre-merge-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
+[`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
 to `false`. However, this will increase the sync time and disk space usage.
 :::
 
@@ -118,9 +118,8 @@ Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of 
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](genesis-file.md).
 
 :::info important
-When you perform a fresh Checkpoint sync, Besu deletes the full pre-merge PoW blocks
-instead of retaining the headers (unlike Snap sync, which preserves the headers by default).
-If you need those block bodies, use Snap sync.
+When you run a fresh checkpoint sync, Besu skips all pre-merge PoW blocks and discards
+their headers. If you need the headers, use Snap sync. If you need the block bodies, use Snap sync with [`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled) set to `false`
 :::
 
 Ethereum Mainnet, Holesky, and Ephemery testnet configurations already define default checkpoints, so you

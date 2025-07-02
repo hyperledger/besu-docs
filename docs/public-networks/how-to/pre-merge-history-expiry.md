@@ -20,7 +20,8 @@ the genesis block.
 
 Besu does not currently provide a way to manually import pre-merge block data after pruning.
 If you need to restore the full pre-merge history, you can revert to the old sync method and download
-all blocks from peers by setting `--Xsnapsync-synchronizer-pre-merge-headers-only-enabled=false`.
+all blocks from peers by setting
+[`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled).
 
 Support for Era1 sync for archive nodes is currently in progress.
 
@@ -94,11 +95,11 @@ By default, syncing a Besu node using `SNAP` sync will prune pre-merge blocks an
 ```
 
 If you want to download full pre-merge blocks instead, set
-[`--snapsync-synchronizer-pre-merge-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
+[`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
 to `false`.
 
 :::warning
-Setting `--snapsync-synchronizer-pre-merge-headers-only-enabled` to `false` will increase the sync time
+Setting `--snapsync-synchronizer-pre-checkpoint-headers-only-enabled` to `false` will increase the sync time
 and disk space usage.
 :::
 

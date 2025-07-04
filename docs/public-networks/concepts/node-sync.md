@@ -118,7 +118,7 @@ Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of 
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](genesis-file.md).
 
 :::info important
-When you run a fresh checkpoint sync, Besu skips all pre-merge PoW blocks and discards
+When you run a fresh checkpoint sync, Besu skips all pre-merge PoW block bodies and
 their headers. If you need the headers, use Snap sync. If you need the block bodies, use Snap sync with [`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled) set to `false`
 :::
 

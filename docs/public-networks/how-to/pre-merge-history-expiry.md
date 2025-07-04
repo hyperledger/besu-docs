@@ -13,13 +13,13 @@ Node operators using [Snap sync](../concepts/node-sync.md#snap-synchronization) 
 disk usage by removing [pre-merge](https://ethereum.org/en/roadmap/merge/) Proof of Work (PoW)
 block data from the local database.
 
-Besu can prune all pre-merge blocks and associated transaction receipts, leaving only headers and
+Besu can prune all pre-merge block bodies and associated transaction receipts, leaving only headers and
 the genesis block.
 
 :::warning
 
-Besu does not currently provide a way to manually import pre-merge block data after pruning.
-If you need to restore the full pre-merge history, you can revert to the old sync method and download
+Besu does not currently provide a way to import pre-merge block data after pruning.
+If you need to restore the full pre-merge history, you can revert to the former Snap sync behaviour and download
 all blocks from peers by setting
 [`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled).
 
@@ -35,12 +35,12 @@ Besu provides multiple options to prune the historical blockchain data:
 
 ## Offline pruning
 
-The easiest and fastest option for pruning pre-merge blocks is to perform an offline prune.
+The fastest option for pruning pre-merge blocks is to perform an offline prune. It won't prune as much data as a full resync.
 
 1. Ensure your Besu instance has stopped, and run the following command:
 
     ```bash
-    besu --network=mainnet --data-path=/path/to/your/database storage prune-pre-merge-blocks --threads=4 --prune-range-size=12000
+    besu --data-path=/path/to/your/database storage prune-pre-merge-blocks
     ```
     In the command:
     - [`--threads`](../reference/cli/subcommands.md#prune-pre-merge-blocks) sets the number of processors
@@ -51,6 +51,7 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
         this may impact pruning performance.
 
     On completion, you'll receive the `Pruning pre-merge blocks and transaction receipts completed` log message.
+    It should only take a few minutes to complete but has been known to take up to two hours on occasion.
 
 1. Restart Besu and include the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune)
     option to reclaim the space.
@@ -67,7 +68,7 @@ The easiest and fastest option for pruning pre-merge blocks is to perform an off
 
 ## Online pruning
 
-Online pruning allows you to prune the pre-merge blocks on a running Besu instance. Restart your
+Online pruning allows you to prune the pre-merge blocks on a running Besu instance. It has the least downtime but may impact normal operations for lower spec users. Restart your
 Besu node and include the following option:
 
 ```bash
@@ -88,6 +89,7 @@ when complete.
 
 ## Sync without pre-merge blocks
 
+This option has the most downtime but the most disk space savings.
 By default, syncing a Besu node using `SNAP` sync will prune pre-merge blocks and only retain their headers:
 
 ```bash

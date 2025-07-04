@@ -252,8 +252,8 @@ Each sync mode also has its own world state database size.
 
 | Sync mode  | Time to sync world state | Time to download blockchain | Disk usage    |
 |------------|--------------------------|-----------------------------|---------------|
-| Snap       | ~6 hours                 | ~14 hours                   | Smallest disk |
-| Checkpoint | ~5 hours                 | ~13 hours                   | Smallest disk |
+| Snap       | ~3 hours                 | ~13 hours                   | Smallest disk |
+| Checkpoint | ~3 hours                 | ~13 hours                   | Smallest disk |
 | Fast       | ~1.5 days                | ~1.5 days                   | Average disk  |
 | Full       | ~weeks                   | ~weeks                      | Largest disk  |
 
@@ -263,7 +263,7 @@ Each sync mode also has its own world state database size.
 - By default, Snap sync prunes historical block data for pre-merge PoW blocks.
     Downloading full PoW blocks could double the download time and increases disk usage.
 - As of mid 2025, an average Mainnet snap sync (with history pruning enabled) consumes
-    around 785 GB using Bonsai Tries.
+    around 805 GB using Bonsai Tries.
   Read more about [storage requirements](data-storage-formats.md#storage-requirements)
   across data storage formats and sync modes.
 - Testnets take significantly less time and space to sync.

@@ -48,22 +48,21 @@ The fastest option for pruning pre-merge blocks is to perform an offline prune. 
     On completion, you'll receive the `Pruning pre-merge blocks and transaction receipts completed` log message.
     It should only take a few minutes to complete but has been known to take up to two hours on occasion.
 
-1. Restart Besu and include the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune)
-    option to apply default database garbage collection options to help free up space.
+1. Add the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune)
+    option and restart Besu to apply opinionated database garbage collection options to help free up space. You can tweak underlying
+    garbage collection options separately if necessary.
 
    :::info
    In testing, we saw the space increased by up to 200GB before the space was finally reclaimed.
    We suggest waiting 24-48 hours for all the space to be reclaimed.
    :::
 
-1. (Optional) Remove the `--history-expiry-prune` option and restart Besu. You can tweak underlying
-    garbage collection options separately if necessary.
+1. (Optional) Remove the `--history-expiry-prune` option and restart Besu. This will disable garbage collection which isn't necessary after pruning has reclaimed all the space.
 
 ## Online pruning
 
 Online pruning allows you to prune the pre-merge blocks on a running Besu instance. It has the least
-downtime but may impact normal operations for lower spec users. Restart your
-Besu node and include the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune) option.
+downtime but may impact normal operations for lower spec users. Add the [`--history-expiry-prune`](../reference/cli/options.md#history-expiry-prune) option and restart your Besu node.
 
 :::note
 The early access option  `--Xpre-merge-pruning-quantity` can be used to specify how many blocks to prune
@@ -76,18 +75,9 @@ when complete.
 
 ## Sync without pre-merge blocks
 
-This option has the most downtime but the most disk space savings.
-By default, syncing a Besu node using [`SNAP` sync (`--sync-mode=SNAP`)](../reference/cli/options.md#sync-mode)
+This option has the most downtime but reclaims the most disk space.
+Delete your database and by default, syncing a Besu node using [`SNAP` sync (`--sync-mode=SNAP`)](../reference/cli/options.md#sync-mode)
 will prune pre-merge blocks and only retain their headers.
-
-If you want to download full pre-merge blocks instead, set
-[`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
-to `false`.
-
-:::warning
-Setting `--snapsync-synchronizer-pre-checkpoint-headers-only-enabled` to `false` will increase the sync time
-and disk space usage.
-:::
 
 If you're a solo staker, consider using [RocketPool's rescue node](https://rescuenode.com/docs/about)
 to minimize downtime.

@@ -86,11 +86,11 @@ By default, Snap sync prunes historical block data for PoW blocks, retaining onl
 
 | Data storage format | Sync mode                      | Storage estimate | Can other nodes sync to your node? |
 |---------------------|--------------------------------|------------------|------------------------------------|
-| Bonsai              | Fast                           | 1140 GB          | No                                 |
-| Bonsai              | Snap (with history pruning)    | 785 GB           | Yes                                |
-| Bonsai              | Snap (without history pruning) | 1344 GB          | Yes                                |
-| Bonsai              | Checkpoint                     | 840 GB           | No                                 |
-| Forest              | Fast                           | 1200 GB          | Yes                                |
+| Bonsai              | Fast                           | > 1140 GB          | No                                 |
+| Bonsai              | Snap (with history pruning)    | 805 GB           | Yes                                |
+| Bonsai              | Snap (without history pruning) | 1164 GB          | Yes                                |
+| Bonsai              | Checkpoint                     | > 840 GB           | No                                 |
+| Forest              | Fast                           | > 1200 GB          | Yes                                |
 
 :::tip
 

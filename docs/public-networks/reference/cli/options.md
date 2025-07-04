@@ -1648,6 +1648,49 @@ when enabling TLS for the GraphQL HTTP service.
 
 Show the help message and exit.
 
+### `history-expiry-prune`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--history-expiry-prune[=<true|false>]
+```
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--history-expiry-prune=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_HISTORY_EXPIRY_PRUNE=true
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+history-expiry-prune=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables [online pruning of historical block data](../../how-to/pre-merge-history-expiry.md#online-pruning)
+for pre-merge Proof of Work (PoW) blocks, retaining only the headers.
+The option also activates garbage collection settings that works for both online and offline pruning
+mechanisms, so that the reclaimed storage is compacted quickly, freeing disk space without manual intervention.
+
+The default is `false`.
+
 ### `host-allowlist`
 
 <Tabs>
@@ -5887,6 +5930,47 @@ security-module="security_module"
 Name of the security module plugin to use. For example, a Hardware Security Module (HSM) or V3 filestore plugin.
 
 The default is the node's local private key file specified using [`--node-private-key-file`](#node-private-key-file).
+
+### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-synchronizer-pre-checkpoint-headers-only-enabled[=<true|false>]
+```
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SYNCHRONIZER_PRE_CHECKPOINT_HEADERS_ONLY_ENABLED=false
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
+```
+
+</TabItem>
+</Tabs>
+
+If set to `false`, Snap sync downloads full pre-merge Proof of Work (PoW) historical blocks
+instead of headers only, allowing full historical data to be retained. The default is `true`.
+
+Setting this option to `false` increases sync time and disk space usage.
 
 ### `static-nodes-file`
 

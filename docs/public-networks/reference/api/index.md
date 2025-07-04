@@ -2110,7 +2110,7 @@ Returns a list of account addresses a client owns.
 
 This method returns an empty object because Besu [doesn't support key management](../../how-to/send-transactions.md) inside the client.
 
-To provide access to your key store and and then sign transactions, use [Web3Signer](https://docs.web3signer.consensys.net/) with Besu.
+To provide access to your key store and then sign transactions, use [Web3Signer](https://docs.web3signer.consensys.net/) with Besu.
 
 :::
 
@@ -2628,10 +2628,13 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 
 #### Parameters
 
-For `eth_estimateGas`, all fields are optional because setting a gas limit is irrelevant to the
-estimation process (unlike transactions, in which gas limits apply).
-
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+
+      :::note
+      If you don't want the sender account balance checked, set the gas to zero or specify
+      [`strict:false`](objects.md#transaction-call-object). Otherwise the call may fail if the sender account
+      does not have sufficient funds to cover the gas fees.
+      :::
 
 - `blockNumber`: _string_ - (optional) hexadecimal or decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in

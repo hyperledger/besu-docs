@@ -15,16 +15,7 @@ PoW consensus is deprecated in Besu version 24.11.0 and later. Please read this 
 
 :::
 
-Besu supports CPU and GPU mining, which are configured using command line options.
-
-GPU mining tests used [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` and `getwork` schemes.
-
-Ethminer has been used with Besu to mine blocks on the Ropsten testnet, ETC Mainnet (uncle block only) and Mordor ETC testnet.
-
-:::note
-- Some mining software supports the `getwork` scheme as the `http` scheme.
-- The Ropsten testnet is now deprecated. It transitioned to proof of stake consensus before deprecation.
-:::
+Besu supports CPU mining, which is configured using command line options.
 
 ## Configure CPU mining
 
@@ -38,33 +29,6 @@ Where `<account>` is the account you pay mining rewards to. For example, `fe3b55
 
 Start and stop mining using the [`miner_start`](../../reference/api/index.md#miner_start-deprecated) and [`miner_stop`](../../reference/api/index.md#miner_stop-deprecated) APIs.
 
-## Configure GPU mining
-
-Besu supports GPU mining, tested using [Ethminer](https://github.com/ethereum-mining/ethminer) with the `stratum+tcp` scheme.
-
-To enable GPU mining, start Besu with the following options:
-
-```bash
-besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>
-```
-
-Where `<account>` is the account you pay mining rewards to. For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
-
-Optional command line options are:
-
-- [`--miner-stratum-host`](../../reference/cli/options.md#miner-stratum-host-deprecated) to specify the host of the mining service.
-- [`--miner-stratum-port`](../../reference/cli/options.md#miner-stratum-port-deprecated) to specify the port of the mining service.
-
-:::note
-
-Besu also supports the `getwork` scheme. Use the [`--miner-stratum-enabled`](../../reference/cli/options.md#miner-stratum-enabled-deprecated) option and [enable the `ETH` RPCs](../../reference/cli/options.md#rpc-http-api).
-
-The `getwork` scheme is supported as the `http` scheme in certain mining software.
-
-:::
-
-Start and stop mining using the [`miner_start`](../../reference/api/index.md#miner_start-deprecated) and [`miner_stop`](../../reference/api/index.md#miner_stop-deprecated) APIs.
-
 ## Mining APIs
 
 The JSON-RPC API methods for mining are:
@@ -73,9 +37,6 @@ The JSON-RPC API methods for mining are:
 - [`miner_stop`](../../reference/api/index.md#miner_stop-deprecated) to stop mining.
 - [`eth_mining`](../../reference/api/index.md#eth_mining-deprecated) to determine whether the client is actively mining new blocks.
 - [`eth_getMinerDataByBlockHash`](../../reference/api/index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](../../reference/api/index.md#eth_getminerdatabyblocknumber) to get the miner data for a specified block.
-- [`eth_hashrate`](../../reference/api/index.md#eth_hashrate-deprecated) to get the number of hashes per second with which the node is mining. Not supported for GPU mining.
-- [`eth_getWork`](../../reference/api/index.md#eth_getwork-deprecated) to get the hash of the current block, the seed hash, and the target boundary condition. Only used when using the `getwork` scheme.
-- [`eth_submitWork`](../../reference/api/index.md#eth_submitwork-deprecated) to submit the PoW solution. Only used when using the `getwork` scheme.
 
 ## Troubleshoot
 

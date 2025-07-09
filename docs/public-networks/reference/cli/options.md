@@ -2031,7 +2031,7 @@ metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
 
 </Tabs>
 
-A comma-separated list of categories for which to track metrics. The defaults are `BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `STRATUM`, `SYNCHRONIZER`, and `TRANSACTION_POOL`.
+A comma-separated list of categories for which to track metrics. The defaults are `BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `SYNCHRONIZER`, and `TRANSACTION_POOL`.
 
 Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
 
@@ -2689,122 +2689,6 @@ miner-extra-data="0x444F4E27542050414E4943202120484F444C2C20484F444C2C20484F444C
 
 A hex string representing the 32 bytes included in the extra data field of a created block.
 The default is `0x`.
-
-### `miner-stratum-enabled` (Deprecated)
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-stratum-enabled
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_STRATUM_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-stratum-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables a node to perform stratum mining.
-The default is `false`.
-
-### `miner-stratum-host` (Deprecated)
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-stratum-host=<HOST>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-stratum-host=192.168.1.132
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_STRATUM_HOST=192.168.1.132
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-stratum-host="192.168.1.132"
-```
-
-</TabItem>
-
-</Tabs>
-
-The host of the stratum mining service.
-The default is `0.0.0.0`.
-
-### `miner-stratum-port` (Deprecated)
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-stratum-port=<PORT>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-stratum-port=8010
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_STRATUM_PORT=8010
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-stratum-port="8010"
-```
-
-</TabItem>
-
-</Tabs>
-
-The port of the stratum mining service.
-The default is `8008`.
-You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
 ### `nat-method`
 

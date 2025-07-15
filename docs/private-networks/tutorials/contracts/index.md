@@ -164,7 +164,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{
 
 ## Use `eea_sendRawTransaction` for private contracts with web3js-quorum
 
-To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/api-documentation) because Besu keeps account management separate for stronger security.
+To deploy a private contract to another node or [privacy group](../../concepts/privacy/privacy-groups.md) member, use the [web3js-quorum](https://www.npmjs.com/package/web3js-quorum) library and the [`eea_sendRawTransaction`](../../reference/api/index.md#eea_sendrawtransaction) API call. You must use this API call instead of [`eth_sendTransaction`](https://ethereum.github.io/execution-apis/) because Besu keeps account management separate for stronger security.
 
 The Developer Quickstart provides an [example of a private transaction script](https://github.com/ConsenSys/quorum-dev-quickstart/blob/1e8cc281098923802845cd829ec20c88513c2e1c/files/besu/smart_contracts/privacy/scripts/private_tx.js).
 

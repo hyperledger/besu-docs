@@ -282,6 +282,36 @@ The command accepts the following command line options:
 
 Provides storage related actions.
 
+### `prune-pre-merge-blocks`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+besu --data-path=/path/to/your/database storage prune-pre-merge-blocks [--prune-range-size=<INTEGER>] [--threads=<INTEGER>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+besu --data-path=/path/to/your/database storage prune-pre-merge-blocks --prune-range-size=5000 --threads=4
+```
+
+</TabItem>
+
+</Tabs>
+
+[Prunes all pre-merge Proof of Work blocks](../../how-to/pre-merge-history-expiry.md#offline-pruning) and associated
+transaction receipts, leaving only headers and genesis block.
+
+Specify the size of the block ranges to prune with the `--prune-range-size` option. The default range is `10000`.
+
+Specify the number of concurrent threads to use while pruning with the `--threads` option. The default is 1 less than
+the total CPU count.
+
 ### `revert-metadata`
 
 <Tabs>

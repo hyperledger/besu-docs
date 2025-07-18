@@ -82,12 +82,15 @@ Using `--bonsai-historical-block-limit` doesn't affect the size of the database 
 
 The following table shows the ways you can sync a [full node](node-sync.md#full-nodes) with the different data storage formats using [fast](node-sync.md#fast-synchronization-deprecated) and [snap](node-sync.md#snap-synchronization) sync.
 
-| Data storage format | Sync mode | Storage estimate | Can other nodes sync to your node? |
-| --- | --- | --- | --- |
-| Bonsai | Fast | 1140 GB | No |
-| Bonsai | Snap | 1090 GB | Yes |
-| Bonsai | Checkpoint | 840 GB | No |
-| Forest | Fast | 1200 GB | Yes |
+By default, Snap sync prunes historical block data for PoW blocks, retaining only the headers and the genesis block.
+
+| Data storage format | Sync mode                      | Storage estimate | Can other nodes sync to your node? |
+|---------------------|--------------------------------|------------------|------------------------------------|
+| Bonsai              | Fast                           | > 1140 GB          | No                                 |
+| Bonsai              | Snap (with history pruning)    | 805 GB           | Yes                                |
+| Bonsai              | Snap (without history pruning) | 1164 GB          | Yes                                |
+| Bonsai              | Checkpoint                     | > 840 GB           | No                                 |
+| Forest              | Fast                           | > 1200 GB          | Yes                                |
 
 :::tip
 

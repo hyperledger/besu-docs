@@ -21,8 +21,8 @@ and stores a local copy of the blockchain.
 With a full node, you can check current balances, sign and send transactions, and look at current
 dapp data.
 
-Full nodes can guarantee the latest state of the blockchain (and some older states). However, they 
-can't serve the network with all data requests (for example, the balance of an account at an old 
+Full nodes can guarantee the latest state of the blockchain (and some older states). However, they
+can't serve the network with all data requests (for example, the balance of an account at an old
 block).
 
 You can run a full node using [snap synchronization](#snap-synchronization),
@@ -49,12 +49,12 @@ Bonsai is designed for retrieving recent data only.
 Besu supports several synchronization modes for different network types, node types, and use cases.
 The following is an overview of the public network sync modes:
 
-| Sync mode                                 | Description | Requirements | Limitations |
-|-------------------------------------------|-------------|--------------|-------------|
-| [Snap](#snap-synchronization)             | Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing locally. Faster than fast sync. | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
-| [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements. | Besu version 22.4.3 or later | |
-| [Fast](#fast-synchronization-deprecated)             | Downloads block headers and transaction receipts, verifies chain from genesis block. | None | Deprecated in Besu version 24.12.0 and later. |
-| [Full](#full-synchronization)             | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history. | None | Slowest sync mode, requires the most disk space. |
+| Sync mode                                 | Description                                                                                                                       | Requirements                 | Limitations                                            |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|------------------------------|--------------------------------------------------------|
+| [Snap](#snap-synchronization)             | Efficient sync from genesis block, downloading as many trie leaves as possible and reconstructing the state locally. Faster than fast sync. By default, Snap sync prunes historical block data for [pre-merge](https://ethereum.org/en/roadmap/merge/) Proof of Work (PoW) blocks, retaining only the headers and the genesis block.  | Besu version 22.4.0 or later | Cannot switch from fast sync to snap sync mid-process. |
+| [Checkpoint](#checkpoint-synchronization) | Syncs from a specific checkpoint block configured in the genesis file. Fastest sync mode with lowest storage requirements.        | Besu version 22.4.3 or later |                                                        |
+| [Fast](#fast-synchronization-deprecated)  | Downloads block headers and transaction receipts, verifies chain from genesis block.                                              | None                         | Deprecated in Besu version 24.12.0 and later.          |
+| [Full](#full-synchronization)             | Downloads and verifies the entire blockchain and state from genesis block, building an archive node with full state history.      | None                         | Slowest sync mode, requires the most disk space.       |
 
 :::info Private network syncing
 
@@ -85,6 +85,15 @@ Snap sync is the default sync mode for all named [networks](../reference/cli/opt
 except `dev`.
 You can enable snap sync using [`--sync-mode=SNAP`](../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.0 or later to use snap sync.
+By default, [Snap sync prunes historical block data](../how-to/pre-merge-history-expiry.md) for
+[pre-merge](https://ethereum.org/en/roadmap/merge/) PoW blocks, retaining only the
+headers and the genesis block.
+
+:::note
+To download the full PoW block history, set
+[`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled)
+to `false`. However, this will increase the sync time and disk space usage.
+:::
 
 Instead of downloading the [state trie](data-storage-formats.md) node by node, snap
 sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
@@ -101,6 +110,14 @@ See [how to read the Besu metrics charts](../how-to/monitor/understand-metrics.m
 snap sync.
 
 ### Checkpoint synchronization
+
+:::info Use Snap sync instead of checkpoint sync
+We recommend using snap sync instead of checkpoint sync because checkpoint sync will be deprecated
+in the future.
+
+When you run a fresh checkpoint sync, Besu will skip downloading all pre-merge PoW block bodies and
+their headers. Use snap sync to retain the headers, or if you need the block bodies, use Snap sync with [`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled) set to `false`.
+:::
 
 You can enable checkpoint sync using [`--sync-mode=CHECKPOINT`](../reference/cli/options.md#sync-mode).
 You need Besu version 22.4.3 or later to use checkpoint sync.
@@ -238,15 +255,18 @@ Each sync mode also has its own world state database size.
 
 | Sync mode  | Time to sync world state | Time to download blockchain | Disk usage    |
 |------------|--------------------------|-----------------------------|---------------|
-| Snap       | ~6 hours                 | ~1.5 days                   | Average disk  |
-| Checkpoint | ~5 hours                 | ~13 hours                   | Smallest disk |
+| Snap       | ~3 hours                 | ~13 hours                   | Smallest disk |
+| Checkpoint | ~3 hours                 | ~13 hours                   | Smallest disk |
 | Fast       | ~1.5 days                | ~1.5 days                   | Average disk  |
 | Full       | ~weeks                   | ~weeks                      | Largest disk  |
 
 :::note Notes
 - Snap and checkpoint syncs handle blockchain data similarly to fast sync, but differ in how they
   process world state data.
-- As of late 2023, an average Mainnet snap sync consumes around 1000 GB using Bonsai Tries.
+- By default, Snap sync prunes historical block data for pre-merge PoW blocks.
+    Downloading full PoW blocks could double the download time and increases disk usage.
+- As of mid 2025, an average Mainnet snap sync (with history pruning enabled) consumes
+    around 805 GB using Bonsai Tries.
   Read more about [storage requirements](data-storage-formats.md#storage-requirements)
   across data storage formats and sync modes.
 - Testnets take significantly less time and space to sync.

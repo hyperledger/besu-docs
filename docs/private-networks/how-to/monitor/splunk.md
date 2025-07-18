@@ -16,7 +16,6 @@ Splunk can aggregate multiple logs in one place and run complex queries without 
 Options for running Splunk and Besu are:
 
 - [Developer Quickstart with Splunk](#developer-quickstart-with-splunk)
-- [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose)
 - [Use Splunk Enterprise as a Docker container](#use-splunk-enterprise-as-a-docker-container)
 - [Run a Splunk Enterprise instance](#run-a-splunk-enterprise-instance)
 
@@ -26,47 +25,6 @@ To view the Quickstart network logs in Splunk:
 
 1. [Start the Developer Quickstart with Besu](../../tutorials/quickstart.md), selecting Splunk monitoring.
 1. Open the [Splunk UI](http://localhost:8000).
-
-## Splunk Connect for Ethereum Docker Compose
-
-To run a development Besu node and connect it to Splunk Enterprise, use the Splunk Connect for Ethereum demonstration Docker Compose environment provided by Splunk.
-
-### Requirements
-
-- [Git](https://git-scm.com/)
-- [Docker and Docker-compose](https://docs.docker.com/compose/install/)
-
-:::info
-
-A Splunk license is not required to use the Splunk Connect for Ethereum demonstration.
-
-:::
-
-### Steps
-
-1.  Clone the Splunk Connect for Ethereum repository:
-
-    ```bash
-    git clone https://github.com/splunk/splunk-connect-for-ethereum.git
-    cd splunk-connect-for-ethereum
-    ```
-
-1.  Start the demonstration environment by following the Splunk Connect for Ethereum repository [README](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/examples/besu).
-
-    :::note
-
-    Splunk enterprise takes some time to start.
-
-    Run `docker ps` and wait for the `STATUS` of the 3 containers to be `Up [number] seconds (healthy)`.
-
-    ```
-    CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                    PORTS                                                                            NAMES
-    127600dd1173        splunkdlt/ethlogger:latest   "ethlogger"              53 seconds ago      Up 51 seconds (healthy)                                                                                    ethlogger
-    88dfcee683c4        splunk/splunk:latest         "/sbin/entrypoint.sh…"   53 seconds ago      Up 52 seconds (healthy)   8065/tcp, 8088-8089/tcp, 8191/tcp, 9887/tcp, 9997/tcp, 0.0.0.0:18000->8000/tcp   splunk
-    111b0c6d6072        hyperledger/besu:1.4.4       "besu"                   53 seconds ago      Up 52 seconds (healthy)   8545-8547/tcp, 30303/tcp                                                         besu
-    ```
-
-    :::
 
 ## Use Splunk Enterprise as a Docker container
 
@@ -83,7 +41,8 @@ A Splunk license is not required to use the trial version of the Splunk Docker i
 
 :::note
 
-If running [Besu as a Docker container](../../get-started/install/run-docker-image.md), consider using [Splunk Connect for Ethereum Docker Compose](#splunk-connect-for-ethereum-docker-compose) or [Kubernetes](../deploy/kubernetes.md) instead of the Splunk Enterprise trial container.
+If running [Besu as a Docker container](../../get-started/install/run-docker-image.md), consider using
+[Kubernetes](../deploy/kubernetes.md) instead of the Splunk Enterprise trial container.
 
 :::
 
@@ -144,7 +103,7 @@ If running [Besu as a Docker container](../../get-started/install/run-docker-ima
 
     ![Splunk search page](../../../assets/images/splunk-ui.png)
 
-5.  Stop Besu with ++ctrl+c++. Stop the Splunk container with `docker stop splunk-demo`.
+5.  Stop Besu with **ctrl+c**. Stop the Splunk container with `docker stop splunk-demo`.
 
 ## Run a Splunk Enterprise instance
 

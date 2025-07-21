@@ -5815,6 +5815,43 @@ Name of the security module plugin to use. For example, a Hardware Security Modu
 
 The default is the node's local private key file specified using [`--node-private-key-file`](#node-private-key-file).
 
+### `snapsync-server-enabled`
+
+<Tabs>
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-server-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-server-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SERVER_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+snapsync-server-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables serving [snap sync](../../concepts/node-sync.md#snap-synchronization) data.
+Set to `true` to allow other nodes to download data from this node using snap sync.
+The default is `false`.
+
 ### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`
 
 <Tabs>
@@ -5851,7 +5888,7 @@ snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
 </TabItem>
 </Tabs>
 
-If set to `false`, Snap sync downloads full pre-merge Proof of Work (PoW) historical blocks
+If set to `false`, [snap sync](../../concepts/node-sync.md#snap-synchronization) downloads full pre-merge Proof of Work (PoW) historical blocks
 instead of headers only, allowing full historical data to be retained. The default is `true`.
 
 Setting this option to `false` increases sync time and disk space usage.

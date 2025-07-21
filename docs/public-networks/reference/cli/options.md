@@ -5849,6 +5849,7 @@ snapsync-server-enabled=true
 </Tabs>
 
 Enables or disables serving [snap sync](../../concepts/node-sync.md#snap-synchronization) data.
+Set to `true` to allow other nodes to download data from this node using snap sync.
 The default is `false`.
 
 ### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`

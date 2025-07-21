@@ -97,7 +97,7 @@ to `false`. However, this will increase the sync time and disk space usage.
 
 Instead of downloading the [state trie](data-storage-formats.md) node by node, snap
 sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
-To enable serving snap sync data, set
+To enable serving snap sync data to other nodes, set
 [`--snapsync-server-enabled`](../reference/cli/options.md#snapsync-server-enabled) to `true`.
 
 You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync,

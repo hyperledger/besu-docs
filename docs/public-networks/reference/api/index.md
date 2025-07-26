@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 :::caution
 
-- This reference contains API methods that apply to both public and private networks. For private-network-specific API methods, see the [private network API reference](../../../private-networks/reference/api/index.md).
+- This reference contains API methods that apply to both public and private networks. For private-network-specific API methods, see the [private network API reference](../../../private-networks/reference/api.md).
 - All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using the [--rpc-http-host](../cli/options.md#rpc-http-host) or [--rpc-http-port](../cli/options.md#rpc-http-port) options, update the endpoint.
 - Most example requests are made against private networks. Depending on network configuration and activity, your example results might be different.
 

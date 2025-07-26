@@ -290,8 +290,24 @@ const config = {
             to: "/public-networks/how-to/configure-besu",
           },
           {
-            from: ["/private-networks/tutorials/permissioning/onchain", "/private-networks/tutorials/permissioning/upgrade-contracts"],
-            to: "/private-networks/how-to/use-permissioning/onchain",
+            from: ["/private-networks/tutorials/permissioning/onchain", "/private-networks/tutorials/permissioning/upgrade-contracts", "/private-networks/how-to/use-permissioning/onchain", "/private-networks/concepts/permissioning/onchain"],
+            to: "/private-networks/concepts/permissioning",
+          },
+          {
+            from: "/private-networks/how-to/use-permissioning/local",
+            to: "/private-networks/how-to/use-local-permissioning",
+          },
+          {
+            from: ["/private-networks/how-to/use-privacy/eea-compliant", "/private-networks/how-to/use-privacy/besu-extended", "/private-networks/how-to/use-privacy/tessera", "/private-networks/how-to/use-privacy/privacy-groups", "/private-networks/how-to/use-privacy/flexible", "/private-networks/how-to/use-privacy/access-private-transactions", "/private-networks/how-to/use-privacy/sign-pmts", "/private-networks/how-to/use-privacy/web3js-quorum", "/private-networks/how-to/use-privacy/performance-best-practices", "/private-networks/concepts/privacy", "/private-networks/concepts/privacy/private-transactions", "/private-networks/concepts/privacy/private-transactions/processing", "/private-networks/concepts/privacy/privacy-groups", "/private-networks/concepts/privacy/flexible-privacy", "/private-networks/concepts/privacy/multi-tenancy", "/private-networks/concepts/privacy/plugin"],
+            to: "/private-networks",
+          },
+          {
+            from: "/private-networks/how-to/monitor/quorum-hibernate",
+            to: "/private-networks/how-to/monitor",
+          },
+          {
+            from: ["/private-networks/tutorials/privacy", "/private-networks/tutorials/privacy/multi-tenancy", "/private-networks/tutorials/privacy/web3js-quorum","/private-networks/tutorials/privacy/quickstart"],
+            to: "/private-networks/tutorials",
           },
           {
             from: "/private-networks/tutorials/kubernetes/nat-manager",
@@ -302,12 +318,20 @@ const config = {
             to: "/private-networks/how-to/configure/tls",
           },
           {
+            from: ["/private-networks/how-to/send-transactions/private-transactions", "/private-networks/how-to/send-transactions/concurrent-private-transactions"],
+            to: "/public-networks/how-to/send-transactions",
+          },
+          {
             from: "/private-networks/concepts/plugins",
             to: "/public-networks/concepts/plugins",
           },
           {
             from: "/private-networks/reference/plugin-api-interfaces",
             to: "/public-networks/reference/plugin-api-interfaces",
+          },
+          {
+            from: "/private-networks/reference/api/objects",
+            to: "/public-networks/reference/api",
           }
         ],
         createRedirects(existingPath) {

@@ -16,7 +16,7 @@ A private (also known as permissioned) network is a network not connected to Eth
 
 You can also [create a local development network using proof of work (PoW) (Deprecated)](tutorials/ethash.md).
 
-Besu supports enterprise features including [privacy (Deprecated)](concepts/privacy/index.md) and [permissioning](concepts/permissioning/index.md).
+Besu supports enterprise features including [permissioning](concepts/permissioning/index.md).
 
 Get started with the [Developer Quickstart](tutorials/quickstart.md) to rapidly generate local blockchain networks.
 

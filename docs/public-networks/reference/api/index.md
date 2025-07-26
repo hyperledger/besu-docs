@@ -2639,6 +2639,7 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 - `blockNumber`: _string_ - (optional) hexadecimal or decimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  The default is `pending`.
 
 - `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
     Each entry specifies a state that will be temporarily overridden before executing the call.

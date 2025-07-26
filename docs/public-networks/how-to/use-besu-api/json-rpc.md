@@ -333,11 +333,14 @@ The block parameter can have one of the following values:
   :::
 
 - `earliest` : _tag_ - The earliest (genesis) block.
-- `latest` : _tag_ - The last block mined.
-- `pending` : _tag_ - When used with [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount),
-  refers to the last block mined plus pending transactions.
-  When used with [`qbft_getValidatorsByBlockNumber`](../../../private-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber),
-  returns a list of validators that will be used to produce the next block.
+- `latest` : _tag_ - The most recent block.
+- `pending` : _tag_ - The next anticipated block, except in the following cases:
+  - For some methods (specified in their parameter description), `pending` returns the
+    same value as `latest`.
+  - For [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount),
+    `pending` refers to the most recent block plus pending transactions.
+  - For [`qbft_getValidatorsByBlockNumber`](../../../private-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber),
+    `pending` returns a list of validators that will be used to produce the next block.
 - `finalized` : _tag_ - The most recent crypto-economically secure block.
   It cannot be reorganized outside manual intervention driven by community coordination.
 - `safe` : _tag_ - The most recent block that is safe from reorganization under honest majority and

@@ -173,9 +173,6 @@ headers from the genesis block.
 When starting fast sync, Besu first downloads the world state for a recent block verified by its
 peers (referred to as a pivot block), and then begins fast sync from the genesis block.
 
-Using fast sync with [private transactions](../../private-networks/concepts/privacy/index.md)
-isn't supported.
-
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
 [metrics](../how-to/monitor/metrics.md#view-the-metrics-list) to monitor fast sync.
 

@@ -383,11 +383,11 @@ To add (or remove) more validators to the initial validator pool, you need to de
 
 Please refer to the [Ingress Section](#9-connect-to-the-node-from-your-local-machine-via-an-ingress) for details on making the API calls from your local machine or equivalent.
 
-### 8. Deploy RPC or Transaction nodes
+### 8. Deploy RPC nodes
 
-An RPC node is simply a node that can be used to make public transactions or perform read heavy operations such as when connected to a chain explorer like [BlockScout](https://github.com/blockscout/blockscout).
+An RPC node is a node that can be used to make public transactions or perform read heavy operations such as when connected to a chain explorer like [BlockScout](https://github.com/blockscout/blockscout).
 
-The RPC override [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/reader.yml) for the StatefulSet looks identical to that of the validators above, and will create it's own node keys before the node starts.
+The RPC override [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/reader.yml) for the StatefulSet looks identical to that of the validators above, and will create its own node keys before the node starts.
 
 To deploy an RPC node:
 
@@ -395,27 +395,13 @@ To deploy an RPC node:
 helm install rpc-1 ./charts/besu-node --namespace besu --values ./values/reader.yml
 ```
 
-A Transaction or Member node in turn is one which has an accompanying Private Transaction Manager, such as Tessera; which allow you to make private transactions between nodes.
-
-The Transaction override [values.yml](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/txnode.yml) for the StatefulSet looks identical to that of the validators above and only has `quorumFlags.privacy: true` to indicate that it is deploying a pair of GoQuorum and Tessera nodes.
-
-To deploy a Transaction or Member node:
-
-```bash
-helm install member-1 ./charts/besu-node --namespace besu --values ./values/txnode.yml
-```
-
-Logs for `member-1` resemble the following for Tessera:
-
-![`k8s-tx-tessera-logs`](../../../assets/images/kubernetes-tx-tessera-logs.png)
-
 Logs for Besu resemble the following:
 
 ![`k8s-tx-Besu-logs`](../../../assets/images/kubernetes-tx-Besu-logs.png)
 
 :::note
 
-In these examples we use `member-1` and `rpc-1` as release names for the deployments. You can pick any release name that you'd like to use in place of those as per your requirements.
+In these examples we use `rpc-1` as a release name for the deployment. You can pick any release name that you'd like to use in place of those as per your requirements.
 
 :::
 
@@ -492,7 +478,7 @@ helm dependency update ./charts/blockscout
 helm install blockscout ./charts/blockscout --namespace quorum --values ./values/blockscout-goquorum.yaml
 ```
 
-You can optionally deploy the [Quorum-Explorer](https://github.com/ConsenSys/quorum-explorer) as a lightweight blockchain explorer. The Quorum Explorer is not recommended for use in production and is intended for demonstration or Development purposes only. The Explorer can give an overview over the whole network, such as querying each node on the network for node or block information, voting (add/remove) validators from the network, demonstrating a SimpleStorage smart contract with privacy enabled, and sending transactions between wallets as you would do in MetaMask. Please see the [Explorer](quorum-explorer.md) page for details on how to use the application.
+You can optionally deploy the [Quorum-Explorer](https://github.com/ConsenSys/quorum-explorer) as a lightweight blockchain explorer. The Quorum Explorer is not recommended for use in production and is intended for demonstration or Development purposes only. The Explorer can give an overview over the whole network, such as querying each node on the network for node or block information, voting (add/remove) validators from the network, and sending transactions between wallets as you would do in MetaMask. Please see the [Explorer](quorum-explorer.md) page for details on how to use the application.
 
 :::warning
 

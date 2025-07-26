@@ -1,7 +1,7 @@
 ---
 title: Use Chainlens Explorer
 sidebar_position: 7
-description: Use Chainlens Explorer on a privacy-enabled Besu network
+description: Use Chainlens Explorer on a Besu network
 tags:
   - private networks
 ---
@@ -10,15 +10,13 @@ tags:
 
 [Chainlens Blockchain Explorer](https://chainlens.com/) supports public and private EVM networks.
 This page describes how to use the free version of Chainlens with its built-in support for
-[privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the
+Besu networks created using the
 [Developer Quickstart](../../tutorials/quickstart.md).
 
 Chainlens provides an overview of the entire network, including block information, contract
 metadata, transaction searches, and [more](https://chainlens.com/).
 
 :::note
-You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC, to
-allow access for Besu [privacy API methods](../../reference/api/index.md#priv-methods).
 In production networks, you must [secure access](../../../public-networks/how-to/use-besu-api/authenticate.md)
 to RPC nodes.
 :::

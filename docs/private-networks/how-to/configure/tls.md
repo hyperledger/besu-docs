@@ -6,11 +6,11 @@ tags:
   - private networks
 ---
 
-# Configure client and server TLS
+# Configure client TLS
 
-Besu supports TLS for client and server communication. For example, you can configure TLS for communication between [Web3Signer](https://docs.web3signer.consensys.net/concepts/tls) and Besu, and Besu and [Tessera](https://docs.tessera.consensys.net/HowTo/Configure/TLS/).
+Besu supports TLS for client communication. For example, you can configure TLS for communication between [Web3Signer](https://docs.web3signer.consensys.net/concepts/tls) and Besu.
 
-The following instructions allow you to configure client and server authentication to secure HTTP JSON-RPC
+The following instructions allow you to configure client authentication to secure HTTP JSON-RPC
 calls.
 
 :::info Secure Websocket JSON-RPC calls
@@ -85,48 +85,6 @@ Set [`--rpc-http-tls-ca-clients-enabled`](../../../public-networks/reference/cli
 
 :::
 
-## Configure server TLS
-
-Allow Besu to securely communicate with the server (Tessera).
-
-**Server prerequisites**:
-
-- [Configure the server to allow TLS communication]
-- Server's certificate information
-
-### Create the known servers file
-
-Create a file (in this example, `knownServers`) that lists one or more trusted servers. The file contents use the format `<hostname>:<port> <hex-string>` where:
-
-- `<hostname>` is the server hostname
-- `<port>` is the port used for communication
-- `<hex-string>` is the SHA-256 fingerprint of the server's certificate.
-
-```bash title="Example"
-localhost:8888 3C:B4:5A:F9:88:43:5E:62:69:9F:A9:9D:41:14:03:BA:83:24:AC:04:CE:BD:92:49:1B:8D:B2:A4:86:39:4C:AC
-127.0.0.1:8888 3C:B4:5A:F9:88:43:5E:62:69:9F:A9:9D:41:14:03:BA:83:24:AC:04:CE:BD:92:49:1B:8D:B2:A4:86:39:4C:AC
-```
-
-:::note
-
-If you are unsure whether requests use the hostname or an IP address, configure both in the file.
-
-:::
-
-### Start Besu
-
-```bash
-besu --privacy-tls-enabled --privacy-tls-keystore-file=/Users/me/my_node/keystore.pfx --privacy-tls-keystore-password-file=/Users/me/my_node/keystorePassword --privacy-tls-known-enclave-file=/Users/me/my_node/knownServers
-```
-
-The command line:
-
-- Enables TLS with the server using the [`--privacy-tls-enabled`](../../reference/cli/options.md#privacy-tls-enabled-deprecated) option.
-- Specifies the keystore using the [`--privacy-tls-keystore-file`](../../reference/cli/options.md#privacy-tls-keystore-file-deprecated) option.
-- Specifies the file that contains the password to decrypt the keystore using the [`--privacy-tls-keystore-password-file`](../../reference/cli/options.md#privacy-tls-keystore-password-file-deprecated) option.
-- Specifies the trusted servers using the [`--privacy-tls-known-enclave-file`](../../reference/cli/options.md#privacy-tls-known-enclave-file-deprecated) option.
-
 <!-- Links -->
 
 [Configure the client for TLS]: https://docs.web3signer.consensys.net/how-to/configure-tls
-[Configure the server to allow TLS communication]: https://docs.tessera.consensys.net/HowTo/Configure/TLS/

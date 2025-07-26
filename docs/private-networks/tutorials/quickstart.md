@@ -39,7 +39,7 @@ This tutorial runs a private network suitable for education or demonstration pur
 
 :::info
 
-Allow Docker up to 4G of memory or 6G if running the privacy examples. Refer to the **Resources** section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
+Allow Docker up to 4G of memory. Refer to the **Resources** section in [Docker for Mac](https://docs.docker.com/docker-for-mac/) and [Docker Desktop](https://docs.docker.com/docker-for-windows/) for details.
 
 :::
 
@@ -51,13 +51,7 @@ To create the tutorial `docker-compose` files and artifacts, run:
 npx quorum-dev-quickstart
 ```
 
-Follow the prompts displayed to run Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate and [private transactions](../concepts/privacy/index.md).
-
-:::note
-
-If you enter `y` for private transactions, you get three Besu nodes with corresponding Tessera nodes for privacy. You can follow the [privacy walk-through](privacy/index.md), which details how to send private transactions and interact with deployed private contracts.
-
-:::
+Follow the prompts displayed to run Besu and [logging with ELK](../how-to/monitor/elastic-stack.md). Enter `n` for Codefi Orchestrate.
 
 ## Start the network
 
@@ -110,11 +104,8 @@ To display the list of endpoints again, run:
 
 You can [use Chainlens Blockchain Explorer](../how-to/monitor/chainlens.md) to analyze block
 information, contract metadata, transaction searches, and more.
-Chainlens has built-in support for privacy-enabled Besu networks.
 
 :::note
-You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC,
-to allow access for Besu [privacy API methods](../reference/api/index.md#priv-methods). 
 In production networks, you must [secure access](../../public-networks/how-to/use-besu-api/authenticate.md)
 to RPC nodes.
 :::
@@ -609,7 +600,7 @@ Insert the following under `scrape_configs` section in the file. Change `job_nam
 
 Add the new node's enode address to the [static nodes] file and [permissions file]. The enode uses the format `enode://pubkey@ip_address:30303`. If the `nodekey.pub` is `4540ea...9c1d78` and the IP address is `172.16.239.41`, then the enode address is `"enode://4540ea...9c1d78@172.16.239.41:30303"`, which must be added to both files.
 
-Alternatively, call the [`perm_addNodesToAllowlist`](../reference/api/index.md#perm_addnodestoallowlist) API method on existing nodes to add the new node without restarting.
+Alternatively, call the [`perm_addNodesToAllowlist`](../reference/api.md#perm_addnodestoallowlist) API method on existing nodes to add the new node without restarting.
 
 :::note
 
@@ -621,13 +612,13 @@ On a live network, the new node must be added to the [permissions file] so that 
 
 ### 6. Start the network
 
-Once complete, start the network up with `./run.sh`. When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via [RPC API calls](../reference/api/index.md#perm_addnodestoallowlist).
+Once complete, start the network up with `./run.sh`. When using the smart contract you can either make changes via a [dapp](https://github.com/ConsenSys/permissioning-smart-contracts) or via [RPC API calls](../reference/api.md#perm_addnodestoallowlist).
 
 <!-- Links -->
 
 [bootnodes]: ../how-to/configure/bootnodes.md
-[permissions file]: ../how-to/use-permissioning/local.md
+[permissions file]: ../how-to/use-local-permissioning
 [static nodes]: ../../public-networks/how-to/connect/static-nodes.md
-[allow list]: ../how-to/use-permissioning/local.md#node-allowlisting
+[allow list]: ../how-to/use-local-permissioning.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-
 [create another test account from scratch]: https://metamask.zendesk.com/hc/en-us/articles/360015289452-Creating-Additional-MetaMask-Wallets-New-UI-

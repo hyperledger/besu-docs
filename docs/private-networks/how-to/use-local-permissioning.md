@@ -104,7 +104,7 @@ Transaction validation against the accounts allowlist occurs at the following po
 
 After adding transactions to a block, the transactions are not validated against the allowlist when received by another node. That is, a node can synchronize and add blocks containing transactions from accounts that are not on the accounts allowlist of that node.
 
-The following diagram illustrates applying permissioning rules.
+The following diagram illustrates where local permissioning rules are checked.
 
 ![Permissioning Flow](../../assets/images/PermissioningFlow.png)
 

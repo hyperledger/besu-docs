@@ -3659,7 +3659,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-http-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-http-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3667,7 +3667,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3675,7 +3675,7 @@ BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-http-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>
@@ -4800,7 +4800,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-ws-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-ws-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4808,7 +4808,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4816,7 +4816,7 @@ BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-ws-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>

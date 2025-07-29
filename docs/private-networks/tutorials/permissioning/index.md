@@ -166,7 +166,7 @@ Permissioned-Network/
 
 ### 6. Create the permissions configuration file
 
-The [permissions configuration file](../../how-to/use-permissioning/local.md#permissions-configuration-file) defines the nodes and accounts allowlists.
+The [permissions configuration file](../../how-to/use-local-permissioning.md#permissions-configuration-file) defines the nodes and accounts allowlists.
 
 Copy the following permissions configuration to a file called `permissions_config.toml` and save a copy in the `Node-1/data`, `Node-2/data`, `Node-3/data`, and `Node-4/data` directories:
 
@@ -178,7 +178,7 @@ nodes-allowlist=[]
 
 The permissions configuration file includes the first two accounts from the genesis file.
 
-Use the [`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
+Use the [`perm_addNodesToAllowlist`](../../reference/api.md#perm_addnodestoallowlist) JSON-RPC API method to add permissioned nodes after starting the nodes.
 
 ### 7. Start Node-1
 
@@ -319,7 +319,7 @@ When the node starts, the [enode URL](../../../public-networks/concepts/node-key
 
 ### 11. Add enode URLs for nodes to permissions configuration file
 
-Start another terminal and use the [`perm_addNodesToAllowlist`](../../reference/api/index.md#perm_addnodestoallowlist) JSON-RPC API method to add the nodes to the permissions configuration file for each node.
+Start another terminal and use the [`perm_addNodesToAllowlist`](../../reference/api.md#perm_addnodestoallowlist) JSON-RPC API method to add the nodes to the permissions configuration file for each node.
 
 Replace `<EnodeNode1>`, `<EnodeNode2>`, `<EnodeNode3>`, and `<EnodeNode4>` with the enode URL displayed when starting each node.
 

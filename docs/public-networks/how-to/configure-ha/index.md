@@ -37,12 +37,6 @@ The minimum number of peers and number of blocks from the best known block for d
 
 Besu obtains the nonce for the next transaction using [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount). The nonce depends on the transactions in the [transaction pool](../../concepts/transactions/pool.md). If sending [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount) and [`eth_sendRawTransaction`](../../reference/api/index.md#eth_sendrawtransaction) requests for a specific account to more than one node, the [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount) results might be incorrect.
 
-:::note
-
-If using [private transactions](../../../private-networks/concepts/privacy/private-transactions/index.md), retrieve the nonce using [`priv_getTransactionCount`](../../../private-networks/reference/api/index.md#priv_gettransactioncount) or [`priv_getEeaTransactionCount`](../../../private-networks/reference/api/index.md#priv_geteeatransactioncount) and send the private transactions using [`eea_sendRawTransaction`](../../../private-networks/reference/api/index.md#eea_sendrawtransaction).
-
-:::
-
 To get correct nonces when distributing requests across a cluster, either:
 
 - Track the next nonce outside of the Besu node (as MetaMask does).

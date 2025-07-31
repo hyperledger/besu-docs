@@ -15,7 +15,7 @@ The following block explorers are compatible with Besu:
 
 - [BlockScout](https://github.com/blockscout/blockscout#readme) - See the [project documentation](https://docs.blockscout.com/) for setup instructions.
 
-- [Chainlens Blockchain Explorer](https://www.web3labs.com/chainlens) - See how to [use Chainlens with privacy-enabled networks](../../private-networks/how-to/monitor/chainlens.md).
+- [Chainlens Blockchain Explorer](https://www.web3labs.com/chainlens) - See how to [use Chainlens](../../private-networks/how-to/monitor/chainlens.md).
 
 ## Blockchains
 

@@ -2035,8 +2035,6 @@ A comma-separated list of categories for which to track metrics. The defaults ar
 
 Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
 
-Categories containing `PRIVATE` track metrics when you enable [private transactions](../../../private-networks/concepts/privacy/index.md).
-
 ### `metrics-enabled`
 
 <Tabs>
@@ -3638,7 +3636,7 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -3661,7 +3659,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-http-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-http-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3669,7 +3667,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3677,7 +3675,7 @@ BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-http-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>
@@ -4779,7 +4777,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -4802,7 +4800,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-ws-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-ws-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4810,7 +4808,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4818,7 +4816,7 @@ BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-ws-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>

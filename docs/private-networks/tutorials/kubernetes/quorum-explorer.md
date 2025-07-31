@@ -22,7 +22,7 @@ You can use the Quorum Explorer on a Kubernetes cluster.
 
 [Quorum-Explorer](https://github.com/ConsenSys/quorum-explorer) as a lightweight blockchain explorer. The Quorum Explorer is **not** recommended for use in production and is intended for demonstration or development purposes only.
 
-The explorer can provide an overview over the whole network, such as block information, voting or removing validators from the network, and demonstrates using the `SimpleStorage` smart contract with privacy enabled, and sending transactions between wallets in one interface.
+The explorer can provide an overview over the whole network, such as block information, voting or removing validators from the network, and sending transactions between wallets in one interface.
 
 To use the explorer, update the [Quorum-Explorer values file](https://github.com/ConsenSys/quorum-kubernetes/blob/5920caff6dd15b4ca17f760ad9e4d7d2e43b41a1/helm/values/explorer-besu.yaml) with your node details and endpoints, and then [deploy](charts.md).
 

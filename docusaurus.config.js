@@ -108,6 +108,13 @@ const config = {
             label: "Private networks",
           },
           {
+            type: "docSidebar",
+            sidebarId: "pluginsDocSidebar",
+            docId: "index",
+            position: "left",
+            label: "Plugins",
+          },
+          {
             href: "/public-networks/chatbot",
             className: "header-chatbot-link",
             position: "right",
@@ -187,6 +194,31 @@ const config = {
               {
                 label: "Reference",
                 to: "/private-networks/reference",
+              },
+            ],
+          },
+          {
+            title: "Plugins",
+            items: [
+              {
+                label: "Introduction",
+                to: "/plugins",
+              },
+              {
+                label: "How to guides",
+                to: "/plugins/how-to",
+              },
+              {
+                label: "Concepts",
+                to: "/plugins/concepts",
+              },
+              {
+                label: "Tutorials",
+                to: "/plugins/tutorials",
+              },
+              {
+                label: "Reference",
+                to: "/plugins/reference",
               },
             ],
           },

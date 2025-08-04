@@ -977,6 +977,135 @@ engine-rpc-port="8551"
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket. The default is `8551`.
 
+### `era1-data-uri`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-data-uri=<URI>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-data-uri=https://mainnet.era1.nimbus.team/
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_DATA_URI=https://mainnet.era1.nimbus.team/
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-data-uri="https://mainnet.era1.nimbus.team/"
+```
+
+</TabItem>
+
+</Tabs>
+
+The URI or local path to attempt to [import ERA1 files](../../how-to/era1-file-full-sync.md) from. For local files, a simple path may be used
+(for example, `/home/user/era1`). The default is `https://mainnet.era1.nimbus.team/`.
+
+### `era1-import-prepipeline-concurrency`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-import-prepipeline-concurrency=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-import-prepipeline-concurrency=2
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_IMPORT_PREPIPELINE_CONCURRENCY=2
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-import-prepipeline-concurrency=2
+```
+
+</TabItem>
+
+</Tabs>
+
+Number of parallel processes used to [import ERA1 archive files](../../how-to/era1-file-full-sync.md) before full synchronization begins.
+Increasing this may improve performance when loading files from remote sources or on systems with
+high I/O capacity. The default is `1`.
+
+In most cases, we recommend using the default unless slow file downloads are a limiting factor.
+
+### `era1-import-prepipeline-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-import-prepipeline-enabled[=<Boolean>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-import-prepipeline-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_IMPORT_PREPIPELINE_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-import-prepipeline-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
+
+This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
+
+Use this to accelerate syncing from genesis or to restore full historical data without relying on peer-to-peer downloads.
+
 ### `estimate-gas-tolerance-ratio`
 
 <Tabs>

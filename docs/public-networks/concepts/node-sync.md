@@ -230,6 +230,9 @@ You can enable full sync using [`--sync-mode=FULL`](../reference/cli/options.md#
 Use full sync to run an [archive node](#archive-nodes).
 Full sync starts from the genesis block and reprocesses all transactions.
 
+You can optionally [download and sync pre-merge Ethereum history](../how-to/era1-file-full-sync.md)
+from ERA1 archive files instead of relying on peered nodes for the data.
+
 :::caution important
 Do not run an archive node with the [Bonsai Tries](data-storage-formats.md#bonsai-tries)
 data storage format.

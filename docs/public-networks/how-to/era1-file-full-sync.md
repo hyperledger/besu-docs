@@ -1,26 +1,33 @@
 ---
-title: Utilize ERA1 files for Full sync
+title: Import ERA1 files
 sidebar_position: 9
-description: Utilize ERA1 files for Full sync
+description: Import pre-merge Ethereum history from ERA1 archive files when using Full sync
 tags:
   - public networks
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+When running [Full sync](../concepts/node-sync.md#full-synchronization), node operators can optionally
+import pre-merge block history from locally stored or remote ERA1 archive files. This method allows
+nodes to bootstrap pre-merge Ethereum data without relying on peer-to-peer downloads.
 
-Node operators using [Full sync](../concepts/node-sync.md#full-synchronization) can utilise ERA1 files as the source of pre-merge blocks in a pre-pipeline.
-
-## How to use the prepipeline
-
-The ERA1 import pre-pipeline can be activated and controlled with the following besu command options:
+ERA1 file import must be explicitly enabled by including the following command line options:
 
 ```bash
-besu --era1-import-prepipeline-enabled --era1-data-uri=<filesystem path or http URI> --era1-import-prepipeline-concurrency=1
+besu --era1-import-prepipeline-enabled --era1-data-uri=<PATH-OR-URI> --era1-import-prepipeline-concurrency=1
 ```
 
-1. `--era1-import-prepipeline-enabled` activates the pre-pipeline
-2. `--era1-data-uri` specifies the location of the ERA1 files to be imported. Either a simple filesystem path (`/path/to/files/`), or a HTTP address (`https://mainnet.era1.nimbus.team`). If unspecified, this option will default to `https://mainnet.era1.nimbus.team`
-3. `--era1-import-prepipeline-concurrency` specifies the desired level of concurrency in the pre-pipeline. This option will default to 1. Due to a bottleneck in the block import process, this option should probably be left at 1 unless extremely slow download speeds are impacting the process.
+In the command:
 
-Immediately after the ERA1 import pre-pipeline, Besu will use [Full sync](../concepts/node-sync.md#full-synchronization) to complete the synchonization process.
+- [`--era1-import-prepipeline-enabled`](../reference/cli/options.md#era1-import-prepipeline-enabled)
+    enables importing pre-merge blocks from ERA1 archive files before full synchronization begins.
+    This option only applies in `FULL` sync mode.
+- [`--era1-data-uri`](../reference/cli/options.md#era1-data-uri) specifies the location of the ERA1
+    files to be imported. Either a simple filesystem path (`/path/to/files/`), or an HTTP address
+    (`https://mainnet.era1.nimbus.team`). If unspecified, this option defaults to
+    `https://mainnet.era1.nimbus.team`.
+- [`--era1-import-prepipeline-concurrency`](../reference/cli/options.md#era1-import-prepipeline-concurrency)
+    sets the number of parallel processes used to import ERA1 files. The default is `1`.
+    Increase only if you encounter slow file download speeds and your system can handle additional load.
+
+After all ERA1 files are imported, Besu automatically continues with full synchronization to complete
+syncing the rest of the chain.

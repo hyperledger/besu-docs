@@ -6,8 +6,8 @@ tags:
   - public networks
 ---
 
-When running [Full sync](../concepts/node-sync.md#full-synchronization), node operators can optionally
-import pre-merge block history from locally stored or remote ERA1 archive files. This method allows
+When running [full sync](../concepts/node-sync.md#full-synchronization), node operators can optionally
+import [pre-merge](https://ethereum.org/en/roadmap/merge/) block history from locally stored or remote ERA1 archive files. This method allows
 nodes to bootstrap pre-merge Ethereum data without relying on peer-to-peer downloads.
 
 ERA1 file import must be explicitly enabled by including the following command line options:
@@ -23,7 +23,7 @@ In the command:
     This option only applies in `FULL` sync mode.
 - [`--era1-data-uri`](../reference/cli/options.md#era1-data-uri) specifies the location of the ERA1
     files to be imported. Either a simple filesystem path (`/path/to/files/`), or an HTTP address
-    (`https://mainnet.era1.nimbus.team`). If unspecified, this option defaults to
+    (`https://mainnet.era1.nimbus.team`). The default is
     `https://mainnet.era1.nimbus.team`.
 - [`--era1-import-prepipeline-concurrency`](../reference/cli/options.md#era1-import-prepipeline-concurrency)
     sets the number of parallel processes used to import ERA1 files. The default is `1`.

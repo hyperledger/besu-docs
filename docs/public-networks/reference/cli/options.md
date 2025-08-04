@@ -1015,7 +1015,7 @@ era1-data-uri="https://mainnet.era1.nimbus.team/"
 
 </Tabs>
 
-The URI or local path to attempt to load ERA1 files from. For local files, a simple path may be used
+The URI or local path to attempt to [import ERA1 files](../../how-to/era1-file-full-sync.md) from. For local files, a simple path may be used
 (for example, `/home/user/era1`). The default is `https://mainnet.era1.nimbus.team/`.
 
 ### `era1-import-prepipeline-concurrency`
@@ -1056,11 +1056,11 @@ era1-import-prepipeline-concurrency=2
 
 </Tabs>
 
-Number of parallel processes used to import ERA1 archive files before full synchronization begins.
+Number of parallel processes used to [import ERA1 archive files](../../how-to/era1-file-full-sync.md) before full synchronization begins.
 Increasing this may improve performance when loading files from remote sources or on systems with
 high I/O capacity. The default is `1`.
 
-In most cases, `1` is recommended unless slow file downloads are a limiting factor.
+In most cases, we recommend using the default unless slow file downloads are a limiting factor.
 
 ### `era1-import-prepipeline-enabled`
 
@@ -1100,7 +1100,7 @@ era1-import-prepipeline-enabled=true
 
 </Tabs>
 
-Enables importing pre-merge blocks from ERA1 archive files before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
+Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
 
 This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
 

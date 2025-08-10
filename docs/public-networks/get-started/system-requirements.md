@@ -130,7 +130,26 @@ JVM memory requirements are highest when syncing, but will reduce after the node
 
 ## Disk space
 
-[Fast synchronization](../reference/cli/options.md#sync-mode) with [pruning](../concepts/data-storage-formats.md) enabled requires approximately 750 GB of disk space. [Full synchronization](../reference/cli/options.md#sync-mode) requires approximately 3 TB.
+The disk space required for syncing a Besu node depends on the
+[sync mode](../concepts/node-sync.md#sync-modes) and
+[data storage format](../concepts/data-storage-formats.md) used.
+The following table summarizes approximate storage estimates and download times for each configuration.
+
+:::info
+Besu uses snap sync with history pruning enabled by default for named networks such as Mainnet and
+Sepolia. This configuration retains only block headers and the genesis block for
+[pre-Merge](https://ethereum.org/en/roadmap/merge/) PoW history, significantly reducing disk usage.
+
+We recommend using snap sync instead of checkpoint sync because checkpoint sync will be deprecated
+in the future.
+:::
+
+| Storage format | Sync mode                 | World state sync time | Blockchain download time | Disk usage |
+|----------------|---------------------------|-----------------------|--------------------------|------------|
+| Bonsai         | Snap (pruned)             | ~3 hours              | ~13 hours                | 805 GB     |
+| Bonsai         | Snap (unpruned)           | ~3 hours              | ~26 hours (est.)         | 1164 GB    |
+| Bonsai         | Checkpoint                | ~3 hours              | ~13 hours                | >840 GB    |
+| Forest         | Full                      | Weeks                 | Weeks                    | ~3 TB      |
 
 ## Disk type
 

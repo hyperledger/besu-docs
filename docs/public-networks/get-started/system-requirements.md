@@ -52,17 +52,17 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     tar -xvf YOUR_J9_IMAGE.tar.gz
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
-    
-    ```bash 
+
+    ```bash
     tar -xvf ibm-semeru-certified-jdk_x64_linux_21.0.3.0.tar.gz
     ```
 
     </TabItem>
     </Tabs>
-   
+
 3. Move the binaries to `bin` directory:
 
     <Tabs>
@@ -71,7 +71,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     sudo cp -r YOUR_IMAGE/ /usr/bin/
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
 
@@ -81,7 +81,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
 
     </TabItem>
     </Tabs>
-   
+
 4. Specify OpenJ9 for Java on your machine:
 
     <Tabs>
@@ -91,17 +91,17 @@ docker image, or install the OpenJ9 JDK using the following steps:
     sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
     sudo update-alternatives --config java (and choose OpenJ9)
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
 
     ```bash
     sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-21.0.3+9/bin/java"
     ```
-   
+
     </TabItem>
     </Tabs>
-   
+
     Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
     the installation location you specified:
 
@@ -109,7 +109,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     <TabItem value="Command" label="Command" default>
 
     ```bash
-    export JAVA_HOME=jdk-install-dir`
+    export JAVA_HOME=jdk-install-dir
     ```
 
     </TabItem>
@@ -118,7 +118,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     export JAVA_HOME=/usr/bin/jdk-21.0.3+9
     ```
-   
+
     </TabItem>
     </Tabs>
 
@@ -130,7 +130,26 @@ JVM memory requirements are highest when syncing, but will reduce after the node
 
 ## Disk space
 
-[Fast synchronization](../reference/cli/options.md#sync-mode) with [pruning](../concepts/data-storage-formats.md) enabled requires approximately 750 GB of disk space. [Full synchronization](../reference/cli/options.md#sync-mode) requires approximately 3 TB.
+The disk space required for syncing a Besu node depends on the
+[sync mode](../concepts/node-sync.md#sync-modes) and
+[data storage format](../concepts/data-storage-formats.md) used.
+The following table summarizes approximate storage estimates and download times for each configuration.
+
+:::info
+Besu uses snap sync with history pruning enabled by default for named networks such as Mainnet and
+Sepolia. This configuration retains only block headers and the genesis block for
+[pre-merge](https://ethereum.org/en/roadmap/merge/) PoW history, significantly reducing disk usage.
+
+We recommend using snap sync instead of checkpoint sync because checkpoint sync will be deprecated
+in the future.
+:::
+
+| Storage format | Sync mode                 | World state sync time | Blockchain download time | Disk usage |
+|----------------|---------------------------|-----------------------|--------------------------|------------|
+| Bonsai         | Snap (pruned)             | ~3 hours              | ~13 hours                | 805 GB     |
+| Bonsai         | Snap (unpruned)           | ~3 hours              | ~26 hours (est.)         | 1164 GB    |
+| Bonsai         | Checkpoint                | ~3 hours              | ~13 hours                | >840 GB    |
+| Forest         | Full                      | Weeks                 | Weeks                    | ~3 TB      |
 
 ## Disk type
 

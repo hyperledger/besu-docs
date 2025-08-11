@@ -138,7 +138,7 @@ The following table summarizes approximate storage estimates and download times 
 :::info
 Besu uses snap sync with history pruning enabled by default for named networks such as Mainnet and
 Sepolia. This configuration retains only block headers and the genesis block for
-[pre-Merge](https://ethereum.org/en/roadmap/merge/) PoW history, significantly reducing disk usage.
+[pre-merge](https://ethereum.org/en/roadmap/merge/) PoW history, significantly reducing disk usage.
 
 We recommend using snap sync instead of checkpoint sync because checkpoint sync will be deprecated
 in the future.

@@ -52,17 +52,17 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     tar -xvf YOUR_J9_IMAGE.tar.gz
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
-    
-    ```bash 
+
+    ```bash
     tar -xvf ibm-semeru-certified-jdk_x64_linux_21.0.3.0.tar.gz
     ```
 
     </TabItem>
     </Tabs>
-   
+
 3. Move the binaries to `bin` directory:
 
     <Tabs>
@@ -71,7 +71,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     sudo cp -r YOUR_IMAGE/ /usr/bin/
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
 
@@ -81,7 +81,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
 
     </TabItem>
     </Tabs>
-   
+
 4. Specify OpenJ9 for Java on your machine:
 
     <Tabs>
@@ -91,17 +91,17 @@ docker image, or install the OpenJ9 JDK using the following steps:
     sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/YOUR_IMAGE" 1
     sudo update-alternatives --config java (and choose OpenJ9)
     ```
-   
+
     </TabItem>
     <TabItem value="Example" label="Example">
 
     ```bash
     sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/jdk-21.0.3+9/bin/java"
     ```
-   
+
     </TabItem>
     </Tabs>
-   
+
     Change your `JAVA_HOME` to OpenJ9 (if using the JDK implementation), where `jdk-install-dir` is
     the installation location you specified:
 
@@ -109,7 +109,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     <TabItem value="Command" label="Command" default>
 
     ```bash
-    export JAVA_HOME=jdk-install-dir`
+    export JAVA_HOME=jdk-install-dir
     ```
 
     </TabItem>
@@ -118,7 +118,7 @@ docker image, or install the OpenJ9 JDK using the following steps:
     ```bash
     export JAVA_HOME=/usr/bin/jdk-21.0.3+9
     ```
-   
+
     </TabItem>
     </Tabs>
 

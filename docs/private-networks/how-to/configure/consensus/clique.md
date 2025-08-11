@@ -128,15 +128,15 @@ The Clique API methods are disabled by default. To enable them, specify the [`--
 
 The methods to add or remove signers are:
 
-- [`clique_propose`](../../../reference/api/index.md#clique_propose).
-- [`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
-- [`clique_discard`](../../../reference/api/index.md#clique_discard).
+- [`clique_propose`](../../../reference/api.md#clique_propose).
+- [`clique_getSigners`](../../../reference/api.md#clique_getsigners).
+- [`clique_discard`](../../../reference/api.md#clique_discard).
 
-To view signer metrics for a specified block range, call [`clique_getSignerMetrics`](../../../reference/api/index.md#clique_getsignermetrics).
+To view signer metrics for a specified block range, call [`clique_getSignerMetrics`](../../../reference/api.md#clique_getsignermetrics).
 
 ### Add a signer
 
-To propose adding a signer to a Clique network, call [`clique_propose`](../../../reference/api/index.md#clique_propose), specifying the address of the proposed signer and `true`. A majority of signers must execute the call.
+To propose adding a signer to a Clique network, call [`clique_propose`](../../../reference/api.md#clique_propose), specifying the address of the proposed signer and `true`. A majority of signers must execute the call.
 
 ```bash title="JSON-RPC clique_propose request example"
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_propose","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", true], "id":1}' <JSON-RPC-endpoint:port>
@@ -146,13 +146,13 @@ When the signer creates the next block, the signer adds a vote to the block for 
 
 When more than 50% of the existing signers propose adding the signer, with their votes distributed in blocks, the signer can begin signing blocks.
 
-To return a list of signers and confirm the addition of a proposed signer, call [`clique_getSigners`](../../../reference/api/index.md#clique_getsigners).
+To return a list of signers and confirm the addition of a proposed signer, call [`clique_getSigners`](../../../reference/api.md#clique_getsigners).
 
 ```bash title="JSON-RPC clique_getSigners request example"
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_getSigners","params":["latest"], "id":1}' <JSON-RPC-endpoint:port>
 ```
 
-To discard your proposal after confirming the addition of a signer, call [`clique_discard`](../../../reference/api/index.md#clique_discard) specifying the address of the proposed signer.
+To discard your proposal after confirming the addition of a signer, call [`clique_discard`](../../../reference/api.md#clique_discard) specifying the address of the proposed signer.
 
 ```bash title="JSON-RPC clique_discard request example"
 curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"], "id":1}' <JSON-RPC-endpoint:port>
@@ -160,7 +160,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"clique_discard","params":["0xFE3
 
 ### Remove a signer
 
-The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you specify `false` as the second parameter of [`clique_propose`](../../../reference/api/index.md#clique_propose).
+The process for removing a signer from a Clique network is the same as [adding a signer](#add-a-signer), except you specify `false` as the second parameter of [`clique_propose`](../../../reference/api.md#clique_propose).
 
 ### Epoch transition
 

@@ -97,6 +97,8 @@ to `false`. However, this will increase the sync time and disk space usage.
 
 Instead of downloading the [state trie](data-storage-formats.md) node by node, snap
 sync downloads as many leaves of the trie as possible, and reconstructs the trie locally.
+To enable serving snap sync data to other nodes, set
+[`--snapsync-server-enabled`](../reference/cli/options.md#snapsync-server-enabled) to `true`.
 
 You can't switch from fast sync to snap sync. If your node is blocked in the middle of a fast sync,
 you can start over using snap sync instead by stopping the node, deleting the data directory, and
@@ -171,9 +173,6 @@ headers from the genesis block.
 When starting fast sync, Besu first downloads the world state for a recent block verified by its
 peers (referred to as a pivot block), and then begins fast sync from the genesis block.
 
-Using fast sync with [private transactions](../../private-networks/concepts/privacy/index.md)
-isn't supported.
-
 You can observe the `besu_synchronizer_fast_sync_*` and `besu_synchronizer_world_state_*`
 [metrics](../how-to/monitor/metrics.md#view-the-metrics-list) to monitor fast sync.
 
@@ -230,6 +229,9 @@ Full sync is the default sync mode for the [`dev` network](../reference/cli/opti
 You can enable full sync using [`--sync-mode=FULL`](../reference/cli/options.md#sync-mode).
 Use full sync to run an [archive node](#archive-nodes).
 Full sync starts from the genesis block and reprocesses all transactions.
+
+You can optionally [download and sync pre-merge Ethereum history](../how-to/era1-file-full-sync.md)
+from ERA1 archive files instead of relying on peered nodes for the data.
 
 :::caution important
 Do not run an archive node with the [Bonsai Tries](data-storage-formats.md#bonsai-tries)

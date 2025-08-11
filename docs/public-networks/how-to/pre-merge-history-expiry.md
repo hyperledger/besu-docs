@@ -23,8 +23,6 @@ If you need to restore the full pre-merge history, you can revert to the former 
 all blocks from peers by setting
 [`--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false`](../reference/cli/options.md#snapsync-synchronizer-pre-checkpoint-headers-only-enabled).
 
-Support for Era1 sync for archive nodes is currently in progress.
-
 :::
 
 Besu provides multiple options to prune the historical blockchain data:

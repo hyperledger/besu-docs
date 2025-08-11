@@ -977,6 +977,135 @@ engine-rpc-port="8551"
 
 The listening port for the Engine API calls (`ENGINE`, `ETH`) for JSON-RPC over HTTP and WebSocket. The default is `8551`.
 
+### `era1-data-uri`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-data-uri=<URI>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-data-uri=https://mainnet.era1.nimbus.team/
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_DATA_URI=https://mainnet.era1.nimbus.team/
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-data-uri="https://mainnet.era1.nimbus.team/"
+```
+
+</TabItem>
+
+</Tabs>
+
+The URI or local path to attempt to [import ERA1 files](../../how-to/era1-file-full-sync.md) from. For local files, a simple path may be used
+(for example, `/home/user/era1`). The default is `https://mainnet.era1.nimbus.team/`.
+
+### `era1-import-prepipeline-concurrency`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-import-prepipeline-concurrency=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-import-prepipeline-concurrency=2
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_IMPORT_PREPIPELINE_CONCURRENCY=2
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-import-prepipeline-concurrency=2
+```
+
+</TabItem>
+
+</Tabs>
+
+Number of parallel processes used to [import ERA1 archive files](../../how-to/era1-file-full-sync.md) before full synchronization begins.
+Increasing this may improve performance when loading files from remote sources or on systems with
+high I/O capacity. The default is `1`.
+
+In most cases, we recommend using the default unless slow file downloads are a limiting factor.
+
+### `era1-import-prepipeline-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--era1-import-prepipeline-enabled[=<Boolean>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--era1-import-prepipeline-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ERA1_IMPORT_PREPIPELINE_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+era1-import-prepipeline-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
+
+This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
+
+Use this to accelerate syncing from genesis or to restore full historical data without relying on peer-to-peer downloads.
+
 ### `estimate-gas-tolerance-ratio`
 
 <Tabs>
@@ -2034,8 +2163,6 @@ metrics-category=["BLOCKCHAIN","PEERS","PROCESS"]
 A comma-separated list of categories for which to track metrics. The defaults are `BLOCKCHAIN`, `ETHEREUM`, `EXECUTORS`, `JVM`, `NETWORK`, `PEERS`, `PERMISSIONING`, `PROCESS`, `PRUNER`, `RPC`, `SYNCHRONIZER`, and `TRANSACTION_POOL`.
 
 Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCKSDB_STATS`, and `KVSTORE_PRIVATE_ROCKSDB_STATS`.
-
-Categories containing `PRIVATE` track metrics when you enable [private transactions](../../../private-networks/concepts/privacy/index.md).
 
 ### `metrics-enabled`
 
@@ -3597,7 +3724,7 @@ Sets a limit on the amount of gas for transaction simulation RPC methods.
 This option allows users to override the transaction's gas limit. 
 This can prevent the simulation of transactions with high gas usage by setting a predefined cap, preventing DoS attacks.
 Its value must be greater than or equal to `0`. 
-The default is `50000000`. You can set this to `0` to indicate there is no limit. 
+The default is `100000000`. You can set this to `0` to indicate there is no limit. 
 This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using excessive resources.
 
 ### `rpc-http-api`
@@ -3638,7 +3765,7 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -3661,7 +3788,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-http-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-http-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3669,7 +3796,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -3677,7 +3804,7 @@ BESU_RPC_HTTP_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-http-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-http-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>
@@ -4779,7 +4906,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `PRIV`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -4802,7 +4929,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Example" label="Example">
 
 ```bash
---rpc-ws-api-methods-no-auth=admin_peers,eth_getWork
+--rpc-ws-api-methods-no-auth=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4810,7 +4937,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
+BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,debug_traceCall
 ```
 
 </TabItem>
@@ -4818,7 +4945,7 @@ BESU_RPC_WS_API_METHODS_NO_AUTH=admin_peers,eth_getWork
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-rpc-ws-api-methods-no-auth=["admin_peers","eth_getWork"]
+rpc-ws-api-methods-no-auth=["admin_peers","debug_traceCall"]
 ```
 
 </TabItem>
@@ -5815,6 +5942,43 @@ Name of the security module plugin to use. For example, a Hardware Security Modu
 
 The default is the node's local private key file specified using [`--node-private-key-file`](#node-private-key-file).
 
+### `snapsync-server-enabled`
+
+<Tabs>
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-server-enabled[=<true|false>]
+```
+
+</TabItem>
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-server-enabled=true
+```
+
+</TabItem>
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SERVER_ENABLED=true
+```
+
+</TabItem>
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+snapsync-server-enabled=true
+```
+
+</TabItem>
+</Tabs>
+
+Enables or disables serving [snap sync](../../concepts/node-sync.md#snap-synchronization) data.
+Set to `true` to allow other nodes to download data from this node using snap sync.
+The default is `false`.
+
 ### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`
 
 <Tabs>
@@ -5851,7 +6015,7 @@ snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
 </TabItem>
 </Tabs>
 
-If set to `false`, Snap sync downloads full pre-merge Proof of Work (PoW) historical blocks
+If set to `false`, [snap sync](../../concepts/node-sync.md#snap-synchronization) downloads full pre-merge Proof of Work (PoW) historical blocks
 instead of headers only, allowing full historical data to be retained. The default is `true`.
 
 Setting this option to `false` increases sync time and disk space usage.

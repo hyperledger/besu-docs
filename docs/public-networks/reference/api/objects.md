@@ -12,7 +12,7 @@ The following objects are parameters for or returned by Besu API methods.
 
 :::info
 
-This reference contains API objects that apply to both public and private networks. For private-network-specific API objects, see the [private network API object reference](../../../private-networks/reference/api/objects.md).
+This reference contains API objects that apply to both public and private networks.
 
 :::
 
@@ -87,7 +87,7 @@ Returned by [`eth_feeHistory`](index.md#eth_feehistory) for the requested block 
 
 ## Filter options object
 
-Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.md#eth_getlogs), and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs). Used to [`filter logs`](../../how-to/use-besu-api/access-logs.md).
+Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.md#eth_getlogs), and [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs). Used to [`filter logs`](../../how-to/use-besu-api/access-logs.md).
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |
@@ -96,7 +96,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 | `address` | Data &#124; Array | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics` | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 
-[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs) have an extra key.
+[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs) have an extra key.
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |
@@ -104,7 +104,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 
 ## Log object
 
-Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_getLogs`](../../../private-networks/reference/api/index.md#priv_getlogs).
+Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs).
 [Transaction receipt objects](#transaction-receipt-object) and [call result objects](#call-result-object) can contain an array of log objects.
 
 | Key | Type | Value |
@@ -238,7 +238,7 @@ Returned by [`eth_getTransactionByHash`](index.md#eth_gettransactionbyhash), [`e
 | `maxPriorityFeePerGas` | Quantity, Integer | (Optional) Maximum fee, in Wei, the sender is willing to pay per gas above the base fee. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `maxFeePerGas` | Quantity, Integer | (Optional) Maximum total fee (base fee + priority fee), in Wei, the sender is willing to pay per gas. Used only in [`EIP1559` transactions](../../concepts/transactions/types.md#eip1559-transactions). |
 | `hash` | Data, 32&nbsp;bytes | Hash of the transaction. |
-| `input` | Data | Data sent with the transaction to create or invoke a contract. For [private transactions](../../../private-networks/concepts/privacy/index.md), it's a pointer to the transaction location in [Tessera](https://docs.tessera.consensys.net/). |
+| `input` | Data | Data sent with the transaction to create or invoke a contract. |
 | `nonce` | Quantity | Number of transactions made by the sender before this one. |
 | `to` | Data, 20&nbsp;bytes | Address of the receiver. `null` if a contract creation transaction. |
 | `transactionIndex` | Quantity, Integer | Index position of the transaction in the block. `null` when transaction is pending. |

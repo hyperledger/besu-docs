@@ -1,5 +1,31 @@
 {
-  "rewrites": [
-    { "source": "/:path((?!.*\\.).*)", "destination": "/index.html" }
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/en/latest", "destination": "/", "permanent": true },
+    { "source": "/en/latest/", "destination": "/", "permanent": true },
+    {
+      "source": "/en/latest/:match(.*)",
+      "destination": "/:match(.*)",
+      "permanent": true
+    },
+    { "source": "/en/stable", "destination": "/", "permanent": true },
+    { "source": "/en/stable/", "destination": "/", "permanent": true },
+    {
+      "source": "/en/stable/:match(.*)",
+      "destination": "/:match(.*)",
+      "permanent": true
+    },
+    { "source": "/en/development", "destination": "/", "permanent": true },
+    { "source": "/en/development/", "destination": "/", "permanent": true },
+    {
+      "source": "/en/development/:match(.*)",
+      "destination": "/:match(.*)",
+      "permanent": true
+    },
+    {
+      "source": "/:version(\\d+\\.\\d+\\.\\d+)/:match(.*)",
+      "destination": "/:match",
+      "permanent": true
+    }
   ]
 }

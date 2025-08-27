@@ -75,7 +75,7 @@ To reduce the maximum number of peers, use the [`--max-peers`](../../reference/c
 
 ## Allowlist peers
 
-You can can define specific IP subnets permitted to interact with the node using the [`--net-restrict`](../../reference/cli/options.md#net-restrict) configuration. This restricts access to only those peers whose IP addresses fall within the allowed subnets. This is useful if you maintain a set of nodes and want to restrict which of those can connect to external nodes.
+You can define specific IP subnets permitted to interact with the node using the [`--net-restrict`](../../reference/cli/options.md#net-restrict) configuration. This restricts access to only those peers whose IP addresses fall within the allowed subnets. This is useful if you maintain a set of nodes and want to restrict which of those can connect to external nodes.
 
 ## Limit remote connections
 

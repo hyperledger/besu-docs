@@ -462,7 +462,7 @@ The default is `30000`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bootnodes[=<enode://id@host:port>[,<enode://id@host:port>...]...]
+--bootnodes[=<source>[,<source>...]...]
 ```
 
 </TabItem>
@@ -493,11 +493,19 @@ bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5
 
 </Tabs>
 
-A list of comma-separated [enode URLs](../../concepts/node-keys.md#enode-url) for [P2P discovery bootstrap](../../../private-networks/how-to/configure/bootnodes.md).
+A list of comma-separated sources for [P2P discovery bootstrap](../../../private-networks/how-to/configure/bootnodes.md),
+where each source can be one of the following:
 
+- A direct [enode URL](../../concepts/node-keys.md#enode-url): `enode://<id>@<host>:<port>`
+- A local file path: `/path/to/bootnodes.txt`
+- A file URI: `file:///path/to/bootnodes.txt`
+- An HTTP(S) URL: `https://example.com/bootnodes.txt`
+
+Each file or URL must contain one enode URL per line. Blank lines and lines starting with `#` are ignored.
 When connecting to Mainnet or public testnets, the default is a predefined list of enode URLs.
 
-In private networks defined using [`--genesis-file`](#genesis-file) or when using [`--network=dev`](#network), the default is an empty list of bootnodes.
+In private networks defined using [`--genesis-file`](#genesis-file) or when using
+[`--network=dev`](#network), the default is an empty list of bootnodes.
 
 ### `cache-last-blocks`
 

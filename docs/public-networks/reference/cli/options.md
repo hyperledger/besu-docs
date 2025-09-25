@@ -462,7 +462,7 @@ The default is `30000`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bootnodes[=source>[,<source>...]...]
+--bootnodes[=<source>[,<source>...]...]
 ```
 
 </TabItem>
@@ -494,7 +494,7 @@ bootnodes=["enode://c35c3...d615f@1.2.3.4:30303","enode://f42c13...fc456@1.2.3.5
 </Tabs>
 
 A list of comma-separated sources for [P2P discovery bootstrap](../../../private-networks/how-to/configure/bootnodes.md),
-where each source can be:
+where each source can be one of the following:
 
 - A direct [enode URL](../../concepts/node-keys.md#enode-url): `enode://<id>@<host>:<port>`
 - A local file path: `/path/to/bootnodes.txt`

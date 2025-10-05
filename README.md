@@ -16,7 +16,7 @@ on your own infrastructure.
 
 ### Contribute to the docs
 
-See the [documentation section in the Besu wiki](https://wiki.hyperledger.org/display/BESU/Documentation)
+See the [documentation section in the Besu](https://github.com/hyperledger/besu/blob/main/CONTRIBUTING.md)
 for information about submitting documentation changes and previewing the site locally.
 
 ### Questions?

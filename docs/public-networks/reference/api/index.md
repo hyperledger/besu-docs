@@ -2498,6 +2498,108 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51
 
 </Tabs>
 
+### `eth_config`
+
+Returns the client's current configuration including fork information for the current, next, and last known forks.
+
+:::info
+
+This method is defined in [EIP-7910](https://eips.ethereum.org/EIPS/eip-7910) and enables node operators to verify client readiness for upcoming forks and debug configuration mismatches.
+
+:::
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _object_ - Configuration information containing:
+
+- `current`: _object_ - Current fork configuration:
+  - `activationTime`: _number_ - Fork activation timestamp (Unix epoch seconds)
+  - `blobSchedule`: _object_ - Blob configuration parameters:
+    - `baseFeeUpdateFraction`: _number_ - Base fee update fraction
+    - `max`: _number_ - Maximum number of blobs per block
+    - `target`: _number_ - Target number of blobs per block
+  - `chainId`: _string_ - Chain ID in hexadecimal
+  - `forkId`: _string_ - Fork hash as defined in EIP-6122
+  - `precompiles`: _object_ - Active precompiled contracts with names and addresses
+  - `systemContracts`: _object_ - System contract addresses
+- `next`: _object_ or _null_ - Next fork configuration (null if no future fork scheduled)
+- `last`: _object_ or _null_ - Last known fork configuration (null if no future fork scheduled)
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_config", "params": [], "id": 1 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "current": {
+      "activationTime": 1746612311,
+      "blobSchedule": {
+        "baseFeeUpdateFraction": 5007716,
+        "max": 9,
+        "target": 6
+      },
+      "chainId": "0x1",
+      "forkId": "0x3ff0e375",
+      "precompiles": {
+        "BLS12_G1ADD": "0x000000000000000000000000000000000000000b",
+        "BLS12_G1MSM": "0x000000000000000000000000000000000000000c",
+        "BLS12_G2ADD": "0x000000000000000000000000000000000000000d",
+        "BLS12_G2MSM": "0x000000000000000000000000000000000000000e",
+        "BLS12_MAP_FP2_TO_G2": "0x0000000000000000000000000000000000000011",
+        "BLS12_MAP_FP_TO_G1": "0x0000000000000000000000000000000000000010",
+        "BLS12_PAIRING_CHECK": "0x000000000000000000000000000000000000000f",
+        "BLAKE2F": "0x0000000000000000000000000000000000000009",
+        "BN254_ADD": "0x0000000000000000000000000000000000000006",
+        "BN254_MUL": "0x0000000000000000000000000000000000000007",
+        "BN254_PAIRING": "0x0000000000000000000000000000000000000008",
+        "ECREC": "0x0000000000000000000000000000000000000001",
+        "ID": "0x0000000000000000000000000000000000000004",
+        "KZG_POINT_EVALUATION": "0x000000000000000000000000000000000000000a",
+        "MODEXP": "0x0000000000000000000000000000000000000005",
+        "RIPEMD160": "0x0000000000000000000000000000000000000003",
+        "SHA256": "0x0000000000000000000000000000000000000002"
+      },
+      "systemContracts": {
+        "BEACON_ROOTS_ADDRESS": "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+        "CONSOLIDATION_REQUEST_PREDEPLOY_ADDRESS": "0x0000bbddc7ce488642fb579f8b00f3a590007251",
+        "DEPOSIT_CONTRACT_ADDRESS": "0x00000000219ab540356cbb839cbe05303d7705fa",
+        "HISTORY_STORAGE_ADDRESS": "0x0000f90827f1c53a10cb7a02335b175320002935",
+        "WITHDRAWAL_REQUEST_PREDEPLOY_ADDRESS": "0x00000961ef480eb55e80d19ad83579a64c007002"
+      }
+    },
+    "next": null,
+    "last": null
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `eth_coinbase`
 
 Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.

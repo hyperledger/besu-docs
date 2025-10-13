@@ -2500,7 +2500,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51
 
 ### `eth_config`
 
-Returns the client's current configuration including fork information for the current, next, and last known forks.
+Returns the client's fork information for the current, next, and last known forks.
 
 :::info
 
@@ -2514,20 +2514,20 @@ None
 
 #### Returns
 
-`result`: _object_ - Configuration information containing:
+`result`: _object_ - configuration information containing:
 
-- `current`: _object_ - Current fork configuration:
-  - `activationTime`: _number_ - Fork activation timestamp (Unix epoch seconds)
-  - `blobSchedule`: _object_ - Blob configuration parameters:
-    - `baseFeeUpdateFraction`: _number_ - Base fee update fraction
-    - `max`: _number_ - Maximum number of blobs per block
-    - `target`: _number_ - Target number of blobs per block
-  - `chainId`: _string_ - Chain ID in hexadecimal
-  - `forkId`: _string_ - Fork hash as defined in EIP-6122
-  - `precompiles`: _object_ - Active precompiled contracts with names and addresses
-  - `systemContracts`: _object_ - System contract addresses
-- `next`: _object_ or _null_ - Next fork configuration (null if no future fork scheduled)
-- `last`: _object_ or _null_ - Last known fork configuration (null if no future fork scheduled)
+- `current`: _object_ - current fork configuration:
+  - `activationTime`: _number_ - fork activation timestamp (Unix epoch seconds)
+  - `blobSchedule`: _object_ - blob configuration parameters:
+    - `baseFeeUpdateFraction`: _number_ - base fee update fraction
+    - `max`: _number_ - maximum number of blobs per block
+    - `target`: _number_ - target number of blobs per block
+  - `chainId`: _string_ - chain ID in hexadecimal
+  - `forkId`: _string_ - fork hash as defined in [EIP-6122](https://eips.ethereum.org/EIPS/eip-6122)
+  - `precompiles`: _object_ - active precompiled contracts with names and addresses
+  - `systemContracts`: _object_ - system contract addresses
+- `next`: _object_ or _null_ - next fork configuration (`null` if no future fork is scheduled)
+- `last`: _object_ or _null_ - last known fork configuration (`null` if no future fork is scheduled)
 
 <Tabs>
 
@@ -2562,8 +2562,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}'
         "target": 6
       },
       "chainId": "0x1",
-      "forkId": "0x3ff0e375",
+      "forkId": "0xc376cf8b",
       "precompiles": {
+        "BLAKE2F": "0x0000000000000000000000000000000000000009",
         "BLS12_G1ADD": "0x000000000000000000000000000000000000000b",
         "BLS12_G1MSM": "0x000000000000000000000000000000000000000c",
         "BLS12_G2ADD": "0x000000000000000000000000000000000000000d",
@@ -2571,7 +2572,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}'
         "BLS12_MAP_FP2_TO_G2": "0x0000000000000000000000000000000000000011",
         "BLS12_MAP_FP_TO_G1": "0x0000000000000000000000000000000000000010",
         "BLS12_PAIRING_CHECK": "0x000000000000000000000000000000000000000f",
-        "BLAKE2F": "0x0000000000000000000000000000000000000009",
         "BN254_ADD": "0x0000000000000000000000000000000000000006",
         "BN254_MUL": "0x0000000000000000000000000000000000000007",
         "BN254_PAIRING": "0x0000000000000000000000000000000000000008",

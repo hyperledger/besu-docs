@@ -2526,9 +2526,9 @@ None
   - `forkId`: _string_ - fork hash as defined in [EIP-6122](https://eips.ethereum.org/EIPS/eip-6122)
   - `precompiles`: _object_ - active precompiled contracts with names and addresses
   - `systemContracts`: _object_ - system contract addresses
-- `next`: _object_ or _null_ - next fork configuration. `null` if no future fork is scheduled.
-- `last`: _object_ or _null_ - the furthest configured future fork configuration (the future fork with
-    the largest `activationTime` among the client’s configured forks). If only one future fork is configured, `next` and `last` are the same object. `null` if no future fork is scheduled.
+- `next`: _object_ - next fork configuration, or `null` if no future fork is scheduled.
+- `last`: _object_ - the furthest configured future fork configuration (the future fork with
+    the largest `activationTime` among the client's configured forks). If only one future fork is configured, `next` and `last` are the same object. `null` if no future fork is scheduled.
 
 <Tabs>
 

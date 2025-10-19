@@ -2498,6 +2498,109 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51
 
 </Tabs>
 
+### `eth_config`
+
+Returns the client's fork information for the current, next, and last known forks.
+
+:::info
+
+This method is defined in [EIP-7910](https://eips.ethereum.org/EIPS/eip-7910) and enables node operators to verify client readiness for upcoming forks and debug configuration mismatches.
+
+:::
+
+#### Parameters
+
+None
+
+#### Returns
+
+`result`: _object_ - configuration information containing:
+
+- `current`: _object_ - current fork configuration:
+  - `activationTime`: _number_ - fork activation timestamp (Unix epoch seconds)
+  - `blobSchedule`: _object_ - blob configuration parameters:
+    - `baseFeeUpdateFraction`: _number_ - base fee update fraction
+    - `max`: _number_ - maximum number of blobs per block
+    - `target`: _number_ - target number of blobs per block
+  - `chainId`: _string_ - chain ID in hexadecimal
+  - `forkId`: _string_ - fork hash as defined in [EIP-6122](https://eips.ethereum.org/EIPS/eip-6122)
+  - `precompiles`: _object_ - active precompiled contracts with names and addresses
+  - `systemContracts`: _object_ - system contract addresses
+- `next`: _object_ - next fork configuration, or `null` if no future fork is scheduled.
+- `last`: _object_ - the furthest configured future fork configuration (the future fork with
+    the largest `activationTime` among the client's configured forks). If only one future fork is configured, `next` and `last` are the same object. `null` if no future fork is scheduled.
+
+<Tabs>
+
+<TabItem value="curl HTTP request" label="curl HTTP request" default>
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+```
+
+</TabItem>
+
+<TabItem value="wscat WS request" label="wscat WS request">
+
+```json
+{ "jsonrpc": "2.0", "method": "eth_config", "params": [], "id": 1 }
+```
+
+</TabItem>
+
+<TabItem value="JSON result" label="JSON result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "current": {
+      "activationTime": 1746612311,
+      "blobSchedule": {
+        "baseFeeUpdateFraction": 5007716,
+        "max": 9,
+        "target": 6
+      },
+      "chainId": "0x1",
+      "forkId": "0xc376cf8b",
+      "precompiles": {
+        "BLAKE2F": "0x0000000000000000000000000000000000000009",
+        "BLS12_G1ADD": "0x000000000000000000000000000000000000000b",
+        "BLS12_G1MSM": "0x000000000000000000000000000000000000000c",
+        "BLS12_G2ADD": "0x000000000000000000000000000000000000000d",
+        "BLS12_G2MSM": "0x000000000000000000000000000000000000000e",
+        "BLS12_MAP_FP2_TO_G2": "0x0000000000000000000000000000000000000011",
+        "BLS12_MAP_FP_TO_G1": "0x0000000000000000000000000000000000000010",
+        "BLS12_PAIRING_CHECK": "0x000000000000000000000000000000000000000f",
+        "BN254_ADD": "0x0000000000000000000000000000000000000006",
+        "BN254_MUL": "0x0000000000000000000000000000000000000007",
+        "BN254_PAIRING": "0x0000000000000000000000000000000000000008",
+        "ECREC": "0x0000000000000000000000000000000000000001",
+        "ID": "0x0000000000000000000000000000000000000004",
+        "KZG_POINT_EVALUATION": "0x000000000000000000000000000000000000000a",
+        "MODEXP": "0x0000000000000000000000000000000000000005",
+        "RIPEMD160": "0x0000000000000000000000000000000000000003",
+        "SHA256": "0x0000000000000000000000000000000000000002"
+      },
+      "systemContracts": {
+        "BEACON_ROOTS_ADDRESS": "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+        "CONSOLIDATION_REQUEST_PREDEPLOY_ADDRESS": "0x0000bbddc7ce488642fb579f8b00f3a590007251",
+        "DEPOSIT_CONTRACT_ADDRESS": "0x00000000219ab540356cbb839cbe05303d7705fa",
+        "HISTORY_STORAGE_ADDRESS": "0x0000f90827f1c53a10cb7a02335b175320002935",
+        "WITHDRAWAL_REQUEST_PREDEPLOY_ADDRESS": "0x00000961ef480eb55e80d19ad83579a64c007002"
+      }
+    },
+    "next": null,
+    "last": null
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### `eth_coinbase`
 
 Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.

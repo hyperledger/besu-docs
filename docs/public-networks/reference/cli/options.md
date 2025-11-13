@@ -3286,7 +3286,7 @@ plugin-block-txs-selection-max-time=50
 </Tabs>
 
 Maximum time, as a percentage of the overall block creation time, that [plugins](../../concepts/plugins.md) can use to propose their own transactions during block creation.
-The default is `50`, meaning plugins can use up to 50% of the total block creation time.
+The default is `50`: limiting plugins to up to 50% of the total block creation time.
 
 ### `plugin-continue-on-error`
 

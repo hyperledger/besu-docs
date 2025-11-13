@@ -54,7 +54,7 @@ The [command line reference](../../reference/cli/options.md) includes configurat
 
 ```toml title="Sample TOML configuration file"
 # Valid TOML config file
-data-path="~/besudata" # Path
+data-path="/path/to/besudata" # Path
 
 # Network
 bootnodes=["enode://001@123:4567", "enode://002@123:4567", "enode://003@123:4567"]
@@ -70,7 +70,7 @@ rpc-ws-host="9.10.11.12"
 rpc-ws-port=9101
 
 # Chain
-genesis-file="~/genesis.json" # Path to the custom genesis file
+genesis-file="/path/to/genesis.json" # Path to the custom genesis file
 
 # Mining
 miner-enabled=true
@@ -106,7 +106,7 @@ For example, extending the default configuration using the [staker profile](prof
 
 |Configuration option|Default|Description|
 |---------------------------|--------------------|------------------------------------------|
-|[`sync-mode`](../../reference/cli/options.md#sync-mode)|`SNAP`|Besu syncs using [snap sync](../../get-started/connect/sync-node.md#snap-synchronization), the most time-efficient sync method.|
+|[`sync-mode`](../../reference/cli/options.md#sync-mode)|`SNAP`|Besu syncs using [snap sync](../../concepts/node-sync.md#snap-synchronization), the most time-efficient sync method.|
 
 :::note
 You can see all default configuration values in the [configuration options reference](../../reference/cli/options.md).

@@ -18,27 +18,47 @@ In production networks, [configure two or more nodes as bootnodes](#configure-bo
 
 Bootnodes and static nodes are parallel methods for finding peers. Depending on your use case, you can use only bootnodes, only static nodes, or both bootnodes and static nodes.
 
+When connecting to bootnodes, Besu attempts to connect to all bootnodes at once, at startup.
+When connecting to static nodes, Besu attempts to reconnect periodically, if the connection fails or is lost.
+
 To find peers, configure one or more bootnodes. To configure a specific set of peer connections, use [static nodes](../../../public-networks/how-to/connect/static-nodes.md).
 
 :::
 
 :::note Mainnet and public testnets
 
-For Mainnet and the Sepolia and Holesky testnets, Besu has an internal list of enode URLs and uses this list automatically when you specify the [`--network`](../../../public-networks/reference/cli/options.md#network) option.
+For Mainnet and the Sepolia, Ephemery and Holesky testnets, Besu has an internal list of enode URLs and uses this list automatically when you specify the [`--network`](../../../public-networks/reference/cli/options.md#network) option.
 
 :::
 
 ## Specify a bootnode
 
-To start a node, specify a bootnode [enode](../../../public-networks/concepts/node-keys.md) for P2P discovery, using the [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option.
+To start a node, specify a bootnode [enode](../../../public-networks/concepts/node-keys.md) for P2P
+discovery, using the [`--bootnodes`](../../../public-networks/reference/cli/options.md#bootnodes) option.
 
 ```bash
 besu --genesis-file=privateNetworkGenesis.json --data-path=nodeDataPath --bootnodes=enode://c35c3ec90a8a51fd5703594c6303382f3ae6b2ecb99bab2c04b3794f2bc3fc2631dabb0c08af795787a6c004d8f532230ae6e9925cbbefb0b28b79295d615f@127.0.0.1:30303
 ```
 
-The default host and port advertised to other peers for P2P discovery is `127.0.0.1:30303`. To specify a different host or port, use the [`--p2p-host`](../../../public-networks/reference/cli/options.md#p2p-host) and [`--p2p-port`](../../../public-networks/reference/cli/options.md#p2p-port) options.
+The `--bootnodes` option also accepts files or URLs:
+- A local file path: `/path/to/bootnodes.txt`
+- A file URI: `file:///path/to/bootnodes.txt`
+- An HTTP(S) URL: `https://example.com/bootnodes.txt`
 
-By default, peer discovery listens on all available network interfaces. If the device Besu is running on must bind to a specific network interface, specify the interface using the [`--p2p-interface`](../../../public-networks/reference/cli/options.md#p2p-interface) option.
+You can mix sources, comma-separated, together with direct enode URLs:
+
+```bash
+besu --bootnodes=/etc/besu/bootnodes.txt,https://example.com/enodes.txt,enode://c35c3...d615f@1.2.3.4:30303
+```
+
+The default host and port advertised to other peers for P2P discovery is `127.0.0.1:30303`.
+To specify a different host or port, use the
+[`--p2p-host`](../../../public-networks/reference/cli/options.md#p2p-host) and
+[`--p2p-port`](../../../public-networks/reference/cli/options.md#p2p-port) options.
+
+By default, peer discovery listens on all available network interfaces. If the device Besu is running
+on must bind to a specific network interface, specify the interface using the
+[`--p2p-interface`](../../../public-networks/reference/cli/options.md#p2p-interface) option.
 
 ## Configure bootnodes in a production network
 

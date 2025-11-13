@@ -19,8 +19,6 @@ Access logs using the following Besu API methods:
 
 Use [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) to create the filter before using [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) and [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)).
 
-Access logs for [private contracts](../../../private-networks/concepts/privacy/index.md) using the equivalent [`priv_*` methods and specifying the privacy group ID](#filters-for-private-contracts). For example, [`priv_getLogs`](../../reference/api/index.md#priv_getlogs).
-
 :::note
 
 The following examples use the sample contract included in [events and logs](../../concepts/events-and-logs.md).
@@ -136,40 +134,9 @@ You can use [`eth_getLogs`](#get-logs-using-a-filter-options-object) with a filt
 
 When a filter is no longer required, use [`eth_uninstallFilter`](../../reference/api/index.md#eth_uninstallfilter) to remove the filter.
 
-## Filters for private contracts
-
-Filters for private contracts are created, accessed, and uninstalled using:
-
-- [`priv_getFilterChanges`](../../reference/api/index.md#priv_getfilterchanges)
-- [`priv_getFilterLogs`](../../reference/api/index.md#priv_getfilterlogs)
-- [`priv_getLogs`](../../reference/api/index.md#priv_getlogs)
-- [`priv_newFilter`](../../reference/api/index.md#priv_newfilter)
-- [`priv_uninstallFilter`](../../reference/api/index.md#priv_uninstallfilter).
-
-The [privacy group ID](../../../private-networks/concepts/privacy/index.md) must be specified as parameter 0 for the `priv` methods.
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "priv_newFilter",
-  "params": [
-    "4rFldHM792LeP/e2WPkTXZedjwKuTr/KwCFTt6mBbkI=",
-    {
-      "fromBlock": "earliest",
-      "toBlock": "latest",
-      "addresses": ["0x991cc548c154b2953cc48c02f782e1314097dfbb"],
-      "topics": [
-        "0x85bea11d86cefb165374e0f727bacf21dc2f4ea816493981ecf72dcfb212a410"
-      ]
-    }
-  ],
-  "id": 1
-}
-```
-
 ## Get logs using a filter options object
 
-To get all logs for a filter options object, use [`eth_getLogs`](../../reference/api/index.md#eth_getlogs) or [`priv_getLogs`](../../reference/api/index.md#priv_getlogs) for a private contract.
+To get all logs for a filter options object, use [`eth_getLogs`](../../reference/api/index.md#eth_getlogs) or [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs) for a private contract.
 
 The following request for `eth_getLogs` returns all the logs where the example contract has been deployed to `0x42699a7612a82f1d9c36148af9c77354759b210b` and executed with `valueIndexed` set to 5.
 
@@ -192,4 +159,4 @@ The following request for `eth_getLogs` returns all the logs where the example c
 }
 ```
 
-The above example returns the same result as calling [eth_newFilter](#creating-a-filter) followed by [eth_getFilterLogs](#getting-all-logs-for-a-filter).
+The above example returns the same result as calling [eth_newFilter](#create-a-filter) followed by [eth_getFilterLogs](#get-all-logs-for-a-filter).

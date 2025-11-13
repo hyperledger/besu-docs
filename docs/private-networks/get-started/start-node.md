@@ -30,18 +30,18 @@ Predefined genesis configurations for named networks are in the [Besu source fil
 
 ## Confirm node is running
 
-If you started Besu with the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option, use [cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../reference/api/index.md) to confirm the node is running.
+If you started Besu with the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option, use [cURL](https://curl.haxx.se/) to call [JSON-RPC API methods](../reference/api.md) to confirm the node is running.
 
 - `eth_chainId` returns the chain ID of the network.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
 - `eth_syncing` returns the starting, current, and highest block.
 
   ```bash
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
   ```
 
   For example, after connecting to Mainnet, `eth_syncing` will return something similar to:
@@ -107,7 +107,7 @@ You might need to set [`--tx-pool-limit-by-account-percentage`](../../public-net
 
 :::note Sync nodes for BFT
 
-If you're running a node on a [QBFT](../how-to/configure/consensus/qbft.md) or [IBFT 2.0](../how-to/configure/consensus/ibft.md) network, your node must use [fast sync](../../public-networks/get-started/connect/sync-node.md#fast-synchronization) or [full sync](../../public-networks/get-started/connect/sync-node.md#run-an-archive-node). 
+If you're running a node on a [QBFT](../how-to/configure/consensus/qbft.md) or [IBFT 2.0](../how-to/configure/consensus/ibft.md) network, your node must use [fast sync](../../public-networks/concepts/node-sync.md#fast-synchronization-deprecated) or [full sync](../../public-networks/concepts/node-sync.md#full-synchronization). 
 
 Full sync is set by default.
 

@@ -312,10 +312,10 @@ The command line specifies:
 
 ### 10. Confirm the private network is working
 
-Start another terminal, use curl to call the JSON-RPC API [`qbft_getvalidatorsbyblocknumber`](../reference/api/index.md#qbft_getvalidatorsbyblocknumber) method and confirm the network has four validators:
+Start another terminal, use curl to call the JSON-RPC API [`qbft_getvalidatorsbyblocknumber`](../reference/api.md#qbft_getvalidatorsbyblocknumber) method and confirm the network has four validators:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"qbft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result displays the four validators:
@@ -365,7 +365,7 @@ If a new key was created, the validator key specified in the configuration does 
 
 ## Next steps
 
-Use the [QBFT API](../reference/api/index.md#qbft-methods) to remove or add validators, or import accounts to MetaMask and send transactions as described in the [Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
+Use the [QBFT API](../reference/api.md#qbft-methods) to remove or add validators, or import accounts to MetaMask and send transactions as described in the [Quickstart tutorial](quickstart.md#create-a-transaction-using-metamask).
 
 :::note
 

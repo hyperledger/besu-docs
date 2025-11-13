@@ -21,7 +21,7 @@ networks.
 small, stable networks.
 
 :::info
-You can use [`admin_addPeer`](../../reference/cli/options.md#admin_addpeer) to attempt a specific
+You can use [`admin_addPeer`](../../reference/api/index.md#admin_addpeer) to attempt a specific
 connection, but this isn't P2P discovery.
 :::
 
@@ -57,7 +57,7 @@ In detail, the P2P discovery process is as follows:
    as network details, what the peer believes to be the current chain head, and its list of neighbors.
    From this point on any traffic to that peer is only done using TCP.
 
-5. Depending on the [synchronization method](../../get-started/connect/sync-node.md), a common block
+5. Depending on the [synchronization method](../../concepts/node-sync.md), a common block
    (the pivot block) is selected that all connected peers (default of 5) have, and Besu syncs from
    that block till it gets to chain head.
    Log messages look like `Downloading world state from peers for pivot block .......`.
@@ -75,11 +75,11 @@ To reduce the maximum number of peers, use the [`--max-peers`](../../reference/c
 
 ## Allowlist peers
 
-You can can define specific IP subnets permitted to interact with the node using the [`--net-restrict`](../../reference/cli/options.md#net-restrict) configuration. This restricts access to only those peers whose IP addresses fall within the allowed subnets. This is useful if you maintain a set of nodes and want to restrict which of those can connect to external nodes.
+You can define specific IP subnets permitted to interact with the node using the [`--net-restrict`](../../reference/cli/options.md#net-restrict) configuration. This restricts access to only those peers whose IP addresses fall within the allowed subnets. This is useful if you maintain a set of nodes and want to restrict which of those can connect to external nodes.
 
 ## Limit remote connections
 
-Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and [`--fast-sync-min-peers`](../../reference/cli/options.md##sync-min-peers-fast-sync-min-peers) on public networks by enabling the [remote connection limits](../../reference/cli/options.md#remote-connections-limit-enabled).
+Prevent eclipse attacks when using [`--sync-mode`](../../reference/cli/options.md#sync-mode) and [`--fast-sync-min-peers`](../../reference/cli/options.md#sync-min-peers-fast-sync-min-peers) on public networks by enabling the [remote connection limits](../../reference/cli/options.md#remote-connections-limit-enabled).
 
 In private and permissioned networks with only trusted peers, enabling the remote connection limits is unnecessary and might adversely affect the speed at which nodes can join the network. Limiting remote connections can cause a closed group of peers to form when the number of nodes in the network is slightly higher than [`--max-peers`](../../reference/cli/options.md#max-peers). The nodes in this closed group are all connected to each other and can't accept more connections.
 

@@ -1,7 +1,7 @@
 ---
-title: Create an Ethash network
+title: (Deprecated) Create an Ethash network
 sidebar_position: 5
-description: Create a private network using the Ethash consensus protocol.
+description: Create a private network using the (deprecated) Ethash consensus protocol.
 tags:
   - private networks
 ---
@@ -9,7 +9,13 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a private network using Ethash
+# Create a private network using Ethash (Deprecated)
+
+:::caution
+
+PoW consensus is deprecated in Besu version 24.11.0 and later. Please read this [blog post](https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu) for more context on the rationale behind this decision as well as alternative options.
+
+:::
 
 A private network provides a configurable network for testing. By configuring a low difficulty and enabling mining, this allows for fast block creation.
 
@@ -202,7 +208,7 @@ The command line specifies:
 Start another terminal, use curl to call the JSON-RPC API [`net_peerCount`](../../public-networks/reference/api/index.md#net_peercount) method and confirm the nodes are functioning as peers:
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545/ -H "Content-Type: application/json"
 ```
 
 The result confirms Node-1 (the node running the JSON-RPC service) has two peers (Node-2 and Node-3):

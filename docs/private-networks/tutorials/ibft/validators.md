@@ -75,14 +75,14 @@ besu --data-path=IBFT-Network/Node-5/data public-key export-address
 
 ### 4. Propose adding the new validator
 
-Propose adding the new validator from more than half the number of current validators, using [`ibft_proposeValidatorVote`](../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote), specifying the address of the proposed validator and `true`:
+Propose adding the new validator from more than half the number of current validators, using [`ibft_proposeValidatorVote`](../../reference/api.md#ibft_proposevalidatorvote), specifying the address of the proposed validator and `true`:
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0x90626e6a67445aabf1c0615410d108d4733aa90b", true], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_proposeValidatorVote","params":["0x90626e6a67445aabf1c0615410d108d4733aa90b", true], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -104,14 +104,14 @@ Repeat the proposal process for this candidate node from at least two of the oth
 
 ### 5. Verify the addition of the new validator
 
-Verify that the new validator is now in the list of validators using [`ibft_getValidatorsByBlockNumber`](../../../public-networks/reference/api/index.md#ibft_getvalidatorsbyblocknumber):
+Verify that the new validator is now in the list of validators using [`ibft_getValidatorsByBlockNumber`](../../reference/api.md#ibft_getvalidatorsbyblocknumber):
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 </TabItem>
 
@@ -134,4 +134,4 @@ The list of validators contains 5 addresses now.
 
 ## Remove a validator
 
-The process for removing a validator is similar to [adding a validator](#add-a-validator) starting from step 2, except you specify `false` as the second parameter of [`ibft_proposeValidatorVote`](../../../public-networks/reference/api/index.md#ibft_proposevalidatorvote).
+The process for removing a validator is similar to [adding a validator](#add-a-validator) starting from step 2, except you specify `false` as the second parameter of [`ibft_proposeValidatorVote`](../../reference/api.md#ibft_proposevalidatorvote).

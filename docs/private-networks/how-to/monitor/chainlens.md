@@ -1,7 +1,7 @@
 ---
 title: Use Chainlens Explorer
 sidebar_position: 7
-description: Use Chainlens Explorer on a privacy-enabled Besu network
+description: Use Chainlens Explorer on a Besu network
 tags:
   - private networks
 ---
@@ -10,15 +10,13 @@ tags:
 
 [Chainlens Blockchain Explorer](https://chainlens.com/) supports public and private EVM networks.
 This page describes how to use the free version of Chainlens with its built-in support for
-[privacy-enabled](../../concepts/privacy/index.md) Besu networks created using the
+Besu networks created using the
 [Developer Quickstart](../../tutorials/quickstart.md).
 
 Chainlens provides an overview of the entire network, including block information, contract
 metadata, transaction searches, and [more](https://chainlens.com/).
 
 :::note
-You must connect to one of the privacy nodes (for example, `member1besu`), not the dedicated RPC, to
-allow access for Besu [privacy API methods](../../reference/api/index.md#priv-methods).
 In production networks, you must [secure access](../../../public-networks/how-to/use-besu-api/authenticate.md)
 to RPC nodes.
 :::
@@ -64,7 +62,7 @@ This may take 5–10 minutes for the all services to start and the ingestion syn
 After starting Chainlens, you can view information about your network.
 
 :::note
-Screenshots in this section are taken from the [Chainlens Holesky network](https://holesky.chainlens.com/dashboard).
+Screenshots in this section are taken from the Chainlens Holesky network.
 :::
 
 The **Dashboard** page provides an aggregated view of network activities.
@@ -72,7 +70,7 @@ The **Dashboard** page provides an aggregated view of network activities.
 ![`Chainlens_dashboard`](../../../assets/images/chainlens-dashboard.png)
 
 The **Network** page provides an overview of the network status and connected peers.
-This page is disabled by default, and is only visible if you set `DISPLAY_NETWOR_TAB=enabled` using
+This page is disabled by default, and is only visible if you set `DISPLAY_NETWORK_TAB=enabled` using
 the following command:
 
 ```bash

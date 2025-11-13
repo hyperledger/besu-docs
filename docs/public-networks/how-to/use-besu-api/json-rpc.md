@@ -86,7 +86,7 @@ To make RPC requests over HTTP, you can use [`curl`](https://curl.haxx.se/downlo
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port>
+curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>","params":[<method-parameters>]}' <JSON-RPC-http-endpoint:port> -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -94,7 +94,7 @@ curl -X POST --data '{"jsonrpc":"2.0","id":<request-ID>,"method":"<method-name>"
 <TabItem value="curl HTTP request" label="curl HTTP request">
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555
+curl -X POST --data '{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -120,7 +120,7 @@ You can use `curl` to make multiple RPC requests (batch requests) over HTTP at t
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555
+curl -X POST --data '[{"jsonrpc":"2.0","id":"1","method":"eth_blockNumber","params":[]}, {"jsonrpc":"2.0","id":"2","method":"admin_peers","params":[]}]' http://127.0.0.1:8555/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -333,11 +333,14 @@ The block parameter can have one of the following values:
   :::
 
 - `earliest` : _tag_ - The earliest (genesis) block.
-- `latest` : _tag_ - The last block mined.
-- `pending` : _tag_ - When used with [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount),
-  refers to the last block mined plus pending transactions.
-  When used with [`qbft_getValidatorsByBlockNumber`](../../../private-networks/reference/api/index.md#qbft_getvalidatorsbyblocknumber),
-  returns a list of validators that will be used to produce the next block.
+- `latest` : _tag_ - The most recent block.
+- `pending` : _tag_ - The next anticipated block, except in the following cases:
+  - For some methods (specified in their parameter description), `pending` returns the
+    same value as `latest`.
+  - For [`eth_getTransactionCount`](../../reference/api/index.md#eth_gettransactioncount),
+    `pending` refers to the most recent block plus pending transactions.
+  - For [`qbft_getValidatorsByBlockNumber`](../../../private-networks/reference/api.md#qbft_getvalidatorsbyblocknumber),
+    `pending` returns a list of validators that will be used to produce the next block.
 - `finalized` : _tag_ - The most recent crypto-economically secure block.
   It cannot be reorganized outside manual intervention driven by community coordination.
 - `safe` : _tag_ - The most recent block that is safe from reorganization under honest majority and

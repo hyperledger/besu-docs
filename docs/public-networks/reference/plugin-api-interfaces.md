@@ -3,12 +3,13 @@ title: Plugin API interfaces
 sidebar_position: 4
 description: Plugin interfaces
 tags:
+  - public networks
   - private networks
 ---
 
 # Plugin API interfaces
 
-API interfaces in Besu allow users to [build plugins](../concepts/plugins.md) to extend Besu functionality.
+API interfaces in Besu allow users to [build plugins](../concepts/plugins.md) to extend Besu's functionality.
 
 For more information about the available interfaces, see the [Plugin API Javadoc](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/index.html).
 
@@ -24,7 +25,7 @@ The following table lists the interfaces providing core plugin classes.
 
 | Interface | Description |
 | --- | --- |
-| [**BesuContext**](https://wiki.hyperledger.org/display/BESU/BesuContext) | Allows plugins to access Besu services. |
+| [**ServiceManager**](https://wiki.hyperledger.org/display/BESU/BesuContext) | Allows plugins to access Besu services. |
 | [**BesuPlugin**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/BesuPlugin.html) | Used to manage the plugin lifecycle. |
 
 ## Plugin services
@@ -43,7 +44,6 @@ The following table lists interfaces providing services you can retrieve.
 | [**SecurityModuleService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/SecurityModuleService.html) | Allows plugins to register a security module. |
 | [**StorageService**](https://javadoc.io/doc/org.hyperledger.besu/plugin-api/latest/org/hyperledger/besu/plugin/services/StorageService.html) | Allows plugins to register as a storage engine. For example, to connect to a hardware security module (HSM). |
 | [**PermissioningService**](https://wiki.hyperledger.org/display/BESU/PermissioningService) | Allows for fine grain control of node connection and node messaging permissioning. |
-| [**PrivacyPluginService**](https://wiki.hyperledger.org/display/BESU/PrivacyPluginService) | Provides a way to define how [privacy marker transactions] are created, and what private genesis to use. |
 | [**RpcEndpointService**](https://wiki.hyperledger.org/display/BESU/RpcEndpointService) | Register custom RPC endpoints. |
 
 To use the interfaces in your plugin, ensure the [Gradle build file](https://github.com/ConsenSys/PluginsAPIDemo/blob/957628b3c6f533f3c3f405e2a17e369cd1f02c31/build.gradle) contains the `https://hyperledger.jfrog.io/hyperledger/besu-maven` repository and the `plugin-api` dependency.
@@ -57,5 +57,3 @@ It's in our roadmap to improve lifecycle steps and provide additional visibility
 The `start` step can be ignored and your plugin module will be instantiated when the command line interface is parsed and available.
 
 :::
-
-[privacy marker transactions]: ../concepts/privacy/private-transactions/processing.md

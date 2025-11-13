@@ -6,6 +6,9 @@ tags:
   - private networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Run Besu from a Docker image
 
 Besu provides a Docker image to run a Besu node in a Docker container.
@@ -66,9 +69,21 @@ When running in a Docker container, [`--nat-method`](../../../public-networks/ho
 
 You can specify [Besu environment variables](../../../public-networks/reference/cli/options.md#specify-options) with the Docker image instead of the command line options.
 
-```bash
-docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=holesky hyperledger/besu:latest
-```
+<Tabs>
+  <TabItem value="Holesky" label="Holesky">
+
+  ```bash
+  docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=holesky hyperledger/besu:latest
+  ```
+  </TabItem>
+
+  <TabItem value="Ephemery" label="Ephemery">
+  
+  ```bash
+  docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=ephemery hyperledger/besu:latest
+  ```
+  </TabItem>
+</Tabs>
 
 :::caution "Unsupported address type exception"
 
@@ -107,3 +122,7 @@ To delete a container:
 ```bash
 docker rm <container-name>
 ```
+
+## Upgrade Besu
+
+See the [Upgrade Besu](../../../public-networks/how-to/upgrade-node.md#upgrade-on-docker) guide for instructions on upgrading Besu on Docker.

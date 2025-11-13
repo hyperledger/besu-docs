@@ -12,7 +12,8 @@ import TabItem from '@theme/TabItem';
 
 # Authenticate and authorize JSON-RPC
 
-Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using [JSON Web Tokens (JWT)](https://jwt.io/introduction/). JWT is also used in [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md) to verify tenant data access.
+Authentication identifies a user, and authorization verifies user access to requested JSON-RPC methods. Besu verifies users using
+[JSON Web Tokens (JWT)](https://jwt.io/introduction/).
 
 Besu supports two mutually exclusive authentication methods:
 
@@ -47,12 +48,10 @@ The `toml` credentials file defines user details and the JSON-RPC methods they c
 [Users.username1]
 password = "$2a$10$l3GA7K8g6rJ/Yv.YFSygCuI9byngpEzxgWS9qEg5emYDZomQW7fGC"
 permissions=["net:*","eth:blockNumber"]
-privacyPublicKey="U7ANiOOd5L9Z/dMxRFjdbhA1Qragw6fLuYgmgCvLoX4="
 
 [Users.username2]
 password = "$2b$10$6sHt1J0MVUGIoNKvJiK33uaZzUwNmMmJlaVLkIwinkPiS1UBnAnF2"
 permissions=["net:version","admin:*"]
-privacyPublicKey="quhb1pQPGN1w8ZSZSyiIfncEAlVY/M/rauSyQ5wVMRE="
 ```
 
 Each user requiring JSON-RPC access the configuration file lists the:
@@ -60,7 +59,6 @@ Each user requiring JSON-RPC access the configuration file lists the:
 - Username. `Users.` is mandatory and followed by the username. That is, replace `<username>` in `[Users.<username>]` with the username.
 - Hash of the user password. Use the [`password hash`](../../reference/cli/subcommands.md#password) subcommand to generate the hash.
 - [JSON-RPC permissions](#json-rpc-permissions).
-- Optional. The tenant's Tessera public key using `privacyPublicKey`. Only used for [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md).
 
 <Tabs>
 
@@ -214,9 +212,10 @@ option depending on your needs.
 :::danger Private key security
 
 The private key must be kept secret. Never share private keys publicly or on a Web site, even if advertised as secure.
-
-Always keep your private keys safe -- ideally using [hardware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- and define a strong security policy and [best practices](https://auth0.com/docs/best-practices/token-best-practices).
-
+<!-- markdown-link-check-disable -->
+Always keep your private keys safe -- ideally using [hardware](https://connect2id.com/products/nimbus-jose-jwt/examples/pkcs11) or [vault](https://www.vaultproject.io/docs/secrets/identity/identity-token) -- and define a strong security policy and
+[best practices](https://auth0.com/docs/secure/tokens/token-best-practices).
+<!-- markdown-link-check-enable -->
 Compromised keys can provide attackers access to your node's RPC-API.
 
 :::
@@ -239,7 +238,6 @@ Each payload for the JWT must contain:
 
 - [JSON-RPC permissions](#json-rpc-permissions)
 - [`exp` (Expiration Time) claim](https://tools.ietf.org/html/rfc7519#section-4.1.4)
-- Optionally, the tenant's Tessera public key using `privacyPublicKey`. Only used for [multi-tenancy](../../../private-networks/concepts/privacy/multi-tenancy.md).
 
 <Tabs>
 
@@ -248,7 +246,6 @@ Each payload for the JWT must contain:
 ```json
 {
   "permissions": ["*:*"],
-  "privacyPublicKey": "2UKH3VJThkOoKskrLFpwoxCnnRARyobV1bEdgseFHTs=",
   "exp": 1600899999002
 }
 ```
@@ -306,7 +303,7 @@ Specify the `Bearer` in the header.
 <TabItem value="cURL Request with authentication placeholders" label="cURL Request with authentication placeholders" default>
 
 ```bash
-curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
+curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port> -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -314,7 +311,7 @@ curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method
 <TabItem value="cURL Request with authentication" label="cURL Request with authentication">
 
 ```bash
-curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545
+curl -X POST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyIqOioiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTU1MDQ2MTQxNiwiZXhwIjoxNTUwNDYxNzE2fQ.WQ1mqpqzRLHaoL8gOSEZPvnRs_qf6j__7A3Sg8vf9RKvWdNTww_vRJF1gjcVy-FFh96AchVnQyXVx0aNUz9O0txt8VN3jqABVWbGMfSk2T_CFdSw5aDjuriCsves9BQpP70Vhj-tseaudg-XU5hCokX0tChbAqd9fB2138zYm5M' -d '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' http://localhost:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>

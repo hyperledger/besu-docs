@@ -1,6 +1,7 @@
 ---
 title: Deploy Besu using Kubernetes
 description: Deploy a Besu node using Kubernetes.
+sidebar_position: 3
 toc_max_heading_level: 3
 tags:
   - public networks

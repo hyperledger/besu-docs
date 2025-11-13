@@ -26,7 +26,7 @@ const CardList: CardItem[] = [
     // prettier-ignore
     description: (
       <>
-        Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Holesky and Sepolia.
+        Run Besu as an execution client on Ethereum Mainnet and Ethereum public testnets, such as Holesky, Hoodi, Ephemery, and Sepolia.
       </>
     ),
     buttonName: "Get started",

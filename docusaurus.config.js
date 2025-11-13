@@ -17,7 +17,7 @@ const config = {
   projectName: "besu-docs", // Usually your repo name.
   deploymentBranch: "gh-pages", // Github Pages deploying branch
 
-  // Even if you don't use internalization, you can use this field to set useful
+  // Even if you don't use internationalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
@@ -199,7 +199,7 @@ const config = {
               },
               {
                 label: "Besu Wiki",
-                href: "https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu",
+                href: "https://lf-hyperledger.atlassian.net/wiki/spaces/BESU/overview",
               },
               {
                 label: "Besu Twitter",
@@ -220,7 +220,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["solidity", "toml", "java"],
+        additionalLanguages: ["solidity", "toml", "java", "bash"],
       },
       mermaid: {
         options: {
@@ -278,46 +278,58 @@ const config = {
       {
         redirects: [
           {
-            from: ["/en/latest", "/en/development", "/latest", "/development"],
-            to: "/public-networks",
-          },
-          {
             from: "/public-networks/concepts/the-merge",
             to: "/public-networks/concepts/node-clients",
           },
           {
-            from: "/public-networks/how-to/configuration-file",
+            from: ["/public-networks/how-to/configuration-file", "/public-networks/how-to/use-configuration-file"],
             to: "/public-networks/how-to/configure-besu",
           },
           {
-            from: "/public-networks/how-to/use-configuration-file",
-            to: "/public-networks/how-to/configure-besu",
+            from: ["/private-networks/tutorials/permissioning/onchain", "/private-networks/tutorials/permissioning/upgrade-contracts", "/private-networks/how-to/use-permissioning/onchain", "/private-networks/concepts/permissioning/onchain"],
+            to: "/private-networks/concepts/permissioning",
           },
           {
-            from: "/private-networks/tutorials/permissioning/onchain",
-            to: "/private-networks/how-to/use-permissioning/onchain",
+            from: "/private-networks/how-to/use-permissioning/local",
+            to: "/private-networks/how-to/use-local-permissioning",
           },
           {
-            from: "/private-networks/tutorials/permissioning/upgrade-contracts",
-            to: "/private-networks/how-to/use-permissioning/onchain",
+            from: ["/private-networks/how-to/use-privacy/eea-compliant", "/private-networks/how-to/use-privacy/besu-extended", "/private-networks/how-to/use-privacy/tessera", "/private-networks/how-to/use-privacy/privacy-groups", "/private-networks/how-to/use-privacy/flexible", "/private-networks/how-to/use-privacy/access-private-transactions", "/private-networks/how-to/use-privacy/sign-pmts", "/private-networks/how-to/use-privacy/web3js-quorum", "/private-networks/how-to/use-privacy/performance-best-practices", "/private-networks/concepts/privacy", "/private-networks/concepts/privacy/private-transactions", "/private-networks/concepts/privacy/private-transactions/processing", "/private-networks/concepts/privacy/privacy-groups", "/private-networks/concepts/privacy/flexible-privacy", "/private-networks/concepts/privacy/multi-tenancy", "/private-networks/concepts/privacy/plugin"],
+            to: "/private-networks",
           },
+          {
+            from: "/private-networks/how-to/monitor/quorum-hibernate",
+            to: "/private-networks/how-to/monitor",
+          },
+          {
+            from: ["/private-networks/tutorials/privacy", "/private-networks/tutorials/privacy/multi-tenancy", "/private-networks/tutorials/privacy/web3js-quorum","/private-networks/tutorials/privacy/quickstart"],
+            to: "/private-networks/tutorials",
+          },
+          {
+            from: "/private-networks/tutorials/kubernetes/nat-manager",
+            to: "/private-networks/tutorials/kubernetes",
+          },
+          {
+            from: ["/private-networks/how-to/configure/tls/client-and-server", "/private-networks/concepts/pki", "/private-networks/how-to/configure/tls/p2p"],
+            to: "/private-networks/how-to/configure/tls",
+          },
+          {
+            from: ["/private-networks/how-to/send-transactions/private-transactions", "/private-networks/how-to/send-transactions/concurrent-private-transactions"],
+            to: "/public-networks/how-to/send-transactions",
+          },
+          {
+            from: "/private-networks/concepts/plugins",
+            to: "/public-networks/concepts/plugins",
+          },
+          {
+            from: "/private-networks/reference/plugin-api-interfaces",
+            to: "/public-networks/reference/plugin-api-interfaces",
+          },
+          {
+            from: "/private-networks/reference/api/objects",
+            to: "/public-networks/reference/api",
+          }
         ],
-        createRedirects(existingPath) {
-          if (existingPath.includes("/development")) {
-            return [
-              existingPath.replace("/", "/en/development"),
-              existingPath.replace("/", "/en/latest"),
-              existingPath.replace("/", "/latest"),
-            ];
-          }
-          if (existingPath.includes("/")) {
-            return [
-              existingPath.replace("/", "/en/stable"),
-              existingPath.replace("/", "/stable"),
-            ];
-          }
-          return undefined; // Return a falsy value: no redirect created
-        },
       },
     ],
   ],

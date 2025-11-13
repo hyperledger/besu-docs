@@ -3247,6 +3247,47 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `plugin-block-txs-selection-max-time`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--plugin-block-txs-selection-max-time=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_PLUGIN_BLOCK_TXS_SELECTION_MAX_TIME=50
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+</Tabs>
+
+Maximum time, as a percentage of the overall block creation time, that [plugins](../../concepts/plugins.md) can use to propose their own transactions during block creation.
+The default is `50`, meaning plugins can use up to 50% of the total block creation time.
+
 ### `plugin-continue-on-error`
 
 <Tabs>

@@ -5677,7 +5677,6 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block(numb
 
 </Tabs>
 
-<<<<<<< HEAD
 ### `eth_getWork`
 
 Returns the hash of the current block, the seed hash, and the required target boundary condition.

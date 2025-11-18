@@ -7,7 +7,6 @@ const config = {
   url: "https://besu.hyperledger.org",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
   favicon: "img/favicon.svg",
   trailingSlash: false,
 
@@ -27,6 +26,9 @@ const config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "throw",
+    },
   },
 
   presets: [

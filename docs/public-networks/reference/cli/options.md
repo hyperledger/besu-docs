@@ -6338,6 +6338,48 @@ Sets the price bump policy for re-issued blob transactions as a percentage incre
 A blob transaction can only replace, or be replaced by, another blob transaction.
 The default is `100`.
 
+### `tx-pool-enable-balance-check`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-enable-balance-check[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_ENABLE_BALANCE_CHECK=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables balance checks for pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
+The default is `false`.
+
 ### `tx-pool-enable-save-restore`
 
 <Tabs>

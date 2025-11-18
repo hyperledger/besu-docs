@@ -6067,7 +6067,9 @@ snapsync-synchronizer-transaction-indexing-enabled=true
 </Tabs>
 
 Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization).
-Enable this option to query historical transactions by hash during the initial sync.
+Enable this option to query historical transactions by hash.
+
+Setting this option to `true` increases sync time and disk space usage.
 The default is `false`.
 
 ### `static-nodes-file`

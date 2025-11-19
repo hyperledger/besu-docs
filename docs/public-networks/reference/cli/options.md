@@ -6069,6 +6069,52 @@ instead of headers only, allowing full historical data to be retained. The defau
 
 Setting this option to `false` increases sync time and disk space usage.
 
+### `snapsync-synchronizer-transaction-indexing-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SYNCHRONIZER_TRANSACTION_INDEXING_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization). The default is `false`.
+
+:::note Notes
+
+- Enable this option to query historical transactions by hash. 
+- Setting this option to `true` increases sync time and disk space usage.
+:::
+
 ### `static-nodes-file`
 
 <Tabs>

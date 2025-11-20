@@ -5341,7 +5341,7 @@
                             ],
                             "port": "{{rpc-http-port}}"
                         },
-                        "description": "Returns the [network ID](https://besu.hyperledger.org/en/stable/Concepts/NetworkID-And-ChainID).\n\n#### Parameters\n\nNone\n\n#### Returns\n\n`result` : *string* - Current network ID.\n\n| Network ID | Chain | Network | Description\n|------------|-------|---------|-------------------------------|\n| `1`        | ETH   | Mainnet | Main Ethereum network         |\n| `2018`     | ETH   | Dev     | PoW development network       |\n\n> **note**\n>\n> For almost all networks network ID and chain ID are the same."
+                        "description": "Returns the [network ID](https://besu.hyperledger.org/en/stable/Concepts/NetworkID-And-ChainID).\n\n#### Parameters\n\nNone\n\n#### Returns\n\n`result` : *string* - Current network ID.\n\n| Network ID | Chain | Network | Description\n|------------|-------|---------|-------------------------------|\n| `1`        | ETH   | Mainnet | Main Ethereum network         |\n| `2018`     | ETH   | Dev     | PoW development network       |\n| `1`        | ETC   | Classic | Main Ethereum Classic network |\n| `7`        | ETC   | Mordor  | PoW test network              |\n\n> **note**\n>\n> For almost all networks network ID and chain ID are the same.\nThe only networks in the table above with different network and chain IDs are\nClassic with a chain ID of `61` and Mordor with a chain ID of `63`."
                     },
                     "response":
                     [

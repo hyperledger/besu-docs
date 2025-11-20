@@ -2980,7 +2980,7 @@ Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 - You can't use the `--network` and [`--genesis-file`](#genesis-file) options at the same time.
 
-- The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+- The following networks and testnets are deprecated: ETC Classic, Holesky, Kiln, Mordor, Ropsten, and Rinkeby.
 
 :::
 

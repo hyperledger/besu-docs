@@ -28,8 +28,7 @@ Besu specifies the genesis configuration, and sets the network ID and bootnodes 
 
 :::info
 
-The Ropsten, Rinkeby, and Kiln testnets are deprecated.
-
+The following networks and testnets are deprecated: ETC Classic, Holesky, Kiln, Mordor, Ropsten, and Rinkeby.
 :::
 
 When you specify [`--network=dev`](../reference/cli/options.md#network), Besu uses the development mode genesis configuration with a fixed low difficulty. A node started with [`--network=dev`](../reference/cli/options.md#network) has an empty bootnodes list by default.

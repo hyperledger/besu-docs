@@ -43,7 +43,7 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 
 :::info
 
-The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+The following networks and testnets are deprecated: ETC Classic, Holesky, Kiln, Mordor, Ropsten, and Rinkeby.
 
 :::
 

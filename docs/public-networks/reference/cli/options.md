@@ -3244,6 +3244,47 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `plugin-block-txs-selection-max-time`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--plugin-block-txs-selection-max-time=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_PLUGIN_BLOCK_TXS_SELECTION_MAX_TIME=50
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+</Tabs>
+
+Maximum time, as a percentage of the overall block creation time, that [plugins](../../concepts/plugins.md) can use to propose their own transactions during block creation.
+The default is `50`: limiting plugins to up to 50% of the total block creation time.
+
 ### `plugin-continue-on-error`
 
 <Tabs>
@@ -6025,6 +6066,52 @@ instead of headers only, allowing full historical data to be retained. The defau
 
 Setting this option to `false` increases sync time and disk space usage.
 
+### `snapsync-synchronizer-transaction-indexing-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SYNCHRONIZER_TRANSACTION_INDEXING_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization). The default is `false`.
+
+:::note Notes
+
+- Enable this option to query historical transactions by hash. 
+- Setting this option to `true` increases sync time and disk space usage.
+:::
+
 ### `static-nodes-file`
 
 <Tabs>
@@ -6334,6 +6421,48 @@ tx-pool-blob-price-bump="25"
 Sets the price bump policy for re-issued blob transactions as a percentage increase in price. 
 A blob transaction can only replace, or be replaced by, another blob transaction.
 The default is `100`.
+
+### `tx-pool-enable-balance-check`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-enable-balance-check[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_ENABLE_BALANCE_CHECK=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables balance checks for pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
+The default is `false`.
 
 ### `tx-pool-enable-save-restore`
 

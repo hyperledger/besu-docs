@@ -89,7 +89,7 @@ besu blocks export [--start-block=<LONG>] [--end-block=<LONG>] --to=<block-file>
 <TabItem value="Example" label="Example">
 
 ```bash
-besu --network=holesky --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
+besu --network=sepolia --data-path=/home/data/ blocks export --start-block=100 --end-block=300 --to=/home/exportblock.bin
 ```
 
 </TabItem>
@@ -121,7 +121,7 @@ besu operator generate-log-bloom-cache [--start-block=<BLOCK_NUMBER>] [--end-blo
 <TabItem value="Example" label="Example">
 
 ```bash
-besu --network=holesky --data-path=/project/holesky operator generate-log-bloom-cache --start-block=0 --end-block=100000
+besu --network=sepolia --data-path=/project/sepolia operator generate-log-bloom-cache --start-block=0 --end-block=100000
 ```
 
 </TabItem>

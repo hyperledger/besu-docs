@@ -7151,6 +7151,7 @@ None
 | Network ID | Chain | Network | Description                   |
 | ---------- | ----- | ------- | ----------------------------- |
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
+| `560048`   | ETH   | Hoodi   | PoS test network              |
 | `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
 

@@ -4779,8 +4779,6 @@ Returns transaction information for the specified block number and transaction i
 
 `result`: _object_ - [transaction object](objects.md#transaction-object), or `null` when there is no transaction
 
-This request returns the third transaction in the 82990 block on the Ropsten testnet. You can also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on Etherscan.
-
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>

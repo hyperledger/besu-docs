@@ -289,7 +289,7 @@ If you're running Teku as a beacon node only, you're all set. If you're also run
 
 Stake your testnet ETH for one or more validators using the [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
-You can check your validator status by searching your Ethereum address on the [Hoodi explorer](https://hoodi.etherscan.io/), or [Ephemery explorer](https://explorer.ephemery.dev/). It may take up to multiple days for your validator to be activated and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Hoodi explorer](https://hoodi.etherscan.io/) or [Ephemery explorer](https://explorer.ephemery.dev/). It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!--links-->
 

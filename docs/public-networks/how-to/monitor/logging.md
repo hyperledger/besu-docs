@@ -60,10 +60,10 @@ If you have more specific requirements, you can create your own [Log4j 2 configu
 
 For Bash-based executions, you can set the variable for only the scope of the program execution by setting it before starting Besu.
 
-To set the debug logging and start Besu connected to the Holesky testnet:
+To set the debug logging and start Besu connected to the Sepolia testnet:
 
 ```bash
-LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=holesky
+LOG4J_CONFIGURATION_FILE=./debug.xml besu --network=sepolia
 ```
 
 ### Log invalid transactions

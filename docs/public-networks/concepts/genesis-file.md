@@ -11,7 +11,7 @@ tags:
 
 The genesis file defines the first block in the chain, and the first block defines which chain you want to join.
 
-For Ethereum Mainnet and public testnets (for example, Holesky) the genesis configuration definition is in Besu and used when specifying a public network using the [`--network`](../reference/cli/options.md#network) command line option.
+For Ethereum Mainnet and public testnets (for example, Sepolia) the genesis configuration definition is in Besu and used when specifying a public network using the [`--network`](../reference/cli/options.md#network) command line option.
 
 For private networks, [create a JSON genesis file](https://consensys.net/blog/quorum/hyperledger-besu-how-to-create-an-ethereum-genesis-file/), then specify the genesis file using the [`--genesis-file`](../reference/cli/options.md#genesis-file) command line option.
 

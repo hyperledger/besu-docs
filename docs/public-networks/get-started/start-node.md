@@ -24,11 +24,11 @@ To delete the local block data, delete the `database` directory in the `besu/bui
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Holesky](#run-a-node-on-holesky-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), [Ephemery](#run-a-node-on-ephemery-testnet) and [Mainnet](#run-a-node-on-ethereum-mainnet).
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Hoodi](#run-a-node-on-hoodi-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), [Ephemery](#run-a-node-on-ephemery-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
 :::info
 
-The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+The following networks and testnets are deprecated: ETC Classic, Holesky, and Mordor.
 
 :::
 
@@ -79,18 +79,6 @@ The following settings are a security risk in production environments:
 - Setting [`--rpc-http-cors-origins`](../reference/cli/options.md#rpc-http-cors-origins) to `"all"` or `"*"` allows cross-origin resource sharing (CORS) access from any domain.
 
 :::
-
-## Run a node on Holesky testnet
-
-To run a node on [Holesky](https://github.com/eth-clients/holesky) specifying a data directory:
-
-```bash
-besu --network=holesky --data-path=<path>/<holeskydata-path>
-```
-
-Where `<path>` and `<holeskydata-path>` are the path and directory to save the Holesky chain data to.
-
-See the [guide on connecting to a testnet](connect/testnet.md) for more information.
 
 ## Run a node on Hoodi testnet
 

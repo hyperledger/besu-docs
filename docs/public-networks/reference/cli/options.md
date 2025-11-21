@@ -2934,7 +2934,7 @@ If not specified, no subnet-based peer permission restrictions are applied.
 <TabItem value="Example" label="Example">
 
 ```bash
---network=holesky
+--network=sepolia
 ```
 
 </TabItem>
@@ -2942,7 +2942,7 @@ If not specified, no subnet-based peer permission restrictions are applied.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NETWORK=holesky
+BESU_NETWORK=sepolia
 ```
 
 </TabItem>
@@ -2950,7 +2950,7 @@ BESU_NETWORK=holesky
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-network="holesky"
+network="sepolia"
 ```
 
 </TabItem>
@@ -2964,13 +2964,10 @@ Possible values include the following:
 | Network    | Chain | Type        | Default sync mode    | Consensus mechanism | Description                                                                    |
 |:-----------|:------|:------------|:---------------------|:--------------------|:-------------------------------------------------------------------------------|
 | `mainnet`  | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
-| `holesky`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Holesky](https://holesky.dev)                            |
 | `hoodi`    | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Hoodi](https://hoodi.ethpandaops.io/)                    |
 | `sepolia`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
 | `lukso`    | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
 | `dev`      | ETH   | Development | [`FULL`](#sync-mode) | A PoW network       | Development network with low difficulty to enable local CPU mining             |
-| `classic`  | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network       | The main [Ethereum Classic network](https://ethereumclassic.org)               |
-| `mordor `  | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network       | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
 | `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Ephemery](https://ephemery.dev)                          |
 
 :::tip
@@ -2983,7 +2980,7 @@ Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 - You can't use the `--network` and [`--genesis-file`](#genesis-file) options at the same time.
 
-- The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+- The following networks and testnets are deprecated: ETC Classic, Holesky, and Mordor.
 
 :::
 
@@ -7154,7 +7151,7 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
-The default is `false` for named networks, such as Mainnet or Holesky, and `true`
+The default is `false` for named networks, such as Mainnet or Sepolia, and `true`
 for non-named networks.
 
 ### `Xhelp`

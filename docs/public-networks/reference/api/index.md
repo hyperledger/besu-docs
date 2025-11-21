@@ -1556,7 +1556,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/sepolia/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1611,7 +1611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/sepolia/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -4779,8 +4779,6 @@ Returns transaction information for the specified block number and transaction i
 
 `result`: _object_ - [transaction object](objects.md#transaction-object), or `null` when there is no transaction
 
-This request returns the third transaction in the 82990 block on the Ropsten testnet. You can also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on Etherscan.
-
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
@@ -7151,17 +7149,14 @@ None
 | Network ID | Chain | Network | Description                   |
 | ---------- | ----- | ------- | ----------------------------- |
 | `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `17000`    | ETH   | Holesky | PoS test network              |
+| `560048`   | ETH   | Hoodi   | PoS test network              |
 | `11155111` | ETH   | Sepolia | PoS test network              |
 | `2018`     | ETH   | Dev     | PoW development network       |
-| `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `7`        | ETC   | Mordor  | PoW test network              |
+
 
 :::note
 
 For almost all networks, network ID and chain ID are the same.
-
-The only networks in the table above with different network and chain IDs are Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
 
 :::
 
@@ -7190,18 +7185,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
   "jsonrpc": "2.0",
   "id": 51,
   "result": "1"
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 53,
-  "result": "5"
 }
 ```
 

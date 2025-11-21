@@ -9,3 +9,12 @@ hide:
 # Connect to a network
 
 This section provides information on connecting Besu to a public Ethereum network.
+
+:::note
+
+Besu is also compatible with [Linea](https://docs.linea.build/get-started/how-to/run-a-node), the Ethereum L2.
+
+:::
+
+
+<!-- Links -->

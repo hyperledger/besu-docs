@@ -2969,7 +2969,7 @@ Possible values include the following:
 | `dev`      | ETH   | Development | [`FULL`](#sync-mode) | PoW network       | Development network with low difficulty to enable local CPU mining             |
 | `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | PoS network       | Multi-client Ethereum testnet [Ephemery](https://ephemery.dev)  
 | `linea`  | Linea   | Production        | [`SNAP`](#sync-mode) | Sequencer-based (zkEVM rollup)       | The main [Linea network](https://docs.linea.build/get-started/build/network-info)                            |
-| `linea-sepolia`  | Linea   | Test        | [`SNAP`](#sync-mode) | Sequencer-based (zkEVM rollup)      | Linea [Sepolia testnet](https://docs.linea.build/get-started/build/network-info/)                            |
+| `linea_sepolia`  | Linea   | Test        | [`SNAP`](#sync-mode) | Sequencer-based (zkEVM rollup)      | Linea [Sepolia testnet](https://docs.linea.build/get-started/build/network-info/)                            |
 | `lukso`    | Lukso  | Production  | [`SNAP`](#sync-mode) | PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
 
 

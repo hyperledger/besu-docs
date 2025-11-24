@@ -329,7 +329,7 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---chain=<mainnet|sepolia|dev|hoodi>
+--chain=<mainnet|sepolia|dev|hoodi|linea|linea_sepolia>
 ```
 
 </TabItem>
@@ -343,6 +343,8 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 </TabItem>
 
 </Tabs>
+
+<!-- ? Is it that The --chain option is a mutually exclusive alternative to --genesis. --> 
 
 The well-known network genesis file to use when evaluating the EVM. These values are an alternative to the [`--genesis`](#genesis) option for well-known networks.
 

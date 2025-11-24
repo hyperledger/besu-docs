@@ -8,7 +8,7 @@ tags:
 
 # Start Besu
 
-Nodes can connect to Ethereum Mainnet and public testnets.
+Nodes can connect to Ethereum Mainnet, [Linea](https://docs.linea.build/get-started/how-to/run-a-node), and the networks' respective public testnets.
 
 Use the [`besu`](../reference/cli/options.md) command with the required command line options to start a node.
 

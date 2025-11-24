@@ -40,7 +40,11 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 | `hoodi`   | ETH   | 560048   | 560048     | Test        |
 | `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
-| `ephemery`| ETH   | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)    | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)      | Test        |
+| `ephemery`| ETH   | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)    | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)      | Test  |
+| `lukso`   | Lukso | 4201        | 4201    | Production  |
+| `linea`   | Linea | 59144       | 59144   | Production  |
+| `linea-sepolia`| Linea |59141   | 59141   | Test        |
+
 
 :::info
 

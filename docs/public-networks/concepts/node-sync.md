@@ -127,7 +127,7 @@ You need Besu version 22.4.3 or later to use checkpoint sync.
 Checkpoint sync behaves like [snap sync](#snap-synchronization), but instead of syncing from the
 genesis block, it syncs from a specific checkpoint block configured in the [Besu genesis file](genesis-file.md).
 
-Ethereum Mainnet and Ephemery testnet configurations already define default checkpoints, so you
+Ethereum Mainnet, Sepolia and Ephemery testnet configurations already define default checkpoints, so you
 don't have to add this yourself.
 
 For other networks, you can configure a checkpoint in the genesis file by specifying the block hash,

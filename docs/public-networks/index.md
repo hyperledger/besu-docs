@@ -10,9 +10,9 @@ tags:
 # Besu for public networks
 
 Besu serves as an [execution client](concepts/node-clients.md#execution-clients) on public proof-of-stake Ethereum networks such as:
+
 - Ethereum Mainnet
 - Hoodi
-- Holesky
 - Ephemery
 - Sepolia
 

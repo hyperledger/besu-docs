@@ -147,11 +147,11 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
 
 2.  Start Besu with the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. For example, run the following command to start a single node:
 
+      <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
+        
     <Tabs>
     
     <TabItem value="Syntax" label="Syntax" default>
-
-  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
 
     ```bash
     OTEL_EXPORTER_OTLP_ENDPOINT=https://<host>:<port> besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry

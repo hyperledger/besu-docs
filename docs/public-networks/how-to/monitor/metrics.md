@@ -87,6 +87,8 @@ To configure Prometheus and run with Besu:
 2.  Start Besu with the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
     To start a single node for testing with metrics enabled, run the following command:
 
+  <!-- can I remove the --miner-enabled --miner-coinbase flags -->
+
     <Tabs>
     <TabItem value="Syntax">
 

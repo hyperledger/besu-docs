@@ -332,3 +332,9 @@ However, when the out-of-turn delay is shorter than the block propagation delay,
 We recommend using a more updated consensus protocol such as [IBFT 2.0](ibft.md) or [QBFT](qbft.md).
 
 :::
+
+## Non-configurable defaults
+
+- `miner-enabled` defaults to `true`.
+- `miner-coinbase` defaults to the local node.
+

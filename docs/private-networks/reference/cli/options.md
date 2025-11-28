@@ -35,7 +35,7 @@ You can specify Besu options:
   - `_` replaces `-`.
   - Has a `BESU_` prefix.
 
-  For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
+For example, set `--rpc-http-enabled` using the `BESU_RPC_HTTP_ENABLED` environment variable.
 
 - In a [configuration file](../../../public-networks/how-to/configure-besu/index.md).
 

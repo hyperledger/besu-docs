@@ -101,6 +101,8 @@ This happens when the IPv6 support in Docker is disabled while connecting to an 
 
 ### Run a node for testing
 
+<!-- does it make sense to support "run a node that mines blocks" for current Besu? --> 
+
 To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
 
 ```bash

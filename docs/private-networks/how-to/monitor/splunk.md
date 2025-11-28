@@ -83,6 +83,8 @@ If running [Besu as a Docker container](../../get-started/install/run-docker-ima
 
 3.  Run Besu. To start a Besu node running in development mode, run the following command:
 
+  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
+
     ```bash
     LOGGER=Splunk \
     SPLUNK_URL=https://localhost:8088 \

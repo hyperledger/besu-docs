@@ -60,6 +60,8 @@ If you started Besu with the [`--rpc-http-enabled`](../../public-networks/refere
 
 ## Run a node for testing
 
+<!-- does it make sense to support "run a node that mines blocks" for current Besu? --> 
+
 To run a node that mines blocks at a rate suitable for testing purposes:
 
 ```bash

@@ -104,6 +104,8 @@ This happens when the IPv6 support in Docker is disabled while connecting to an 
 
 ### Run a node for testing
 
+  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
+    
 To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
 
 ```bash

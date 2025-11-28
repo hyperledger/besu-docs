@@ -2605,11 +2605,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}'
 
 Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
 
-To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum account address. You can get the Ethereum account address from a client such as MetaMask or Etherscan. For example:
+:::note
 
-```bash title="Example"
-besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
-```
+With the deprecation of `--miner-coinbase`, you may no longer set a coinbase address. Systems that maintain `eth_coinbase` auto assign this address.
+:::
 
 #### Parameters
 
@@ -6663,6 +6662,7 @@ Starts the mining process.
 :::note
 
 Systems that still support mining set a default fee recipient address, the deprecated miner coinbase.
+
 :::
 
 #### Parameters

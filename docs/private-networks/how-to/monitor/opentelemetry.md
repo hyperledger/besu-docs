@@ -151,6 +151,8 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
     
     <TabItem value="Syntax" label="Syntax" default>
 
+  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
+
     ```bash
     OTEL_EXPORTER_OTLP_ENDPOINT=https://<host>:<port> besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
     ```

@@ -54,6 +54,7 @@ By default, Besu stores data in the [Bonsai Tries format](../concepts/data-stora
 
 ## Run a node for testing
 
+  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
 To run a node that mines blocks at a rate suitable for testing purposes:
 
 ```bash

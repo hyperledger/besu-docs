@@ -35,7 +35,7 @@ You can specify Besu options:
   - `_` replaces `-`.
   - Has a `BESU_` prefix.
 
-  For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
+  For example, set `--rpc-http-enabled` using the `BESU_RPC_HTTP_ENABLED` environment variable.
 
 - In a [configuration file](../../how-to/configure-besu/index.md).
 
@@ -2733,97 +2733,6 @@ For a running node, use:
 
 * [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
 * [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
-
-### `miner-coinbase`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-coinbase=<Ethereum account address>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-```
-
-</TabItem>
-
-</Tabs>
-
-The account you pay mining rewards to.
-You must specify a valid coinbase when you enable mining using the
-[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start-deprecated)
-JSON-RPC API method.
-
-:::note
-
-Besu ignores this option in [proof-of-authority](../../../private-networks/concepts/poa.md) networks.
-In proof-of-stake networks, such as Ethereum Mainnet, this option is used as a last resort for the
-fee recipient, if the consensus layer client doesn't provide any.
-
-:::
-
-### `miner-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables mining when you start the node. The default is `false`.
 
 ### `miner-extra-data`
 

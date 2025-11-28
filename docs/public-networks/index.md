@@ -16,6 +16,12 @@ Besu serves as an [execution client](concepts/node-clients.md#execution-clients)
 - Ephemery
 - Sepolia
 
+:::note
+
+Besu is also compatible with [Linea](https://docs.linea.build/get-started/how-to/run-a-node/besu), the Ethereum L2.
+
+:::
+
 Get started by [installing Besu](get-started/install/index.md).
 
 ## Architecture

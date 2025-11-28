@@ -1556,7 +1556,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/sepolia/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1611,7 +1611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/sepolia/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -4778,8 +4778,6 @@ Returns transaction information for the specified block number and transaction i
 
 `result`: _object_ - [transaction object](objects.md#transaction-object), or `null` when there is no transaction
 
-This request returns the third transaction in the 82990 block on the Ropsten testnet. You can also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on Etherscan.
-
 <Tabs>
 
 <TabItem value="curl HTTP" label="curl HTTP" default>
@@ -7146,21 +7144,20 @@ None
 #### Returns
 
 `result`: _string_ - current network ID
-
-| Network ID | Chain | Network | Description                   |
-| ---------- | ----- | ------- | ----------------------------- |
-| `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `17000`    | ETH   | Holesky | PoS test network              |
-| `11155111` | ETH   | Sepolia | PoS test network              |
-| `2018`     | ETH   | Dev     | PoW development network       |
-| `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `7`        | ETC   | Mordor  | PoW test network              |
+ 
+| Network ID | Chain  | Network | Description                   |
+| ---------- | -------| ------- | ----------------------------- |
+| `1`        | ETH    | Mainnet | Main Ethereum network         |
+| `560048`   | ETH    | Hoodi   | Ethereum PoS test network     |
+| `11155111` | ETH    | Sepolia | Ethereum PoS test network     |
+| `2018`     | ETH    | Dev     | Ethereum PoW development network|
+| `59144`    | Linea  | Mainnet | Main Linea network            |
+| `59141`    | Linea  | Testnet | Linea Sepolia testnet         |
+| `4201`     | Lukso  | Mainnet | Main Lukso network            |
 
 :::note
 
-For almost all networks, network ID and chain ID are the same.
-
-The only networks in the table above with different network and chain IDs are Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
+For almost all networks, network ID and chain ID are the same. For Ephemery, the network ID is dynamic.
 
 :::
 
@@ -7189,18 +7186,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
   "jsonrpc": "2.0",
   "id": 51,
   "result": "1"
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 53,
-  "result": "5"
 }
 ```
 
@@ -8455,4 +8440,3 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}
 
 [schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls
 [eth_sendRawTransaction or eth_call]: ../../how-to/send-transactions.md#eth_call-or-eth_sendrawtransaction
-[transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6

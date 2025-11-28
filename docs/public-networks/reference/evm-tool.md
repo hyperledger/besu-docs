@@ -344,8 +344,6 @@ The [Besu genesis file](genesis-items.md) to use when evaluating the EVM. Most u
 
 </Tabs>
 
-<!-- ? Set the --chain option to customize the genesis file. --> 
-
 The well-known network genesis file to use when evaluating the EVM. These values are an alternative to the [`--genesis`](#genesis) option for well-known networks.
 
 ### `repeat`

@@ -4307,7 +4307,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 </Tabs>
 
-### `eth_getMinerDataByBlockHash` (Deprecated)
+<!-- ### `eth_getMinerDataByBlockHash` (Deprecated)
 
 Returns miner data for the specified block.
 
@@ -4442,7 +4442,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber",
 </TabItem>
 
 </Tabs>
-
+ -->
+ 
 ### `eth_getProof`
 
 Returns the account and storage values of the specified account, including the Merkle proof.
@@ -6638,7 +6639,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params
 
 </Tabs>
 
-### `miner_setCoinbase`
+<!-- ### `miner_setCoinbase`
 
 Sets the coinbase, the address for the mining rewards.
 
@@ -6691,7 +6692,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0x
 
 </TabItem>
 
-</Tabs>
+</Tabs> -->
 
 ### `miner_setExtraData`
 

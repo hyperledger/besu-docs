@@ -119,7 +119,7 @@ Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_g
 | `data` | Data | Non-indexed arguments of the log. |
 | `topics` | Array of Data, 32&nbsp;bytes each | [Event signature hash](../../concepts/events-and-logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../../concepts/events-and-logs.md#event-parameters). |
 
-## Miner data object
+<!-- ## Miner data object
 
 Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
 
@@ -133,7 +133,7 @@ Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash
 | `coinbase` | Data, 20&nbsp;bytes | Coinbase address. |
 | `extraData` | Data | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../cli/options.md#miner-extra-data) command line option. |
 | `difficulty` | Quantity, Integer | Difficulty of this block. |
-| `totalDifficulty` | Quantity, Integer | Total difficulty of the chain until this block. |
+| `totalDifficulty` | Quantity, Integer | Total difficulty of the chain until this block. | -->
 
 ## Pending transaction object
 

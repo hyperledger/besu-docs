@@ -36,7 +36,7 @@ The JSON-RPC API methods for mining are:
 - [`miner_start`](../../reference/api/index.md#miner_start-deprecated) to start mining.
 - [`miner_stop`](../../reference/api/index.md#miner_stop-deprecated) to stop mining.
 - [`eth_mining`](../../reference/api/index.md#eth_mining-deprecated) to determine whether the client is actively mining new blocks.
-- [`eth_getMinerDataByBlockHash`](../../reference/api/index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](../../reference/api/index.md#eth_getminerdatabyblocknumber) to get the miner data for a specified block.
+<!-- - [`eth_getMinerDataByBlockHash`](../../reference/api/index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](../../reference/api/index.md#eth_getminerdatabyblocknumber) to get the miner data for a specified block. -->
 
 ## Troubleshoot
 

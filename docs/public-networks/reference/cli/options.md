@@ -1282,6 +1282,47 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
+### `ethstats-report-interval`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ethstats-report-interval=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--ethstats-report-interval=10
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ETHSTATS_REPORT_INTERVAL=10
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+ethstats-report-interval=10
+```
+
+</TabItem>
+
+</Tabs>
+
+Interval (in seconds) at which Besu sends status updates to the EthStats server.  
+The default is `5`.
+
 ### `genesis-file`
 
 <Tabs>

@@ -6659,7 +6659,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 ### `miner_start` (Deprecated)
 
 Starts the mining process. 
-To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
+
+:::note
+
+Systems that still support mining set a default fee recipient address, the deprecated miner coinbase.
+:::
 
 #### Parameters
 

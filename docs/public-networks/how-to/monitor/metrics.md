@@ -93,14 +93,14 @@ To configure Prometheus and run with Besu:
     <TabItem value="Syntax">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
 
     </TabItem>
     <TabItem value="Example">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
 
     </TabItem>

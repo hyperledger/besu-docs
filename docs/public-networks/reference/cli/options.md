@@ -1872,8 +1872,7 @@ history-expiry-prune=true
 
 Enables or disables [online pruning of historical block data](../../how-to/pre-merge-history-expiry.md#online-pruning)
 for pre-merge Proof of Work (PoW) blocks, retaining only the headers.
-The option also activates garbage collection settings that works for both online and offline pruning.
-mechanisms, so that the reclaimed storage is compacted quickly, freeing disk space without manual intervention.
+The option also activates garbage collection settings that works for both online and offline pruning mechanisms, so that the reclaimed storage is compacted quickly, freeing disk space without manual intervention.
 
 The default is `false`.
 

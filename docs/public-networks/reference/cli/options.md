@@ -187,7 +187,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---auto-log-bloom-caching-enabled[=<true|false>]
+--auto-log-bloom-caching-enabled=<true|false>
 ```
 
 </TabItem>
@@ -374,7 +374,7 @@ If you plan on querying historical blocks or state using the [JSON-RPC API](../a
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bonsai-limit-trie-logs-enabled=[=<true|false>]
+--bonsai-limit-trie-logs-enabled=<true|false>
 ```
 
 </TabItem>
@@ -556,7 +556,7 @@ The default is `0`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---color-enabled[=<true|false>]
+--color-enabled=<true|false>
 ```
 
 </TabItem>
@@ -740,7 +740,7 @@ The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---discovery-enabled[=<true|false>]
+--discovery-enabled=<true|false>
 ```
 
 </TabItem>
@@ -832,7 +832,7 @@ To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames in 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-jwt-disabled[=<true|false>]
+--engine-jwt-disabled=<true|false>
 ```
 
 </TabItem>
@@ -912,7 +912,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/node-clien
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-rpc-enabled[=<true|false]>
+--engine-rpc-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1077,7 +1077,7 @@ In most cases, we recommend using the default unless slow file downloads are a l
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---era1-import-prepipeline-enabled[=<Boolean>]
+--era1-import-prepipeline-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1109,6 +1109,7 @@ era1-import-prepipeline-enabled=true
 </Tabs>
 
 Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
+The default is `false`.
 
 This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
 
@@ -1376,7 +1377,7 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---genesis-state-hash-cache-enabled=[=<true|false>]
+--genesis-state-hash-cache-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1462,7 +1463,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---graphql-http-enabled[=<true|false>]
+--graphql-http-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1589,7 +1590,7 @@ The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must 
 <TabItem value="Syntax">
 
 ```bash
---graphql-mtls-enabled[=<true|false>]
+--graphql-mtls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1629,7 +1630,7 @@ The default is `false`.
 <TabItem value="Syntax">
 
 ```bash
---graphql-tls-enabled[=<true|false>]
+--graphql-tls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1833,7 +1834,7 @@ Show the help message and exit.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---history-expiry-prune[=<true|false>]
+--history-expiry-prune=<true|false>
 ```
 </TabItem>
 
@@ -1864,7 +1865,8 @@ history-expiry-prune=true
 
 Enables or disables [online pruning of historical block data](../../how-to/pre-merge-history-expiry.md#online-pruning)
 for pre-merge Proof of Work (PoW) blocks, retaining only the headers.
-The option also activates garbage collection settings that works for both online and offline pruning
+The option also activates garbage collection settings that works for both online and offline pruning.
+The default is `false`.
 mechanisms, so that the reclaimed storage is compacted quickly, freeing disk space without manual intervention.
 
 The default is `false`.
@@ -1976,7 +1978,7 @@ If a name is not specified, the name section is not included in the client ID. F
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---json-pretty-print-enabled[=<true|false>]
+--json-pretty-print-enabled=<true|false>
 ```
 
 </TabItem>
@@ -2220,7 +2222,7 @@ Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCK
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---metrics-enabled[=<true|false>]
+--metrics-enabled=<true|false>
 ```
 
 </TabItem>
@@ -2384,7 +2386,7 @@ Metrics protocol to use: `PROMETHEUS`, `OPENTELEMETRY`, or `NONE`. The default i
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---metrics-push-enabled[=<true|false>]
+--metrics-push-enabled=<true|false>
 ```
 
 </TabItem>
@@ -2415,7 +2417,7 @@ metrics-push-enabled=true
 
 </Tabs>
 
-Enables or disables [push gateway integration].
+Enables or disables [push gateway integration]. The default is `false`.
 
 You can't specify `--metrics-push-enabled` with [`--metrics-enabled`](#metrics-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
 
@@ -2792,7 +2794,7 @@ fee recipient, if the consensus layer client doesn't provide any.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---miner-enabled[=<true|false>]
+--miner-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3125,7 +3127,7 @@ This option is ignored if [`--security-module`](#security-module) is set to a no
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---p2p-enabled[=<true|false>]
+--p2p-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3335,7 +3337,7 @@ The default is `50`: limiting plugins to up to 50% of the total block creation t
 <TabItem value="Syntax">
 
 ```bash
---plugin-continue-on-error[=<true|false>]
+--plugin-continue-on-error=<true|false>
 ```
 
 </TabItem>
@@ -3365,6 +3367,7 @@ plugin-continue-on-error=true
 Enables or disables continuing to run Besu if a [plugin](../../concepts/plugins.md)
 fails during registration or other startup lifecycle stages.
 If set to `true` and any plugin fails, Besu logs an error and continues running.
+The default is `false`.
 If set to `false` and any plugin fails, Besu logs an error and stops running.
 
 The default is `false`.
@@ -3479,7 +3482,7 @@ The default is `null`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---random-peer-priority-enabled[=<true|false>]
+--random-peer-priority-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3561,7 +3564,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---remote-connections-limit-enabled[=<true|false>]
+--remote-connections-limit-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3733,7 +3736,7 @@ Requires a peer with the specified block number to have the specified hash when 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---revert-reason-enabled[=<true|false>]
+--revert-reason-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3954,7 +3957,7 @@ The [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-cr
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-authentication-enabled[=<true|false>]
+--rpc-http-authentication-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3986,6 +3989,7 @@ rpc-http-authentication-enabled=true
 </Tabs>
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC HTTP service.
+The default is `false`.
 
 ### `rpc-http-authentication-jwt-algorithm`
 
@@ -4135,7 +4139,7 @@ For testing and development purposes, use `"all"` or `"*"` to accept requests fr
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-enabled[=<true|false>]
+--rpc-http-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4387,7 +4391,7 @@ The port (TCP) on which JSON-RPC HTTP listens. The default is `8545`. You must [
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-ca-clients-enabled[=<true|false>]
+--rpc-http-tls-ca-clients-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4433,7 +4437,7 @@ You must enable client authentication using the [`--rpc-http-tls-client-auth-ena
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-client-auth-enabled[=<true|false>]
+--rpc-http-tls-client-auth-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4525,7 +4529,7 @@ The singular `--rpc-http-tls-cipher-suite` and plural `--rpc-http-tls-cipher-sui
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-enabled[=<true|false>]
+--rpc-http-tls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5095,7 +5099,7 @@ The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#1-c
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-authentication-enabled[=<true|false>]
+--rpc-ws-authentication-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5127,6 +5131,7 @@ rpc-ws-authentication-enabled=true
 </Tabs>
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC WebSocket service.
+The default is `false`.
 
 :::note
 
@@ -5224,7 +5229,7 @@ The [JWT provider's public key file] used for JSON-RPC WebSocket authentication 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-enabled[=<true|false>]
+--rpc-ws-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5475,7 +5480,7 @@ Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-ssl-client-auth-enabled[=<true|false>]
+--rpc-ws-ssl-client-auth-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5525,7 +5530,7 @@ If using JKS or PKCS12, specify the truststore password using [`--rpc-ws-ssl-tru
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-ssl-enabled[=<true|false>]
+--rpc-ws-ssl-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6038,7 +6043,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-server-enabled[=<true|false>]
+--snapsync-server-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6076,7 +6081,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-synchronizer-pre-checkpoint-headers-only-enabled[=<true|false>]
+--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=<true|false>
 ```
 </TabItem>
 
@@ -6117,7 +6122,7 @@ Setting this option to `false` increases sync time and disk space usage.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-synchronizer-transaction-indexing-enabled[=<true|false>]
+--snapsync-synchronizer-transaction-indexing-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6203,7 +6208,7 @@ Static nodes JSON file containing the [static nodes](../../how-to/connect/static
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---strict-tx-replay-protection-enabled[=<true|false>]
+--strict-tx-replay-protection-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6473,7 +6478,7 @@ The default is `100`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-enable-balance-check[=<true|false>]
+--tx-pool-enable-balance-check=<true|false>
 ```
 
 </TabItem>
@@ -6505,6 +6510,7 @@ tx-pool-enable-balance-check=true
 </Tabs>
 
 Enables or disables balance checks for pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+The default is `false`.
 When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
 The default is `false`.
 
@@ -6515,7 +6521,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-enable-save-restore[=<true|false>]
+--tx-pool-enable-save-restore=<true|false>
 ```
 
 </TabItem>
@@ -6930,7 +6936,7 @@ all other pending transactions.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-no-local-priority[=<true|false>]
+--tx-pool-no-local-priority=<true|false>
 ```
 
 </TabItem>
@@ -7164,7 +7170,7 @@ Prints version information and exits.
 <TabItem value="Syntax">
 
 ```bash
---version-compatibility-protection[=<true|false>]
+--version-compatibility-protection=<true|false>
 ```
 
 </TabItem>
@@ -7194,6 +7200,7 @@ version-compatibility-protection=true
 Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
+The default is `false`.
 
 The default is `false` for named networks, such as Mainnet or Sepolia, and `true`
 for non-named networks.

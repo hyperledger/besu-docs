@@ -4306,143 +4306,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 </TabItem>
 
 </Tabs>
-
-### `eth_getMinerDataByBlockHash` (Deprecated)
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`hash`: _string_ - 32-byte block hash
-
-#### Returns
-
-`result`: _object_ - [miner data object](objects.md#miner-data-object)
-
-<Tabs>
-
-<TabItem value="curl HTTP" label="curl HTTP" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS" label="wscat WS">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "eth_getMinerDataByBlockHash",
-  "params": [
-    "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"
-  ],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "netBlockReward": "0x47c6f3739f3da800",
-    "staticBlockReward": "0x4563918244f40000",
-    "transactionFee": "0x38456548220800",
-    "uncleInclusionReward": "0x22b1c8c1227a000",
-    "uncleRewards": [
-      {
-        "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-        "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-      }
-    ],
-    "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-    "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-    "difficulty": "0x7348c20",
-    "totalDifficulty": "0xa57bcfdd96"
-  }
-}
-```
-
-</TabItem>
-
-</Tabs>
-
-### `eth_getMinerDataByBlockNumber`
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
-the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
-
-:::note
-`pending` returns the same value as `latest`.
-:::
-
-#### Returns
-
-`result`: _object_ - [miner data object](objects.md#miner-data-object)
-
-<Tabs>
-
-<TabItem value="curl HTTP" label="curl HTTP" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS" label="wscat WS">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "eth_getMinerDataByBlockNumber",
-  "params": ["0x7689D2"],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "netBlockReward": "0x47c6f3739f3da800",
-    "staticBlockReward": "0x4563918244f40000",
-    "transactionFee": "0x38456548220800",
-    "uncleInclusionReward": "0x22b1c8c1227a000",
-    "uncleRewards": [
-      {
-        "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-        "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-      }
-    ],
-    "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-    "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-    "difficulty": "0x7348c20",
-    "totalDifficulty": "0xa57bcfdd96"
-  }
-}
-```
-
-</TabItem>
-
-</Tabs>
-
+ 
 ### `eth_getProof`
 
 Returns the account and storage values of the specified account, including the Merkle proof.
@@ -6638,60 +6502,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params
 
 </Tabs>
 
-### `miner_setCoinbase`
-
-Sets the coinbase, the address for the mining rewards.
-
-:::note
-
-You can also use `miner_setEtherbase` as an alternative method. They both work the same way. Etherbase is a historic name for coinbase.
-
-:::
-
-#### Parameters
-
-`coinbase`: _string_ - Account address you pay mining rewards to
-
-#### Returns
-
-`result`: _boolean_ - `true` when address is set
-
-<Tabs>
-
-<TabItem value="curl HTTP request" label="curl HTTP request" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS request" label="wscat WS request">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "miner_setCoinbase",
-  "params": ["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
-}
-```
-
-</TabItem>
-
-</Tabs>
 
 ### `miner_setExtraData`
 
@@ -6849,7 +6659,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
 ### `miner_start` (Deprecated)
 
 Starts the mining process. 
-To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
+
+:::note
+
+Systems that still support mining set a default fee recipient address, the deprecated miner coinbase.
+:::
 
 #### Parameters
 

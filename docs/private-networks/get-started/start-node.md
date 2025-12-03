@@ -60,19 +60,16 @@ If you started Besu with the [`--rpc-http-enabled`](../../public-networks/refere
 
 ## Run a node for testing
 
-
-To run a node that mines blocks at a rate suitable for testing purposes:
+To run a node for testing purposes:
 
 ```bash
-besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
+besu --network=dev --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
 You can also use the following [configuration file](../../public-networks/how-to/configure-besu/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"
-miner-enabled=true
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 rpc-http-cors-origins=["all"]
 host-allowlist=["*"]
 rpc-ws-enabled=true

@@ -110,13 +110,9 @@ In particular:
    into the block's list.
 
 :::info Note
-The following are excluded from the conflict check:
 
-- Unchanged accounts read by the block.
-- Rewards given to the validator coinbase address at the end of each transaction.
-  If these were considered, every transaction would conflict with the coinbase address.
-  Besu identifies this address as a conflict only if it is accessed for reasons other than receiving
-  rewards at the transaction's conclusion.
+Unchanged accounts read by the block are excluded from the conflict check:
+
 :::
 
 The following flowchart outlines how Besu maintains the lists of tracked addresses:
@@ -158,7 +154,7 @@ You can enable parallel transaction execution using the `--Xbonsai-parallel-tx-p
 Parallel transaction execution uses Besu's resources more efficiently than traditional
 sequential execution, significantly improving performance.
 
-The following metrics were collected on nodes running on Azure VMs (Standard D8as v5 – 8 vCPUs, 32
+The following metrics were collected on nodes running on Azure VMs (Standard D8as v5–8 vCPUs, 32
 GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
 
 - **Block processing time** - With Teku as CL client, block processing time improves by at least 25%.

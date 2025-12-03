@@ -43,7 +43,6 @@ The following table describes the genesis block parameters with the same purpose
 
 | Item | Description                                                                                                                                                      |
 | --- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `coinbase` | Address to pay mining rewards to. Can be any value in the genesis block (commonly set to `0x0000000000000000000000000000000000000000`).                          |
 | `gasLimit` | Block gas limit. Total gas limit for all transactions in a block.                                                                                                |
 | `nonce` | Used in block computation. Can be any value in the genesis block (commonly set to `0x0`).                                                                        |
 | `timestamp` | Creation date and time of the block. Must be before the next block so we recommend specifying `0x0` in the genesis file.                                         |

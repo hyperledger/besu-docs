@@ -103,13 +103,11 @@ This happens when the IPv6 support in Docker is disabled while connecting to an 
 :::
 
 ### Run a node for testing
-
-  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
-    
+  
 To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
 
 ```bash
-docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
+docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
 ```
 
 ### Run a node on Sepolia testnet

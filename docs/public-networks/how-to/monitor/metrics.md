@@ -87,8 +87,6 @@ To configure Prometheus and run with Besu:
 2.  Start Besu with the [`--metrics-enabled`](../../reference/cli/options.md#metrics-enabled) option.
     To start a single node for testing with metrics enabled, run the following command:
 
-  <!-- can I remove the --miner-enabled --miner-coinbase flags -->
-
     <Tabs>
     <TabItem value="Syntax">
 
@@ -167,14 +165,14 @@ To configure Prometheus and run with Besu pushing to a push gateway:
     <TabItem value="Syntax">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
     ```
 
     </TabItem>
     <TabItem value="Example">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
     ```
 
     </TabItem>

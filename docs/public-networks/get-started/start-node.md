@@ -54,19 +54,16 @@ By default, Besu stores data in the [Bonsai Tries format](../concepts/data-stora
 
 ## Run a node for testing
 
-  <!-- do these docs need updating to remove deprecated --miner-enabled --miner-coinbase <COINBASE ADDRESS> -->
 To run a node that mines blocks at a rate suitable for testing purposes:
 
 ```bash
-besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
+besu --network=dev --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
 You can also use the following [configuration file](../how-to/configure-besu/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"
-miner-enabled=true
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 rpc-http-cors-origins=["all"]
 host-allowlist=["*"]
 rpc-ws-enabled=true

@@ -41,6 +41,12 @@ To be Byzantine fault tolerant, QBFT and IBFT 2.0 require a minimum of four vali
 
 Clique can operate with a single validator but operating with a single validator offers no redundancy if the validator fails.
 
+:::important Deprecation notice
+
+Clique block production (mining/validating) is deprecated in [Besu v24.12.0](https://github.com/hyperledger/besu/blob/main/CHANGELOG.md#24120) and later. You will still be able to sync existing Clique networks. You will not be able to validate or create new Clique networks.
+
+:::
+
 :::tip
 
 Byzantine fault tolerant is the ability to function correctly and reach consensus despite nodes failing or propagating incorrect information to peers.

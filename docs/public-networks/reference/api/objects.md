@@ -119,22 +119,6 @@ Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges) and [`priv_g
 | `data` | Data | Non-indexed arguments of the log. |
 | `topics` | Array of Data, 32&nbsp;bytes each | [Event signature hash](../../concepts/events-and-logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../../concepts/events-and-logs.md#event-parameters). |
 
-## Miner data object
-
-Returned by [`eth_getMinerDataByBlockHash`](index.md#eth_getminerdatabyblockhash-deprecated) and [`eth_getMinerDataByBlockNumber`](index.md#eth_getminerdatabyblocknumber).
-
-| Key | Type | Value |
-| --- | :-: | --- |
-| `netBlockReward` | Quantity, Integer | The net block reward, in Wei, is `staticBlockReward + transactionFee + uncleInclusionReward`. |
-| `staticBlockReward` | Quantity, Integer | The static block reward, in Wei, is preset on a hard fork. |
-| `transactionFee` | Quantity, Integer | The transaction fee, in Wei, is `sum of upfront cost - refund amount for all transactions`. |
-| `uncleInclusionReward` | Quantity, Integer | The uncle inclusion reward, in Wei, is `static block reward * number of ommers/32`. |
-| `uncleRewards` | Map | Map of uncle block hashes and uncle miner coinbase addresses. |
-| `coinbase` | Data, 20&nbsp;bytes | Coinbase address. |
-| `extraData` | Data | Extra data field for this block. The first 32 bytes is vanity data you can set using the [`--miner-extra-data`](../cli/options.md#miner-extra-data) command line option. |
-| `difficulty` | Quantity, Integer | Difficulty of this block. |
-| `totalDifficulty` | Quantity, Integer | Total difficulty of the chain until this block. |
-
 ## Pending transaction object
 
 Returned by [`txpool_besuPendingTransactions`](index.md#txpool_besupendingtransactions).

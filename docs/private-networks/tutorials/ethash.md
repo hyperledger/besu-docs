@@ -108,7 +108,7 @@ Start Node-1:
 <TabItem value="MacOS" label="MacOS" default>
 
 ```bash
-besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
+besu --data-path=data --genesis-file=../privateNetworkGenesis.json --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -116,7 +116,7 @@ besu --data-path=data --genesis-file=../privateNetworkGenesis.json --miner-enabl
 <TabItem value="Windows" label="Windows">
 
 ```bash
-besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
+besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all" --profile=ENTERPRISE
 ```
 
 </TabItem>
@@ -125,18 +125,11 @@ besu --data-path=data --genesis-file=..\privateNetworkGenesis.json --miner-enabl
 
 The command line enables:
 
-- Mining and specifies the account to pay mining rewards to using the [`--miner-enabled`](../../public-networks/reference/cli/options.md#miner-enabled) and [`--miner-coinbase`](../../public-networks/reference/cli/options.md#miner-coinbase) options.
 - JSON-RPC API using the [`--rpc-http-enabled`](../../public-networks/reference/cli/options.md#rpc-http-enabled) option.
 - All-host access to the HTTP JSON-RPC API using the [`--host-allowlist`](../../public-networks/reference/cli/options.md#host-allowlist) option.
 - All-domain access to the node through the HTTP JSON-RPC API using the [`--rpc-http-cors-origins`](../../public-networks/reference/cli/options.md#rpc-http-cors-origins) option.
 - The [enterprise/private profile](../../public-networks/how-to/configure-besu/profile.md#enterpriseprivate-profile)
   using the [`--profile`](../../public-networks/reference/cli/options.md#profile) option.
-
-:::info
-
-The miner coinbase account is one of the accounts defined in the genesis file.
-
-:::
 
 When the node starts, the [enode URL](../../public-networks/concepts/node-keys.md#enode-url) displays. Copy the enode URL to specify Node-1 as the bootnode in the following steps.
 

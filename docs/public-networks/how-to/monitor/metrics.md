@@ -91,14 +91,14 @@ To configure Prometheus and run with Besu:
     <TabItem value="Syntax">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
 
     </TabItem>
     <TabItem value="Example">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled
     ```
 
     </TabItem>
@@ -165,14 +165,14 @@ To configure Prometheus and run with Besu pushing to a push gateway:
     <TabItem value="Syntax">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
     ```
 
     </TabItem>
     <TabItem value="Example">
 
     ```bash
-    besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
+    besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-push-enabled --metrics-push-port=9091 --metrics-push-host=127.0.0.1
     ```
 
     </TabItem>

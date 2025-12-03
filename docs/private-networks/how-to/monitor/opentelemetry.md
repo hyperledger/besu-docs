@@ -146,13 +146,13 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
     </Tabs>
 
 2.  Start Besu with the [`--metrics-enabled`](../../../public-networks/reference/cli/options.md#metrics-enabled) and [`--metrics-protocol=opentelemetry`](../../../public-networks/reference/cli/options.md#metrics-protocol) options. For example, run the following command to start a single node:
-
+        
     <Tabs>
     
     <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
-    OTEL_EXPORTER_OTLP_ENDPOINT=https://<host>:<port> besu --network=dev --miner-enabled --miner-coinbase <COINBASE ADDRESS> --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
+    OTEL_EXPORTER_OTLP_ENDPOINT=https://<host>:<port> besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
     ```
 
     </TabItem>
@@ -160,7 +160,7 @@ You can also install exporters that send system metrics to OpenTelemetry to moni
     <TabItem value="Example" label="Example">
 
     ```bash
-    OTEL_EXPORTER_OTLP_ENDPOINT=https://localhost:4317 besu --network=dev --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
+    OTEL_EXPORTER_OTLP_ENDPOINT=https://localhost:4317 besu --network=dev --rpc-http-cors-origins="all" --rpc-http-enabled --metrics-enabled --metrics-protocol=opentelemetry
     ```
 
     </TabItem>

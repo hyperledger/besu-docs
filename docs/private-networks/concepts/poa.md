@@ -43,7 +43,7 @@ Clique can operate with a single validator but operating with a single validator
 
 :::important Deprecation notice
 
-Clique block production (mining/validating) is deprecated in [Besu v24.12.0](https://github.com/hyperledger/besu/blob/main/CHANGELOG.md#24120) and later. You will still be able to sync existing Clique networks. You will not be able to validate or create new Clique networks.
+Clique block production (mining/validating) is deprecated in [Besu v25.12.0](https://github.com/hyperledger/besu/blob/main/CHANGELOG.md#2510) and later. You will still be able to sync existing Clique networks. You will not be able to validate or create new Clique networks.
 
 :::
 

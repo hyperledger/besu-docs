@@ -23,7 +23,7 @@ Clique is not suitable for production environments. Use only in development envi
 
 :::important Deprecation notice
 
-Clique block production (mining/validating) is deprecated in [Besu v25.12.0](https://github.com/hyperledger/besu/blob/main/CHANGELOG.md#2510) and later. You will still be able to sync existing Clique networks. You will not be able to validate or create new Clique networks.
+Clique block production (mining/validating) is deprecated in Besu 25.12.0 and later. You will still be able to sync existing Clique networks. You will not be able to validate or create new Clique networks.
 
 :::
 

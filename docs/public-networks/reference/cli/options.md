@@ -743,7 +743,7 @@ The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---discovery-enabled[=<true|false>]
+--discovery-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1473,7 +1473,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---graphql-http-enabled[=<true|false>]
+--graphql-http-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1602,7 +1602,7 @@ The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must 
 <TabItem value="Syntax">
 
 ```bash
---graphql-mtls-enabled[=<true|false>]
+--graphql-mtls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1643,7 +1643,7 @@ The default is `false`.
 <TabItem value="Syntax">
 
 ```bash
---graphql-tls-enabled[=<true|false>]
+--graphql-tls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -1848,7 +1848,7 @@ Show the help message and exit.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---history-expiry-prune[=<true|false>]
+--history-expiry-prune=<true|false>
 ```
 </TabItem>
 
@@ -1990,7 +1990,7 @@ If a name is not specified, the name section is not included in the client ID. F
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---json-pretty-print-enabled[=<true|false>]
+--json-pretty-print-enabled=<true|false>
 ```
 
 </TabItem>
@@ -2236,7 +2236,7 @@ Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCK
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---metrics-enabled[=<true|false>]
+--metrics-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3414,7 +3414,7 @@ The default is `null`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---random-peer-priority-enabled[=<true|false>]
+--random-peer-priority-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3499,7 +3499,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---remote-connections-limit-enabled[=<true|false>]
+--remote-connections-limit-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3671,7 +3671,7 @@ Requires a peer with the specified block number to have the specified hash when 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---revert-reason-enabled[=<true|false>]
+--revert-reason-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3894,7 +3894,7 @@ The [credentials file](../../how-to/use-besu-api/authenticate.md#1-create-the-cr
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-authentication-enabled[=<true|false>]
+--rpc-http-authentication-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4077,7 +4077,7 @@ For testing and development purposes, use `"all"` or `"*"` to accept requests fr
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-enabled[=<true|false>]
+--rpc-http-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4331,7 +4331,7 @@ The port (TCP) on which JSON-RPC HTTP listens. The default is `8545`. You must [
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-ca-clients-enabled[=<true|false>[]
+--rpc-http-tls-ca-clients-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -4379,7 +4379,7 @@ You must enable client authentication using the [`--rpc-http-tls-client-auth-ena
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-client-auth-enabled[=<true|false>]
+--rpc-http-tls-client-auth-enabled=<true|false>
 ```
 
 </TabItem>
@@ -4473,7 +4473,7 @@ The singular `--rpc-http-tls-cipher-suite` and plural `--rpc-http-tls-cipher-sui
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-enabled[=<true|false>]
+--rpc-http-tls-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5045,7 +5045,7 @@ The path to the [credentials file](../../how-to/use-besu-api/authenticate.md#1-c
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-authentication-enabled[=<true|false>]
+--rpc-ws-authentication-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5176,7 +5176,7 @@ The [JWT provider's public key file] used for JSON-RPC WebSocket authentication 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-enabled[=<true|false>]
+--rpc-ws-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5429,7 +5429,7 @@ Required if [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type) is `PEM`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-ssl-client-auth-enabled[=<true|false>]
+--rpc-ws-ssl-client-auth-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5481,7 +5481,7 @@ If using JKS or PKCS12, specify the truststore password using [`--rpc-ws-ssl-tru
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-ssl-enabled[=<true|false>]
+--rpc-ws-ssl-enabled=<true|false>
 ```
 
 </TabItem>
@@ -5996,7 +5996,7 @@ The default is the node's local private key file specified using [`--node-privat
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-server-enabled[=<true|false>]
+--snapsync-server-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6035,7 +6035,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-synchronizer-pre-checkpoint-headers-only-enabled[=<true|false>]
+--snapsync-synchronizer-pre-checkpoint-headers-only-enabled=<true|false>
 ```
 </TabItem>
 
@@ -6078,7 +6078,7 @@ Setting this option to `false` increases sync time and disk space usage.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---snapsync-synchronizer-transaction-indexing-enabled[=<true|false>]
+--snapsync-synchronizer-transaction-indexing-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6166,7 +6166,7 @@ Static nodes JSON file containing the [static nodes](../../how-to/connect/static
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---strict-tx-replay-protection-enabled[=<true|false>]
+--strict-tx-replay-protection-enabled=<true|false>
 ```
 
 </TabItem>
@@ -6438,7 +6438,7 @@ The default is `100`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-enable-balance-check[=<true|false>]
+--tx-pool-enable-balance-check=<true|false>
 ```
 
 </TabItem>
@@ -6483,7 +6483,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-enable-save-restore[=<true|false>]
+--tx-pool-enable-save-restore=<true|false>
 ```
 
 </TabItem>
@@ -6899,7 +6899,7 @@ all other pending transactions.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-no-local-priority[=<true|false>]
+--tx-pool-no-local-priority=<true|false>
 ```
 
 </TabItem>
@@ -7134,7 +7134,7 @@ Prints version information and exits.
 <TabItem value="Syntax">
 
 ```bash
---version-compatibility-protection[=<true|false>]
+--version-compatibility-protection=<true|false>
 ```
 
 </TabItem>

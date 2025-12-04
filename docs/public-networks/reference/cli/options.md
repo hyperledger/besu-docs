@@ -1109,11 +1109,12 @@ era1-import-prepipeline-enabled=true
 </Tabs>
 
 Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
-The default is `false`.
 
-This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
 
+This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes.
 Use this to accelerate syncing from genesis or to restore full historical data without relying on peer-to-peer downloads.
+
+The default is `false`.
 
 ### `estimate-gas-tolerance-ratio`
 
@@ -1408,7 +1409,9 @@ genesis-state-hash-cache-enabled=true
 
 </Tabs>
 
-Enables or disables fast startup from an existing genesis state hash. The default is `false`.
+Enables or disables fast startup from an existing genesis state hash. 
+
+The default is `false`.
 
 :::warning
 
@@ -1494,7 +1497,9 @@ graphql-http-enabled=true
 
 </Tabs>
 
-Enables or disables the GraphQL HTTP service. The default is `false`.
+Enables or disables the GraphQL HTTP service. 
+
+The default is `false`.
 
 The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
@@ -1618,6 +1623,7 @@ graphql-mtls-enabled=true
 </Tabs>
 
 Enables or disables mTLS for the GraphQL HTTP service.
+
 The default is `false`.
 
 :::note
@@ -1658,6 +1664,7 @@ graphql-tls-enabled=true
 </Tabs>
 
 Enables or disables TLS for the GraphQL HTTP service.
+
 The default is `false`.
 
 :::note
@@ -1866,7 +1873,6 @@ history-expiry-prune=true
 Enables or disables [online pruning of historical block data](../../how-to/pre-merge-history-expiry.md#online-pruning)
 for pre-merge Proof of Work (PoW) blocks, retaining only the headers.
 The option also activates garbage collection settings that works for both online and offline pruning.
-The default is `false`.
 mechanisms, so that the reclaimed storage is compacted quickly, freeing disk space without manual intervention.
 
 The default is `false`.
@@ -2009,7 +2015,9 @@ json-pretty-print-enabled=true
 
 </Tabs>
 
-Enables or disables the pretty-print output for HTTP and WebSocket responses. The default is `false`.
+Enables or disables the pretty-print output for HTTP and WebSocket responses. 
+
+The default is `false`.
 
 ### `key-value-storage`
 
@@ -2253,9 +2261,14 @@ metrics-enabled=true
 
 </Tabs>
 
-Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). The default is `false`.
+Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). 
+
+The default is `false`.
+
+:::note
 
 You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
+:::
 
 ### `metrics-host`
 
@@ -2417,9 +2430,14 @@ metrics-push-enabled=true
 
 </Tabs>
 
-Enables or disables [push gateway integration]. The default is `false`.
+Enables or disables [push gateway integration]. 
+
+The default is `false`.
+
+:::note
 
 You can't specify `--metrics-push-enabled` with [`--metrics-enabled`](#metrics-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
+:::
 
 ### `metrics-push-host`
 
@@ -2735,7 +2753,6 @@ For a running node, use:
 
 * [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
 * [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
-
 
 ### `miner-extra-data`
 
@@ -3277,7 +3294,6 @@ plugin-continue-on-error=true
 Enables or disables continuing to run Besu if a [plugin](../../concepts/plugins.md)
 fails during registration or other startup lifecycle stages.
 If set to `true` and any plugin fails, Besu logs an error and continues running.
-The default is `false`.
 If set to `false` and any plugin fails, Besu logs an error and stops running.
 
 The default is `false`.
@@ -3423,7 +3439,9 @@ random-peer-priority-enabled=true
 
 </Tabs>
 
-Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent closed groups of peers forming. The default is `false`.
+Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent closed groups of peers forming. 
+
+The default is `false`.
 
 ### `receipt-compaction-enabled`
 
@@ -3465,6 +3483,7 @@ receipt-compaction-enabled=true
 
 Enables or disables receipt compaction. 
 Compacting receipts reduces storage by trimming unnecessary data from transaction receipts. 
+
 The default is `false`.
 
 ### `remote-connections-limit-enabled`
@@ -3677,7 +3696,9 @@ revert-reason-enabled=true
 
 </Tabs>
 
-Enables or disables including the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md) in the transaction receipt, [`eth_estimateGas`](../api/index.md#eth_estimategas) error response, [`eth_call`](../api/index.md#eth_call) error response, and [`trace`](../trace-types.md#trace) response. The default is `false`.
+Enables or disables including the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md) in the transaction receipt, [`eth_estimateGas`](../api/index.md#eth_estimategas) error response, [`eth_call`](../api/index.md#eth_call) error response, and [`trace`](../trace-types.md#trace) response. 
+
+The default is `false`.
 
 :::caution
 
@@ -3899,6 +3920,7 @@ rpc-http-authentication-enabled=true
 </Tabs>
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC HTTP service.
+
 The default is `false`.
 
 ### `rpc-http-authentication-jwt-algorithm`
@@ -4080,7 +4102,9 @@ rpc-http-enabled=true
 
 </Tabs>
 
-Enables or disables the JSON-RPC HTTP service. The default is `false`.
+Enables or disables the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 ### `rpc-http-host`
 
@@ -4332,7 +4356,9 @@ rpc-http-tls-ca-clients-enabled=true
 
 </Tabs>
 
-Enables or disables clients with trusted CA certificates to connect. The default is `false`.
+Enables or disables clients with trusted CA certificates to connect. 
+
+The default is `false`.
 
 :::note
 
@@ -4378,7 +4404,9 @@ rpc-http-tls-client-auth-enabled=true
 
 </Tabs>
 
-Enables or disables TLS client authentication for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS client authentication for the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 :::note
 
@@ -4470,7 +4498,9 @@ rpc-http-tls-enabled=true
 
 </Tabs>
 
-Enables or disables TLS for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS for the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 :::note
 
@@ -5041,6 +5071,7 @@ rpc-ws-authentication-enabled=true
 </Tabs>
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC WebSocket service.
+
 The default is `false`.
 
 :::note
@@ -5170,7 +5201,9 @@ rpc-ws-enabled=true
 
 </Tabs>
 
-Enables or disables the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 ### `rpc-ws-host`
 
@@ -5421,7 +5454,9 @@ rpc-ws-ssl-client-auth-enabled=true
 
 </Tabs>
 
-Enables or disables client authentication for the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables client authentication for the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 :::note
 
@@ -5471,7 +5506,9 @@ rpc-ws-ssl-enabled=true
 
 </Tabs>
 
-Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 Set the appropriate keystore type using [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type).
 
@@ -5982,6 +6019,7 @@ snapsync-server-enabled=true
 
 Enables or disables serving [snap sync](../../concepts/node-sync.md#snap-synchronization) data.
 Set to `true` to allow other nodes to download data from this node using snap sync.
+
 The default is `false`.
 
 ### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`
@@ -6063,7 +6101,9 @@ snapsync-synchronizer-transaction-indexing-enabled=true
 
 </Tabs>
 
-Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization). The default is `false`.
+Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization). 
+
+The default is `false`.
 
 :::note Notes
 
@@ -6149,7 +6189,9 @@ strict-tx-replay-protection-enabled=false
 
 </Tabs>
 
-Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. The default is `false`.
+Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. 
+
+The default is `false`.
 
 ### `sync-min-peers`, `fast-sync-min-peers`
 
@@ -6420,8 +6462,10 @@ tx-pool-enable-balance-check=true
 </Tabs>
 
 Enables or disables balance checks for pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
-The default is `false`.
-When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
+
+When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, 
+from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
+
 The default is `false`.
 
 ### `tx-pool-enable-save-restore`
@@ -6464,6 +6508,7 @@ tx-pool-enable-save-restore=true
 
 Enables or disables saving the [transaction pool](../../concepts/transactions/pool.md) contents to a
 file on shutdown and reloading it at startup.
+
 The default is `false`.
 
 You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
@@ -6879,6 +6924,7 @@ tx-pool-no-local-priority=true
 
 If this option is set to `true`, senders of transactions submitted via RPC are *not* prioritized over
 remote transactions in the [transaction pool](../../concepts/transactions/pool.md).
+
 The default is `false`.
 
 ### `tx-pool-price-bump`
@@ -7110,7 +7156,6 @@ version-compatibility-protection=true
 Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
-The default is `false`.
 
 The default is `false` for named networks, such as Mainnet or Sepolia, and `true`
 for non-named networks.

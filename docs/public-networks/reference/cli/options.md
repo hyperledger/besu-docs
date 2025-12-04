@@ -374,7 +374,7 @@ If you plan on querying historical blocks or state using the [JSON-RPC API](../a
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bonsai-limit-trie-logs-enabled=<true|false>
+--bonsai-limit-trie-logs-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -740,7 +740,7 @@ The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---discovery-enabled=<true|false>
+--discovery-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -912,7 +912,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/node-clien
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-rpc-enabled=<true|false>
+--engine-rpc-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1077,7 +1077,7 @@ In most cases, we recommend using the default unless slow file downloads are a l
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---era1-import-prepipeline-enabled=<true|false>
+--era1-import-prepipeline-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1085,7 +1085,7 @@ In most cases, we recommend using the default unless slow file downloads are a l
 <TabItem value="Example" label="Example">
 
 ```bash
---era1-import-prepipeline-enabled=true
+--era1-import-prepipeline-enabled
 ```
 
 </TabItem>
@@ -1378,7 +1378,7 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---genesis-state-hash-cache-enabled=<true|false>
+--genesis-state-hash-cache-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1386,7 +1386,7 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 <TabItem value="Example" label="Example">
 
 ```bash
---genesis-state-hash-cache-enabled=true
+--genesis-state-hash-cache-enabled
 ```
 
 </TabItem>
@@ -1466,7 +1466,7 @@ A list of comma-separated origin domain URLs for CORS validation. The default is
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---graphql-http-enabled=<true|false>
+--graphql-http-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1595,14 +1595,14 @@ The port (TCP) on which GraphQL HTTP listens. The default is `8547`. Ports must 
 <TabItem value="Syntax">
 
 ```bash
---graphql-mtls-enabled=<true|false>
+--graphql-mtls-enabled[=<true|false>]
 ```
 
 </TabItem>
 <TabItem value="Example">
 
 ```bash
---graphql-mtls-enabled=true
+--graphql-mtls-enabled
 ```
 
 </TabItem>
@@ -1636,14 +1636,14 @@ The default is `false`.
 <TabItem value="Syntax">
 
 ```bash
---graphql-tls-enabled=<true|false>
+--graphql-tls-enabled[=<true|false>]
 ```
 
 </TabItem>
 <TabItem value="Example">
 
 ```bash
---graphql-tls-enabled=true
+--graphql-tls-enabled
 ```
 
 </TabItem>
@@ -1841,14 +1841,14 @@ Show the help message and exit.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---history-expiry-prune=<true|false>
+--history-expiry-prune[=<true|false>]
 ```
 </TabItem>
 
 <TabItem value="Example" label="Example">
 
 ```bash
---history-expiry-prune=true
+--history-expiry-prune
 ```
 
 </TabItem>
@@ -1983,7 +1983,7 @@ If a name is not specified, the name section is not included in the client ID. F
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---json-pretty-print-enabled=<true|false>
+--json-pretty-print-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1991,7 +1991,7 @@ If a name is not specified, the name section is not included in the client ID. F
 <TabItem value="Example" label="Example">
 
 ```bash
---json-pretty-print-enabled=true
+--json-pretty-print-enabled
 ```
 
 </TabItem>
@@ -2229,7 +2229,7 @@ Other categories are `KVSTORE_ROCKSDB`, `KVSTORE_PRIVATE_ROCKSDB`, `KVSTORE_ROCK
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---metrics-enabled=<true|false>
+--metrics-enabled[=<true|false>]
 ```
 
 </TabItem>

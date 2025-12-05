@@ -21,6 +21,12 @@ Clique is not suitable for production environments. Use only in development envi
 
 :::
 
+:::important Deprecation notice
+
+Clique block production (mining/validating) is deprecated from Besu 25.12.0 onward. You can still sync existing Clique networks, but you can’t validate or create new Clique networks.
+
+:::
+
 In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers take turns to create the next block. Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
 
 ## Genesis file

@@ -590,7 +590,9 @@ color-enabled=false
 
 </Tabs>
 
-Enables or disables color output to console. The default is `true`.
+Enables or disables color output to console. 
+
+The default is `true`.
 
 ### `config-file`
 
@@ -917,7 +919,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/node-clien
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-rpc-enabled[=<true|false>]
+--engine-rpc-enabled=<true|false>
 ```
 
 </TabItem>

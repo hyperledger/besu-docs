@@ -152,7 +152,7 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 
 ## State override object
 
-Parameter for [`eth_call`](./index.md#eth_call), [`eth_estimateGas`](./index.md#eth_estimategas), and [`eth_simulateV1`](index.md#eth_simulatev1).
+Parameter for [`eth_call`](./index.md#eth_call), [`eth_estimateGas`](./index.md#eth_estimategas), [`eth_simulateV1`](index.md#eth_simulatev1), and [`debug_traceCall`](./index.md#debug_traceCall).
 Override an account with the following state values temporarily before making the call. This allows you
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.
@@ -177,7 +177,7 @@ Log information returned as part of the [Trace object](#trace-object).
 | `gas` | Integer | Gas remaining. |
 | `gasCost` | Integer | Cost in wei of each gas unit. |
 | `depth` | Integer | Execution depth. |
-| `exceptionalHaltReasons` | Array | One or more strings representing an error condition causing the EVM execution to terminate. These strings suggest that EVM execution terminated for reasons such as running out of gas or attempting to execute an unknown instruction. Generally a single exceptional halt reason returns but it's possible for more than one to occur at once. |
+| `exceptionalHaltReasons` | Array | One or more strings representing an error condition causing the EVM execution to terminate. These strings suggest that EVM execution terminated for reasons such as running out of gas or attempting to execute an unknown instruction. Generally, a single exceptional halt reason returns but it's possible for more than one to occur at once. |
 | `stack` | Array of 32&nbsp;byte arrays | EVM execution stack before executing current operation. |
 | `memory` | Array of 32&nbsp;byte arrays | Memory space of the contract before executing current operation. |
 | `storage` | Object | Storage entries changed by the current transaction. |

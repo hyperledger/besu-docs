@@ -187,7 +187,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---auto-log-bloom-caching-enabled[=<true|false>]
+--auto-log-bloom-caching-enabled=<true|false>
 ```
 
 </TabItem>
@@ -374,7 +374,7 @@ If you plan on querying historical blocks or state using the [JSON-RPC API](../a
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bonsai-limit-trie-logs-enabled=[=<true|false>]
+--bonsai-limit-trie-logs-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -740,7 +740,7 @@ The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---discovery-enabled[=<true|false>]
+--discovery-enabled=<true|false>
 ```
 
 </TabItem>
@@ -912,7 +912,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/node-clien
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-rpc-enabled[=<true|false]>
+--engine-rpc-enabled[=<true|false]
 ```
 
 </TabItem>
@@ -1077,7 +1077,7 @@ In most cases, we recommend using the default unless slow file downloads are a l
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---era1-import-prepipeline-enabled[=<Boolean>]
+--era1-import-prepipeline-enabled[=<true|false]
 ```
 
 </TabItem>
@@ -1376,7 +1376,7 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---genesis-state-hash-cache-enabled=[=<true|false>]
+--genesis-state-hash-cache-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -3034,7 +3034,7 @@ This option is ignored if [`--security-module`](#security-module) is set to a no
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---p2p-enabled[=<true|false>]
+--p2p-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3244,7 +3244,7 @@ The default is `50`: limiting plugins to up to 50% of the total block creation t
 <TabItem value="Syntax">
 
 ```bash
---plugin-continue-on-error[=<true|false>]
+--plugin-continue-on-error=<true|false>
 ```
 
 </TabItem>
@@ -3379,7 +3379,6 @@ Possible values are:
   without the `.toml` extension.
   
 The default is `null`.
-
 
 ### `random-peer-priority-enabled`
 
@@ -4824,7 +4823,6 @@ rpc-max-trace-filter-range=100
 
 The maximum number of blocks you can supply to the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting this option to `0` indicates there is no limit. The default is `1000`.
 
-
 ### `rpc-tx-feecap`
 
 <Tabs>
@@ -5330,7 +5328,6 @@ rpc-ws-port="6174"
 </Tabs>
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
-
 
 ### `rpc-ws-ssl-cert-file`
 
@@ -6784,7 +6781,6 @@ tx-pool-min-gas-price="2000"
 </Tabs>
 
 The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
-
 
 ### `tx-pool-min-score`
 

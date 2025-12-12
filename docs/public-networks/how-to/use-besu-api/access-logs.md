@@ -15,7 +15,7 @@ Access logs using the following Besu API methods:
 
 - [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges)
 - [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)
-- [`eth_getLogs`](../../reference/api/index.md#eth_getlogs).
+- [`eth_getLogs`](../../reference/api/index.md#eth_getlogs)
 
 Use [`eth_newFilter`](../../reference/api/index.md#eth_newfilter) to create the filter before using [`eth_getFilterChanges`](../../reference/api/index.md#eth_getfilterchanges) and [`eth_getFilterLogs`](../../reference/api/index.md#eth_getfilterlogs)).
 
@@ -68,6 +68,7 @@ If the contract had been executed twice since the last poll, with `valueIndexed`
       "removed": false,
       "blockNumber": "0x21c",
       "blockHash": "0xc7e6c9d5b9f522b2c9d2991546be0a8737e587beb6628c056f3c327a44b45132",
+      "blockTimestamp": "0x55ba4740",
       "transactionHash": "0xfd1a40f9fbf89c97b4545ec9db774c85e51dd8a3545f969418a22f9cb79417c5",
       "transactionIndex": "0x0",
       "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
@@ -97,6 +98,7 @@ If the contract had been executed twice with `valueIndexed` set to 5 since the f
       "removed": false,
       "blockNumber": "0x1a7",
       "blockHash": "0x4edda22a242ddc7bc51e2b6b11e63cd67be1af7389470cdea9c869768ff75d42",
+      "blockTimestamp": "0x55ba4662",
       "transactionHash": "0x9535bf8830a72ca7d0020df0b547adc4d0ecc4321b7d5b5d6beb1eccee5c0afa",
       "transactionIndex": "0x0",
       "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
@@ -111,6 +113,7 @@ If the contract had been executed twice with `valueIndexed` set to 5 since the f
       "removed": false,
       "blockNumber": "0x21c",
       "blockHash": "0xc7e6c9d5b9f522b2c9d2991546be0a8737e587beb6628c056f3c327a44b45132",
+      "blockTimestamp": "0x55ba4740",
       "transactionHash": "0xfd1a40f9fbf89c97b4545ec9db774c85e51dd8a3545f969418a22f9cb79417c5",
       "transactionIndex": "0x0",
       "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",

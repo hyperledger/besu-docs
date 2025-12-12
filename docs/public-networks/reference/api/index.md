@@ -2010,6 +2010,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
 
 Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
 
+Each `options` entry specifies a state that will be temporarily overridden before executing the call. 
+This allows you to test, analyze, and debug smart contracts more efficiently by allowing
+temporary state changes without affecting the actual blockchain state.
+
 #### Parameters
 
 - `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
@@ -2022,13 +2026,11 @@ Performs an [`eth_call`](#eth_call) within the execution environment of a given 
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
-
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-
-  - `disableStack` : _boolean_ - `true` disables stack capture.
+- `options`: _object_ - request options object with the following fields (all booleans default to `false`):
+  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture.
+  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture.
+  - `disableStack` : _boolean_ - (optional) `true` disables stack capture.
+  - `stateOverrides`: _object_ - (optional) [address-to-state mapping](./objects.md#state-override-object).
 
 #### Returns
 

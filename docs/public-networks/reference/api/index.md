@@ -175,7 +175,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":[
 
 ### `admin_generateLogBloomCache`
 
-Generates cached log bloom indexes for blocks. APIs such as [`eth_getLogs`](#eth_getlogs) and [`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
+Generates cached log bloom indexes for blocks. APIs calls such as [`eth_getLogs`](#eth_getlogs) and [`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
 
 :::tip
 
@@ -3982,6 +3982,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":[
       "removed": false,
       "blockNumber": "0x233",
       "blockHash": "0xfc139f5e2edee9e9c888d8df9a2d2226133a9bd87c88ccbd9c930d3d4c9f9ef5",
+      "blockTimestamp": "0x55ba4769",
       "transactionHash": "0x66e7a140c8fa27fe98fde923defea7562c3ca2d6bb89798aabec65782c08f63d",
       "transactionIndex": "0x0",
       "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
@@ -3995,6 +3996,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":[
       "removed": false,
       "blockNumber": "0x238",
       "blockHash": "0x98b0ec0f9fea0018a644959accbe69cd046a8582e89402e1ab0ada91cad644ed",
+      "blockTimestamp": "0x55ba4773",
       "transactionHash": "0xdb17aa1c2ce609132f599155d384c0bc5334c988a6c368056d7e167e23eee058",
       "transactionIndex": "0x0",
       "address": "0x42699a7612a82f1d9c36148af9c77354759b210b",
@@ -4066,6 +4068,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x
       "removed": false,
       "blockNumber": "0xb3",
       "blockHash": "0xe7cd776bfee2fad031d9cc1c463ef947654a031750b56fed3d5732bee9c61998",
+      "blockTimestamp": "0x55ba4486",
       "transactionHash": "0xff36c03c0fba8ac4204e4b975a6632c862a3f08aa01b004f570cc59679ed4689",
       "transactionIndex": "0x0",
       "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8",
@@ -4079,6 +4082,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x
       "removed": false,
       "blockNumber": "0xb6",
       "blockHash": "0x3f4cf35e7ed2667b0ef458cf9e0acd00269a4bc394bb78ee07733d7d7dc87afc",
+      "blockTimestamp": "0x55ba448c",
       "transactionHash": "0x117a31d0dbcd3e2b9180c40aca476586a648bc400aa2f6039afdd0feab474399",
       "transactionIndex": "0x0",
       "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8",
@@ -4120,7 +4124,7 @@ Using `eth_getLogs` to get logs from a large range of blocks, especially an enti
 <TabItem value="curl HTTP" label="curl HTTP" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest", "toBlock":"latest", "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8", "topics":[]}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"0x16e2a9a","toBlock":"0x16e2a9a","address":"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", "topics":[]}], "id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -4133,9 +4137,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlo
   "method": "eth_getLogs",
   "params": [
     {
-      "fromBlock": "earliest",
-      "toBlock": "latest",
-      "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8",
+      "fromBlock": "0x16e2a9a",
+      "toBlock": "0x16e2a9a",
+      "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
       "topics": []
     }
   ],
@@ -4153,29 +4157,31 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlo
   "id": 1,
   "result": [
     {
-      "logIndex": "0x0",
       "removed": false,
-      "blockNumber": "0xb3",
-      "blockHash": "0xe7cd776bfee2fad031d9cc1c463ef947654a031750b56fed3d5732bee9c61998",
-      "transactionHash": "0xff36c03c0fba8ac4204e4b975a6632c862a3f08aa01b004f570cc59679ed4689",
+      "logIndex": "0x2",
       "transactionIndex": "0x0",
-      "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8",
-      "data": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "transactionHash": "0xf9bde920aba1c0eb632138ae21d3f019977de264a4714a54f1ae2e337cce4e3d",
+      "blockHash": "0xa02851f445eea915ef51c54f1352a773c3821a1860d49c6d3e94a16659291c19",
+      "blockNumber": "0x16e2a9a",
+      "blockTimestamp": "0x693c23db",
+      "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "data": "0x00000000000000000000000000000000000000000000000001112ea12c39c032",
       "topics": [
-        "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
+        "0xddf252ad1be2c89b69c2b068fc378da...9d4b2b7fad"
       ]
     },
     {
-      "logIndex": "0x0",
       "removed": false,
-      "blockNumber": "0xb6",
-      "blockHash": "0x3f4cf35e7ed2667b0ef458cf9e0acd00269a4bc394bb78ee07733d7d7dc87afc",
-      "transactionHash": "0x117a31d0dbcd3e2b9180c40aca476586a648bc400aa2f6039afdd0feab474399",
+      "logIndex": "0x6",
       "transactionIndex": "0x0",
-      "address": "0x2e1f232a9439c3d459fceca0beef13acc8259dd8",
-      "data": "0x0000000000000000000000000000000000000000000000000000000000000005",
+      "transactionHash": "0xf9bde920aba1c0eb632138ae21d3f019977de264a4714a54f1ae2e337cce4e3d",
+      "blockHash": "0xa02851f445eea915ef51c54f1352a773c3821a1860d49c6d3e94a16659291c19",
+      "blockNumber": "0x16e2a9a",
+      "blockTimestamp": "0x693c23db",
+      "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "data": "0x00000000000000000000000000000000000000000000000001112ea12c39c032",
       "topics": [
-        "0x04474795f5b996ff80cb47c148d4c5ccdbe09ef27551820caa9c2f8ed149cce3"
+        "0xddf252ad1be2c89b69c2b068fc378d...629ba9375161"
       ]
     }
   ]
@@ -4187,7 +4193,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlo
 <TabItem value="curl GraphQL" label="curl GraphQL">
 
 ```bash
-curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter:{fromBlock: 1486000, toBlock: 1486010, addresses: [\"0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d\"], topics: [[\"0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d\"]]}) {index topics data account{address} transaction{hash} }}"}' http://localhost:8547/graphql
+curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter:{fromBlock: 24000026, toBlock: 24000026, addresses: [\"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\"]}) {index topics data account{address} transaction{hash} }}"}' http://localhost:8547/graphql
 ```
 
 </TabItem>
@@ -4196,7 +4202,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 ```text
 {
-  logs(filter: {fromBlock: 1486000, toBlock: 1486010, addresses: ["0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"], topics: [["0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d"]]}) {
+  logs(filter: {fromBlock: 24000026, toBlock: 24000026, addresses: ["0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"]}) {
     index
     topics
     data
@@ -4219,33 +4225,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
   "data": {
     "logs": [
       {
-        "index": 0,
+        "index": 2,
         "topics": [
-          "0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d",
-          "0x0000000000000000000000000000000000000000000000000000000000000004",
-          "0x0000000000000000000000000000000000000000000000000000000000508918"
+          "0xddf252ad1be2c89b69c2b068fc378...d4b2b7fad"
         ],
-        "data": "0xa5a04999ec29a8bd19ce32b859280ef9dbb464d846be06f64a1b1012ec08ab03",
+        "data": "0x00000000000000000000000000000000000000000000000001112ea12c39c032",
         "account": {
-          "address": "0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
         },
         "transaction": {
-          "hash": "0x36a2186344c6a32760e7700fdf3685936220876c51ff39d071eb48c17f7e802f"
+          "hash": "0xf9bde920aba1c0eb632138ae21d3f019977de264a4714a54f1ae2e337cce4e3d"
         }
       },
       {
-        "index": 0,
+        "index": 6,
         "topics": [
-          "0x8a22ee899102a366ac8ad0495127319cb1ff2403cfae855f83a89cda1266674d",
-          "0x0000000000000000000000000000000000000000000000000000000000000003",
-          "0x0000000000000000000000000000000000000000000000000000000000648c72"
+          "0xddf252ad1be2c89b69c2b068fc378...9ba9375161"
         ],
-        "data": "0x0ee96b660ad82c8010c90760a03edfbb40b4af5e3634a8c214e4ac7fa1f61492",
+        "data": "0x00000000000000000000000000000000000000000000000001112ea12c39c032",
         "account": {
-          "address": "0x7ef66b77759e12caf3ddb3e4aff524e577c59d8d"
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
         },
         "transaction": {
-          "hash": "0x9e2cc9e84a9e78839d6f4b591dfd98cc7a454a8ee3cd6ccd0a18e662e22d3818"
+          "hash": "0xf9bde920aba1c0eb632138ae21d3f019977de264a4714a54f1ae2e337cce4e3d"
         }
       }
     ]
@@ -4952,6 +4954,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","para
   "result": {
     "blockHash": "0xe7212a92cfb9b06addc80dec2a0dfae9ea94fd344efeb157c41e12994fcad60a",
     "blockNumber": "0x50",
+    "blockTimestamp": "0x55ba43bb",
     "contractAddress": null,
     "cumulativeGasUsed": "0x5208",
     "from": "0x627306090abab3a6e1400e9345bc60c78a8bef57",

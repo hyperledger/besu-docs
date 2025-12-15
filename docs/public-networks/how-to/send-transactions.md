@@ -31,7 +31,7 @@ In production environments avoid exposing your private keys by creating signed t
 
 :::
 
-## `eth_call` vs `eth_sendRawTransaction`
+## `eth_call` vs. `eth_sendRawTransaction`
 
 You can interact with contracts using [`eth_call`](../reference/api/index.md#eth_call) or [`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction). The table below compares the characteristics of both calls.
 
@@ -58,6 +58,7 @@ executing a call. State overrides allow you to make temporary state changes with
 The following methods support the [state override object](../reference/api/objects.md#state-override-object):
 
 - [`eth_call`](../reference/api/index.md#eth_call)
+- [`eth_estimateGas`](../reference/api/index.md#eth_estimategas)
 - [`eth_simulateV1`](../reference/api/index.md#eth_simulatev1)
 - [`debug_traceCall`](../reference/api/index.md#debug_tracecall) (via the `stateOverrides` options wrapper)
 

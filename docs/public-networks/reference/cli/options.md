@@ -35,7 +35,7 @@ You can specify Besu options:
   - `_` replaces `-`.
   - Has a `BESU_` prefix.
 
-  For example, set `--miner-coinbase` using the `BESU_MINER_COINBASE` environment variable.
+  For example, set `--rpc-http-enabled` using the `BESU_RPC_HTTP_ENABLED` environment variable.
 
 - In a [configuration file](../../how-to/configure-besu/index.md).
 
@@ -187,7 +187,7 @@ For [`eth_gasPrice`](../api/index.md#eth_gasprice), to return the:
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---auto-log-bloom-caching-enabled[=<true|false>]
+--auto-log-bloom-caching-enabled=<true|false>
 ```
 
 </TabItem>
@@ -218,7 +218,9 @@ auto-log-bloom-caching-enabled=false
 
 </Tabs>
 
-Enables or disables automatic log bloom caching. APIs such as [`eth_getLogs`](../api/index.md#eth_getlogs) and [`eth_getFilterLogs`](../api/index.md#eth_getfilterlogs) use the cache for improved performance. The default is `true`.
+Enables or disables automatic log bloom caching. APIs such as [`eth_getLogs`](../api/index.md#eth_getlogs) and [`eth_getFilterLogs`](../api/index.md#eth_getfilterlogs) use the cache for improved performance. 
+
+The default is `true`.
 
 If automatic log bloom caching is enabled and a log bloom query reaches the end of the cache, Besu
 performs an uncached query for logs not yet written to the cache.
@@ -374,7 +376,7 @@ If you plan on querying historical blocks or state using the [JSON-RPC API](../a
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bonsai-limit-trie-logs-enabled=[=<true|false>]
+--bonsai-limit-trie-logs-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -409,6 +411,7 @@ Enables or disables limiting the number of
 [Bonsai Trie](../../concepts/data-storage-formats.md#bonsai-tries) logs that are retained.
 When enabled, this limit is set to the value of
 [`--bonsai-historical-block-limit`](#bonsai-historical-block-limit).
+
 The default is `true`, unless [`--sync-mode=FULL`](#sync-mode) is set, in which case this option is
 disallowed and must be set to `false`.
 
@@ -587,7 +590,9 @@ color-enabled=false
 
 </Tabs>
 
-Enables or disables color output to console. The default is `true`.
+Enables or disables color output to console. 
+
+The default is `true`.
 
 ### `config-file`
 
@@ -740,7 +745,7 @@ The `enrtree` URL of the DNS node list for [node discovery via DNS](https://eips
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---discovery-enabled[=<true|false>]
+--discovery-enabled=<true|false>
 ```
 
 </TabItem>
@@ -771,7 +776,9 @@ discovery-enabled=false
 
 </Tabs>
 
-Enables or disables P2P discovery. The default is `true`.
+Enables or disables P2P discovery. 
+
+The default is `true`.
 
 :::note
 
@@ -863,7 +870,9 @@ engine-jwt-disabled=true
 
 </Tabs>
 
-Disables or enables [authentication](../../how-to/use-engine-api.md#authentication) for Engine APIs. The default is `false` (authentication is enabled by default).
+Disables or enables [authentication](../../how-to/use-engine-api.md#authentication) for Engine APIs. 
+
+The default is `false` (authentication is enabled by default).
 
 ### `engine-jwt-secret`
 
@@ -912,7 +921,7 @@ Shared secret used to authenticate [consensus clients](../../concepts/node-clien
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-rpc-enabled[=<true|false]>
+--engine-rpc-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -943,7 +952,9 @@ engine-rpc-enabled=true
 
 </Tabs>
 
-Enables or disables the [Engine API](../engine-api/index.md). The default is `true`.
+Enables or disables the [Engine API](../engine-api/index.md). 
+
+The default is `false`.
 
 ### `engine-rpc-port`
 
@@ -1077,7 +1088,7 @@ In most cases, we recommend using the default unless slow file downloads are a l
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---era1-import-prepipeline-enabled[=<Boolean>]
+--era1-import-prepipeline-enabled[=<true|false]
 ```
 
 </TabItem>
@@ -1110,7 +1121,9 @@ era1-import-prepipeline-enabled=true
 
 Enables [importing pre-merge blocks from ERA1 archive files](../../how-to/era1-file-full-sync.md) before full sync begins. Files are loaded from the location specified by[`--era1-data-uri`](#era1-data-uri) (supports local paths and HTTP URLs).
 
-This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. The default is `false`.
+This option only applies when [`--sync-mode=FULL`](#sync-mode); it has no effect in other sync modes. 
+
+The default is `false`.
 
 Use this to accelerate syncing from genesis or to restore full historical data without relying on peer-to-peer downloads.
 
@@ -1282,6 +1295,47 @@ ethstats-contact="contact@mail.com"
 
 Contact email address to send to the Ethstats server specified by [`--ethstats`](#ethstats).
 
+### `ethstats-report-interval`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ethstats-report-interval=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--ethstats-report-interval=10
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_ETHSTATS_REPORT_INTERVAL=10
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+ethstats-report-interval=10
+```
+
+</TabItem>
+
+</Tabs>
+
+Interval (in seconds) at which Besu sends status updates to the EthStats server.  
+The default is `5`.
+
 ### `genesis-file`
 
 <Tabs>
@@ -1335,7 +1389,7 @@ You can't use the [`--genesis-file`](#genesis-file) and [`--network`](#network) 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---genesis-state-hash-cache-enabled=[=<true|false>]
+--genesis-state-hash-cache-enabled[=<true|false>]
 ```
 
 </TabItem>
@@ -1366,7 +1420,9 @@ genesis-state-hash-cache-enabled=true
 
 </Tabs>
 
-Enables or disables fast startup from an existing genesis state hash. The default is `false`.
+Enables or disables fast startup from an existing genesis state hash. 
+
+The default is `false`.
 
 :::warning
 
@@ -1452,7 +1508,9 @@ graphql-http-enabled=true
 
 </Tabs>
 
-Enables or disables the GraphQL HTTP service. The default is `false`.
+Enables or disables the GraphQL HTTP service. 
+
+The default is `false`.
 
 The default GraphQL HTTP service endpoint is `http://127.0.0.1:8547/graphql` if set to `true`.
 
@@ -1576,6 +1634,7 @@ graphql-mtls-enabled=true
 </Tabs>
 
 Enables or disables mTLS for the GraphQL HTTP service.
+
 The default is `false`.
 
 :::note
@@ -1616,6 +1675,7 @@ graphql-tls-enabled=true
 </Tabs>
 
 Enables or disables TLS for the GraphQL HTTP service.
+
 The default is `false`.
 
 :::note
@@ -1966,7 +2026,9 @@ json-pretty-print-enabled=true
 
 </Tabs>
 
-Enables or disables the pretty-print output for HTTP and WebSocket responses. The default is `false`.
+Enables or disables the pretty-print output for HTTP and WebSocket responses. 
+
+The default is `false`.
 
 ### `key-value-storage`
 
@@ -2210,7 +2272,9 @@ metrics-enabled=true
 
 </Tabs>
 
-Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). The default is `false`.
+Enables or disables the [metrics exporter](../../how-to/monitor/metrics.md). 
+
+The default is `false`.
 
 You can't specify `--metrics-enabled` with [`--metrics-push-enabled`](#metrics-push-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
 
@@ -2375,6 +2439,8 @@ metrics-push-enabled=true
 </Tabs>
 
 Enables or disables [push gateway integration].
+
+The default is `false`.
 
 You can't specify `--metrics-push-enabled` with [`--metrics-enabled`](#metrics-enabled). That is, you can enable either Prometheus polling or Prometheus push gateway support, but not both at once.
 
@@ -2693,97 +2759,6 @@ For a running node, use:
 * [`miner_getMinPriorityFee`](../api/index.md#miner_getminpriorityfee) to get the value.
 * [`miner_setMinPriorityFee`](../api/index.md#miner_setminpriorityfee) to change the value.
 
-### `miner-coinbase`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-coinbase=<Ethereum account address>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-coinbase=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_COINBASE=fe3b557e8fb62b89f4916b721be55ceb828dbd73
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
-```
-
-</TabItem>
-
-</Tabs>
-
-The account you pay mining rewards to.
-You must specify a valid coinbase when you enable mining using the
-[`--miner-enabled`](#miner-enabled) option or the [`miner_start`](../api/index.md#miner_start-deprecated)
-JSON-RPC API method.
-
-:::note
-
-Besu ignores this option in [proof-of-authority](../../../private-networks/concepts/poa.md) networks.
-In proof-of-stake networks, such as Ethereum Mainnet, this option is used as a last resort for the
-fee recipient, if the consensus layer client doesn't provide any.
-
-:::
-
-### `miner-enabled`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---miner-enabled[=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---miner-enabled=true
-```
-
-</TabItem>
-
-<TabItem value="Environment variable" label="Environment variable">
-
-```bash
-BESU_MINER_ENABLED=true
-```
-
-</TabItem>
-
-<TabItem value="Configuration file" label="Configuration file">
-
-```bash
-miner-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Enables or disables mining when you start the node. The default is `false`.
-
 ### `miner-extra-data`
 
 <Tabs>
@@ -2934,7 +2909,7 @@ If not specified, no subnet-based peer permission restrictions are applied.
 <TabItem value="Example" label="Example">
 
 ```bash
---network=holesky
+--network=sepolia
 ```
 
 </TabItem>
@@ -2942,7 +2917,7 @@ If not specified, no subnet-based peer permission restrictions are applied.
 <TabItem value="Environment variable" label="Environment variable">
 
 ```bash
-BESU_NETWORK=holesky
+BESU_NETWORK=sepolia
 ```
 
 </TabItem>
@@ -2950,7 +2925,7 @@ BESU_NETWORK=holesky
 <TabItem value="Configuration file" label="Configuration file">
 
 ```bash
-network="holesky"
+network="sepolia"
 ```
 
 </TabItem>
@@ -2963,15 +2938,15 @@ Possible values include the following:
 
 | Network    | Chain | Type        | Default sync mode    | Consensus mechanism | Description                                                                    |
 |:-----------|:------|:------------|:---------------------|:--------------------|:-------------------------------------------------------------------------------|
-| `mainnet`  | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
-| `holesky`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Holesky](https://holesky.dev)                            |
-| `hoodi`    | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Hoodi](https://hoodi.ethpandaops.io/)                    |
-| `sepolia`  | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Sepolia](https://sepolia.dev)                            |
-| `lukso`    | ETH   | Production  | [`SNAP`](#sync-mode) | A PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
-| `dev`      | ETH   | Development | [`FULL`](#sync-mode) | A PoW network       | Development network with low difficulty to enable local CPU mining             |
-| `classic`  | ETC   | Production  | [`SNAP`](#sync-mode) | A PoW network       | The main [Ethereum Classic network](https://ethereumclassic.org)               |
-| `mordor `  | ETC   | Test        | [`SNAP`](#sync-mode) | A PoW network       | Testnet for [Ethereum Classic](https://github.com/eth-classic/mordor)          |
-| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | A PoS network       | Multi-client testnet [Ephemery](https://ephemery.dev)                          |
+| `mainnet`  | ETH   | Production  | [`SNAP`](#sync-mode) | PoS network       | The main [Ethereum network](https://ethereum.org/en/developers/docs/networks/) |
+| `hoodi`    | ETH   | Test        | [`SNAP`](#sync-mode) | PoS network       | Multi-client Ethereum testnet [Hoodi](https://hoodi.ethpandaops.io/)                    |
+| `sepolia`  | ETH   | Test        | [`SNAP`](#sync-mode) | PoS network       | Multi-client Ethereum testnet [Sepolia](https://sepolia.dev)                            |
+| `dev`      | ETH   | Development | [`FULL`](#sync-mode) | PoW network       | Development network with low difficulty to enable local CPU mining             |
+| `ephemery` | ETH   | Test        | [`SNAP`](#sync-mode) | PoS network       | Multi-client Ethereum testnet [Ephemery](https://ephemery.dev)  
+| `linea_mainnet`  | Linea   | Production        | [`SNAP`](#sync-mode) | Sequencer-based (zkEVM rollup)       | The main [Linea network](https://docs.linea.build/get-started/build/network-info)                            |
+| `linea_sepolia`  | Linea   | Test        | [`SNAP`](#sync-mode) | Sequencer-based (zkEVM rollup)      | Linea [Sepolia testnet](https://docs.linea.build/get-started/build/network-info/)                            |
+| `lukso`    | Lukso  | Production  | [`SNAP`](#sync-mode) | PoS network       | Network for the [Lukso chain](https://lukso.network/)                          |
+
 
 :::tip
 
@@ -2983,7 +2958,7 @@ Values are case-insensitive, so either `mainnet` or `MAINNET` works.
 
 - You can't use the `--network` and [`--genesis-file`](#genesis-file) options at the same time.
 
-- The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+- The following networks and testnets are deprecated: ETC Classic, Holesky, and Mordor.
 
 :::
 
@@ -3084,7 +3059,7 @@ This option is ignored if [`--security-module`](#security-module) is set to a no
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---p2p-enabled[=<true|false>]
+--p2p-enabled=<true|false>
 ```
 
 </TabItem>
@@ -3115,7 +3090,9 @@ p2p-enabled=false
 
 </Tabs>
 
-Enables or disables all P2P communication. The default is `true`.
+Enables or disables all P2P communication. 
+
+The default is `true`.
 
 ### `p2p-host`
 
@@ -3247,13 +3224,54 @@ p2p-port="1789"
 
 The P2P listening ports (UDP and TCP). The default is `30303`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
+### `plugin-block-txs-selection-max-time`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--plugin-block-txs-selection-max-time=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_PLUGIN_BLOCK_TXS_SELECTION_MAX_TIME=50
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+plugin-block-txs-selection-max-time=50
+```
+
+</TabItem>
+
+</Tabs>
+
+Maximum time, as a percentage of the overall block creation time, that [plugins](../../concepts/plugins.md) can use to propose their own transactions during block creation.
+The default is `50`: limiting plugins to up to 50% of the total block creation time.
+
 ### `plugin-continue-on-error`
 
 <Tabs>
 <TabItem value="Syntax">
 
 ```bash
---plugin-continue-on-error[=<true|false>]
+--plugin-continue-on-error=<true|false>
 ```
 
 </TabItem>
@@ -3389,7 +3407,6 @@ Possible values are:
   
 The default is `null`.
 
-
 ### `random-peer-priority-enabled`
 
 <Tabs>
@@ -3428,7 +3445,9 @@ random-peer-priority-enabled=true
 
 </Tabs>
 
-Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent closed groups of peers forming. The default is `false`.
+Enables or disables random prioritization of incoming connections. Enable in small, stable networks to prevent closed groups of peers forming. 
+
+The default is `false`.
 
 ### `receipt-compaction-enabled`
 
@@ -3470,7 +3489,8 @@ receipt-compaction-enabled=true
 
 Enables or disables receipt compaction. 
 Compacting receipts reduces storage by trimming unnecessary data from transaction receipts. 
-The default is `false`.
+
+The default is `true`.
 
 ### `remote-connections-limit-enabled`
 
@@ -3510,7 +3530,9 @@ remote-connections-limit-enabled=false
 
 </Tabs>
 
-Enables or disables using the [`--remote-connections-max-percentage`](#remote-connections-max-percentage) option to limit the percentage of remote P2P connections initiated by peers. The default is `true`.
+Enables or disables using the [`--remote-connections-max-percentage`](#remote-connections-max-percentage) option to limit the percentage of remote P2P connections initiated by peers. 
+
+The default is `true`.
 
 :::tip
 
@@ -3682,7 +3704,9 @@ revert-reason-enabled=true
 
 </Tabs>
 
-Enables or disables including the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md) in the transaction receipt, [`eth_estimateGas`](../api/index.md#eth_estimategas) error response, [`eth_call`](../api/index.md#eth_call) error response, and [`trace`](../trace-types.md#trace) response. The default is `false`.
+Enables or disables including the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md) in the transaction receipt, [`eth_estimateGas`](../api/index.md#eth_estimategas) error response, [`eth_call`](../api/index.md#eth_call) error response, and [`trace`](../trace-types.md#trace) response. 
+
+The default is `false`.
 
 :::caution
 
@@ -3905,6 +3929,8 @@ rpc-http-authentication-enabled=true
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC HTTP service.
 
+The default is `false`.
+
 ### `rpc-http-authentication-jwt-algorithm`
 
 <Tabs>
@@ -4084,7 +4110,9 @@ rpc-http-enabled=true
 
 </Tabs>
 
-Enables or disables the JSON-RPC HTTP service. The default is `false`.
+Enables or disables the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 ### `rpc-http-host`
 
@@ -4336,7 +4364,9 @@ rpc-http-tls-ca-clients-enabled=true
 
 </Tabs>
 
-Enables or disables clients with trusted CA certificates to connect. The default is `false`.
+Enables or disables clients with trusted CA certificates to connect. 
+
+The default is `false`.
 
 :::note
 
@@ -4382,7 +4412,9 @@ rpc-http-tls-client-auth-enabled=true
 
 </Tabs>
 
-Enables or disables TLS client authentication for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS client authentication for the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 :::note
 
@@ -4474,7 +4506,9 @@ rpc-http-tls-enabled=true
 
 </Tabs>
 
-Enables or disables TLS for the JSON-RPC HTTP service. The default is `false`.
+Enables or disables TLS for the JSON-RPC HTTP service. 
+
+The default is `false`.
 
 :::note
 
@@ -4833,7 +4867,6 @@ rpc-max-trace-filter-range=100
 
 The maximum number of blocks you can supply to the [`trace_filter`](../api/index.md#trace_filter) method. The value must be equal to or greater than `0`. Setting this option to `0` indicates there is no limit. The default is `1000`.
 
-
 ### `rpc-tx-feecap`
 
 <Tabs>
@@ -5046,6 +5079,8 @@ rpc-ws-authentication-enabled=true
 
 Enables or disables [authentication](../../how-to/use-besu-api/authenticate.md) for the JSON-RPC WebSocket service.
 
+The default is `false`.
+
 :::note
 
 `wscat` doesn't support headers. [Authentication](../../how-to/use-besu-api/authenticate.md) requires you to pass an authentication token in the request header. To use authentication with WebSockets, you need an app that supports headers.
@@ -5173,7 +5208,9 @@ rpc-ws-enabled=true
 
 </Tabs>
 
-Enables or disables the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 ### `rpc-ws-host`
 
@@ -5340,7 +5377,6 @@ rpc-ws-port="6174"
 
 The port (TCP) on which WebSocket JSON-RPC listens. The default is `8546`. You must [expose ports appropriately](../../how-to/connect/configure-ports.md).
 
-
 ### `rpc-ws-ssl-cert-file`
 
 <Tabs>
@@ -5424,7 +5460,9 @@ rpc-ws-ssl-client-auth-enabled=true
 
 </Tabs>
 
-Enables or disables client authentication for the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables client authentication for the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 :::note
 
@@ -5474,7 +5512,9 @@ rpc-ws-ssl-enabled=true
 
 </Tabs>
 
-Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. The default is `false`.
+Enables or disables server SSL/TLS authentication for the WebSocket JSON-RPC service. 
+
+The default is `false`.
 
 Set the appropriate keystore type using [`--rpc-ws-ssl-keystore-type`](#rpc-ws-ssl-keystore-type).
 
@@ -5985,6 +6025,7 @@ snapsync-server-enabled=true
 
 Enables or disables serving [snap sync](../../concepts/node-sync.md#snap-synchronization) data.
 Set to `true` to allow other nodes to download data from this node using snap sync.
+
 The default is `false`.
 
 ### `snapsync-synchronizer-pre-checkpoint-headers-only-enabled`
@@ -6024,9 +6065,59 @@ snapsync-synchronizer-pre-checkpoint-headers-only-enabled=false
 </Tabs>
 
 If set to `false`, [snap sync](../../concepts/node-sync.md#snap-synchronization) downloads full pre-merge Proof of Work (PoW) historical blocks
-instead of headers only, allowing full historical data to be retained. The default is `true`.
+instead of headers only, allowing full historical data to be retained. 
+
+The default is `true`.
 
 Setting this option to `false` increases sync time and disk space usage.
+
+### `snapsync-synchronizer-transaction-indexing-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_SNAPSYNC_SYNCHRONIZER_TRANSACTION_INDEXING_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+snapsync-synchronizer-transaction-indexing-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables transaction indexing during initial sync for [snap sync](../../concepts/node-sync.md#snap-synchronization) and [checkpoint sync](../../concepts/node-sync.md#checkpoint-synchronization). 
+
+The default is `false`.
+
+:::note Notes
+
+- Enable this option to query historical transactions by hash. 
+- Setting this option to `true` increases sync time and disk space usage.
+:::
 
 ### `static-nodes-file`
 
@@ -6106,7 +6197,9 @@ strict-tx-replay-protection-enabled=false
 
 </Tabs>
 
-Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. The default is `false`.
+Enables or disables replay protection, in accordance with [EIP-155](https://eips.ethereum.org/EIPS/eip-155), on transactions submitted using JSON-RPC. 
+
+The default is `false`.
 
 ### `sync-min-peers`, `fast-sync-min-peers`
 
@@ -6338,6 +6431,49 @@ Sets the price bump policy for re-issued blob transactions as a percentage incre
 A blob transaction can only replace, or be replaced by, another blob transaction.
 The default is `100`.
 
+### `tx-pool-enable-balance-check`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--tx-pool-enable-balance-check[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_TX_POOL_ENABLE_BALANCE_CHECK=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+tx-pool-enable-balance-check=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables balance checks for pending transactions in the [transaction pool](../../concepts/transactions/pool.md).
+When enabled, the check prevents pending transactions, whose sender doesn't have enough balance to pay their fee, from being included in the prioritized layer. This prevents such transactions from occupying space and potentially being selected for block production.
+
+The default is `false`.
+
 ### `tx-pool-enable-save-restore`
 
 <Tabs>
@@ -6378,6 +6514,7 @@ tx-pool-enable-save-restore=true
 
 Enables or disables saving the [transaction pool](../../concepts/transactions/pool.md) contents to a
 file on shutdown and reloading it at startup.
+
 The default is `false`.
 
 You can define a custom path to the transaction pool file using the [`--tx-pool-save-file`](#tx-pool-save-file) option.
@@ -6706,7 +6843,6 @@ tx-pool-min-gas-price="2000"
 
 The minimum gas price, in wei, required for a transaction to be accepted into the [transaction pool](../../concepts/transactions/pool.md).
 
-
 ### `tx-pool-min-score`
 
 <Tabs>
@@ -6793,6 +6929,7 @@ tx-pool-no-local-priority=true
 
 If this option is set to `true`, senders of transactions submitted via RPC are *not* prioritized over
 remote transactions in the [transaction pool](../../concepts/transactions/pool.md).
+
 The default is `false`.
 
 ### `tx-pool-price-bump`
@@ -7025,7 +7162,7 @@ Enables or disables performing version compatibility checks when starting Besu.
 If set to `true`, it checks that the version of Besu being started is the same
 or later than the version of Besu that previously started with the same data directory.
 
-The default is `false` for named networks, such as Mainnet or Holesky, and `true`
+The default is `false` for named networks, such as Mainnet or Sepolia, and `true`
 for non-named networks.
 
 ### `Xhelp`

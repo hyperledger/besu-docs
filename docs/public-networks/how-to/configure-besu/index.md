@@ -72,9 +72,6 @@ rpc-ws-port=9101
 # Chain
 genesis-file="/path/to/genesis.json" # Path to the custom genesis file
 
-# Mining
-miner-enabled=true
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 ```
 
 ```bash title="Starting Besu with a configuration file"

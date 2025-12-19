@@ -90,11 +90,9 @@ If running [Besu as a Docker container](../../get-started/install/run-docker-ima
     SPLUNK_SKIPTLSVERIFY=true \
     besu \
     --network=dev \
-    --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 \
-    --miner-enabled \
     --logging=trace
     ```
-
+    
     The environment variables specified send the Besu logs to Splunk. Only `LOGGER`, `SPLUNK_URL`, `SPLUNK_TOKEN` and `SPLUNK_SKIPTLSVERIFY` are required in this example. The complete list of options is in the [Splunk options reference table](#splunk-options-reference).
 
 4.  In the Splunk Web interface, navigate to the [search page](http://localhost:8080/en-US/app/search/search). Type `index="besu"` in the search field. Log events sent by Besu are displayed.

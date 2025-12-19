@@ -9,9 +9,15 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a private network using Clique
+# Create a private network using Clique (Deprecated)
 
 A private network provides a configurable network for testing. This private network uses the [Clique (proof of authority) consensus protocol].
+
+:::important Deprecation notice
+
+Clique block production (mining/validating) is deprecated from Besu 25.12.0 onward. You can still sync existing Clique networks, but you can’t validate or create new Clique networks.
+
+:::
 
 :::danger
 

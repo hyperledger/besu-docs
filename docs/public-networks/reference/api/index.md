@@ -1556,7 +1556,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile",
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
+    "/Users/me/mynode/sepolia/data/traces/block_0x2dc0b6c4-4-0x4ff04c4a-1612820117332"
   ]
 }
 ```
@@ -1611,7 +1611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFil
   "jsonrpc": "2.0",
   "id": 1,
   "result": [
-    "/Users/me/mynode/holesky/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
+    "/Users/me/mynode/sepolia/data/traces/block_0x53741e9e-0-0x407ec43d-1600951088172"
   ]
 }
 ```
@@ -2498,15 +2498,15 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":51
 
 </Tabs>
 
-### `eth_coinbase`
+### `eth_config`
 
-Returns the client coinbase address. The coinbase address is the account to pay mining rewards to.
+Returns the client's fork information for the current, next, and last known forks.
 
-To set a coinbase address, start Besu with the `--miner-coinbase` option set to a valid Ethereum account address. You can get the Ethereum account address from a client such as MetaMask or Etherscan. For example:
+:::info
 
-```bash title="Example"
-besu --miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73" --rpc-http-enabled
-```
+This method is defined in [EIP-7910](https://eips.ethereum.org/EIPS/eip-7910) and enables node operators to verify client readiness for upcoming forks and debug configuration mismatches.
+
+:::
 
 #### Parameters
 
@@ -2514,14 +2514,28 @@ None
 
 #### Returns
 
-`result`: _string_ - coinbase address
+`result`: _object_ - configuration information containing:
+
+- `current`: _object_ - current fork configuration:
+  - `activationTime`: _number_ - fork activation timestamp (Unix epoch seconds)
+  - `blobSchedule`: _object_ - blob configuration parameters:
+    - `baseFeeUpdateFraction`: _number_ - base fee update fraction
+    - `max`: _number_ - maximum number of blobs per block
+    - `target`: _number_ - target number of blobs per block
+  - `chainId`: _string_ - chain ID in hexadecimal
+  - `forkId`: _string_ - fork hash as defined in [EIP-6122](https://eips.ethereum.org/EIPS/eip-6122)
+  - `precompiles`: _object_ - active precompiled contracts with names and addresses
+  - `systemContracts`: _object_ - system contract addresses
+- `next`: _object_ - next fork configuration, or `null` if no future fork is scheduled.
+- `last`: _object_ - the furthest configured future fork configuration (the future fork with
+    the largest `activationTime` among the client's configured forks). If only one future fork is configured, `next` and `last` are the same object. `null` if no future fork is scheduled.
 
 <Tabs>
 
 <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":53}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
 ```
 
 </TabItem>
@@ -2529,7 +2543,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":5
 <TabItem value="wscat WS request" label="wscat WS request">
 
 ```json
-{ "jsonrpc": "2.0", "method": "eth_coinbase", "params": [], "id": 53 }
+{ "jsonrpc": "2.0", "method": "eth_config", "params": [], "id": 1 }
 ```
 
 </TabItem>
@@ -2539,8 +2553,47 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":5
 ```json
 {
   "jsonrpc": "2.0",
-  "id": 53,
-  "result": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+  "id": 1,
+  "result": {
+    "current": {
+      "activationTime": 1746612311,
+      "blobSchedule": {
+        "baseFeeUpdateFraction": 5007716,
+        "max": 9,
+        "target": 6
+      },
+      "chainId": "0x1",
+      "forkId": "0xc376cf8b",
+      "precompiles": {
+        "BLAKE2F": "0x0000000000000000000000000000000000000009",
+        "BLS12_G1ADD": "0x000000000000000000000000000000000000000b",
+        "BLS12_G1MSM": "0x000000000000000000000000000000000000000c",
+        "BLS12_G2ADD": "0x000000000000000000000000000000000000000d",
+        "BLS12_G2MSM": "0x000000000000000000000000000000000000000e",
+        "BLS12_MAP_FP2_TO_G2": "0x0000000000000000000000000000000000000011",
+        "BLS12_MAP_FP_TO_G1": "0x0000000000000000000000000000000000000010",
+        "BLS12_PAIRING_CHECK": "0x000000000000000000000000000000000000000f",
+        "BN254_ADD": "0x0000000000000000000000000000000000000006",
+        "BN254_MUL": "0x0000000000000000000000000000000000000007",
+        "BN254_PAIRING": "0x0000000000000000000000000000000000000008",
+        "ECREC": "0x0000000000000000000000000000000000000001",
+        "ID": "0x0000000000000000000000000000000000000004",
+        "KZG_POINT_EVALUATION": "0x000000000000000000000000000000000000000a",
+        "MODEXP": "0x0000000000000000000000000000000000000005",
+        "RIPEMD160": "0x0000000000000000000000000000000000000003",
+        "SHA256": "0x0000000000000000000000000000000000000002"
+      },
+      "systemContracts": {
+        "BEACON_ROOTS_ADDRESS": "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+        "CONSOLIDATION_REQUEST_PREDEPLOY_ADDRESS": "0x0000bbddc7ce488642fb579f8b00f3a590007251",
+        "DEPOSIT_CONTRACT_ADDRESS": "0x00000000219ab540356cbb839cbe05303d7705fa",
+        "HISTORY_STORAGE_ADDRESS": "0x0000f90827f1c53a10cb7a02335b175320002935",
+        "WITHDRAWAL_REQUEST_PREDEPLOY_ADDRESS": "0x00000961ef480eb55e80d19ad83579a64c007002"
+      }
+    },
+    "next": null,
+    "last": null
+  }
 }
 ```
 
@@ -4203,143 +4256,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 </TabItem>
 
 </Tabs>
-
-### `eth_getMinerDataByBlockHash` (Deprecated)
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`hash`: _string_ - 32-byte block hash
-
-#### Returns
-
-`result`: _object_ - [miner data object](objects.md#miner-data-object)
-
-<Tabs>
-
-<TabItem value="curl HTTP" label="curl HTTP" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockHash","params": ["0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS" label="wscat WS">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "eth_getMinerDataByBlockHash",
-  "params": [
-    "0xbf137c3a7a1ebdfac21252765e5d7f40d115c2757e4a4abee929be88c624fdb7"
-  ],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "netBlockReward": "0x47c6f3739f3da800",
-    "staticBlockReward": "0x4563918244f40000",
-    "transactionFee": "0x38456548220800",
-    "uncleInclusionReward": "0x22b1c8c1227a000",
-    "uncleRewards": [
-      {
-        "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-        "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-      }
-    ],
-    "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-    "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-    "difficulty": "0x7348c20",
-    "totalDifficulty": "0xa57bcfdd96"
-  }
-}
-```
-
-</TabItem>
-
-</Tabs>
-
-### `eth_getMinerDataByBlockNumber`
-
-Returns miner data for the specified block.
-
-#### Parameters
-
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
-the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
-
-:::note
-`pending` returns the same value as `latest`.
-:::
-
-#### Returns
-
-`result`: _object_ - [miner data object](objects.md#miner-data-object)
-
-<Tabs>
-
-<TabItem value="curl HTTP" label="curl HTTP" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method": "eth_getMinerDataByBlockNumber","params": ["0x7689D2"],"id": 1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS" label="wscat WS">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "eth_getMinerDataByBlockNumber",
-  "params": ["0x7689D2"],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "netBlockReward": "0x47c6f3739f3da800",
-    "staticBlockReward": "0x4563918244f40000",
-    "transactionFee": "0x38456548220800",
-    "uncleInclusionReward": "0x22b1c8c1227a000",
-    "uncleRewards": [
-      {
-        "hash": "0x2422d43b4f72e19faf4368949a804494f67559405046b39c6d45b1bd53044974",
-        "coinbase": "0x0c062b329265c965deef1eede55183b3acb8f611"
-      }
-    ],
-    "coinbase": "0xb42b6c4a95406c78ff892d270ad20b22642e102d",
-    "extraData": "0xd583010502846765746885676f312e37856c696e7578",
-    "difficulty": "0x7348c20",
-    "totalDifficulty": "0xa57bcfdd96"
-  }
-}
-```
-
-</TabItem>
-
-</Tabs>
-
+ 
 ### `eth_getProof`
 
 Returns the account and storage values of the specified account, including the Merkle proof.
@@ -4675,8 +4592,6 @@ Returns transaction information for the specified block number and transaction i
 #### Returns
 
 `result`: _object_ - [transaction object](objects.md#transaction-object), or `null` when there is no transaction
-
-This request returns the third transaction in the 82990 block on the Ropsten testnet. You can also view this [block](https://ropsten.etherscan.io/txs?block=82990) and [transaction] on Etherscan.
 
 <Tabs>
 
@@ -6537,60 +6452,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinPriorityFee","params
 
 </Tabs>
 
-### `miner_setCoinbase`
-
-Sets the coinbase, the address for the mining rewards.
-
-:::note
-
-You can also use `miner_setEtherbase` as an alternative method. They both work the same way. Etherbase is a historic name for coinbase.
-
-:::
-
-#### Parameters
-
-`coinbase`: _string_ - Account address you pay mining rewards to
-
-#### Returns
-
-`result`: _boolean_ - `true` when address is set
-
-<Tabs>
-
-<TabItem value="curl HTTP request" label="curl HTTP request" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setCoinbase","params":["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS request" label="wscat WS request">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "miner_setCoinbase",
-  "params": ["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"],
-  "id": 1
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
-}
-```
-
-</TabItem>
-
-</Tabs>
 
 ### `miner_setExtraData`
 
@@ -6727,95 +6588,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinPriorityFee","params
   "params": ["0x0a"],
   "id": 1
 }
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
-}
-```
-
-</TabItem>
-
-</Tabs>
-
-### `miner_start` (Deprecated)
-
-Starts the mining process. 
-To start mining, you must first specify a miner coinbase using the [`--miner-coinbase`](../cli/options.md#miner-coinbase) command line option or using [`miner_setCoinbase`](#miner_setcoinbase).
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`: _boolean_ - `true` if mining starts, or if the node is already mining
-
-<Tabs>
-
-<TabItem value="curl HTTP request" label="curl HTTP request" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS request" label="wscat WS request">
-
-```json
-{ "jsonrpc": "2.0", "method": "miner_start", "params": [], "id": 1 }
-```
-
-</TabItem>
-
-<TabItem value="JSON result" label="JSON result">
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
-}
-```
-
-</TabItem>
-
-</Tabs>
-
-### `miner_stop` (Deprecated)
-
-Stops the mining process on the client.
-
-#### Parameters
-
-None
-
-#### Returns
-
-`result`: _boolean_ - `true` if mining stops, or if the node is not mining
-
-<Tabs>
-
-<TabItem value="curl HTTP request" label="curl HTTP request" default>
-
-```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1}' http://127.0.0.1:8545/ -H "Content-Type: application/json"
-```
-
-</TabItem>
-
-<TabItem value="wscat WS request" label="wscat WS request">
-
-```json
-{ "jsonrpc": "2.0", "method": "miner_stop", "params": [], "id": 1 }
 ```
 
 </TabItem>
@@ -7044,21 +6816,20 @@ None
 #### Returns
 
 `result`: _string_ - current network ID
-
-| Network ID | Chain | Network | Description                   |
-| ---------- | ----- | ------- | ----------------------------- |
-| `1`        | ETH   | Mainnet | Main Ethereum network         |
-| `17000`    | ETH   | Holesky | PoS test network              |
-| `11155111` | ETH   | Sepolia | PoS test network              |
-| `2018`     | ETH   | Dev     | PoW development network       |
-| `1`        | ETC   | Classic | Main Ethereum Classic network |
-| `7`        | ETC   | Mordor  | PoW test network              |
+ 
+| Network ID | Chain  | Network | Description                   |
+| ---------- | -------| ------- | ----------------------------- |
+| `1`        | ETH    | Mainnet | Main Ethereum network         |
+| `560048`   | ETH    | Hoodi   | Ethereum PoS test network     |
+| `11155111` | ETH    | Sepolia | Ethereum PoS test network     |
+| `2018`     | ETH    | Dev     | Ethereum PoW development network|
+| `59144`    | Linea  | Mainnet | Main Linea network            |
+| `59141`    | Linea  | Testnet | Linea Sepolia testnet         |
+| `4201`     | Lukso  | Mainnet | Main Lukso network            |
 
 :::note
 
-For almost all networks, network ID and chain ID are the same.
-
-The only networks in the table above with different network and chain IDs are Classic with a chain ID of `61` and Mordor with a chain ID of `63`.
+For almost all networks, network ID and chain ID are the same. For Ephemery, the network ID is dynamic.
 
 :::
 
@@ -7087,18 +6858,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":53
   "jsonrpc": "2.0",
   "id": 51,
   "result": "1"
-}
-```
-
-</TabItem>
-
-<TabItem value="JSON result for Holesky" label="JSON result for Holesky"> 
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 53,
-  "result": "5"
 }
 ```
 
@@ -8353,4 +8112,3 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}
 
 [schema]: https://github.com/hyperledger/besu/blob/750580dcca349d22d024cc14a8171b2fa74b505a/ethereum/api/src/main/resources/schema.graphqls
 [eth_sendRawTransaction or eth_call]: ../../how-to/send-transactions.md#eth_call-or-eth_sendrawtransaction
-[transaction]: https://ropsten.etherscan.io/tx/0xfc766a71c406950d4a4955a340a092626c35083c64c7be907060368a5e6811d6

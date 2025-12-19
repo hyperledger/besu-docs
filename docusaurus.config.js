@@ -7,7 +7,6 @@ const config = {
   url: "https://besu.hyperledger.org",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
   favicon: "img/favicon.svg",
   trailingSlash: false,
 
@@ -17,7 +16,7 @@ const config = {
   projectName: "besu-docs", // Usually your repo name.
   deploymentBranch: "gh-pages", // Github Pages deploying branch
 
-  // Even if you don't use internalization, you can use this field to set useful
+  // Even if you don't use internationalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
@@ -27,6 +26,9 @@ const config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "throw",
+    },
   },
 
   presets: [

@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure Clique consensus
 
-Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](index.md). Private networks can use Clique.
+Besu implements the [Clique](https://eips.ethereum.org/EIPS/eip-225) proof of authority (PoA) [consensus protocol](index.md). You can [create a private network using Clique](../../../tutorials/clique.md).
 
 :::danger
 
@@ -21,9 +21,13 @@ Clique is not suitable for production environments. Use only in development envi
 
 :::
 
-In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers take turns to create the next block. Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
+:::important Deprecation notice
 
-You can [create a private network using Clique](../../../tutorials/clique.md).
+Clique block production (mining/validating) is deprecated from Besu 25.12.0 onward. You can still sync existing Clique networks, but you can’t validate or create new Clique networks.
+
+:::
+
+In Clique networks, approved accounts, known as signers, validate transactions and blocks. Signers take turns to create the next block. Existing signers propose and vote to [add or remove signers](#add-and-remove-signers).
 
 ## Genesis file
 

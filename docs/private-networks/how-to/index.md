@@ -13,7 +13,6 @@ The following features are shared with [public networks](../../public-networks/i
 - Configure and manage:
   - [Use a configuration file](../../public-networks/how-to/configure-besu/index.md)
   - [Configure high availability](../../public-networks/how-to/configure-ha/index.md)
-  - [Configure mining](../../public-networks/how-to/use-pow/mining.md)
 - [Use the Besu API](../../public-networks/how-to/use-besu-api/index.md):
   - [Use JSON-RPC over HTTP, WS, and IPC](../../public-networks/how-to/use-besu-api/json-rpc.md)
   - [Use RPC Pub/Sub over WS](../../public-networks/how-to/use-besu-api/rpc-pubsub.md)

@@ -37,16 +37,18 @@ Besu sets the chain ID (and by default the network ID) automatically, using eith
 | Network   | Chain | Chain ID | Network ID | Type        |
 | --------- | ----- | -------- | ---------- | ----------- |
 | `mainnet` | ETH   | 1        | 1          | Production  |
-| `holesky` | ETH   | 17000    | 17000      | Test        |
+| `hoodi`   | ETH   | 560048   | 560048     | Test        |
 | `sepolia` | ETH   | 11155111 | 11155111   | Test        |
 | `dev`     | ETH   | 2018     | 2018       | Development |
-| `classic` | ETC   | 61       | 1          | Production  |
-| `mordor`  | ETC   | 63       | 7          | Test        |
-| `ephemery`| ETH   | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)    | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)      | Test        |
+| `ephemery`| ETH   | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)    | [dynamic](https://github.com/ephemery-testnet/ephemery-genesis/releases)      | Test  |
+| `lukso`   | Lukso | 4201        | 4201    | Production  |
+| `linea_mainnet`   | Linea | 59144       | 59144   | Production  |
+| `linea_sepolia`| Linea |59141   | 59141   | Test        |
+
 
 :::info
 
-The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+The following networks and testnets are deprecated: ETC Classic, Holesky, and Mordor.
 
 :::
 

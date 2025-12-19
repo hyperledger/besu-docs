@@ -6,9 +6,12 @@ tags:
   - public networks
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Start Besu
 
-Nodes can connect to Ethereum Mainnet and public testnets.
+Nodes can connect to Ethereum Mainnet, [Linea](https://docs.linea.build/get-started/how-to/run-a-node), and their respective public testnets.
 
 Use the [`besu`](../reference/cli/options.md) command with the required command line options to start a node.
 
@@ -24,11 +27,11 @@ To delete the local block data, delete the `database` directory in the `besu/bui
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [Holesky](#run-a-node-on-holesky-testnet), [Sepolia](#run-a-node-on-sepolia-testnet), [Ephemery](#run-a-node-on-ephemery-testnet) and [Mainnet](#run-a-node-on-ethereum-mainnet).
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [ETH testnets](#run-a-node-on-an-eth-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
 :::info
 
-The Ropsten, Rinkeby, and Kiln testnets are deprecated.
+The following networks and testnets are deprecated: ETC Classic, Holesky, and Mordor.
 
 :::
 
@@ -54,15 +57,13 @@ By default, Besu stores data in the [Bonsai Tries format](../concepts/data-stora
 To run a node that mines blocks at a rate suitable for testing purposes:
 
 ```bash
-besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
+besu --network=dev --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
 ```
 
 You can also use the following [configuration file](../how-to/configure-besu/index.md) on the command line to start a node with the same options as above:
 
 ```toml
 network="dev"
-miner-enabled=true
-miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
 rpc-http-cors-origins=["all"]
 host-allowlist=["*"]
 rpc-ws-enabled=true
@@ -80,19 +81,11 @@ The following settings are a security risk in production environments:
 
 :::
 
-## Run a node on Holesky testnet
+## Run a node on an Ethereum testnet
 
-To run a node on [Holesky](https://github.com/eth-clients/holesky) specifying a data directory:
+<Tabs>
 
-```bash
-besu --network=holesky --data-path=<path>/<holeskydata-path>
-```
-
-Where `<path>` and `<holeskydata-path>` are the path and directory to save the Holesky chain data to.
-
-See the [guide on connecting to a testnet](connect/testnet.md) for more information.
-
-## Run a node on Hoodi testnet
+<TabItem value="Hoodi" label="Hoodi" default>
 
 To run a node on [Hoodi](https://github.com/eth-clients/hoodi) specifying a data directory:
 
@@ -102,9 +95,9 @@ besu --network=hoodi --data-path=<path>/<hoodidata-path>
 
 Where `<path>` and `<hoodidata-path>` are the path and directory to save the Hoodi chain data to.
 
-See the [guide on connecting to a testnet](connect/testnet.md) for more information.
+</TabItem>
 
-## Run a node on Sepolia testnet
+<TabItem value="Sepolia" label="Sepolia">
 
 To run a node on [Sepolia](https://github.com/eth-clients/sepolia) specifying a data directory:
 
@@ -114,9 +107,9 @@ besu --network=sepolia --data-path=<path>/<sepoliadata-path>
 
 Where `<path>` and `<sepoliadata-path>` are the path and directory to save the Sepolia chain data to.
 
-See the [guide on connecting to a testnet](connect/testnet.md) for more information.
+</TabItem>
 
-## Run a node on Ephemery testnet
+<TabItem value="Ephemery" label="Ephemery">
 
 To run a node on [Ephemery](https://github.com/ephemery-testnet/ephemery-resources?tab=readme-ov-file) specifying a data directory:
 
@@ -125,6 +118,10 @@ besu --network=ephemery --data-path=<path>/<ephemery-data-path>
 ```
 
 Where `<path>` and `<ephemery-data-path>` are the path and directory to save the Ephemery chain data to.
+
+</TabItem>
+
+</Tabs>
 
 See the [guide on connecting to a testnet](connect/testnet.md) for more information.
 

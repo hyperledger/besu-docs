@@ -70,10 +70,10 @@ When running in a Docker container, [`--nat-method`](../../../public-networks/ho
 You can specify [Besu environment variables](../../../public-networks/reference/cli/options.md#specify-options) with the Docker image instead of the command line options.
 
 <Tabs>
-  <TabItem value="Holesky" label="Holesky">
+  <TabItem value="Sepolia" label="Sepolia">
 
   ```bash
-  docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=holesky hyperledger/besu:latest
+  docker run -p 30303:30303 -p 8545:8545 -e BESU_RPC_HTTP_ENABLED=true -e BESU_NETWORK=sepolia hyperledger/besu:latest
   ```
   </TabItem>
 
@@ -101,10 +101,10 @@ This happens when the IPv6 support in Docker is disabled while connecting to an 
 
 ### Run a node for testing
 
-To run a node that mines blocks at a rate suitable for testing purposes with WebSocket enabled:
+To run a node for testing purposes with WebSocket enabled:
 
 ```bash
-docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
+docker run -p 8546:8546 --mount type=bind,source=/<myvolume/besu/testnode>,target=/var/lib/besu hyperledger/besu:latest --rpc-ws-enabled --network=dev --data-path=/var/lib/besu
 ```
 
 ## Stop Besu and clean up resources

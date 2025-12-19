@@ -617,7 +617,7 @@ Once complete, start the network up with `./run.sh`. When using the smart contra
 <!-- Links -->
 
 [bootnodes]: ../how-to/configure/bootnodes.md
-[permissions file]: ../how-to/use-local-permissioning
+[permissions file]: ../how-to/use-local-permissioning.md
 [static nodes]: ../../public-networks/how-to/connect/static-nodes.md
 [allow list]: ../how-to/use-local-permissioning.md#node-allowlisting
 [Import one of the existing accounts above into MetaMask]: https://metamask.zendesk.com/hc/en-us/articles/360015489331-Importing-an-Account-New-UI-

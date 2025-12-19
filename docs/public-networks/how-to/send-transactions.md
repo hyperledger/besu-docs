@@ -31,7 +31,7 @@ In production environments avoid exposing your private keys by creating signed t
 
 :::
 
-## `eth_call` vs `eth_sendRawTransaction`
+## `eth_call` vs. `eth_sendRawTransaction`
 
 You can interact with contracts using [`eth_call`](../reference/api/index.md#eth_call) or [`eth_sendRawTransaction`](../reference/api/index.md#eth_sendrawtransaction). The table below compares the characteristics of both calls.
 
@@ -44,17 +44,23 @@ You can interact with contracts using [`eth_call`](../reference/api/index.md#eth
 | Synchronous | Asynchronous |
 | Returns the value of a contract function available immediately | Returns transaction hash only. A block might not include all possible transactions (for example, if the gas price is too low). |
 
-## Override state values
+## Override state values 
 
-Use [`eth_call`](../reference/api/index.md#eth_call) to override an account with temporary state values before
-making the call. This allows you to make temporary state changes without affecting the actual
-blockchain state, and provides the following benefits:
+Use methods that accept the [state override object](../reference/api/objects.md#state-override-object) to override an account with temporary state values before
+executing a call. State overrides allow you to make temporary state changes without affecting the actual blockchain state, and provide the following benefits:
 
-- Minimizes the amount of contract code required to be deployed onchain. Code that returns
-    internal state or performs predefined validations can be kept offchain and provided to the node on demand.
-- Extends and invokes custom methods on deployed contracts for analysis and debugging, avoiding
-    the need to reconstruct the entire state in a sandbox, and allowing selective state or code
-    overrides to observe execution changes.
+- Minimize the amount of contract code that must be deployed onchain. Code that returns internal
+  state or performs predefined validations can be kept offchain and supplied to the node on demand.
+- Extend and invoke custom methods on deployed contracts for analysis and debugging without
+  reconstructing the entire state in a sandbox, allowing selective state or code overrides
+  to observe execution changes.
+
+The following methods support the [state override object](../reference/api/objects.md#state-override-object):
+
+- [`eth_call`](../reference/api/index.md#eth_call)
+- [`eth_estimateGas`](../reference/api/index.md#eth_estimategas)
+- [`eth_simulateV1`](../reference/api/index.md#eth_simulatev1)
+- [`debug_traceCall`](../reference/api/index.md#debug_tracecall) (via the `stateOverrides` options wrapper)
 
 ## Use wallets for key management
 

@@ -31,13 +31,13 @@ Unlike other [Besu API methods](../../reference/api/index.md), you cannot call t
 
 [WebSockets](json-rpc.md#http-and-websocket-requests) supports the RPC Pub/Sub API.
 
-To create subscriptions, use `eth_subscribe` or `priv_subscribe`. Once subscribed, the API publishes notifications using `eth_subscription` or `priv_subscription`.
+To create subscriptions, use `eth_subscribe`. Once subscribed, the API publishes notifications using `eth_subscription`.
 
 Subscriptions couple with connections. If a connection is closed, all subscriptions created over the connection are removed.
 
 ### Subscription ID
 
-`eth_subscribe` and `priv_subscribe` return a subscription ID for each subscription created. Notifications include the subscription ID.
+`eth_subscribe` returns a subscription ID for each subscription created. Notifications include the subscription ID.
 
 For example, to create a synchronizing subscription:
 
@@ -81,14 +81,6 @@ Use `eth_subscribe` to create subscriptions for the following event types:
 - [Pending transactions](#pending-transactions)
 - [Dropped transactions](#dropped-transactions)
 - [Synchronizing](#synchronizing)
-
-Use `priv_subscribe` to [create subscriptions for logs on private contracts](#logs).
-
-:::tip
-
-Only logs subscriptions are relevant for private transactions because private transactions are anchored to the public chain rather than having their own private blockchain.
-
-:::
 
 ### New headers
 

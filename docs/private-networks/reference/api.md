@@ -79,7 +79,7 @@ Lists [signers for the specified block].
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -133,11 +133,11 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one
+- `fromBlockNumber`: _string_ - hexadecimal integer representing a block number, or one
   of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `toBlockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -461,11 +461,11 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one
+- `fromBlockNumber`: _string_ - hexadecimal integer representing a block number, or one
   of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `toBlockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -591,7 +591,7 @@ Lists the validators defined in the specified block.
 
 #### Parameters
 
-`blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the
+`blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the
 string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
 [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1154,11 +1154,11 @@ Provides the following validator metrics for the specified range:
 
 #### Parameters
 
-- `fromBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one
+- `fromBlockNumber`: _string_ - hexadecimal integer representing a block number, or one
   of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
-- `toBlockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of
+- `toBlockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
   [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
@@ -1299,7 +1299,7 @@ When the validator list changes, an `INFO` log message displays, showing the pre
 
 #### Parameters
 
-- `blockNumber`: _string_ - hexadecimal or decimal integer representing a block number, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../public-networks/how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 

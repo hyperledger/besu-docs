@@ -465,7 +465,7 @@ The default is `30000`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bootnodes=[<source>[,<source>...]]
+--bootnodes[=<source>[,<source>...]]
 ```
 
 </TabItem>
@@ -3633,7 +3633,7 @@ Minimum depth of chain reorganizations to log. The default is 6.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---required-block, --required-blocks=[<BLOCK=HASH>[,<BLOCK=HASH>...]]
+--required-block, --required-blocks[=<BLOCK=HASH>[,<BLOCK=HASH>...]]
 ```
 
 </TabItem>

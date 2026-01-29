@@ -415,6 +415,52 @@ When enabled, this limit is set to the value of
 The default is `true`, unless [`--sync-mode=FULL`](#sync-mode) is set, in which case this option is
 disallowed and must be set to `false`.
 
+### `bonsai-parallel-tx-processing-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--bonsai-parallel-tx-processing-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--bonsai-parallel-tx-processing-enabled=false
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_BONSAI_PARALLEL_TX_PROCESSING_ENABLED=false
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file"> 
+
+```bash
+bonsai-parallel-tx-processing-enabled=false
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables [parallelization of transactions](../../concepts/parallel-transaction-execution) to optimize 
+processing speed. 
+
+This applies to Besu instances configured to the [Bonsai Trie](../../concepts/data-storage-formats.md#bonsai-tries) 
+data storage format, otherwise this option is ignored.
+
+The default is `true`.
+
 ### `bonsai-trie-logs-pruning-window-size`
 
 <Tabs>

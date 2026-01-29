@@ -10,19 +10,13 @@ tags:
 
 Besu supports parallel transaction execution, using an optimistic approach to parallelize
 transactions within a block.
-You can enable this feature when using the [Bonsai Tries](data-storage-formats.md#bonsai-tries) data
-storage format.
+This optional feature is available when using the [Bonsai Tries](data-storage-formats.md#bonsai-tries) data storage format.
 This page provides an [overview of the parallelization mechanism](#parallelization-mechanism-overview),
 and [metrics](#metrics) that highlight Besu's improved performance.
 
-:::warning Important
-Parallel transaction execution is an early access feature.
-You can enable it using the `--Xbonsai-parallel-tx-processing-enabled` option.
-:::
-
 ## Parallelization mechanism overview
 
-When parallel transaction execution is enabled, Besu initially executes all transactions within a
+When [parallel transaction execution is enabled](../reference/cli/options.md#bonsai-parallel-tx-processing-enabled), Besu initially executes all transactions within a
 block in parallel, operating under the optimistic assumption that they can all be executed
 concurrently without conflict.
 This parallel execution runs in the background, and Besu proceeds to sequentially process the
@@ -111,7 +105,7 @@ In particular:
 
 :::info Note
 
-Unchanged accounts read by the block are excluded from the conflict check:
+Unchanged accounts read by the block are excluded from the conflict check.
 
 :::
 
@@ -147,14 +141,14 @@ With this approach to parallel transaction execution,
 [approximately 40% of transactions do not require replay](#metrics).
 In the future, the conflict detection strategy may be refined to reduce false positives.
 
-You can enable parallel transaction execution using the `--Xbonsai-parallel-tx-processing-enabled` option.
+You can enable parallel transaction execution using the [`--bonsai-parallel-tx-processing-enabled`](../reference/cli/options.md#bonsai-parallel-tx-processing-enabled) option.
 
 ## Metrics
 
 Parallel transaction execution uses Besu's resources more efficiently than traditional
 sequential execution, significantly improving performance.
 
-The following metrics were collected on nodes running on Azure VMs (Standard D8as v5–8 vCPUs, 32
+The following metrics were collected on nodes running on Azure Virtual Machines (Standard D8as v5–8 vCPUs, 32
 GiB memory), with Teku and Nimbus as consensus layer (CL) clients:
 
 - **Block processing time** - With Teku as CL client, block processing time improves by at least 25%.

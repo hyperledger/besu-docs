@@ -6879,7 +6879,7 @@ The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the
 
 ### `plugins_reloadPluginConfig`
 
-Reloads specified plugin configuration. When this parameter is specified, the named plugins are reloaded. This method awaits all reloads before returning its result. 
+When this parameter is specified, the named plugins' configurations are reloaded. This method awaits all reloads before returning its result. 
 
 #### Parameters
 

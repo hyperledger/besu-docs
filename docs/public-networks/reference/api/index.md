@@ -6879,7 +6879,10 @@ The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the
 
 ### `plugins_reloadPluginConfig`
 
-Reloads specified plugin configuration.
+Reloads specified plugin configuration. When omitted all plugins are reloaded, when specified, only
+the named plugins are reloaded.
+
+This API method awaits all reloads before returning its result. 
 
 #### Parameters
 
@@ -6921,6 +6924,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","par
   "result": "Success"
 }
 ```
+:::note
+
+If one or more plugins fail, the error response provides a comma-separated list of pluginName:success or pluginName:failure(reason).
+
+:::
 
 </TabItem>
 

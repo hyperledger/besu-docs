@@ -3342,7 +3342,7 @@ Controls whether Besu fails to start if a [plugin's](../../concepts/plugins.md) 
 startup.
 
 Verification mode options are `NONE` or `FULL`:
-- If set to `NONE` and plugin compatibility verification fails, Besu logs an error and continues running.
+- If set to `NONE` and plugin verification fails, Besu logs an warning and continues running.
 - If set to `FULL` and any plugin verification fails, Besu logs an error and stops running.
 
 The default is `NONE`.

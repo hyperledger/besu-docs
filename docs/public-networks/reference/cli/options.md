@@ -3305,6 +3305,48 @@ If set to `false` and any plugin fails, Besu logs an error and stops running.
 
 The default is `false`.
 
+### `plugins-verification-mode`
+
+<Tabs>
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--plugins-verification-mode=<value>
+```
+
+</TabItem>
+<TabItem value="Example">
+
+```bash
+--plugins-verification-mode="FULL"
+```
+
+</TabItem>
+<TabItem value="Environment variable">
+
+```bash
+BESU_PLUGINS_VERIFICATION_MODE="FULL"
+```
+
+</TabItem>
+<TabItem value="Configuration file">
+
+```bash
+plugins-verification-mode=FULL
+```
+
+</TabItem>
+</Tabs>
+
+Controls whether Besu fails to start if a [plugin's](../../concepts/plugins.md) verification fails at 
+startup.
+
+Verification mode options are `NONE` or `FULL`:
+- If set to `NONE` and plugin verification fails, Besu logs a warning and continues running.
+- If set to `FULL` and any plugin verification fails, Besu logs an error and stops running.
+
+The default is `NONE`.
+
 ### `plugins`
 
 <Tabs>

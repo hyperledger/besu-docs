@@ -234,7 +234,7 @@ Automatic log bloom caching has a small impact on performance. If you are not qu
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---banned-node-ids=<bannedNodeId>[,<bannedNodeId>...]...
+--banned-node-ids=<bannedNodeId>[,<bannedNodeId>...]
 ```
 
 </TabItem>
@@ -465,7 +465,7 @@ The default is `30000`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---bootnodes[=<source>[,<source>...]...]
+--bootnodes[=<source>[,<source>...]]
 ```
 
 </TabItem>
@@ -793,7 +793,7 @@ You can override the default DNS server if it's unreliable or doesn't serve TCP 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---engine-host-allowlist=<hostname>[,<hostname>...]... or "*"
+--engine-host-allowlist=<hostname>[,<hostname>...] or "*"
 ```
 
 </TabItem>
@@ -1895,7 +1895,7 @@ The default is `false`.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---host-allowlist=<hostname>[,<hostname>...]... or "*"
+--host-allowlist=<hostname>[,<hostname>...] or "*"
 ```
 
 </TabItem>
@@ -2199,7 +2199,7 @@ The maximum number of P2P connections you can establish. The default is 25.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---metrics-category=<metrics-category>[,metrics-category...]...
+--metrics-category=<metrics-category>[,<metrics-category>...]
 ```
 
 </TabItem>
@@ -2859,7 +2859,7 @@ You must specify `DOCKER` when using the [Besu Docker image](../../get-started/i
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---net-restrict=<subnet>[,<subnet>,...]
+--net-restrict=<subnet>[,<subnet>...]
 ```
 
 </TabItem>
@@ -3353,7 +3353,7 @@ The default is `NONE`.
 <TabItem value="Syntax">
 
 ```bash
---plugins=<PLUGIN>[,<PLUGIN>,...]
+--plugins=<PLUGIN>[,<PLUGIN>...]
 ```
 
 </TabItem>
@@ -3675,7 +3675,7 @@ Minimum depth of chain reorganizations to log. The default is 6.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---required-block, --required-blocks[=BLOCK=HASH[,BLOCK=HASH...]...]
+--required-block, --required-blocks=<BLOCK=HASH>[,<BLOCK=HASH>...]
 ```
 
 </TabItem>
@@ -3808,7 +3808,7 @@ This cap prevents [`eth_call`](../api/index.md#eth_call) requests from using exc
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-api=<api name>[,<api name>,...]
+--rpc-http-api=<api name>[,<api name>...]
 ```
 
 </TabItem>
@@ -3854,7 +3854,7 @@ The singular `--rpc-http-api` and plural `--rpc-http-apis` are available and are
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-api-methods-no-auth=<api method>[,<api method>,...]
+--rpc-http-api-methods-no-auth=<api method>[,<api method>...]
 ```
 
 </TabItem>
@@ -4063,7 +4063,7 @@ The [JWT provider's public key file] used for JSON-RPC HTTP authentication with 
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-cors-origins=<url>[,<url>...]... or all or "*"
+--rpc-http-cors-origins=<url>[,<url>...] or all or "*"
 ```
 
 </TabItem>
@@ -4471,7 +4471,7 @@ You must specify [`--rpc-http-tls-ca-clients-enabled`](#rpc-http-tls-ca-clients-
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-cipher-suite=<cipherSuiteName>[, <cipherSuiteName>...]
+--rpc-http-tls-cipher-suite=<cipherSuiteName>[,<cipherSuiteName>...]
 ```
 
 </TabItem>
@@ -4697,7 +4697,7 @@ You must enable client authentication using the [`--rpc-http-tls-client-auth-ena
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-http-tls-protocol=<protocolName>[, <protocolName>...]
+--rpc-http-tls-protocol=<protocolName>[,<protocolName>...]
 ```
 
 </TabItem>
@@ -4958,7 +4958,7 @@ If set to 0, then this option is ignored and no cap is applied.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-api=<api name>[,<api name>...]...
+--rpc-ws-api=<api name>[,<api name>...]
 ```
 
 </TabItem>
@@ -5004,7 +5004,7 @@ The singular `--rpc-ws-api` and plural `--rpc-ws-apis` options are available and
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rpc-ws-api-methods-no-auth=<api method>[,<api method>,...]
+--rpc-ws-api-methods-no-auth=<api method>[,<api method>...]
 ```
 
 </TabItem>
@@ -6759,7 +6759,7 @@ in a block in your network.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-max-prioritized-by-type=["<TYPE=INTEGER>",...]
+--tx-pool-max-prioritized-by-type=<TYPE=INTEGER>[,<TYPE=INTEGER>...]
 ```
 
 </TabItem>
@@ -7024,7 +7024,7 @@ For networks with [zero base fee, or free gas](../../concepts/transactions/pool.
 <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---tx-pool-priority-senders=<address>[,<address>,...]
+--tx-pool-priority-senders=<address>[,<address>...]
 ```
 
 </TabItem>

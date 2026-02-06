@@ -6923,7 +6923,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","par
 ```
 :::note
 
-If one or more plugins fail, the error response provides a comma-separated list of pluginName:success or pluginName:failure (reason).
+If one or more plugins fail, the error response provides a comma-separated list of `pluginName`:success or `pluginName`:failure (reason).
 
 :::
 

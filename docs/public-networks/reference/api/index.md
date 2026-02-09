@@ -16,9 +16,14 @@ import TabItem from '@theme/TabItem';
 
 :::caution
 
-- This reference contains API methods that apply to both public and private networks. For private-network-specific API methods, see the [private network API reference](../../../private-networks/reference/api.md).
-- All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using the [--rpc-http-host](../cli/options.md#rpc-http-host) or [--rpc-http-port](../cli/options.md#rpc-http-port) options, update the endpoint.
-- Most example requests are made against private networks. Depending on network configuration and activity, your example results might be different.
+- This reference contains API methods that apply to both public and private networks. For 
+private-network-specific API methods, see the 
+[private network API reference](../../../private-networks/reference/api.md).
+- All JSON-RPC HTTP examples use the default host and port endpoint `http://127.0.0.1:8545`. If using 
+the [--rpc-http-host](../cli/options.md#rpc-http-host) or [--rpc-http-port](../cli/options.md#rpc-http-port) options, 
+update the endpoint.
+- Most example requests are made against private networks. Depending on network configuration and activity, 
+your example results might be different.
 
 :::
 
@@ -30,7 +35,8 @@ The `ADMIN` API methods provide administrative functionality to manage your node
 
 :::note
 
-The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `ADMIN` API methods are not enabled by default for JSON-RPC. To enable the `ADMIN` API methods, use 
+the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
@@ -86,7 +92,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode:
 
 ### `admin_changeLogLevel`
 
-Changes the log level without restarting Besu. You can change the log level for all logs, or you can change the log level for specific packages or classes.
+Changes the log level without restarting Besu. You can change the log level for all logs, or you can change the log 
+level for specific packages or classes.
 
 You can specify only one log level per RPC call.
 
@@ -175,11 +182,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_changeLogLevel","params":[
 
 ### `admin_generateLogBloomCache`
 
-Generates cached log bloom indexes for blocks. APIs calls such as [`eth_getLogs`](#eth_getlogs) and [`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
+Generates cached log bloom indexes for blocks. APIs calls such as [`eth_getLogs`](#eth_getlogs) and 
+[`eth_getFilterLogs`](#eth_getfilterlogs) use the cache for improved performance.
 
 :::tip
 
-Manually executing `admin_generateLogBloomCache` is not required unless the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option is set to false.
+Manually executing `admin_generateLogBloomCache` is not required unless the 
+[`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option is set to false.
 
 :::
 
@@ -273,14 +282,12 @@ Removes cache files for the specified range of blocks.
 You can skip a parameter by using an empty string, `""`. If you specify:
 
 - No parameters, the call removes cache files for all blocks.
-
 - Only `fromBlock`, the call removes cache files for the specified block.
-
 - Only `toBlock`, the call removes cache files from the genesis block to the specified block.
 
 #### Returns
 
-`result`: _object_ - `Cache Removed` status or `error`.
+`result`: _object_ - `Cache Removed` status or `error`
 
 <Tabs>
 
@@ -374,7 +381,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_logsRepairCache","params":
 
 ### `admin_nodeInfo`
 
-Returns networking information about the node. The information includes general information about the node and specific information from each running Ethereum sub-protocol (for example, `eth`).
+Returns networking information about the node. The information includes general information about the node and 
+specific information from each running Ethereum sub-protocol (for example, `eth`).
 
 #### Parameters
 
@@ -398,7 +406,9 @@ None
 
 :::note
 
-If the node is running locally, the host of the `enode` and `listenAddr` display as `[::]` in the result. When advertising externally, the external address displayed for the `enode` and `listenAddr` is defined by [`--nat-method`](../../how-to/connect/specify-nat.md).
+If the node is running locally, the host of the `enode` and `listenAddr` display as `[::]` in the result. When 
+advertising externally, the external address displayed for the `enode` and `listenAddr` is defined by 
+[`--nat-method`](../../how-to/connect/specify-nat.md).
 
 :::
 
@@ -484,13 +494,16 @@ None
 
 - `caps`: _array_ of _strings_ - list of Ethereum sub-protocol capabilities
 
-- `network`: _object_ - local and remote addresses established at time of bonding with the peer (the remote address might not match the hex value for `port`; it depends on which node initiated the connection.)
+- `network`: _object_ - local and remote addresses established at time of bonding with the peer 
+(the remote address might not match the hex value for `port`; it depends on which node initiated the connection)
 
 - `port`: _string_ - port on the remote node on which P2P discovery is listening
 
-- `id`: _string_ - node public key (excluding the `0x` prefix, the node public key is the ID in the [enode URL](../../concepts/node-keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`.)
+- `id`: _string_ - node public key (excluding the `0x` prefix, the node public key is the ID in the 
+[enode URL](../../concepts/node-keys.md#enode-url) `enode://<id ex 0x>@<host>:<port>`)
 
-- `protocols`: _object_ - [current state of peer](../../how-to/connect/manage-peers.md#monitor-peer-connections) including `difficulty` and `head` (`head` is the hash of the highest known block for the peer.)
+- `protocols`: _object_ - [current state of peer](../../how-to/connect/manage-peers.md#monitor-peer-connections) 
+including `difficulty` and `head` (`head` is the hash of the highest known block for the peer)
 
 - `enode`: _string_ - enode URL of the remote node
 
@@ -592,11 +605,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["eno
 
 ## `DEBUG` methods
 
-The `DEBUG` API methods allow you to inspect and debug the network. The `DEBUG` API is a more verbose alternative to the [`TRACE` API](#trace-methods), and its main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). Where these APIs overlap, we recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API. Specifically, we recommend `trace_block` over `debug_traceBlock`, and `trace_transaction` over `debug_traceTransaction`.
+The `DEBUG` API methods allow you to inspect and debug the network. The `DEBUG` API is a more verbose alternative 
+to the [`TRACE` API](#trace-methods), and its main purpose is compatibility with tools such as [Remix](https://remix.ethereum.org/). Where these APIs overlap, we recommend using the [`TRACE` API](#trace-methods) for production use over the `DEBUG` API. Specifically, we recommend `trace_block` over `debug_traceBlock`, and `trace_transaction` over `debug_traceTransaction`.
 
 :::note
 
-The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `DEBUG` API methods are not enabled by default for JSON-RPC. To enable the `DEBUG` API methods, use 
+the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
@@ -792,7 +807,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_accountRange","params":["1
 
 ### `debug_batchSendRawTransaction`
 
-Sends a list of [signed transactions](../../how-to/send-transactions.md). This is used to quickly load a network with a lot of transactions. This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendrawtransaction) multiple times.
+Sends a list of [signed transactions](../../how-to/send-transactions.md). This is used to quickly load 
+a network with a lot of transactions. This does the same thing as calling [`eth_sendRawTransaction`](#eth_sendrawtransaction) 
+multiple times.
 
 #### Parameters
 
@@ -1042,7 +1059,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_getRawBlock","params":["0x
 
 ### `debug_getRawHeader`
 
-Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/) of the header of specified block.
+Returns the [RLP encoding](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/) of the header of 
+specified block.
 
 #### Parameters
 
@@ -1391,7 +1409,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_replayBlock","params":["0x
 
 ### `debug_resyncWorldState`
 
-Triggers a re-synchronization of the world state while retaining imported blocks. This is useful if there are world state database inconsistencies (for example, Bonsai database issues).
+Triggers a re-synchronization of the world state while retaining imported blocks. This is useful if there are world 
+state database inconsistencies (for example, Bonsai database issues).
 
 #### Parameters
 
@@ -1454,7 +1473,7 @@ the RPC call might time out even though Besu continues the operation in the back
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the
     string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-    [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+    [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
     :::note
     `pending` returns the same value as `latest`.
@@ -1512,11 +1531,16 @@ Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to
 - `blockHash`: _string_ - block hash
 
 - Optional second parameter _object_ (all keys optional):
-  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block.
-  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`.
-  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`.
-  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`.
-  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced.
+
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block
+
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`
+
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
+
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1579,11 +1603,16 @@ Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view 
 - `blockHash`: _string_ - block hash
 
 - Optional second parameter _object_ (all keys optional):
-  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block.
-  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`.
-  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`.
-  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`.
-  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced.
+
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block
+
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`
+
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
+
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1705,21 +1734,24 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_storageRangeAt","params":[
 
 ### `debug_traceTransaction`
 
-[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the _Debugger_ tab in Remix instead of calling `debug_traceTransaction` directly.
+[Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to implement debugging. Use the _Debugger_ tab in 
+Remix instead of calling `debug_traceTransaction` directly.
 
 Reruns the transaction with the same state as when the transaction executed.
 
 #### Parameters
 
-- `transactionHash`: _string_ - transaction hash
+- `transactionHash`: _string_ - transaction hash.
 
 - `options`: _object_ - request options object with the following fields (all optional and default to `false`):
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
+  - `disableStorage`: _boolean_ - `true` disables storage capture
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
+  - `disableMemory`: _boolean_ - `true` disables memory capture
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
+  - `disableStack` : _boolean_ - `true` disables stack capture
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1791,14 +1823,13 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-    The default is `false`.
+  - `disableStorage`: _boolean_ - `true` disables storage capture. The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1867,14 +1898,14 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
+  - `disableStorage`: _boolean_ - `true` disables storage capture
     The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1951,14 +1982,13 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-    The default is `false`.
+  - `disableStorage`: _boolean_ - `true` disables storage capture. The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -2018,7 +2048,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","param
 
 ### `debug_traceCall`
 
-Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its parent block as the base, and provides a detailed trace of the executed opcodes.
+Performs an [`eth_call`](#eth_call) within the execution environment of a given block, using the final state of its 
+parent block as the base, and provides a detailed trace of the executed opcodes.
 
 Each `options` entry specifies a state that will be temporarily overridden before executing the call. 
 This allows you to test, analyze, and debug smart contracts more efficiently by allowing
@@ -2037,10 +2068,16 @@ temporary state changes without affecting the actual blockchain state.
   :::
 
 - `options`: _object_ - request options object with the following fields (all booleans default to `false`):
-  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture.
-  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture.
-  - `disableStack` : _boolean_ - (optional) `true` disables stack capture.
-  - `stateOverrides`: _object_ - (optional) [address-to-state mapping](./objects.md#state-override-object).
+
+  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture
+
+  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture
+
+  - `disableStack` : _boolean_ - (optional) `true` disables stack capture
+
+  - `opcodes`: _array_ of _strings_ - (optional) list of opcode names to trace; if omitted or empty, all opcodes are traced
+
+  - `stateOverrides`: _object_ - (optional) [address-to-state mapping](./objects.md#state-override-object)
 
 #### Returns
 
@@ -2110,7 +2147,9 @@ The `ETH` API methods allow you to interact with the blockchain.
 
 :::note
 
-Methods with an equivalent [GraphQL](../../how-to/use-besu-api/graphql.md) query include a GraphQL request and result in the method example. The parameter and result descriptions apply to the JSON-RPC requests. The GraphQL specification is defined in the [schema].
+Methods with an equivalent [GraphQL](../../how-to/use-besu-api/graphql.md) query include a GraphQL request and result 
+in the method example. The parameter and result descriptions apply to the JSON-RPC requests. The GraphQL specification 
+is defined in the [schema].
 
 :::
 
@@ -2120,7 +2159,8 @@ Returns a list of account addresses a client owns.
 
 :::note
 
-This method returns an empty object because Besu [doesn't support key management](../../how-to/send-transactions.md) inside the client.
+This method returns an empty object because Besu [doesn't support key management](../../how-to/send-transactions.md) inside 
+the client.
 
 To provide access to your key store and then sign transactions, use [Web3Signer](https://docs.web3signer.consensys.net/) with Besu.
 
@@ -2299,7 +2339,8 @@ Invokes a contract function locally and does not change the state of the blockch
 
 You can interact with contracts using [`eth_sendRawTransaction`](#eth_sendrawtransaction) or `eth_call`.
 
-By default, the `eth_call` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_call` error response includes the 
+[revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
@@ -2516,7 +2557,8 @@ Returns the client's fork information for the current, next, and last known fork
 
 :::info
 
-This method is defined in [EIP-7910](https://eips.ethereum.org/EIPS/eip-7910) and enables node operators to verify client readiness for upcoming forks and debug configuration mismatches.
+This method is defined in [EIP-7910](https://eips.ethereum.org/EIPS/eip-7910) and enables node operators to verify 
+client readiness for upcoming forks and debug configuration mismatches.
 
 :::
 
@@ -2529,18 +2571,30 @@ None
 `result`: _object_ - configuration information containing:
 
 - `current`: _object_ - current fork configuration:
+
   - `activationTime`: _number_ - fork activation timestamp (Unix epoch seconds)
+
   - `blobSchedule`: _object_ - blob configuration parameters:
+
     - `baseFeeUpdateFraction`: _number_ - base fee update fraction
+
     - `max`: _number_ - maximum number of blobs per block
+
     - `target`: _number_ - target number of blobs per block
+
   - `chainId`: _string_ - chain ID in hexadecimal
+
   - `forkId`: _string_ - fork hash as defined in [EIP-6122](https://eips.ethereum.org/EIPS/eip-6122)
+
   - `precompiles`: _object_ - active precompiled contracts with names and addresses
+
   - `systemContracts`: _object_ - system contract addresses
-- `next`: _object_ - next fork configuration, or `null` if no future fork is scheduled.
+
+- `next`: _object_ - next fork configuration, or `null` if no future fork is scheduled
+
 - `last`: _object_ - the furthest configured future fork configuration (the future fork with
-    the largest `activationTime` among the client's configured forks). If only one future fork is configured, `next` and `last` are the same object. `null` if no future fork is scheduled.
+    the largest `activationTime` among the client's configured forks). If only one future fork is configured, `next` 
+    and `last` are the same object. `null` if no future fork is scheduled.
 
 <Tabs>
 
@@ -2623,15 +2677,18 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
 `result`: _object_ - access list object with the following fields:
 
 - `accessList`: _array_ of _objects_ - list of objects with the following fields:
+
   - `address`: _string_ - addresses to be accessed by the transaction
+
   - `storageKeys`: _array_ - storage keys to be accessed by the transaction
+
 - `gasUsed`: _string_ - approximate gas cost for the transaction if the access list is included
 
 <Tabs>
@@ -2685,15 +2742,19 @@ curl -X POST --data '{"method":"eth_createAccessList","params":[{"from": "0xaeA8
 
 ### `eth_estimateGas`
 
-Returns an estimate of the gas required for a transaction to complete. The estimation process does not use gas and the transaction is not added to the blockchain. The resulting estimate can be greater than the amount of gas the transaction ends up using, for reasons including EVM mechanics and node performance.
+Returns an estimate of the gas required for a transaction to complete. The estimation process does not use gas and the 
+transaction is not added to the blockchain. The resulting estimate can be greater than the amount of gas the transaction 
+ends up using, for reasons including EVM mechanics and node performance.
 
-The `eth_estimateGas` call does not send a transaction. You must call [`eth_sendRawTransaction`](#eth_sendrawtransaction) to execute the transaction.
+The `eth_estimateGas` call does not send a transaction. You must call [`eth_sendRawTransaction`](#eth_sendrawtransaction) 
+to execute the transaction.
 
-By default, the `eth_estimateGas` error response includes the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+By default, the `eth_estimateGas` error response includes the 
+[revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 #### Parameters
 
-- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object).
 
       :::note
       If you don't want the sender account balance checked, set the gas to zero or specify
@@ -2793,7 +2854,10 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block{esti
 
 </Tabs>
 
-The following example request estimates the cost of deploying a simple storage smart contract to the network. The data field contains the hash of the compiled contract you want to deploy. (You can get the compiled contract hash from your IDE, for example, **Remix > Compile tab > details > WEB3DEPLOY**.) The result is 113355 wei.
+The following example request estimates the cost of deploying a simple storage smart contract to the network. 
+The data field contains the hash of the compiled contract you want to deploy. 
+(You can get the compiled contract hash from your IDE, for example, **Remix > Compile tab > details > WEB3DEPLOY**.) 
+The result is 113355 wei.
 
 <Tabs>
 
@@ -2856,21 +2920,24 @@ As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks tr
 
 #### Parameters
 
-- `blockCount`: _integer_ or _string_ - Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. If blocks in the specified block range are not available, then only the fee history for available blocks is returned. Accepts hexadecimal or integer values.
+- `blockCount`: _integer_ or _string_ - Number of blocks in the requested range. Between 1 and 1024 blocks can be 
+requested in a single query. If blocks in the specified block range are not available, then only the fee history 
+for available blocks is returned. Accepts hexadecimal or integer values.
 
 - `newestBlock`: _string_ - hexadecimal integer representing the highest number block of
   the requested range, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
-  `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
   :::note
   `pending` returns the same value as `latest`.
   :::
 
-- `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's effective priority fees per gas in ascending order, weighted by gas used.
+- `array` of `integers` - (optional) A monotonically increasing list of percentile values to sample from each block's 
+effective priority fees per gas in ascending order, weighted by gas used
 
 #### Returns
 
-`result`: _object_ - [Fee history results object](objects.md#fee-history-results-object).
+`result`: _object_ - [Fee history results object](objects.md#fee-history-results-object)
 
 <Tabs>
 
@@ -2965,11 +3032,16 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params": ["0x5"
 
 ### `eth_gasPrice`
 
-Returns a percentile gas unit price for the most recent blocks, in wei. By default, the last 100 blocks are examined and the 50th percentile gas unit price (that is, the median value) is returned.
+Returns a percentile gas unit price for the most recent blocks, in wei. By default, the last 100 blocks are examined and 
+the 50th percentile gas unit price (that is, the median value) is returned.
 
-If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 wei and 500 gwei.
+If there are no blocks, the value for [`--min-gas-price`](../cli/options.md#min-gas-price) is returned. The value returned 
+is restricted to values between [`--min-gas-price`](../cli/options.md#min-gas-price) and 
+[`--api-gas-price-max`](../cli/options.md#api-gas-price-max). By default, 1000 wei and 500 gwei.
 
-Use the [`--api-gas-price-blocks`](../cli/options.md#api-gas-price-blocks), [`--api-gas-price-percentile`](../cli/options.md#api-gas-price-percentile) , and [`--api-gas-price-max`](../cli/options.md#api-gas-price-max) command line options to configure the `eth_gasPrice` default values.
+Use the [`--api-gas-price-blocks`](../cli/options.md#api-gas-price-blocks), 
+[`--api-gas-price-percentile`](../cli/options.md#api-gas-price-percentile) , and 
+[`--api-gas-price-max`](../cli/options.md#api-gas-price-max) command line options to configure the `eth_gasPrice` default values.
 
 #### Parameters
 
@@ -3140,7 +3212,8 @@ Returns information about the block matching the specified block hash.
 
 - `hash`: _string_ - 32-byte hash of a block
 
-- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, returns the transaction hashes
+- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, 
+returns the transaction hashes
 
 #### Returns
 
@@ -3290,17 +3363,18 @@ Returns information about the block matching the specified block number.
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
   :::note
   `pending` returns the same value as `latest`.
   :::
 
-- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, returns only the hashes of the transactions.
+- `verbose`: _boolean_ - if `true`, returns the full [transaction objects](objects.md#transaction-object); if `false`, 
+returns only the hashes of the transactions
 
 #### Returns
 
-`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
+`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block
 
 <Tabs>
 
@@ -3458,14 +3532,15 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{block (num
 
 ### `eth_getBlockReceipts`
 
-Returns all transaction receipts for a given block. Transaction receipts provide a way to track the success or failure of a transaction (`1` if successful and `0` if failed), as well as the amount of
+Returns all transaction receipts for a given block. Transaction receipts provide a way to track the success or failure of a 
+transaction (`1` if successful and `0` if failed), as well as the amount of
 gas used and any event logs that might have been produced by a smart contract during the transaction.
 
 #### Parameters
 
 `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 :::note
 `pending` returns the same value as `latest`.
@@ -3473,7 +3548,7 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 
 #### Returns
 
-`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block.
+`result`: _object_ - [block object](objects.md#block-object), or `null` when there is no block
 
 <Tabs>
 
@@ -3663,7 +3738,8 @@ Returns the number of transactions in the block matching the specified block has
 
 #### Returns
 
-`result`: _number_ - integer representing the number of transactions in the specified block, or `null` if no matching block hash is found
+`result`: _number_ - integer representing the number of transactions in the specified block, or `null` if no matching block 
+hash is found
 
 <Tabs>
 
@@ -3746,7 +3822,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 :::note
 `pending` returns the same value as `latest`.
@@ -3754,7 +3830,8 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 
 #### Returns
 
-`result`: _string_ - integer representing the number of transactions in the specified block, or `null` if no matching block number is found
+`result`: _string_ - integer representing the number of transactions in the specified block, or `null` if no matching block 
+number is found
 
 <Tabs>
 
@@ -3931,9 +4008,7 @@ Polls the specified filter and returns an array of changes that have occurred si
 `result`: _array_ of _strings_ or _objects_ - if nothing changed since the last poll, an empty list; otherwise:
 
 - For filters created with `eth_newBlockFilter`, returns block hashes.
-
 - For filters created with `eth_newPendingTransactionFilter`, returns transaction hashes.
-
 - For filters created with `eth_newFilter`, returns [log objects](objects.md#log-object).
 
 <Tabs>
@@ -4029,11 +4104,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":[
 
 Returns an array of [logs](../../concepts/events-and-logs.md) for the specified filter.
 
-Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option at the default value of `true` to improve log retrieval performance.
+Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option at 
+the default value of `true` to improve log retrieval performance.
 
 :::note
 
-`eth_getFilterLogs` is only used for filters created with `eth_newFilter`. To specify a filter object and get logs without creating a filter, use `eth_getLogs`.
+`eth_getFilterLogs` is only used for filters created with `eth_newFilter`. To specify a filter object and get logs without 
+creating a filter, use `eth_getLogs`.
 
 :::
 
@@ -4115,11 +4192,14 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x
 
 Returns an array of [logs](../../concepts/events-and-logs.md) matching a specified filter object.
 
-Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option at the default value of `true` to improve log retrieval performance.
+Leave the [`--auto-log-bloom-caching-enabled`](../cli/options.md#auto-log-bloom-caching-enabled) command line option at 
+the default value of `true` to improve log retrieval performance.
 
 :::caution
 
-Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its genesis block, might cause Besu to hang for an indeterminable amount of time while generating the response. We recommend setting a range limit using the [`--rpc-max-logs-range`](../cli/options.md#rpc-max-logs-range) option (or leaving it at its default value of 1000).
+Using `eth_getLogs` to get logs from a large range of blocks, especially an entire chain from its genesis block, might 
+cause Besu to hang for an indeterminable amount of time while generating the response. We recommend setting a range limit 
+using the [`--rpc-max-logs-range`](../cli/options.md#rpc-max-logs-range) option (or leaving it at its default value of 1000).
 
 :::
 
@@ -4275,7 +4355,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{logs(filter
 
 Returns the account and storage values of the specified account, including the Merkle proof.
 
-The API allows IoT devices or mobile apps which are unable to run light clients to verify responses from untrusted sources, by using a trusted block hash.
+The API allows IoT devices or mobile apps which are unable to run light clients to verify responses from untrusted sources, 
+by using a trusted block hash.
 
 #### Parameters
 
@@ -4835,13 +4916,16 @@ curl -X POST -H "Content-Type: application/json" --data '{"query": "{transaction
 
 ### `eth_getTransactionCount`
 
-Returns the number of transactions sent from a specified address. Use the `pending` tag to get the next account nonce not used by any pending transactions.
+Returns the number of transactions sent from a specified address. Use the `pending` tag to get the next account nonce not 
+used by any pending transactions.
 
 #### Parameters
 
 - `address`: _string_ - 20-byte account address
 
-- `blockNumber` or `blockHash`: _string_ - hexadecimal integer representing a block number, block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
+- `blockNumber` or `blockHash`: _string_ - hexadecimal integer representing a block number, block hash, or one of the 
+string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in 
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -4922,7 +5006,8 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ account (
 
 Returns the receipt of a transaction by transaction hash. Receipts for pending transactions are not available.
 
-If you enabled [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md), the receipt includes available revert reasons in the response.
+If you enabled [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md), the receipt 
+includes available revert reasons in the response.
 
 #### Parameters
 
@@ -5551,7 +5636,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","param
 
 ### `eth_mining` (Deprecated)
 
-Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network regardless of command settings or methods called.
+Whether the client is actively mining new blocks. Besu pauses mining while the client synchronizes with the network 
+regardless of command settings or methods called.
 
 #### Parameters
 
@@ -5639,7 +5725,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],
 
 ### `eth_newFilter`
 
-Creates a [log filter](../../concepts/events-and-logs.md). To poll for logs associated with the created filter, use [`eth_getFilterChanges`](#eth_getfilterchanges). To get all logs associated with the filter, use [`eth_getFilterLogs`](#eth_getfilterlogs).
+Creates a [log filter](../../concepts/events-and-logs.md). To poll for logs associated with the created filter, use 
+[`eth_getFilterChanges`](#eth_getfilterchanges). To get all logs associated with the filter, use 
+[`eth_getFilterLogs`](#eth_getfilterlogs).
 
 #### Parameters
 
@@ -5694,7 +5782,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromB
 
 ### `eth_newPendingTransactionFilter`
 
-Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions, use [`eth_getFilterChanges`](#eth_getfilterchanges).
+Creates a filter to retrieve new pending transactions hashes. To poll for new pending transactions, use 
+[`eth_getFilterChanges`](#eth_getfilterchanges).
 
 #### Parameters
 
@@ -5817,17 +5906,21 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{protocolVe
 
 ### `eth_sendRawTransaction`
 
-Sends a [signed transaction](../../how-to/send-transactions.md). A transaction can send ether, deploy a contract, or interact with a contract. Set the maximum transaction fee for transactions using the [`--rpc-tx-feecap`](../cli/options.md#rpc-tx-feecap) CLI option.
+Sends a [signed transaction](../../how-to/send-transactions.md). A transaction can send ether, deploy a contract, 
+or interact with a contract. Set the maximum transaction fee for transactions using the 
+[`--rpc-tx-feecap`](../cli/options.md#rpc-tx-feecap) CLI option.
 
 You can interact with contracts using `eth_sendRawTransaction` or [`eth_call`](#eth_call).
 
-To avoid exposing your private key, create signed transactions offline and send the signed transaction data using `eth_sendRawTransaction`.
+To avoid exposing your private key, create signed transactions offline and send the signed transaction data 
+using `eth_sendRawTransaction`.
 
 :::info
 
 Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md).
 
-[Web3Signer](https://docs.web3signer.consensys.net/) provides transaction signing and implements [`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction).
+[Web3Signer](https://docs.web3signer.consensys.net/) provides transaction signing and implements 
+[`eth_sendTransaction`](https://docs.web3signer.consensys.net/reference/api/json-rpc#eth_sendtransaction).
 
 :::
 
@@ -5837,7 +5930,8 @@ Besu doesn't implement [`eth_sendTransaction`](../../how-to/send-transactions.md
 
 :::note
 
-[Creating and sending transactions](../../how-to/send-transactions.md) includes examples of creating signed transactions using the [web3.js](https://github.com/ethereum/web3.js/) library.
+[Creating and sending transactions](../../how-to/send-transactions.md) includes examples of creating signed 
+transactions using the [web3.js](https://github.com/ethereum/web3.js/) library.
 
 :::
 
@@ -5943,7 +6037,7 @@ block parameters without submitting them to the network.
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal integer representing a block number,
   block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
-  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -6119,13 +6213,17 @@ None
 
 - `startingBlock`: _string_ - index of the highest block on the blockchain when the network synchronization starts
 
-- `currentBlock`: _string_ - index of the latest block (also known as the best block) for the current node (this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns.)
+- `currentBlock`: _string_ - index of the latest block (also known as the best block) for the current node 
+(this is the same index that [`eth_blockNumber`](#eth_blocknumber) returns)
 
-- `highestBlock`: _string_ - index of the highest known block in the peer network (that is, the highest block so far discovered among peer nodes. This is the same value as `currentBlock` if the current node has no peers.)
+- `highestBlock`: _string_ - index of the highest known block in the peer network (that is, the highest block 
+so far discovered among peer nodes. This is the same value as `currentBlock` if the current node has no peers)
 
-- `pulledStates`: _string_ - if fast synchronizing, the number of state entries fetched so far, or `null` if this is not known or not relevant (if full synchronizing or fully synchronized, this field is not returned.)
+- `pulledStates`: _string_ - if fast synchronizing, the number of state entries fetched so far, or `null` if this 
+is not known or not relevant (if full synchronizing or fully synchronized, this field is not returned)
 
-- `knownStates`: _string_ - if fast synchronizing, the number of states the node knows of so far, or `null` if this is not known or not relevant (if full synchronizing or fully synchronized, this field is not returned.)
+- `knownStates`: _string_ - if fast synchronizing, the number of states the node knows of so far, or `null` if 
+this is not known or not relevant (if full synchronizing or fully synchronized, this field is not returned)
 
 <Tabs>
 
@@ -6211,7 +6309,8 @@ curl -X POST -H "Content-Type: application/json" --data '{ "query": "{syncing{st
 
 Uninstalls a filter with the specified ID. When a filter is no longer required, call this method.
 
-Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or [`eth_getFilterLogs`](#eth_getfilterlogs) for 10 minutes.
+Filters time out when not requested by [`eth_getFilterChanges`](#eth_getfilterchanges) or 
+[`eth_getFilterLogs`](#eth_getfilterlogs) for 10 minutes.
 
 #### Parameters
 
@@ -6265,7 +6364,8 @@ block creation in general.
 
 :::note
 
-The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `MINER` API methods are not enabled by default for JSON-RPC. To enable the `MINER` API methods, use 
+the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
@@ -6328,7 +6428,7 @@ None
 
 #### Returns
 
-`result`: _string_ - Hexadecimal string representation of the extra data bytes.
+`result`: _string_ - Hexadecimal string representation of the extra data bytes
 
 <Tabs>
 
@@ -6420,7 +6520,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_getMinGasPrice","params":[
 
 ### `miner_getMinPriorityFee`
 
-Gets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+Gets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. The initial 
+value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set 
+to `0` if the command line option is not specified.
 Use [`miner_setMinPriorityFee`](#miner_setminpriorityfee) to change the current value of the fee.
 
 #### Parameters
@@ -6474,7 +6576,7 @@ Sets a new value for the extra data field that is used when producing blocks.
 
 #### Parameters
 
-`extraData`: _string_ - Hexadecimal representation of the extra data field, with a maximum of 32 bytes.
+`extraData`: _string_ - Hexadecimal representation of the extra data field, with a maximum of 32 bytes
 
 #### Returns
 
@@ -6573,7 +6675,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_setMinGasPrice","params":[
 ### `miner_setMinPriorityFee`
 
 Sets the minimum priority fee per gas (in wei) offered by a transaction to be included in a block. 
-The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line option, or is set to `0` if the command line option is not specified.
+The initial value is set using the [`--min-priority-fee`](../cli/options.md#min-priority-fee) command line 
+option, or is set to `0` if the command line option is not specified.
 Use [`miner_getMinPriorityFee`](#miner_getminpriorityfee) to get the current value of the fee.
 
 #### Parameters
@@ -6763,7 +6866,8 @@ Returns enabled services (for example, `jsonrpc`) and the host and port for each
 
 :::note
 
-The [`--nat-method`](../cli/options.md#nat-method) setting affects the JSON-RPC and P2P host and port values, but not the metrics host and port values.
+The [`--nat-method`](../cli/options.md#nat-method) setting affects the JSON-RPC and P2P host and port values, 
+but not the metrics host and port values.
 
 :::
 
@@ -6892,7 +6996,8 @@ The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the
 
 ### `plugins_reloadPluginConfig`
 
-When this parameter is specified, the named plugins' configurations are reloaded. This method awaits all reloads before returning its result. 
+When this parameter is specified, the named plugins' configurations are reloaded. This method awaits all 
+reloads before returning its result. 
 
 #### Parameters
 
@@ -6936,7 +7041,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","par
 ```
 :::note
 
-If one or more plugins fail, the error response provides a comma-separated list of `pluginName`:success or `pluginName`:failure (reason).
+If one or more plugins fail, the error response provides a comma-separated list of `pluginName`:success or 
+`pluginName`:failure (reason).
 
 :::
 
@@ -6950,7 +7056,8 @@ The `TRACE` API is a more concise alternative to the [`DEBUG` API](#debug-method
 
 :::note
 
-The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `TRACE` API methods are not enabled by default for JSON-RPC. To enable the `TRACE` API methods, use the 
+[`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
@@ -6977,7 +7084,10 @@ the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as desc
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in transaction execution order; if revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one 
+object per call, in transaction execution order; if revert reason is enabled with 
+[`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the returned list items include the 
+[revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md)
 
 <Tabs>
 
@@ -7082,14 +7192,16 @@ default, 512 from the head of the chain).
   [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
   :::note
-  `pending` returns the same value as `latest`.
+  `pending` returns the same value as `latest`
   :::
 
-- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
+- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, 
+and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in transaction execution order
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one 
+object per call, in transaction execution order
 
 <Tabs>
 
@@ -7173,7 +7285,8 @@ default, 512 from the head of the chain).
 
 #### Parameters
 
-- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
+- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and 
+`stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
@@ -7185,7 +7298,8 @@ default, 512 from the head of the chain).
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in transaction execution order
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object 
+per call, in transaction execution order
 
 <Tabs>
 
@@ -7266,7 +7380,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"trace_callMany","params":[[[{"fr
 
 ### `trace_filter`
 
-Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) option. 
+Returns traces matching the specified filter. The maximum number of blocks you can supply to `trace_filter` is 1000 
+by default. You can adjust this limit using the [`--rpc-max-trace-filter-range`](../cli/options.md#rpc-max-trace-filter-range) 
+option. 
 
 :::info note
 Your node must be an [archive node](../../concepts/node-sync.md#archive-nodes), or
@@ -7281,7 +7397,8 @@ the requested blocks must be within the number of
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in transaction execution order
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object 
+per call, in transaction execution order
 
 <Tabs>
 
@@ -7387,7 +7504,8 @@ the requested transaction must be contained in a block within the number of
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in the order called by the transaction
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object 
+per call, in the order called by the transaction
 
 <Tabs>
 
@@ -7463,11 +7581,13 @@ the chain).
 
 - `data` - _string_ - Raw transaction data
 
-- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
+- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and 
+`stateDiff`](../trace-types.md). Specify any combination of the three options including none of them
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in the order called by the transaction
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one 
+object per call, in the order called by the transaction
 
 <Tabs>
 
@@ -7541,11 +7661,16 @@ default, 512 from the head of the chain).
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
+- `options`: _array_ of _strings_ - list of tracing options; tracing options are [`trace`, `vmTrace`, 
+and `stateDiff`](../trace-types.md). Specify any combination of the three options including none of them.
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [transaction trace objects](objects.md#transaction-trace-object) containing one object per transaction, in transaction execution order; if revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the [`trace`](../trace-types.md#trace) list items in the returned transaction trace object include the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+`result`: _array_ of _objects_ - list of [transaction trace objects](objects.md#transaction-trace-object) containing 
+one object per transaction, in transaction execution order; if revert reason is enabled with 
+[`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the [`trace`](../trace-types.md#trace) list 
+items in the returned transaction trace object include the 
+[revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 <Tabs>
 
@@ -7662,7 +7787,10 @@ the requested transaction must be contained in a block within the number of
 
 #### Returns
 
-`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object per call, in the order called by the transaction; if revert reason is enabled with [`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the returned list items include the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
+`result`: _array_ of _objects_ - list of [calls to other contracts](../trace-types.md#trace) containing one object 
+per call, in the order called by the transaction; if revert reason is enabled with 
+[`--revert-reason-enabled`](../cli/options.md#revert-reason-enabled), the returned list items include 
+the [revert reason](../../../private-networks/how-to/send-transactions/revert-reason.md).
 
 <Tabs>
 
@@ -7785,7 +7913,8 @@ The `TXPOOL` API methods allow you to inspect the contents of the transaction po
 
 :::note
 
-The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `TXPOOL` API methods are not enabled by default for JSON-RPC. To enable the `TXPOOL` API methods, use 
+the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
@@ -7799,7 +7928,9 @@ Lists pending transactions that match the supplied filter conditions.
 
 - `fields`: _object_ - object of fields used to create the filter condition
 
-Each field in the object corresponds to a field name containing an operator, and a value for the operator. A field name can only be specified once, and can only contain one operator. For example, you cannot query transactions with a gas price between 8 and 9 Gwei by using both the `gt` and `lt` operator in the same field name instance.
+Each field in the object corresponds to a field name containing an operator, and a value for the operator. A 
+field name can only be specified once, and can only contain one operator. For example, you cannot query 
+transactions with a gas price between 8 and 9 Gwei by using both the `gt` and `lt` operator in the same field name instance.
 
 All filters must be satisfied for a transaction to be returned.
 
@@ -7899,7 +8030,8 @@ None
 
 `result`: _object_ - transaction pool statistics object with the following fields:
 
-- `maxSize`: _number_ - maximum number of transactions kept in the transaction pool; use the [`--tx-pool-max-size`](../cli/options.md#tx-pool-max-size) option to configure the maximum size.
+- `maxSize`: _number_ - maximum number of transactions kept in the transaction pool; use the 
+[`--tx-pool-max-size`](../cli/options.md#tx-pool-max-size) option to configure the maximum size
 
 - `localCount`: _number_ - number of transactions submitted directly to this node
 
@@ -8037,7 +8169,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],
 
 ### `web3_sha3`
 
-Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value is a [Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
+Returns a [SHA3](https://en.wikipedia.org/wiki/SHA-3) hash of the specified data. The result value is a 
+[Keccak-256](https://keccak.team/keccak.html) hash, not the standardized SHA3-256.
 
 #### Parameters
 

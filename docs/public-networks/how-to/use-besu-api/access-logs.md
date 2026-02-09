@@ -139,7 +139,7 @@ When a filter is no longer required, use [`eth_uninstallFilter`](../../reference
 
 ## Get logs using a filter options object
 
-To get all logs for a filter options object, use [`eth_getLogs`](../../reference/api/index.md#eth_getlogs) or [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs) for a private contract.
+To get all logs for a filter options object, use [`eth_getLogs`](../../reference/api/index.md#eth_getlogs).
 
 The following request for `eth_getLogs` returns all the logs where the example contract has been deployed to `0x42699a7612a82f1d9c36148af9c77354759b210b` and executed with `valueIndexed` set to 5.
 

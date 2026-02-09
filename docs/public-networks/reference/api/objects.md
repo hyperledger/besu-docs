@@ -87,7 +87,7 @@ Returned by [`eth_feeHistory`](index.md#eth_feehistory) for the requested block 
 
 ## Filter options object
 
-Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.md#eth_getlogs), and [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs). Used to [`filter logs`](../../how-to/use-besu-api/access-logs.md).
+Parameter for [`eth_newFilter`](index.md#eth_newfilter), and [`eth_getLogs`](index.md#eth_getlogs).
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |
@@ -96,7 +96,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), [`eth_getLogs`](index.m
 | `address` | Data &#124; Array | Optional | Contract address or array of addresses from which [logs](../../concepts/events-and-logs.md) originate. |
 | `topics` | Array of Data, 32&nbsp;bytes each | Optional | Array of topics by which to [filter logs](../../concepts/events-and-logs.md#topic-filters). |
 
-[`eth_getLogs`](index.md#eth_getlogs) and [`priv_getLogs`](../../../private-networks/reference/api.md#priv_getlogs) have an extra key.
+[`eth_getLogs`](index.md#eth_getlogs) has an extra key.
 
 | Key | Type | Required/Optional | Value |
 | --- | :-: | :-: | --- |

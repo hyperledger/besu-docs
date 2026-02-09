@@ -1511,9 +1511,12 @@ Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to
 
 - `blockHash`: _string_ - block hash
 
-- `txHash`: _string_ - (optional) transaction hash; if omitted, a trace file is generated for each transaction in the block.
-
-- `disableMemory`: _boolean_ - (optional) specifies whether to capture EVM memory during the trace; defaults to `true`
+- Optional second parameter _object_ (all keys optional):
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block.
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`.
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`.
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`.
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced.
 
 #### Returns
 
@@ -1573,7 +1576,14 @@ Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view 
 
 #### Parameters
 
-`blockHash`: _string_ - block hash
+- `blockHash`: _string_ - block hash
+
+- Optional second parameter _object_ (all keys optional):
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block.
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`.
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`.
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`.
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced.
 
 #### Returns
 

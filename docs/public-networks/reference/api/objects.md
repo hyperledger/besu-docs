@@ -104,7 +104,8 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), and [`eth_getLogs`](ind
 
 ## Log object
 
-Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges).
+Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges), [`eth_getFilterLogs`](index.md#eth_getfilterlogs), [`eth_getLogs`](index.md#eth_getLogs).
+
 [Transaction receipt objects](#transaction-receipt-object) and [call result objects](#call-result-object) can contain an array of log objects.
 
 | Key | Type | Value |
@@ -115,6 +116,7 @@ Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges).
 | `transactionHash` | Data, 32&nbsp;bytes | Hash of the starting transaction for the log. `null` when log is pending. |
 | `blockHash` | Data, 32&nbsp;bytes | Hash of the block that includes the log. `null` when log is pending. |
 | `blockNumber` | Quantity | Number of block that includes the log. `null` when log is pending. |
+| `blockTimestamp` | Quantity | Hex-encoded unix timestamp (in seconds) of the block that includes the log. |
 | `address` | Data, 20&nbsp;bytes | Address the log originated from. |
 | `data` | Data | Non-indexed arguments of the log. |
 | `topics` | Array of Data, 32&nbsp;bytes each | [Event signature hash](../../concepts/events-and-logs.md#event-signature-hash) and 0 to 3 [indexed log arguments](../../concepts/events-and-logs.md#event-parameters). |
@@ -264,6 +266,7 @@ Returned by [`eth_getTransactionReceipt`](index.md#eth_gettransactionreceipt).
 | --- | :-: | --- |
 | `blockHash` | Data, 32&nbsp;bytes | Hash of block containing this transaction. |
 | `blockNumber` | Quantity | Block number of block containing this transaction. |
+| `blockTimestamp` | Quantity | Hex-encoded unix timestamp (in seconds) of the block that includes this transaction. |
 | `contractAddress` | Data, 20&nbsp;bytes | Contract address created, if contract creation transaction, otherwise, `null`. A failed contract creation transaction still produces a contract address value. |
 | `cumulativeGasUsed` | Quantity | Total amount of gas used by previous transactions in the block and this transaction. |
 | `effectiveGasPrice` | Quantity | The [actual value per gas deducted](../../concepts/transactions/types.md#eip1559-transactions) from the sender's account. |

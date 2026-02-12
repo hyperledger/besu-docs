@@ -598,6 +598,92 @@ The number of recent blocks to cache.
 Using this option can improve the performance of several RPC calls including: [`eth_getBlockByNumber`](../api/index.md#eth_getblockbynumber), [`eth_getBlockByHash`](../api/index.md#eth_getblockbyhash), [`eth_getTransactionReceipt`](../api/index.md#eth_gettransactionreceipt), and especially [`eth_feeHistory`](../api/index.md#eth_feehistory). 
 The default is `0`.
 
+### `cache-last-block-headers`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--cache-last-block-headers=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--cache-last-block-headers=50000
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_CACHE_LAST_BLOCK_HEADERS=50000
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+cache-last-block-headers=50000
+```
+
+</TabItem>
+
+</Tabs>
+
+The number of last block headers to cache from the blocks persisted to the blockchain.
+When used with [`--cache-last-block-headers-preload-enabled`](#cache-last-block-headers-preload-enabled), this value defines how many block headers are preloaded into the cache at startup.
+
+The default is `0`.
+
+### `cache-last-block-headers-preload-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--cache-last-block-headers-preload-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--cache-last-block-headers-preload-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_CACHE_LAST_BLOCK_HEADERS_PRELOAD_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Example configuration file" label="Example configuration file">
+
+```bash
+cache-last-block-headers-preload-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables preloading the block headers cache at startup.
+Only has effect when [`--cache-last-block-headers`](#cache-last-block-headers) is set to a value greater than `0`; the number of block headers preloaded is defined by that option.
+
+The default is `false`.
+
 ### `color-enabled`
 
 <Tabs>

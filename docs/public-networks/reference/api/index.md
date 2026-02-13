@@ -1517,7 +1517,7 @@ Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to
 
   - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
 
-  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `false`
 
   - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
@@ -1585,7 +1585,7 @@ Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view 
 
   - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block
 
-  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `true`
 
   - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
 
@@ -1721,13 +1721,13 @@ Reruns the transaction with the same state as when the transaction executed.
 
 - `transactionHash`: _string_ - transaction hash.
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - request options object with the following fields (all optional):
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture
+  - `disableStorage`: _boolean_ - `true` disables storage capture; defaults to `false`
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture
+  - `disableMemory`: _boolean_ - `true` disables memory capture; defaults to `true`
 
-  - `disableStack` : _boolean_ - `true` disables stack capture
+  - `disableStack` : _boolean_ - `true` disables stack capture; defaults to `false`
 
   - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
@@ -2043,13 +2043,13 @@ temporary state changes without affecting the actual blockchain state.
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _object_ - request options object with the following fields (all booleans default to `false`):
+- `options`: _object_ - request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture
+  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture; defaults to `false`
 
-  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture
+  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture; defaults to `true`
 
-  - `disableStack` : _boolean_ - (optional) `true` disables stack capture
+  - `disableStack` : _boolean_ - (optional) `true` disables stack capture; defaults to `false`
 
   - `opcodes`: _array_ of _strings_ - (optional) list of opcode names to trace; if omitted or empty, all opcodes are traced
 

@@ -46,3 +46,18 @@ The transaction-trace filtering APIs are:
 - [`trace_filter`](../../reference/api/index.md#trace_filter)
 - [`trace_get`](../../reference/api/index.md#trace_get)
 - [`trace_transaction`](../../reference/api/index.md#trace_transaction)
+
+## Dumping traces to file
+
+For large blocks or when you prefer file output over a JSON response, use the debug API methods:
+
+- [`debug_standardTraceBlockToFile`](../../reference/api/index.md#debug_standardtraceblocktofile)
+- [`debug_standardTraceBadBlockToFile`](../../reference/api/index.md#debug_standardtracebadblocktofile)
+
+Enable or disable trace fields (txHash, stack, memory, storage, and opcodes) via the optional options parameter on both methods. For example, set `disableStack`, `disableMemory`, and/or `disableStorage` to reduce output size or focus on specific data.
+
+:::note
+
+Trace files are written under the node data directory in the `traces` subdirectory; the data directory is set by the [`--data-path`](../../reference/cli/options.md#data-path) option.
+
+:::

@@ -54,3 +54,7 @@ Each plugin in the directory has the following lifecycle events:
 The order in which Besu calls plugins during lifecycle events is not guaranteed.
 
 :::
+
+## Reload plugins
+
+Besu supports a JSON-RPC method `plugins_reloadPluginConfig`; this allows you to reload all, or named, plugins. Call this when you change a configuration and want to reload dynamically without restarting Besu.

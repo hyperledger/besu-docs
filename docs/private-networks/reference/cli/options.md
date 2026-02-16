@@ -316,7 +316,7 @@ poa-discovery-retry-bootnodes=true
 When enabled, Besu always uses [bootnodes](../../how-to/configure/bootnodes.md) during peer table refresh on Proof of Authority (PoA) networks. When disabled, bootnodes are only used on first startup. If bootnodes are unavailable after startup, the node may not discover new peers until it is restarted. The default is `true`.
 
 :::note
-This option only applies to proof-of-authority (private) networks.
+This option only applies to proof of authority (private) networks.
 :::
 
 <!-- Links -->

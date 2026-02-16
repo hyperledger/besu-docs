@@ -144,36 +144,6 @@ Each index file contains 100000 blocks. The last fragment of blocks less that 10
 
 To generate cached log bloom indexes while the node is running, use the [`admin_generateLogBloomCache`](../api/index.md#admin_generatelogbloomcache) API.
 
-### `x-backup-state`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
-besu operator x-backup-state --backup-path=<PATH> [--block=<LONG>] [--compression-enabled=<true|false>]
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
-besu --data-path=/path/to/node operator x-backup-state --backup-path=/backup/dir --compression-enabled=true
-```
-
-</TabItem>
-
-</Tabs>
-
-Backs up the state and accounts at a specified block. You must specify [`--data-path`](options.md#data-path) when running this command so it uses the correct node data directory.
-
-#### Options
-
-- `--backup-path`: _path_ (required) — path to store the backup files
-- `--block`: _long_ (optional) — block to perform the backup at; defaults to chain head
-- `--compression-enabled`: _boolean_ (optional) — controls whether data compression in the backup is enabled; defaults to `true`
-
 ## `password`
 
 Provides password related actions.

@@ -23,7 +23,7 @@ The following sections provide information about JSON-RPC, RPC Pub/Sub, and Grap
 
 ## Enable API access
 
-To enable API access, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled), [`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled), [`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), and `--Xrpc-ipc-enabled` options.
+To enable API access, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled), [`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled), [`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), and [`--Xrpc-ipc-enabled`](../../reference/cli/options.md#xrpc-ipc-enabled) options.
 
 :::caution
 
@@ -57,7 +57,7 @@ Ports must be [exposed appropriately](../connect/configure-ports.md).
 
 ## Socket path
 
-To specify the socket path for the IPC socket, use the `--Xrpc-ipc-path` option. The default path is `besu.ipc` in the Besu data directory.
+To specify the socket path for the IPC socket, use the [`--Xrpc-ipc-path`](../../reference/cli/options.md#xrpc-ipc-path) option. The default path is `besu.ipc` in the Besu data directory.
 
 :::caution
 

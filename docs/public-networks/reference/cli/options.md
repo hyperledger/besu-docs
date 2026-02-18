@@ -3971,7 +3971,7 @@ rpc-http-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the JSON-RPC HTTP channel. When you use this option you must also specify the `--rpc-http-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ENGINE`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -5121,7 +5121,7 @@ rpc-ws-api=["ETH","NET","WEB3"]
 
 </Tabs>
 
-A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
+A comma-separated list of APIs to enable on the WebSockets channel. When you use this option you must also specify the `--rpc-ws-enabled` option. The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ENGINE`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. The default is: `ETH`, `NET`, `WEB3`.
 
 :::tip
 
@@ -7358,6 +7358,145 @@ Displays the early access options and their descriptions, and exits.
 :::caution
 
 The displayed options are unstable and may change between releases.
+
+:::
+
+### `Xrpc-ipc-api`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--Xrpc-ipc-api=<api name>[,<api name>...]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--Xrpc-ipc-api=ETH,NET,WEB3
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_XRPC_IPC_API=ETH,NET,WEB3
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+xrpc-ipc-api=["ETH","NET","WEB3"]
+```
+
+</TabItem>
+
+</Tabs>
+
+Comma-separated list of APIs to enable on the JSON-RPC IPC service. When you use this option you must also enable the IPC service with [`--Xrpc-ipc-enabled`](#xrpc-ipc-enabled). The available API options are: `ADMIN`, `CLIQUE`, `DEBUG`, `ENGINE`, `ETH`, `IBFT`, `MINER`, `NET`, `PERM`, `PLUGINS`, `QBFT`, `TRACE`, `TXPOOL`, and `WEB3`. Defaults to: `ETH`, `NET`, `WEB3`.
+
+:::caution
+
+This is an early access option and may change between releases.
+
+:::
+
+### `Xrpc-ipc-enabled`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--Xrpc-ipc-enabled[=<true|false>]
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--Xrpc-ipc-enabled=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_XRPC_IPC_ENABLED=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+xrpc-ipc-enabled=true
+```
+
+</TabItem>
+
+</Tabs>
+
+Enables or disables the JSON-RPC IPC service. When enabled, the node exposes a Unix domain socket (or named pipe on Windows) for JSON-RPC requests. Subscription methods (`eth_subscribe`, `eth_unsubscribe`) are supported over IPC as well as WebSocket.
+The default is `false`.
+
+:::caution
+
+This is an early access option and may change between releases.
+
+:::
+
+### `Xrpc-ipc-path`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--Xrpc-ipc-path=<PATH>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--Xrpc-ipc-path=/path/to/besu.ipc
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_XRPC_IPC_PATH=/path/to/besu.ipc
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+xrpc-ipc-path="/path/to/besu.ipc"
+```
+
+</TabItem>
+
+</Tabs>
+
+Path to the IPC socket or named pipe file used by the JSON-RPC IPC service. When you use this option you must also enable the IPC service with [`--Xrpc-ipc-enabled`](#xrpc-ipc-enabled). The default is a file named `besu.ipc` in the [data directory](#data-path).
+
+:::caution
+
+This is an early access option and may change between releases.
 
 :::
 

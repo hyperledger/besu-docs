@@ -10,7 +10,7 @@ tags:
 Access the [Besu API](../../reference/api/index.md) using:
 
 - [JSON-RPC over HTTP, WebSocket, or IPC](json-rpc.md)
-- [RPC Pub/Sub over WebSockets](rpc-pubsub.md)
+- [RPC Pub/Sub over WebSockets and IPC](rpc-pubsub.md)
 - [GraphQL over HTTP](graphql.md).
 
 :::note

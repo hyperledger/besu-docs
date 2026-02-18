@@ -1,7 +1,7 @@
 ---
-title: Use RPC Pub/Sub over WS
+title: Use RPC Pub/Sub over WS and IPC
 sidebar_position: 2
-description: Using RPC Pub/Sub with Besu WebSockets
+description: Using RPC Pub/Sub with Besu WebSockets and IPC
 tags:
   - public networks
   - private networks
@@ -10,11 +10,11 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Use RPC Pub/Sub over WebSockets
+# Use RPC Pub/Sub over WebSockets and IPC
 
-Subscribe to events by using either RPC Pub/Sub over WebSockets or [filters over HTTP](access-logs.md).
+Subscribe to events by using either RPC Pub/Sub over WebSockets or IPC, or [filters over HTTP](access-logs.md).
 
-Use RPC Pub/Sub over WebSockets to wait for events instead of polling for them. For example, dapps subscribe to logs and receive notifications when a specific event occurs.
+Use RPC Pub/Sub over WebSockets or IPC to wait for events instead of polling for them. For example, dapps subscribe to logs and receive notifications when a specific event occurs.
 
 Methods specific to RPC Pub/Sub are:
 
@@ -23,13 +23,13 @@ Methods specific to RPC Pub/Sub are:
 
 :::info
 
-Unlike other [Besu API methods](../../reference/api/index.md), you cannot call the RPC Pub/Sub methods over HTTP. Use the [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option to enable the WebSockets JSON-RPC service.
+Unlike other [Besu API methods](../../reference/api/index.md), you cannot call the RPC Pub/Sub methods over HTTP. Use the [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) option for WebSockets or the `--Xrpc-ipc-enabled` option for IPC (see [JSON-RPC over IPC](json-rpc.md)) to enable subscription methods.
 
 :::
 
 ### Use RPC Pub/Sub
 
-[WebSockets](json-rpc.md#http-and-websocket-requests) supports the RPC Pub/Sub API.
+[WebSockets](json-rpc.md#http-and-websocket-requests) and [IPC](json-rpc.md) support the RPC Pub/Sub API.
 
 To create subscriptions, use `eth_subscribe`. Once subscribed, the API publishes notifications using `eth_subscription`.
 

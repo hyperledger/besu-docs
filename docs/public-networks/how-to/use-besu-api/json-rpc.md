@@ -31,6 +31,8 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the `--Xrpc-i
 
 :::
 
+Subscription methods (`eth_subscribe`, `eth_unsubscribe`) are supported over IPC as well as WebSocket, but not over HTTP. See [RPC Pub/Sub over WebSockets and IPC](rpc-pubsub.md).
+
 <Postman />
 
 ## Geth console

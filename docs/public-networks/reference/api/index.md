@@ -273,14 +273,12 @@ Removes cache files for the specified range of blocks.
 You can skip a parameter by using an empty string, `""`. If you specify:
 
 - No parameters, the call removes cache files for all blocks.
-
 - Only `fromBlock`, the call removes cache files for the specified block.
-
 - Only `toBlock`, the call removes cache files from the genesis block to the specified block.
 
 #### Returns
 
-`result`: _object_ - `Cache Removed` status or `error`.
+`result`: _object_ - `Cache Removed` status or `error`
 
 <Tabs>
 
@@ -1454,7 +1452,7 @@ the RPC call might time out even though Besu continues the operation in the back
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the
     string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-    [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+    [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
     :::note
     `pending` returns the same value as `latest`.
@@ -1511,9 +1509,17 @@ Use [`debug_standardTraceBadBlockToFile`](#debug_standardtracebadblocktofile) to
 
 - `blockHash`: _string_ - block hash
 
-- `txHash`: _string_ - (optional) transaction hash; if omitted, a trace file is generated for each transaction in the block.
+- Optional second parameter _object_ (all keys optional):
 
-- `disableMemory`: _boolean_ - (optional) specifies whether to capture EVM memory during the trace; defaults to `true`
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block
+
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `false`
+
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
+
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `false`
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1573,7 +1579,19 @@ Use [`debug_standardTraceBlockToFile`](#debug_standardtraceblocktofile) to view 
 
 #### Parameters
 
-`blockHash`: _string_ - block hash
+- `blockHash`: _string_ - block hash
+
+- Optional second parameter _object_ (all keys optional):
+
+  - `txHash`: _string_ - transaction hash; if omitted, a trace file is generated for each transaction in the block
+
+  - `disableMemory`: _boolean_ - omit EVM memory from the trace; defaults to `true`
+
+  - `disableStack`: _boolean_ - omit stack from the trace; defaults to `false`
+
+  - `disableStorage`: _boolean_ - omit storage from the trace; defaults to `true`
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1701,15 +1719,17 @@ Reruns the transaction with the same state as when the transaction executed.
 
 #### Parameters
 
-- `transactionHash`: _string_ - transaction hash
+- `transactionHash`: _string_ - transaction hash.
 
-- `options`: _object_ - request options object with the following fields (all optional and default to `false`):
+- `options`: _object_ - request options object with the following fields (all optional):
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
+  - `disableStorage`: _boolean_ - `true` disables storage capture; defaults to `false`
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
+  - `disableMemory`: _boolean_ - `true` disables memory capture; defaults to `true`
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
+  - `disableStack` : _boolean_ - `true` disables stack capture; defaults to `false`
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1781,14 +1801,13 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-    The default is `false`.
+  - `disableStorage`: _boolean_ - `true` disables storage capture. The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1857,14 +1876,13 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-    The default is `false`.
+  - `disableStorage`: _boolean_ - `true` disables storage capture. The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -1941,14 +1959,13 @@ Returns full trace of all invoked opcodes of all transactions included in the bl
 
 - `options`: _object_ - (optional) request options object with the following fields:
 
-  - `disableStorage`: _boolean_ - `true` disables storage capture.
-    The default is `false`.
+  - `disableStorage`: _boolean_ - `true` disables storage capture. The default is `false`.
 
-  - `disableMemory`: _boolean_ - `true` disables memory capture.
-    The default is `true`.
+  - `disableMemory`: _boolean_ - `true` disables memory capture. The default is `true`.
 
-  - `disableStack` : _boolean_ - `true` disables stack capture.
-    The default is `false`.
+  - `disableStack` : _boolean_ - `true` disables stack capture. The default is `false`.
+
+  - `opcodes`: _array_ of _strings_ - list of opcode names to trace; if omitted or empty, all opcodes are traced
 
 #### Returns
 
@@ -2016,7 +2033,7 @@ temporary state changes without affecting the actual blockchain state.
 
 #### Parameters
 
-- `call`: _object_ - [transaction call object](objects.md#transaction-call-object)
+- `call`: _object_ - [transaction call object](objects.md#transaction-call-object).
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of the
   string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
@@ -2026,11 +2043,17 @@ temporary state changes without affecting the actual blockchain state.
   `pending` returns the same value as `latest`.
   :::
 
-- `options`: _object_ - request options object with the following fields (all booleans default to `false`):
-  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture.
-  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture.
-  - `disableStack` : _boolean_ - (optional) `true` disables stack capture.
-  - `stateOverrides`: _object_ - (optional) [address-to-state mapping](./objects.md#state-override-object).
+- `options`: _object_ - request options object with the following fields:
+
+  - `disableStorage`: _boolean_ - (optional) `true` disables storage capture; defaults to `false`
+
+  - `disableMemory`: _boolean_ - (optional) `true` disables memory capture; defaults to `true`
+
+  - `disableStack` : _boolean_ - (optional) `true` disables stack capture; defaults to `false`
+
+  - `opcodes`: _array_ of _strings_ - (optional) list of opcode names to trace; if omitted or empty, all opcodes are traced
+
+  - `stateOverrides`: _object_ - (optional) [address-to-state mapping](./objects.md#state-override-object)
 
 #### Returns
 
@@ -2613,7 +2636,7 @@ Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that 
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 
@@ -2693,7 +2716,7 @@ By default, the `eth_estimateGas` error response includes the [revert reason](..
 
 - `blockNumber`: _string_ - (optional) hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
   The default is `pending`.
 
 - `stateOverride`: _object_ - The [address-to-state mapping](./objects.md#state-override-object).
@@ -2850,7 +2873,7 @@ As of [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), this method tracks tr
 
 - `newestBlock`: _string_ - hexadecimal integer representing the highest number block of
   the requested range, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or
-  `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  `safe`, as described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
   :::note
   `pending` returns the same value as `latest`.
@@ -3280,7 +3303,7 @@ Returns information about the block matching the specified block number.
 
 - `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
   the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
   :::note
   `pending` returns the same value as `latest`.
@@ -3455,7 +3478,7 @@ gas used and any event logs that might have been produced by a smart contract du
 
 `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 :::note
 `pending` returns the same value as `latest`.
@@ -3736,7 +3759,7 @@ Returns the number of transactions in a block matching the specified block numbe
 
 `blockNumber`: _string_ - hexadecimal integer representing a block number, or one of
 the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as described in
-[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+[block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 :::note
 `pending` returns the same value as `latest`.
@@ -5933,7 +5956,7 @@ block parameters without submitting them to the network.
 
 - `blockNumber` or `blockHash`: _string_ - hexadecimal integer representing a block number,
   block hash, or one of the string tags `latest`, `earliest`, `pending`, `finalized`, or `safe`, as
-  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter).
+  described in [block parameter](../../how-to/use-besu-api/json-rpc.md#block-parameter)
 
 #### Returns
 

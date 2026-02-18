@@ -27,7 +27,7 @@ To delete the local block data, delete the `database` directory in the `besu/bui
 
 ## Genesis configuration
 
-Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [ETH testnets](#run-a-node-on-an-eth-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to [ETH testnets](#run-a-node-on-an-ethereum-testnet), and [Mainnet](#run-a-node-on-ethereum-mainnet).
 
 :::info
 

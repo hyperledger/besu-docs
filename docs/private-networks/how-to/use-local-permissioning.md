@@ -8,7 +8,7 @@ tags:
 
 # Use local permissioning
 
-[Local permissioning](../concepts/permissioning/index.md#local) supports node and account allowlisting.
+[Local permissioning](../concepts/permissioning/index.md#specify-local-permissioning) supports node and account allowlisting.
 
 ## Node allowlisting
 

@@ -275,6 +275,50 @@ For proof-of-stake and proof-of-work networks, see
 [`--block-txs-selection-max-time`](../../../public-networks/reference/cli/options.md#block-txs-selection-max-time).
 :::
 
+### `poa-discovery-retry-bootnodes`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--poa-discovery-retry-bootnodes=<true|false>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--poa-discovery-retry-bootnodes=true
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_POA_DISCOVERY_RETRY_BOOTNODES=true
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+poa-discovery-retry-bootnodes=true
+```
+
+</TabItem>
+
+</Tabs>
+
+When enabled, Besu always uses [bootnodes](../../how-to/configure/bootnodes.md) during peer table refresh on Proof of Authority (PoA) networks. When disabled, bootnodes are only used on first startup. If bootnodes are unavailable after startup, the node may not discover new peers until it is restarted. The default is `true`.
+
+:::note
+This option only applies to proof of authority (private) networks.
+:::
+
 <!-- Links -->
 
 [accounts permissions configuration file]: ../../how-to/use-local-permissioning.md#permissions-configuration-file

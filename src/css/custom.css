@@ -54,6 +54,14 @@ html[data-theme="dark"] .header-github-link::before {
     no-repeat;
 }
 
+/* Target the welcome screen container by its prefix */
+[class*="welcomeScreen_"] p{
+  white-space: pre-wrap !important;
+  font-size: 0.85rem !important;    /* Shrinks the text (approx 13.6px) */
+  line-height: 1.5;             /* Adds a bit of breathing room between lines */
+  color: var(--ifm-color-emphasis-700); /* Optional: softens the text color slightly */
+}
+
 /* chatbot */
 .header-chatbot-link:hover {
   opacity: 0.6;

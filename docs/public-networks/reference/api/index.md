@@ -6906,7 +6906,7 @@ the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cl
 
 ### `plugins_reloadPluginConfig`
 
-If this method is used with no parameters passed, all plugins are reloaded, otherwise the named plugins' configurations 
+When you call this method without parameters, all plugins are reloaded. If you specify names, only those plugins
 are reloaded. This method awaits all reloads before returning its result. 
 
 #### Parameters

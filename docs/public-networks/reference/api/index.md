@@ -6899,17 +6899,20 @@ The `PLUGINS` API methods provide plugin-related functionality.
 
 :::note
 
-The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API methods, use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or [`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
+The `PLUGINS` API methods are not enabled by default for JSON-RPC. To enable the `PLUGINS` API methods, 
+use the [`--rpc-http-api`](../cli/options.md#rpc-http-api) or 
+[`--rpc-ws-api`](../cli/options.md#rpc-ws-api) options.
 
 :::
 
 ### `plugins_reloadPluginConfig`
 
-When this parameter is specified, the named plugins' configurations are reloaded. This method awaits all reloads before returning its result. 
+When you call this method without parameters, all plugins are reloaded. If you specify names, only 
+those plugins are reloaded. This method awaits all reloads before returning its result. 
 
 #### Parameters
 
-`plugin`: _string_ - plugin
+- `plugin`: _string_ - (optional) plugin name
 
 #### Returns
 
@@ -6947,9 +6950,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"plugins_reloadPluginConfig","par
   "result": "Success"
 }
 ```
+
 :::note
 
-If one or more plugins fail, the error response provides a comma-separated list of `pluginName`:success or `pluginName`:failure (reason).
+If one or more plugins fail, the error response provides a comma-separated list of `pluginName`:success or 
+`pluginName`:failure (reason).
 
 :::
 

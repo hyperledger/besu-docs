@@ -25,6 +25,11 @@ The following sections provide information about JSON-RPC, RPC Pub/Sub, and Grap
 
 To enable API access, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled), [`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled), [`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), or the experimental `--Xrpc-ipc-enabled` options.
 
+:::caution
+
+`--Xrpc-ipc-enabled` is an early access option.
+
+:::
 
 ## Service hosts
 

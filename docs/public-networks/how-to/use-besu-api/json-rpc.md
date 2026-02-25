@@ -23,7 +23,7 @@ You should secure access to your node's JSON-RPC endpoints. Users with access to
 
 To enable JSON-RPC over HTTP or WebSocket, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) and [`--rpc-ws-enabled`](../../reference/cli/options.md#rpc-ws-enabled) options.
 
-To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the [`--Xrpc-ipc-enabled`](../../reference/cli/options.md#xrpc-ipc-enabled) option.
+To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the `--Xrpc-ipc-enabled` option.
 
 :::caution
 
@@ -41,9 +41,11 @@ The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Us
 
 To use the geth console with Besu:
 
-1. Start Besu with the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or [`--Xrpc-ipc-enabled`](../../reference/cli/options.md#xrpc-ipc-enabled) option.
+1. Start Besu with the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` 
+option.
 
-2. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or [`--Xrpc-ipc-api`](../../reference/cli/options.md#xrpc-ipc-api) option.
+2. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or 
+`--Xrpc-ipc-api` option.
 
 3. Start the geth console specifying the JSON-RPC endpoint:
 
@@ -297,7 +299,7 @@ curl -v 'http://localhost:8545/liveness'
 
 Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
 
-To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`, and `TXPOOL` API methods, use the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api), [`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api), or [`--Xrpc-ipc-api`](../../reference/cli/options.md#xrpc-ipc-api) options.
+To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, `TRACE`, and `TXPOOL` API methods, use the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api), [`--rpc-ws-api`](../../reference/cli/options.md#rpc-ws-api), or `--Xrpc-ipc-api` options.
 
 :::caution
 

@@ -104,7 +104,7 @@ Parameter for [`eth_newFilter`](index.md#eth_newfilter), and [`eth_getLogs`](ind
 
 ## Log object
 
-Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges), [`eth_getFilterLogs`](index.md#eth_getfilterlogs), [`eth_getLogs`](index.md#eth_getLogs).
+Returned by [`eth_getFilterChanges`](index.md#eth_getfilterchanges), [`eth_getFilterLogs`](index.md#eth_getfilterlogs), [`eth_getLogs`](index.md#eth_getlogs).
 
 [Transaction receipt objects](#transaction-receipt-object) and [call result objects](#call-result-object) can contain an array of log objects.
 
@@ -154,7 +154,7 @@ Returned by [`debug_storageRangeAt`](index.md#debug_storagerangeat).
 
 ## State override object
 
-Parameter for [`eth_call`](./index.md#eth_call), [`eth_estimateGas`](./index.md#eth_estimategas), [`eth_simulateV1`](index.md#eth_simulatev1), and [`debug_traceCall`](./index.md#debug_traceCall).
+Parameter for [`eth_call`](./index.md#eth_call), [`eth_estimateGas`](./index.md#eth_estimategas), [`eth_simulateV1`](index.md#eth_simulatev1), and [`debug_traceCall`](./index.md#debug_tracecall).
 Override an account with the following state values temporarily before making the call. This allows you
 to make ephemeral state changes, for the purposes of transaction simulation, without affecting the actual
 blockchain state.

@@ -2628,7 +2628,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_config","params":[],"id":1}'
 
 ### `eth_createAccessList`
 
-Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can [include in a transaction](../../concepts/transactions/types.md#access_list-transactions).
+Creates an [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) access list that you can [include in a transaction](../../concepts/transactions/types.md#access_list-transactions). The method returns a success response (access list and gas used) even if the simulated transaction would revert.
 
 #### Parameters
 
@@ -2695,6 +2695,13 @@ curl -X POST --data '{"method":"eth_createAccessList","params":[{"from": "0xaeA8
 </TabItem>
 
 </Tabs>
+
+:::tip
+
+This method doesn't indicate whether a transaction would succeed or revert; to see simulation outcomes
+use [`eth_call`](#eth_call) or [`eth_estimateGas`](#eth_estimategas).
+
+:::
 
 ### `eth_estimateGas`
 

@@ -10,7 +10,7 @@ tags:
 Access the [Besu API](../../reference/api/index.md) using:
 
 - [JSON-RPC over HTTP, WebSocket, or IPC](json-rpc.md)
-- [RPC Pub/Sub over WebSockets](rpc-pubsub.md)
+- [RPC Pub/Sub over WebSockets and IPC](rpc-pubsub.md)
 - [GraphQL over HTTP](graphql.md).
 
 :::note
@@ -23,7 +23,7 @@ The following sections provide information about JSON-RPC, RPC Pub/Sub, and Grap
 
 ## Enable API access
 
-To enable API access, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled), [`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled), [`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), and `--Xrpc-ipc-enabled` options.
+To enable API access, use the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled), [`--ws-http-enabled`](../../reference/cli/options.md#rpc-ws-enabled), [`--graphql-http-enabled`](../../reference/cli/options.md#graphql-http-enabled), or the experimental `--Xrpc-ipc-enabled` options.
 
 :::caution
 

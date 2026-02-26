@@ -31,6 +31,8 @@ To enable JSON-RPC over an [IPC socket](index.md#socket-path), use the `--Xrpc-i
 
 :::
 
+Subscription methods (`eth_subscribe`, `eth_unsubscribe`) are supported over IPC as well as WebSocket, but not over HTTP. See [RPC Pub/Sub over WebSockets and IPC](rpc-pubsub.md).
+
 <Postman />
 
 ## Geth console
@@ -39,9 +41,11 @@ The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console. Us
 
 To use the geth console with Besu:
 
-1. Start Besu with the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` option.
+1. Start Besu with the [`--rpc-http-enabled`](../../reference/cli/options.md#rpc-http-enabled) or `--Xrpc-ipc-enabled` 
+option.
 
-2. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or `--Xrpc-ipc-api` option.
+2. Specify which APIs to enable using the [`--rpc-http-api`](../../reference/cli/options.md#rpc-http-api) or 
+`--Xrpc-ipc-api` option.
 
 3. Start the geth console specifying the JSON-RPC endpoint:
 

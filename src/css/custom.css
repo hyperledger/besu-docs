@@ -382,3 +382,54 @@ img {
   color: var(--ifm-navbar-link-color);
   font-weight: var(--ifm-font-weight-semibold);
 }
+
+/* Search bar customization */
+.navbar__search-input {
+  width: 14rem;
+}
+
+.navbar__search-input::placeholder {
+  color: #5a5a5a;
+}
+
+html[data-theme="dark"] .navbar__search-input::placeholder {
+  color: #b0b0b0;
+}
+
+/* Floating Ask AI button */
+.floating-ask-ai-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.floating-ask-ai-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 28%);
+}
+
+.floating-ask-ai-btn:active {
+  transform: translateY(0);
+}
+
+html[data-theme="dark"] .floating-ask-ai-btn {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 40%);
+}
+
+html[data-theme="dark"] .floating-ask-ai-btn:hover {
+  box-shadow: 0 6px 20px rgb(0 0 0 / 50%);
+}

@@ -14,6 +14,8 @@ This tutorial shows you how to deploy smart contracts as transactions to a netwo
 
 This tutorial requires a local blockchain network. You can use the [Developer Quickstart](../quickstart.md) to rapidly generate one.
 
+Install the Solidity compiler: use the [Solidity releases](https://github.com/ethereum/solidity/releases) for the `solc` binary, or `npm install -g solc` for the JavaScript version (then use **`solcjs`**, not `solc`, as the command).
+
 ## Use `eth_sendSignedTransaction`
 
 To deploy a smart contract using [`eth_sendSignedTransaction`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#sendsignedtransaction), use an account's private key to sign and serialize the transaction, and send the API request.
@@ -61,7 +63,7 @@ Run `compile.js` to get the smart contract's output JSON:
 node compile.js
 ```
 
-Run `solc` to get the contract's bytecode and ABI:
+Run `solc` to get the contract's bytecode and ABI (if you installed the compiler via `npm install -g solc`, use **`solcjs`** instead of `solc`):
 
 ```bash
 solc SimpleStorage.sol --bin --abi

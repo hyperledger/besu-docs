@@ -283,7 +283,7 @@ accessed on `http://localhost:8545`.
 
 <Tabs>
 
-<TabItem value="eth-transfer" label="ETH transfer between accounts" default>
+<TabItem value="eth-transfer" label="Transfer ETH" default>
 
 Navigate to the `smart_contracts` directory and deploy the `eth_tx` transaction:
 
@@ -307,7 +307,7 @@ Account B has an updated balance of: 0.000000000000000256
 
 </TabItem>
 
-<TabItem value="simple-storage" label="SimpleStorage contract (get/set)">
+<TabItem value="simple-storage" label="Get/set storage">
 
 Navigate to the `smart_contracts` directory and deploy the public transaction:
 
@@ -351,9 +351,13 @@ Obtained value at deployed contract is: 123
 Obtained all value events from deployed contract : [47,123]
 ```
 
-**Trigger the Counter contract (read/increment):** The first script (`hre_1559_public_tx.js`) also deploys a **Counter** 
-contract. To read its value and send increment transactions, save the following as `increment_counter.js` in your quickstart 
-folder (such as `quorum-test-network`) or inside `smart_contracts`:
+</TabItem>
+<TabItem value="counter" label="Increment counter">
+
+The script `hre_1559_public_tx.js` deploys a **Counter** contract. You can read its value and 
+send increment transactions using a small Node script.
+
+1. Ensure the network is running. Save the following as `increment_counter.js` in your `quorum-test-network` folder.
 
 ```js title="increment_counter.js"
 #!/usr/bin/env node
@@ -398,18 +402,30 @@ async function main() {
 main().catch((err) => { console.error(err); process.exit(1); });
 ```
 
-Ensure the network is running. Go to the folder where ethers is already installed (`smart_contracts`); if ethers is not 
-available there, run `npm install ethers` in that folder. Then run:
+2. Ensure that ethers is available from the `smart_contracts` folder with `npm install ethers`.
 
-- From quickstart folder: `node ../increment_counter.js read` or `node ../increment_counter.js increment`
-- From inside `smart_contracts`: `node increment_counter.js read` or `node increment_counter.js increment`
+3. From the `quorum-test-network` folder run:
 
-Use `read` for getCount() only (no transaction); use `increment` to send an incrementCounter() transaction 
-(signed with the script's built-in key). The default contract address is the Counter deployed by `hre_1559_public_tx.js`; 
-override with `COUNTER_ADDRESS=0x...` if needed.
+```bash
+cd smart_contracts
+node ../increment_counter.js read
+node ../increment_counter.js increment
+```
+
+- `read` — calls `getCount()` only (no transaction, no signing).
+- `increment` — sends an `incrementCounter()` transaction (signed with the script's built-in key).
+
+:::tip
+
+The default contract address is the Counter deployed by `hre_1559_public_tx.js`. To use a different deployment, 
+set `COUNTER_ADDRESS` when running the script:
+
+```bash
+COUNTER_ADDRESS=0xYourCounterAddress node ../increment_counter.js read
+```
+:::
 
 </TabItem>
-
 </Tabs>
 
 #### Transact via MetaMask
@@ -422,7 +438,7 @@ You can use [MetaMask](https://metamask.io/) to send a transaction on your priva
 
 1. Open MetaMask and connect it to your private network RPC endpoint by selecting `Localhost 8545` in the network list.
 1. Choose one of the following test accounts and 
-[import it into MetaMask](https://support.metamask.io/start/use-an-existing-wallet/#import-an-existing-wallet).
+[import it into MetaMask](https://support.metamask.io/start/use-an-existing-wallet/#import-using-a-private-key).
  by copying the corresponding private key:
 <TestAccounts />
 
@@ -468,7 +484,7 @@ Use the demo dapp, **QuorumToken** which uses an ERC-20 token deployed to the ne
 We'll use [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www.npmjs.com/package/ethers) and 
 [MetaMask](https://metamask.io/) to interact with the network.
 
-The `dapps/quorumToken` directory is this structured in this manner (only relevant paths shown):
+The `dapps/quorumToken` directory is structured in this manner (only relevant paths shown):
 
 ```bash
 quorumToken
@@ -549,7 +565,7 @@ This starts the dapp, binding it to port `3001` on your machine.
 
 ##### Step 3: Connect to the dapp with MetaMask
 
-3.1 With the blockchain running and MetaMask connected to `localhost` on port `8545`, 
+3.1 With MetaMask connected to `localhost` on port `8545`, 
 [import the deployer account](https://support.metamask.io/start/use-an-existing-wallet/#import-using-a-private-key) to 
 MetaMask using its private key.
 
@@ -565,8 +581,15 @@ when you ran `npm run deploy-quorumtoken`) in step 1. That deployer is the first
 Follow the prompt to connect to MetaMask and input the address from step 1. For example, our contract above 
 deployed to `0x5FbDB2315678afecb367f032d93F642f64180aa3`. 
 
-The dapp will then read the balance of the account from MetaMask and get details of the contract. You can then send funds
-to another address (any of the other test accounts) on the network, and MetaMask will sign and send the transaction.
+:::tip
+
+Paste only the contract address following `0x` to avoid triggering the dapps error handling loop.
+
+:::
+
+The dapp will then read the balance of the ERC-20 token. You can now send funds
+to another address (any of the other test accounts) on the network, and MetaMask will prompt you to sign the transaction
+and will send it.
 
 You can also search for the transaction and view its details in the [Block Explorer](http://localhost:25000/).
 

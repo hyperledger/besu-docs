@@ -25,7 +25,8 @@ networks.
 
 :::
 
-The stack provided includes optional components and apps to enable you to immediately use your private network in a realistic way.
+The stack provided includes optional components and apps to enable you to immediately use your private network in a realistic 
+way.
 
 ## Prerequisites
 
@@ -102,7 +103,9 @@ as MetaMask.
 [Read more about metrics](../../public-networks/how-to/monitor/metrics.md).
 - Use the **Kibana logs address** to access the [logs in Kibana](http://localhost:5601/app/kibana#/discover). 
 [Read more about log management](../how-to/monitor/elastic-stack.md).
-- Use the **Grafana Loki logs address** to access the [logs in Grafana](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=). [Read more about log management](../how-to/monitor/loki.md).
+- Use the **Grafana Loki logs address** to access the 
+[logs in Grafana](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=besu&var-search=). 
+[Read more about log management](../how-to/monitor/loki.md).
 
 To display the list of endpoints again, run:
 
@@ -260,18 +263,20 @@ can directly access these tools from your browser at the addresses displayed in 
 - [Grafana Loki logs dashboard](http://localhost:3000/d/Ak6eXLsPxFemKYKEXfcH/quorum-logs-loki?orgId=1&var-app=quorum&var-search=)
 
 For more details on how to configure and use these tools for your own nodes, see the 
-[performance monitoring documentation](../../public-networks/how-to/monitor/metrics.md), [Prometheus documentation](https://prometheus.io/docs/introduction/overview/) and [Grafana documentation](https://grafana.com/docs/).
+[performance monitoring documentation](../../public-networks/how-to/monitor/metrics.md), 
+[Prometheus documentation](https://prometheus.io/docs/introduction/overview/) and 
+[Grafana documentation](https://grafana.com/docs/).
 
 ![Grafana dashboard screenshot](../../assets/images/grafana.png)
 
-and collated logs via Grafana Loki
+You can view collated logs via Grafana Loki:
 
 ![Grafana Loki dashboard screenshot](../../assets/images/grafana_loki.png)
 
 
 ### Public transactions
 
-#### Run smart contracts
+#### Transact via smart contracts
 
 These examples use the [web3.js](https://www.npmjs.com/package/web3) library to make the API calls, using the `rpcnode`
 accessed on `http://localhost:8545`.
@@ -348,7 +353,7 @@ Obtained all value events from deployed contract : [47,123]
 
 **Trigger the Counter contract (read/increment):** The first script (`hre_1559_public_tx.js`) also deploys a **Counter** 
 contract. To read its value and send increment transactions, save the following as `increment_counter.js` in your quickstart 
-folder (e.g. `quorum-test-network`) or inside `smart_contracts`:
+folder (such as `quorum-test-network`) or inside `smart_contracts`:
 
 ```js title="increment_counter.js"
 #!/usr/bin/env node
@@ -400,15 +405,16 @@ available there, run `npm install ethers` in that folder. Then run:
 - From inside `smart_contracts`: `node increment_counter.js read` or `node increment_counter.js increment`
 
 Use `read` for getCount() only (no transaction); use `increment` to send an incrementCounter() transaction 
-(signed with the script's built-in key). The default contract address is the Counter deployed by `hre_1559_public_tx.js`; override with `COUNTER_ADDRESS=0x...` if needed.
+(signed with the script's built-in key). The default contract address is the Counter deployed by `hre_1559_public_tx.js`; 
+override with `COUNTER_ADDRESS=0x...` if needed.
 
 </TabItem>
 
 </Tabs>
 
-#### Create a transaction using MetaMask
+#### Transact via MetaMask
 
-#### Prerequisites
+##### Prerequisites
 
 - Browser with MetaMask extension
 
@@ -430,7 +436,8 @@ you have to use a third-party tool, such as MetaMask.
 1.  After importing an existing test account, [create another test account from scratch] to use as the recipient for a test 
 Ether transaction.
 
-1.  In MetaMask, select the new test account and [copy its address](https://metamask.zendesk.com/hc/en-us/articles/360015289512-How-to-copy-your-MetaMask-Account-Public-Address).
+1.  In MetaMask, select the new test account and 
+[copy its address](https://metamask.zendesk.com/hc/en-us/articles/360015289512-How-to-copy-your-MetaMask-Account-Public-Address).
 
 1.  In the [Block Explorer](http://localhost:25000), search for the new test account by selecting the :mag: and pasting the test 
 account address into the search box.
@@ -452,11 +459,11 @@ account address into the search box.
 
 #### Transact via a dapp
 
-#### Prerequisites
+##### Prerequisites
 
 - Browser with MetaMask extension
 
-Use the demo dapp, **QuorumToken** which uses an ERC20 token deployed to the network.
+Use the demo dapp, **QuorumToken** which uses an ERC-20 token deployed to the network.
 
 We'll use [Hardhat](https://www.npmjs.com/package/hardhat), [Ethers](https://www.npmjs.com/package/ethers) and 
 [MetaMask](https://metamask.io/) to interact with the network.
@@ -476,9 +483,9 @@ quorumToken
   ├── tsconfig.json
 ```
 
-#### Step 1: Deploy the contract 
+##### Step 1: Deploy the contract 
 
-Once the network is up and running, enter the `quorumToken` directory and run the following:
+With the blockchain running, enter the `quorumToken` directory and run the following:
 
 ```bash
 cd dapps/quorumToken
@@ -516,16 +523,12 @@ Compiled 5 Solidity files successfully
 # deploy
 Contract deploy at: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
-This will deploy the contract to the network and return the address. **Please save this address for the next step**.
+This will deploy the contract to the network and return the address. **Save this address for step 3**.
 
-#### Step 2: Run the dapp
+##### Step 2: Run the dapp
 
-The dapp runs a local website using Next.js, and uses the contract in the previous step deployed on the network.
-
-
-
-With the blockchain running, and MetaMask connected to `localhost` on port `8545`, import the deployer account as above, then 
-run the following command:
+The dapp runs a local website using Next.js, and uses the contract in the previous step deployed on the network. Install and run
+with:
 
 ```bash
 cd frontend
@@ -544,23 +547,23 @@ This starts the dapp, binding it to port `3001` on your machine.
 - event compiled client and server successfully in 173 ms (18 modules)
 ```
 
-#### Step 3: Connect to the dapp with MetaMask
+##### Step 3: Connect to the dapp with MetaMask
 
-3.1 [Import the deployer account](https://support.metamask.io/start/use-an-existing-wallet/#import-using-a-private-key) to 
+3.1 With the blockchain running and MetaMask connected to `localhost` on port `8545`, 
+[import the deployer account](https://support.metamask.io/start/use-an-existing-wallet/#import-using-a-private-key) to 
 MetaMask using its private key.
 
 :::info
 
 To see the initial QuorumToken balance in the dapp, the MetaMask account must be the **deployer** account (the account used 
-when you ran `npm run deploy-quorumtoken`). That deployer is the first account in the quickstart network config: 
+when you ran `npm run deploy-quorumtoken`) in step 1. That deployer is the first account in the quickstart network config: 
 `networks.quickstart.accounts[0]` in `dapps/quorumToken/hardhat.config.ts`. 
 
 :::
 
-3.2 In the browser where you have MetaMask enabled and one of the test accounts loaded, open a new tab and navigate to
-[the QuorumToken dapp](http://localhost:3001).
-Connect to MetaMask and input the address from the previous step. For example, our contract above deployed to 
-`0x5FbDB2315678afecb367f032d93F642f64180aa3`. 
+3.2 In the browser, open a new tab and navigate to [the QuorumToken dapp](http://localhost:3001).
+Follow the prompt to connect to MetaMask and input the address from step 1. For example, our contract above 
+deployed to `0x5FbDB2315678afecb367f032d93F642f64180aa3`. 
 
 The dapp will then read the balance of the account from MetaMask and get details of the contract. You can then send funds
 to another address (any of the other test accounts) on the network, and MetaMask will sign and send the transaction.
@@ -578,7 +581,8 @@ The MetMask UI also keeps a record of the transaction.
 You can deploy your own dapp to the Quorum Developer Quickstart by configuring your dapp to point to the Quickstart network.
 
 We recommend using [Hardhat](https://hardhat.org/hardhat-runner/docs/guides/project-setup), and you can use the sample
-`hardhat.config.js` to configure the `networks` object in the [Hardhat configuration file](https://hardhat.org/hardhat-network/docs/reference#config)
+`hardhat.config.js` to configure the `networks` object in the 
+[Hardhat configuration file](https://hardhat.org/hardhat-network/docs/reference#config)
 to specify which networks to connect to for deployments and testing. The Quickstart's RPC service endpoint is `http://localhost:8545`.
 
 For example, the following is the Hardhat configuration file for the QuorumToken dapp used in the Quickstart GoQuorum network:
@@ -699,9 +703,11 @@ newnode:
 ```
 
 :::caution important
+
 Select an IP address and port map not being used for the other containers.
 Mount the newly created folder `./config/nodes/newnode` to the `/opt/besu/keys` directory of the new node, as seen
 in this example.
+
 :::
 
 #### 4. Update Prometheus configuration

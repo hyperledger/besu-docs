@@ -12,9 +12,10 @@ This tutorial shows you how to deploy smart contracts as transactions to a netwo
 
 ## Prerequisites
 
-This tutorial requires a local blockchain network. You can use the [Developer Quickstart](../quickstart.md) to rapidly generate one.
-
-Install the Solidity compiler: use the [Solidity releases](https://github.com/ethereum/solidity/releases) for the `solc` binary, or `npm install -g solc` for the JavaScript version (then use **`solcjs`**, not `solc`, as the command).
+- A local blockchain network. You can use the [Developer Quickstart](../quickstart.md) to rapidly generate one.
+- Install the Solidity compiler, either:
+  - Use the [Solidity releases](https://github.com/ethereum/solidity/releases) for the `solc` binary
+  - `npm install -g solc` for the JavaScript version (then use **`solcjs`**, not `solc`, as the command).
 
 ## Use `eth_sendSignedTransaction`
 

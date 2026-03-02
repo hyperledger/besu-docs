@@ -19,6 +19,9 @@
 !.yarn/sdks
 !.yarn/versions
 
+# Cursor (local rules)
+.cursor/
+
 # Misc
 .DS_Store
 .idea

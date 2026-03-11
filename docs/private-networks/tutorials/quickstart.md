@@ -402,7 +402,7 @@ async function main() {
 main().catch((err) => { console.error(err); process.exit(1); });
 ```
 
-2. Ensure that ethers is available from the `smart_contracts` folder with `npm install ethers`.
+2. Ensure that Ethers is available from the `smart_contracts` folder with `npm install ethers`.
 
 3. From the `quorum-test-network` folder run:
 

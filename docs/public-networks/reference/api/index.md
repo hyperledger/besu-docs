@@ -390,6 +390,8 @@ None
 
 - `id`: _string_ - [node public key](../../concepts/node-keys.md#node-public-key)
 
+- `enr`: _string_ (optional) - [Ethereum Node Record](https://eips.ethereum.org/EIPS/eip-778) (ENR) of the node. Present when discovery is enabled; omitted when discovery is disabled.
+
 - `ports`: _object_ - peer discovery and listening [ports](../../how-to/connect/configure-ports.md)
 
 - `protocols`: _object_ - list of objects containing information for each Ethereum sub-protocol
@@ -429,6 +431,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id"
     "listenAddr": "[::]:30303",
     "name": "besu/v1.0.1-dev-0d2294a5/osx-x86_64/oracle-java-1.8",
     "id": "87ec35d558352cc55cd1bf6a472557797f91287b78fe5e86760219124563450ad1bb807e4cc61e86c574189a851733227155551a14b9d0e1f62c5e11332a18a3",
+    "enr": "enr:-Jq4QOBEJ_aqkcth60IN44olOQ3uNsfqwEahYc6eKRfBg8ZlGbqhHTKqN_Yr67QWUA9v8_l-iaYhpd2uJC_AEQDv3agCg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQK99DIR26ML8QCgAEC5-DnhcWHIjIVzAouFM8it-O0elIN0Y3CCdl-DdWRwgnZf",
     "ports": {
       "discovery": 30303,
       "listener": 30303

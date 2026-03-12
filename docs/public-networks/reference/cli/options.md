@@ -2284,6 +2284,48 @@ logging="DEBUG"
 
 Sets logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. The default is `INFO`.
 
+### `max-blobs-per-transaction`
+
+<Tabs>
+
+<TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--max-blobs-per-transaction=<INTEGER>
+```
+
+</TabItem>
+
+<TabItem value="Example" label="Example">
+
+```bash
+--max-blobs-per-transaction=2
+```
+
+</TabItem>
+
+<TabItem value="Environment variable" label="Environment variable">
+
+```bash
+BESU_MAX_BLOBS_PER_TRANSACTION=2
+```
+
+</TabItem>
+
+<TabItem value="Configuration file" label="Configuration file">
+
+```bash
+max-blobs-per-transaction=2
+```
+
+</TabItem>
+
+</Tabs>
+
+Maximum number of [blobs](../../concepts/transactions/types.md#blob-transactions) allowed per transaction. This option takes effect from the [Osaka hardfork](https://eips.ethereum.org/EIPS/eip-7607) onwards.
+
+If omitted, the node uses the protocol default of 6.
+
 ### `max-peers`
 
 <Tabs>
